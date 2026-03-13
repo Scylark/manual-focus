@@ -1,0 +1,88 @@
+---
+interface Props {
+  type: 'website' | 'article' | 'faq' | 'profile';
+  title: string;
+  description: string;
+  publishDate?: Date;
+  tags?: string[];
+  faqItems?: { question: string; answer: string }[];
+}
+
+const { type, title, description, publishDate, tags, faqItems } = Astro.props;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Manual Focus',
+  url: siteUrl,
+  logo: `${siteUrl}/images/manual-focus-logo.svg`,
+  description: 'Marketing agency specialising in Fractional CMO and Strategic Consulting for startups and scaleups.',
+  sameAs: [
+    'https://www.linkedin.com/company/manual-focus',
+  ],
+  founder: {
+    '@type': 'Person',
+    name: 'James Vickers',
+    jobTitle: 'Founder',
+    sameAs: [
+      'https://www.linkedin.com/in/jamesvickers',
+    ],
+  },
+};
+
+const profileSchema = type === 'profile' ? {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'James Vickers',
+    jobTitle: 'Founder, Manual Focus',
+    description: 'Senior marketing leader with 10+ years of experience across cycling, fintech, Web3, and AI.',
+    sameAs: [
+      'https://www.linkedin.com/in/jamesvickers',
+    ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Manual Focus',
+      url: siteUrl,
+    },
+  },
+} : null;
+
+const articleSchema = type === 'article' && publishDate ? {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: publishDate.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: 'James Vickers',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Manual Focus',
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/images/manual-focus-logo.svg` },
+  },
+  keywords: tags?.join(', '),
+} : null;
+
+const faqSchema = type === 'faq' && faqItems ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+} : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+{profileSchema && <script type="application/ld+json" set:html={JSON.stringify(profileSchema)} />}
+{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
