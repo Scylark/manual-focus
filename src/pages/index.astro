@@ -10,15 +10,15 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Home" description="Manual Focus — bringing focus to the noise of digital transformation. Fractional CMO and Strategic Consulting for founders and CEOs.">
-  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus — bringing focus to the noise of digital transformation." />
+<Base title="Home" description="Manual Focus — AI-native marketing leadership for founders navigating disruptive technology. Fractional CMO and Strategic Consulting.">
+  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus — AI-native marketing leadership for founders navigating disruptive technology." />
 
   <!-- Hero -->
   <section class="hero section">
     <div class="container hero-inner">
       <LogoAnimation animate />
-      <h1 class="hero-headline">Most marketing advice is noise.<br />We bring focus.</h1>
-      <p class="hero-sub">Fractional CMO and Strategic Consulting for founders who refuse to waste time on what doesn't work.</p>
+      <h1 class="hero-headline">AI changed everything.<br />Your marketing hasn't caught up.</h1>
+      <p class="hero-sub">Fractional CMO and Strategic Consulting for founders building at the frontier of AI, Web3, and disruptive technology.</p>
       <a href={url('/enquire')} class="btn-cta">Enquire</a>
     </div>
   </section>
@@ -26,8 +26,8 @@ const posts = (await getCollection('blog'))
   <!-- Problem Diagnosis -->
   <section class="section">
     <div class="container">
-      <h2 class="section-headline">You don't have a marketing problem.<br />You have a focus problem.</h2>
-      <p class="section-body">Every week there's a new tool, a new trend, a new "must-do" strategy. Your inbox is full of advice from people who've never built what you're building. The noise is deafening — and it's costing you time, money, and momentum.</p>
+      <h2 class="section-headline">The technology moved.<br />Your marketing strategy didn't.</h2>
+      <p class="section-body">AI has rewritten the rules of discovery, distribution, and trust. Most marketing teams are still running the 2019 playbook — SEO tactics that LLMs have made obsolete, content strategies built for algorithms that no longer exist, and go-to-market plans that ignore how buyers actually research in an AI-first world. The gap between where technology is and where marketing is costs you growth every day.</p>
     </div>
   </section>
 
@@ -38,11 +38,11 @@ const posts = (await getCollection('blog'))
       <div class="services-grid">
         <div class="service-card">
           <h3>Fractional CMO</h3>
-          <p>Embedded marketing leadership for your business. Not advice from the sidelines — hands on the wheel, accountable for outcomes. Strategy, team building, and execution oversight without the full-time overhead.</p>
+          <p>Embedded marketing leadership that understands AI-native go-to-market. Not advice from the sidelines — hands on the wheel, accountable for outcomes. I build strategies that work in a world where LLMs are the new search engines and AI agents are the new buyers.</p>
         </div>
         <div class="service-card">
           <h3>Strategic Consulting</h3>
-          <p>Focused engagements that solve specific problems. Brand positioning, go-to-market strategy, marketing audits. We diagnose, we recommend, we move on. No retainer padding.</p>
+          <p>Focused engagements for companies navigating disruption. AI readiness audits, technology-driven positioning, go-to-market strategy for products the market doesn't have a category for yet. We diagnose, we recommend, we move on.</p>
         </div>
       </div>
       <p class="section-note">We don't do execution for hire. We don't produce decks that gather dust. We lead, or we advise. That's it.</p>
@@ -72,7 +72,7 @@ const posts = (await getCollection('blog'))
   <section class="section section-alt">
     <div class="container">
       <h2 class="section-headline">Built by an operator,<br />not a consultant.</h2>
-      <p class="section-body">James Vickers has spent over a decade in the trenches — co-founding a virtual cycling platform acquired by Wahoo Fitness, growing registered users from 19k to 350k, turning an NPS score from -65 to +45, and securing 160+ media placements for a single product launch. He's been CMO, Head of Marketing, and Fractional CMO across cycling, fintech, Web3, and AI. He doesn't theorise. He builds.</p>
+      <p class="section-body">James Vickers has spent over a decade at the intersection of marketing and disruptive technology — co-founding a virtual cycling platform acquired by Wahoo Fitness (19k → 350k users), leading marketing for a $200M privacy-focused stablecoin, and advising AI-powered wealth managers. From fintech to Web3 to AI, he's consistently been early to where technology disrupts markets. He doesn't theorise. He builds.</p>
       <a href={url('/about')} class="btn-cta" style="margin-top: var(--space-md);">Read the full story</a>
     </div>
   </section>
@@ -97,8 +97,8 @@ const posts = (await getCollection('blog'))
   <!-- CTA Close -->
   <section class="section cta-close">
     <div class="container">
-      <h2 class="section-headline">Ready to cut through the noise?</h2>
-      <p class="section-body">This isn't a contact form. It's the start of a conversation.</p>
+      <h2 class="section-headline">Building something disruptive?<br />Let's talk.</h2>
+      <p class="section-body">If you're a founder navigating AI, Web3, or any technology that's rewriting the rules — we should have a conversation.</p>
       <a href={url('/enquire')} class="btn-cta">Enquire</a>
     </div>
   </section>
