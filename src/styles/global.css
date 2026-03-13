@@ -103,7 +103,7 @@ a {
 }
 
 .prose {
-  max-width: var(--max-width-prose);
+  max-width: 960px;
 }
 
 .sr-only {
