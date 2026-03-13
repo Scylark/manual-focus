@@ -1,0 +1,10 @@
+{
+  "name": "Manual Focus",
+  "short_name": "Manual Focus",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#F5F0EB",
+  "background_color": "#F5F0EB",
+  "display": "standalone"
+}
