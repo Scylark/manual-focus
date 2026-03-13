@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import SEOHead from '../../../components/SEOHead.astro';
 import BlogCard from '../../../components/BlogCard.astro';
+import { url } from '../../../utils/paths';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -27,7 +28,7 @@ const displayTag = tag.replace(/-/g, ' ');
   <section class="section">
     <div class="container">
       <h1 style="text-transform: capitalize;">{displayTag}</h1>
-      <p><a href="/blog">&larr; All posts</a></p>
+      <p><a href={url('/blog')}>&larr; All posts</a></p>
 
       <div class="blog-grid">
         {posts.map((post: any) => (

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import LogoAnimation from '../components/LogoAnimation.astro';
 import SEOHead from '../components/SEOHead.astro';
 import BlogCard from '../components/BlogCard.astro';
+import { url } from '../utils/paths';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -18,7 +19,7 @@ const posts = (await getCollection('blog'))
       <LogoAnimation animate />
       <h1 class="hero-headline">Most marketing advice is noise.<br />We bring focus.</h1>
       <p class="hero-sub">Fractional CMO and Strategic Consulting for founders who refuse to waste time on what doesn't work.</p>
-      <a href="/enquire" class="btn-cta">Enquire</a>
+      <a href={url('/enquire')} class="btn-cta">Enquire</a>
     </div>
   </section>
 
@@ -45,7 +46,7 @@ const posts = (await getCollection('blog'))
         </div>
       </div>
       <p class="section-note">We don't do execution for hire. We don't produce decks that gather dust. We lead, or we advise. That's it.</p>
-      <a href="/services" class="btn-cta" style="margin-top: var(--space-md);">Learn more</a>
+      <a href={url('/services')} class="btn-cta" style="margin-top: var(--space-md);">Learn more</a>
     </div>
   </section>
 
@@ -54,15 +55,15 @@ const posts = (await getCollection('blog'))
     <div class="container">
       <h2 class="section-headline">Brands we've worked with</h2>
       <div class="logo-bar">
-        <img src="/images/brand-logos/classified-cycling.svg" alt="Classified Cycling" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src="/images/brand-logos/wahoo.svg" alt="Wahoo" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src="/images/brand-logos/wattbike.svg" alt="Wattbike" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src="/images/brand-logos/ribble-cycles.svg" alt="Ribble Cycles" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src="/images/brand-logos/rgt.svg" alt="RGT" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src="/images/brand-logos/motif-ai.svg" alt="motif AI" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src="/images/brand-logos/muuvr.svg" alt="Muuvr" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src="/images/brand-logos/planet-x.svg" alt="Planet X" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src="/images/brand-logos/pelotan.svg" alt="Pelotan" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/classified-cycling.svg')} alt="Classified Cycling" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/wahoo.svg')} alt="Wahoo" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/wattbike.svg')} alt="Wattbike" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/ribble-cycles.svg')} alt="Ribble Cycles" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/rgt.svg')} alt="RGT" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/motif-ai.svg')} alt="motif AI" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/muuvr.svg')} alt="Muuvr" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/planet-x.svg')} alt="Planet X" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src={url('/images/brand-logos/pelotan.svg')} alt="Pelotan" class="brand-logo" width="140" height="40" loading="lazy" />
       </div>
     </div>
   </section>
@@ -72,7 +73,7 @@ const posts = (await getCollection('blog'))
     <div class="container">
       <h2 class="section-headline">Built by an operator,<br />not a consultant.</h2>
       <p class="section-body">James Vickers has spent over a decade in the trenches — co-founding a virtual cycling platform acquired by Wahoo Fitness, growing registered users from 19k to 350k, turning an NPS score from -65 to +45, and securing 160+ media placements for a single product launch. He's been CMO, Head of Marketing, and Fractional CMO across cycling, fintech, Web3, and AI. He doesn't theorise. He builds.</p>
-      <a href="/about" class="btn-cta" style="margin-top: var(--space-md);">Read the full story</a>
+      <a href={url('/about')} class="btn-cta" style="margin-top: var(--space-md);">Read the full story</a>
     </div>
   </section>
 
@@ -98,7 +99,7 @@ const posts = (await getCollection('blog'))
     <div class="container">
       <h2 class="section-headline">Ready to cut through the noise?</h2>
       <p class="section-body">This isn't a contact form. It's the start of a conversation.</p>
-      <a href="/enquire" class="btn-cta">Enquire</a>
+      <a href={url('/enquire')} class="btn-cta">Enquire</a>
     </div>
   </section>
 </Base>

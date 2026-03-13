@@ -1,6 +1,7 @@
 ---
 import Base from './Base.astro';
 import SEOHead from '../components/SEOHead.astro';
+import { url } from '../utils/paths';
 
 interface Props {
   title: string;
@@ -23,7 +24,7 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
         <h1>{title}</h1>
         <div class="post-tags">
           {tags.map(tag => (
-            <a href={`/blog/tag/${tag}/`} class="tag">{tag.replace(/-/g, ' ')}</a>
+            <a href={url(`/blog/tag/${tag}/`)} class="tag">{tag.replace(/-/g, ' ')}</a>
           ))}
         </div>
       </header>
@@ -33,7 +34,7 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
       </div>
 
       <footer class="post-footer">
-        <a href="/blog">Back to all posts</a>
+        <a href={url('/blog')}>Back to all posts</a>
       </footer>
     </div>
   </article>

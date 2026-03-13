@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
+import { url } from '../../utils/paths';
 import { getCollection } from 'astro:content';
 
 const faqEntries = (await getCollection('faq'))
@@ -32,7 +33,7 @@ const faqSchemaItems = faqItems.map(item => ({
   <section class="section" style="text-align: center;">
     <div class="container">
       <h2>Still have questions?</h2>
-      <a href="/enquire" class="btn-cta" style="margin-top: var(--space-sm);">Get in touch</a>
+      <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-sm);">Get in touch</a>
     </div>
   </section>
 </Base>

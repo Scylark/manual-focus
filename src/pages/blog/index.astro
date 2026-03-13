@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import BlogCard from '../../components/BlogCard.astro';
+import { url } from '../../utils/paths';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -18,9 +19,9 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
       <p class="lead">Opinions, insights, and the occasional provocation.</p>
 
       <nav class="tag-filter" aria-label="Filter by tag">
-        <a href="/blog" class="tag tag-current">All</a>
+        <a href={url('/blog')} class="tag tag-current">All</a>
         {allTags.map(tag => (
-          <a href={`/blog/tag/${tag}/`} class="tag">{tag.replace(/-/g, ' ')}</a>
+          <a href={url(`/blog/tag/${tag}/`)} class="tag">{tag.replace(/-/g, ' ')}</a>
         ))}
       </nav>
 

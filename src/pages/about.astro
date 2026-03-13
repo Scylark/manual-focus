@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
+import { url } from '../utils/paths';
 ---
 <Base title="About" description="The story behind Manual Focus — bringing clarity to marketing in an age of noise.">
   <SEOHead slot="seo" type="profile" title="About" description="The story behind Manual Focus." />
@@ -32,7 +33,7 @@ import SEOHead from '../components/SEOHead.astro';
       <p>The marketing industry has a signal-to-noise problem. Every week there's a new tool, a new framework, a new "game-changer." Most of it is distraction. Manual Focus exists to cut through that — to give founders and CEOs the senior marketing leadership they need, without the noise, without the theatre, and without the overhead of a full-time hire.</p>
       <p>We bring focus. That's it.</p>
 
-      <a href="/enquire" class="btn-cta" style="margin-top: var(--space-lg);">Start a conversation</a>
+      <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-lg);">Start a conversation</a>
     </div>
   </section>
 </Base>

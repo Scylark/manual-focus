@@ -1,4 +1,5 @@
 ---
+import { url } from '../utils/paths';
 interface Props {
   title: string;
   description: string;
@@ -10,7 +11,7 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
 ---
 <article class="blog-card">
   <time datetime={date.toISOString()}>{formattedDate}</time>
-  <h3><a href={`/blog/${slug}/`}>{title}</a></h3>
+  <h3><a href={url(`/blog/${slug}/`)}>{title}</a></h3>
   <p>{description}</p>
 </article>
 

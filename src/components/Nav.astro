@@ -1,16 +1,17 @@
 ---
+import { url } from '../utils/paths';
 const navLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/faq', label: 'FAQ' },
+  { href: url('/about'), label: 'About' },
+  { href: url('/services'), label: 'Services' },
+  { href: url('/blog'), label: 'Blog' },
+  { href: url('/faq'), label: 'FAQ' },
 ];
 const currentPath = Astro.url.pathname;
 ---
 <header class="nav-header">
   <nav class="nav container" aria-label="Main navigation">
-    <a href="/" class="nav-logo" aria-label="Manual Focus — Home">
-      <img src="/images/manual-focus-logo.svg" alt="Manual Focus" width="180" height="57" />
+    <a href={url('/')} class="nav-logo" aria-label="Manual Focus — Home">
+      <img src={url('/images/manual-focus-logo.svg')} alt="Manual Focus" width="180" height="57" />
     </a>
 
     <button
@@ -37,7 +38,7 @@ const currentPath = Astro.url.pathname;
           </li>
         ))}
       </ul>
-      <a href="/enquire" class="btn-cta nav-cta">Enquire</a>
+      <a href={url('/enquire')} class="btn-cta nav-cta">Enquire</a>
     </div>
   </nav>
 </header>

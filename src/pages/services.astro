@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
+import { url } from '../utils/paths';
 ---
 <Base title="Services" description="Fractional CMO and Strategic Consulting — senior marketing leadership for founders and CEOs.">
   <SEOHead slot="seo" type="website" title="Services" description="Fractional CMO and Strategic Consulting for founders and CEOs." />
@@ -29,7 +30,7 @@ import SEOHead from '../components/SEOHead.astro';
         </ul>
         <h3>What this is not</h3>
         <p>This is not a consulting engagement. I don't deliver a strategy document and walk away. I lead. I'm accountable. If it's not working, it's on me to fix it.</p>
-        <a href="/enquire" class="btn-cta" style="margin-top: var(--space-md);">Enquire about Fractional CMO</a>
+        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about Fractional CMO</a>
       </div>
     </div>
   </section>
@@ -50,7 +51,7 @@ import SEOHead from '../components/SEOHead.astro';
         </ul>
         <h3>What this is not</h3>
         <p>This is not execution for hire. I don't write your blog posts, run your ads, or manage your social channels. I give you the strategy and the clarity to do it right — or to hire the right people who will.</p>
-        <a href="/enquire" class="btn-cta" style="margin-top: var(--space-md);">Enquire about Strategic Consulting</a>
+        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about Strategic Consulting</a>
       </div>
     </div>
   </section>
