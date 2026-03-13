@@ -5,7 +5,7 @@ interface Props {
 const { animate = false } = Astro.props;
 ---
 <div class:list={['logo-animation', { 'logo-animation--animate': animate }]} aria-hidden="true">
-  <svg viewBox="0 0 90 138" xmlns="http://www.w3.org/2000/svg" class="logo-circles">
+  <svg viewBox="-10 -50 110 240" xmlns="http://www.w3.org/2000/svg" class="logo-circles" overflow="visible">
     <circle class="circle-top" cx="45" cy="45" r="42" fill="none" stroke="#1D1D1B" stroke-width="5.86" stroke-miterlimit="10"/>
     <circle class="circle-bottom" cx="45" cy="93" r="42" fill="none" stroke="#1D1D1B" stroke-width="5.86" stroke-miterlimit="10"/>
   </svg>
@@ -22,24 +22,50 @@ const { animate = false } = Astro.props;
     height: auto;
   }
 
-  /* Animated state — circles start apart, converge */
+  /* Animated state — circles start far apart, rotate in, and converge */
   .logo-animation--animate .circle-top {
-    animation: drift-top 2s ease-out forwards;
+    animation: drift-top 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform-origin: 45px 45px;
   }
 
   .logo-animation--animate .circle-bottom {
-    animation: drift-bottom 2s ease-out forwards;
+    animation: drift-bottom 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform-origin: 45px 93px;
   }
 
   @keyframes drift-top {
-    0% { transform: translateY(-20px); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+      transform: translateY(-60px) rotate(-90deg) scale(0.6);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-10px) rotate(-15deg) scale(0.95);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
   }
 
   @keyframes drift-bottom {
-    0% { transform: translateY(20px); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+      transform: translateY(60px) rotate(90deg) scale(0.6);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(10px) rotate(15deg) scale(0.95);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
   }
 </style>
