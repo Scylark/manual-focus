@@ -106,7 +106,10 @@ const posts = (await getCollection('blog'))
 
 <style>
   .hero {
-    padding-block: var(--space-2xl) var(--space-xl);
+    min-height: calc(100vh - 4.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
 
