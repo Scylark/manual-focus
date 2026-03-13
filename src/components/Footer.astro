@@ -1,0 +1,92 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="/images/manual-focus-logo.svg" alt="Manual Focus" width="140" height="44" />
+      <p class="footer-tagline">Bringing focus to the noise.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/enquire">Enquire</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/company/manual-focus" target="_blank" rel="noopener noreferrer" aria-label="Manual Focus on LinkedIn">LinkedIn</a>
+    </div>
+
+    <div class="footer-legal">
+      <p>&copy; {year} Manual Focus. All rights reserved.</p>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid rgba(29, 29, 27, 0.08);
+    padding-block: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .footer-tagline {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-xs);
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .footer-nav a {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-text);
+  }
+
+  .footer-social a {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+
+  .footer-legal {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .footer-legal a {
+    color: var(--color-text-secondary);
+  }
+
+  @media (min-width: 1024px) {
+    .footer-inner {
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      align-items: start;
+    }
+  }
+</style>
