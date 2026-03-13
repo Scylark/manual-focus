@@ -1,5 +1,9 @@
 ---
 import { url } from '../utils/paths';
+interface Props {
+  hideUntilScroll?: boolean;
+}
+const { hideUntilScroll = false } = Astro.props;
 const navLinks = [
   { href: url('/about'), label: 'About' },
   { href: url('/services'), label: 'Services' },
@@ -8,7 +12,7 @@ const navLinks = [
 ];
 const currentPath = Astro.url.pathname;
 ---
-<header class="nav-header">
+<header class:list={['nav-header', { 'is-visible': !hideUntilScroll }]} data-hide-until-scroll={hideUntilScroll ? 'true' : undefined}>
   <nav class="nav container" aria-label="Main navigation">
     <a href={url('/')} class="nav-logo" aria-label="Manual Focus — Home">
       <img src={url('/images/manual-focus-logo.svg')} alt="Manual Focus" width="180" height="57" />
@@ -52,6 +56,12 @@ const currentPath = Astro.url.pathname;
     z-index: 100;
     background-color: var(--color-bg);
     border-bottom: 1px solid rgba(29, 29, 27, 0.08);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-header.is-visible {
+    transform: translateY(0);
   }
 
   .nav {
@@ -180,5 +190,17 @@ const currentPath = Astro.url.pathname;
     });
 
     document.addEventListener('keydown', trapFocus);
+  }
+
+  // Show header on scroll (only when hide-until-scroll is set)
+  const header = document.querySelector('.nav-header[data-hide-until-scroll]') as HTMLElement;
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('is-visible');
+      } else {
+        header.classList.remove('is-visible');
+      }
+    }, { passive: true });
   }
 </script>

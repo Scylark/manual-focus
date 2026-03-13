@@ -72,6 +72,9 @@ body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body.has-fixed-nav {
   padding-top: 4.5rem;
 }
 

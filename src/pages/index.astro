@@ -10,7 +10,7 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Home" description="Manual Focus — AI-native marketing leadership for founders navigating disruptive technology. Fractional CMO and Strategic Consulting.">
+<Base title="Home" description="Manual Focus — AI-native marketing leadership for founders navigating disruptive technology. Fractional CMO and Strategic Consulting." hideNavUntilScroll>
   <SEOHead slot="seo" type="website" title="Home" description="Manual Focus — AI-native marketing leadership for founders navigating disruptive technology." />
 
   <!-- Hero -->
@@ -112,7 +112,7 @@ const posts = (await getCollection('blog'))
 
 <style>
   .hero {
-    min-height: calc(100vh - 4.5rem);
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -8,9 +8,10 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  hideNavUntilScroll?: boolean;
 }
 
-const { title, description, ogImage = url('/images/og-default.png') } = Astro.props;
+const { title, description, ogImage = url('/images/og-default.png'), hideNavUntilScroll = false } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
@@ -49,10 +50,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
   <slot name="seo" />
 </head>
-<body>
+<body class:list={[{ 'has-fixed-nav': !hideNavUntilScroll }]}>
   <a href="#main-content" class="sr-only">Skip to content</a>
 
-  <Nav />
+  <Nav hideUntilScroll={hideNavUntilScroll} />
 
   <main id="main-content">
     <slot />
