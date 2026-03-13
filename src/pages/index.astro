@@ -1,11 +1,219 @@
 ---
 import Base from '../layouts/Base.astro';
+import LogoAnimation from '../components/LogoAnimation.astro';
+import SEOHead from '../components/SEOHead.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
 ---
-<Base title="Home" description="Manual Focus — bringing focus to the noise of digital transformation.">
+<Base title="Home" description="Manual Focus — bringing focus to the noise of digital transformation. Fractional CMO and Strategic Consulting for founders and CEOs.">
+  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus — bringing focus to the noise of digital transformation." />
+
+  <!-- Hero -->
+  <section class="hero section">
+    <div class="container hero-inner">
+      <LogoAnimation animate />
+      <h1 class="hero-headline">Most marketing advice is noise.<br />We bring focus.</h1>
+      <p class="hero-sub">Fractional CMO and Strategic Consulting for founders who refuse to waste time on what doesn't work.</p>
+      <a href="/enquire" class="btn-cta">Enquire</a>
+    </div>
+  </section>
+
+  <!-- Problem Diagnosis -->
   <section class="section">
     <div class="container">
-      <h1>Manual Focus</h1>
-      <p>Site under construction.</p>
+      <h2 class="section-headline">You don't have a marketing problem.<br />You have a focus problem.</h2>
+      <p class="section-body">Every week there's a new tool, a new trend, a new "must-do" strategy. Your inbox is full of advice from people who've never built what you're building. The noise is deafening — and it's costing you time, money, and momentum.</p>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-headline">What we do</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Fractional CMO</h3>
+          <p>Embedded marketing leadership for your business. Not advice from the sidelines — hands on the wheel, accountable for outcomes. Strategy, team building, and execution oversight without the full-time overhead.</p>
+        </div>
+        <div class="service-card">
+          <h3>Strategic Consulting</h3>
+          <p>Focused engagements that solve specific problems. Brand positioning, go-to-market strategy, marketing audits. We diagnose, we recommend, we move on. No retainer padding.</p>
+        </div>
+      </div>
+      <p class="section-note">We don't do execution for hire. We don't produce decks that gather dust. We lead, or we advise. That's it.</p>
+      <a href="/services" class="btn-cta" style="margin-top: var(--space-md);">Learn more</a>
+    </div>
+  </section>
+
+  <!-- Brands We've Worked With -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-headline">Brands we've worked with</h2>
+      <div class="logo-bar">
+        <img src="/images/brand-logos/classified-cycling.svg" alt="Classified Cycling" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src="/images/brand-logos/wahoo.svg" alt="Wahoo" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src="/images/brand-logos/wattbike.svg" alt="Wattbike" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src="/images/brand-logos/ribble-cycles.svg" alt="Ribble Cycles" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src="/images/brand-logos/rgt.svg" alt="RGT" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src="/images/brand-logos/motif-ai.svg" alt="motif AI" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src="/images/brand-logos/muuvr.svg" alt="Muuvr" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src="/images/brand-logos/planet-x.svg" alt="Planet X" class="brand-logo" width="140" height="40" loading="lazy" />
+        <img src="/images/brand-logos/pelotan.svg" alt="Pelotan" class="brand-logo" width="140" height="40" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Operator Credibility -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-headline">Built by an operator,<br />not a consultant.</h2>
+      <p class="section-body">James Vickers has spent over a decade in the trenches — co-founding a virtual cycling platform acquired by Wahoo Fitness, growing registered users from 19k to 350k, turning an NPS score from -65 to +45, and securing 160+ media placements for a single product launch. He's been CMO, Head of Marketing, and Fractional CMO across cycling, fintech, Web3, and AI. He doesn't theorise. He builds.</p>
+      <a href="/about" class="btn-cta" style="margin-top: var(--space-md);">Read the full story</a>
+    </div>
+  </section>
+
+  <!-- Perspective (Blog Previews) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-headline">Perspective</h2>
+      <div class="blog-grid">
+        {posts.map(post => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.id}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Close -->
+  <section class="section cta-close">
+    <div class="container">
+      <h2 class="section-headline">Ready to cut through the noise?</h2>
+      <p class="section-body">This isn't a contact form. It's the start of a conversation.</p>
+      <a href="/enquire" class="btn-cta">Enquire</a>
     </div>
   </section>
 </Base>
+
+<style>
+  .hero {
+    padding-block: var(--space-2xl) var(--space-xl);
+    text-align: center;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .hero-headline {
+    max-width: 900px;
+    text-transform: uppercase;
+  }
+
+  .hero-sub {
+    max-width: 600px;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+  }
+
+  .section-headline {
+    text-transform: uppercase;
+    max-width: 800px;
+  }
+
+  .section-body {
+    max-width: 700px;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-top: var(--space-sm);
+  }
+
+  .section-note {
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: var(--space-md);
+  }
+
+  .section-alt {
+    background-color: rgba(29, 29, 27, 0.02);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .service-card {
+    padding: var(--space-md);
+    border: 1px solid rgba(29, 29, 27, 0.08);
+    border-radius: 4px;
+  }
+
+  .service-card h3 {
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+  }
+
+  .service-card p {
+    color: var(--color-text-secondary);
+  }
+
+  .logo-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    align-items: center;
+    justify-items: center;
+  }
+
+  .brand-logo {
+    height: 2.5rem;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .brand-logo:hover {
+    opacity: 1;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .cta-close {
+    text-align: center;
+    padding-block: var(--space-2xl);
+  }
+
+  @media (min-width: 640px) {
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .logo-bar { grid-template-columns: repeat(3, 1fr); }
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .logo-bar { grid-template-columns: repeat(5, 1fr); }
+    .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
