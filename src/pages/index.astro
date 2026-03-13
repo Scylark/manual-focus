@@ -18,8 +18,14 @@ const posts = (await getCollection('blog'))
     <div class="container hero-inner">
       <LogoAnimation animate />
       <h1 class="hero-headline">Bringing focus to the noise.</h1>
+    </div>
+  </section>
+
+  <!-- Sub-hero -->
+  <section class="section sub-hero">
+    <div class="container">
       <p class="hero-sub">Fractional CMO and Strategic Consulting for founders building at the frontier of AI, Web3, and disruptive technology.</p>
-      <a href={url('/enquire')} class="btn-cta">Enquire</a>
+      <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire</a>
     </div>
   </section>
 
@@ -123,10 +129,16 @@ const posts = (await getCollection('blog'))
   .hero-headline {
     max-width: 900px;
     text-transform: uppercase;
+    font-size: var(--font-size-xl);
+  }
+
+  .sub-hero {
+    text-align: center;
   }
 
   .hero-sub {
     max-width: 600px;
+    margin-inline: auto;
     color: var(--color-text-secondary);
     font-size: var(--font-size-lg);
   }
