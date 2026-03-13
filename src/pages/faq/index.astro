@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import { getCollection } from 'astro:content';
+
+const faqEntries = (await getCollection('faq'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const faqItems = faqEntries.map((entry) => ({
+  question: entry.data.question,
+  answer: entry.body ?? '',
+  id: entry.id,
+}));
+
+const faqSchemaItems = faqItems.map(item => ({
+  question: item.question,
+  answer: item.answer,
+}));
+---
+<Base title="FAQ" description="Frequently asked questions about working with Manual Focus.">
+  <SEOHead slot="seo" type="faq" title="FAQ" description="Frequently asked questions about Manual Focus." faqItems={faqSchemaItems} />
+
+  <section class="section">
+    <div class="container">
+      <h1>Frequently asked questions</h1>
+      <p class="lead">Straight answers. No jargon.</p>
+      <FaqAccordion items={faqItems} />
+    </div>
+  </section>
+
+  <section class="section" style="text-align: center;">
+    <div class="container">
+      <h2>Still have questions?</h2>
+      <a href="/enquire" class="btn-cta" style="margin-top: var(--space-sm);">Get in touch</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-lg);
+  }
+</style>

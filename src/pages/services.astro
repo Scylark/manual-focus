@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+---
+<Base title="Services" description="Fractional CMO and Strategic Consulting — senior marketing leadership for founders and CEOs.">
+  <SEOHead slot="seo" type="website" title="Services" description="Fractional CMO and Strategic Consulting for founders and CEOs." />
+
+  <section class="section">
+    <div class="container">
+      <h1>Two ways to work with us</h1>
+      <p class="lead">Leadership or advice. Embedded or focused. Either way, you get senior marketing expertise that moves the needle — not a deck that gathers dust.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="service-detail">
+        <h2>Fractional CMO</h2>
+        <p class="service-for">For founders and CEOs who need a marketing leader but aren't ready for (or don't need) a full-time hire.</p>
+        <p>You get an experienced CMO embedded in your business. Not observing from a distance — hands on the wheel. I lead your marketing strategy, build or restructure your team, manage agencies, own your go-to-market, and report directly to you.</p>
+        <h3>What this includes</h3>
+        <ul>
+          <li>Marketing strategy development and execution oversight</li>
+          <li>Brand positioning and messaging</li>
+          <li>Go-to-market planning and delivery</li>
+          <li>Team building, hiring, and performance management</li>
+          <li>Agency selection and management</li>
+          <li>Board and investor reporting</li>
+        </ul>
+        <h3>What this is not</h3>
+        <p>This is not a consulting engagement. I don't deliver a strategy document and walk away. I lead. I'm accountable. If it's not working, it's on me to fix it.</p>
+        <a href="/enquire" class="btn-cta" style="margin-top: var(--space-md);">Enquire about Fractional CMO</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="service-detail">
+        <h2>Strategic Consulting</h2>
+        <p class="service-for">For businesses that need expert input on a specific challenge — without a long-term commitment.</p>
+        <p>Focused engagements with a clear scope and timeline. I diagnose the problem, deliver actionable recommendations, and move on. No padding, no retainer creep.</p>
+        <h3>What this includes</h3>
+        <ul>
+          <li>Marketing audits and diagnostic reviews</li>
+          <li>Brand positioning and messaging strategy</li>
+          <li>Go-to-market strategy for new products or markets</li>
+          <li>Market analysis and competitive intelligence</li>
+          <li>Organisational design for marketing functions</li>
+        </ul>
+        <h3>What this is not</h3>
+        <p>This is not execution for hire. I don't write your blog posts, run your ads, or manage your social channels. I give you the strategy and the clarity to do it right — or to hire the right people who will.</p>
+        <a href="/enquire" class="btn-cta" style="margin-top: var(--space-md);">Enquire about Strategic Consulting</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: var(--max-width-prose);
+  }
+
+  .service-detail {
+    max-width: var(--max-width-prose);
+  }
+
+  .service-for {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: var(--space-sm);
+  }
+
+  .service-detail h3 {
+    margin-top: var(--space-md);
+    text-transform: uppercase;
+    font-size: var(--font-size-body);
+  }
+
+  .service-detail ul {
+    margin-top: var(--space-xs);
+    padding-left: var(--space-md);
+    color: var(--color-text-secondary);
+  }
+
+  .service-detail ul li {
+    margin-top: var(--space-xs);
+  }
+
+  .service-detail > p {
+    margin-top: var(--space-sm);
+  }
+
+  .section-alt {
+    background-color: rgba(29, 29, 27, 0.02);
+  }
+</style>

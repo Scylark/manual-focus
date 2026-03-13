@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+---
+<Base title="About" description="The story behind Manual Focus — bringing clarity to marketing in an age of noise.">
+  <SEOHead slot="seo" type="profile" title="About" description="The story behind Manual Focus." />
+
+  <section class="section">
+    <div class="container prose">
+      <h1>Two circles. One intersection.<br />That's where we work.</h1>
+      <p class="lead">The Manual Focus logo is two circles drifting into alignment. They represent the tension between old-world marketing and new-world technology — the overwhelming noise of digital transformation. The intersection is where clarity lives. That's where we operate.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>The operator behind the focus</h2>
+      <p>James Vickers has spent over a decade at the intersection of marketing and emerging technology. From co-founding a virtual cycling platform that grew to 350,000 users and was acquired by Wahoo Fitness, to leading marketing for a $200M privacy-focused stablecoin, to advising AI-powered wealth managers — he's consistently been early to where marketing meets disruption.</p>
+      <p>He's not a consultant who theorises from the sidelines. He's an operator who's built teams, launched products, turned around brands, and driven measurable growth across cycling, endurance sports, fintech, Web3, and AI.</p>
+
+      <h2>The numbers</h2>
+      <ul class="stats-list">
+        <li><strong>19k → 350k</strong> registered users at RGT Cycling</li>
+        <li><strong>NPS: -65 → +45</strong> brand turnaround</li>
+        <li><strong>160+</strong> media placements for a single product launch</li>
+        <li><strong>Brand recall: 0 → 95</strong> (prompted)</li>
+        <li><strong>20% → 45%</strong> conversion rate improvement</li>
+        <li><strong>2.2M+</strong> sessions driven to platform</li>
+      </ul>
+
+      <h2>Why Manual Focus exists</h2>
+      <p>The marketing industry has a signal-to-noise problem. Every week there's a new tool, a new framework, a new "game-changer." Most of it is distraction. Manual Focus exists to cut through that — to give founders and CEOs the senior marketing leadership they need, without the noise, without the theatre, and without the overhead of a full-time hire.</p>
+      <p>We bring focus. That's it.</p>
+
+      <a href="/enquire" class="btn-cta" style="margin-top: var(--space-lg);">Start a conversation</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .stats-list {
+    list-style: none;
+    display: grid;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+
+  .stats-list li {
+    font-size: var(--font-size-lg);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(29, 29, 27, 0.08);
+  }
+
+  .stats-list strong {
+    display: block;
+    font-size: var(--font-size-xl);
+  }
+</style>

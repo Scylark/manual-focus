@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+---
+<Base title="Enquire" description="Start a conversation with Manual Focus about your marketing challenges.">
+  <SEOHead slot="seo" type="website" title="Enquire" description="Start a conversation with Manual Focus." />
+
+  <section class="section">
+    <div class="container">
+      <h1>Let's talk</h1>
+      <p class="lead">This isn't a contact form. It's the start of a conversation.<br />Tell us where you are, and we'll tell you honestly if we can help.</p>
+      <EnquiryForm />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-lg);
+    max-width: var(--max-width-prose);
+  }
+</style>

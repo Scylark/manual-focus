@@ -1,0 +1,61 @@
+---
+import Base from '../../../layouts/Base.astro';
+import SEOHead from '../../../components/SEOHead.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
+
+  return allTags.map(tag => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter(p => p.data.tags.includes(tag))
+        .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+const displayTag = tag.replace(/-/g, ' ');
+---
+<Base title={`${displayTag} — Blog`} description={`Posts tagged "${displayTag}" on the Manual Focus blog.`}>
+  <SEOHead slot="seo" type="website" title={`${displayTag} — Blog`} description={`Posts tagged "${displayTag}" on the Manual Focus blog.`} />
+  <section class="section">
+    <div class="container">
+      <h1 style="text-transform: capitalize;">{displayTag}</h1>
+      <p><a href="/blog">&larr; All posts</a></p>
+
+      <div class="blog-grid">
+        {posts.map((post: any) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.id}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

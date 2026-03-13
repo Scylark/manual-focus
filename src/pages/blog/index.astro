@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
+---
+<Base title="Blog" description="Perspectives on marketing, AI, and digital transformation from Manual Focus.">
+  <SEOHead slot="seo" type="website" title="Blog" description="Perspectives on marketing, AI, and digital transformation." />
+
+  <section class="section">
+    <div class="container">
+      <h1>Perspective</h1>
+      <p class="lead">Opinions, insights, and the occasional provocation.</p>
+
+      <nav class="tag-filter" aria-label="Filter by tag">
+        <a href="/blog" class="tag tag-current">All</a>
+        {allTags.map(tag => (
+          <a href={`/blog/tag/${tag}/`} class="tag">{tag.replace(/-/g, ' ')}</a>
+        ))}
+      </nav>
+
+      <div class="blog-grid">
+        {posts.map(post => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.id}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+  }
+
+  .tag {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid rgba(29, 29, 27, 0.15);
+    border-radius: 2px;
+    text-transform: capitalize;
+  }
+
+  .tag:hover,
+  .tag-current {
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

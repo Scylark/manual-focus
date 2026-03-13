@@ -1,0 +1,119 @@
+---
+interface Props {
+  items: { question: string; answer: string; id: string }[];
+}
+const { items } = Astro.props;
+---
+<div class="faq-accordion" role="list">
+  {items.map((item) => (
+    <div class="faq-item" role="listitem">
+      <h3>
+        <button
+          class="faq-trigger"
+          aria-expanded="false"
+          aria-controls={`faq-panel-${item.id}`}
+          id={`faq-trigger-${item.id}`}
+        >
+          <span>{item.question}</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+      </h3>
+      <div
+        class="faq-panel"
+        id={`faq-panel-${item.id}`}
+        role="region"
+        aria-labelledby={`faq-trigger-${item.id}`}
+        hidden
+      >
+        <p>{item.answer}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .faq-accordion {
+    max-width: var(--max-width-prose);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(29, 29, 27, 0.08);
+  }
+
+  .faq-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: var(--space-md) 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    text-align: left;
+    gap: var(--space-sm);
+  }
+
+  .faq-trigger:hover {
+    color: var(--color-text-secondary);
+  }
+
+  .faq-icon {
+    font-size: var(--font-size-lg);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-trigger[aria-expanded="true"] .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-panel {
+    padding-bottom: var(--space-md);
+  }
+
+  .faq-panel p {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-body);
+  }
+</style>
+
+<script>
+  const triggers = document.querySelectorAll('.faq-trigger');
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      const panelId = trigger.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId!);
+
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      if (panel) panel.hidden = expanded;
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      const items = Array.from(triggers);
+      const index = items.indexOf(trigger);
+      let target: Element | null = null;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        target = items[(index + 1) % items.length];
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        target = items[(index - 1 + items.length) % items.length];
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        target = items[0];
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        target = items[items.length - 1];
+      }
+
+      if (target) (target as HTMLElement).focus();
+    });
+  });
+</script>
