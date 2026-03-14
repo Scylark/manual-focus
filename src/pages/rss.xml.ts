@@ -9,7 +9,7 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: 'Manual Focus — Blog',
+    title: 'Manual Focus | Blog',
     description: 'Perspectives on marketing, AI, and digital transformation from Manual Focus.',
     site: context.site!.toString(),
     items: sortedPosts.map(post => ({

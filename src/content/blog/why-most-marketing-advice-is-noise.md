@@ -5,28 +5,26 @@ tags: ["marketing-strategy", "ai"]
 description: "AI has rewritten the rules of marketing. Most advice hasn't caught up. Here's what actually matters now."
 ---
 
-The marketing industry has a signal-to-noise problem, and AI just made it worse.
+AI has changed marketing faster than advice can keep up.
 
-Every week there's a new "ultimate guide" to SEO, a new social media hack, a new framework promising 10x growth. Most of it was already outdated when it was published. Now, with AI rewriting the rules of discovery, distribution, and trust in real time, the gap between marketing advice and marketing reality has become a chasm.
+Every week there's a new "ultimate guide" to SEO, a new social media hack, a new framework promising 10x growth. Most of it was outdated when it was published. Now that AI is reshaping discovery, distribution, and trust in real time, marketing advice lags marketing reality by a wide margin.
 
 ## The old playbook is dead
 
-Traditional SEO is being disrupted by LLM-powered answer engines. The content marketing flywheel that worked in 2020 is spinning in a void. Buyers are increasingly using AI agents to research, compare, and shortlist. Those agents don't care about your brand guidelines or your carefully crafted landing page.
+Traditional SEO is losing ground to LLM-powered answer engines. Content strategies built for 2020 no longer capture buyer attention the way they used to. Buyers are using AI agents to research, compare, and shortlist. Those agents don't care about your brand guidelines or your landing page copy.
 
-If your marketing strategy was built before ChatGPT, it needs to be rebuilt. Not tweaked. Rebuilt.
+If your strategy predates LLM-based search, it needs more than a tweak. It needs a rethink.
 
-## What actually matters now
+## What matters now
 
-**Answer Engine Optimisation (AEO):** Your content needs to be structured so that AI systems can parse, understand, and cite it. This isn't about keywords anymore. It's about being the authoritative answer.
+**Answer Engine Optimisation (AEO).** Structure your content so AI systems can parse, understand, and cite it. Keywords alone won't cut it. You need to be the source that gets referenced.
 
-**AI-native distribution:** The channels haven't just shifted. They've been replaced. Understanding how LLMs surface information, how AI agents evaluate credibility, and how to build trust in a zero-click world is now table stakes.
+**AI-native distribution.** The old channels haven't just shifted. They've been replaced. You need to understand how LLMs rank information, how AI agents evaluate credibility, and what trust looks like when there's no click.
 
-**Speed over perfection:** AI has compressed the marketing cycle from months to days. The companies that win are the ones that ship, learn, and iterate, not the ones that spend six months on a brand book.
+**Speed over perfection.** AI has compressed the marketing cycle from months to days. Companies that adapt quickly gain an edge over those locked in six-month planning cycles.
 
 ## The opportunity
 
-Here's the thing most people miss: the noise is actually an opportunity. While your competitors are still debating whether to "use AI in marketing," the smart organisations are building AI-native go-to-market strategies from the ground up. They're not adding AI to their marketing. They're building marketing for an AI world.
+Most people miss this: the noise is an advantage if you know how to use it. While competitors debate whether to "use AI in marketing," other organisations are building their go-to-market strategies around AI from day one. They're not adding AI to their marketing. They're rebuilding marketing for a world where AI is the default.
 
-That's a fundamentally different thing. And it's where Manual Focus operates.
-
-The signal is there. You just need to know where to look.
+That's a different discipline. And it's what we do at Manual Focus.

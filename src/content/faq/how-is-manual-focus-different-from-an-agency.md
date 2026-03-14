@@ -3,4 +3,4 @@ question: "How is Manual Focus different from a traditional agency?"
 order: 3
 ---
 
-Most agencies sell execution: ads, content, social. We sell leadership and strategic clarity for companies building disruptive technology. We understand AI-native go-to-market, how LLMs are changing discovery, and what it takes to position products in categories that are being invented in real time. We work alongside your team as a marketing leader, not as an outsourced function.
+Agencies typically focus on campaign execution: ads, content, social. We install AI-powered systems inside your marketing operation. We specialise in positioning new product categories and adapting strategies as market dynamics shift. We work alongside your team as a partner, not as an outsourced function.

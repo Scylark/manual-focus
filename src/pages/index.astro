@@ -24,7 +24,7 @@ const posts = (await getCollection('blog'))
   <!-- Sub-hero -->
   <section class="section sub-hero">
     <div class="container">
-      <p class="hero-sub">We plug AI-powered agent teams into your marketing operation. Automating production, sharpening your SEO, and freeing your people to do work that actually moves the needle.</p>
+      <p class="hero-sub">We plug AI agent teams into your marketing operation. They handle production, sharpen your SEO, and free your people to do strategic work.</p>
       <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire</a>
     </div>
   </section>
@@ -44,7 +44,7 @@ const posts = (await getCollection('blog'))
       <div class="services-grid">
         <div class="service-card">
           <h3>AI agent teams</h3>
-          <p>We build and deploy teams of AI agents tailored to your marketing operation. Content agents that draft, edit, and publish. Research agents that monitor competitors and surface opportunities. Reporting agents that pull data and write the summary. They work around the clock, and they don't call in sick.</p>
+          <p>We build and deploy AI agents tailored to your marketing operation. Content agents that write, refine, and ship copy. Research agents that monitor competitors and flag opportunities. Reporting agents that pull data and write the summary. They run around the clock.</p>
         </div>
         <div class="service-card">
           <h3>Automated product creation</h3>
@@ -59,7 +59,7 @@ const posts = (await getCollection('blog'))
           <p>We run AI-driven audits across your site, flag what's broken, and fix it. Technical issues, thin content, missing structure, poor internal linking. Then we set up agents to keep it healthy over time, not just a one-off report that collects dust.</p>
         </div>
       </div>
-      <p class="section-note">We don't hand you a strategy deck and wish you luck. We install the systems and stay until they're running.</p>
+      <p class="section-note">We don't hand you a strategy deck and disappear. We install the systems and stay until they're running.</p>
       <a href={url('/services')} class="btn-cta" style="margin-top: var(--space-md);">Learn more</a>
     </div>
   </section>
@@ -86,7 +86,7 @@ const posts = (await getCollection('blog'))
   <section class="section section-alt">
     <div class="container">
       <h2 class="section-headline">We've been in the room<br />when things ship.</h2>
-      <p class="section-body">Manual Focus was built by marketers who've run teams, launched products, and scaled businesses across AI, fintech, Web3, and hardware. We've grown platforms from zero to hundreds of thousands of users and taken products to market in categories that didn't exist yet. That's why we build systems that work in the real world, not just in a pitch deck.</p>
+      <p class="section-body">Manual Focus was built by marketers who've run teams, launched products, and grown businesses across AI, fintech, Web3, and hardware. We've taken platforms from zero to hundreds of thousands of users and brought products to market in categories that didn't exist yet. That's why our systems work when deployed, not just on paper.</p>
       <a href={url('/about')} class="btn-cta" style="margin-top: var(--space-md);">More about us</a>
     </div>
   </section>
@@ -140,13 +140,8 @@ const posts = (await getCollection('blog'))
     font-size: var(--font-size-xl);
   }
 
-  .sub-hero {
-    text-align: center;
-  }
-
   .hero-sub {
     max-width: 600px;
-    margin-inline: auto;
     color: var(--color-text-secondary);
     font-size: var(--font-size-lg);
   }
@@ -226,15 +221,10 @@ const posts = (await getCollection('blog'))
   }
 
   .cta-close {
-    text-align: center;
     padding-block: var(--space-2xl);
   }
 
   @media (min-width: 640px) {
-    .services-grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  @media (min-width: 1024px) {
     .services-grid { grid-template-columns: 1fr 1fr; }
     .logo-bar { grid-template-columns: repeat(3, 1fr); }
     .blog-grid { grid-template-columns: repeat(2, 1fr); }

@@ -23,8 +23,8 @@ export async function getStaticPaths() {
 const { tag, posts } = Astro.props;
 const displayTag = tag.replace(/-/g, ' ');
 ---
-<Base title={`${displayTag} — Blog`} description={`Posts tagged "${displayTag}" on the Manual Focus blog.`}>
-  <SEOHead slot="seo" type="website" title={`${displayTag} — Blog`} description={`Posts tagged "${displayTag}" on the Manual Focus blog.`} />
+<Base title={`${displayTag} | Blog`} description={`Posts tagged "${displayTag}" on the Manual Focus blog.`}>
+  <SEOHead slot="seo" type="website" title={`${displayTag} | Blog`} description={`Posts tagged "${displayTag}" on the Manual Focus blog.`} />
   <section class="section">
     <div class="container">
       <h1 style="text-transform: capitalize;">{displayTag}</h1>
