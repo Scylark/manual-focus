@@ -25,7 +25,7 @@ If your marketing strategy was built before ChatGPT, it needs to be rebuilt. Not
 
 ## The opportunity
 
-Here's the thing most people miss: the noise is actually an opportunity. While your competitors are still debating whether to "use AI in marketing," the smart founders are building AI-native go-to-market strategies from the ground up. They're not adding AI to their marketing — they're building marketing for an AI world.
+Here's the thing most people miss: the noise is actually an opportunity. While your competitors are still debating whether to "use AI in marketing," the smart organisations are building AI-native go-to-market strategies from the ground up. They're not adding AI to their marketing — they're building marketing for an AI world.
 
 That's a fundamentally different thing. And it's where Manual Focus operates.
 

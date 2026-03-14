@@ -10,8 +10,8 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Home" description="Manual Focus — AI-native marketing leadership for founders navigating disruptive technology. Fractional CMO and Strategic Consulting." hideNavUntilScroll>
-  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus — AI-native marketing leadership for founders navigating disruptive technology." />
+<Base title="Home" description="Manual Focus — an AI-powered marketing agency that installs agent teams, automates production, and drives measurable growth." hideNavUntilScroll>
+  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus — an AI-powered marketing agency that installs agent teams, automates production, and drives measurable growth." />
 
   <!-- Hero -->
   <section class="hero section">
@@ -24,7 +24,7 @@ const posts = (await getCollection('blog'))
   <!-- Sub-hero -->
   <section class="section sub-hero">
     <div class="container">
-      <p class="hero-sub">Fractional CMO and Strategic Consulting for founders building at the frontier of AI, Web3, and disruptive technology.</p>
+      <p class="hero-sub">We plug AI-powered agent teams into your marketing operation — automating production, sharpening your SEO, and freeing your people to do work that actually moves the needle.</p>
       <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire</a>
     </div>
   </section>
@@ -32,8 +32,8 @@ const posts = (await getCollection('blog'))
   <!-- Problem Diagnosis -->
   <section class="section">
     <div class="container">
-      <h2 class="section-headline">New model dropped.<br />Now what?</h2>
-      <p class="section-body">A new foundation model every week. A new tool every day. Your competitors are adopting them — or claiming to. The real challenge isn't access to AI. It's knowing which models actually matter for your business, which tools are worth integrating, and when to move versus when to wait. That's not a technology problem. It's a strategy problem. And it's exactly what we solve.</p>
+      <h2 class="section-headline">Your team is busy.<br />Your AI isn't.</h2>
+      <p class="section-body">Most marketing teams are stretched thin doing repetitive work that AI should be handling. Product descriptions written one at a time. Images resized by hand. SEO audits that nobody has time to act on. We fix that. We install AI agent teams that take over the grind so your people can focus on strategy, creativity, and growth.</p>
     </div>
   </section>
 
@@ -43,15 +43,23 @@ const posts = (await getCollection('blog'))
       <h2 class="section-headline">What we do</h2>
       <div class="services-grid">
         <div class="service-card">
-          <h3>Fractional CMO</h3>
-          <p>Embedded marketing leadership that lives in the tools, not just the theory. We track every major model release, test new AI workflows before recommending them, and know the difference between signal and hype. Hands on the wheel, accountable for outcomes.</p>
+          <h3>AI agent teams</h3>
+          <p>We build and deploy teams of AI agents tailored to your marketing operation. Content agents that draft, edit, and publish. Research agents that monitor competitors and surface opportunities. Reporting agents that pull data and write the summary. They work around the clock, and they don't call in sick.</p>
         </div>
         <div class="service-card">
-          <h3>Strategic Consulting</h3>
-          <p>Focused engagements for companies that need to move fast. Which AI tools should your team actually be using? How do you position a product when the landscape shifts monthly? We cut through the noise, give you a clear plan, and move on.</p>
+          <h3>Automated product creation</h3>
+          <p>Product descriptions, listing copy, campaign assets — generated at scale from your source data. We set up the pipeline so new products go from raw specs to publish-ready content without the bottleneck.</p>
+        </div>
+        <div class="service-card">
+          <h3>Image enhancement</h3>
+          <p>AI-powered image editing, background removal, resizing, and optimisation. One product photo becomes twenty platform-ready variants. No design queue. No freelancer turnaround.</p>
+        </div>
+        <div class="service-card">
+          <h3>SEO audit and boost</h3>
+          <p>We run AI-driven audits across your site, flag what's broken, and fix it — technical issues, thin content, missing structure, poor internal linking. Then we set up agents to keep it healthy over time, not just a one-off report that collects dust.</p>
         </div>
       </div>
-      <p class="section-note">We don't do execution for hire. We don't produce decks that gather dust. We lead, or we advise. That's it.</p>
+      <p class="section-note">We don't hand you a strategy deck and wish you luck. We install the systems and stay until they're running.</p>
       <a href={url('/services')} class="btn-cta" style="margin-top: var(--space-md);">Learn more</a>
     </div>
   </section>
@@ -77,9 +85,9 @@ const posts = (await getCollection('blog'))
   <!-- Operator Credibility -->
   <section class="section section-alt">
     <div class="container">
-      <h2 class="section-headline">Built by an operator,<br />not a consultant.</h2>
-      <p class="section-body">James Vickers has spent over a decade at the intersection of marketing and disruptive technology — co-founding a virtual cycling platform acquired by Wahoo Fitness (19k → 350k users), leading marketing for a $200M privacy-focused stablecoin, and advising AI-powered wealth managers. From fintech to Web3 to AI, he's consistently been early to where technology disrupts markets. He doesn't theorise. He builds.</p>
-      <a href={url('/about')} class="btn-cta" style="margin-top: var(--space-md);">Read the full story</a>
+      <h2 class="section-headline">We've been in the room<br />when things ship.</h2>
+      <p class="section-body">Manual Focus was built by marketers who've run teams, launched products, and scaled businesses across AI, fintech, Web3, and hardware. We've grown platforms from zero to hundreds of thousands of users and taken products to market in categories that didn't exist yet. That's why we build systems that work in the real world, not just in a pitch deck.</p>
+      <a href={url('/about')} class="btn-cta" style="margin-top: var(--space-md);">More about us</a>
     </div>
   </section>
 
@@ -103,8 +111,8 @@ const posts = (await getCollection('blog'))
   <!-- CTA Close -->
   <section class="section cta-close">
     <div class="container">
-      <h2 class="section-headline">Building something disruptive?<br />Let's talk.</h2>
-      <p class="section-body">If you're a founder navigating AI, Web3, or any technology that's rewriting the rules — we should have a conversation.</p>
+      <h2 class="section-headline">Ready to put AI to work?</h2>
+      <p class="section-body">If your marketing team is doing work that machines should be handling, we can fix that. Tell us what's slowing you down.</p>
       <a href={url('/enquire')} class="btn-cta">Enquire</a>
     </div>
   </section>
@@ -223,6 +231,10 @@ const posts = (await getCollection('blog'))
   }
 
   @media (min-width: 640px) {
+    .services-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 1024px) {
     .services-grid { grid-template-columns: 1fr 1fr; }
     .logo-bar { grid-template-columns: repeat(3, 1fr); }
     .blog-grid { grid-template-columns: repeat(2, 1fr); }
