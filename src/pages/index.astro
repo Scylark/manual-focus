@@ -10,8 +10,8 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Home" description="Manual Focus — an AI-powered marketing agency that installs agent teams, automates production, and drives measurable growth." hideNavUntilScroll>
-  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus — an AI-powered marketing agency that installs agent teams, automates production, and drives measurable growth." />
+<Base title="Home" description="Manual Focus. An AI-powered marketing agency that installs agent teams, automates production, and drives measurable growth." hideNavUntilScroll>
+  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus. An AI-powered marketing agency that installs agent teams, automates production, and drives measurable growth." />
 
   <!-- Hero -->
   <section class="hero section">
@@ -24,7 +24,7 @@ const posts = (await getCollection('blog'))
   <!-- Sub-hero -->
   <section class="section sub-hero">
     <div class="container">
-      <p class="hero-sub">We plug AI-powered agent teams into your marketing operation — automating production, sharpening your SEO, and freeing your people to do work that actually moves the needle.</p>
+      <p class="hero-sub">We plug AI-powered agent teams into your marketing operation. Automating production, sharpening your SEO, and freeing your people to do work that actually moves the needle.</p>
       <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire</a>
     </div>
   </section>
@@ -48,7 +48,7 @@ const posts = (await getCollection('blog'))
         </div>
         <div class="service-card">
           <h3>Automated product creation</h3>
-          <p>Product descriptions, listing copy, campaign assets — generated at scale from your source data. We set up the pipeline so new products go from raw specs to publish-ready content without the bottleneck.</p>
+          <p>Product descriptions, listing copy, campaign assets. Generated at scale from your source data. We set up the pipeline so new products go from raw specs to publish-ready content without the bottleneck.</p>
         </div>
         <div class="service-card">
           <h3>Image enhancement</h3>
@@ -56,7 +56,7 @@ const posts = (await getCollection('blog'))
         </div>
         <div class="service-card">
           <h3>SEO audit and boost</h3>
-          <p>We run AI-driven audits across your site, flag what's broken, and fix it — technical issues, thin content, missing structure, poor internal linking. Then we set up agents to keep it healthy over time, not just a one-off report that collects dust.</p>
+          <p>We run AI-driven audits across your site, flag what's broken, and fix it. Technical issues, thin content, missing structure, poor internal linking. Then we set up agents to keep it healthy over time, not just a one-off report that collects dust.</p>
         </div>
       </div>
       <p class="section-note">We don't hand you a strategy deck and wish you luck. We install the systems and stay until they're running.</p>
