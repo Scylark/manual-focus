@@ -3,13 +3,13 @@ import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
 ---
-<Base title="Services" description="AI agent teams, automated content production, image enhancement, and SEO. Manual Focus puts AI to work inside your marketing operation.">
-  <SEOHead slot="seo" type="website" title="Services" description="AI agent teams, automated content production, image enhancement, and SEO. Manual Focus puts AI to work inside your marketing operation." />
+<Base title="Services" description="AI agent teams for sales, marketing, and ecommerce. Manual Focus puts AI to work across your operation.">
+  <SEOHead slot="seo" type="website" title="Services" description="AI agent teams for sales, marketing, and ecommerce. Manual Focus puts AI to work across your operation." />
 
   <section class="section">
     <div class="container">
       <h1>What we build for you</h1>
-      <p class="lead">We install AI systems inside your marketing operation. Agent teams that produce content, optimise your site, improve your images, and report back with results. Your team focuses on strategy and creativity instead.</p>
+      <p class="lead">We install AI systems across your sales, marketing, and ecommerce operations. Agent teams that handle outreach, produce content, manage listings, optimise your site, and report back with results. Your team focuses on strategy and revenue instead.</p>
     </div>
   </section>
 
@@ -17,14 +17,15 @@ import { url } from '../utils/paths';
     <div class="container">
       <div class="service-detail">
         <h2>AI agent teams</h2>
-        <p class="service-for">For marketing teams drowning in repetitive work that never seems to end.</p>
-        <p>We build and deploy AI agents that handle the operational load your team shouldn't be carrying. Content drafting, competitor monitoring, data reporting, social scheduling, email sequences. We build agents for each workflow, integrate with your existing tools, and activate them.</p>
+        <p class="service-for">For sales, marketing, and ecommerce teams buried in operational work.</p>
+        <p>We build and deploy AI agents that handle the load your team shouldn't be carrying. Lead qualification, content drafting, listing updates, competitor monitoring, data reporting, outreach sequences. We build agents for each workflow, integrate with your existing tools, and activate them.</p>
         <h3>What this looks like</h3>
         <ul>
           <li>Custom agent teams built around your specific workflows</li>
-          <li>Agents connected to your CMS, analytics, CRM, and ad platforms</li>
+          <li>Agents connected to your CMS, CRM, ecommerce platform, analytics, and ad accounts</li>
           <li>Automated content drafting, review pipelines, and publishing</li>
-          <li>Competitive intelligence agents that surface opportunities daily</li>
+          <li>Sales outreach and follow-up agents that work your pipeline</li>
+          <li>Ecommerce agents that sync listings, pricing, and inventory across channels</li>
           <li>Reporting agents that pull, summarise, and distribute performance data</li>
           <li>Ongoing tuning as your operation evolves</li>
         </ul>
@@ -38,20 +39,21 @@ import { url } from '../utils/paths';
   <section class="section section-alt">
     <div class="container">
       <div class="service-detail">
-        <h2>Automated product creation</h2>
-        <p class="service-for">For e-commerce and product businesses that need to scale content without scaling headcount.</p>
-        <p>We build pipelines that turn raw product data (specs, features, images) into publish-ready listings, descriptions, and campaign copy. New SKU? The pipeline handles it. Seasonal refresh? Batch it and go. Without writer dependencies or vendor delays.</p>
+        <h2>Sales and pipeline automation</h2>
+        <p class="service-for">For B2B and B2C sales teams that lose hours to admin instead of selling.</p>
+        <p>We build AI agents that work your sales pipeline. Lead scoring, outreach sequences, follow-up cadences, proposal generation, CRM hygiene. Your reps spend more time in conversations and less time copying data between tabs.</p>
         <h3>What this looks like</h3>
         <ul>
-          <li>Automated product description generation from specs and data sheets</li>
-          <li>Multi-channel copy (website, marketplaces, ads, email) from one source</li>
-          <li>Brand voice calibration so output sounds like your team wrote it</li>
-          <li>Batch processing for catalogue updates and seasonal launches</li>
-          <li>Human review workflows where you want a final check</li>
+          <li>AI lead scoring and qualification from inbound and outbound sources</li>
+          <li>Automated outreach sequences personalised to each prospect</li>
+          <li>Follow-up agents that re-engage stale leads on a schedule</li>
+          <li>CRM updates, deal tracking, and pipeline reporting without manual entry</li>
+          <li>Proposal and quote generation from templates and deal data</li>
+          <li>B2C agents for cart recovery, post-purchase flows, and loyalty triggers</li>
         </ul>
         <h3>What this is not</h3>
-        <p>We don't produce generic AI output. Every pipeline is calibrated to your brand and your tone. We tune until the copy is indistinguishable from what your team would write.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about automated production</a>
+        <p>We don't replace your sales team. We remove the admin that keeps them from doing what they're good at. Every agent is built around your process, not a generic template.</p>
+        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about sales automation</a>
       </div>
     </div>
   </section>
@@ -59,20 +61,21 @@ import { url } from '../utils/paths';
   <section class="section">
     <div class="container">
       <div class="service-detail">
-        <h2>Image enhancement</h2>
-        <p class="service-for">For teams that spend too much time on image editing, resizing, and asset prep.</p>
-        <p>One product photo in, twenty platform-ready variants out. We set up AI-powered image pipelines that handle background removal, resizing, colour correction, format conversion, and optimisation. Your team stops pushing pixels and starts shipping.</p>
+        <h2>Ecommerce operations</h2>
+        <p class="service-for">For ecommerce teams managing products, listings, and orders across multiple channels.</p>
+        <p>We automate the operational side of ecommerce: product listings generated from specs, images processed and resized for every platform, inventory synced across channels, and catalogue updates batched and pushed without manual effort.</p>
         <h3>What this looks like</h3>
         <ul>
-          <li>Bulk background removal and replacement</li>
-          <li>Automatic resizing and cropping for every platform and ad spec</li>
-          <li>AI upscaling and quality enhancement for low-res source images</li>
-          <li>Consistent colour grading across product catalogues</li>
-          <li>Web-optimised output that keeps your page speed fast</li>
+          <li>Automated product description and listing generation from source data</li>
+          <li>Multi-channel sync (website, Amazon, eBay, marketplace feeds) from one source</li>
+          <li>AI image processing: background removal, resizing, colour correction, format conversion</li>
+          <li>Inventory and pricing sync across platforms</li>
+          <li>Batch processing for seasonal launches and catalogue refreshes</li>
+          <li>Brand voice calibration so all copy reads like your team wrote it</li>
         </ul>
         <h3>What this is not</h3>
-        <p>This doesn't replace creative direction. You maintain the brief and the standards. We eliminate the manual labour between concept and final asset.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about image enhancement</a>
+        <p>We don't produce generic AI output. Every pipeline is calibrated to your brand and your catalogue. We tune until listings are publish-ready without manual review.</p>
+        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about ecommerce operations</a>
       </div>
     </div>
   </section>

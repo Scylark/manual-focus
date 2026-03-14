@@ -10,8 +10,8 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Home" description="Manual Focus. An AI-powered marketing agency that installs agent teams, automates production, and drives measurable growth." hideNavUntilScroll>
-  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus. An AI-powered marketing agency that installs agent teams, automates production, and drives measurable growth." />
+<Base title="Home" description="Manual Focus. An AI-powered agency that installs agent teams across sales, marketing, and ecommerce operations." hideNavUntilScroll>
+  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus. An AI-powered agency that installs agent teams across sales, marketing, and ecommerce operations." />
 
   <!-- Hero -->
   <section class="hero section">
@@ -24,8 +24,8 @@ const posts = (await getCollection('blog'))
   <!-- Sub-hero -->
   <section class="section sub-hero section-alt">
     <div class="container">
-      <h2 class="section-headline">AI agents for your marketing team</h2>
-      <p class="hero-sub">We plug AI agent teams into your marketing operation. They handle production, sharpen your SEO, and free your people to do strategic work.</p>
+      <h2 class="section-headline">AI agents for your team</h2>
+      <p class="hero-sub">We plug AI agent teams into your sales, marketing, and ecommerce operations. They handle production, prospecting, SEO, and reporting so your people can focus on strategy and growth.</p>
       <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire</a>
     </div>
   </section>
@@ -34,7 +34,7 @@ const posts = (await getCollection('blog'))
   <section class="section">
     <div class="container">
       <h2 class="section-headline">Your team is busy.<br />Your AI isn't.</h2>
-      <p class="section-body">Most marketing teams are stretched thin doing repetitive work that AI should be handling. Product descriptions written one at a time. Images resized by hand. SEO audits that nobody has time to act on. We fix that. We install AI agent teams that take over the grind so your people can focus on strategy, creativity, and growth.</p>
+      <p class="section-body">Most sales, marketing, and ecommerce teams are buried in repetitive work that AI should be handling. Product listings written one at a time. Leads followed up manually. SEO audits nobody acts on. Images resized by hand. We fix that. We install AI agent teams that take over the grind so your people can focus on closing deals, building campaigns, and growing revenue.</p>
     </div>
   </section>
 
@@ -45,19 +45,19 @@ const posts = (await getCollection('blog'))
       <div class="services-grid">
         <div class="service-card">
           <h3>AI agent teams</h3>
-          <p>We build and deploy AI agents tailored to your marketing operation. Content agents that write, refine, and ship copy. Research agents that monitor competitors and flag opportunities. Reporting agents that pull data and write the summary. They run around the clock.</p>
+          <p>Purpose-built agents for sales, marketing, and ecommerce. Content agents that write and publish. Sales agents that qualify leads and manage outreach. Ecommerce agents that sync inventory and update listings. They run around the clock.</p>
         </div>
         <div class="service-card">
-          <h3>Automated product creation</h3>
-          <p>Product descriptions, listing copy, campaign assets. Generated at scale from your source data. We set up the pipeline so new products go from raw specs to publish-ready content without the bottleneck.</p>
+          <h3>Sales and pipeline automation</h3>
+          <p>B2B and B2C sales workflows powered by AI. Lead scoring, outreach sequences, CRM updates, proposal generation, and follow-up. Your sales team spends more time selling and less time on admin.</p>
         </div>
         <div class="service-card">
-          <h3>Image enhancement</h3>
-          <p>AI-powered image editing, background removal, resizing, and optimisation. One product photo becomes twenty platform-ready variants. No design queue. No freelancer turnaround.</p>
+          <h3>Ecommerce operations</h3>
+          <p>Product listings, catalogue management, marketplace sync, image processing, and order flow automation. One source of truth across every channel, updated without manual effort.</p>
         </div>
         <div class="service-card">
           <h3>SEO audit and boost</h3>
-          <p>We run AI-driven audits across your site, flag what's broken, and fix it. Technical issues, thin content, missing structure, poor internal linking. Then we set up agents to keep it healthy over time, not just a one-off report that collects dust.</p>
+          <p>AI-driven site audits that flag what's broken and fix it. Technical issues, thin content, missing structure, poor internal linking. Then monitoring agents that keep it healthy over time.</p>
         </div>
       </div>
       <p class="section-note">We don't hand you a strategy deck and disappear. We install the systems and stay until they're running.</p>
@@ -87,7 +87,7 @@ const posts = (await getCollection('blog'))
   <section class="section section-alt">
     <div class="container">
       <h2 class="section-headline">We've been in the room<br />when things ship.</h2>
-      <p class="section-body">Manual Focus was built by marketers who've run teams, launched products, and grown businesses across AI, fintech, Web3, and hardware. We've taken platforms from zero to hundreds of thousands of users and brought products to market in categories that didn't exist yet. That's why our systems work when deployed, not just on paper.</p>
+      <p class="section-body">Manual Focus was built by people who've run sales, marketing, and ecommerce teams across AI, fintech, Web3, and hardware. We've taken platforms from zero to hundreds of thousands of users and brought products to market in categories that didn't exist yet. That's why our systems work when deployed, not just on paper.</p>
       <a href={url('/about')} class="btn-cta" style="margin-top: var(--space-md);">More about us</a>
     </div>
   </section>
@@ -113,7 +113,7 @@ const posts = (await getCollection('blog'))
   <section class="section cta-close">
     <div class="container">
       <h2 class="section-headline">Ready to put AI to work?</h2>
-      <p class="section-body">If your marketing team is doing work that machines should be handling, we can fix that. Tell us what's slowing you down.</p>
+      <p class="section-body">If your team is doing work that machines should be handling, we can fix that. Tell us what's slowing you down.</p>
       <a href={url('/enquire')} class="btn-cta">Enquire</a>
     </div>
   </section>
