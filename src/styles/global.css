@@ -28,9 +28,9 @@
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 6rem;
-  --space-2xl: 10rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  --space-2xl: 8rem;
 
   /* Layout */
   --max-width: 1200px;
@@ -88,6 +88,11 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: var(--font-size-2xl); }
 h2 { font-size: var(--font-size-xl); }
 h3 { font-size: var(--font-size-lg); }
+
+h1 + p,
+h1 + .lead,
+h2 + p,
+h2 + .lead { margin-top: var(--space-sm); }
 
 p + p { margin-top: var(--space-sm); }
 
