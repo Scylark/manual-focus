@@ -23,8 +23,8 @@ const posts = (await getCollection('blog'))
 
   <!-- Sub-hero -->
   <section class="section sub-hero section-alt">
-    <div class="container">
-      <h2 class="section-headline">AI agents for your team</h2>
+    <div class="container reveal">
+      <h2 class="section-headline"><span class="gradient-text">AI agents</span> for your team</h2>
       <p class="hero-sub">We plug AI agent teams into your sales, marketing, and ecommerce operations. They handle production, prospecting, SEO, and reporting so your people can focus on strategy and growth.</p>
       <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire</a>
     </div>
@@ -32,7 +32,7 @@ const posts = (await getCollection('blog'))
 
   <!-- Problem Diagnosis -->
   <section class="section">
-    <div class="container">
+    <div class="container reveal">
       <h2 class="section-headline">Your team is busy.<br />Your AI isn't.</h2>
       <p class="section-body">Most sales, marketing, and ecommerce teams are buried in repetitive work that AI should be handling. Product listings written one at a time. Leads followed up manually. SEO audits nobody acts on. Images resized by hand. We fix that. We install AI agent teams that take over the grind so your people can focus on closing deals, building campaigns, and growing revenue.</p>
     </div>
@@ -41,8 +41,8 @@ const posts = (await getCollection('blog'))
   <!-- What We Do -->
   <section class="section section-alt">
     <div class="container">
-      <h2 class="section-headline">What we do</h2>
-      <div class="services-grid">
+      <h2 class="section-headline reveal">What we do</h2>
+      <div class="services-grid stagger">
         <div class="service-card">
           <h3>AI agent teams</h3>
           <p>Purpose-built agents for sales, marketing, and ecommerce. Content agents that write and publish. Sales agents that qualify leads and manage outreach. Ecommerce agents that sync inventory and update listings. They run around the clock.</p>
@@ -60,16 +60,16 @@ const posts = (await getCollection('blog'))
           <p>AI-driven site audits that flag what's broken and fix it. Technical issues, thin content, missing structure, poor internal linking. Then monitoring agents that keep it healthy over time.</p>
         </div>
       </div>
-      <p class="section-note">We don't hand you a strategy deck and disappear. We install the systems and stay until they're running.</p>
-      <a href={url('/services')} class="btn-cta" style="margin-top: var(--space-md);">Learn more</a>
+      <p class="section-note reveal">We don't hand you a strategy deck and disappear. We install the systems and stay until they're running.</p>
+      <a href={url('/services')} class="btn-cta reveal" style="margin-top: var(--space-md);">Learn more</a>
     </div>
   </section>
 
   <!-- Brands We've Worked With -->
   <section class="section">
     <div class="container">
-      <h2 class="section-headline">Brands we've worked with</h2>
-      <div class="logo-bar">
+      <h2 class="section-headline reveal">Brands we've worked with</h2>
+      <div class="logo-bar stagger">
         <img src={url('/images/brand-logos/classified-cycling.svg')} alt="Classified Cycling" class="brand-logo" width="140" height="40" loading="lazy" />
         <img src={url('/images/brand-logos/wahoo.svg')} alt="Wahoo" class="brand-logo" width="140" height="40" loading="lazy" />
         <img src={url('/images/brand-logos/wattbike.svg')} alt="Wattbike" class="brand-logo" width="140" height="40" loading="lazy" />
@@ -85,7 +85,7 @@ const posts = (await getCollection('blog'))
 
   <!-- Operator Credibility -->
   <section class="section section-alt">
-    <div class="container">
+    <div class="container reveal">
       <h2 class="section-headline">We've been in the room<br />when things ship.</h2>
       <p class="section-body">Manual Focus was built by people who've run sales, marketing, and ecommerce teams across AI, fintech, Web3, and hardware. We've taken platforms from zero to hundreds of thousands of users and brought products to market in categories that didn't exist yet. That's why our systems work when deployed, not just on paper.</p>
       <a href={url('/about')} class="btn-cta" style="margin-top: var(--space-md);">More about us</a>
@@ -95,8 +95,8 @@ const posts = (await getCollection('blog'))
   <!-- Perspective (Blog Previews) -->
   <section class="section">
     <div class="container">
-      <h2 class="section-headline">Perspective</h2>
-      <div class="blog-grid">
+      <h2 class="section-headline reveal">Perspective</h2>
+      <div class="blog-grid stagger">
         {posts.map(post => (
           <BlogCard
             title={post.data.title}
@@ -111,8 +111,8 @@ const posts = (await getCollection('blog'))
 
   <!-- CTA Close -->
   <section class="section cta-close">
-    <div class="container">
-      <h2 class="section-headline">Ready to put AI to work?</h2>
+    <div class="container reveal">
+      <h2 class="section-headline">Ready to <span class="gradient-text">put AI to work</span>?</h2>
       <p class="section-body">If your team is doing work that machines should be handling, we can fix that. Tell us what's slowing you down.</p>
       <a href={url('/enquire')} class="btn-cta">Enquire</a>
     </div>
@@ -139,6 +139,18 @@ const posts = (await getCollection('blog'))
     max-width: 900px;
     text-transform: uppercase;
     font-size: var(--font-size-xl);
+    animation: hero-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 3.8s both;
+  }
+
+  @keyframes hero-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hero-sub {
@@ -181,6 +193,33 @@ const posts = (await getCollection('blog'))
     padding: var(--space-md);
     border: 1px solid rgba(29, 29, 27, 0.08);
     border-radius: 4px;
+    background: var(--color-bg);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 5px;
+    background: var(--color-cta-gradient);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(29, 29, 27, 0.08);
+    border-color: transparent;
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
   }
 
   .service-card h3 {

@@ -7,7 +7,7 @@ import { url } from '../utils/paths';
   <SEOHead slot="seo" type="profile" title="About" description="Manual Focus. An AI-powered agency for sales, marketing, and ecommerce teams." />
 
   <section class="section">
-    <div class="container prose">
+    <div class="container prose reveal">
       <h1>Two circles. One intersection.<br />That's where we work.</h1>
       <p class="lead">The Manual Focus logo is two circles drifting into alignment. They represent the point where emerging technology meets the markets it changes. AI changing how people find products. Blockchain altering how trust works. New platforms creating new rules. The overlap is where clarity lives. That's where we work.</p>
     </div>
@@ -15,25 +15,29 @@ import { url } from '../utils/paths';
 
   <section class="section">
     <div class="container prose">
-      <h2>Who's behind it</h2>
-      <p>Manual Focus was founded by James Vickers, who has spent over a decade leading sales, marketing, and growth across emerging tech sectors. He co-founded a virtual cycling platform that grew to 350,000 users before being acquired by Wahoo Fitness, led marketing for a $200M privacy-focused stablecoin, and now advises AI-powered wealth managers. He's entered these markets before mainstream adoption, every time.</p>
-      <p>He's led B2B and B2C teams, shipped products, and driven measurable results across AI, Web3, fintech, and hardware. Not from the sidelines. From inside the organisations doing the work.</p>
+      <h2 class="reveal">Who's behind it</h2>
+      <div class="reveal">
+        <p>Manual Focus was founded by James Vickers, who has spent over a decade leading sales, marketing, and growth across emerging tech sectors. He co-founded a virtual cycling platform that grew to 350,000 users before being acquired by Wahoo Fitness, led marketing for a $200M privacy-focused stablecoin, and now advises AI-powered wealth managers. He's entered these markets before mainstream adoption, every time.</p>
+        <p>He's led B2B and B2C teams, shipped products, and driven measurable results across AI, Web3, fintech, and hardware. Not from the sidelines. From inside the organisations doing the work.</p>
+      </div>
 
-      <h2>The numbers</h2>
-      <ul class="stats-list">
-        <li><strong>19k → 350k</strong> registered users at RGT Cycling</li>
-        <li><strong>NPS: -65 → +45</strong> brand turnaround</li>
-        <li><strong>160+</strong> media placements for a single product launch</li>
-        <li><strong>Brand recall: 0 → 95</strong> (prompted)</li>
-        <li><strong>20% → 45%</strong> conversion rate improvement</li>
-        <li><strong>2.2M+</strong> sessions driven to platform</li>
+      <h2 class="reveal">The numbers</h2>
+      <ul class="stats-list stagger">
+        <li><strong data-counter="350k" data-counter-prefix="19k → ">19k → 350k</strong> registered users at RGT Cycling</li>
+        <li><strong data-counter="45" data-counter-prefix="NPS: -65 → +">NPS: -65 → +45</strong> brand turnaround</li>
+        <li><strong data-counter="160+">160+</strong> media placements for a single product launch</li>
+        <li><strong data-counter="95" data-counter-prefix="Brand recall: 0 → ">Brand recall: 0 → 95</strong> (prompted)</li>
+        <li><strong data-counter="45%" data-counter-prefix="20% → ">20% → 45%</strong> conversion rate improvement</li>
+        <li><strong data-counter="2.2M+" data-counter-prefix="">2.2M+</strong> sessions driven to platform</li>
       </ul>
 
-      <h2>Why Manual Focus exists</h2>
-      <p>A new foundation model drops every week. A new AI tool launches every day. Most teams struggle to prioritise amid the constant releases. Some freeze. Others chase everything. Neither works.</p>
-      <p>Manual Focus exists because the hard problem isn't access to tools. It's knowing which ones matter, when to use them, and how to wire them into your sales, marketing, and ecommerce operations so they produce results. We use these tools daily. We test the models. We know what works and what's noise. That's what we bring: clarity and execution, without the overhead of a full-time hire.</p>
+      <h2 class="reveal">Why Manual Focus exists</h2>
+      <div class="reveal">
+        <p>A new foundation model drops every week. A new AI tool launches every day. Most teams struggle to prioritise amid the constant releases. Some freeze. Others chase everything. Neither works.</p>
+        <p>Manual Focus exists because the hard problem isn't access to tools. It's knowing which ones matter, when to use them, and how to wire them into your sales, marketing, and ecommerce operations so they produce results. We use these tools daily. We test the models. We know what works and what's noise. That's what we bring: clarity and execution, without the overhead of a full-time hire.</p>
+      </div>
 
-      <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-lg);">Start a conversation</a>
+      <a href={url('/enquire')} class="btn-cta reveal" style="margin-top: var(--space-lg);">Start a conversation</a>
     </div>
   </section>
 </Base>

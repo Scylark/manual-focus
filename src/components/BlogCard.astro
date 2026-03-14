@@ -20,6 +20,32 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
     padding: var(--space-md);
     border: 1px solid rgba(29, 29, 27, 0.08);
     border-radius: 4px;
+    background: var(--color-bg);
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
+  }
+
+  .blog-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 5px;
+    background: var(--color-cta-gradient);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(29, 29, 27, 0.08);
+    border-color: transparent;
+  }
+
+  .blog-card:hover::before {
+    opacity: 1;
   }
 
   .blog-card time {
