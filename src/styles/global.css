@@ -1,43 +1,53 @@
 /* ============================================
    Manual Focus — Design Tokens & Base Styles
+   Dark, bold, scroll-driven
    ============================================ */
 
 /* --- Tokens --- */
 :root {
   /* Colours */
-  --color-bg: #F5F0EB;
-  --color-text: #1D1D1B;
-  --color-text-secondary: #6B6560;
+  --color-bg: #0A0A0B;
+  --color-bg-alt: #111114;
+  --color-surface: #16161B;
+  --color-text: #F2EDE6;
+  --color-text-secondary: #8C8780;
+  --color-text-muted: #4A4845;
+  --color-line: rgba(242, 237, 230, 0.08);
   --color-cta-start: #FF2D78;
+  --color-cta-mid: #C026D3;
   --color-cta-end: #00E5FF;
-  --color-cta-gradient: linear-gradient(135deg, var(--color-cta-start), var(--color-cta-end));
+  --color-cta-gradient: linear-gradient(135deg, var(--color-cta-start), var(--color-cta-mid) 50%, var(--color-cta-end));
+  --color-spray-pink: rgba(255, 45, 120, 0.85);
+  --color-spray-cyan: rgba(0, 229, 255, 0.85);
 
   /* Typography */
+  --font-display: 'Anton', 'Bebas Neue', 'Arial Narrow', sans-serif;
   --font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-size-body: 1rem;
-  --font-size-sm: 0.875rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 2rem;
-  --font-size-2xl: 3.5rem;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --font-size-body: 1.0625rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-lg: 1.375rem;
+  --font-size-xl: clamp(2rem, 5vw, 3.5rem);
+  --font-size-2xl: clamp(3rem, 8vw, 6rem);
+  --font-size-3xl: clamp(4.5rem, 16vw, 16rem);
   --font-weight-regular: 400;
+  --font-weight-medium: 500;
   --font-weight-bold: 700;
-  --line-height-body: 1.7;
-  --line-height-heading: 1.1;
+  --font-weight-black: 900;
+  --line-height-body: 1.6;
+  --line-height-heading: 0.92;
 
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
-  --space-lg: 3rem;
-  --space-xl: 5rem;
-  --space-2xl: 8rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+  --space-2xl: 11rem;
 
   /* Layout */
-  --max-width: 1200px;
+  --max-width: 1280px;
   --max-width-prose: 720px;
-
-  /* Breakpoints (for reference — used in media queries) */
-  /* sm: 640px, md: 768px, lg: 1024px, xl: 1280px */
 }
 
 /* --- Reset --- */
@@ -49,18 +59,27 @@
   padding: 0;
 }
 
+::selection {
+  background: var(--color-cta-start);
+  color: #fff;
+}
+
 /* --- Font face --- */
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/inter-variable.woff2') format('woff2-variations');
+  src: url('/manual-focus/fonts/inter-variable.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-display: swap;
 }
+
+/* Display face served from Google for now — bold condensed sans */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* --- Base --- */
 html {
   font-size: 100%;
   scroll-behavior: smooth;
+  background: var(--color-bg);
 }
 
 body {
@@ -72,27 +91,46 @@ body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body.has-fixed-nav {
   padding-top: 4.5rem;
 }
 
-/* --- Typography --- */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-heading);
-  letter-spacing: -0.02em;
+/* Subtle radial backdrop glow */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(60% 40% at 15% 0%, rgba(255, 45, 120, 0.10), transparent 60%),
+    radial-gradient(50% 35% at 85% 100%, rgba(0, 229, 255, 0.08), transparent 60%);
 }
 
-h1 { font-size: var(--font-size-2xl); }
-h2 { font-size: var(--font-size-xl); }
-h3 { font-size: var(--font-size-lg); }
+main { position: relative; z-index: 1; }
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-heading);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* Default h1 sized for internal pages. Homepage hero and other oversized
+   moments override this via their own class or inline style. */
+h1 { font-size: clamp(2.5rem, 6.5vw, 6rem); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
 
 h1 + p,
 h1 + .lead,
 h2 + p,
-h2 + .lead { margin-top: var(--space-sm); }
+h2 + .lead { margin-top: var(--space-md); }
 
 p + p { margin-top: var(--space-sm); }
 
@@ -108,6 +146,7 @@ a {
   max-width: var(--max-width);
   margin-inline: auto;
   padding-inline: var(--space-md);
+  position: relative;
 }
 
 .prose {
@@ -129,44 +168,102 @@ a {
 /* --- Section spacing --- */
 .section {
   padding-block: var(--space-xl);
+  position: relative;
+}
+
+.section-alt {
+  background: var(--color-bg-alt);
+  border-block: 1px solid var(--color-line);
 }
 
 @media (max-width: 639px) {
-  h1 { font-size: var(--font-size-xl); }
-  h2 { font-size: var(--font-size-lg); }
   .section { padding-block: var(--space-lg); }
+}
+
+/* --- Eyebrow label --- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-cta-gradient);
 }
 
 /* --- CTA Button --- */
 .btn-cta {
-  display: inline-block;
-  padding: 0.875rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
   background: var(--color-cta-gradient);
   color: #fff;
+  font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-body);
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   border: none;
-  border-radius: 4px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: opacity 0.2s ease,
-              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.3s ease;
+}
+
+.btn-cta::after {
+  content: '→';
+  font-size: 1.1em;
+  transition: transform 0.3s ease;
 }
 
 .btn-cta:hover,
 .btn-cta:focus-visible {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 45, 120, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(255, 45, 120, 0.35);
+}
+
+.btn-cta:hover::after { transform: translateX(4px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  transition: border-color 0.3s ease, color 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-text);
 }
 
 /* --- Scroll reveal --- */
 .reveal {
   opacity: 0;
-  transform: translateY(2rem);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(2.5rem);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.is-visible {
@@ -177,25 +274,40 @@ a {
 /* Staggered children */
 .stagger > * {
   opacity: 0;
-  transform: translateY(1.5rem);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(2rem);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
-.stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
-.stagger.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
-.stagger.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
-.stagger.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
-.stagger.is-visible > *:nth-child(6) { transition-delay: 0.5s; }
-.stagger.is-visible > *:nth-child(7) { transition-delay: 0.6s; }
-.stagger.is-visible > *:nth-child(8) { transition-delay: 0.7s; }
-.stagger.is-visible > *:nth-child(9) { transition-delay: 0.8s; }
+.stagger.is-visible > *:nth-child(2) { transition-delay: 0.08s; }
+.stagger.is-visible > *:nth-child(3) { transition-delay: 0.16s; }
+.stagger.is-visible > *:nth-child(4) { transition-delay: 0.24s; }
+.stagger.is-visible > *:nth-child(5) { transition-delay: 0.32s; }
+.stagger.is-visible > *:nth-child(6) { transition-delay: 0.40s; }
+.stagger.is-visible > *:nth-child(7) { transition-delay: 0.48s; }
+.stagger.is-visible > *:nth-child(8) { transition-delay: 0.56s; }
+.stagger.is-visible > *:nth-child(9) { transition-delay: 0.64s; }
 
 .stagger.is-visible > * {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- Word-by-word reveal (set inline transition-delay per word) --- */
+.word-reveal {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-block: 0.18em;
+  margin-block: -0.18em;
+}
+.word-reveal > span {
+  display: inline-block;
+  transform: translateY(120%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.word-reveal.is-visible > span { transform: translateY(0); }
 
 /* --- Gradient text --- */
 .gradient-text {
@@ -203,6 +315,16 @@ a {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* --- Spray-paint accent (general utility) --- */
+.spray-accent {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.7;
 }
 
 /* --- Scroll progress bar --- */
@@ -211,7 +333,7 @@ a {
   top: 0;
   left: 0;
   width: 0%;
-  height: 3px;
+  height: 2px;
   background: var(--color-cta-gradient);
   z-index: 1001;
   transition: none;
@@ -224,7 +346,7 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.035;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
@@ -233,17 +355,14 @@ body::after {
 /* --- Respect reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
-  .stagger > * {
+  .stagger > *,
+  .word-reveal > span {
     opacity: 1;
     transform: none;
     transition: none;
   }
 
-  .scroll-progress {
-    display: none;
-  }
-
-  body::after {
-    display: none;
-  }
+  .scroll-progress { display: none; }
+  body::after { display: none; }
+  body::before { display: none; }
 }

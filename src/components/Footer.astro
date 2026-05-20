@@ -5,11 +5,18 @@ const year = new Date().getFullYear();
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <img src={url('/images/manual-focus-logo.svg')} alt="Manual Focus" width="140" height="44" />
-      <p class="footer-tagline">Bringing focus to the noise.</p>
+      <svg viewBox="-10 -50 110 240" xmlns="http://www.w3.org/2000/svg" class="footer-mark" aria-hidden="true">
+        <circle cx="45" cy="45" r="42" fill="none" stroke="currentColor" stroke-width="5.86" stroke-miterlimit="10"/>
+        <circle cx="45" cy="93" r="42" fill="none" stroke="currentColor" stroke-width="5.86" stroke-miterlimit="10"/>
+      </svg>
+      <div>
+        <p class="footer-title">MANUAL FOCUS</p>
+        <p class="footer-tagline">Part of the Foundry. Built with the Forge.</p>
+      </div>
     </div>
 
     <nav class="footer-nav" aria-label="Footer navigation">
+      <p class="footer-heading">Sitemap</p>
       <ul>
         <li><a href={url('/about')}>About</a></li>
         <li><a href={url('/services')}>Services</a></li>
@@ -20,73 +27,105 @@ const year = new Date().getFullYear();
     </nav>
 
     <div class="footer-social">
-      <a href="https://www.linkedin.com/company/manual-focus" target="_blank" rel="noopener noreferrer" aria-label="Manual Focus on LinkedIn">LinkedIn</a>
+      <p class="footer-heading">Elsewhere</p>
+      <a href="https://www.linkedin.com/company/manual-focus" target="_blank" rel="noopener noreferrer" aria-label="Manual Focus on LinkedIn">LinkedIn ↗</a>
     </div>
 
     <div class="footer-legal">
-      <p>&copy; {year} Manual Focus. All rights reserved.</p>
-      <a href={url('/privacy')}>Privacy Policy</a>
+      <p>&copy; {year} Manual Focus.</p>
+      <a href={url('/privacy')}>Privacy</a>
+      <p class="footer-built">Built with AI · v1.0</p>
     </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    border-top: 1px solid rgba(29, 29, 27, 0.08);
+    border-top: 1px solid var(--color-line);
     padding-block: var(--space-lg);
-    margin-top: var(--space-xl);
+    background: var(--color-bg);
+    color: var(--color-text-secondary);
+    position: relative;
+    z-index: 2;
   }
 
   .footer-inner {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-md);
+    gap: var(--space-lg);
   }
 
+  .footer-brand {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--color-text);
+  }
+  .footer-mark {
+    width: 2rem;
+    height: auto;
+    overflow: visible;
+    flex-shrink: 0;
+  }
+  .footer-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    color: var(--color-text);
+  }
   .footer-tagline {
     color: var(--color-text-secondary);
     font-size: var(--font-size-sm);
-    margin-top: var(--space-xs);
+    margin-top: 0.25rem;
+  }
+
+  .footer-heading {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
   }
 
   .footer-nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .footer-nav a {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    text-decoration: none;
-  }
-
-  .footer-nav a:hover {
-    color: var(--color-text);
-  }
-
+  .footer-nav a,
   .footer-social a {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
     text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-nav a:hover,
+  .footer-social a:hover {
+    color: var(--color-text);
   }
 
   .footer-legal {
     font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .footer-legal a {
-    color: var(--color-text-secondary);
+  .footer-legal a { color: var(--color-text-muted); }
+  .footer-built {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .footer-inner {
-      grid-template-columns: 2fr 1fr 1fr 2fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       align-items: start;
     }
   }

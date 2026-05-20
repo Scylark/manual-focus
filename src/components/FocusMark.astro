@@ -1,0 +1,70 @@
+---
+interface Props {
+  variant?: 'brackets' | 'aperture' | 'reticle' | 'frame';
+  size?: number;
+  color?: string;
+  class?: string;
+  style?: string;
+}
+const {
+  variant = 'brackets',
+  size = 120,
+  color = 'currentColor',
+  class: className = '',
+  style = '',
+} = Astro.props;
+---
+<svg
+  class={`focus-mark focus-mark-${variant} ${className}`}
+  width={size}
+  height={size}
+  viewBox="0 0 120 120"
+  xmlns="http://www.w3.org/2000/svg"
+  style={style}
+  aria-hidden="true"
+>
+  {variant === 'brackets' && (
+    <g fill="none" stroke={color} stroke-width="2.5" stroke-linecap="square">
+      <polyline points="8,28 8,8 28,8"/>
+      <polyline points="112,28 112,8 92,8"/>
+      <polyline points="8,92 8,112 28,112"/>
+      <polyline points="112,92 112,112 92,112"/>
+      <circle cx="60" cy="60" r="2" fill={color}/>
+    </g>
+  )}
+
+  {variant === 'aperture' && (
+    <g fill="none" stroke={color} stroke-width="2">
+      <circle cx="60" cy="60" r="50"/>
+      <polygon points="60,15 95,40 95,80 60,105 25,80 25,40" stroke-linejoin="round"/>
+      <polygon points="60,30 80,45 80,75 60,90 40,75 40,45" stroke-linejoin="round" opacity="0.5"/>
+      <circle cx="60" cy="60" r="3" fill={color}/>
+    </g>
+  )}
+
+  {variant === 'reticle' && (
+    <g fill="none" stroke={color} stroke-width="1.5">
+      <circle cx="60" cy="60" r="28"/>
+      <circle cx="60" cy="60" r="44" stroke-dasharray="2 6"/>
+      <line x1="60" y1="0" x2="60" y2="22"/>
+      <line x1="60" y1="98" x2="60" y2="120"/>
+      <line x1="0" y1="60" x2="22" y2="60"/>
+      <line x1="98" y1="60" x2="120" y2="60"/>
+      <circle cx="60" cy="60" r="2.5" fill={color}/>
+    </g>
+  )}
+
+  {variant === 'frame' && (
+    <g fill="none" stroke={color} stroke-width="2">
+      <rect x="6" y="6" width="108" height="108"/>
+      <line x1="6" y1="60" x2="22" y2="60"/>
+      <line x1="98" y1="60" x2="114" y2="60"/>
+      <line x1="60" y1="6" x2="60" y2="22"/>
+      <line x1="60" y1="98" x2="60" y2="114"/>
+    </g>
+  )}
+</svg>
+
+<style>
+  .focus-mark { display: inline-block; }
+</style>

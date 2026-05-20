@@ -15,7 +15,11 @@ const currentPath = Astro.url.pathname;
 <header class:list={['nav-header', { 'is-visible': !hideUntilScroll }]} data-hide-until-scroll={hideUntilScroll ? 'true' : undefined}>
   <nav class="nav container" aria-label="Main navigation">
     <a href={url('/')} class="nav-logo" aria-label="Manual Focus Home">
-      <img src={url('/images/manual-focus-logo.svg')} alt="Manual Focus" width="180" height="57" />
+      <svg viewBox="-10 -50 110 240" xmlns="http://www.w3.org/2000/svg" class="nav-logo-mark" aria-hidden="true">
+        <circle cx="45" cy="45" r="42" fill="none" stroke="currentColor" stroke-width="5.86" stroke-miterlimit="10"/>
+        <circle cx="45" cy="93" r="42" fill="none" stroke="currentColor" stroke-width="5.86" stroke-miterlimit="10"/>
+      </svg>
+      <span class="nav-logo-text">MANUAL FOCUS</span>
     </a>
 
     <button
@@ -54,10 +58,12 @@ const currentPath = Astro.url.pathname;
     left: 0;
     right: 0;
     z-index: 100;
-    background-color: var(--color-bg);
-    border-bottom: 1px solid rgba(29, 29, 27, 0.08);
+    background-color: rgba(10, 10, 11, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--color-line);
     transform: translateY(-100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .nav-header.is-visible {
@@ -71,9 +77,23 @@ const currentPath = Astro.url.pathname;
     height: 4.5rem;
   }
 
-  .nav-logo img {
-    height: 2rem;
-    width: auto;
+  .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  .nav-logo-mark {
+    width: 1.4rem;
+    height: auto;
+    overflow: visible;
+  }
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .nav-toggle {
@@ -107,22 +127,41 @@ const currentPath = Astro.url.pathname;
   }
 
   .nav-link {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text);
+    letter-spacing: 0.2em;
+    color: var(--color-text-secondary);
     transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: var(--color-cta-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
   }
 
   .nav-link:hover,
   .nav-link.is-active {
-    color: var(--color-text-secondary);
+    color: var(--color-text);
+  }
+  .nav-link:hover::after,
+  .nav-link.is-active::after {
+    transform: scaleX(1);
   }
 
   .nav-cta {
-    font-size: var(--font-size-sm);
+    font-size: 0.75rem;
     padding: 0.625rem 1.5rem;
   }
 
@@ -140,7 +179,7 @@ const currentPath = Astro.url.pathname;
       flex-direction: column;
       background-color: var(--color-bg);
       padding: var(--space-md);
-      border-bottom: 1px solid rgba(29, 29, 27, 0.08);
+      border-bottom: 1px solid var(--color-line);
     }
 
     .nav-menu.is-open {

@@ -1,0 +1,194 @@
+---
+interface Props {
+  size?: number;
+  tiltX?: number;
+  tiltY?: number;
+  tiltZ?: number;
+  spin?: number;          // continuous rotation period (s). Negative for reverse.
+  scrollSpin?: number;    // deg per 1000px scrolled
+  hueA?: string;          // e.g. '#FF2D78' — used in stack-color gradient
+  hueB?: string;          // e.g. '#00E5FF'
+  thickness?: number;     // physical extrusion depth in px
+  slices?: number;        // number of ring layers per ring
+  opacity?: number;
+  class?: string;
+  style?: string;
+  enterFrom?: 'left' | 'right' | 'top' | 'bottom';
+}
+const {
+  size = 320,
+  tiltX = 62,
+  tiltY = -18,
+  tiltZ = 0,
+  spin = 90,
+  scrollSpin = 60,
+  hueA = '#FF2D78',
+  hueB = '#00E5FF',
+  thickness = 50,
+  slices = 28,
+  opacity = 1,
+  class: className = '',
+  style = '',
+  enterFrom = 'right',
+} = Astro.props;
+
+// Pre-compute per-slice values so each <div> can be styled inline
+const half = (slices - 1) / 2;
+const layers = Array.from({ length: slices }, (_, i) => {
+  const t = i / (slices - 1);            // 0..1
+  const centerDist = Math.abs(i - half) / half;  // 0 at middle, 1 at edges
+  const z = (i - half) * (thickness / slices);   // -thickness/2 .. +thickness/2
+  // Subtle opacity falloff at the edges of the stack
+  const op = 1 - centerDist * 0.4;
+  return { i, t, z, op };
+});
+
+const spinDir = spin < 0 ? '-1' : '1';
+const spinDur = Math.abs(spin);
+
+// Interpolate hex colours so each slice gets its own border colour
+function lerpHex(a: string, b: string, t: number) {
+  const ah = a.replace('#', '');
+  const bh = b.replace('#', '');
+  const ar = parseInt(ah.slice(0, 2), 16);
+  const ag = parseInt(ah.slice(2, 4), 16);
+  const ab = parseInt(ah.slice(4, 6), 16);
+  const br = parseInt(bh.slice(0, 2), 16);
+  const bg = parseInt(bh.slice(2, 4), 16);
+  const bb = parseInt(bh.slice(4, 6), 16);
+  const r = Math.round(ar + (br - ar) * t);
+  const g = Math.round(ag + (bg - ag) * t);
+  const bl = Math.round(ab + (bb - ab) * t);
+  return `rgb(${r}, ${g}, ${bl})`;
+}
+---
+<div
+  class={`focus-object focus-object--${enterFrom} ${className}`}
+  style={`width: ${size}px; height: ${size}px; --tiltX: ${tiltX}deg; --tiltY: ${tiltY}deg; --tiltZ: ${tiltZ}deg; --spinDur: ${spinDur}s; --spinDir: ${spinDir}; --scrollSpin: ${scrollSpin}; --enter-opacity: ${opacity}; ${style}`}
+  data-scroll-spin={scrollSpin}
+  aria-hidden="true"
+>
+  <div class="focus-object__perspective">
+    <div class="focus-object__tilt">
+      <div class="focus-object__scroll">
+        <div class="focus-object__spin">
+          <div class="ring3d ring3d--top">
+            {layers.map(({ i, t, z, op }) => (
+              <div
+                class="ring3d__slice"
+                style={`transform: translateZ(${z}px); border-color: ${lerpHex(hueA, hueB, t)}; opacity: ${op};`}
+              ></div>
+            ))}
+          </div>
+          <div class="ring3d ring3d--bot">
+            {layers.map(({ i, t, z, op }) => (
+              <div
+                class="ring3d__slice"
+                style={`transform: translateZ(${z}px); border-color: ${lerpHex(hueB, hueA, t)}; opacity: ${op};`}
+              ></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .focus-object {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.55));
+  }
+
+  /* Entrance offset (cleared by .has-entered) */
+  .focus-object--right { transform: translate(100px, 30px); }
+  .focus-object--left  { transform: translate(-100px, 30px); }
+  .focus-object--top   { transform: translate(0, -100px); }
+  .focus-object--bottom{ transform: translate(0, 100px); }
+
+  .focus-object.has-entered {
+    transform: translate(0, 0);
+    opacity: var(--enter-opacity, 1);
+  }
+
+  .focus-object__perspective {
+    width: 100%;
+    height: 100%;
+    perspective: 1400px;
+    perspective-origin: 50% 50%;
+  }
+
+  .focus-object__tilt {
+    width: 100%;
+    height: 100%;
+    transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) rotateZ(var(--tiltZ));
+    transform-style: preserve-3d;
+  }
+
+  .focus-object__scroll {
+    width: 100%;
+    height: 100%;
+    transform: rotateZ(var(--scroll-rot, 0deg));
+    transform-style: preserve-3d;
+  }
+
+  .focus-object__spin {
+    width: 100%;
+    height: 100%;
+    animation: focus-object-spin var(--spinDur) linear infinite;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+  }
+  .focus-object[style*="--spinDir: -1"] .focus-object__spin {
+    animation-direction: reverse;
+  }
+
+  .ring3d {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    left: 20%;
+    transform-style: preserve-3d;
+  }
+  /* Two interlocking rings — top sits above, bottom below */
+  .ring3d--top { top: 8%; }
+  .ring3d--bot { top: 32%; }
+
+  .ring3d__slice {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 20px solid;
+    background: transparent;
+    box-sizing: border-box;
+  }
+
+  /* Highlight + shadow on the front and back of the stack */
+  .ring3d__slice:first-child {
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4) inset;
+  }
+  .ring3d__slice:last-child {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.10);
+  }
+
+  @keyframes focus-object-spin {
+    from { transform: rotateY(0deg); }
+    to   { transform: rotateY(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .focus-object__spin { animation: none; }
+    .focus-object {
+      transition: opacity 0.6s ease;
+    }
+    .focus-object--right,
+    .focus-object--left,
+    .focus-object--top,
+    .focus-object--bottom { transform: none; }
+  }
+</style>

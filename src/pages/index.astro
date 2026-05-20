@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import LogoAnimation from '../components/LogoAnimation.astro';
 import SEOHead from '../components/SEOHead.astro';
 import BlogCard from '../components/BlogCard.astro';
+import Spray from '../components/Spray.astro';
+import FocusObject from '../components/FocusObject.astro';
 import { url } from '../utils/paths';
 import { getCollection } from 'astro:content';
 
@@ -10,92 +11,268 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Home" description="Manual Focus. An AI-powered agency that installs agent teams across sales, marketing, and ecommerce operations." hideNavUntilScroll>
-  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus. An AI-powered agency that installs agent teams across sales, marketing, and ecommerce operations." />
+<Base title="Home" description="Manual Focus is a marketing collective that automates the marketing function with AI across owned, earned and paid." hideNavUntilScroll>
+  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus is a marketing collective that automates the marketing function with AI across owned, earned and paid." />
 
-  <!-- Hero -->
-  <section class="hero section">
+  <!-- HERO -->
+  <section class="hero">
+    <!-- 3D focus objects scattered -->
+    <FocusObject size={380} tiltX={62} tiltY={-15} spin={90} scrollSpin={120} style="top: 8vh; right: 4vw;" />
+    <FocusObject size={200} tiltX={50} tiltY={22} tiltZ={-12} spin={-110} scrollSpin={-180} hueA="#00E5FF" hueB="#FF2D78" style="bottom: 14vh; right: 24vw;" enterFrom="left" />
+
     <div class="container hero-inner">
-      <LogoAnimation animate />
-      <h1 class="hero-headline">Bringing focus to the noise.</h1>
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span class="mono">MANUAL FOCUS · PART OF THE FOUNDRY · LONDON</span>
+      </div>
+
+      <h1 class="hero-headline" data-parallax>
+        <span class="hero-line hero-line-1">Owned. Earned. Paid.</span>
+        <span class="hero-line hero-line-2">
+          <em class="hero-italic">
+            <span class="char" style="--i: 0">A</span><span class="char" style="--i: 1">u</span><span class="char" style="--i: 2">g</span><span class="char" style="--i: 3">m</span><span class="char" style="--i: 4">e</span><span class="char" style="--i: 5">n</span><span class="char" style="--i: 6">t</span><span class="char" style="--i: 7">e</span><span class="char" style="--i: 8">d</span><span class="char" style="--i: 9">.</span>
+          </em>
+        </span>
+      </h1>
+
+      <div class="hero-meta">
+        <p class="hero-sub">
+          We do the hard miles on AI so your team can move fast on it. We wire what works
+          into your marketing function across owned, earned and paid, including web, PR,
+          performance and strategy, all running on <strong>the Forge</strong>, our AI platform.
+        </p>
+        <div class="hero-ctas">
+          <a href={url('/enquire')} class="btn-cta">Book a working session</a>
+          <a href={url('/services')} class="btn-ghost">See the toolkit</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span class="mono">SCROLL</span>
+        <span class="scroll-arrow"></span>
+      </div>
     </div>
   </section>
 
-  <!-- Sub-hero -->
-  <section class="section sub-hero section-alt">
-    <div class="container reveal">
-      <h2 class="section-headline"><span class="gradient-text">AI agents</span> for your team</h2>
-      <p class="hero-sub">We plug AI agent teams into your sales, marketing, and ecommerce operations. They handle production, prospecting, SEO, and reporting so your people can focus on strategy and growth.</p>
-      <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire</a>
+  <!-- MARQUEE -->
+  <section class="marquee-band" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>OWNED</span><span class="marquee-dot">●</span>
+        <span>EARNED</span><span class="marquee-dot">●</span>
+        <span>PAID</span><span class="marquee-dot">●</span>
+        <span>WEB STRATEGY</span><span class="marquee-dot">●</span>
+        <span>PR STRATEGY</span><span class="marquee-dot">●</span>
+        <span>PERFORMANCE STRATEGY</span><span class="marquee-dot">●</span>
+        <span>VALUE BOMBS</span><span class="marquee-dot">●</span>
+        <span>AUGMENTED PLATFORMS</span><span class="marquee-dot">●</span>
+        <span>THE FORGE</span><span class="marquee-dot">●</span>
+        <span>OWNED</span><span class="marquee-dot">●</span>
+        <span>EARNED</span><span class="marquee-dot">●</span>
+        <span>PAID</span><span class="marquee-dot">●</span>
+        <span>WEB STRATEGY</span><span class="marquee-dot">●</span>
+        <span>PR STRATEGY</span><span class="marquee-dot">●</span>
+        <span>PERFORMANCE STRATEGY</span><span class="marquee-dot">●</span>
+        <span>VALUE BOMBS</span><span class="marquee-dot">●</span>
+        <span>AUGMENTED PLATFORMS</span><span class="marquee-dot">●</span>
+        <span>THE FORGE</span><span class="marquee-dot">●</span>
+      </div>
     </div>
   </section>
 
-  <!-- Problem Diagnosis -->
-  <section class="section">
-    <div class="container reveal">
-      <h2 class="section-headline">Your team is busy.<br />Your AI isn't.</h2>
-      <p class="section-body">Most sales, marketing, and ecommerce teams are buried in repetitive work that AI should be handling. Product listings written one at a time. Leads followed up manually. SEO audits nobody acts on. Images resized by hand. We fix that. We install AI agent teams that take over the grind so your people can focus on closing deals, building campaigns, and growing revenue.</p>
-    </div>
-  </section>
+  <!-- PROBLEM -->
+  <section class="section problem-section">
+    <FocusObject size={420} tiltX={70} tiltY={25} spin={140} scrollSpin={90} hueA="#FF2D78" hueB="#C026D3" style="top: -80px; right: -120px;" enterFrom="right" />
+    <FocusObject size={220} tiltX={45} tiltY={-30} spin={-100} scrollSpin={-150} hueA="#00E5FF" hueB="#FF2D78" style="bottom: 10%; left: -40px;" enterFrom="left" />
 
-  <!-- What We Do -->
-  <section class="section section-alt">
     <div class="container">
-      <h2 class="section-headline reveal">What we do</h2>
+      <div class="eyebrow">001 · THE PROBLEM</div>
+      <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+        Flat campaigns result in<br/>
+        <span class="gradient-text">diminishing returns.</span>
+      </h2>
+      <div class="problem-grid">
+        <p class="problem-copy reveal">
+          Most marketing still launches the same way it has for a decade, with a six-week
+          campaign, a content flurry, a paid push and the hope something sticks. A flat
+          campaign produces flat results regardless of brief quality, budget size or how
+          shiny the launch deck looks.
+        </p>
+        <p class="problem-copy reveal">
+          We build something that keeps working after launch week ends, with owned, earned
+          and paid wired together through the Forge. The system learns from each campaign
+          and improves as new AI models arrive, so growth holds steady instead of tailing off.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FORGE — 3D type sticky focal moment -->
+  <section class="forge-section" data-forge>
+    <div class="forge-sticky">
+      <div class="forge-3d-wrap" data-forge-tilt>
+        <h2 class="forge-3d-text">
+          <span class="forge-line forge-line-1"><span class="fchar" style="--i:0">T</span><span class="fchar" style="--i:1">H</span><span class="fchar" style="--i:2">E</span></span>
+          <span class="forge-line forge-line-2"><span class="fchar" style="--i:3">F</span><span class="fchar" style="--i:4">O</span><span class="fchar" style="--i:5">R</span><span class="fchar" style="--i:6">G</span><span class="fchar" style="--i:7">E</span></span>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FORGE — explanatory content (normal section flow) -->
+  <section class="section forge-body-section">
+    <div class="container">
+      <div class="eyebrow">002 · THE FORGE</div>
+      <h3 class="forge-headline">An AI platform built<br/>for the <span class="gradient-text">marketing function</span>.</h3>
+      <p class="forge-copy">
+        We're part of an AI collective called the Foundry, which built the Forge. The Forge
+        is an AI platform that automates the marketing function, and any custom work we ship
+        for one client becomes available to every other client. That's how our clients keep
+        pace as new AI models arrive, and keeping pace is what we specialise in.
+      </p>
+      <div class="forge-stats">
+        <div class="forge-stat">
+          <div class="forge-stat-num">50+</div>
+          <div class="forge-stat-label">years of marketing experience across the collective</div>
+        </div>
+        <div class="forge-stat">
+          <div class="forge-stat-num">1 → ALL</div>
+          <div class="forge-stat-label">build for one client, every client gets it</div>
+        </div>
+        <div class="forge-stat">
+          <div class="forge-stat-num">LIVE</div>
+          <div class="forge-stat-label">we plug in new AI models as they ship, so you don't have to</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section stats-section section-alt">
+    <FocusObject size={320} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} hueA="#00E5FF" hueB="#FF2D78" style="top: -60px; left: -80px;" enterFrom="left" />
+
+    <div class="container">
+      <div class="eyebrow">003 · WHAT IT'S WORTH</div>
+      <h2 class="stats-headline reveal">More marketing output, in a fraction of the time.</h2>
+      <div class="stats-grid stagger">
+        <div class="stat-card">
+          <div class="stat-value" data-counter="4x" data-counter-prefix="">~x</div>
+          <div class="stat-label">faster brief-to-live, on average</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-counter="3" data-counter-prefix="">~</div>
+          <div class="stat-label">channels covered (owned, earned and paid) from day one</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-counter="60%" data-counter-prefix="">~~%</div>
+          <div class="stat-label">less time on production. More on strategy.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-counter="50+" data-counter-prefix="">~~+</div>
+          <div class="stat-label">years of marketing experience, combined</div>
+        </div>
+      </div>
+      <p class="stats-disclaimer mono">* Across recent engagements. Best results when the strategy was right to begin with.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services-section">
+    <FocusObject size={280} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} hueA="#FF2D78" hueB="#00E5FF" style="top: 6%; right: -100px;" enterFrom="right" />
+    <FocusObject size={160} tiltX={68} tiltY={-25} spin={90} scrollSpin={70} style="bottom: 8%; left: 5%;" enterFrom="bottom" />
+
+    <div class="container">
+      <div class="eyebrow">004 · WHAT WE DO</div>
+      <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+        Four strategies.<br/>
+        One <span class="gradient-text">augmented</span> platform.
+      </h2>
+
       <div class="services-grid stagger">
-        <div class="service-card">
-          <h3>AI agent teams</h3>
-          <p>Purpose-built agents for sales, marketing, and ecommerce. Content agents that write and publish. Sales agents that qualify leads and manage outreach. Ecommerce agents that sync inventory and update listings. They run around the clock.</p>
-        </div>
-        <div class="service-card">
-          <h3>Sales and pipeline automation</h3>
-          <p>B2B and B2C sales workflows powered by AI. Lead scoring, outreach sequences, CRM updates, proposal generation, and follow-up. Your sales team spends more time selling and less time on admin.</p>
-        </div>
-        <div class="service-card">
-          <h3>Ecommerce operations</h3>
-          <p>Product listings, catalogue management, marketplace sync, image processing, and order flow automation. One source of truth across every channel, updated without manual effort.</p>
-        </div>
-        <div class="service-card">
-          <h3>SEO audit and boost</h3>
-          <p>AI-driven site audits that flag what's broken and fix it. Technical issues, thin content, missing structure, poor internal linking. Then monitoring agents that keep it healthy over time.</p>
-        </div>
+        <article class="service-card">
+          <div class="service-num mono">/01 · OWNED</div>
+          <h3>Web strategy</h3>
+          <p>Sites, landing systems, content engines and conversion. Most marketing actually closes on the owned channel, so we build it like infrastructure rather than theatre.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-num mono">/02 · EARNED</div>
+          <h3>PR &amp; narrative</h3>
+          <p>Earned media that builds over time. We work on founder voice, story arcs and journalist relationships, with AI research and pitch automation so the right story reaches the right desk on time.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-num mono">/03 · PAID</div>
+          <h3>Performance strategy</h3>
+          <p>Paid acquisition with the maths behind it, including channel mix, creative loops, learning agendas and measurement, with AI compressing the test cycle from quarters to weeks.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-num mono">/04 · THE FORGE</div>
+          <h3>GTM strategy</h3>
+          <p>Positioning, ICP, launches and value bombs, the thinking layer that decides whether the other three pay off. Built with the Forge so a week's work ships in a day.</p>
+        </article>
       </div>
-      <p class="section-note reveal">We don't hand you a strategy deck and disappear. We install the systems and stay until they're running.</p>
-      <a href={url('/services')} class="btn-cta reveal" style="margin-top: var(--space-md);">Learn more</a>
+
+      <div class="services-cta reveal">
+        <p class="services-note">We don't write strategy decks that die in Drive. The work itself is the deliverable, whether that's written, built, shipped or measured.</p>
+        <a href={url('/services')} class="btn-ghost">See full spec</a>
+      </div>
     </div>
   </section>
 
-  <!-- Brands We've Worked With -->
-  <section class="section">
+  <!-- BRAND LOGOS -->
+  <section class="section section-alt logos-section">
+    <FocusObject size={200} tiltX={40} tiltY={30} spin={100} scrollSpin={80} hueA="#00E5FF" hueB="#FF2D78" style="bottom: -40px; right: -40px;" enterFrom="bottom" />
+
     <div class="container">
-      <h2 class="section-headline reveal">Brands we've worked with</h2>
+      <div class="eyebrow">005 · IN THE WILD</div>
+      <h2 class="reveal logos-headline">Brands we've shipped with.</h2>
       <div class="logo-bar stagger">
-        <img src={url('/images/brand-logos/classified-cycling.svg')} alt="Classified Cycling" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src={url('/images/brand-logos/wahoo.svg')} alt="Wahoo" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src={url('/images/brand-logos/wattbike.svg')} alt="Wattbike" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src={url('/images/brand-logos/ribble-cycles.svg')} alt="Ribble Cycles" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src={url('/images/brand-logos/rgt.svg')} alt="RGT" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src={url('/images/brand-logos/motif-ai.svg')} alt="motif AI" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src={url('/images/brand-logos/muuvr.svg')} alt="Muuvr" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src={url('/images/brand-logos/planet-x.svg')} alt="Planet X" class="brand-logo" width="140" height="40" loading="lazy" />
-        <img src={url('/images/brand-logos/pelotan.svg')} alt="Pelotan" class="brand-logo" width="140" height="40" loading="lazy" />
+        <span class="brand-mark">Classified</span>
+        <span class="brand-mark">Wahoo</span>
+        <span class="brand-mark">Wattbike</span>
+        <span class="brand-mark">Ribble</span>
+        <span class="brand-mark">RGT</span>
+        <span class="brand-mark">motif AI</span>
+        <span class="brand-mark">Muuvr</span>
+        <span class="brand-mark">Planet X</span>
+        <span class="brand-mark">Pelotan</span>
       </div>
     </div>
   </section>
 
-  <!-- Operator Credibility -->
-  <section class="section section-alt">
-    <div class="container reveal">
-      <h2 class="section-headline">We've been in the room<br />when things ship.</h2>
-      <p class="section-body">Manual Focus was built by people who've run sales, marketing, and ecommerce teams across AI, fintech, Web3, and hardware. We've taken platforms from zero to hundreds of thousands of users and brought products to market in categories that didn't exist yet. That's why our systems work when deployed, not just on paper.</p>
-      <a href={url('/about')} class="btn-cta" style="margin-top: var(--space-md);">More about us</a>
+  <!-- CREDIBILITY -->
+  <section class="section credibility-section">
+    <FocusObject size={480} tiltX={60} tiltY={-15} spin={180} scrollSpin={50} style="top: -60px; right: 8%; opacity: 0.7;" enterFrom="right" />
+
+    <div class="container">
+      <div class="credibility-grid">
+        <div class="credibility-copy">
+          <div class="eyebrow">006 · WHO WE ARE</div>
+          <h2 class="reveal">
+            Operators first.<br/>
+            <span class="gradient-text">Marketers always.</span>
+          </h2>
+          <p class="reveal">
+            Manual Focus is the team you call when AI is supposed to be helping your marketing
+            but isn't yet. We do the hard miles on AI so the marketing side gets the upside.
+            Between us we've led brand, demand, product and growth across AI, fintech, sports
+            tech, hardware and digital assets, taking brands from zero to hundreds of thousands
+            of users.
+          </p>
+          {/* TODO: replace href with the Foundry website URL once available */}
+          <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
+        </div>
+        <div class="credibility-mark" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 
-  <!-- Perspective (Blog Previews) -->
-  <section class="section">
+  <!-- BLOG / PERSPECTIVE -->
+  <section class="section section-alt">
+    <FocusObject size={180} tiltX={55} tiltY={20} spin={-90} scrollSpin={-100} hueA="#FF2D78" hueB="#00E5FF" style="top: 8%; left: -40px;" enterFrom="left" />
+
     <div class="container">
-      <h2 class="section-headline reveal">Perspective</h2>
+      <div class="eyebrow">007 · PERSPECTIVE</div>
+      <h2 class="reveal">Notes from the work.</h2>
       <div class="blog-grid stagger">
         {posts.map(post => (
           <BlogCard
@@ -109,170 +286,757 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
-  <!-- CTA Close -->
+  <!-- CTA CLOSE -->
   <section class="section cta-close">
-    <div class="container reveal">
-      <h2 class="section-headline">Ready to <span class="gradient-text">put AI to work</span>?</h2>
-      <p class="section-body">If your team is doing work that machines should be handling, we can fix that. Tell us what's slowing you down.</p>
-      <a href={url('/enquire')} class="btn-cta">Enquire</a>
+    <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -100px; left: -120px;" enterFrom="left" />
+    <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} hueA="#00E5FF" hueB="#FF2D78" style="bottom: -80px; right: -60px;" enterFrom="right" />
+
+    <div class="container cta-close-inner">
+      <h2 class="cta-headline reveal">
+        Marketing that should<br/>
+        be <span class="gradient-text">working harder</span>?
+      </h2>
+      <p class="cta-sub reveal">30-minute working session, free. We walk through where AI fits in your marketing function. If we click, we plan the next 90 days.</p>
+      <a href={url('/enquire')} class="btn-cta reveal">Book a working session</a>
     </div>
   </section>
 </Base>
 
 <style>
+  /* ============================
+     HERO
+     ============================ */
   .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-xl);
   }
 
   .hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    z-index: 3;
+    display: grid;
     gap: var(--space-md);
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+  }
+  .hero-eyebrow .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-cta-start);
+    box-shadow: 0 0 12px var(--color-cta-start);
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
   }
 
   .hero-headline {
-    max-width: 900px;
-    text-transform: uppercase;
-    font-size: var(--font-size-xl);
-    animation: hero-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 3.8s both;
+    font-size: clamp(2.75rem, 8vw, 8.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-top: var(--space-sm);
+    max-width: 1100px;
   }
 
-  @keyframes hero-fade-up {
-    from {
-      opacity: 0;
-      transform: translateY(1.5rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .hero-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: hero-line-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .hero-line-1 { animation-delay: 0.15s; }
+  /* Line 2 fades the container; chars handle their own animation */
+  .hero-line-2 {
+    animation-delay: 0.25s;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+  .hero-line-3 { animation-delay: 0.45s; }
+
+  @keyframes hero-line-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Per-character flip-in for the punchline */
+  .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(60px) rotateX(-80deg);
+    transform-origin: 50% 100% -10px;
+    backface-visibility: hidden;
+    animation: char-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(0.7s + var(--i) * 0.055s);
+    /* Apply gradient directly to each char — background-clip:text on parent
+       doesn't reach through inline-block children */
+    font-style: italic;
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  @keyframes char-in {
+    to { opacity: 1; transform: translateY(0) rotateX(0); }
+  }
+
+  .hero-italic {
+    font-style: italic;
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .hero-meta {
+    margin-top: var(--space-md);
+    max-width: 720px;
   }
 
   .hero-sub {
-    max-width: 600px;
-    color: var(--color-text-secondary);
     font-size: var(--font-size-lg);
+    color: var(--color-text);
+  }
+  .hero-sub strong {
+    font-weight: 700;
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
     margin-top: var(--space-sm);
   }
 
-  .section-headline {
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: var(--space-md);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+  }
+  .scroll-arrow {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--color-text-secondary), transparent);
+    animation: scrollHint 2s ease-in-out infinite;
+  }
+  @keyframes scrollHint {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  /* ============================
+     MARQUEE
+     ============================ */
+  .marquee-band {
+    background: var(--color-text);
+    color: var(--color-bg);
+    overflow: hidden;
+    padding-block: 1.2rem;
+    border-block: 1px solid var(--color-text);
+    position: relative;
+    z-index: 5;
+  }
+  .marquee {
+    display: flex;
+    width: max-content;
+  }
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
     text-transform: uppercase;
-    max-width: 800px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    animation: marquee 35s linear infinite;
+    padding-right: 2.5rem;
+  }
+  .marquee-dot {
+    color: var(--color-cta-start);
+    font-size: 0.6em;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
-  .section-body {
-    max-width: 700px;
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-lg);
+  /* ============================
+     FORGE — 3D type sticky focal moment
+     ============================ */
+  .forge-section {
+    position: relative;
+    height: 180vh;
+    background: linear-gradient(180deg, transparent 0%, rgba(10,10,11,0.6) 30%, rgba(10,10,11,0.6) 70%, transparent 100%);
+  }
+  .forge-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Nudge content so it visually centres in the area BELOW the fixed nav */
+    padding-top: 4.5rem;
+  }
+
+  .forge-3d-wrap {
+    perspective: 1400px;
+    pointer-events: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .forge-3d-text {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 14vw, 14rem);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #f6f0e8;
+    margin: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--forge-tiltX, 12deg)) rotateY(var(--forge-tiltY, -8deg));
+    transform-origin: 50% 60%;
+    will-change: transform;
+  }
+  .forge-line {
+    display: block;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  /* Per-letter flip-in for the Forge wordmark — triggers on intersection */
+  .fchar {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(80px) rotateX(-90deg);
+    transform-origin: 50% 100% -20px;
+    backface-visibility: hidden;
+    /* Extrusion stays per-letter so the shadows scale right */
+    text-shadow:
+      1px 1px 0 #d6275f,
+      2px 2px 0 #c0225a,
+      3px 3px 0 #aa1d54,
+      4px 4px 0 #94184e,
+      5px 5px 0 #7e1349,
+      6px 6px 0 #680e43,
+      7px 7px 0 #52093e,
+      8px 8px 0 #3c0438,
+      9px 9px 0 #260533,
+      10px 10px 0 #150128,
+      12px 12px 30px rgba(0, 0, 0, 0.8);
+    transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--i) * 0.08s);
+  }
+  .forge-3d-text.is-revealed .fchar {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+
+  /* ============================
+     FORGE body — normal section flow
+     ============================ */
+  .forge-body-section {
+    text-align: center;
+  }
+  .forge-body-section .eyebrow {
+    justify-content: center;
+    display: inline-flex;
+  }
+  .forge-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
     margin-top: var(--space-sm);
   }
-
-  .section-note {
+  .forge-copy {
+    font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
-    font-style: italic;
-    margin-top: var(--space-md);
+    max-width: 760px;
+    margin: var(--space-md) auto 0;
+    line-height: 1.55;
+  }
+  .forge-copy strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+  .forge-stats {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    max-width: 880px;
+    margin-inline: auto;
+  }
+  .forge-stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1;
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .forge-stat-label {
+    margin-top: 0.5rem;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
 
-  .section-alt {
-    background-color: rgba(29, 29, 27, 0.02);
+  @media (max-width: 768px) {
+    .forge-stats { grid-template-columns: 1fr; gap: var(--space-md); }
   }
 
-  .services-grid {
+  @media (prefers-reduced-motion: reduce) {
+    .forge-section { height: auto; }
+    .forge-sticky { position: relative; height: auto; padding-block: var(--space-2xl); display: block; }
+    .forge-3d-text { transform: none; }
+    .fchar { opacity: 1; transform: none; transition: none; }
+    .hero-line { opacity: 1; transform: none; animation: none; }
+    .char { opacity: 1; transform: none; animation: none; }
+  }
+
+  /* ============================
+     PROBLEM
+     ============================ */
+  .problem-section { overflow: hidden; position: relative; }
+  .big-statement {
+    font-size: clamp(2.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    max-width: 1100px;
+    position: relative;
+    z-index: 2;
+  }
+  .strike {
+    position: relative;
+    color: var(--color-text-muted);
+  }
+  .strike::after {
+    content: '';
+    position: absolute;
+    left: -5%;
+    right: -5%;
+    top: 50%;
+    height: 0.18em;
+    background: var(--color-cta-gradient);
+    transform: rotate(-3deg);
+  }
+  .problem-grid {
+    margin-top: var(--space-lg);
     display: grid;
     grid-template-columns: 1fr;
+    align-items: start;
     gap: var(--space-md);
-    margin-top: var(--space-md);
+    max-width: 920px;
+    position: relative;
+    z-index: 2;
+  }
+  .problem-grid .problem-copy { margin: 0; }
+  .problem-copy {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+  }
+  .problem-copy strong {
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
   }
 
-  .service-card {
-    padding: var(--space-md);
-    border: 1px solid rgba(29, 29, 27, 0.08);
-    border-radius: 4px;
-    background: var(--color-bg);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.3s ease;
+  @media (min-width: 768px) {
+    .problem-grid { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+  }
+
+  /* ============================
+     STATS
+     ============================ */
+  .stats-section { overflow: hidden; position: relative; }
+  .stats-headline {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    max-width: 1000px;
     position: relative;
+    z-index: 2;
+  }
+  .stats-grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    position: relative;
+    z-index: 2;
+  }
+  .stat-card {
+    position: relative;
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: rgba(10, 10, 11, 0.6);
+    backdrop-filter: blur(6px);
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .stat-card:hover {
+    border-color: var(--color-text);
+    transform: translateY(-4px);
+  }
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1;
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat-label {
+    margin-top: var(--space-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    max-width: 240px;
+  }
+  .stats-disclaimer {
+    margin-top: var(--space-md);
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  .mono { font-family: var(--font-mono); }
+
+  @media (min-width: 640px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+  }
+  @media (min-width: 1024px) {
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ============================
+     SERVICES
+     ============================ */
+  .services-section { overflow: hidden; position: relative; }
+  .services-grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  .service-card {
+    position: relative;
+    padding: var(--space-md);
+    background: var(--color-bg);
+    transition: background 0.3s ease;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
   }
-
   .service-card::before {
     content: '';
     position: absolute;
-    inset: -1px;
-    border-radius: 5px;
+    inset: 0;
     background: var(--color-cta-gradient);
     opacity: 0;
-    z-index: -1;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
+    z-index: 0;
   }
-
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(29, 29, 27, 0.08);
-    border-color: transparent;
-  }
-
   .service-card:hover::before {
-    opacity: 1;
+    opacity: 0.12;
   }
-
+  .service-card:hover {
+    background: var(--color-bg-alt);
+  }
+  .service-card > * { position: relative; z-index: 1; }
+  .service-num {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+  }
   .service-card h3 {
-    text-transform: uppercase;
-    margin-bottom: var(--space-xs);
+    font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+    margin-bottom: var(--space-sm);
   }
-
   .service-card p {
     color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+  }
+  .services-cta {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+  }
+  .services-note {
+    font-size: var(--font-size-lg);
+    max-width: 600px;
   }
 
+  @media (min-width: 768px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(4, 1fr); }
+    .services-cta { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+
+  /* ============================
+     LOGOS
+     ============================ */
+  .logos-section { position: relative; overflow: hidden; }
+  .logos-headline {
+    font-size: clamp(2rem, 5vw, 4rem);
+    position: relative;
+    z-index: 2;
+  }
   .logo-bar {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
-    margin-top: var(--space-md);
+    margin-top: var(--space-lg);
     align-items: center;
     justify-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .brand-mark {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+  .brand-mark:hover {
+    color: var(--color-text);
+    transform: translateY(-2px);
+  }
+  @media (min-width: 640px) {
+    .logo-bar { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .logo-bar { grid-template-columns: repeat(5, 1fr); }
   }
 
-  .brand-logo {
-    height: 2.5rem;
-    width: auto;
-    max-width: 140px;
-    object-fit: contain;
-    filter: grayscale(100%);
+  /* ============================
+     CREDIBILITY
+     ============================ */
+  .credibility-section { overflow: hidden; position: relative; }
+  .credibility-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .credibility-copy h2 {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+  }
+  .credibility-copy p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin-block: var(--space-md);
+  }
+  .credibility-mark {
+    display: flex;
+    justify-content: center;
+    color: var(--color-text-muted);
     opacity: 0.7;
-    transition: opacity 0.2s ease;
+    animation: aperture-spin 60s linear infinite;
+  }
+  @keyframes aperture-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
-  .brand-logo:hover {
-    opacity: 1;
+  @media (min-width: 900px) {
+    .credibility-grid { grid-template-columns: 1.4fr 1fr; }
   }
 
+  /* ============================
+     BLOG
+     ============================ */
   .blog-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md);
-    margin-top: var(--space-md);
+    margin-top: var(--space-lg);
+    position: relative;
+    z-index: 2;
   }
-
-  .cta-close {
-    padding-block: var(--space-xl);
-  }
-
   @media (min-width: 640px) {
-    .services-grid { grid-template-columns: 1fr 1fr; }
-    .logo-bar { grid-template-columns: repeat(3, 1fr); }
     .blog-grid { grid-template-columns: repeat(2, 1fr); }
   }
-
   @media (min-width: 1024px) {
-    .logo-bar { grid-template-columns: repeat(5, 1fr); }
     .blog-grid { grid-template-columns: repeat(3, 1fr); }
   }
+
+  /* ============================
+     CTA CLOSE
+     ============================ */
+  .cta-close {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-2xl);
+    text-align: center;
+  }
+  .cta-close-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    position: relative;
+    z-index: 2;
+  }
+  .cta-headline {
+    font-size: clamp(2rem, 6vw, 5rem);
+    max-width: 1100px;
+    line-height: 1;
+  }
+  .cta-sub {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    max-width: 540px;
+  }
+
+  /* ============================
+     RESPONSIVE TWEAKS
+     ============================ */
+  @media (max-width: 639px) {
+    .hero-headline { font-size: clamp(2.5rem, 12vw, 4rem); }
+  }
 </style>
+
+<script>
+  // Hero parallax — subtle mouse tracking on desktop
+  const parallaxEls = document.querySelectorAll<HTMLElement>('[data-parallax]');
+
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5);
+      const y = (e.clientY / window.innerHeight - 0.5);
+      parallaxEls.forEach(el => {
+        el.style.transform = `translate3d(${x * -10}px, ${y * -6}px, 0)`;
+      });
+    }, { passive: true });
+  }
+
+  // Forge section — letter reveal on intersection
+  const forgeText = document.querySelector<HTMLElement>('.forge-3d-text');
+  if (forgeText) {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          forgeText.classList.add('is-revealed');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    revealObs.observe(forgeText);
+  }
+
+  // Forge section — scroll progress (0→1) + 3D type tilt
+  const forgeSection = document.querySelector<HTMLElement>('[data-forge]');
+  const forgeTilt = document.querySelector<HTMLElement>('[data-forge-tilt]');
+  if (forgeSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let forgePending = false;
+    const updateForge = () => {
+      const rect = forgeSection.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const scrolled = -rect.top;
+      const fp = Math.max(0, Math.min(1, total > 0 ? scrolled / total : 0));
+      forgeSection.style.setProperty('--fp', fp.toFixed(4));
+      if (forgeTilt) {
+        // Tilt sweeps from 8°→22° X and -14°→4° Y as the section scrolls past
+        const tiltX = 8 + fp * 14;
+        const tiltY = -14 + fp * 18;
+        const text = forgeTilt.querySelector<HTMLElement>('.forge-3d-text');
+        if (text) {
+          text.style.setProperty('--forge-tiltX', `${tiltX.toFixed(2)}deg`);
+          text.style.setProperty('--forge-tiltY', `${tiltY.toFixed(2)}deg`);
+        }
+      }
+      forgePending = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!forgePending) {
+        forgePending = true;
+        requestAnimationFrame(updateForge);
+      }
+    }, { passive: true });
+    updateForge();
+  }
+
+  // Scroll-scale headlines — grow as they approach centre of viewport
+  const scaleEls = document.querySelectorAll<HTMLElement>('[data-scroll-scale]');
+  if (scaleEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let scalePending = false;
+    const updateScale = () => {
+      const vh = window.innerHeight;
+      scaleEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // 0 when element is well below viewport, 1 at centre, back to 0 above
+        const centre = rect.top + rect.height / 2;
+        const dist = Math.abs(centre - vh / 2) / vh; // 0..1+ where 0 is centred
+        const t = Math.max(0, 1 - dist * 1.4);
+        // Scale from 0.78 (off-centre) to 1 (centred)
+        const s = 0.78 + t * 0.22;
+        el.style.transform = `scale(${s.toFixed(3)})`;
+      });
+      scalePending = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!scalePending) {
+        scalePending = true;
+        requestAnimationFrame(updateScale);
+      }
+    }, { passive: true });
+    updateScale();
+  }
+</script>

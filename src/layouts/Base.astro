@@ -130,6 +130,46 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
       counters.forEach(el => counterObserver.observe(el));
     }
+
+    // Focus objects — scroll-driven rotation + entrance observer
+    const focusObjects = document.querySelectorAll<HTMLElement>('[data-scroll-spin]');
+    if (focusObjects.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Entrance observer
+      const enterObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('has-entered');
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
+      focusObjects.forEach(el => enterObs.observe(el));
+
+      // Scroll-driven rotation — single rAF, no per-element scroll listener
+      const items = [...focusObjects].map(el => {
+        const mult = parseFloat(el.style.getPropertyValue('--scrollSpin') || el.getAttribute('data-scroll-spin') || '60');
+        return { el, mult: isNaN(mult) ? 60 : mult };
+      });
+
+      let pending = false;
+      const update = () => {
+        const sy = window.scrollY;
+        for (const it of items) {
+          // base rotation = scroll-y * mult / 1000 in degrees
+          const rot = (sy * it.mult) / 1000;
+          it.el.style.setProperty('--scroll-rot', `${rot}deg`);
+        }
+        pending = false;
+      };
+      window.addEventListener('scroll', () => {
+        if (!pending) {
+          pending = true;
+          requestAnimationFrame(update);
+        }
+      }, { passive: true });
+      update();
+    } else if (focusObjects.length > 0) {
+      // reduced-motion: just reveal without animation
+      focusObjects.forEach(el => el.classList.add('has-entered'));
+    }
+
   </script>
 </body>
 </html>

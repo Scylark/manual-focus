@@ -1,68 +1,310 @@
 ---
 import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
+import FocusObject from '../components/FocusObject.astro';
 import { url } from '../utils/paths';
 ---
-<Base title="About" description="Manual Focus. An AI-powered agency for sales, marketing, and ecommerce teams.">
-  <SEOHead slot="seo" type="profile" title="About" description="Manual Focus. An AI-powered agency for sales, marketing, and ecommerce teams." />
+<Base title="About" description="Manual Focus. A marketing collective. Owned. Earned. Paid. Augmented.">
+  <SEOHead slot="seo" type="profile" title="About" description="Manual Focus. A marketing collective. Owned. Earned. Paid. Augmented." />
 
-  <section class="section">
-    <div class="container prose reveal">
-      <h1>Two circles. One intersection.<br />That's where we work.</h1>
-      <p class="lead">The Manual Focus logo is two circles drifting into alignment. They represent the point where emerging technology meets the markets it changes. AI changing how people find products. Blockchain altering how trust works. New platforms creating new rules. The overlap is where clarity lives. That's where we work.</p>
+  <!-- HERO -->
+  <section class="about-hero">
+    <FocusObject size={300} tiltX={62} tiltY={-18} spin={120} scrollSpin={90} style="top: 4vh; right: 4vw;" />
+
+    <div class="container about-hero-inner">
+      <div class="eyebrow">001 · ABOUT</div>
+      <h1 class="about-headline" style="font-size: clamp(2.5rem, 6.5vw, 6rem); line-height: 0.95; letter-spacing: -0.02em; margin-top: var(--space-md); max-width: 900px;">
+        Two circles.<br/>
+        One <span class="gradient-text">intersection.</span><br/>
+        That's where we work.
+      </h1>
+      <p class="about-lead">
+        The Manual Focus mark shows two circles drifting into alignment, marking the point
+        where emerging technology meets the markets it changes. AI is changing how people
+        find products, digital assets are altering how trust works, and new platforms keep
+        creating new rules. The <strong>Foundry</strong>, our collective, and the
+        <strong>Forge</strong>, the AI toolkit it built, meet at the same overlap.
+      </p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2 class="reveal">Who's behind it</h2>
-      <div class="reveal">
-        <p>Manual Focus was founded by James Vickers, who has spent over a decade leading sales, marketing, and growth across emerging tech sectors. He co-founded a virtual cycling platform that grew to 350,000 users before being acquired by Wahoo Fitness, led marketing for a $200M privacy-focused stablecoin, and now advises AI-powered wealth managers. He's entered these markets before mainstream adoption, every time.</p>
-        <p>He's led B2B and B2C teams, shipped products, and driven measurable results across AI, Web3, fintech, and hardware. Not from the sidelines. From inside the organisations doing the work.</p>
+  <!-- WHO'S BEHIND IT -->
+  <section class="about-section section-alt">
+    <FocusObject size={220} tiltX={50} tiltY={20} spin={-110} scrollSpin={-80} hueA="#00E5FF" hueB="#FF2D78" style="bottom: -40px; left: -40px;" enterFrom="left" />
+
+    <div class="container about-grid">
+      <div class="about-grid-side">
+        <div class="eyebrow">002 · THE COLLECTIVE</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 3.75rem); line-height: 0.98; margin-top: var(--space-xs);">Who's<br/>behind&nbsp;it.</h2>
       </div>
-
-      <h2 class="reveal">The numbers</h2>
-      <ul class="stats-list stagger">
-        <li><strong data-counter="350k" data-counter-prefix="19k → ">19k → 350k</strong> registered users at RGT Cycling</li>
-        <li><strong data-counter="45" data-counter-prefix="NPS: -65 → +">NPS: -65 → +45</strong> brand turnaround</li>
-        <li><strong data-counter="160+">160+</strong> media placements for a single product launch</li>
-        <li><strong data-counter="95" data-counter-prefix="Brand recall: 0 → ">Brand recall: 0 → 95</strong> (prompted)</li>
-        <li><strong data-counter="45%" data-counter-prefix="20% → ">20% → 45%</strong> conversion rate improvement</li>
-        <li><strong data-counter="2.2M+" data-counter-prefix="">2.2M+</strong> sessions driven to platform</li>
-      </ul>
-
-      <h2 class="reveal">Why Manual Focus exists</h2>
-      <div class="reveal">
-        <p>A new foundation model drops every week. A new AI tool launches every day. Most teams struggle to prioritise amid the constant releases. Some freeze. Others chase everything. Neither works.</p>
-        <p>Manual Focus exists because the hard problem isn't access to tools. It's knowing which ones matter, when to use them, and how to wire them into your sales, marketing, and ecommerce operations so they produce results. We use these tools daily. We test the models. We know what works and what's noise. That's what we bring: clarity and execution, without the overhead of a full-time hire.</p>
+      <div class="about-grid-body">
+        <p>
+          Manual Focus is led by <strong>James Vickers</strong>, who has spent over a decade
+          running sales, marketing and growth across emerging tech sectors. He co-founded a
+          virtual cycling platform that grew to 350,000 users before being acquired by Wahoo
+          Fitness, led marketing for a $200M privacy-focused digital asset, and now advises
+          AI-powered wealth managers. He has a habit of arriving in these markets before
+          mainstream adoption does.
+        </p>
+        <p>
+          Around him, the Foundry brings operators who've led B2B and B2C teams across AI,
+          digital assets, fintech and hardware. We ship products, run campaigns and drive
+          measurable results from inside the organisations doing the work, not from the
+          sidelines. The Forge, our shared AI toolkit, keeps the cycle short.
+        </p>
       </div>
+    </div>
+  </section>
 
-      <a href={url('/enquire')} class="btn-cta reveal" style="margin-top: var(--space-lg);">Start a conversation</a>
+  <!-- NUMBERS -->
+  <section class="about-section">
+    <FocusObject size={260} tiltX={60} tiltY={-15} spin={140} scrollSpin={120} style="top: -40px; right: -40px;" enterFrom="right" />
+
+    <div class="container">
+      <div class="eyebrow">003 · THE NUMBERS</div>
+      <h2 class="about-h2 reveal" style="font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 0.98; max-width: 900px;">A track record.<br/><span class="gradient-text">Not a pitch deck.</span></h2>
+      <div class="numbers-grid stagger">
+        <div class="number-card">
+          <div class="number-value"><span class="num-prefix">19k →</span><span class="num-main">350k</span></div>
+          <div class="number-label">registered users at RGT Cycling</div>
+        </div>
+        <div class="number-card">
+          <div class="number-value"><span class="num-prefix">−65 →</span><span class="num-main">+45</span></div>
+          <div class="number-label">NPS brand turnaround</div>
+        </div>
+        <div class="number-card">
+          <div class="number-value"><span class="num-main">160+</span></div>
+          <div class="number-label">media placements, single product launch</div>
+        </div>
+        <div class="number-card">
+          <div class="number-value"><span class="num-prefix">0 →</span><span class="num-main">95</span></div>
+          <div class="number-label">brand recall, prompted</div>
+        </div>
+        <div class="number-card">
+          <div class="number-value"><span class="num-prefix">20% →</span><span class="num-main">45%</span></div>
+          <div class="number-label">conversion rate improvement</div>
+        </div>
+        <div class="number-card">
+          <div class="number-value"><span class="num-main">2.2M+</span></div>
+          <div class="number-label">sessions driven to platform</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="about-section section-alt">
+    <div class="container about-grid">
+      <div class="about-grid-side">
+        <div class="eyebrow">004 · WHY WE EXIST</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 3.75rem); line-height: 0.98; margin-top: var(--space-xs);">Tools change<br/>weekly.<br/><span class="gradient-text">Craft doesn't.</span></h2>
+      </div>
+      <div class="about-grid-body">
+        <p>
+          A new foundation model drops every week and a new AI tool launches every day, so
+          most teams struggle to prioritise amid the constant releases. Some freeze, others
+          chase everything, and neither approach works.
+        </p>
+        <p>
+          Manual Focus exists because the hard problem isn't access to tools, it's knowing
+          which ones matter, when to use them, and how to wire them into your owned, earned
+          and paid channels so they actually produce results. We use these tools daily, we
+          test the models and we know what's signal and what's noise. We bring marketing
+          craft executed at platform speed, without the overhead of a full-time hire.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <div class="container about-cta-inner">
+      <h2 class="about-cta-headline" style="font-size: clamp(1.75rem, 5vw, 4rem); line-height: 1; max-width: 900px;">
+        Marketing that should<br/>be <span class="gradient-text">working harder</span>?
+      </h2>
+      <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Start a conversation</a>
     </div>
   </section>
 </Base>
 
 <style>
-  .lead {
+  /* ============================
+     HERO
+     ============================ */
+  .about-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-xl) var(--space-lg);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .about-hero-inner {
+    position: relative;
+    z-index: 3;
+    max-width: 980px;
+  }
+
+  .about-headline {
+    font-size: clamp(2.5rem, 6.5vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-top: var(--space-md);
+    max-width: 900px;
+  }
+
+  .about-lead {
+    margin-top: var(--space-md);
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
+    max-width: 680px;
+    line-height: 1.55;
   }
 
-  .stats-list {
-    list-style: none;
+  /* ============================
+     SECTIONS
+     ============================ */
+  .about-section {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-xl);
+  }
+
+  .about-h2 {
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 0.98;
+    max-width: 900px;
+  }
+
+  .about-grid {
     display: grid;
-    gap: var(--space-sm);
-    margin-top: var(--space-sm);
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+    position: relative;
+    z-index: 2;
   }
 
-  .stats-list li {
+  .about-grid-side h2 {
+    font-size: clamp(2rem, 4vw, 3.75rem);
+    line-height: 0.98;
+    margin-top: var(--space-xs);
+  }
+
+  .about-grid-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 640px;
+  }
+
+  .about-grid-body p {
     font-size: var(--font-size-lg);
-    padding: var(--space-sm) 0;
-    border-bottom: 1px solid rgba(29, 29, 27, 0.08);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
   }
 
-  .stats-list strong {
-    display: block;
-    font-size: var(--font-size-xl);
+  .about-grid-body strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+  .about-lead strong {
+    font-weight: 700;
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (min-width: 900px) {
+    .about-grid { grid-template-columns: 1fr 1.4fr; gap: var(--space-2xl); }
+  }
+
+  /* ============================
+     NUMBERS
+     ============================ */
+  .numbers-grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    position: relative;
+    z-index: 2;
+  }
+
+  .number-card {
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: rgba(10, 10, 11, 0.5);
+    backdrop-filter: blur(4px);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .number-card:hover {
+    border-color: var(--color-text);
+    transform: translateY(-3px);
+  }
+
+  .number-value {
+    font-family: var(--font-display);
+    line-height: 0.95;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  .num-prefix {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    color: var(--color-text-muted);
+    letter-spacing: -0.02em;
+  }
+
+  .num-main {
+    font-size: clamp(2.75rem, 4.5vw, 4rem);
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+  }
+
+  .number-label {
+    margin-top: var(--space-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: 1.4;
+  }
+
+  @media (min-width: 640px) {
+    .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+  }
+  @media (min-width: 1024px) {
+    .numbers-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ============================
+     CTA
+     ============================ */
+  .about-cta {
+    padding-block: var(--space-2xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-cta-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .about-cta-headline {
+    font-size: clamp(1.75rem, 5vw, 4rem);
+    line-height: 1;
+    max-width: 900px;
   }
 </style>
