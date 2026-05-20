@@ -579,7 +579,7 @@ const posts = (await getCollection('blog'))
     color: #f6f0e8;
     margin: 0;
     transform-style: preserve-3d;
-    transform: rotateX(var(--forge-tiltX, 12deg)) rotateY(var(--forge-tiltY, -8deg));
+    transform: rotateX(var(--forge-tiltX, 18deg)) rotateY(var(--forge-tiltY, -14deg));
     transform-origin: 50% 60%;
     will-change: transform;
   }
@@ -596,19 +596,36 @@ const posts = (await getCollection('blog'))
     transform: translateY(80px) rotateX(-90deg);
     transform-origin: 50% 100% -20px;
     backface-visibility: hidden;
-    /* Extrusion stays per-letter so the shadows scale right */
+    /* Deep extrusion: 24 layers stepping into shadow, with edge highlight
+       on the front face and a diffused ground shadow at the base. */
     text-shadow:
-      1px 1px 0 #d6275f,
-      2px 2px 0 #c0225a,
-      3px 3px 0 #aa1d54,
-      4px 4px 0 #94184e,
-      5px 5px 0 #7e1349,
-      6px 6px 0 #680e43,
-      7px 7px 0 #52093e,
-      8px 8px 0 #3c0438,
-      9px 9px 0 #260533,
-      10px 10px 0 #150128,
-      12px 12px 30px rgba(0, 0, 0, 0.8);
+      /* Top-left edge highlight on the front face */
+      -1px -1px 0 rgba(255, 255, 255, 0.18),
+      /* Extruded depth — 24 layers, pink fading to deep purple-black */
+      1px 1px 0 #e02862,
+      2px 2px 0 #d2255b,
+      3px 3px 0 #c52255,
+      4px 4px 0 #b81f4e,
+      5px 5px 0 #ab1c47,
+      6px 6px 0 #9e1941,
+      7px 7px 0 #91163a,
+      8px 8px 0 #841333,
+      9px 9px 0 #77102d,
+      10px 10px 0 #6a0d26,
+      11px 11px 0 #5d0a20,
+      12px 12px 0 #500819,
+      13px 13px 0 #430613,
+      14px 14px 0 #36040d,
+      15px 15px 0 #290208,
+      16px 16px 0 #1c0104,
+      17px 17px 0 #100002,
+      18px 18px 0 #060001,
+      /* Atmospheric blur on the deepest layers */
+      19px 19px 1px rgba(0, 0, 0, 0.9),
+      20px 20px 2px rgba(0, 0, 0, 0.85),
+      22px 22px 6px rgba(0, 0, 0, 0.7),
+      /* Diffuse ground shadow */
+      26px 36px 50px rgba(0, 0, 0, 0.85);
     transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: calc(var(--i) * 0.08s);
@@ -1152,9 +1169,10 @@ const posts = (await getCollection('blog'))
       const fp = Math.max(0, Math.min(1, total > 0 ? scrolled / total : 0));
       forgeSection.style.setProperty('--fp', fp.toFixed(4));
       if (forgeTilt) {
-        // Tilt sweeps from 8°→22° X and -14°→4° Y as the section scrolls past
-        const tiltX = 8 + fp * 14;
-        const tiltY = -14 + fp * 18;
+        // Tilt sweeps wider for a more dramatic 3D rotation as you scroll.
+        // X: 14°→32°. Y: -22°→10°.
+        const tiltX = 14 + fp * 18;
+        const tiltY = -22 + fp * 32;
         const text = forgeTilt.querySelector<HTMLElement>('.forge-3d-text');
         if (text) {
           text.style.setProperty('--forge-tiltX', `${tiltX.toFixed(2)}deg`);
