@@ -290,34 +290,7 @@ const posts = (await getCollection('blog'))
           {/* TODO: replace href with the Foundry website URL once available */}
           <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
         </div>
-        <aside class="credibility-mark" aria-label="At a glance">
-          <div class="sig-card">
-            <div class="sig-row">
-              <span class="sig-key mono">EST.</span>
-              <span class="sig-val">2025 · London</span>
-            </div>
-            <div class="sig-row">
-              <span class="sig-key mono">LED&nbsp;BY</span>
-              <span class="sig-val">James Vickers</span>
-            </div>
-            <div class="sig-row">
-              <span class="sig-key mono">TENURE</span>
-              <span class="sig-val">15+ years senior marketing</span>
-            </div>
-            <div class="sig-row">
-              <span class="sig-key mono">DEPTH</span>
-              <span class="sig-val">Endurance · Sports · AI · Fintech · Digital&nbsp;assets</span>
-            </div>
-            <div class="sig-row">
-              <span class="sig-key mono">SHIPPED</span>
-              <span class="sig-val">RGT&nbsp;Cycling 19k&nbsp;→&nbsp;350k users, Wahoo acquisition</span>
-            </div>
-            <div class="sig-row sig-row-cta">
-              <span class="sig-key mono">NOW</span>
-              <span class="sig-val"><a href={url('/enquire')}>Booking working sessions →</a></span>
-            </div>
-          </div>
-        </aside>
+        <div class="credibility-mark" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -1054,59 +1027,6 @@ const posts = (await getCollection('blog'))
     position: relative;
     min-height: 1rem;
   }
-  /* Editorial signature card — at-a-glance credentials beside the bio */
-  .sig-card {
-    border: 1px solid var(--color-line);
-    border-radius: 6px;
-    padding: var(--space-md);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.4));
-    backdrop-filter: blur(8px);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    position: relative;
-    overflow: hidden;
-  }
-  .sig-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--color-cta-gradient);
-    opacity: 0.7;
-  }
-  .sig-row {
-    display: grid;
-    grid-template-columns: 5.5rem 1fr;
-    gap: var(--space-sm);
-    align-items: baseline;
-    padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--color-line);
-  }
-  .sig-row:last-child { border-bottom: 0; padding-bottom: 0; }
-  .sig-key {
-    font-size: 0.6875rem;
-    letter-spacing: 0.14em;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-  }
-  .sig-val {
-    font-size: 0.95rem;
-    color: var(--color-text);
-    line-height: 1.4;
-  }
-  .sig-row-cta .sig-val a {
-    background: var(--color-cta-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.2s ease;
-  }
-  .sig-row-cta .sig-val a:hover { opacity: 0.8; }
 
   @media (min-width: 900px) {
     .credibility-grid { grid-template-columns: 1.3fr 1fr; }
