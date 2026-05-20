@@ -138,8 +138,9 @@ const posts = (await getCollection('blog'))
           <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
         </article>
 
-        <article class="way-card">
+        <article class="way-card way-card-featured">
           <div class="way-num mono">/02 · FRACTIONAL CMO</div>
+          <span class="way-flag mono">MOST CHOSEN</span>
           <h3>Embedded senior marketer</h3>
           <p class="way-for">For companies that need senior marketing leadership without a full-time hire.</p>
           <ul class="way-list">
@@ -190,7 +191,7 @@ const posts = (await getCollection('blog'))
   <section class="section forge-body-section">
     <div class="container">
       <div class="eyebrow">003 · WHY THE AI STAYS SHARP</div>
-      <h3 class="forge-headline">The <span class="gradient-text">Forge</span> keeps me current.</h3>
+      <h3 class="forge-headline">The <span class="gradient-text">Forge</span> keeps us current.</h3>
       <p class="forge-copy">
         We're part of a collective of senior operators called the Foundry. The Foundry shares
         AI tooling through a platform called the Forge. That's why we ship at machine speed,
@@ -223,19 +224,19 @@ const posts = (await getCollection('blog'))
       <h2 class="stats-headline reveal">More marketing output, in a fraction of the time.</h2>
       <div class="stats-grid stagger">
         <div class="stat-card">
-          <div class="stat-value" data-counter="4x" data-counter-prefix="">~x</div>
+          <div class="stat-value" data-counter="4x" data-counter-prefix="">0x</div>
           <div class="stat-label">faster brief-to-live, on average</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value" data-counter="3" data-counter-prefix="">~</div>
+          <div class="stat-value" data-counter="3" data-counter-prefix="">0</div>
           <div class="stat-label">channels covered (owned, earned and paid) from day one</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value" data-counter="60%" data-counter-prefix="">~~%</div>
-          <div class="stat-label">less time on production. More on strategy.</div>
+          <div class="stat-value" data-counter="60%" data-counter-prefix="">0%</div>
+          <div class="stat-label">less time on production, more on strategy</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value" data-counter="50+" data-counter-prefix="">~~+</div>
+          <div class="stat-value" data-counter="50+" data-counter-prefix="">0+</div>
           <div class="stat-label">years of marketing experience, combined</div>
         </div>
       </div>
@@ -251,15 +252,15 @@ const posts = (await getCollection('blog'))
       <div class="eyebrow">005 · IN THE WILD</div>
       <h2 class="reveal logos-headline">Endurance and sports brands we've shipped with.</h2>
       <div class="logo-bar stagger">
-        <span class="brand-mark">Classified</span>
-        <span class="brand-mark">Wahoo</span>
-        <span class="brand-mark">Wattbike</span>
-        <span class="brand-mark">Ribble</span>
-        <span class="brand-mark">RGT</span>
-        <span class="brand-mark">motif AI</span>
-        <span class="brand-mark">Muuvr</span>
-        <span class="brand-mark">Planet X</span>
-        <span class="brand-mark">Pelotan</span>
+        <span class="brand-mark brand-display">Classified</span>
+        <span class="brand-mark brand-serif">Wahoo</span>
+        <span class="brand-mark brand-display">Wattbike</span>
+        <span class="brand-mark brand-mono">Ribble</span>
+        <span class="brand-mark brand-display">RGT</span>
+        <span class="brand-mark brand-serif">motif <em>AI</em></span>
+        <span class="brand-mark brand-mono">Muuvr</span>
+        <span class="brand-mark brand-display">Planet X</span>
+        <span class="brand-mark brand-serif">Pelotan</span>
       </div>
       <p class="logos-note reveal">And further afield in AI, fintech, sports tech, hardware and digital assets.</p>
     </div>
@@ -289,7 +290,34 @@ const posts = (await getCollection('blog'))
           {/* TODO: replace href with the Foundry website URL once available */}
           <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
         </div>
-        <div class="credibility-mark" aria-hidden="true"></div>
+        <aside class="credibility-mark" aria-label="At a glance">
+          <div class="sig-card">
+            <div class="sig-row">
+              <span class="sig-key mono">EST.</span>
+              <span class="sig-val">2025 · London</span>
+            </div>
+            <div class="sig-row">
+              <span class="sig-key mono">LED&nbsp;BY</span>
+              <span class="sig-val">James Vickers</span>
+            </div>
+            <div class="sig-row">
+              <span class="sig-key mono">TENURE</span>
+              <span class="sig-val">15+ years senior marketing</span>
+            </div>
+            <div class="sig-row">
+              <span class="sig-key mono">DEPTH</span>
+              <span class="sig-val">Endurance · Sports · AI · Fintech · Digital&nbsp;assets</span>
+            </div>
+            <div class="sig-row">
+              <span class="sig-key mono">SHIPPED</span>
+              <span class="sig-val">RGT&nbsp;Cycling 19k&nbsp;→&nbsp;350k users, Wahoo acquisition</span>
+            </div>
+            <div class="sig-row sig-row-cta">
+              <span class="sig-key mono">NOW</span>
+              <span class="sig-val"><a href={url('/enquire')}>Booking working sessions →</a></span>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -416,6 +444,11 @@ const posts = (await getCollection('blog'))
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    /* Extend the padding box past the italic glyph's top-right overhang so the
+       gradient covers the full letter instead of clipping at the box edge.
+       Negative margin-right keeps letter spacing visually identical. */
+    padding-right: 0.18em;
+    margin-right: -0.18em;
   }
   @keyframes char-in {
     to { opacity: 1; transform: translateY(0) rotateX(0); }
@@ -823,11 +856,38 @@ const posts = (await getCollection('blog'))
     transition: opacity 0.4s ease;
     z-index: 0;
   }
-  .way-card:hover::before {
-    opacity: 0.08;
+  /* Hairline gradient accent that draws in on hover from the top edge */
+  .way-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    height: 2px;
+    background: var(--color-cta-gradient);
+    transition: right 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 2;
   }
-  .way-card:hover {
-    background: var(--color-bg-alt);
+  .way-card:hover::before { opacity: 0.06; }
+  .way-card:hover::after { right: 0; }
+  .way-card:hover { background: var(--color-bg-alt); }
+  .way-card:hover .way-cta { transform: translateX(4px); }
+  .way-cta { transition: transform 0.3s ease; }
+
+  /* Featured tier — Fractional CMO */
+  .way-card-featured::after { right: 0; }
+  .way-flag {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--color-cta-start);
+    color: var(--color-cta-start);
+    border-radius: 999px;
+    z-index: 2;
+    background: rgba(255, 45, 120, 0.06);
   }
   .way-card > * { position: relative; z-index: 1; }
   .way-num {
@@ -928,17 +988,39 @@ const posts = (await getCollection('blog'))
     z-index: 2;
   }
   .brand-mark {
-    font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
     color: var(--color-text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
     transition: color 0.3s ease, transform 0.3s ease;
     cursor: default;
+    line-height: 1;
   }
   .brand-mark:hover {
     color: var(--color-text);
     transform: translateY(-2px);
+  }
+  /* Each brand gets a different typographic treatment so the wall reads as
+     a collection of brands rather than a uniform text list. */
+  .brand-display {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .brand-serif {
+    font-family: 'Inter', serif;
+    font-weight: 300;
+    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+    letter-spacing: -0.01em;
+  }
+  .brand-serif em {
+    font-style: italic;
+    font-weight: 500;
+  }
+  .brand-mono {
+    font-family: var(--font-mono);
+    font-size: clamp(0.875rem, 1.2vw, 1.05rem);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
   }
   @media (min-width: 640px) {
     .logo-bar { grid-template-columns: repeat(3, 1fr); }
@@ -972,6 +1054,59 @@ const posts = (await getCollection('blog'))
     position: relative;
     min-height: 1rem;
   }
+  /* Editorial signature card — at-a-glance credentials beside the bio */
+  .sig-card {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-md);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.4));
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  .sig-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+    opacity: 0.7;
+  }
+  .sig-row {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: var(--space-sm);
+    align-items: baseline;
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .sig-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .sig-key {
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+  }
+  .sig-val {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+  .sig-row-cta .sig-val a {
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .sig-row-cta .sig-val a:hover { opacity: 0.8; }
 
   @media (min-width: 900px) {
     .credibility-grid { grid-template-columns: 1.3fr 1fr; }
