@@ -288,34 +288,7 @@ const posts = (await getCollection('blog'))
           {/* TODO: replace href with the Foundry website URL once available */}
           <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
         </div>
-        <div class="credibility-mark">
-          <ol class="career-timeline stagger">
-            <li class="career-milestone">
-              <span class="career-dot" aria-hidden="true"></span>
-              <div class="career-year mono">NOW</div>
-              <div class="career-headline">Advising AI wealth managers</div>
-              <div class="career-detail">Marketing thesis and go-to-market for an AI-powered wealth platform.</div>
-            </li>
-            <li class="career-milestone">
-              <span class="career-dot" aria-hidden="true"></span>
-              <div class="career-year mono">2022</div>
-              <div class="career-headline">Wahoo acquires RGT</div>
-              <div class="career-detail">Co-founded RGT Cycling, scaled it from 19k to 350k riders, sold to Wahoo Fitness.</div>
-            </li>
-            <li class="career-milestone">
-              <span class="career-dot" aria-hidden="true"></span>
-              <div class="career-year mono">2019</div>
-              <div class="career-headline">$200M launch</div>
-              <div class="career-detail">Led marketing for a privacy-focused digital asset from pre-launch to live.</div>
-            </li>
-            <li class="career-milestone">
-              <span class="career-dot" aria-hidden="true"></span>
-              <div class="career-year mono">EARLIER</div>
-              <div class="career-headline">Brand, demand, growth</div>
-              <div class="career-detail">Senior marketing roles across emerging tech: AI, fintech, hardware, sports tech.</div>
-            </li>
-          </ol>
-        </div>
+        <div class="credibility-mark" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -996,78 +969,7 @@ const posts = (await getCollection('blog'))
   }
   .credibility-mark {
     position: relative;
-    padding-top: var(--space-sm);
-  }
-
-  /* Career timeline */
-  .career-timeline {
-    list-style: none;
-    padding: 0 0 0 1.5rem;
-    margin: 0;
-    position: relative;
-  }
-  .career-timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px;
-    bottom: 10px;
-    width: 2px;
-    background: linear-gradient(180deg,
-      var(--color-cta-start) 0%,
-      var(--color-cta-mid) 50%,
-      var(--color-cta-end) 100%);
-    border-radius: 1px;
-  }
-  .career-milestone {
-    position: relative;
-    margin-bottom: var(--space-lg);
-  }
-  .career-milestone:last-child { margin-bottom: 0; }
-
-  .career-dot {
-    position: absolute;
-    left: calc(-1.5rem - 7px);
-    top: 6px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--color-bg);
-    border: 2px solid var(--color-cta-start);
-    box-shadow: 0 0 12px rgba(255, 45, 120, 0.5);
-    z-index: 1;
-    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-  }
-  .career-milestone:nth-child(2) .career-dot { border-color: var(--color-cta-mid); box-shadow: 0 0 12px rgba(192, 38, 211, 0.5); }
-  .career-milestone:nth-child(3) .career-dot { border-color: var(--color-cta-end); box-shadow: 0 0 12px rgba(0, 229, 255, 0.5); }
-  .career-milestone:nth-child(4) .career-dot {
-    border-color: var(--color-text-muted);
-    box-shadow: 0 0 8px rgba(74, 72, 69, 0.3);
-  }
-  .career-milestone:hover .career-dot {
-    transform: scale(1.2);
-  }
-
-  .career-year {
-    font-size: 0.7rem;
-    color: var(--color-text-secondary);
-    letter-spacing: 0.2em;
-    margin-bottom: 0.4rem;
-  }
-  .career-headline {
-    font-family: var(--font-display);
-    font-size: clamp(1.25rem, 1.8vw, 1.75rem);
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    line-height: 1.05;
-    color: var(--color-text);
-    margin-bottom: 0.5rem;
-  }
-  .career-detail {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
-    max-width: 360px;
+    min-height: 1rem;
   }
 
   @media (min-width: 900px) {
