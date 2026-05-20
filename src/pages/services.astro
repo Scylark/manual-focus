@@ -3,101 +3,106 @@ import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
 ---
-<Base title="Services" description="AI agent teams for sales, marketing, and ecommerce. Manual Focus puts AI to work across your operation.">
-  <SEOHead slot="seo" type="website" title="Services" description="AI agent teams for sales, marketing, and ecommerce. Manual Focus puts AI to work across your operation." />
+<Base title="Services" description="Three ways to work with Manual Focus: Strategic Advisor, Fractional CMO, or Build & Hand Over. A senior marketer shipping at AI speed.">
+  <SEOHead slot="seo" type="website" title="Services" description="Three ways to work with Manual Focus: Strategic Advisor, Fractional CMO, or Build & Hand Over. A senior marketer shipping at AI speed." />
 
   <section class="section">
     <div class="container reveal">
-      <h1>What we build for you</h1>
-      <p class="lead">We install AI systems across your sales, marketing, and ecommerce operations. Agent teams that handle outreach, produce content, manage listings, optimise your site, and report back with results. Your team focuses on strategy and revenue instead.</p>
+      <div class="eyebrow">SERVICES</div>
+      <h1>How we work together</h1>
+      <p class="lead">Three ways to hire me. Same person, same skill stack, different depth of engagement. Pick the one that fits where you are.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="service-detail reveal">
-        <h2>AI agent teams</h2>
-        <p class="service-for">For sales, marketing, and ecommerce teams buried in operational work.</p>
-        <p>We build and deploy AI agents that handle the load your team shouldn't be carrying. Lead qualification, content drafting, listing updates, competitor monitoring, data reporting, outreach sequences. We build agents for each workflow, integrate with your existing tools, and activate them.</p>
-        <h3>What this looks like</h3>
-        <ul>
-          <li>Custom agent teams built around your specific workflows</li>
-          <li>Agents connected to your CMS, CRM, ecommerce platform, analytics, and ad accounts</li>
-          <li>Automated content drafting, review pipelines, and publishing</li>
-          <li>Sales outreach and follow-up agents that work your pipeline</li>
-          <li>Ecommerce agents that sync listings, pricing, and inventory across channels</li>
-          <li>Reporting agents that pull, summarise, and distribute performance data</li>
-          <li>Ongoing tuning as your operation evolves</li>
-        </ul>
-        <h3>What this is not</h3>
-        <p>These aren't chatbots or GPT wrappers bolted onto your website. They're purpose-built agents that integrate into your workflows and systems.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about AI agent teams</a>
-      </div>
-    </div>
-  </section>
-
+  <!-- Strategic Advisor -->
   <section class="section section-alt">
     <div class="container">
       <div class="service-detail reveal">
-        <h2>Sales and pipeline automation</h2>
-        <p class="service-for">For B2B and B2C sales teams that lose hours to admin instead of selling.</p>
-        <p>We build AI agents that work your sales pipeline. Lead scoring, outreach sequences, follow-up cadences, proposal generation, CRM hygiene. Your reps spend more time in conversations and less time copying data between tabs.</p>
+        <div class="service-tag mono">/01 · STRATEGIC ADVISOR</div>
+        <h2>The senior voice in the room</h2>
+        <p class="service-for">For companies with a marketing team but no senior leader running it.</p>
+        <p>You have people doing the work. What you don't have is someone senior calling the shots, reviewing the output and asking the harder questions. We sit alongside the team for a handful of sessions a month, giving you the strategic input of a CMO without the cost or commitment of one.</p>
+
         <h3>What this looks like</h3>
         <ul>
-          <li>AI lead scoring and qualification from inbound and outbound sources</li>
-          <li>Automated outreach sequences personalised to each prospect</li>
-          <li>Follow-up agents that re-engage stale leads on a schedule</li>
-          <li>CRM updates, deal tracking, and pipeline reporting without manual entry</li>
-          <li>Proposal and quote generation from templates and deal data</li>
-          <li>B2C agents for cart recovery, post-purchase flows, and loyalty triggers</li>
+          <li>Weekly or fortnightly working sessions on what to do next</li>
+          <li>Reviews of campaigns, content and creative before they ship</li>
+          <li>Quarterly planning and priority-setting with the team</li>
+          <li>Hiring and team-shape advice as you grow the function</li>
+          <li>Direct line between sessions for the calls that won't wait</li>
         </ul>
+
         <h3>What this is not</h3>
-        <p>We don't replace your sales team. We remove the admin that keeps them from doing what they're good at. Every agent is built around your process, not a generic template.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about sales automation</a>
+        <p>We won't run your team for you, ship the work on your behalf, or sit in every meeting. This is senior input on a part-time cadence, not embedded leadership.</p>
+
+        <p class="service-shape mono">Shape · 1–2 days a month. Day rate or monthly retainer.</p>
+        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Book a session</a>
       </div>
     </div>
   </section>
 
+  <!-- Fractional CMO -->
   <section class="section">
     <div class="container">
       <div class="service-detail reveal">
-        <h2>Ecommerce operations</h2>
-        <p class="service-for">For ecommerce teams managing products, listings, and orders across multiple channels.</p>
-        <p>We automate the operational side of ecommerce: product listings generated from specs, images processed and resized for every platform, inventory synced across channels, and catalogue updates batched and pushed without manual effort.</p>
+        <div class="service-tag mono">/02 · FRACTIONAL CMO</div>
+        <h2>Embedded senior marketer</h2>
+        <p class="service-for">For companies that need senior marketing leadership without a full-time hire.</p>
+        <p>We embed in your leadership team. We set the marketing thesis, build the plan, lead the people you already have, and ship the pieces of the plan that need senior hands. AI is the leverage that lets a small team move like a much larger one. You get the seniority of a CMO at a fraction of the cost, with execution shipped alongside the strategy.</p>
+
         <h3>What this looks like</h3>
         <ul>
-          <li>Automated product description and listing generation from source data</li>
-          <li>Multi-channel sync (website, Amazon, eBay, marketplace feeds) from one source</li>
-          <li>AI image processing: background removal, resizing, colour correction, format conversion</li>
-          <li>Inventory and pricing sync across platforms</li>
-          <li>Batch processing for seasonal launches and catalogue refreshes</li>
-          <li>Brand voice calibration so all copy reads like your team wrote it</li>
+          <li>Marketing thesis, 90-day plan and quarterly OKRs</li>
+          <li>Leading and growing the existing team (or hiring it)</li>
+          <li>Shipping key campaigns, launches and content with AI as leverage</li>
+          <li>Owning reporting to the CEO and board</li>
+          <li>Inputs into product, pricing and positioning decisions</li>
+          <li>Bringing the Forge tooling to compress production cycles</li>
         </ul>
+
         <h3>What this is not</h3>
-        <p>We don't produce generic AI output. Every pipeline is calibrated to your brand and your catalogue. We tune until listings are publish-ready without manual review.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about ecommerce operations</a>
+        <p>This isn't a generalist consultant who hands you a deck. It's senior marketing leadership that ships work. And it's not unlimited time. The seat is part-time by design, so the cadence has to be set up to make the most of it.</p>
+
+        <p class="service-shape mono">Shape · 1–2 days a week. Three-month minimum.</p>
+        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Book a session</a>
       </div>
     </div>
   </section>
 
+  <!-- Build & Hand Over -->
   <section class="section section-alt">
     <div class="container">
       <div class="service-detail reveal">
-        <h2>SEO audit and boost</h2>
-        <p class="service-for">For businesses that know their SEO needs work but don't have the bandwidth to fix it.</p>
-        <p>We run a full AI-driven audit of your site: technical health, content quality, internal linking, schema markup, page speed, and competitor positioning. Then we fix what's broken and set up monitoring agents that keep things healthy week over week. Not a PDF of recommendations. Actual fixes.</p>
+        <div class="service-tag mono">/03 · BUILD &amp; HAND OVER</div>
+        <h2>Scoped outcome, shipped fast</h2>
+        <p class="service-for">For companies that know what they need built, and want it shipped fast.</p>
+        <p>You have a specific marketing outcome in mind, whether that's a launch, an SEO program, a brand refresh, a content engine or a website rebuild. We build it end-to-end using AI as leverage, then hand it back to your team to operate, with documentation and training to keep it running.</p>
+
         <h3>What this looks like</h3>
         <ul>
-          <li>Full technical SEO audit with prioritised fix list</li>
-          <li>Content gap analysis: what your competitors rank for and you don't</li>
-          <li>AEO (Answer Engine Optimisation) for LLM and AI search visibility</li>
-          <li>Schema markup, meta data, and internal linking improvements</li>
-          <li>Ongoing monitoring agents that flag regressions and new opportunities</li>
+          <li>Product or feature launches, with positioning, narrative and assets</li>
+          <li>SEO programs, including content engines and answer-engine optimisation</li>
+          <li>Web rebuilds, landing systems and conversion infrastructure</li>
+          <li>Brand refreshes with messaging architecture and visual direction</li>
+          <li>PR campaigns with journalist outreach, story arcs and placement</li>
+          <li>Content engines that keep producing after we hand them over</li>
         </ul>
+
         <h3>What this is not</h3>
-        <p>We don't do keyword stuffing or grey-hat tricks. We build the kind of SEO foundation that keeps working as search engines get smarter, not the kind that breaks the next time Google ships an update.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Enquire about SEO</a>
+        <p>It's not a retainer dressed up as a project. The scope is fixed up front, the price is fixed up front, and the handover is real. After it's shipped, your team owns it.</p>
+
+        <p class="service-shape mono">Shape · Fixed scope, fixed timeline, fixed price. Typical builds 4–12 weeks.</p>
+        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Book a session</a>
       </div>
+    </div>
+  </section>
+
+  <!-- Specialism note -->
+  <section class="section">
+    <div class="container reveal">
+      <div class="eyebrow">VERTICAL DEPTH</div>
+      <h2 class="vertical-headline">Endurance and sports brands<br/>are where we've shipped the most.</h2>
+      <p class="vertical-copy">If you're building in endurance, sports or the broader fitness category, you're getting a team that has run marketing in your category at scale. Our founder, James Vickers, co-founded RGT Cycling and took it from 19k to 350k users before Wahoo Fitness acquired it. Beyond that, we've led marketing across AI, fintech, hardware and digital assets, so the playbook travels.</p>
     </div>
   </section>
 </Base>
@@ -106,41 +111,78 @@ import { url } from '../utils/paths';
   .lead {
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
-    max-width: var(--max-width);
+    max-width: 760px;
+    margin-top: var(--space-md);
   }
 
   .service-detail {
     max-width: var(--max-width);
   }
 
+  .service-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
   .service-for {
     font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
+    color: var(--color-text);
     font-style: italic;
     margin-top: var(--space-sm);
+    max-width: 760px;
+  }
+
+  .service-detail > p {
+    margin-top: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    max-width: 760px;
   }
 
   .service-detail h3 {
-    margin-top: var(--space-md);
+    margin-top: var(--space-lg);
     text-transform: uppercase;
     font-size: var(--font-size-body);
+    letter-spacing: 0.05em;
   }
 
   .service-detail ul {
-    margin-top: var(--space-xs);
+    margin-top: var(--space-sm);
     padding-left: var(--space-md);
     color: var(--color-text-secondary);
+    max-width: 760px;
   }
 
   .service-detail ul li {
     margin-top: var(--space-xs);
+    line-height: 1.5;
   }
 
-  .service-detail > p {
-    margin-top: var(--space-sm);
+  .service-shape {
+    margin-top: var(--space-lg);
+    color: var(--color-text);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-line);
+    max-width: 760px;
   }
 
-  .section-alt {
-    background-color: rgba(29, 29, 27, 0.02);
+  .vertical-headline {
+    margin-top: var(--space-md);
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1;
+    max-width: 900px;
+  }
+
+  .vertical-copy {
+    margin-top: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    max-width: 760px;
   }
 </style>

@@ -11,8 +11,8 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Home" description="Manual Focus is a marketing collective that automates the marketing function with AI across owned, earned and paid." hideNavUntilScroll>
-  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus is a marketing collective that automates the marketing function with AI across owned, earned and paid." />
+<Base title="Home" description="Manual Focus is a marketing agency built for the AI era. Brand, demand and growth shipped by senior operators with AI as the leverage. Particular depth in endurance and sports brands." hideNavUntilScroll>
+  <SEOHead slot="seo" type="website" title="Home" description="Manual Focus is a marketing agency built for the AI era. Brand, demand and growth shipped by senior operators with AI as the leverage. Particular depth in endurance and sports brands." />
 
   <!-- HERO -->
   <section class="hero">
@@ -23,27 +23,27 @@ const posts = (await getCollection('blog'))
     <div class="container hero-inner">
       <div class="hero-eyebrow">
         <span class="dot"></span>
-        <span class="mono">MANUAL FOCUS · PART OF THE FOUNDRY · LONDON</span>
+        <span class="mono">MANUAL FOCUS · LONDON</span>
       </div>
 
       <h1 class="hero-headline" data-parallax>
-        <span class="hero-line hero-line-1">Owned. Earned. Paid.</span>
+        <span class="hero-line hero-line-1">Senior marketing.</span>
         <span class="hero-line hero-line-2">
           <em class="hero-italic">
-            <span class="char" style="--i: 0">A</span><span class="char" style="--i: 1">u</span><span class="char" style="--i: 2">g</span><span class="char" style="--i: 3">m</span><span class="char" style="--i: 4">e</span><span class="char" style="--i: 5">n</span><span class="char" style="--i: 6">t</span><span class="char" style="--i: 7">e</span><span class="char" style="--i: 8">d</span><span class="char" style="--i: 9">.</span>
+            <span class="char" style="--i: 0">A</span><span class="char" style="--i: 1">t</span><span class="char" style="--i: 2">&nbsp;</span><span class="char" style="--i: 3">A</span><span class="char" style="--i: 4">I</span><span class="char" style="--i: 5">&nbsp;</span><span class="char" style="--i: 6">s</span><span class="char" style="--i: 7">p</span><span class="char" style="--i: 8">e</span><span class="char" style="--i: 9">e</span><span class="char" style="--i: 10">d</span><span class="char" style="--i: 11">.</span>
           </em>
         </span>
       </h1>
 
       <div class="hero-meta">
         <p class="hero-sub">
-          We do the hard miles on AI so your team can move fast on it. We wire what works
-          into your marketing function across owned, earned and paid, including web, PR,
-          performance and strategy, all running on <strong>the Forge</strong>, our AI platform.
+          Manual Focus is a marketing agency built for the AI era. Brand, demand and growth
+          run by senior operators, with AI as the leverage. Particular depth in
+          <strong>endurance and sports brands</strong>.
         </p>
         <div class="hero-ctas">
           <a href={url('/enquire')} class="btn-cta">Book a working session</a>
-          <a href={url('/services')} class="btn-ghost">See the toolkit</a>
+          <a href={url('/services')} class="btn-ghost">How we work together</a>
         </div>
       </div>
 
@@ -58,23 +58,27 @@ const posts = (await getCollection('blog'))
   <section class="marquee-band" aria-hidden="true">
     <div class="marquee">
       <div class="marquee-track">
-        <span>OWNED</span><span class="marquee-dot">●</span>
-        <span>EARNED</span><span class="marquee-dot">●</span>
-        <span>PAID</span><span class="marquee-dot">●</span>
-        <span>WEB STRATEGY</span><span class="marquee-dot">●</span>
-        <span>PR STRATEGY</span><span class="marquee-dot">●</span>
-        <span>PERFORMANCE STRATEGY</span><span class="marquee-dot">●</span>
-        <span>VALUE BOMBS</span><span class="marquee-dot">●</span>
-        <span>AUGMENTED PLATFORMS</span><span class="marquee-dot">●</span>
+        <span>FRACTIONAL CMO</span><span class="marquee-dot">●</span>
+        <span>STRATEGIC ADVISOR</span><span class="marquee-dot">●</span>
+        <span>BUILD &amp; HAND OVER</span><span class="marquee-dot">●</span>
+        <span>BRAND</span><span class="marquee-dot">●</span>
+        <span>DEMAND</span><span class="marquee-dot">●</span>
+        <span>GROWTH</span><span class="marquee-dot">●</span>
+        <span>WEB</span><span class="marquee-dot">●</span>
+        <span>PR</span><span class="marquee-dot">●</span>
+        <span>PERFORMANCE</span><span class="marquee-dot">●</span>
+        <span>ENDURANCE BRANDS</span><span class="marquee-dot">●</span>
         <span>THE FORGE</span><span class="marquee-dot">●</span>
-        <span>OWNED</span><span class="marquee-dot">●</span>
-        <span>EARNED</span><span class="marquee-dot">●</span>
-        <span>PAID</span><span class="marquee-dot">●</span>
-        <span>WEB STRATEGY</span><span class="marquee-dot">●</span>
-        <span>PR STRATEGY</span><span class="marquee-dot">●</span>
-        <span>PERFORMANCE STRATEGY</span><span class="marquee-dot">●</span>
-        <span>VALUE BOMBS</span><span class="marquee-dot">●</span>
-        <span>AUGMENTED PLATFORMS</span><span class="marquee-dot">●</span>
+        <span>FRACTIONAL CMO</span><span class="marquee-dot">●</span>
+        <span>STRATEGIC ADVISOR</span><span class="marquee-dot">●</span>
+        <span>BUILD &amp; HAND OVER</span><span class="marquee-dot">●</span>
+        <span>BRAND</span><span class="marquee-dot">●</span>
+        <span>DEMAND</span><span class="marquee-dot">●</span>
+        <span>GROWTH</span><span class="marquee-dot">●</span>
+        <span>WEB</span><span class="marquee-dot">●</span>
+        <span>PR</span><span class="marquee-dot">●</span>
+        <span>PERFORMANCE</span><span class="marquee-dot">●</span>
+        <span>ENDURANCE BRANDS</span><span class="marquee-dot">●</span>
         <span>THE FORGE</span><span class="marquee-dot">●</span>
       </div>
     </div>
@@ -107,6 +111,69 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
+  <!-- THREE WAYS TO WORK TOGETHER -->
+  <section class="section ways-section">
+    <FocusObject size={280} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} hueA="#FF2D78" hueB="#00E5FF" style="top: 6%; right: -100px;" enterFrom="right" />
+    <FocusObject size={160} tiltX={68} tiltY={-25} spin={90} scrollSpin={70} style="bottom: 8%; left: 5%;" enterFrom="bottom" />
+
+    <div class="container">
+      <div class="eyebrow">002 · HOW WE WORK TOGETHER</div>
+      <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+        Three ways<br/>
+        to <span class="gradient-text">work together</span>.
+      </h2>
+
+      <div class="ways-grid stagger">
+        <article class="way-card">
+          <div class="way-num mono">/01 · STRATEGIC ADVISOR</div>
+          <h3>The senior voice in the room</h3>
+          <p class="way-for">For companies with a marketing team but no senior leader running it.</p>
+          <ul class="way-list">
+            <li>Weekly working sessions on what to do next</li>
+            <li>Reviews of work in progress</li>
+            <li>Hiring and team-shape advice</li>
+            <li>Direct line between sessions</li>
+          </ul>
+          <p class="way-shape mono">1–2 days a month. Day rate or monthly retainer.</p>
+          <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
+        </article>
+
+        <article class="way-card">
+          <div class="way-num mono">/02 · FRACTIONAL CMO</div>
+          <h3>Embedded senior marketer</h3>
+          <p class="way-for">For companies that need senior marketing leadership without a full-time hire.</p>
+          <ul class="way-list">
+            <li>Set the marketing thesis and 90-day plan</li>
+            <li>Lead and grow the existing team</li>
+            <li>Ship key pieces of the plan with AI as leverage</li>
+            <li>Reporting to the CEO and board</li>
+          </ul>
+          <p class="way-shape mono">1–2 days a week. Three-month minimum.</p>
+          <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
+        </article>
+
+        <article class="way-card">
+          <div class="way-num mono">/03 · BUILD &amp; HAND OVER</div>
+          <h3>Scoped outcome, shipped fast</h3>
+          <p class="way-for">For companies that know what they need built, and want it shipped fast.</p>
+          <ul class="way-list">
+            <li>Launches, SEO programs, content engines, brand refreshes</li>
+            <li>Built end-to-end with AI leverage</li>
+            <li>Handed back with documentation and training</li>
+            <li>Fixed scope, fixed timeline, fixed price</li>
+          </ul>
+          <p class="way-shape mono">Project-based. Typical builds: 4–12 weeks.</p>
+          <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
+        </article>
+      </div>
+
+      <div class="services-cta reveal">
+        <p class="services-note">Across endurance and sports brands, AI, fintech and digital assets. Every engagement starts with a 30-minute working session, free.</p>
+        <a href={url('/services')} class="btn-ghost">Read the detail</a>
+      </div>
+    </div>
+  </section>
+
   <!-- THE FORGE — 3D type sticky focal moment -->
   <section class="forge-section" data-forge>
     <div class="forge-sticky">
@@ -119,29 +186,29 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
-  <!-- THE FORGE — explanatory content (normal section flow) -->
+  <!-- WHY THE AI STAYS SHARP -->
   <section class="section forge-body-section">
     <div class="container">
-      <div class="eyebrow">002 · THE FORGE</div>
-      <h3 class="forge-headline">An AI platform built<br/>for the <span class="gradient-text">marketing function</span>.</h3>
+      <div class="eyebrow">003 · WHY THE AI STAYS SHARP</div>
+      <h3 class="forge-headline">The <span class="gradient-text">Forge</span> keeps me current.</h3>
       <p class="forge-copy">
-        We're part of an AI collective called the Foundry, which built the Forge. The Forge
-        is an AI platform that automates the marketing function, and any custom work we ship
-        for one client becomes available to every other client. That's how our clients keep
-        pace as new AI models arrive, and keeping pace is what we specialise in.
+        We're part of a collective of senior operators called the Foundry. The Foundry shares
+        AI tooling through a platform called the Forge. That's why we ship at machine speed,
+        and why our capability keeps getting sharper as new AI models arrive. The shared part
+        is tooling and pipelines, not strategy or content.
       </p>
       <div class="forge-stats">
         <div class="forge-stat">
           <div class="forge-stat-num">50+</div>
-          <div class="forge-stat-label">years of marketing experience across the collective</div>
+          <div class="forge-stat-label">years of senior marketing experience across the collective</div>
         </div>
         <div class="forge-stat">
-          <div class="forge-stat-num">1 → ALL</div>
-          <div class="forge-stat-label">build for one client, every client gets it</div>
+          <div class="forge-stat-num">SHARED</div>
+          <div class="forge-stat-label">tooling and pipelines, not strategy or content</div>
         </div>
         <div class="forge-stat">
           <div class="forge-stat-num">LIVE</div>
-          <div class="forge-stat-label">we plug in new AI models as they ship, so you don't have to</div>
+          <div class="forge-stat-label">new AI models added as they ship</div>
         </div>
       </div>
     </div>
@@ -152,7 +219,7 @@ const posts = (await getCollection('blog'))
     <FocusObject size={320} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} hueA="#00E5FF" hueB="#FF2D78" style="top: -60px; left: -80px;" enterFrom="left" />
 
     <div class="container">
-      <div class="eyebrow">003 · WHAT IT'S WORTH</div>
+      <div class="eyebrow">004 · WHAT IT'S WORTH</div>
       <h2 class="stats-headline reveal">More marketing output, in a fraction of the time.</h2>
       <div class="stats-grid stagger">
         <div class="stat-card">
@@ -176,55 +243,13 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section services-section">
-    <FocusObject size={280} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} hueA="#FF2D78" hueB="#00E5FF" style="top: 6%; right: -100px;" enterFrom="right" />
-    <FocusObject size={160} tiltX={68} tiltY={-25} spin={90} scrollSpin={70} style="bottom: 8%; left: 5%;" enterFrom="bottom" />
-
-    <div class="container">
-      <div class="eyebrow">004 · WHAT WE DO</div>
-      <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-        Four strategies.<br/>
-        One <span class="gradient-text">augmented</span> platform.
-      </h2>
-
-      <div class="services-grid stagger">
-        <article class="service-card">
-          <div class="service-num mono">/01 · OWNED</div>
-          <h3>Web strategy</h3>
-          <p>Sites, landing systems, content engines and conversion. Most marketing actually closes on the owned channel, so we build it like infrastructure rather than theatre.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-num mono">/02 · EARNED</div>
-          <h3>PR &amp; narrative</h3>
-          <p>Earned media that builds over time. We work on founder voice, story arcs and journalist relationships, with AI research and pitch automation so the right story reaches the right desk on time.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-num mono">/03 · PAID</div>
-          <h3>Performance strategy</h3>
-          <p>Paid acquisition with the maths behind it, including channel mix, creative loops, learning agendas and measurement, with AI compressing the test cycle from quarters to weeks.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-num mono">/04 · THE FORGE</div>
-          <h3>GTM strategy</h3>
-          <p>Positioning, ICP, launches and value bombs, the thinking layer that decides whether the other three pay off. Built with the Forge so a week's work ships in a day.</p>
-        </article>
-      </div>
-
-      <div class="services-cta reveal">
-        <p class="services-note">We don't write strategy decks that die in Drive. The work itself is the deliverable, whether that's written, built, shipped or measured.</p>
-        <a href={url('/services')} class="btn-ghost">See full spec</a>
-      </div>
-    </div>
-  </section>
-
   <!-- BRAND LOGOS -->
   <section class="section section-alt logos-section">
     <FocusObject size={200} tiltX={40} tiltY={30} spin={100} scrollSpin={80} hueA="#00E5FF" hueB="#FF2D78" style="bottom: -40px; right: -40px;" enterFrom="bottom" />
 
     <div class="container">
       <div class="eyebrow">005 · IN THE WILD</div>
-      <h2 class="reveal logos-headline">Brands we've shipped with.</h2>
+      <h2 class="reveal logos-headline">Endurance and sports brands we've shipped with.</h2>
       <div class="logo-bar stagger">
         <span class="brand-mark">Classified</span>
         <span class="brand-mark">Wahoo</span>
@@ -236,6 +261,7 @@ const posts = (await getCollection('blog'))
         <span class="brand-mark">Planet X</span>
         <span class="brand-mark">Pelotan</span>
       </div>
+      <p class="logos-note reveal">And further afield in AI, fintech, sports tech, hardware and digital assets.</p>
     </div>
   </section>
 
@@ -252,11 +278,12 @@ const posts = (await getCollection('blog'))
             <span class="gradient-text">Marketers always.</span>
           </h2>
           <p class="reveal">
-            Manual Focus is the team you call when AI is supposed to be helping your marketing
-            but isn't yet. We do the hard miles on AI so the marketing side gets the upside.
-            Between us we've led brand, demand, product and growth across AI, fintech, sports
-            tech, hardware and digital assets, taking brands from zero to hundreds of thousands
-            of users.
+            Manual Focus is a marketing agency led by James Vickers, with 15+ years running
+            brand, demand, product and growth across AI, fintech, sports tech, hardware and
+            digital assets. James co-founded RGT Cycling and took it from 19k to 350k users
+            before Wahoo Fitness acquired it. Around him, the Foundry brings senior operators
+            with deep marketing CVs of their own. We do the hard miles on AI so the marketing
+            side gets the upside.
           </p>
           {/* TODO: replace href with the Foundry website URL once available */}
           <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
@@ -745,10 +772,10 @@ const posts = (await getCollection('blog'))
   }
 
   /* ============================
-     SERVICES
+     THREE WAYS TO WORK TOGETHER
      ============================ */
-  .services-section { overflow: hidden; position: relative; }
-  .services-grid {
+  .ways-section { overflow: hidden; position: relative; }
+  .ways-grid {
     margin-top: var(--space-lg);
     display: grid;
     grid-template-columns: 1fr;
@@ -760,17 +787,16 @@ const posts = (await getCollection('blog'))
     position: relative;
     z-index: 2;
   }
-  .service-card {
+  .way-card {
     position: relative;
     padding: var(--space-md);
     background: var(--color-bg);
     transition: background 0.3s ease;
-    min-height: 280px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
   }
-  .service-card::before {
+  .way-card::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -779,26 +805,63 @@ const posts = (await getCollection('blog'))
     transition: opacity 0.4s ease;
     z-index: 0;
   }
-  .service-card:hover::before {
-    opacity: 0.12;
+  .way-card:hover::before {
+    opacity: 0.08;
   }
-  .service-card:hover {
+  .way-card:hover {
     background: var(--color-bg-alt);
   }
-  .service-card > * { position: relative; z-index: 1; }
-  .service-num {
-    font-size: 0.75rem;
+  .way-card > * { position: relative; z-index: 1; }
+  .way-num {
+    font-size: 0.7rem;
     color: var(--color-text-secondary);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     margin-bottom: var(--space-md);
   }
-  .service-card h3 {
-    font-size: clamp(1.75rem, 2.5vw, 2.5rem);
-    margin-bottom: var(--space-sm);
+  .way-card h3 {
+    font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+    margin-bottom: var(--space-xs);
   }
-  .service-card p {
-    color: var(--color-text-secondary);
+  .way-for {
+    color: var(--color-text);
     font-size: var(--font-size-body);
+    font-style: italic;
+    margin-bottom: var(--space-md);
+  }
+  .way-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-md);
+    flex: 1;
+  }
+  .way-list li {
+    font-size: var(--font-size-body);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xs);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .way-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--color-cta-start);
+    font-weight: 700;
+  }
+  .way-shape {
+    color: var(--color-text);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .way-cta {
+    margin-top: var(--space-sm);
+    align-self: flex-start;
+    font-size: 0.75rem;
+    padding: 0.5rem 1.1rem;
   }
   .services-cta {
     margin-top: var(--space-lg);
@@ -811,14 +874,11 @@ const posts = (await getCollection('blog'))
   }
   .services-note {
     font-size: var(--font-size-lg);
-    max-width: 600px;
+    max-width: 760px;
   }
 
   @media (min-width: 768px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (min-width: 1024px) {
-    .services-grid { grid-template-columns: repeat(4, 1fr); }
+    .ways-grid { grid-template-columns: repeat(3, 1fr); }
     .services-cta { flex-direction: row; align-items: center; justify-content: space-between; }
   }
 
@@ -828,6 +888,14 @@ const posts = (await getCollection('blog'))
   .logos-section { position: relative; overflow: hidden; }
   .logos-headline {
     font-size: clamp(2rem, 5vw, 4rem);
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+  }
+  .logos-note {
+    margin-top: var(--space-lg);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
     position: relative;
     z-index: 2;
   }

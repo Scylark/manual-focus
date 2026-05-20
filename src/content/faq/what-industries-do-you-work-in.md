@@ -3,4 +3,4 @@ question: "What industries do you work in?"
 order: 5
 ---
 
-We work across B2B and B2C sectors including ecommerce, SaaS, fintech, AI, digital assets, and hardware. We've led sales and marketing for products in each of these spaces, from AI wealth management to privacy-focused digital assets to direct-to-consumer cycling brands. Our AI-augmented teams are built to handle operational work regardless of industry, but we're strongest when there's volume (leads, products, channels) that makes automation pay for itself quickly.
+We have particular depth in endurance and sports brands like Classified, Wahoo, Wattbike, RGT, Ribble, Planet X and Pelotan. Beyond that, we've led marketing across AI, fintech, sports tech, hardware and digital assets, from AI wealth management to privacy-focused digital assets to direct-to-consumer cycling. The marketing playbook is portable; the AI tooling is industry-agnostic.
