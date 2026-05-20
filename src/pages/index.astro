@@ -288,7 +288,36 @@ const posts = (await getCollection('blog'))
           {/* TODO: replace href with the Foundry website URL once available */}
           <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
         </div>
-        <div class="credibility-mark" aria-hidden="true"></div>
+        <div class="credibility-mark">
+          <div class="forge-monitor" aria-hidden="true">
+            <div class="monitor-frame">
+              <div class="monitor-header">
+                <span class="monitor-led"></span>
+                <span class="monitor-title mono">THE FORGE</span>
+                <span class="monitor-status mono">LIVE</span>
+              </div>
+
+              <div class="monitor-clock mono" data-forge-time>00:00:00 · LONDON</div>
+
+              <div class="monitor-section">
+                <div class="monitor-label mono">ACTIVE CAPABILITIES</div>
+                <ul class="monitor-list" data-forge-cycler>
+                  <li class="is-current">Content engines</li>
+                  <li>SEO programs</li>
+                  <li>PR pitch automation</li>
+                  <li>Brand audit pipelines</li>
+                  <li>Performance creative loops</li>
+                  <li>Lead enrichment workflows</li>
+                </ul>
+              </div>
+
+              <div class="monitor-section">
+                <div class="monitor-label mono">MODELS ONLINE</div>
+                <div class="monitor-models mono">Claude · GPT · Gemini · Llama</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -969,11 +998,158 @@ const posts = (await getCollection('blog'))
   }
   .credibility-mark {
     position: relative;
-    min-height: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* Forge live monitor — mission-control style panel */
+  .forge-monitor {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    isolation: isolate;
+  }
+  .monitor-frame {
+    position: relative;
+    background: linear-gradient(180deg, rgba(15, 15, 18, 0.95), rgba(10, 10, 11, 0.95));
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-md);
+    overflow: hidden;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 0 0 1px rgba(255, 45, 120, 0.05);
+  }
+  /* Top gradient hairline */
+  .monitor-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--color-cta-start) 30%,
+      var(--color-cta-end) 70%,
+      transparent 100%);
+    z-index: 1;
+  }
+  /* Subtle scanline overlay */
+  .monitor-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(255, 255, 255, 0.018) 2px,
+      rgba(255, 255, 255, 0.018) 3px
+    );
+    border-radius: inherit;
+  }
+
+  .monitor-header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: var(--space-md);
+  }
+  .monitor-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-cta-start);
+    box-shadow: 0 0 8px var(--color-cta-start), 0 0 14px var(--color-cta-start);
+    animation: monitor-pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes monitor-pulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.25); }
+  }
+  .monitor-title {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    color: var(--color-text);
+    flex: 1;
+  }
+  .monitor-status {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--color-cta-start);
+    padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(255, 45, 120, 0.4);
+    border-radius: 999px;
+  }
+
+  .monitor-clock {
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+    text-shadow: 0 0 18px rgba(255, 45, 120, 0.25);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .monitor-section {
+    border-top: 1px solid var(--color-line);
+    padding-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  .monitor-section:last-child { margin-bottom: 0; }
+
+  .monitor-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  .monitor-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .monitor-list li {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    padding: 0.2rem 0 0.2rem 1rem;
+    position: relative;
+    transition: color 0.4s ease, transform 0.4s ease;
+  }
+  .monitor-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+    transition: color 0.4s ease, transform 0.4s ease;
+  }
+  .monitor-list li.is-current {
+    color: var(--color-text);
+    transform: translateX(2px);
+  }
+  .monitor-list li.is-current::before {
+    content: '▸';
+    color: var(--color-cta-start);
+    text-shadow: 0 0 8px var(--color-cta-start);
+    transform: translateX(1px);
+  }
+
+  .monitor-models {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
   }
 
   @media (min-width: 900px) {
     .credibility-grid { grid-template-columns: 1.3fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .monitor-led { animation: none; }
+    .monitor-list li { transition: none; }
   }
 
   /* ============================
@@ -1044,6 +1220,39 @@ const posts = (await getCollection('blog'))
       });
     }, { passive: true });
   }
+
+  // Forge live monitor — clock + cycling capability list
+  (() => {
+    const timeEl = document.querySelector<HTMLElement>('[data-forge-time]');
+    const cycler = document.querySelector<HTMLElement>('[data-forge-cycler]');
+    if (!timeEl && !cycler) return;
+
+    if (timeEl) {
+      const tick = () => {
+        const now = new Date();
+        const ldn = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Europe/London',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+        }).format(now);
+        timeEl.textContent = `${ldn} · LONDON`;
+      };
+      tick();
+      setInterval(tick, 1000);
+    }
+
+    if (cycler && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const items = Array.from(cycler.children) as HTMLElement[];
+      let i = 0;
+      setInterval(() => {
+        items.forEach(el => el.classList.remove('is-current'));
+        i = (i + 1) % items.length;
+        items[i].classList.add('is-current');
+      }, 2400);
+    }
+  })();
 
   // Forge section — letter reveal on intersection
   const forgeText = document.querySelector<HTMLElement>('.forge-3d-text');
