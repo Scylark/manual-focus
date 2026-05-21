@@ -119,8 +119,8 @@ const posts = (await getCollection('blog'))
     <div class="container">
       <div class="eyebrow">002 · HOW WE WORK TOGETHER</div>
       <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-        Three ways<br/>
-        to <span class="gradient-text">work together</span>.
+        Three ways to engage.<br/>
+        One product, <span class="gradient-text">fully run by us</span>.
       </h2>
 
       <div class="ways-grid stagger">
@@ -131,8 +131,8 @@ const posts = (await getCollection('blog'))
           <ul class="way-list">
             <li>Weekly working sessions on what to do next</li>
             <li>Reviews of work in progress</li>
+            <li>Briefings on the AI tooling worth using, and where it fits your team's workflow</li>
             <li>Hiring and team-shape advice</li>
-            <li>Direct line between sessions</li>
           </ul>
           <p class="way-shape mono">1–2 days a month. Day rate or monthly retainer.</p>
           <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
@@ -145,8 +145,8 @@ const posts = (await getCollection('blog'))
           <ul class="way-list">
             <li>Set the marketing thesis and 90-day plan</li>
             <li>Lead and grow the existing team</li>
-            <li>Ship key pieces of the plan with AI as leverage</li>
-            <li>Reporting to the CEO and board</li>
+            <li>Embed AI and emerging tech into the workflows your team already runs</li>
+            <li>Ship key pieces of the plan with that leverage in place</li>
           </ul>
           <p class="way-shape mono">1–2 days a week. Three-month minimum.</p>
           <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
@@ -158,14 +158,37 @@ const posts = (await getCollection('blog'))
           <p class="way-for">For companies that know what they need built, and want it shipped fast.</p>
           <ul class="way-list">
             <li>Launches, SEO programs, content engines, brand refreshes</li>
-            <li>Built end-to-end with AI leverage</li>
-            <li>Handed back with documentation and training</li>
+            <li>AI and emerging tech wired into the build, not bolted on after</li>
+            <li>Handed back with documentation and training so your team can run it</li>
             <li>Fixed scope, fixed timeline, fixed price</li>
           </ul>
           <p class="way-shape mono">Project-based. Typical builds: 4–12 weeks.</p>
           <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
         </article>
       </div>
+
+      <!-- /04 PRODUCT — AI workflows we own and run -->
+      <article class="way-product reveal">
+        <div class="way-product-inner">
+          <div class="way-product-head">
+            <div class="way-num mono"><span>/04 · MANUAL FOCUS · AI</span><span class="way-flag way-flag-alt">PRODUCT</span></div>
+            <h3 class="way-product-headline">We run the AI workflows. You get the output.</h3>
+            <p class="way-for way-product-for">For CTOs, CMOs and teams who don't have the bandwidth to keep up with new models, build pipelines or learn another tool every week.</p>
+          </div>
+          <div class="way-product-body">
+            <ul class="way-list way-product-list">
+              <li>Content planning, wireframing and production owned end-to-end by Manual Focus</li>
+              <li>Pipelines maintained, models swapped in as they ship</li>
+              <li>Output delivered on agreed cadence, in your brand, ready to use</li>
+              <li>No internal training, no tool sprawl, no learning curve</li>
+            </ul>
+            <div class="way-product-foot">
+              <p class="way-shape mono">Monthly retainer. Output on cadence.</p>
+              <a href={url('/enquire')} class="btn-cta way-product-cta">Book a working session</a>
+            </div>
+          </div>
+        </div>
+      </article>
 
       <div class="services-cta reveal">
         <p class="services-note">Across endurance and sports brands, AI, fintech and digital assets. Every engagement starts with a 30-minute working session, free.</p>
@@ -933,6 +956,75 @@ const posts = (await getCollection('blog'))
   @media (min-width: 768px) {
     .ways-grid { grid-template-columns: repeat(3, 1fr); }
     .services-cta { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+
+  /* /04 PRODUCT — visually distinct from the engagement tiers above:
+     wider, with a stronger gradient hairline and a clear "Manual Focus owns this" feel */
+  .way-product {
+    margin-top: var(--space-md);
+    position: relative;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background:
+      linear-gradient(180deg, rgba(192, 38, 211, 0.06), rgba(0, 229, 255, 0.02)),
+      var(--color-bg);
+    overflow: hidden;
+    z-index: 2;
+  }
+  .way-product::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--color-cta-gradient);
+  }
+  .way-product-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: var(--space-md);
+  }
+  .way-product-headline {
+    font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+    line-height: 1.05;
+    margin-top: var(--space-xs);
+    max-width: 28ch;
+  }
+  .way-product-for {
+    margin-top: var(--space-sm);
+    max-width: 48ch;
+  }
+  .way-product-list { margin-bottom: var(--space-md); }
+  .way-product-foot {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-start;
+    border-top: 1px solid var(--color-line);
+    padding-top: var(--space-md);
+  }
+  .way-product-cta {
+    align-self: flex-start;
+    font-size: 0.85rem;
+    padding: 0.7rem 1.4rem;
+  }
+  .way-flag-alt {
+    border-color: var(--color-cta-end);
+    color: var(--color-cta-end);
+    background: rgba(0, 229, 255, 0.06);
+  }
+  @media (min-width: 900px) {
+    .way-product-inner {
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+    }
+    .way-product-foot {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
   }
 
   /* ============================
