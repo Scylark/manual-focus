@@ -199,6 +199,20 @@ const posts = (await getCollection('blog'))
   <!-- THE FORGE — 3D type sticky focal moment -->
   <section class="forge-section" data-forge>
     <div class="forge-sticky">
+      <div class="forge-tunnel" aria-hidden="true">
+        <div class="tunnel-shape" style="--delay: 0s; --rot: 0deg; --shape-color: rgba(255, 45, 120, 0.45);"></div>
+        <div class="tunnel-shape" style="--delay: -0.6s; --rot: 18deg; --shape-color: rgba(192, 38, 211, 0.4);"></div>
+        <div class="tunnel-shape" style="--delay: -1.2s; --rot: -12deg; --shape-color: rgba(0, 229, 255, 0.35);"></div>
+        <div class="tunnel-shape tunnel-shape--tri" style="--delay: -1.8s; --rot: 24deg; --shape-color: rgba(255, 45, 120, 0.4);"></div>
+        <div class="tunnel-shape" style="--delay: -2.4s; --rot: -28deg; --shape-color: rgba(192, 38, 211, 0.45);"></div>
+        <div class="tunnel-shape tunnel-shape--hex" style="--delay: -3.0s; --rot: 6deg; --shape-color: rgba(0, 229, 255, 0.4);"></div>
+        <div class="tunnel-shape" style="--delay: -3.6s; --rot: -8deg; --shape-color: rgba(255, 45, 120, 0.35);"></div>
+        <div class="tunnel-shape tunnel-shape--tri" style="--delay: -4.2s; --rot: 32deg; --shape-color: rgba(192, 38, 211, 0.4);"></div>
+        <div class="tunnel-shape" style="--delay: -4.8s; --rot: 14deg; --shape-color: rgba(0, 229, 255, 0.35);"></div>
+        <div class="tunnel-shape tunnel-shape--hex" style="--delay: -5.4s; --rot: -20deg; --shape-color: rgba(255, 45, 120, 0.4);"></div>
+        <div class="tunnel-shape" style="--delay: -6.0s; --rot: 4deg; --shape-color: rgba(192, 38, 211, 0.4);"></div>
+        <div class="tunnel-shape tunnel-shape--tri" style="--delay: -6.6s; --rot: -16deg; --shape-color: rgba(0, 229, 255, 0.4);"></div>
+      </div>
       <div class="forge-grid" aria-hidden="true"></div>
       <div class="forge-aura" aria-hidden="true"></div>
       <div class="forge-3d-wrap" data-forge-tilt>
@@ -576,6 +590,105 @@ const posts = (await getCollection('blog'))
     /* Nudge content so it visually centres in the area BELOW the fixed nav */
     padding-top: 4.5rem;
     isolation: isolate;
+  }
+
+  /* Geometric world the viewer is flying through. Twelve outlined shapes
+     stacked along the Z axis with a 7.2s loop (0.6s stagger between each)
+     so a new shape arrives every 0.6 seconds. perspective-origin tracks
+     the cursor via --mx/--my so moving the mouse appears to change the
+     direction of travel — the tunnel curves toward where you're looking. */
+  .forge-tunnel {
+    position: absolute;
+    inset: 0;
+    perspective: 700px;
+    perspective-origin: calc(50% + var(--mx, 0) * 40%) calc(52% + var(--my, 0) * 35%);
+    transform-style: preserve-3d;
+    pointer-events: none;
+    z-index: 0;
+    opacity: calc(0.4 + var(--fp, 0) * 0.55);
+    transition: opacity 0.3s ease;
+  }
+  .tunnel-shape {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80vmin;
+    height: 80vmin;
+    margin-top: -40vmin;
+    margin-left: -40vmin;
+    border: 1.5px solid var(--shape-color, rgba(255, 45, 120, 0.4));
+    box-sizing: border-box;
+    animation: tunnel-fly 7.2s linear infinite;
+    animation-delay: var(--delay, 0s);
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+  }
+  /* Triangle variant — clipped to a triangle path, no fill, still outline */
+  .tunnel-shape--tri {
+    border: none;
+    background:
+      conic-gradient(from 0deg at 50% 100%,
+        transparent 0deg,
+        var(--shape-color, rgba(255, 45, 120, 0.4)) 0deg,
+        var(--shape-color, rgba(255, 45, 120, 0.4)) 1deg,
+        transparent 1deg);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    width: 70vmin;
+    height: 60vmin;
+    margin-top: -30vmin;
+    margin-left: -35vmin;
+    /* Use an outline rendered with conic-gradient + clip — simpler: just
+       paint a triangle outline via two pseudos. */
+    background: transparent;
+  }
+  .tunnel-shape--tri::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(var(--shape-color, rgba(255, 45, 120, 0.4)),
+                      var(--shape-color, rgba(255, 45, 120, 0.4)));
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    padding: 1.5px;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+  /* Hex variant */
+  .tunnel-shape--hex {
+    width: 70vmin;
+    height: 60vmin;
+    margin-top: -30vmin;
+    margin-left: -35vmin;
+    border: none;
+    background: transparent;
+  }
+  .tunnel-shape--hex::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(var(--shape-color, rgba(255, 45, 120, 0.4)),
+                      var(--shape-color, rgba(255, 45, 120, 0.4)));
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    padding: 1.5px;
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  }
+  @keyframes tunnel-fly {
+    0%   { transform: translateZ(-1800px) rotateZ(var(--rot, 0deg)); opacity: 0; }
+    15%  { opacity: 0.85; }
+    80%  { opacity: 0.85; }
+    100% { transform: translateZ(700px) rotateZ(calc(var(--rot, 0deg) * 0.6)); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tunnel-shape { animation: none; opacity: 0; }
   }
 
   /* Vanishing-point grid behind the type — drives the sense of depth.
@@ -1415,16 +1528,19 @@ const posts = (await getCollection('blog'))
         ? Math.max(0, Math.min(1, -rect.top / scrollable))
         : 0;
       manifestoLines.forEach((line, i) => {
-        // -1 = next line not yet arrived (off-stage right)
-        //  0 = centred, sharp
-        // +1 = already past (off-stage left)
+        // slot = -0.5 .. +0.5 across this line's own scroll range.
+        // 0 = centred, sharp. Past ±0.5 means the next/previous line owns it.
         const slot = progress * total - i - 0.5;
         const clamped = Math.max(-1.2, Math.min(1.2, slot));
         const abs = Math.abs(clamped);
-        const opacity = Math.max(0, 1 - abs * 1.05);
-        const x = -clamped * 60; // px
+        // Plateau opacity: full from 0..0.28, smooth falloff to 0 at 0.5.
+        // Adjacent lines have a 0.5 slot offset, so when this line is fully
+        // visible the next/previous is already at 0, never overlapping.
+        const t = Math.max(0, Math.min(1, (abs - 0.28) / 0.22));
+        const opacity = 1 - t * t * (3 - 2 * t); // smoothstep
+        const x = -clamped * 90; // px, wider travel since visible window is tighter
         const skew = -clamped * 3; // deg
-        const blur = Math.min(10, abs * 7);
+        const blur = t * 8;
         line.style.opacity = opacity.toFixed(3);
         line.style.transform = `translate3d(${x.toFixed(1)}px, 0, 0) skewX(${skew.toFixed(2)}deg)`;
         line.style.filter = `blur(${blur.toFixed(1)}px)`;
