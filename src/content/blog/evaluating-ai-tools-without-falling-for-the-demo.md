@@ -49,6 +49,6 @@ This is slower than the standard "let's all sign up and try it" rollout, and it'
 
 ## The deeper point
 
-The AI tooling market is in a fast-cycling, frothy state. Some of it is genuinely transformative, most of it is incremental at best and noise at worst. The default position should be scepticism, the test should be small, and the bar for keeping a tool in the stack should be high.
+The AI tooling market is in a fast-cycling, frothy state. Some of it is genuinely transformative, most of it is incremental at best and noise at worst. The default position should be scepticism, the test should be small, and the bar for keeping a tool in the stack should be high. (For the bigger pattern this falls inside, see [the hidden cost of AI adoption nobody talks about](/blog/the-hidden-cost-of-ai-adoption/) — most adoption fails at the layer above the tool, not the tool itself.)
 
-The teams that win this don't have the biggest stack, they have the tightest stack. Three tools they use deeply with the workflows wired in, the documentation maintained and the operators expert at running them. That beats fifteen tools used shallowly every time.
+The teams that win this don't have the biggest stack, they have the tightest stack. Three tools they use deeply with the workflows wired in, the documentation maintained and the operators expert at running them. That beats fifteen tools used shallowly every time. (When you're ready to roll a stack across the team, [the 90-day AI integration plan](/blog/the-90-day-ai-integration-plan/) is the practical sequence we use.)

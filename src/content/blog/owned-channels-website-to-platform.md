@@ -15,7 +15,7 @@ The brands moving fastest right now are treating their owned channels like produ
 
 **Pages become surfaces.** Each page is a surface for an AI agent to read, an answer engine to cite and a buyer to compare. The job isn't to convert traffic any more, it's to be the cleanest, most cited source on a specific question, and that requires structured data, clear schema and content that holds up under both human reading and machine parsing.
 
-**Headless changes the economics.** Decoupling the content layer from the presentation layer is no longer a fringe choice, it means new pages, new tests and new product surfaces ship at the speed of the editorial calendar rather than the engineering backlog. Whether you build headless on Shopify, BigCommerce, Sanity, WordPress or a custom stack, the principle is the same, the team that owns the content shouldn't queue up behind the team that owns the build.
+**Headless changes the economics.** Decoupling the content layer from the presentation layer is no longer a fringe choice, it means new pages, new tests and new product surfaces ship at the speed of the editorial calendar rather than the engineering backlog. Whether you build headless on Shopify, BigCommerce, Sanity, WordPress or a custom stack, the principle is the same, the team that owns the content shouldn't queue up behind the team that owns the build. (For the SEO mechanics of doing this well on a premium brand, see [the SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/) — the technical-SEO and content-cadence sections apply outside endurance too.)
 
 ## What this looks like in practice
 
@@ -27,7 +27,7 @@ The same goes for B2B. Static "we are a company" page sites are losing ground to
 
 This isn't just using AI to generate more pages. Quality has to stay high or the whole exercise dilutes the brand. The structural change is who owns the loop.
 
-Strategy decides what to test, production ships the variant fast with AI as the accelerant, analytics calls the result, the winning version becomes baseline and you repeat next week. Without that loop you just have more pages and less signal, but with it the site is doing real work every month.
+Strategy decides what to test, production ships the variant fast with AI as the accelerant, analytics calls the result, the winning version becomes baseline and you repeat next week. Without that loop you just have more pages and less signal, but with it the site is doing real work every month. (This is what we mean when we talk about [building a content engine that compounds](/blog/building-content-engines-that-compound/) — the loop is the engine.)
 
 ## What this means for your team
 

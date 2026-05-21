@@ -25,13 +25,13 @@ The single highest-leverage thing you can do in the first month is get the brand
 
 Three positive examples (paragraphs of strong on-brand work). Three negative examples (off-brand or close-but-not-quite drafts, annotated). Specific bans. Specific structural patterns. Get a senior writer or editor to own it. Iterate it until pasting it into a draft request produces something close to ship-ready.
 
-While that's happening, settle the tool stack. Pick one chat model (Claude, ChatGPT, Gemini, defendable choices, pick one), one research tool, one media-production tool. Three subscriptions, all paid for centrally. Kill the unsanctioned shadow stack.
+While that's happening, settle the tool stack. Pick one chat model (Claude, ChatGPT, Gemini, defendable choices, pick one), one research tool, one media-production tool. Three subscriptions, all paid for centrally. Kill the unsanctioned shadow stack. (For the practical rule for picking, see [how to evaluate AI tools without falling for the demo](/blog/evaluating-ai-tools-without-falling-for-the-demo/) — the four-week pilot rule saves a lot of budget.)
 
 The goal at the end of month one is that every team member has access to the same tools, the same voice prompt and the same baseline expectation of what AI is for.
 
 ## Weeks 5–6: rewrite one workflow end-to-end
 
-Pick the workflow that's the biggest drag on the team. Usually it's content production, briefs to drafts to publication. Sometimes it's reporting. Sometimes it's campaign creative production.
+Pick the workflow that's the biggest drag on the team. Usually it's content production, briefs to drafts to publication. Sometimes it's reporting. Sometimes it's campaign creative production. (We've broken down [five workflow changes that lift content production specifically](/blog/five-ways-improve-content-production-ai/) — start there if content is your biggest drag.)
 
 Whichever it is, rebuild it with AI in the loop properly. Not "the team uses ChatGPT during the workflow", rebuilt. The brief is AI-generated and human-edited. The draft is AI-produced against the brief, the voice prompt and the research. The edit is human. The repurposing into other formats is AI-produced from the long-form. The whole workflow ships.
 

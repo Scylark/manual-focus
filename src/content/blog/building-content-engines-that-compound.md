@@ -47,7 +47,7 @@ There's no shortcut here. The engine works because it accumulates, and anything 
 
 ## Where AI helps and where it doesn't
 
-AI dramatically reduces the unit cost of producing a piece, so the engine cadence that was impossible to hold a year ago is now possible with a much smaller team. That's the leverage.
+AI dramatically reduces the unit cost of producing a piece, so the engine cadence that was impossible to hold a year ago is now possible with a much smaller team. That's the leverage. (We've written about [the five workflow changes that make this real](/blog/five-ways-improve-content-production-ai/) — research, voice prompts, brief-first, repurposing and weekly feedback.)
 
 What AI doesn't help with. The topic architecture, because knowing what's worth owning is judgement. The internal linking discipline, because it's a maintenance task that only feels valuable in retrospect. The conviction to hold cadence through the flat period, because that's a leadership problem rather than a tooling one.
 
@@ -61,4 +61,4 @@ If the answer is no, you don't have an engine, you have a content function that 
 
 If the answer is yes, if the absence would show up in organic discovery, in inbound, in citations, you have an engine. Keep going, the shape is right.
 
-Most teams find the answer is no, and then mistake the symptom for the problem. The problem isn't usually that the content isn't good enough, it's that the architecture isn't there to make good content compound.
+Most teams find the answer is no, and then mistake the symptom for the problem. The problem isn't usually that the content isn't good enough, it's that the architecture isn't there to make good content compound. (For a worked example of an engine running at category depth, see [the SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/).)

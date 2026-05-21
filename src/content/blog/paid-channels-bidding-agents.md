@@ -29,7 +29,7 @@ So the gap is widening. Brands using AI to produce creative at platform tempo ar
 
 ## Where the leverage actually sits
 
-**Creative volume at brand quality.** This is the hard part. AI can produce a hundred variants but most are unusable because they break brand or break taste. The win is a pipeline that produces a hundred variants at the floor of brand quality you accept, and that isn't a tool, it's a workflow.
+**Creative volume at brand quality.** This is the hard part. AI can produce a hundred variants but most are unusable because they break brand or break taste. The win is a pipeline that produces a hundred variants at the floor of brand quality you accept, and that isn't a tool, it's a workflow. (We've written the [five workflow changes that get content production to this floor](/blog/five-ways-improve-content-production-ai/), and the brand-voice prompt is the load-bearing piece.)
 
 **Feed and signal hygiene.** Your product feed, your audience definitions, your event taxonomy. The agents are only as good as the inputs, and most brands have not invested here in years.
 
@@ -39,7 +39,7 @@ So the gap is widening. Brands using AI to produce creative at platform tempo ar
 
 ## The shape of a good paid function now
 
-A small operator team plus a creative AI pipeline plus clean data plus clear goals. The agency model where you pay 20% of media spend for a media buyer doing manual bid changes is dying.
+A small operator team plus a creative AI pipeline plus clean data plus clear goals. The agency model where you pay 20% of media spend for a media buyer doing manual bid changes is dying. (Whatever tools you're considering for the creative pipeline, [run them through a four-week pilot before committing](/blog/evaluating-ai-tools-without-falling-for-the-demo/) — most don't survive contact with a real team.)
 
 Spend should compound. Each week the model should learn more, the creative should evolve and the signal should sharpen, so if your paid function isn't getting smarter every week, something in the loop is broken.
 

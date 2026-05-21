@@ -67,13 +67,13 @@ This loop, run weekly, is what separates teams that compound from teams that jus
 
 ## What changes if you do all five
 
-A team that ships these five changes ends the quarter producing roughly three to five times more content than they did at the start, at higher brand quality, with better attribution, in less time per piece. We've watched this play out and it isn't a thought experiment.
+A team that ships these five changes ends the quarter producing roughly three to five times more content than they did at the start, at higher brand quality, with better attribution, in less time per piece. We've watched this play out and it isn't a thought experiment. (For the wider system this production workflow sits inside, see [building content engines that compound](/blog/building-content-engines-that-compound/) — the engine is what turns higher production into compounding return.)
 
 The trap most teams fall into is doing one of these and calling it AI adoption. The compounding effect is in the combination. The research speeds up, the briefs sharpen, the drafts come in cleaner, the repurposing multiplies the surface area and the feedback loop steers the whole engine towards what's working.
 
 The teams losing right now are the ones using AI to do the same content faster, while the teams winning are the ones using AI to do different content, sharper, more numerous, better-distributed, better-attributed. Same five hours of senior time, ten times the surface.
 
-That's the prize. Most teams won't get there because the work to set up the workflow takes a quarter and most teams don't have the bandwidth, which is why this work is increasingly being outsourced to people who run the workflows full-time. But that's a separate piece.
+That's the prize. Most teams won't get there because the work to set up the workflow takes a quarter and most teams don't have the bandwidth, which is why this work is increasingly being outsourced to people who run the workflows full-time. But that's a separate piece. (If you're a marketing leader trying to find the bandwidth, [the 90-day AI integration plan](/blog/the-90-day-ai-integration-plan/) is the week-by-week version of how to get there.)
 
 ## One more thing
 

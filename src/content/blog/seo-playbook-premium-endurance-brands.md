@@ -95,7 +95,7 @@ The pace that produces compounding results.
 
 **Continuously**, product page copy review, schema updates, internal link maintenance.
 
-This cadence holds with a small team because the workflow uses AI for the front-end research and structuring, with senior editorial and athlete expertise running the angle and the testing. The same team without that workflow would produce maybe a third of the volume at the same quality.
+This cadence holds with a small team because the workflow uses AI for the front-end research and structuring, with senior editorial and athlete expertise running the angle and the testing. The same team without that workflow would produce maybe a third of the volume at the same quality. (The mechanics of that workflow are written up in [five practical ways to improve content production with AI](/blog/five-ways-improve-content-production-ai/), and the surrounding architecture in [building content engines that compound](/blog/building-content-engines-that-compound/).)
 
 ## Moves that land disproportionately
 

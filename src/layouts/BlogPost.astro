@@ -2,6 +2,7 @@
 import Base from './Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
+import { getCollection } from 'astro:content';
 
 interface Props {
   title: string;
@@ -19,6 +20,24 @@ const breadcrumbs = [
   { name: 'Blog', url: '/blog' },
   { name: title, url: Astro.url.pathname },
 ];
+
+// Related posts — rank other posts by shared-tag count, exclude current,
+// take top 3. Gives Google internal link signals for topical authority
+// and keeps readers moving through the content.
+const allPosts = await getCollection('blog');
+const related = allPosts
+  .filter(p => p.data.title !== title)
+  .map(p => ({
+    post: p,
+    score: p.data.tags.filter(t => tags.includes(t)).length,
+  }))
+  .filter(x => x.score > 0)
+  .sort((a, b) =>
+    b.score - a.score ||
+    new Date(b.post.data.date).getTime() - new Date(a.post.data.date).getTime()
+  )
+  .slice(0, 3)
+  .map(x => x.post);
 ---
 <Base title={title} description={description} ogImage={image}>
   <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} tags={tags} image={image} breadcrumbs={breadcrumbs} />
@@ -44,6 +63,24 @@ const breadcrumbs = [
       </footer>
     </div>
   </article>
+
+  {related.length > 0 && (
+    <aside class="related-section">
+      <div class="container">
+        <h2 class="related-heading">Related reading</h2>
+        <div class="related-grid">
+          {related.map(post => (
+            <a href={url(`/blog/${post.id}/`)} class="related-card">
+              <p class="related-date">{new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+              <h3 class="related-title">{post.data.title}</h3>
+              <p class="related-desc">{post.data.description}</p>
+              <span class="related-link">Read →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </aside>
+  )}
 </Base>
 
 <style>
@@ -113,5 +150,70 @@ const breadcrumbs = [
     margin-top: var(--space-xl);
     padding-top: var(--space-md);
     border-top: 1px solid rgba(29, 29, 27, 0.08);
+  }
+
+  /* Related reading — internal-link block under each post for topical
+     authority and to keep readers moving through the content. */
+  .related-section {
+    padding-block: var(--space-xl);
+    border-top: 1px solid var(--color-line);
+    background: var(--color-bg-alt);
+  }
+  .related-heading {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    margin-bottom: var(--space-md);
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-bg);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .related-card:hover {
+    border-color: var(--color-text);
+    transform: translateY(-3px);
+  }
+  .related-date {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .related-title {
+    font-size: 1.1rem;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--color-text);
+  }
+  .related-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.45;
+    margin: 0;
+    flex: 1;
+  }
+  .related-link {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-cta-start);
+    margin-top: var(--space-sm);
+  }
+  @media (min-width: 720px) {
+    .related-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>

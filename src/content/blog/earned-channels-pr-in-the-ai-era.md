@@ -23,7 +23,7 @@ Journalists use AI now. Editors use AI to triage pitches, trade publications use
 
 Three places are working harder than they used to.
 
-**Founder and operator voice.** Senior people publishing real opinions in their name, on LinkedIn, in long-form, in podcasts, generate the citations and pull-quotes that get re-used everywhere else. This isn't thought leadership theatre, it's specific, opinionated, hard-won perspective, because generic posts don't pull.
+**Founder and operator voice.** Senior people publishing real opinions in their name, on LinkedIn, in long-form, in podcasts, generate the citations and pull-quotes that get re-used everywhere else. This isn't thought leadership theatre, it's specific, opinionated, hard-won perspective, because generic posts don't pull. (Worth knowing [where AI shouldn't touch this work](/blog/when-not-to-use-ai-in-marketing/) — senior social posts are one of the five places we say leave to humans.)
 
 **Original data.** Surveys, benchmarks, weird internal numbers shared publicly. Journalists need the data and LLMs need the source, so both link back, and if you can publish something genuinely novel quarterly you out-earn every press release.
 
@@ -35,6 +35,6 @@ Press releases for the sake of them, round-up "X best of Y" link bait, generic o
 
 ## The honest play
 
-Earned channels still work. The mechanics changed but the underlying truth didn't. Real opinions, real data, real partnerships, distributed at speed, with AI helping you operate the surface around them (research, drafting, monitoring, repurposing) without diluting the substance.
+Earned channels still work. The mechanics changed but the underlying truth didn't. Real opinions, real data, real partnerships, distributed at speed, with AI helping you operate the surface around them (research, drafting, monitoring, repurposing) without diluting the substance. (The five-point workflow for that production layer is broken down in [five practical ways to improve content production with AI](/blog/five-ways-improve-content-production-ai/).)
 
 The brands losing earned right now are the ones using AI to automate the wrong layer. They've automated the substance and left the workflow human, which is exactly backwards.

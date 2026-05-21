@@ -23,11 +23,11 @@ We've sat inside enough marketing teams during AI rollouts to spot the pattern. 
 
 Adoption sticks when three things are true.
 
-One, somebody owns the AI side end-to-end, not as a side-project from a senior person who also has a day job, but as either an internal lead with mandate and time or an outside partner running the workflows.
+One, somebody owns the AI side end-to-end, not as a side-project from a senior person who also has a day job, but as either an internal lead with mandate and time or an outside partner running the workflows. (We wrote a [practical 90-day integration plan](/blog/the-90-day-ai-integration-plan/) for marketing leaders who want a sequence to follow.)
 
 Two, the workflow gets rebuilt rather than retrofitted, because if the brief still takes three days to approve, AI doesn't help, and the whole shape of how work moves has to change.
 
-Three, the team protects the taste layer, which means junior people get hands-on time with the strategy and the editorial calls, not just the production. The model handles draft one and humans handle judgement.
+Three, the team protects the taste layer, which means junior people get hands-on time with the strategy and the editorial calls, not just the production. The model handles draft one and humans handle judgement. (And there are [specific places where AI shouldn't touch the work at all](/blog/when-not-to-use-ai-in-marketing/) — worth being clear about those before you scale anything.)
 
 ## The honest framing
 

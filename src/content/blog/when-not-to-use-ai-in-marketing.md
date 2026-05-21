@@ -43,6 +43,6 @@ The pivot has to be designed by humans with conviction. Once the new position is
 
 ## What this means in practice
 
-The teams getting AI right have a clear taxonomy of where the model belongs and where it doesn't. The lazy version is "AI everywhere we can" and the right version is "AI on the production layer, humans on the brand-defining layer".
+The teams getting AI right have a clear taxonomy of where the model belongs and where it doesn't. The lazy version is "AI everywhere we can" and the right version is "AI on the production layer, humans on the brand-defining layer". (We've written separately about [the hidden cost of AI adoption nobody talks about](/blog/the-hidden-cost-of-ai-adoption/) — the failure mode is rarely the tool, it's the layer above.)
 
 If you can't name the five things in your function that AI shouldn't touch, you don't have a strategy, you have a tool stack.
