@@ -27,19 +27,20 @@ const posts = (await getCollection('blog'))
       </div>
 
       <h1 class="hero-headline" data-parallax>
-        <span class="hero-line hero-line-1">Brand. Demand. Growth.</span>
+        <span class="hero-line hero-line-1">Your marketing deserves</span>
+        <span class="hero-line hero-line-1">more than the same playbook</span>
         <span class="hero-line hero-line-2">
           <em class="hero-italic">
-            <span class="char" style="--i: 0">A</span><span class="char" style="--i: 1">I</span><span class="char" style="--i: 2">&nbsp;</span><span class="char" style="--i: 3">a</span><span class="char" style="--i: 4">c</span><span class="char" style="--i: 5">c</span><span class="char" style="--i: 6">e</span><span class="char" style="--i: 7">l</span><span class="char" style="--i: 8">e</span><span class="char" style="--i: 9">r</span><span class="char" style="--i: 10">a</span><span class="char" style="--i: 11">t</span><span class="char" style="--i: 12">e</span><span class="char" style="--i: 13">d</span><span class="char" style="--i: 14">.</span>
+            <span class="char" style="--i: 0">e</span><span class="char" style="--i: 1">v</span><span class="char" style="--i: 2">e</span><span class="char" style="--i: 3">r</span><span class="char" style="--i: 4">y</span><span class="char" style="--i: 5">o</span><span class="char" style="--i: 6">n</span><span class="char" style="--i: 7">e</span><span class="char" style="--i: 8">&nbsp;</span><span class="char" style="--i: 9">e</span><span class="char" style="--i: 10">l</span><span class="char" style="--i: 11">s</span><span class="char" style="--i: 12">e</span><span class="char" style="--i: 13">&nbsp;</span><span class="char" style="--i: 14">i</span><span class="char" style="--i: 15">s</span><span class="char" style="--i: 16">&nbsp;</span><span class="char" style="--i: 17">r</span><span class="char" style="--i: 18">u</span><span class="char" style="--i: 19">n</span><span class="char" style="--i: 20">n</span><span class="char" style="--i: 21">i</span><span class="char" style="--i: 22">n</span><span class="char" style="--i: 23">g</span><span class="char" style="--i: 24">.</span>
           </em>
         </span>
       </h1>
 
       <div class="hero-meta">
         <p class="hero-sub">
-          Manual Focus is a marketing agency for ambitious brands. Senior operators using AI
-          as the leverage, with particular depth in
-          <strong>endurance and sports brands</strong>.
+          Manual Focus is a marketing agency for ambitious brands. Senior operators with
+          AI as the leverage, building brand, demand and growth in a fraction of the time,
+          with particular depth in <strong>endurance and sports brands</strong>.
         </p>
         <div class="hero-ctas">
           <a href={url('/enquire')} class="btn-cta">Book a working session</a>
@@ -337,6 +338,16 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
+  <!-- MANIFESTO — scroll-revealed close -->
+  <section class="manifesto-section" aria-label="Manifesto">
+    <div class="container manifesto-inner">
+      <p class="manifesto-line reveal">Brand, made sharper by AI.</p>
+      <p class="manifesto-line reveal">Demand, built faster than the old playbook.</p>
+      <p class="manifesto-line reveal">Growth, that compounds.</p>
+      <p class="manifesto-line manifesto-line-final reveal">Senior operators. Real conviction. No fluff.</p>
+    </div>
+  </section>
+
   <!-- CTA CLOSE -->
   <section class="section cta-close">
     <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -100px; left: -120px;" enterFrom="left" />
@@ -344,10 +355,10 @@ const posts = (await getCollection('blog'))
 
     <div class="container cta-close-inner">
       <h2 class="cta-headline reveal">
-        Marketing that should<br/>
-        be <span class="gradient-text">working harder</span>?
+        Got a problem, a brief,<br/>
+        or a <span class="gradient-text">vague feeling</span> something's off?
       </h2>
-      <p class="cta-sub reveal">30-minute working session, free. We walk through where AI fits in your marketing function. If we click, we plan the next 90 days.</p>
+      <p class="cta-sub reveal">Bring it. We'll figure out the shape of the work together. 30-minute working session, free.</p>
       <a href={url('/enquire')} class="btn-cta reveal">Book a working session</a>
     </div>
   </section>
@@ -396,11 +407,11 @@ const posts = (await getCollection('blog'))
   }
 
   .hero-headline {
-    font-size: clamp(2.75rem, 8vw, 8.5rem);
-    line-height: 0.95;
+    font-size: clamp(2.25rem, 7vw, 6.5rem);
+    line-height: 0.98;
     letter-spacing: -0.02em;
     margin-top: var(--space-sm);
-    max-width: 1100px;
+    max-width: 1240px;
   }
 
   .hero-line {
@@ -1142,6 +1153,42 @@ const posts = (await getCollection('blog'))
   }
   @media (min-width: 1024px) {
     .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ============================
+     MANIFESTO
+     ============================ */
+  .manifesto-section {
+    padding-block: var(--space-2xl) var(--space-lg);
+    border-top: 1px solid var(--color-line);
+    position: relative;
+    overflow: hidden;
+  }
+  .manifesto-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    max-width: 1100px;
+  }
+  .manifesto-line {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    text-transform: uppercase;
+  }
+  .manifesto-line-final {
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: var(--space-md);
+    font-size: clamp(1.25rem, 3vw, 2.5rem);
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: var(--font-family);
+    font-weight: 600;
   }
 
   /* ============================
