@@ -191,4 +191,13 @@ function lerpHex(a: string, b: string, t: number) {
     .focus-object--top,
     .focus-object--bottom { transform: none; }
   }
+
+  /* Mobile — rings fade back so they sit behind text rather than over it.
+     Inline width/height still drive the box size, but the visual is dimmer
+     so text remains the focal point. */
+  @media (max-width: 768px) {
+    .focus-object.has-entered {
+      opacity: calc(var(--enter-opacity, 1) * 0.35);
+    }
+  }
 </style>

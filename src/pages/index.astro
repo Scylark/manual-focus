@@ -1173,10 +1173,64 @@ const posts = (await getCollection('blog'))
   }
 
   /* ============================
-     RESPONSIVE TWEAKS
+     RESPONSIVE TWEAKS — mobile
      ============================ */
-  @media (max-width: 639px) {
-    .hero-headline { font-size: clamp(2.5rem, 12vw, 4rem); }
+  @media (max-width: 768px) {
+    /* HERO — tighter spacing, smaller type, hide scroll hint */
+    .hero {
+      min-height: auto;
+      padding-block: var(--space-lg) var(--space-md);
+    }
+    .hero-headline { font-size: clamp(2.25rem, 11vw, 3.5rem); }
+    .hero-sub { font-size: 1rem; line-height: 1.55; }
+    .hero-scroll-hint { display: none; }
+    .hero-ctas { gap: var(--space-sm); }
+
+    /* Italic char padding — the right-edge crop fix pushes the trailing period
+       onto a new line at narrow viewports. Reduce overhang and zero out
+       the last char so the line wraps cleanly. */
+    .char { padding-right: 0.08em; margin-right: -0.08em; }
+    .hero-italic .char:last-child { padding-right: 0; margin-right: 0; }
+
+    /* Kill the scroll-scale animation on mobile — it scales headlines down
+       to 78% when off-centre, which looks like a rendering bug on small viewports. */
+    [data-scroll-scale] { transform: none !important; }
+
+    /* Section headlines down a notch */
+    .big-statement { font-size: clamp(1.875rem, 9vw, 3rem); }
+    .stats-headline { font-size: clamp(1.875rem, 9vw, 3rem); }
+    .logos-headline { font-size: clamp(1.625rem, 7vw, 2.5rem); }
+    .cta-headline { font-size: clamp(1.75rem, 8vw, 3rem); }
+    .forge-headline { font-size: clamp(1.75rem, 7vw, 2.75rem); }
+
+    /* /02 way-num row — allow MOST CHOSEN pill to wrap below the label
+       instead of squashing /02 · FRACTIONAL CMO onto two lines */
+    .way-num { flex-wrap: wrap; row-gap: 0.5rem; }
+
+    /* /04 product card — tighter padding on mobile */
+    .way-product-inner { padding: var(--space-md); gap: var(--space-sm); }
+    .way-product-headline { font-size: clamp(1.5rem, 6vw, 2rem); }
+
+    /* Forge sticky — don't dominate scroll on small screens */
+    .forge-section { min-height: 60vh; }
+    .forge-sticky { padding-block: var(--space-md); }
+
+    /* CTA close — less vertical padding */
+    .cta-close { padding-block: var(--space-xl); }
+    .cta-sub { font-size: 1rem; }
+
+    /* Bigger touch targets on buttons */
+    .btn-cta, .btn-ghost { padding: 0.85rem 1.4rem; font-size: 0.85rem; }
+    .way-cta { padding: 0.6rem 1.2rem; }
+
+    /* Problem section — single column reads better on mobile */
+    .problem-copy { font-size: 1rem; }
+  }
+
+  /* Even tighter on the smallest phones */
+  @media (max-width: 380px) {
+    .container { padding-inline: var(--space-sm); }
+    .hero-headline { font-size: clamp(2rem, 10vw, 3rem); }
   }
 </style>
 
