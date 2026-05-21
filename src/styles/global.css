@@ -67,7 +67,7 @@
 /* --- Font face --- */
 @font-face {
   font-family: 'Inter';
-  src: url('/manual-focus/fonts/inter-variable.woff2') format('woff2-variations');
+  src: url('/fonts/inter-variable.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-display: swap;
 }
