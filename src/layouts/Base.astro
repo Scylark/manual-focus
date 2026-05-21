@@ -142,19 +142,33 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
       focusObjects.forEach(el => enterObs.observe(el));
 
-      // Scroll-driven rotation — single rAF, no per-element scroll listener
+      // Scroll-driven rotation + Y parallax — single rAF, no per-element listener.
+      // Depth is derived from the ring's size: bigger rings sit closer to the
+      // camera so they translate more on scroll, smaller ones less. The sign of
+      // the spin multiplier also flips parallax direction so half drift up and
+      // half drift down, which sells the depth feel.
       const items = [...focusObjects].map(el => {
         const mult = parseFloat(el.style.getPropertyValue('--scrollSpin') || el.getAttribute('data-scroll-spin') || '60');
-        return { el, mult: isNaN(mult) ? 60 : mult };
+        const sizePx = parseFloat(el.style.width) || 200;
+        // depth 0.4 (background, small) → 1.6 (foreground, large)
+        const depth = Math.min(1.6, Math.max(0.4, sizePx / 320));
+        const dir = mult >= 0 ? 1 : -1;
+        return {
+          el,
+          mult: isNaN(mult) ? 60 : mult,
+          // y-parallax factor in px-per-scroll-px, signed so half drift up, half drift down
+          yk: depth * 0.08 * dir,
+        };
       });
 
       let pending = false;
       const update = () => {
         const sy = window.scrollY;
         for (const it of items) {
-          // base rotation = scroll-y * mult / 1000 in degrees
           const rot = (sy * it.mult) / 350;
+          const yPx = sy * it.yk;
           it.el.style.setProperty('--scroll-rot', `${rot}deg`);
+          it.el.style.setProperty('--scroll-y', `${yPx.toFixed(1)}px`);
         }
         pending = false;
       };
