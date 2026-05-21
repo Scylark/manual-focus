@@ -343,10 +343,10 @@ const posts = (await getCollection('blog'))
        distance for the JS to drive the line index. -->
   <section class="manifesto-section" aria-label="Manifesto" data-manifesto>
     <div class="manifesto-stage">
-      <p class="manifesto-line is-active" data-i="0">Brand, sharpened by AI.</p>
-      <p class="manifesto-line" data-i="1">Demand, faster than the old playbook.</p>
-      <p class="manifesto-line" data-i="2">Growth, that compounds.</p>
-      <p class="manifesto-line manifesto-line-final" data-i="3"><span class="gradient-text">Senior operators.</span> Real conviction. No fluff.</p>
+      <p class="manifesto-line is-active" data-i="0"><span class="manifesto-text">Brand, sharpened by AI.</span></p>
+      <p class="manifesto-line" data-i="1"><span class="manifesto-text">Demand, faster than the old playbook.</span></p>
+      <p class="manifesto-line" data-i="2"><span class="manifesto-text">Growth, that compounds.</span></p>
+      <p class="manifesto-line manifesto-line-final" data-i="3"><span class="manifesto-text"><span class="gradient-text">Senior operators.</span> Real conviction. No fluff.</span></p>
     </div>
     <div class="manifesto-spacer"></div>
     <div class="manifesto-spacer"></div>
@@ -1185,6 +1185,11 @@ const posts = (await getCollection('blog'))
     overflow: hidden;
   }
   .manifesto-spacer { height: 100vh; }
+  /* The outer .manifesto-line is just a centering container for the
+     absolutely-positioned slot in the sticky stage. All typography lives
+     on the inner .manifesto-text span so inline content (like the
+     gradient-text on the final line) flows naturally as text rather than
+     getting picked up as separate flex items. */
   .manifesto-line {
     position: absolute;
     inset: 0;
@@ -1192,15 +1197,8 @@ const posts = (await getCollection('blog'))
     align-items: center;
     justify-content: center;
     margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 9vw, 8rem);
-    line-height: 0.95;
-    letter-spacing: -0.01em;
-    color: var(--color-text);
-    text-transform: uppercase;
-    text-align: center;
-    max-width: 100%;
     padding-inline: var(--space-md);
+    pointer-events: none;
     /* off-stage to the right, slightly blurred */
     opacity: 0;
     transform: translateX(8%) skewX(-4deg);
@@ -1220,14 +1218,25 @@ const posts = (await getCollection('blog'))
     transform: translateX(-8%) skewX(-4deg);
     filter: blur(8px);
   }
-  .manifesto-line-final {
-    text-transform: none;
+  .manifesto-text {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 9vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 18ch;
+  }
+  .manifesto-line-final .manifesto-text {
     font-family: var(--font-family);
     font-weight: 600;
-    font-size: clamp(1.5rem, 4vw, 3.5rem);
+    font-size: clamp(1.5rem, 4.5vw, 3.5rem);
     letter-spacing: -0.01em;
-    line-height: 1.15;
-    max-width: 22ch;
+    line-height: 1.2;
+    max-width: 24ch;
+    text-transform: none;
   }
   .manifesto-line-final .gradient-text {
     background: var(--color-cta-gradient);
@@ -1238,8 +1247,8 @@ const posts = (await getCollection('blog'))
   @media (max-width: 768px) {
     .manifesto-stage { height: 70vh; }
     .manifesto-spacer { height: 70vh; }
-    .manifesto-line { font-size: clamp(2rem, 11vw, 4rem); }
-    .manifesto-line-final { font-size: clamp(1.25rem, 5vw, 2rem); }
+    .manifesto-text { font-size: clamp(2rem, 11vw, 4rem); }
+    .manifesto-line-final .manifesto-text { font-size: clamp(1.25rem, 5vw, 2rem); }
   }
 
   /* ============================
