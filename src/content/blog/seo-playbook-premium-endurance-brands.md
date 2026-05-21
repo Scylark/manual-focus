@@ -11,6 +11,26 @@ If you're running marketing for a premium cycling, running, triathlon or wider e
 
 The reason we're giving it away is that the principles travel and the implementation is where the work actually sits. Most teams underestimate how much craft sits inside running it well, so handing over the methodology costs us nothing and saves you months. If after reading this you want help running it, you know where we are. If you take this and never speak to us, also fine, we'd rather have a thousand smarter marketers in the category than gatekeep a methodology.
 
+## Grab the SEO audit skill we actually use
+
+The playbook below is the strategy. To make the strategy operational, we built this into a Claude skill we run on every site we audit. It produces a prioritised action plan, keyword opportunity table, on-page issue list, technical SEO checklist and competitor comparison in one pass.
+
+**[Download the SEO audit skill (SKILL.md)](/downloads/seo-audit-skill.md)**
+
+### How to use it with Claude Code
+
+If you use Claude Code, drop the file into a `seo-audit` folder inside your skills directory (typically `~/.claude/skills/seo-audit/SKILL.md` for a personal skill, or inside a plugin's `skills/` folder for a team plugin). Then type `/seo-audit` in any Claude Code conversation. It will ask for the URL or domain, the audit type (full site, keyword research, content gap, technical, competitor) and any target keywords or competitors you want to feed it. You get the structured audit back in the same conversation, with the action plan split into quick wins for this week and strategic investments for this quarter.
+
+### How to use it with any other LLM
+
+The skill is just a structured prompt with a process and an output schema. Open the file, copy everything below the front matter, paste it into ChatGPT, Claude.ai, Gemini or any chat interface, then add "Run this audit on [your domain]" at the bottom. The prompt is self-contained, so the model will ask for the inputs it needs and then produce the full audit.
+
+### What you'll get back
+
+Five sections in this order. An executive summary covering overall SEO health, the biggest strength and the top three priorities. A keyword opportunity table with 15 to 25 keywords scored by demand, difficulty, intent and recommended content type. An on-page issue table covering title tags, meta descriptions, headings, internal linking, alt text and URL structure, severity-tagged. A technical SEO checklist running through page speed, mobile, structured data, crawlability, broken links, HTTPS, Core Web Vitals and indexation. A competitor comparison matrix on keyword overlap, content depth, publishing frequency, backlink signals and SERP feature ownership. Then a prioritised action plan split into quick wins (under two hours, do this week) and strategic investments (multi-day, plan for this quarter), each with effort estimate, expected impact and dependencies.
+
+It works best when the model has access to live search. With SEO tools connected via MCP (Ahrefs, Semrush, similar) the keyword data and ranking positions auto-populate. Without those, the audit falls back to web search and structured analysis, which still produces a useful plan but with less precise volume and difficulty data.
+
 ## The market dynamics that shape the work
 
 Premium endurance has a specific shape that changes how SEO has to work.
