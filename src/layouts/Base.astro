@@ -156,8 +156,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         return {
           el,
           mult: isNaN(mult) ? 60 : mult,
-          // y-parallax factor in px-per-scroll-px, signed so half drift up, half drift down
-          yk: depth * 0.08 * dir,
+          // y-parallax factor, much subtler now and clamped per-frame so rings
+          // never drift more than ~120px from their designed position. Without
+          // the clamp, absolute scroll-Y on a long page pushes them way past
+          // section boundaries and the overflow:hidden clips them to slivers.
+          yk: depth * 0.022 * dir,
         };
       });
 
@@ -166,7 +169,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         const sy = window.scrollY;
         for (const it of items) {
           const rot = (sy * it.mult) / 350;
-          const yPx = sy * it.yk;
+          // Clamp the parallax to ±120px so rings stay close to their
+          // designed slot regardless of overall page scroll distance.
+          const yRaw = sy * it.yk;
+          const yPx = Math.max(-120, Math.min(120, yRaw));
           it.el.style.setProperty('--scroll-rot', `${rot}deg`);
           it.el.style.setProperty('--scroll-y', `${yPx.toFixed(1)}px`);
         }

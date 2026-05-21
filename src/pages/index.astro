@@ -604,21 +604,25 @@ const posts = (await getCollection('blog'))
   }
 
   /* Radial aura behind the type that builds and recedes around peak.
-     Two layered gradients give a magenta core + cyan halo. */
+     Two layered gradients give a magenta core + cyan halo. The aura center
+     follows the cursor via --mx/--my (offset by 20% of viewport), so the
+     light source feels like it's tied to where you're looking. */
   .forge-aura {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
+    --aura-x: calc(50% + var(--mx, 0) * 30%);
+    --aura-y: calc(52% + var(--my, 0) * 28%);
     background:
-      radial-gradient(ellipse 35% 45% at 50% 52%,
-        rgba(192, 38, 211, calc(0.35 * var(--fp, 0))) 0%,
-        rgba(192, 38, 211, calc(0.15 * var(--fp, 0))) 30%,
+      radial-gradient(ellipse 35% 45% at var(--aura-x) var(--aura-y),
+        rgba(192, 38, 211, calc(0.4 * var(--fp, 0))) 0%,
+        rgba(192, 38, 211, calc(0.18 * var(--fp, 0))) 30%,
         transparent 60%),
-      radial-gradient(ellipse 60% 70% at 50% 52%,
-        rgba(0, 229, 255, calc(0.12 * var(--fp, 0))) 0%,
+      radial-gradient(ellipse 60% 70% at var(--aura-x) var(--aura-y),
+        rgba(0, 229, 255, calc(0.14 * var(--fp, 0))) 0%,
         transparent 65%);
-    filter: blur(20px);
+    filter: blur(24px);
   }
 
   .forge-3d-wrap {
@@ -1443,42 +1447,72 @@ const posts = (await getCollection('blog'))
     updateManifesto();
   }
 
-  // Forge section — scroll progress (0→1) + 3D type tilt
+  // Forge section — scroll progress (0→1) + 3D type tilt + cursor follow.
+  // Mouse-driven offsets compose on top of the scroll-driven base tilt and
+  // shift the aura center toward the cursor, so the wordmark feels alive
+  // and responds to where you're looking on the page.
   const forgeSection = document.querySelector<HTMLElement>('[data-forge]');
   const forgeTilt = document.querySelector<HTMLElement>('[data-forge-tilt]');
   if (forgeSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     let forgePending = false;
+    let mouseX = 0;  // -0.5 .. 0.5, relative to section
+    let mouseY = 0;
+    let mouseXTarget = 0;
+    let mouseYTarget = 0;
+    let fp = 0;
+    const text = forgeSection.querySelector<HTMLElement>('.forge-3d-text');
+
     const updateForge = () => {
       const rect = forgeSection.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
       const scrolled = -rect.top;
-      const fp = Math.max(0, Math.min(1, total > 0 ? scrolled / total : 0));
+      fp = Math.max(0, Math.min(1, total > 0 ? scrolled / total : 0));
       forgeSection.style.setProperty('--fp', fp.toFixed(4));
-      if (forgeTilt) {
-        // Tilt sweeps wider for a more dramatic 3D rotation as you scroll.
-        // X: 14°→32°. Y: -22°→10°.
-        const tiltX = 14 + fp * 18;
-        const tiltY = -22 + fp * 32;
-        // Scale curve peaks at the middle of the sticky range and eases away
-        // at the ends — like the type pushes toward camera then settles back.
-        // Bell curve: 4 * fp * (1 - fp) maxes at 1 when fp = 0.5.
+      // Ease mouse toward target so motion feels weighty, not jittery.
+      mouseX += (mouseXTarget - mouseX) * 0.12;
+      mouseY += (mouseYTarget - mouseY) * 0.12;
+      forgeSection.style.setProperty('--mx', mouseX.toFixed(3));
+      forgeSection.style.setProperty('--my', mouseY.toFixed(3));
+      if (text) {
+        // Base scroll-driven tilt with cursor offset layered on top.
+        const tiltX = 14 + fp * 18 + (-mouseY * 14);
+        const tiltY = -22 + fp * 32 + (mouseX * 18);
         const bell = 4 * fp * (1 - fp);
         const scale = 0.72 + bell * 0.33;
-        const text = forgeTilt.querySelector<HTMLElement>('.forge-3d-text');
-        if (text) {
-          text.style.setProperty('--forge-tiltX', `${tiltX.toFixed(2)}deg`);
-          text.style.setProperty('--forge-tiltY', `${tiltY.toFixed(2)}deg`);
-          text.style.setProperty('--forge-scale', scale.toFixed(3));
-        }
+        text.style.setProperty('--forge-tiltX', `${tiltX.toFixed(2)}deg`);
+        text.style.setProperty('--forge-tiltY', `${tiltY.toFixed(2)}deg`);
+        text.style.setProperty('--forge-scale', scale.toFixed(3));
       }
       forgePending = false;
+      // Keep easing while there's still mouse delta to settle.
+      if (Math.abs(mouseXTarget - mouseX) > 0.001 || Math.abs(mouseYTarget - mouseY) > 0.001) {
+        forgePending = true;
+        requestAnimationFrame(updateForge);
+      }
     };
-    window.addEventListener('scroll', () => {
+    const requestForgeUpdate = () => {
       if (!forgePending) {
         forgePending = true;
         requestAnimationFrame(updateForge);
       }
-    }, { passive: true });
+    };
+    window.addEventListener('scroll', requestForgeUpdate, { passive: true });
+    // Track cursor relative to the sticky stage so the offset is centred
+    // around the viewport regardless of where you are in the section.
+    const sticky = forgeSection.querySelector<HTMLElement>('.forge-sticky');
+    if (sticky) {
+      sticky.addEventListener('mousemove', (e) => {
+        const r = sticky.getBoundingClientRect();
+        mouseXTarget = ((e.clientX - r.left) / r.width) - 0.5;
+        mouseYTarget = ((e.clientY - r.top) / r.height) - 0.5;
+        requestForgeUpdate();
+      });
+      sticky.addEventListener('mouseleave', () => {
+        mouseXTarget = 0;
+        mouseYTarget = 0;
+        requestForgeUpdate();
+      });
+    }
     updateForge();
   }
 
