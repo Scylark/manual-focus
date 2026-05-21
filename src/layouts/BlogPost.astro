@@ -13,9 +13,15 @@ interface Props {
 
 const { title, description, date, tags, image } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: title, url: Astro.url.pathname },
+];
 ---
 <Base title={title} description={description} ogImage={image}>
-  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} tags={tags} />
+  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} tags={tags} image={image} breadcrumbs={breadcrumbs} />
 
   <article class="section">
     <div class="container prose">

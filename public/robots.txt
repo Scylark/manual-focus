@@ -1,0 +1,11 @@
+# Manual Focus
+# https://manual-focus.co.uk
+
+User-agent: *
+Allow: /
+
+# Be explicit about what's off-limits (nothing right now)
+Disallow:
+
+# Sitemap
+Sitemap: https://manual-focus.co.uk/sitemap-index.xml

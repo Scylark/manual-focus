@@ -1,88 +1,246 @@
 ---
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface Props {
-  type: 'website' | 'article' | 'faq' | 'profile';
+  type: 'website' | 'article' | 'faq' | 'profile' | 'service';
   title: string;
   description: string;
   publishDate?: Date;
+  modifiedDate?: Date;
   tags?: string[];
+  image?: string;
   faqItems?: { question: string; answer: string }[];
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-const { type, title, description, publishDate, tags, faqItems } = Astro.props;
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
+const {
+  type,
+  title,
+  description,
+  publishDate,
+  modifiedDate,
+  tags,
+  image,
+  faqItems,
+  breadcrumbs,
+} = Astro.props;
 
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
+const fullImage = image
+  ? (image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? '' : '/'}${image}`)
+  : `${siteUrl}/images/og-default.png`;
+
+// Organization schema — present on every page. Address signals London location
+// for local SEO, description leans into the actual positioning, knowsAbout
+// gives crawlers and LLMs a clean topic-association set.
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
   name: 'Manual Focus',
+  alternateName: 'Manual Focus Marketing',
   url: siteUrl,
-  logo: `${siteUrl}/images/manual-focus-logo.svg`,
-  description: 'Marketing agency specialising in Fractional CMO and Strategic Consulting for startups and scaleups.',
-  sameAs: [
-    'https://www.linkedin.com/company/manual-focus',
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/images/manual-focus-logo.svg`,
+    width: 512,
+    height: 512,
+  },
+  description:
+    'Marketing agency for ambitious brands. Senior operators using AI as leverage to ship brand, demand and growth, with particular depth in endurance and sports brands.',
+  slogan: 'Brand. Demand. Growth. AI accelerated.',
+  foundingDate: '2025',
+  inLanguage: 'en-GB',
+  areaServed: ['United Kingdom', 'Europe', 'United States', 'Worldwide'],
+  knowsAbout: [
+    'Marketing strategy',
+    'Fractional CMO services',
+    'AI-led marketing',
+    'Content marketing',
+    'SEO and answer engine optimisation',
+    'Endurance and sports brand marketing',
+    'Headless web development',
+    'Ecommerce on Shopify, BigCommerce and WooCommerce',
+    'Brand strategy',
+    'Demand generation',
   ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'London',
+    addressCountry: 'GB',
+  },
+  sameAs: ['https://www.linkedin.com/company/manual-focus'],
   founder: {
     '@type': 'Person',
     name: 'James Vickers',
-    jobTitle: 'Founder',
-    sameAs: [
-      'https://www.linkedin.com/in/jamesvickers',
-    ],
+    jobTitle: 'Founder, Manual Focus',
+    sameAs: ['https://www.linkedin.com/in/jamesvickers'],
   },
 };
 
-const profileSchema = type === 'profile' ? {
+// WebSite schema — enables sitelinks search-box treatment in Google once
+// authority grows, and gives crawlers a clean root reference.
+const websiteSchema = {
   '@context': 'https://schema.org',
-  '@type': 'ProfilePage',
-  mainEntity: {
-    '@type': 'Person',
-    name: 'James Vickers',
-    jobTitle: 'Founder, Manual Focus',
-    description: 'Senior marketing leader with 10+ years of experience across cycling, fintech, Web3, and AI.',
-    sameAs: [
-      'https://www.linkedin.com/in/jamesvickers',
-    ],
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Manual Focus',
-      url: siteUrl,
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: 'Manual Focus',
+  description: 'Marketing agency for ambitious brands. Senior operators using AI as leverage.',
+  inLanguage: 'en-GB',
+  publisher: { '@id': `${siteUrl}/#organization` },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteUrl}/blog?q={search_term_string}`,
     },
+    'query-input': 'required name=search_term_string',
   },
-} : null;
+};
 
-const articleSchema = type === 'article' && publishDate ? {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: title,
-  description,
-  datePublished: publishDate.toISOString(),
-  author: {
-    '@type': 'Person',
-    name: 'James Vickers',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Manual Focus',
-    logo: { '@type': 'ImageObject', url: `${siteUrl}/images/manual-focus-logo.svg` },
-  },
-  keywords: tags?.join(', '),
-} : null;
+const profileSchema =
+  type === 'profile'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'ProfilePage',
+        mainEntity: {
+          '@type': 'Person',
+          name: 'James Vickers',
+          jobTitle: 'Founder, Manual Focus',
+          description:
+            'Senior marketing leader with 15+ years running brand, demand, product and growth across AI, fintech, sports tech, hardware and digital assets. Co-founded RGT Cycling (acquired by Wahoo Fitness). Now running Manual Focus.',
+          worksFor: { '@id': `${siteUrl}/#organization` },
+          sameAs: ['https://www.linkedin.com/in/jamesvickers'],
+          knowsAbout: [
+            'Marketing strategy',
+            'Fractional CMO',
+            'Brand strategy',
+            'Endurance sports marketing',
+            'AI in marketing',
+            'Growth strategy',
+          ],
+        },
+      }
+    : null;
 
-const faqSchema = type === 'faq' && faqItems ? {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqItems.map(item => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-} : null;
+const articleSchema =
+  type === 'article' && publishDate
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        '@id': `${siteUrl}${Astro.url.pathname}#article`,
+        headline: title,
+        description,
+        image: fullImage,
+        datePublished: publishDate.toISOString(),
+        dateModified: (modifiedDate ?? publishDate).toISOString(),
+        inLanguage: 'en-GB',
+        author: {
+          '@type': 'Person',
+          name: 'James Vickers',
+          url: `${siteUrl}/about`,
+          sameAs: ['https://www.linkedin.com/in/jamesvickers'],
+        },
+        publisher: { '@id': `${siteUrl}/#organization` },
+        keywords: tags?.join(', '),
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': new URL(Astro.url.pathname, siteUrl).toString(),
+        },
+      }
+    : null;
+
+const faqSchema =
+  type === 'faq' && faqItems
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+
+// Service schema — marks up the four engagement tiers / product so each
+// one can be surfaced as a distinct service offering in rich results.
+const serviceSchemas =
+  type === 'service'
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Strategic Advisor',
+          provider: { '@id': `${siteUrl}/#organization` },
+          name: 'Strategic Advisor — The senior voice in the room',
+          description:
+            'Part-time senior marketing input for teams without a CMO. 1–2 days a month on day rate or monthly retainer.',
+          areaServed: 'Worldwide',
+          url: `${siteUrl}/services`,
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Fractional CMO',
+          provider: { '@id': `${siteUrl}/#organization` },
+          name: 'Fractional CMO — Embedded senior marketer',
+          description:
+            'Embedded senior marketing leadership without a full-time hire. 1–2 days a week, three-month minimum.',
+          areaServed: 'Worldwide',
+          url: `${siteUrl}/services`,
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Build and Hand Over',
+          provider: { '@id': `${siteUrl}/#organization` },
+          name: 'Build and Hand Over — Scoped outcome, shipped fast',
+          description:
+            'Project-based marketing builds — launches, SEO programs, headless web on Shopify, BigCommerce, WooCommerce or WordPress, brand refreshes. Fixed scope, fixed timeline, fixed price. Typical builds 4–12 weeks.',
+          areaServed: 'Worldwide',
+          url: `${siteUrl}/services`,
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Manual Focus AI',
+          provider: { '@id': `${siteUrl}/#organization` },
+          name: 'Manual Focus AI — Done-for-you AI workflows',
+          description:
+            'Product where Manual Focus owns and runs the AI workflows on behalf of the client. Content planning, wireframing and production delivered on cadence. Monthly retainer.',
+          areaServed: 'Worldwide',
+          url: `${siteUrl}/services`,
+        },
+      ]
+    : null;
+
+const breadcrumbSchema =
+  breadcrumbs && breadcrumbs.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.name,
+          item: b.url.startsWith('http') ? b.url : `${siteUrl}${b.url}`,
+        })),
+      }
+    : null;
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 {profileSchema && <script type="application/ld+json" set:html={JSON.stringify(profileSchema)} />}
 {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
 {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+{serviceSchemas && serviceSchemas.map(s => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+{breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
