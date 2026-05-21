@@ -338,12 +338,20 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
-  <!-- MANIFESTO — sticky-stacked scroll, one statement at a time -->
-  <section class="manifesto-section" aria-label="Manifesto">
-    <div class="manifesto-card"><p class="manifesto-line">Brand, sharpened by AI.</p></div>
-    <div class="manifesto-card"><p class="manifesto-line">Demand, faster than the old playbook.</p></div>
-    <div class="manifesto-card"><p class="manifesto-line">Growth, that compounds.</p></div>
-    <div class="manifesto-card"><p class="manifesto-line manifesto-line-final"><span class="gradient-text">Senior operators.</span> Real conviction. No fluff.</p></div>
+  <!-- MANIFESTO — single sticky stage with absolutely-positioned lines that
+       cross-fade as you scroll. Spacers below the stage create the scroll
+       distance for the JS to drive the line index. -->
+  <section class="manifesto-section" aria-label="Manifesto" data-manifesto>
+    <div class="manifesto-stage">
+      <p class="manifesto-line is-active" data-i="0">Brand, sharpened by AI.</p>
+      <p class="manifesto-line" data-i="1">Demand, faster than the old playbook.</p>
+      <p class="manifesto-line" data-i="2">Growth, that compounds.</p>
+      <p class="manifesto-line manifesto-line-final" data-i="3"><span class="gradient-text">Senior operators.</span> Real conviction. No fluff.</p>
+    </div>
+    <div class="manifesto-spacer"></div>
+    <div class="manifesto-spacer"></div>
+    <div class="manifesto-spacer"></div>
+    <div class="manifesto-spacer"></div>
   </section>
 
   <!-- CTA CLOSE -->
@@ -1154,27 +1162,36 @@ const posts = (await getCollection('blog'))
   }
 
   /* ============================
-     MANIFESTO — sticky-stacked scroll
-     Each statement holds the viewport for 100vh of scroll, then the next
-     card stacks on top via position: sticky. The active card fades from
-     0 → 1 → 0 as it passes through the centre of the viewport, controlled
-     by the JS scroll handler at the bottom of the page.
+     MANIFESTO — single sticky stage with cross-fading lines
+     Four full-height spacers create the scroll distance. The stage stays
+     sticky at the top of the viewport while you scroll, and the JS picks
+     which line is active based on scroll progress through the section.
+     Each line slides + blurs in from the right, settles, then slides out
+     left as the next one takes over.
      ============================ */
   .manifesto-section {
     position: relative;
     border-top: 1px solid var(--color-line);
+    background: var(--color-bg);
   }
-  .manifesto-card {
+  .manifesto-stage {
     position: sticky;
     top: 0;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-bg);
     padding-inline: var(--space-md);
+    overflow: hidden;
   }
+  .manifesto-spacer { height: 100vh; }
   .manifesto-line {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 9vw, 8rem);
     line-height: 0.95;
@@ -1182,15 +1199,26 @@ const posts = (await getCollection('blog'))
     color: var(--color-text);
     text-transform: uppercase;
     text-align: center;
-    max-width: 18ch;
+    max-width: 100%;
+    padding-inline: var(--space-md);
+    /* off-stage to the right, slightly blurred */
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateX(8%) skewX(-4deg);
+    filter: blur(8px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .manifesto-card.is-active .manifesto-line {
+  .manifesto-line.is-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0) skewX(0);
+    filter: blur(0);
+  }
+  .manifesto-line.is-past {
+    /* exit to the left, with blur */
+    opacity: 0;
+    transform: translateX(-8%) skewX(-4deg);
+    filter: blur(8px);
   }
   .manifesto-line-final {
     text-transform: none;
@@ -1198,7 +1226,7 @@ const posts = (await getCollection('blog'))
     font-weight: 600;
     font-size: clamp(1.5rem, 4vw, 3.5rem);
     letter-spacing: -0.01em;
-    line-height: 1.1;
+    line-height: 1.15;
     max-width: 22ch;
   }
   .manifesto-line-final .gradient-text {
@@ -1208,7 +1236,8 @@ const posts = (await getCollection('blog'))
     -webkit-text-fill-color: transparent;
   }
   @media (max-width: 768px) {
-    .manifesto-card { height: 70vh; }
+    .manifesto-stage { height: 70vh; }
+    .manifesto-spacer { height: 70vh; }
     .manifesto-line { font-size: clamp(2rem, 11vw, 4rem); }
     .manifesto-line-final { font-size: clamp(1.25rem, 5vw, 2rem); }
   }
@@ -1332,28 +1361,28 @@ const posts = (await getCollection('blog'))
     revealObs.observe(forgeText);
   }
 
-  // Manifesto — pick the card whose centre is closest to viewport centre
-  // and mark it active. Gives the "one statement at a time" feel.
-  const manifestoCards = document.querySelectorAll<HTMLElement>('.manifesto-card');
-  if (manifestoCards.length) {
+  // Manifesto — pick the active line based on scroll progress through the
+  // section. The section is N viewports tall (one viewport per line), so
+  // we divide scroll progress by 1/N to find the active index.
+  const manifestoSection = document.querySelector<HTMLElement>('[data-manifesto]');
+  const manifestoLines = document.querySelectorAll<HTMLElement>('.manifesto-line');
+  if (manifestoSection && manifestoLines.length) {
+    const total = manifestoLines.length;
     let manifestoPending = false;
     const updateManifesto = () => {
-      const vhCentre = window.innerHeight / 2;
-      let closest: HTMLElement | null = null;
-      let closestDist = Infinity;
-      manifestoCards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        // Only consider cards that are currently in the viewport at all
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-        const centre = rect.top + rect.height / 2;
-        const dist = Math.abs(centre - vhCentre);
-        if (dist < closestDist) {
-          closestDist = dist;
-          closest = card;
-        }
-      });
-      manifestoCards.forEach(card => {
-        card.classList.toggle('is-active', card === closest);
+      const rect = manifestoSection.getBoundingClientRect();
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
+      const vh = window.innerHeight;
+      // Progress is 0 when the section's top hits the viewport top,
+      // and 1 when its bottom (minus one stage) leaves the viewport top.
+      const scrollable = sectionHeight - vh;
+      const progress = Math.min(1, Math.max(0, -sectionTop / scrollable));
+      // Each line gets 1/total of the progress.
+      const active = Math.min(total - 1, Math.floor(progress * total));
+      manifestoLines.forEach((line, i) => {
+        line.classList.toggle('is-active', i === active);
+        line.classList.toggle('is-past', i < active);
       });
       manifestoPending = false;
     };

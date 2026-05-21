@@ -53,22 +53,26 @@ const year = new Date().getFullYear();
     z-index: 2;
   }
 
-  /* Viewport-spanning wordmark stamp — sits above the sitemap nav. */
+  /* Viewport-spanning wordmark stamp. Anton is condensed but "MANUAL FOCUS"
+     is 12 character-widths so we cap vw conservatively to keep both words
+     inside the viewport at all sizes. */
   .footer-wordmark-stage {
     width: 100%;
     overflow: hidden;
     padding-block: var(--space-md) var(--space-lg);
+    container-type: inline-size;
   }
   .footer-wordmark {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(3.5rem, 19vw, 22rem);
-    line-height: 0.78;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.5rem, 13.5vw, 16rem);
+    line-height: 0.82;
+    letter-spacing: -0.01em;
     color: var(--color-text);
     text-align: center;
     white-space: nowrap;
     margin: 0;
+    padding-inline: var(--space-sm);
   }
 
   .footer-inner {
