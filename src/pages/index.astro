@@ -199,24 +199,6 @@ const posts = (await getCollection('blog'))
   <!-- THE FORGE — 3D type sticky focal moment -->
   <section class="forge-section" data-forge>
     <div class="forge-sticky">
-      <div class="forge-tunnel" aria-hidden="true">
-        <div class="tunnel-shape" style="--delay: 0s; --rot: 0deg; --shape-color: rgba(255, 45, 120, 0.95);"></div>
-        <div class="tunnel-shape" style="--delay: -0.12s; --rot: 18deg; --shape-color: rgba(192, 38, 211, 0.9);"></div>
-        <div class="tunnel-shape" style="--delay: -0.24s; --rot: -12deg; --shape-color: rgba(0, 229, 255, 0.85);"></div>
-        <div class="tunnel-shape tunnel-shape--tri" style="--delay: -0.36s; --rot: 24deg; --shape-color: rgba(255, 45, 120, 0.9);"></div>
-        <div class="tunnel-shape" style="--delay: -0.48s; --rot: -28deg; --shape-color: rgba(192, 38, 211, 0.95);"></div>
-        <div class="tunnel-shape tunnel-shape--hex" style="--delay: -0.60s; --rot: 6deg; --shape-color: rgba(0, 229, 255, 0.9);"></div>
-        <div class="tunnel-shape" style="--delay: -0.72s; --rot: -8deg; --shape-color: rgba(255, 45, 120, 0.85);"></div>
-        <div class="tunnel-shape tunnel-shape--tri" style="--delay: -0.84s; --rot: 32deg; --shape-color: rgba(192, 38, 211, 0.9);"></div>
-        <div class="tunnel-shape" style="--delay: -0.96s; --rot: 14deg; --shape-color: rgba(0, 229, 255, 0.85);"></div>
-        <div class="tunnel-shape tunnel-shape--hex" style="--delay: -1.08s; --rot: -20deg; --shape-color: rgba(255, 45, 120, 0.95);"></div>
-        <div class="tunnel-shape" style="--delay: -1.20s; --rot: 4deg; --shape-color: rgba(192, 38, 211, 0.9);"></div>
-        <div class="tunnel-shape tunnel-shape--tri" style="--delay: -1.32s; --rot: -16deg; --shape-color: rgba(0, 229, 255, 0.9);"></div>
-        <div class="tunnel-shape" style="--delay: -1.44s; --rot: 22deg; --shape-color: rgba(255, 45, 120, 0.85);"></div>
-        <div class="tunnel-shape tunnel-shape--hex" style="--delay: -1.56s; --rot: -32deg; --shape-color: rgba(192, 38, 211, 0.95);"></div>
-        <div class="tunnel-shape tunnel-shape--tri" style="--delay: -1.68s; --rot: 10deg; --shape-color: rgba(0, 229, 255, 0.9);"></div>
-        <div class="tunnel-shape" style="--delay: -1.80s; --rot: -4deg; --shape-color: rgba(255, 45, 120, 0.9);"></div>
-      </div>
       <div class="forge-grid" aria-hidden="true"></div>
       <div class="forge-aura" aria-hidden="true"></div>
       <div class="forge-3d-wrap" data-forge-tilt>
@@ -596,112 +578,6 @@ const posts = (await getCollection('blog'))
     isolation: isolate;
   }
 
-  /* Geometric world the viewer is flying through. Sixteen outlined shapes
-     stacked along the Z axis on a 1.92s loop (0.12s stagger), so a shape
-     whooshes past every ~120ms. perspective-origin tracks the cursor via
-     --mx/--my so moving the mouse appears to change the direction of
-     travel — the tunnel banks toward where you're looking. Sits ABOVE
-     the aura in stacking order so the shapes stay sharp instead of
-     getting washed out by the blur. */
-  .forge-tunnel {
-    position: absolute;
-    inset: 0;
-    perspective: 500px;
-    perspective-origin: calc(50% + var(--mx, 0) * 45%) calc(52% + var(--my, 0) * 38%);
-    transform-style: preserve-3d;
-    pointer-events: none;
-    z-index: 1;
-    opacity: calc(0.65 + var(--fp, 0) * 0.35);
-    transition: opacity 0.3s ease;
-  }
-  .tunnel-shape {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 70vmin;
-    height: 70vmin;
-    margin-top: -35vmin;
-    margin-left: -35vmin;
-    border: 3px solid var(--shape-color, rgba(255, 45, 120, 0.9));
-    box-sizing: border-box;
-    /* Heavy ease-in on a shorter cycle. Each shape lingers in the distance
-       then accelerates hard toward camera and whooshes past at scale. */
-    animation: tunnel-fly 1.92s cubic-bezier(0.6, 0, 0.95, 0.4) infinite;
-    animation-delay: var(--delay, 0s);
-    opacity: 0;
-    transform-style: preserve-3d;
-    will-change: transform, opacity;
-    box-shadow:
-      0 0 12px var(--shape-color, rgba(255, 45, 120, 0.4)),
-      inset 0 0 8px var(--shape-color, rgba(255, 45, 120, 0.3));
-  }
-  /* Triangle variant — clipped to a triangle path, no fill, still outline */
-  .tunnel-shape--tri {
-    border: none;
-    background:
-      conic-gradient(from 0deg at 50% 100%,
-        transparent 0deg,
-        var(--shape-color, rgba(255, 45, 120, 0.4)) 0deg,
-        var(--shape-color, rgba(255, 45, 120, 0.4)) 1deg,
-        transparent 1deg);
-    clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    width: 70vmin;
-    height: 60vmin;
-    margin-top: -30vmin;
-    margin-left: -35vmin;
-    /* Use an outline rendered with conic-gradient + clip — simpler: just
-       paint a triangle outline via two pseudos. */
-    background: transparent;
-  }
-  .tunnel-shape--tri::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(var(--shape-color, rgba(255, 45, 120, 0.4)),
-                      var(--shape-color, rgba(255, 45, 120, 0.4)));
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    padding: 1.5px;
-    clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  }
-  /* Hex variant */
-  .tunnel-shape--hex {
-    width: 70vmin;
-    height: 60vmin;
-    margin-top: -30vmin;
-    margin-left: -35vmin;
-    border: none;
-    background: transparent;
-  }
-  .tunnel-shape--hex::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(var(--shape-color, rgba(255, 45, 120, 0.4)),
-                      var(--shape-color, rgba(255, 45, 120, 0.4)));
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    padding: 1.5px;
-    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-  }
-  @keyframes tunnel-fly {
-    0%   { transform: translateZ(-3200px) rotateZ(var(--rot, 0deg)); opacity: 0; }
-    12%  { opacity: 1; }
-    88%  { opacity: 1; }
-    100% { transform: translateZ(420px) rotateZ(calc(var(--rot, 0deg) * 0.4)); opacity: 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .tunnel-shape { animation: none; opacity: 0; }
-  }
-
   /* Vanishing-point grid behind the type — drives the sense of depth.
      Opacity tracks --fp so the grid fades in as you scroll into peak. */
   .forge-grid {
@@ -732,14 +608,14 @@ const posts = (await getCollection('blog'))
     --aura-x: calc(50% + var(--mx, 0) * 30%);
     --aura-y: calc(52% + var(--my, 0) * 28%);
     background:
-      radial-gradient(ellipse 28% 38% at var(--aura-x) var(--aura-y),
-        rgba(192, 38, 211, calc(0.22 * var(--fp, 0))) 0%,
-        rgba(192, 38, 211, calc(0.10 * var(--fp, 0))) 30%,
-        transparent 65%),
-      radial-gradient(ellipse 55% 65% at var(--aura-x) var(--aura-y),
-        rgba(0, 229, 255, calc(0.08 * var(--fp, 0))) 0%,
-        transparent 70%);
-    filter: blur(28px);
+      radial-gradient(ellipse 35% 45% at var(--aura-x) var(--aura-y),
+        rgba(192, 38, 211, calc(0.4 * var(--fp, 0))) 0%,
+        rgba(192, 38, 211, calc(0.18 * var(--fp, 0))) 30%,
+        transparent 60%),
+      radial-gradient(ellipse 60% 70% at var(--aura-x) var(--aura-y),
+        rgba(0, 229, 255, calc(0.14 * var(--fp, 0))) 0%,
+        transparent 65%);
+    filter: blur(24px);
   }
 
   .forge-3d-wrap {
