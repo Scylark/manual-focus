@@ -338,14 +338,12 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
-  <!-- MANIFESTO — scroll-revealed close -->
+  <!-- MANIFESTO — sticky-stacked scroll, one statement at a time -->
   <section class="manifesto-section" aria-label="Manifesto">
-    <div class="container manifesto-inner">
-      <p class="manifesto-line reveal">Brand, made sharper by AI.</p>
-      <p class="manifesto-line reveal">Demand, built faster than the old playbook.</p>
-      <p class="manifesto-line reveal">Growth, that compounds.</p>
-      <p class="manifesto-line manifesto-line-final reveal">Senior operators. Real conviction. No fluff.</p>
-    </div>
+    <div class="manifesto-card"><p class="manifesto-line">Brand, sharpened by AI.</p></div>
+    <div class="manifesto-card"><p class="manifesto-line">Demand, faster than the old playbook.</p></div>
+    <div class="manifesto-card"><p class="manifesto-line">Growth, that compounds.</p></div>
+    <div class="manifesto-card"><p class="manifesto-line manifesto-line-final"><span class="gradient-text">Senior operators.</span> Real conviction. No fluff.</p></div>
   </section>
 
   <!-- CTA CLOSE -->
@@ -1156,39 +1154,63 @@ const posts = (await getCollection('blog'))
   }
 
   /* ============================
-     MANIFESTO
+     MANIFESTO — sticky-stacked scroll
+     Each statement holds the viewport for 100vh of scroll, then the next
+     card stacks on top via position: sticky. The active card fades from
+     0 → 1 → 0 as it passes through the centre of the viewport, controlled
+     by the JS scroll handler at the bottom of the page.
      ============================ */
   .manifesto-section {
-    padding-block: var(--space-2xl) var(--space-lg);
-    border-top: 1px solid var(--color-line);
     position: relative;
-    overflow: hidden;
+    border-top: 1px solid var(--color-line);
   }
-  .manifesto-inner {
+  .manifesto-card {
+    position: sticky;
+    top: 0;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    max-width: 1100px;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    padding-inline: var(--space-md);
   }
   .manifesto-line {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 6vw, 5.5rem);
-    line-height: 1;
+    font-size: clamp(2.5rem, 9vw, 8rem);
+    line-height: 0.95;
     letter-spacing: -0.01em;
     color: var(--color-text);
     text-transform: uppercase;
+    text-align: center;
+    max-width: 18ch;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .manifesto-card.is-active .manifesto-line {
+    opacity: 1;
+    transform: translateY(0);
   }
   .manifesto-line-final {
+    text-transform: none;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    max-width: 22ch;
+  }
+  .manifesto-line-final .gradient-text {
     background: var(--color-cta-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-top: var(--space-md);
-    font-size: clamp(1.25rem, 3vw, 2.5rem);
-    text-transform: none;
-    letter-spacing: 0;
-    font-family: var(--font-family);
-    font-weight: 600;
+  }
+  @media (max-width: 768px) {
+    .manifesto-card { height: 70vh; }
+    .manifesto-line { font-size: clamp(2rem, 11vw, 4rem); }
+    .manifesto-line-final { font-size: clamp(1.25rem, 5vw, 2rem); }
   }
 
   /* ============================
@@ -1308,6 +1330,40 @@ const posts = (await getCollection('blog'))
       });
     }, { threshold: 0.2 });
     revealObs.observe(forgeText);
+  }
+
+  // Manifesto — pick the card whose centre is closest to viewport centre
+  // and mark it active. Gives the "one statement at a time" feel.
+  const manifestoCards = document.querySelectorAll<HTMLElement>('.manifesto-card');
+  if (manifestoCards.length) {
+    let manifestoPending = false;
+    const updateManifesto = () => {
+      const vhCentre = window.innerHeight / 2;
+      let closest: HTMLElement | null = null;
+      let closestDist = Infinity;
+      manifestoCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        // Only consider cards that are currently in the viewport at all
+        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+        const centre = rect.top + rect.height / 2;
+        const dist = Math.abs(centre - vhCentre);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = card;
+        }
+      });
+      manifestoCards.forEach(card => {
+        card.classList.toggle('is-active', card === closest);
+      });
+      manifestoPending = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!manifestoPending) {
+        manifestoPending = true;
+        requestAnimationFrame(updateManifesto);
+      }
+    }, { passive: true });
+    updateManifesto();
   }
 
   // Forge section — scroll progress (0→1) + 3D type tilt

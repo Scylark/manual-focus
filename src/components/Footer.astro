@@ -3,6 +3,11 @@ import { url } from '../utils/paths';
 const year = new Date().getFullYear();
 ---
 <footer class="footer">
+  <!-- Viewport-spanning wordmark stamp -->
+  <div class="footer-wordmark-stage" aria-hidden="true">
+    <h2 class="footer-wordmark">MANUAL FOCUS</h2>
+  </div>
+
   <div class="container footer-inner">
     <div class="footer-brand">
       <svg viewBox="-10 -50 110 240" xmlns="http://www.w3.org/2000/svg" class="footer-mark" aria-hidden="true">
@@ -10,7 +15,6 @@ const year = new Date().getFullYear();
         <circle cx="45" cy="93" r="42" fill="none" stroke="currentColor" stroke-width="5.86" stroke-miterlimit="10"/>
       </svg>
       <div>
-        <p class="footer-title">Manual Focus</p>
         <p class="footer-tagline">Part of the Foundry. Built with the Forge.</p>
       </div>
     </div>
@@ -42,11 +46,29 @@ const year = new Date().getFullYear();
 <style>
   .footer {
     border-top: 1px solid var(--color-line);
-    padding-block: var(--space-lg);
+    padding-block: var(--space-lg) var(--space-md);
     background: var(--color-bg);
     color: var(--color-text-secondary);
     position: relative;
     z-index: 2;
+  }
+
+  /* Viewport-spanning wordmark stamp — sits above the sitemap nav. */
+  .footer-wordmark-stage {
+    width: 100%;
+    overflow: hidden;
+    padding-block: var(--space-md) var(--space-lg);
+  }
+  .footer-wordmark {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 19vw, 22rem);
+    line-height: 0.78;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    text-align: center;
+    white-space: nowrap;
+    margin: 0;
   }
 
   .footer-inner {
@@ -67,18 +89,9 @@ const year = new Date().getFullYear();
     overflow: visible;
     flex-shrink: 0;
   }
-  .footer-title {
-    font-family: var(--font-family);
-    font-weight: 900;
-    font-size: 1.35rem;
-    letter-spacing: -0.02em;
-    color: var(--color-text);
-    text-transform: none;
-  }
   .footer-tagline {
     color: var(--color-text-secondary);
     font-size: var(--font-size-sm);
-    margin-top: 0.25rem;
   }
 
   .footer-heading {
