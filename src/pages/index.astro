@@ -28,7 +28,7 @@ const posts = (await getCollection('blog'))
         <span class="hero-line hero-line-1">more than the same playbook</span>
         <span class="hero-line hero-line-2">
           <em class="hero-italic">
-            <span class="char" style="--i: 0">e</span><span class="char" style="--i: 1">v</span><span class="char" style="--i: 2">e</span><span class="char" style="--i: 3">r</span><span class="char" style="--i: 4">y</span><span class="char" style="--i: 5">o</span><span class="char" style="--i: 6">n</span><span class="char" style="--i: 7">e</span><span class="char" style="--i: 8">&nbsp;</span><span class="char" style="--i: 9">e</span><span class="char" style="--i: 10">l</span><span class="char" style="--i: 11">s</span><span class="char" style="--i: 12">e</span><span class="char" style="--i: 13">&nbsp;</span><span class="char" style="--i: 14">i</span><span class="char" style="--i: 15">s</span><span class="char" style="--i: 16">&nbsp;</span><span class="char" style="--i: 17">r</span><span class="char" style="--i: 18">u</span><span class="char" style="--i: 19">n</span><span class="char" style="--i: 20">n</span><span class="char" style="--i: 21">i</span><span class="char" style="--i: 22">n</span><span class="char" style="--i: 23">g</span><span class="char" style="--i: 24">.</span>
+            <span class="word"><span class="char" style="--i: 0">e</span><span class="char" style="--i: 1">v</span><span class="char" style="--i: 2">e</span><span class="char" style="--i: 3">r</span><span class="char" style="--i: 4">y</span><span class="char" style="--i: 5">o</span><span class="char" style="--i: 6">n</span><span class="char" style="--i: 7">e</span></span> <span class="word"><span class="char" style="--i: 9">e</span><span class="char" style="--i: 10">l</span><span class="char" style="--i: 11">s</span><span class="char" style="--i: 12">e</span></span> <span class="word"><span class="char" style="--i: 14">i</span><span class="char" style="--i: 15">s</span></span> <span class="word"><span class="char" style="--i: 17">r</span><span class="char" style="--i: 18">u</span><span class="char" style="--i: 19">n</span><span class="char" style="--i: 20">n</span><span class="char" style="--i: 21">i</span><span class="char" style="--i: 22">n</span><span class="char" style="--i: 23">g</span><span class="char" style="--i: 24">.</span></span>
           </em>
         </span>
       </h1>
@@ -379,7 +379,7 @@ const posts = (await getCollection('blog'))
     position: relative;
     z-index: 3;
     display: grid;
-    gap: var(--space-md);
+    gap: var(--space-sm);
   }
 
   .hero-eyebrow {
@@ -405,14 +405,14 @@ const posts = (await getCollection('blog'))
   }
 
   .hero-headline {
-    font-size: clamp(2rem, 6vw, 5.25rem);
-    line-height: 0.98;
+    font-size: clamp(1.85rem, 4.6vw, 4.25rem);
+    line-height: 1.02;
     letter-spacing: -0.02em;
     margin-top: var(--space-sm);
     /* Cyclist-hero sits behind, so the headline overrides theme text colour
        and gets a subtle shadow so it reads cleanly on the dawn sky. Font
-       size reduced from the full-width version since the headline now sits
-       in the left half of the viewport. */
+       size tuned so all three lines + the italic punchline fit comfortably
+       in the left half of the viewport without clipping. */
     color: #f6f0e8;
     text-shadow: 0 2px 18px rgba(15, 12, 8, 0.55);
   }
@@ -481,6 +481,12 @@ const posts = (await getCollection('blog'))
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+  }
+  /* Wrap each italic word in an inline-block so the per-char inline-blocks
+     inside can never break across lines — the whole word wraps as a unit. */
+  .hero-italic .word {
+    display: inline-block;
+    white-space: nowrap;
   }
 
   .hero-meta {
