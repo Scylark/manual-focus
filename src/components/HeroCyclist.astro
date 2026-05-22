@@ -25,10 +25,11 @@ interface Props {
   depthMap?: string;
   fallbackImage?: string;
   /**
-   * Depth multiplier for the parallax shift. 0.12 gives ≈12% UV
-   * separation between foreground (cyclist) and background (sky) at
-   * full scroll — a clearly visible drone-pass read. Bounded by the
-   * shader's MAX_SHIFT inset so the lookup never leaves the image.
+   * Depth multiplier for the parallax shift. Multiplied by depth (0..1)
+   * and the per-frame uOffset to get the final UV shift. 0.04 keeps the
+   * cyclist's drift to a clean ≤2% UV — matching the proven fake-3D
+   * pattern so the parallax reads as motion without the warping that
+   * higher values produce at silhouette edges.
    */
   strength?: number;
   /** Idle camera oscillation on top of the scroll-driven arc. */
@@ -39,7 +40,7 @@ const {
   texture = '/images/hero-cyclist.webp',
   depthMap = '/images/hero-cyclist-depth.png',
   fallbackImage = '/images/hero-cyclist.jpg',
-  strength = 0.18,
+  strength = 0.06,
   autoplay = true,
 } = Astro.props;
 
@@ -208,7 +209,7 @@ const fallbackUrl = url(fallbackImage);
 
     const textureUrl = section.dataset.texture!;
     const depthUrl = section.dataset.depth!;
-    const strength = parseFloat(section.dataset.strength || '0.18');
+    const strength = parseFloat(section.dataset.strength || '0.06');
     const autoplay = section.dataset.autoplay === 'true';
 
     let renderer: THREE.WebGLRenderer;
@@ -307,16 +308,18 @@ const fallbackUrl = url(fallbackImage);
           // Inset the sampling region by MAX_SHIFT on every side so the
           // parallax offset never pushes the texture lookup outside the
           // image bounds (which would smear the clamped edge).
-          const float MAX_SHIFT = 0.08;
+          const float MAX_SHIFT = 0.07;
           vec2 baseUv = cover(vUv);
           baseUv = baseUv * (1.0 - 2.0 * MAX_SHIFT) + vec2(MAX_SHIFT);
 
-          // Centred depth: -0.5 at sky/distant, +0.5 at the rider.
-          float depth = sampleDepth(baseUv) - 0.5;
+          // Depth used directly as 0..1, NOT centered around 0.5. With
+          // depth*uOffset only the foreground shifts; the background
+          // (depth ~0) stays static. This matches the proven fake-3D
+          // pattern and means the sky doesn't drift against the rider
+          // (which is what caused all the silhouette artifacts when
+          // sky and rider were shifting in opposite directions).
+          float depth = sampleDepth(baseUv);
 
-          // Foreground (positive depth) shifts opposite to the camera
-          // offset — standard motion-parallax. Background shifts with
-          // the camera. uStrength tunes the depth-to-pixel mapping.
           vec2 shift = uOffset * depth * uStrength;
 
           gl_FragColor = texture2D(uTexture, baseUv + shift);
@@ -412,14 +415,14 @@ const fallbackUrl = url(fallbackImage);
           // ease so the parallax accelerates into the scroll rather
           // than jerking on the first pixel.
           const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-          const scrollX = ease * 0.50;
-          const scrollY = ease * -0.30;
-          // Autoplay micro-drift: heavier than the scroll-driven shift so
-          // the depth read is obvious at rest, before the visitor scrolls.
-          // Two slightly different periods so X and Y don't trace a simple
-          // ellipse and feel motorised.
-          const driftX = autoplay ? Math.sin(t * 0.32) * 0.35 : 0;
-          const driftY = autoplay ? Math.cos(t * 0.23) * 0.20 : 0;
+          const scrollX = ease * 0.70;
+          const scrollY = ease * -0.40;
+          // Autoplay micro-drift: continuous breathing on top of scroll.
+          // Combined scroll + drift peaks at uOffset magnitude ≈1.0, which
+          // with strength 0.06 gives a max 6% UV shift on the foreground —
+          // matched to MAX_SHIFT so sampling never leaves the image.
+          const driftX = autoplay ? Math.sin(t * 0.32) * 0.30 : 0;
+          const driftY = autoplay ? Math.cos(t * 0.23) * 0.18 : 0;
           material.uniforms.uOffset.value.set(scrollX + driftX, scrollY + driftY);
           renderer.render(scene, camera);
         }
