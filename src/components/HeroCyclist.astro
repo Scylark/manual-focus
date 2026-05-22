@@ -74,11 +74,12 @@
   .hero-scroll {
     position: relative;
     width: 100%;
-    /* Generous scroll runway so the choreography has room to play
-       out, plus a deliberate "hold" phase on the wordmark — about 4
-       viewport-heights of scroll distance, ~3 of which are usefully
-       animated (the rest is the sticky's release at the end). */
-    height: 400vh;
+    /* Generous scroll runway with a long deliberate "hold" phase
+       on the wordmark — about 5 viewport-heights of scroll, ~4 of
+       which is animated (rest is sticky release). The hold lands
+       at ~1.5 viewport-heights of scrolling, which feels like the
+       wordmark genuinely sits before handing off. */
+    height: 500vh;
     background: var(--color-bg);
     isolation: isolate;
     overflow: clip;
@@ -180,10 +181,10 @@
      smaller ring base size so it fits a narrower viewport. */
   @media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .hero-scroll {
-      /* 280vh = ~180vh of useful animation on mobile, vs 300vh on
-         desktop. Shorter because mobile scroll-distance feels longer
-         (smaller viewport = more wheel/swipe motion per vh). */
-      height: 280vh;
+      /* 360vh on mobile — proportionally shorter than desktop's 500vh
+         since each vh is a smaller absolute distance on a phone, but
+         still leaves a clear hold phase on the wordmark. */
+      height: 360vh;
     }
     .hero-scroll-sticky {
       min-height: 560px;
@@ -275,8 +276,8 @@
       const ringScrollRot = p * 540; // 1.5 full turns by end
       const ringRotation = ringIdleRot + ringScrollRot;
       const ringScale = lerp(1.0, 2.4, smooth(p));
-      const ringSeparate = lerp(0, 60, smooth(norm(p, 0.35, 0.7))); // viewBox-units of vertical spread
-      const ringOpacity = 1 - smooth(norm(p, 0.40, 0.65));
+      const ringSeparate = lerp(0, 60, smooth(norm(p, 0.25, 0.50))); // viewBox-units of vertical spread
+      const ringOpacity = 1 - smooth(norm(p, 0.30, 0.50));
 
       rings.style.transform = `translateZ(0) scale(${ringScale.toFixed(3)}) rotate(${ringRotation.toFixed(2)}deg)`;
       rings.style.opacity = String(ringOpacity);
@@ -289,12 +290,13 @@
       }
 
       // ── Wordmark ──────────────────────────────────────────────
-      // Fades in 0.45..0.65, HOLDS at full size 0.65..0.92 (the
-      // deliberate dwell — about a third of the total scroll
-       // progress, ~80vh of scroll distance), then gently shrinks
-      // + fades 0.92..1.00 to make way for the hero copy.
-      const wordFadeIn = smooth(norm(p, 0.45, 0.65));
-      const wordFadeOut = smooth(norm(p, 0.92, 1.00));
+      // Fades in 0.40..0.55, HOLDS at full size 0.55..0.94 — the
+      // deliberate dwell is now ~40% of the total scroll progress.
+      // With the section at 500vh that's ~160vh of pure dwell time
+      // on the wordmark, ≈1.5 viewport-heights of scrolling before
+      // the hand-off begins. Fade-out 0.94..1.00.
+      const wordFadeIn = smooth(norm(p, 0.40, 0.55));
+      const wordFadeOut = smooth(norm(p, 0.94, 1.00));
       const wordOpacity = wordFadeIn * (1 - wordFadeOut);
       const wordScale = lerp(0.7, 1.0, wordFadeIn) * lerp(1.0, 0.55, wordFadeOut);
       const wordTranslateY = lerp(40, 0, wordFadeIn) - lerp(0, 40, wordFadeOut);
@@ -303,9 +305,9 @@
       wordmark.style.transform = `translate3d(0, ${wordTranslateY.toFixed(2)}px, 0) scale(${wordScale.toFixed(3)})`;
 
       // ── Hero content ──────────────────────────────────────────
-      // Fades + slides up across 0.90..1.00 — quick hand-off at the
+      // Fades + slides up across 0.92..1.00 — quick hand-off at the
       // end, while the wordmark is still finishing its fade-out.
-      const contentT = smooth(norm(p, 0.90, 1.0));
+      const contentT = smooth(norm(p, 0.92, 1.0));
       content.style.opacity = String(contentT);
       content.style.transform = `translate3d(0, ${lerp(24, 0, contentT).toFixed(2)}px, 0)`;
       content.style.pointerEvents = contentT > 0.5 ? 'auto' : 'none';
