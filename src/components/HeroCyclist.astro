@@ -235,17 +235,30 @@ const fallbackUrl = url(fallbackImage);
         .replace(
           '#include <map_fragment>',
           `#ifdef USE_MAP
-             // Anchor the cyclist, drift the background. The depth map
-             // is soft-edged (Gaussian-blurred silhouette), so a raw
-             // (1 - d) multiplier would still shift the cyclist's edge
-             // pixels by ~half because their depth reads ~0.5. The
-             // smoothstep below treats anything with d ≥ 0.55 as fully
-             // anchored (shift = 0) and only the genuine background
-             // (d < 0.45) shifts. The 0.10-wide transition band keeps
-             // a smooth fade so the silhouette doesn't snap.
-             float d = texture2D(uDepth, vMapUv).r;
-             float bg = smoothstep(0.55, 0.45, d);  // 1 in sky, 0 on rider
-             vec2 shift = uOffset * bg * uStrength;
+             // Anchor the cyclist, drift the background WITHOUT
+             // duplicating him.
+             //
+             // The naïve (1 - depth) inverted parallax keeps the rider
+             // pixels in place, but the sky pixels next to him still
+             // shift — and a sky pixel just left of the rider sampled
+             // through his silhouette returns the rider's colour, so
+             // the rider appears duplicated to the left.
+             //
+             // Solution: only apply the shift when both the source
+             // depth (current pixel) AND the shifted-target depth are
+             // background. If shifting would land the sample on the
+             // rider, fall back to the unshifted UV — the sky pixel
+             // just holds still rather than copying the rider.
+             float dHere = texture2D(uDepth, vMapUv).r;
+             float bgHere = smoothstep(0.55, 0.45, dHere);
+
+             vec2 wantShift = uOffset * uStrength;
+             float dTarget = texture2D(uDepth, vMapUv + wantShift).r;
+             float bgTarget = smoothstep(0.55, 0.45, dTarget);
+
+             float bgMask = bgHere * bgTarget;
+             vec2 shift = wantShift * bgMask;
+
              vec4 sampledDiffuseColor = texture2D(map, vMapUv + shift);
              diffuseColor *= sampledDiffuseColor;
            #endif`,
