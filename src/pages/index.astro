@@ -4,6 +4,7 @@ import SEOHead from '../components/SEOHead.astro';
 import BlogCard from '../components/BlogCard.astro';
 import Spray from '../components/Spray.astro';
 import FocusObject from '../components/FocusObject.astro';
+import HeroCyclist from '../components/HeroCyclist.astro';
 import { url } from '../utils/paths';
 import { getCollection } from 'astro:content';
 
@@ -14,13 +15,9 @@ const posts = (await getCollection('blog'))
 <Base title="Manual Focus — Marketing agency for the AI era" description="Marketing agency for ambitious brands. Senior operators using AI as leverage to ship brand, demand and growth, with particular depth in endurance and sports brands. London." hideNavUntilScroll>
   <SEOHead slot="seo" type="website" title="Manual Focus — Marketing agency for the AI era" description="Marketing agency for ambitious brands. Senior operators using AI as leverage to ship brand, demand and growth, with particular depth in endurance and sports brands." />
 
-  <!-- HERO -->
-  <section class="hero">
-    <!-- 3D focus objects scattered -->
-    <FocusObject size={380} tiltX={62} tiltY={-15} spin={90} scrollSpin={120} style="top: 8vh; right: 4vw;" />
-    <FocusObject size={200} tiltX={50} tiltY={22} tiltZ={-12} spin={-110} scrollSpin={-180} style="bottom: 14vh; right: 24vw;" enterFrom="left" />
-
-    <div class="container hero-inner">
+  <!-- HERO — depth-displacement cyclist with headline overlay -->
+  <HeroCyclist>
+    <div class="hero-inner">
       <div class="hero-eyebrow">
         <span class="dot"></span>
         <span class="mono">MANUAL FOCUS · LONDON</span>
@@ -53,7 +50,7 @@ const posts = (await getCollection('blog'))
         <span class="scroll-arrow"></span>
       </div>
     </div>
-  </section>
+  </HeroCyclist>
 
   <!-- MARQUEE -->
   <section class="marquee-band" aria-hidden="true">
@@ -413,6 +410,20 @@ const posts = (await getCollection('blog'))
     letter-spacing: -0.02em;
     margin-top: var(--space-sm);
     max-width: 1240px;
+    /* Cyclist-hero sits behind, so the headline overrides theme text colour
+       and gets a subtle shadow so it reads cleanly on the dawn sky. */
+    color: #f6f0e8;
+    text-shadow: 0 2px 24px rgba(15, 12, 8, 0.45);
+  }
+  .hero-sub {
+    color: rgba(246, 240, 232, 0.9) !important;
+    text-shadow: 0 1px 16px rgba(15, 12, 8, 0.45);
+  }
+  .hero-eyebrow {
+    color: rgba(246, 240, 232, 0.85) !important;
+  }
+  .hero-scroll-hint .mono {
+    color: rgba(246, 240, 232, 0.7);
   }
 
   .hero-line {

@@ -1,0 +1,359 @@
+---
+/**
+ * HeroCyclist — depth-displacement scroll hero.
+ *
+ * Takes a still illustration plus a matching greyscale depth map and
+ * displaces a heavily-subdivided plane along Z, then arcs the camera on
+ * scroll to produce a drone-pass feel without actually loading a 3D model.
+ * Cinematic camera push, not a literal 360 — the image has no back-side
+ * data, so the arc is kept shallow (8–18°).
+ *
+ * Falls back to a flat image on reduced-motion, touch devices, no-WebGL,
+ * or while textures are loading. WebGL only initialises when the section
+ * is in view, and the render loop pauses when it scrolls out.
+ */
+import { url } from '../utils/paths';
+
+interface Props {
+  texture?: string;
+  depthMap?: string;
+  fallbackImage?: string;
+  /** Subtle camera oscillation on first paint, in addition to scroll-driven arc. */
+  autoplay?: boolean;
+  /** Displacement strength (Z units). Higher = more dramatic relief. 0.12–0.20 sensible. */
+  strength?: number;
+}
+
+const {
+  texture = '/images/hero-cyclist.webp',
+  depthMap = '/images/hero-cyclist-depth.png',
+  fallbackImage = '/images/hero-cyclist.jpg',
+  autoplay = true,
+  strength = 0.18,
+} = Astro.props;
+
+const textureUrl = url(texture);
+const depthUrl = url(depthMap);
+const fallbackUrl = url(fallbackImage);
+---
+
+<section
+  class="cyclist-hero"
+  data-cyclist-hero
+  data-texture={textureUrl}
+  data-depth={depthUrl}
+  data-autoplay={autoplay ? 'true' : 'false'}
+  data-strength={String(strength)}
+>
+  <canvas class="cyclist-hero-canvas" aria-hidden="true"></canvas>
+  <img
+    class="cyclist-hero-fallback"
+    src={fallbackUrl}
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+  <div class="cyclist-hero-vignette" aria-hidden="true"></div>
+
+  <div class="container cyclist-hero-content">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .cyclist-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--color-bg);
+    isolation: isolate;
+  }
+
+  .cyclist-hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 0;
+  }
+  /* Fade the canvas in once textures are loaded and the first frame is drawn,
+     so the visitor never sees a blank canvas in front of the fallback image. */
+  .cyclist-hero.is-webgl-ready .cyclist-hero-canvas { opacity: 1; }
+
+  .cyclist-hero-fallback {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    transition: opacity 0.6s ease;
+  }
+  .cyclist-hero.is-webgl-ready .cyclist-hero-fallback { opacity: 0; }
+
+  /* Soft gradient overlay — lifts text readability on the left where the
+     headline sits, fades to transparent across the subject area on the right. */
+  .cyclist-hero-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        to right,
+        rgba(15, 12, 8, 0.55) 0%,
+        rgba(15, 12, 8, 0.30) 30%,
+        rgba(15, 12, 8, 0.10) 55%,
+        transparent 80%
+      ),
+      linear-gradient(
+        to top,
+        rgba(15, 12, 8, 0.45) 0%,
+        transparent 35%
+      );
+  }
+
+  .cyclist-hero-content {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: var(--space-xl);
+    color: #f6f0e8;
+  }
+
+  /* Reduced motion / touch devices — keep the still image, skip WebGL. */
+  @media (prefers-reduced-motion: reduce) {
+    .cyclist-hero-canvas { display: none; }
+    .cyclist-hero.is-webgl-ready .cyclist-hero-fallback { opacity: 1; }
+  }
+
+  @media (max-width: 768px) {
+    /* Mobile is touch-only and parallax shaders don't earn their weight there. */
+    .cyclist-hero-canvas { display: none; }
+    .cyclist-hero.is-webgl-ready .cyclist-hero-fallback { opacity: 1; }
+    .cyclist-hero { min-height: 80vh; }
+  }
+</style>
+
+<script>
+  import * as THREE from 'three';
+
+  type Hero = HTMLElement;
+
+  function init() {
+    const section = document.querySelector<Hero>('[data-cyclist-hero]');
+    if (!section) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const isNarrow = window.matchMedia('(max-width: 768px)').matches;
+
+    if (reducedMotion || isTouch || isNarrow) {
+      // Show the fallback image. Skip WebGL entirely.
+      section.classList.add('is-webgl-ready');
+      return;
+    }
+
+    const canvas = section.querySelector<HTMLCanvasElement>('.cyclist-hero-canvas');
+    if (!canvas) return;
+
+    const textureUrl = section.dataset.texture!;
+    const depthUrl = section.dataset.depth!;
+    const autoplay = section.dataset.autoplay === 'true';
+    const strength = parseFloat(section.dataset.strength || '0.18');
+
+    // Renderer
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+        powerPreference: 'high-performance',
+      });
+    } catch {
+      // WebGL not available — keep fallback image.
+      section.classList.add('is-webgl-ready');
+      return;
+    }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Scene + camera
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    const baseZ = 1.7;
+    camera.position.set(0, 0, baseZ);
+
+    // Heavily subdivided plane geometry — 200×200 gives smooth displacement
+    // without melting low-end GPUs.
+    const planeAspect = 16 / 9;
+    const geometry = new THREE.PlaneGeometry(2, 2 / planeAspect, 200, 200);
+
+    // Textures
+    const loader = new THREE.TextureLoader();
+    let loaded = 0;
+    const ready = () => {
+      loaded++;
+      if (loaded === 2) {
+        // Force first render so the canvas isn't blank when we fade it in
+        resize();
+        renderer.render(scene, camera);
+        requestAnimationFrame(() => {
+          section.classList.add('is-webgl-ready');
+          startLoop();
+        });
+      }
+    };
+    const colorTex = loader.load(textureUrl, ready);
+    const depthTex = loader.load(depthUrl, ready);
+    colorTex.colorSpace = THREE.SRGBColorSpace;
+    colorTex.minFilter = THREE.LinearFilter;
+    depthTex.minFilter = THREE.LinearFilter;
+
+    // Shader — vertex samples the depth map and offsets Z, fragment samples
+    // the colour texture as a plain texture lookup.
+    const material = new THREE.ShaderMaterial({
+      uniforms: {
+        uTexture: { value: colorTex },
+        uDepth: { value: depthTex },
+        uStrength: { value: strength },
+      },
+      vertexShader: /* glsl */ `
+        uniform sampler2D uDepth;
+        uniform float uStrength;
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          float d = texture2D(uDepth, uv).r;
+          vec3 displaced = position;
+          // Map depth 0..1 to z offset, centred so mid-grey doesn't shift.
+          displaced.z += (d - 0.5) * uStrength * 2.0;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(displaced, 1.0);
+        }
+      `,
+      fragmentShader: /* glsl */ `
+        uniform sampler2D uTexture;
+        varying vec2 vUv;
+        void main() {
+          gl_FragColor = texture2D(uTexture, vUv);
+        }
+      `,
+    });
+
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    // Scale the plane to cover the viewport while preserving its 16:9 aspect.
+    function resize() {
+      const w = section.clientWidth;
+      const h = section.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+
+      // Compute the visible plane height at base camera distance.
+      const vFov = (camera.fov * Math.PI) / 180;
+      const visibleH = 2 * Math.tan(vFov / 2) * baseZ;
+      const visibleW = visibleH * camera.aspect;
+
+      const viewAspect = camera.aspect;
+      let sx: number, sy: number;
+      if (viewAspect > planeAspect) {
+        sx = visibleW / 2;
+        sy = sx / planeAspect;
+      } else {
+        sy = visibleH / 2;
+        sx = sy * planeAspect;
+      }
+      // Add a touch of overscale so the displacement can't reveal plane edges
+      // at extreme camera positions.
+      mesh.scale.set(sx * 1.12, sy * 1.12, 1);
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    // Scroll progress (0..1) through the hero section.
+    let scrollProgress = 0;
+    function updateScroll() {
+      const rect = section.getBoundingClientRect();
+      const span = section.clientHeight;
+      const scrolled = -rect.top;
+      scrollProgress = Math.max(0, Math.min(1, scrolled / span));
+    }
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    updateScroll();
+
+    // Pause the render loop when the hero scrolls fully out of view, so the
+    // GPU isn't drawing frames the visitor can't see.
+    let inView = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+    }, { threshold: 0 });
+    observer.observe(section);
+
+    // Animation loop — shallow arc on scroll, optional autoplay micro-drift.
+    let frameId: number | null = null;
+    function startLoop() {
+      let prev = performance.now();
+      function frame(now: number) {
+        if (!inView) {
+          // Skip frame, keep loop alive cheaply.
+          frameId = requestAnimationFrame(frame);
+          return;
+        }
+        const t = now / 1000;
+        prev = now;
+
+        // Scroll-driven arc — shallow swing on X and Z, slight downward Y.
+        const arcAngle = scrollProgress * 0.28; // ~16° max
+        const arcX = Math.sin(arcAngle) * 0.45;
+        const arcZ = (1 - Math.cos(arcAngle)) * 0.45;
+        const arcY = -scrollProgress * 0.08;
+
+        // Autoplay micro-drift — slow oscillation, ~1° equivalent, breathes
+        // the camera before the visitor scrolls.
+        let driftX = 0;
+        let driftY = 0;
+        if (autoplay) {
+          driftX = Math.sin(t * 0.32) * 0.025;
+          driftY = Math.cos(t * 0.27) * 0.015;
+        }
+
+        camera.position.x = arcX + driftX;
+        camera.position.y = arcY + driftY;
+        camera.position.z = baseZ - arcZ;
+        camera.lookAt(0, 0, 0);
+
+        renderer.render(scene, camera);
+        frameId = requestAnimationFrame(frame);
+      }
+      frameId = requestAnimationFrame(frame);
+    }
+
+    // Clean up if the page hides the hero entirely (SPA navigation, etc.)
+    window.addEventListener('pagehide', () => {
+      if (frameId != null) cancelAnimationFrame(frameId);
+      renderer.dispose();
+      geometry.dispose();
+      material.dispose();
+      colorTex.dispose();
+      depthTex.dispose();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
