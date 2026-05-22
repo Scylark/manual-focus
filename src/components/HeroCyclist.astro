@@ -1,22 +1,20 @@
 ---
 /**
- * HeroCyclist — depth-displacement scroll hero, rewritten.
+ * HeroCyclist — depth-displacement scroll hero, built to the spec at
+ * /Users/jamesvickers/Downloads/manual-focus-hero-spec.md.
  *
- * One illustrated cyclist (1920×1080) plus a matching greyscale depth
- * map. A fragment shader does the heavy lifting, sampling the depth
- * per-pixel and offsetting the colour-texture lookup so foreground
- * pixels parallax further than background pixels as the visitor
- * scrolls. The plane stays a flat fullscreen quad, so there is no
- * subdivided geometry to produce facet artifacts and the source
- * pixels render at native sharpness.
+ * Per the brief: Three.js + a subdivided plane + a vertex-displacement
+ * shader. The depth map pushes per-vertex Z offsets so the flat image
+ * becomes a relief, and a perspective camera arcs through scroll
+ * producing real parallax — foreground reads closer, background further,
+ * silhouettes occlude. Not fragment-shader parallax mapping (the trick
+ * that kept producing silhouette artefacts on the cyclist).
  *
- * The section is full viewport height (100svh) so the hero copy has
- * room to breathe without clipping, and the image fills via
- * object-fit: cover on the IMG, mirrored in the shader with a
- * cover-fit UV transform so the WebGL render lines up with the IMG.
- *
- * Skips WebGL on reduced-motion, touch and mobile widths — the IMG
- * stays visible as the static fallback.
+ * Scroll progress 0..1 drives a shallow 15° arc on x + z with a tiny
+ * y ease so the rider appears to rotate slightly in view. An optional
+ * autoplay micro-drift breathes the camera at rest so the hero has
+ * life before the visitor scrolls. Skipped on mobile and reduced-motion,
+ * which fall back to the static IMG.
  */
 import { url } from '../utils/paths';
 
@@ -24,13 +22,7 @@ interface Props {
   texture?: string;
   depthMap?: string;
   fallbackImage?: string;
-  /**
-   * Depth multiplier for the parallax shift. Multiplied by depth (0..1)
-   * and the per-frame uOffset to get the final UV shift. 0.04 keeps the
-   * cyclist's drift to a clean ≤2% UV — matching the proven fake-3D
-   * pattern so the parallax reads as motion without the warping that
-   * higher values produce at silhouette edges.
-   */
+  /** Z-displacement world units. 0.30 = 30% of plane-to-camera distance. */
   strength?: number;
   /** Idle camera oscillation on top of the scroll-driven arc. */
   autoplay?: boolean;
@@ -40,7 +32,7 @@ const {
   texture = '/images/hero-cyclist.webp',
   depthMap = '/images/hero-cyclist-depth.png',
   fallbackImage = '/images/hero-cyclist.jpg',
-  strength = 0.06,
+  strength = 0.30,
   autoplay = true,
 } = Astro.props;
 
@@ -77,8 +69,6 @@ const fallbackUrl = url(fallbackImage);
   .hero-cyclist {
     position: relative;
     width: 100%;
-    /* Full viewport height so the hero copy fits without clipping. svh
-       keeps mobile address-bar collapse/expand from jumping the layout. */
     height: 100svh;
     min-height: 640px;
     overflow: hidden;
@@ -98,16 +88,13 @@ const fallbackUrl = url(fallbackImage);
   .hero-cyclist-img {
     z-index: 0;
     object-fit: cover;
-    /* Bias toward the rider on the right so cropping eats the empty
-       sky on the left rather than the subject. */
     object-position: 65% center;
   }
   .hero-cyclist-canvas {
     z-index: 1;
-    /* Hidden until WebGL renders its first frame so we never see a
-       partial/blank canvas. No fade — IMG and canvas swap instantly so
-       the parallax-shifted canvas never composites over the static IMG
-       (which would double the rider during the fade window). */
+    /* Hidden until the first WebGL frame lands, then swapped in instantly
+       (no opacity crossfade — that produces a visible ghost-pair during
+       the fade window). */
     visibility: hidden;
   }
   .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-canvas { visibility: visible; }
@@ -118,8 +105,6 @@ const fallbackUrl = url(fallbackImage);
     inset: 0;
     z-index: 2;
     pointer-events: none;
-    /* Soft left-side darkening so the headline reads against the dawn
-       sky. Fades to clear by 60% so the cyclist stays untouched. */
     background:
       linear-gradient(to right,
         rgba(15, 12, 8, 0.62) 0%,
@@ -140,31 +125,21 @@ const fallbackUrl = url(fallbackImage);
     display: flex;
     align-items: center;
     padding-inline: var(--space-md);
-    /* Top padding clears the fixed nav, bottom clears the scroll hint. */
     padding-block: clamp(4rem, 9vh, 6.5rem);
     color: #f6f0e8;
   }
 
-  /* Slot child pulled to the left half so headline sits on the empty
-     sky, not over the cyclist on the right. */
   .hero-cyclist-content > :global(*) {
     width: 100%;
     max-width: 58%;
   }
-
   @media (max-width: 1024px) {
     .hero-cyclist-content > :global(*) { max-width: 72%; }
   }
   @media (max-width: 768px) {
-    .hero-cyclist {
-      /* Slightly less tall on mobile so the section doesn't dwarf
-         the rest of the page on phones. */
-      min-height: 560px;
-    }
+    .hero-cyclist { min-height: 560px; }
     .hero-cyclist-content > :global(*) { max-width: 100%; }
     .hero-cyclist-overlay {
-      /* Stronger top-down gradient on mobile so the headline reads
-         no matter where the crop lands. */
       background:
         linear-gradient(to bottom,
           rgba(15, 12, 8, 0.55) 0%,
@@ -184,17 +159,15 @@ const fallbackUrl = url(fallbackImage);
 <script>
   import * as THREE from 'three';
 
-  // The source image dimensions, used by the shader's cover-fit transform
-  // so the WebGL render matches the IMG's object-fit: cover exactly.
   const IMG_W = 1920;
   const IMG_H = 1080;
+  const IMAGE_ASPECT = IMG_W / IMG_H;
 
   function initHero() {
     const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
     if (!section) return;
 
-    // Skip WebGL on small viewports, touch devices, and reduced-motion.
-    // The IMG fallback is already in place — nothing else to do.
+    // Skip WebGL on touch, mobile widths, and reduced-motion.
     const skipWebGL =
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
       window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
@@ -209,129 +182,71 @@ const fallbackUrl = url(fallbackImage);
 
     const textureUrl = section.dataset.texture!;
     const depthUrl = section.dataset.depth!;
-    const strength = parseFloat(section.dataset.strength || '0.06');
+    const strength = parseFloat(section.dataset.strength || '0.30');
     const autoplay = section.dataset.autoplay === 'true';
 
+    // Renderer.
     let renderer: THREE.WebGLRenderer;
     try {
       renderer = new THREE.WebGLRenderer({
         canvas,
         alpha: false,
-        antialias: false,
+        antialias: true,
         powerPreference: 'high-performance',
       });
     } catch {
       section.dataset.webglReady = 'true';
       return;
     }
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    renderer.setPixelRatio(dpr);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-    // Fullscreen quad approach. The vertex shader emits clip-space
-    // coordinates directly so the geometry always fills the viewport,
-    // independent of camera state. All parallax happens in the
-    // fragment shader.
+    // Shallow-perspective camera per the spec. FOV 38° gives a
+    // cinematic compression without going so narrow that the parallax
+    // shift becomes invisible.
     const scene = new THREE.Scene();
-    const camera = new THREE.Camera();
-    const geometry = new THREE.PlaneGeometry(2, 2, 1, 1);
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    const baseZ = 1.6;
+    camera.position.set(0, 0, baseZ);
+    camera.lookAt(0, 0, 0);
+
+    // Subdivided plane — 200×200 segments per the spec. Each vertex
+    // samples the depth map and offsets along z, turning the flat image
+    // into a relief surface.
+    const geometry = new THREE.PlaneGeometry(1, 1, 200, 200);
 
     const material = new THREE.ShaderMaterial({
       uniforms: {
         uTexture: { value: null as THREE.Texture | null },
         uDepth: { value: null as THREE.Texture | null },
-        uCanvas: { value: new THREE.Vector2(1, 1) },
-        uImage: { value: new THREE.Vector2(IMG_W, IMG_H) },
-        uOffset: { value: new THREE.Vector2(0, 0) },
         uStrength: { value: strength },
       },
       vertexShader: /* glsl */ `
+        uniform sampler2D uDepth;
+        uniform float uStrength;
         varying vec2 vUv;
         void main() {
           vUv = uv;
-          // Emit clip-space directly. position is the 2×2 plane corners,
-          // already in NDC, so we skip the matrix multiply entirely.
-          gl_Position = vec4(position.xy, 0.0, 1.0);
+          // Depth 0..1 — brighter = closer (per spec). Push the vertex
+          // toward the camera (+z in Three.js space) so foreground
+          // points actually move forward in the scene.
+          float d = texture2D(uDepth, uv).r;
+          vec3 displaced = position;
+          displaced.z += d * uStrength;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(displaced, 1.0);
         }
       `,
       fragmentShader: /* glsl */ `
         precision highp float;
         uniform sampler2D uTexture;
-        uniform sampler2D uDepth;
-        uniform vec2 uCanvas;
-        uniform vec2 uImage;
-        uniform vec2 uOffset;
-        uniform float uStrength;
         varying vec2 vUv;
-
-        // CSS object-fit: cover, recreated in UV space. Returns the
-        // image-UV that corresponds to the canvas-UV \`uv\`, cropping
-        // whichever axis overflows so the image fills the canvas.
-        vec2 cover(vec2 uv) {
-          float canvasA = uCanvas.x / uCanvas.y;
-          float imageA = uImage.x / uImage.y;
-          vec2 scale = vec2(1.0);
-          vec2 offset = vec2(0.0);
-          if (canvasA > imageA) {
-            // Canvas wider than image — fill width, crop top/bottom.
-            scale.y = imageA / canvasA;
-            offset.y = (1.0 - scale.y) * 0.5;
-          } else {
-            // Canvas taller than image — fill height, crop sides. Bias
-            // toward x=0.65 so the rider stays in frame, matching the
-            // IMG's object-position: 65% center.
-            scale.x = canvasA / imageA;
-            offset.x = (1.0 - scale.x) * 0.65;
-          }
-          return uv * scale + offset;
-        }
-
-        // 5-tap Gaussian-ish depth lookup. The depth map for an
-        // illustrated subject has hard pixel-perfect edges where the
-        // rider meets the sky, which a single texture2D sample would
-        // read as a step from 1 to 0. Parallax shifts at that step
-        // smear the silhouette into the background as a dark halo.
-        // Averaging a small cross around the lookup softens the depth
-        // transition over ~2 pixels so the shift gradient at the edge
-        // is smooth and the halo disappears.
-        float sampleDepth(vec2 uv) {
-          vec2 px = vec2(1.0) / uImage;
-          float c = texture2D(uDepth, uv).r;
-          float l = texture2D(uDepth, uv - vec2(px.x, 0.0)).r;
-          float r = texture2D(uDepth, uv + vec2(px.x, 0.0)).r;
-          float u = texture2D(uDepth, uv - vec2(0.0, px.y)).r;
-          float d = texture2D(uDepth, uv + vec2(0.0, px.y)).r;
-          return c * 0.5 + (l + r + u + d) * 0.125;
-        }
-
         void main() {
-          // Inset the sampling region by MAX_SHIFT on every side so the
-          // parallax offset never pushes the texture lookup outside the
-          // image bounds (which would smear the clamped edge).
-          const float MAX_SHIFT = 0.07;
-          vec2 baseUv = cover(vUv);
-          baseUv = baseUv * (1.0 - 2.0 * MAX_SHIFT) + vec2(MAX_SHIFT);
-
-          // Depth used directly as 0..1, NOT centered around 0.5. With
-          // depth*uOffset only the foreground shifts; the background
-          // (depth ~0) stays static. This matches the proven fake-3D
-          // pattern and means the sky doesn't drift against the rider
-          // (which is what caused all the silhouette artifacts when
-          // sky and rider were shifting in opposite directions).
-          float depth = sampleDepth(baseUv);
-
-          vec2 shift = uOffset * depth * uStrength;
-
-          gl_FragColor = texture2D(uTexture, baseUv + shift);
+          gl_FragColor = texture2D(uTexture, vUv);
         }
       `,
     });
 
     const mesh = new THREE.Mesh(geometry, material);
-    // Render the fullscreen quad without any camera transforms (matrices
-    // are identity-friendly). We set frustumCulled false so a stale
-    // frustum from the empty camera can't cull the mesh.
-    mesh.frustumCulled = false;
     scene.add(mesh);
 
     function configureTexture(t: THREE.Texture, isColor: boolean) {
@@ -360,12 +275,9 @@ const fallbackUrl = url(fallbackImage);
       });
     }
     function onTexErr() {
-      // If either texture fails to load via WebGL (rare, usually a
-      // browser-specific WebP decode issue) the IMG fallback is already
-      // on screen, so we just hide the canvas and leave the IMG in place
-      // rather than swapping in a broken layer.
-      const c = section.querySelector<HTMLElement>('.hero-cyclist-canvas');
-      if (c) c.style.display = 'none';
+      // WebGL texture failed — hide the canvas and leave the IMG fallback
+      // in place rather than swapping in a broken layer.
+      canvas.style.display = 'none';
     }
     loader.load(textureUrl, (t) => {
       configureTexture(t, true);
@@ -378,12 +290,36 @@ const fallbackUrl = url(fallbackImage);
       onLoad();
     }, undefined, onTexErr);
 
+    /**
+     * Size the canvas and scale the plane so the image fills the viewport
+     * (CSS object-fit:cover semantics) at the plane's z=0 depth. The
+     * plane is overscaled 10% so the camera arc can shift the view
+     * without ever revealing the plane's edge.
+     */
     function fitCanvas() {
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
       if (w <= 0 || h <= 0) return;
       renderer.setSize(w, h, false);
-      material.uniforms.uCanvas.value.set(w, h);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+
+      const vFov = (camera.fov * Math.PI) / 180;
+      const viewH = 2 * Math.tan(vFov / 2) * baseZ;
+      const viewW = viewH * camera.aspect;
+      const viewAspect = w / h;
+
+      let planeW: number, planeH: number;
+      if (viewAspect > IMAGE_ASPECT) {
+        // Canvas wider than image — fill width, overflow vertically.
+        planeW = viewW;
+        planeH = viewW / IMAGE_ASPECT;
+      } else {
+        // Canvas taller than image — fill height, overflow horizontally.
+        planeH = viewH;
+        planeW = viewH * IMAGE_ASPECT;
+      }
+      mesh.scale.set(planeW * 1.10, planeH * 1.10, 1);
     }
     const ro = new ResizeObserver(() => fitCanvas());
     ro.observe(canvas);
@@ -399,31 +335,34 @@ const fallbackUrl = url(fallbackImage);
     window.addEventListener('scroll', updateScroll, { passive: true });
     updateScroll();
 
-    // Pause render when hero is off-screen.
+    // Pause render when the hero is out of view.
     let inView = true;
     new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting;
     }, { threshold: 0 }).observe(section);
 
+    // Render loop with the scroll-driven shallow arc + autoplay drift.
     let frameId: number | null = null;
     function startLoop() {
       function frame(now: number) {
         if (inView) {
           const t = now / 1000;
-          // Scroll-driven offset: as the visitor scrolls through the
-          // hero the virtual camera arcs right and dips down. Smoothstep
+          // Shallow ~15° camera arc on x + z per the spec. Smoothstep
           // ease so the parallax accelerates into the scroll rather
           // than jerking on the first pixel.
           const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-          const scrollX = ease * 0.70;
-          const scrollY = ease * -0.40;
-          // Autoplay micro-drift: continuous breathing on top of scroll.
-          // Combined scroll + drift peaks at uOffset magnitude ≈1.0, which
-          // with strength 0.06 gives a max 6% UV shift on the foreground —
-          // matched to MAX_SHIFT so sampling never leaves the image.
-          const driftX = autoplay ? Math.sin(t * 0.32) * 0.30 : 0;
-          const driftY = autoplay ? Math.cos(t * 0.23) * 0.18 : 0;
-          material.uniforms.uOffset.value.set(scrollX + driftX, scrollY + driftY);
+          const angle = ease * 0.26;  // ~15°
+          const arcX = Math.sin(angle) * 0.35;
+          const arcZ = (1 - Math.cos(angle)) * 0.35;
+          const arcY = -ease * 0.08;
+          // Autoplay micro-drift — about 1° equivalent oscillation so
+          // the hero breathes before the visitor scrolls.
+          const driftX = autoplay ? Math.sin(t * 0.30) * 0.040 : 0;
+          const driftY = autoplay ? Math.cos(t * 0.23) * 0.025 : 0;
+          camera.position.x = arcX + driftX;
+          camera.position.y = arcY + driftY;
+          camera.position.z = baseZ - arcZ;
+          camera.lookAt(0, 0, 0);
           renderer.render(scene, camera);
         }
         frameId = requestAnimationFrame(frame);
