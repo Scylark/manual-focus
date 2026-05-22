@@ -283,24 +283,38 @@ const fallbackUrl = url(fallbackImage);
           return uv * scale + offset;
         }
 
+        // 5-tap Gaussian-ish depth lookup. The depth map for an
+        // illustrated subject has hard pixel-perfect edges where the
+        // rider meets the sky, which a single texture2D sample would
+        // read as a step from 1 to 0. Parallax shifts at that step
+        // smear the silhouette into the background as a dark halo.
+        // Averaging a small cross around the lookup softens the depth
+        // transition over ~2 pixels so the shift gradient at the edge
+        // is smooth and the halo disappears.
+        float sampleDepth(vec2 uv) {
+          vec2 px = vec2(1.0) / uImage;
+          float c = texture2D(uDepth, uv).r;
+          float l = texture2D(uDepth, uv - vec2(px.x, 0.0)).r;
+          float r = texture2D(uDepth, uv + vec2(px.x, 0.0)).r;
+          float u = texture2D(uDepth, uv - vec2(0.0, px.y)).r;
+          float d = texture2D(uDepth, uv + vec2(0.0, px.y)).r;
+          return c * 0.5 + (l + r + u + d) * 0.125;
+        }
+
         void main() {
           // Inset the sampling region by MAX_SHIFT on every side so the
           // parallax offset never pushes the texture lookup outside the
-          // image bounds (which would smear the clamped edge). Sized
-          // to fit max parallax of strength=0.18 × depth=0.5 × offset≈0.85
-          // ≈ 0.076 with a small safety margin.
+          // image bounds (which would smear the clamped edge).
           const float MAX_SHIFT = 0.08;
           vec2 baseUv = cover(vUv);
           baseUv = baseUv * (1.0 - 2.0 * MAX_SHIFT) + vec2(MAX_SHIFT);
 
-          // Read depth at the un-parallaxed sample so cyclist edges
-          // stay anchored to their actual silhouette.
-          float depth = texture2D(uDepth, baseUv).r - 0.5;  // -0.5..0.5
+          // Centred depth: -0.5 at sky/distant, +0.5 at the rider.
+          float depth = sampleDepth(baseUv) - 0.5;
 
           // Foreground (positive depth) shifts opposite to the camera
-          // offset — standard motion-parallax. Background (negative
-          // depth) shifts with the camera. Multiply by uStrength to
-          // tune.
+          // offset — standard motion-parallax. Background shifts with
+          // the camera. uStrength tunes the depth-to-pixel mapping.
           vec2 shift = uOffset * depth * uStrength;
 
           gl_FragColor = texture2D(uTexture, baseUv + shift);
