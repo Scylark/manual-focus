@@ -1,16 +1,20 @@
 ---
 /**
- * HeroCyclist — depth-displacement scroll hero.
+ * HeroCyclist — depth-displacement scroll hero, rewritten clean.
  *
- * Takes a still illustration plus a matching greyscale depth map and
- * displaces a heavily-subdivided plane along Z, then arcs the camera on
- * scroll to produce a drone-pass feel without actually loading a 3D model.
- * Cinematic camera push, not a literal 360 — the image has no back-side
- * data, so the arc is kept shallow (8–18°).
+ * One source image (1920×1080 illustrated cyclist on a cliff) and one
+ * matching greyscale depth map. Three.js displaces a subdivided plane
+ * along Z based on the depth values, then arcs the camera on scroll
+ * to produce a drone-pass parallax over the still image.
  *
- * Falls back to a flat image on reduced-motion, touch devices, no-WebGL,
- * or while textures are loading. WebGL only initialises when the section
- * is in view, and the render loop pauses when it scrolls out.
+ * The section sizes itself to 16:9 (matching the image aspect) so the
+ * image fills its natural shape with no cover-fit cropping or
+ * letterboxing. Capped at viewport height on tall displays, floored at
+ * 540px so it stays impactful on narrow mobile.
+ *
+ * Renders the IMG as a base layer until WebGL has its first frame ready,
+ * then fades the canvas in over the top. On reduced-motion, touch, or
+ * narrow viewports, skips WebGL entirely and leaves the IMG showing.
  */
 import { url } from '../utils/paths';
 
@@ -18,18 +22,18 @@ interface Props {
   texture?: string;
   depthMap?: string;
   fallbackImage?: string;
-  /** Subtle camera oscillation on first paint, in addition to scroll-driven arc. */
-  autoplay?: boolean;
-  /** Displacement strength (Z units). Higher = more dramatic relief. 0.12–0.20 sensible. */
+  /** Z displacement strength. 0.10 subtle, 0.20 strong. */
   strength?: number;
+  /** Idle camera oscillation on top of the scroll-driven arc. */
+  autoplay?: boolean;
 }
 
 const {
   texture = '/images/hero-cyclist.webp',
   depthMap = '/images/hero-cyclist-depth.png',
   fallbackImage = '/images/hero-cyclist.jpg',
+  strength = 0.15,
   autoplay = true,
-  strength = 0.18,
 } = Astro.props;
 
 const textureUrl = url(texture);
@@ -38,16 +42,15 @@ const fallbackUrl = url(fallbackImage);
 ---
 
 <section
-  class="cyclist-hero"
-  data-cyclist-hero
+  class="hero-cyclist"
+  data-hero-cyclist
   data-texture={textureUrl}
   data-depth={depthUrl}
-  data-autoplay={autoplay ? 'true' : 'false'}
   data-strength={String(strength)}
+  data-autoplay={autoplay ? 'true' : 'false'}
 >
-  <canvas class="cyclist-hero-canvas" aria-hidden="true"></canvas>
   <img
-    class="cyclist-hero-fallback"
+    class="hero-cyclist-img"
     src={fallbackUrl}
     alt=""
     aria-hidden="true"
@@ -55,210 +58,165 @@ const fallbackUrl = url(fallbackImage);
     decoding="async"
     fetchpriority="high"
   />
-  <div class="cyclist-hero-vignette" aria-hidden="true"></div>
+  <canvas class="hero-cyclist-canvas" aria-hidden="true"></canvas>
+  <div class="hero-cyclist-overlay" aria-hidden="true"></div>
 
-  <div class="container cyclist-hero-content">
+  <div class="hero-cyclist-content">
     <slot />
   </div>
 </section>
 
 <style>
-  .cyclist-hero {
+  .hero-cyclist {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    /* The image is 16:9. Size the section to match it exactly so the
+       image fills its natural shape — no cropping, no letterboxing. */
+    aspect-ratio: 16 / 9;
+    /* Cap on tall monitors so the hero doesn't dwarf the viewport. */
+    max-height: 100svh;
+    /* Floor on narrow viewports so it stays impactful. */
+    min-height: 540px;
     overflow: hidden;
     background: var(--color-bg);
     isolation: isolate;
   }
 
-  .cyclist-hero-canvas {
+  .hero-cyclist-img,
+  .hero-cyclist-canvas {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     display: block;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    z-index: 0;
+    transition: opacity 0.5s ease;
   }
-  /* Fade the canvas in once textures are loaded and the first frame is drawn,
-     so the visitor never sees a blank canvas in front of the fallback image. */
-  .cyclist-hero.is-webgl-ready .cyclist-hero-canvas { opacity: 1; }
 
-  .cyclist-hero-fallback {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  .hero-cyclist-img {
+    z-index: 0;
+    /* min/max-height can clip the 16:9 box on extreme viewports — cover
+       keeps the image filling whatever the section's final size is. */
     object-fit: cover;
     object-position: center;
-    z-index: 0;
-    transition: opacity 0.6s ease;
   }
-  .cyclist-hero.is-webgl-ready .cyclist-hero-fallback { opacity: 0; }
 
-  /* Soft left-side gradient — lifts text readability without dimming the
-     subject area on the right. No bottom darkening, that was reading as a
-     band against the already-dark cliff foreground. */
-  .cyclist-hero-vignette {
+  .hero-cyclist-canvas {
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-canvas { opacity: 1; }
+  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { opacity: 0; }
+
+  .hero-cyclist-overlay {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
+    /* Soft left-side darkening so the headline reads on the dawn sky.
+       Fades to clear by 65% so the cyclist on the right stays untouched. */
     background: linear-gradient(
       to right,
-      rgba(15, 12, 8, 0.45) 0%,
-      rgba(15, 12, 8, 0.20) 35%,
+      rgba(15, 12, 8, 0.50) 0%,
+      rgba(15, 12, 8, 0.22) 35%,
       transparent 65%
     );
   }
 
-  .cyclist-hero-content {
+  .hero-cyclist-content {
     position: relative;
-    z-index: 2;
-    min-height: 100vh;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-block: var(--space-xl);
+    align-items: center;
+    padding-inline: var(--space-md);
     color: #f6f0e8;
   }
 
-  /* Pull the slot content to the left half of the viewport so it sits on
-     the empty sky/cliff rather than overlapping the cyclist on the right. */
-  .cyclist-hero-content > :global(*) {
+  /* Slot child gets pulled to the left half so the headline sits on the
+     empty sky, not over the cyclist on the right. */
+  .hero-cyclist-content > :global(*) {
+    width: 100%;
     max-width: 55%;
   }
   @media (max-width: 900px) {
-    .cyclist-hero-content > :global(*) {
-      max-width: 100%;
-    }
+    .hero-cyclist-content > :global(*) { max-width: 100%; }
   }
 
-  /* Reduced motion / touch devices — keep the still image, skip WebGL. */
+  /* Reduced-motion + touch + narrow: keep the IMG, skip WebGL entirely. */
   @media (prefers-reduced-motion: reduce) {
-    .cyclist-hero-canvas { display: none; }
-    .cyclist-hero.is-webgl-ready .cyclist-hero-fallback { opacity: 1; }
+    .hero-cyclist-canvas { display: none; }
+    .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { opacity: 1; }
   }
-
   @media (max-width: 768px) {
-    /* Mobile is touch-only and parallax shaders don't earn their weight there. */
-    .cyclist-hero-canvas { display: none; }
-    .cyclist-hero.is-webgl-ready .cyclist-hero-fallback { opacity: 1; }
-    .cyclist-hero { min-height: 80vh; }
+    .hero-cyclist-canvas { display: none; }
+    .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { opacity: 1; }
   }
 </style>
 
 <script>
   import * as THREE from 'three';
 
-  type Hero = HTMLElement;
-
-  function init() {
-    const section = document.querySelector<Hero>('[data-cyclist-hero]');
+  function initHero() {
+    const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
     if (!section) return;
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-    const isNarrow = window.matchMedia('(max-width: 768px)').matches;
-
-    if (reducedMotion || isTouch || isNarrow) {
-      // Show the fallback image. Skip WebGL entirely.
-      section.classList.add('is-webgl-ready');
+    // Skip WebGL on small viewports, touch devices, and reduced-motion.
+    // The IMG fallback is already showing, nothing else to do.
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+      window.matchMedia('(max-width: 768px)').matches
+    ) {
+      section.dataset.webglReady = 'true';
       return;
     }
 
-    const canvas = section.querySelector<HTMLCanvasElement>('.cyclist-hero-canvas');
+    const canvas = section.querySelector<HTMLCanvasElement>('.hero-cyclist-canvas');
     if (!canvas) return;
 
     const textureUrl = section.dataset.texture!;
     const depthUrl = section.dataset.depth!;
+    const strength = parseFloat(section.dataset.strength || '0.15');
     const autoplay = section.dataset.autoplay === 'true';
-    const strength = parseFloat(section.dataset.strength || '0.18');
 
-    // Renderer
+    // Renderer.
     let renderer: THREE.WebGLRenderer;
     try {
       renderer = new THREE.WebGLRenderer({
         canvas,
-        alpha: true,
-        // No MSAA — our texture is a flat illustration without geometric
-        // aliasing to smooth out, and MSAA softens the result. The custom
-        // bicubic fragment shader does the heavy lifting on sharpness.
-        antialias: false,
+        alpha: false,
+        antialias: true,
         powerPreference: 'high-performance',
       });
     } catch {
-      // WebGL not available — keep fallback image.
-      section.classList.add('is-webgl-ready');
+      section.dataset.webglReady = 'true';
       return;
     }
-    // Render at full device pixel density — the bicubic shader needs the
-    // canvas to be at native resolution to actually produce sharper output
-    // than the linear-filtered alternative would.
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-    // Scene + camera
+    // Scene + camera. Perspective with shallow FOV so the parallax reads
+    // as cinematic rather than wide-angle.
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
-    const baseZ = 1.7;
+    const baseZ = 1.6;
     camera.position.set(0, 0, baseZ);
+    camera.lookAt(0, 0, 0);
 
-    // Heavily subdivided plane geometry — 200×200 gives smooth displacement
-    // without melting low-end GPUs.
-    const planeAspect = 16 / 9;
-    const geometry = new THREE.PlaneGeometry(2, 2 / planeAspect, 200, 200);
+    // 1×1 plane geometry — we scale to fit at runtime. 200 subdivisions
+    // for smooth displacement without crushing low-end GPUs.
+    const geometry = new THREE.PlaneGeometry(1, 1, 200, 200);
 
-    // Textures
-    const loader = new THREE.TextureLoader();
-    let loaded = 0;
-    const ready = () => {
-      loaded++;
-      if (loaded === 2) {
-        // Force first render so the canvas isn't blank when we fade it in
-        resize();
-        renderer.render(scene, camera);
-        requestAnimationFrame(() => {
-          section.classList.add('is-webgl-ready');
-          startLoop();
-        });
-      }
-    };
-    const colorTex = loader.load(textureUrl, (t) => {
-      // Feed the actual texture dimensions to the bicubic sampler.
-      const img = t.image as HTMLImageElement;
-      if (img && (material as any).uniforms?.uTexSize) {
-        (material as any).uniforms.uTexSize.value.set(img.width, img.height);
-      }
-      ready();
-    });
-    const depthTex = loader.load(depthUrl, ready);
-    colorTex.colorSpace = THREE.SRGBColorSpace;
-    // Sharpest possible sampling for the colour texture — anisotropy max for
-    // grazing angles, linear mag for the upscale, mipmaps off so we always
-    // sample the full-resolution texture rather than a downsampled level.
-    colorTex.minFilter = THREE.LinearFilter;
-    colorTex.magFilter = THREE.LinearFilter;
-    colorTex.generateMipmaps = false;
-    colorTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    depthTex.minFilter = THREE.LinearFilter;
-    depthTex.magFilter = THREE.LinearFilter;
-    depthTex.generateMipmaps = false;
-
-    // Shader — vertex samples the depth map and offsets Z. Fragment is
-    // a plain texture lookup with a light unsharp-mask pass to recover
-    // sharpness that linear interpolation loses on upscaling. The unsharp
-    // mask is small enough not to produce halos but enough to restore
-    // edge contrast on the cyclist silhouette and the bike spokes.
+    // Material. Plain texture lookup + Z-displacement vertex shader.
+    // No clever sharpening, no bicubic. Linear sampling looks as good as
+    // the texture upload allows.
     const material = new THREE.ShaderMaterial({
       uniforms: {
-        uTexture: { value: colorTex },
-        uDepth: { value: depthTex },
+        uTexture: { value: null as THREE.Texture | null },
+        uDepth: { value: null as THREE.Texture | null },
         uStrength: { value: strength },
-        uTexSize: { value: new THREE.Vector2(1, 1) },
-        uSharpen: { value: 0.4 },
       },
       vertexShader: /* glsl */ `
         uniform sampler2D uDepth;
@@ -268,29 +226,16 @@ const fallbackUrl = url(fallbackImage);
           vUv = uv;
           float d = texture2D(uDepth, uv).r;
           vec3 displaced = position;
+          // Depth 0..1, centred at 0.5 so mid-grey doesn't shift.
           displaced.z += (d - 0.5) * uStrength * 2.0;
           gl_Position = projectionMatrix * modelViewMatrix * vec4(displaced, 1.0);
         }
       `,
       fragmentShader: /* glsl */ `
         uniform sampler2D uTexture;
-        uniform vec2 uTexSize;
-        uniform float uSharpen;
         varying vec2 vUv;
-
         void main() {
-          vec4 c = texture2D(uTexture, vUv);
-          if (uSharpen > 0.001 && uTexSize.x > 1.0) {
-            // 5-tap unsharp mask. uSharpen ~0.4 is subtle, ~0.8 is strong.
-            vec2 px = 1.0 / uTexSize;
-            vec4 n = texture2D(uTexture, vUv + vec2(0.0, -px.y));
-            vec4 s = texture2D(uTexture, vUv + vec2(0.0,  px.y));
-            vec4 e = texture2D(uTexture, vUv + vec2( px.x, 0.0));
-            vec4 w = texture2D(uTexture, vUv + vec2(-px.x, 0.0));
-            vec4 blurred = (n + s + e + w + c) * 0.2;
-            c = mix(c, c + (c - blurred), uSharpen);
-          }
-          gl_FragColor = c;
+          gl_FragColor = texture2D(uTexture, vUv);
         }
       `,
     });
@@ -298,80 +243,129 @@ const fallbackUrl = url(fallbackImage);
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    // Scale the plane to cover the viewport while preserving its 16:9 aspect.
-    function resize() {
-      const w = section.clientWidth;
-      const h = section.clientHeight;
+    // Texture loading. Configure for sharp upscale: max anisotropy, linear
+    // filtering, no mipmaps (we want full-res sampling, not a downsampled
+    // mip level when the texture is rendered at native size).
+    const loader = new THREE.TextureLoader();
+    let loadedCount = 0;
+    function onTextureReady() {
+      loadedCount++;
+      if (loadedCount === 2) {
+        // Two RAFs to let layout settle (font swap, content reflow) before
+        // measuring the canvas. Then size, render the first frame, expose,
+        // and start the animation loop.
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            fitCanvas();
+            renderer.render(scene, camera);
+            section.dataset.webglReady = 'true';
+            startLoop();
+          });
+        });
+      }
+    }
+    function configureTexture(t: THREE.Texture, isColor: boolean) {
+      t.colorSpace = isColor ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+      t.minFilter = THREE.LinearFilter;
+      t.magFilter = THREE.LinearFilter;
+      t.generateMipmaps = false;
+      t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      t.needsUpdate = true;
+    }
+    loader.load(textureUrl, (t) => {
+      configureTexture(t, true);
+      material.uniforms.uTexture.value = t;
+      onTextureReady();
+    });
+    loader.load(depthUrl, (t) => {
+      configureTexture(t, false);
+      material.uniforms.uDepth.value = t;
+      onTextureReady();
+    });
+
+    // Fit the plane to the visible viewport with object-fit:cover behaviour,
+    // based on the canvas's actual rendered dimensions (NOT the section's,
+    // which can lag during layout). Called via ResizeObserver from the
+    // start, so any size change picks up automatically.
+    const IMAGE_ASPECT = 16 / 9;
+    function fitCanvas() {
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      if (w <= 0 || h <= 0) return;
+
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
 
-      // Compute the visible plane height at base camera distance.
+      // Compute the visible world area at the plane's z=0 depth.
       const vFov = (camera.fov * Math.PI) / 180;
-      const visibleH = 2 * Math.tan(vFov / 2) * baseZ;
-      const visibleW = visibleH * camera.aspect;
+      const viewH = 2 * Math.tan(vFov / 2) * baseZ;
+      const viewW = viewH * camera.aspect;
 
-      const viewAspect = camera.aspect;
-      let sx: number, sy: number;
-      if (viewAspect > planeAspect) {
-        sx = visibleW / 2;
-        sy = sx / planeAspect;
+      // Cover: pick the larger overflow direction and scale to fill the
+      // other. The plane will overflow the canvas on one axis; the canvas
+      // CSS overflow:hidden crops it cleanly.
+      const viewAspect = w / h;
+      let planeW: number, planeH: number;
+      if (viewAspect > IMAGE_ASPECT) {
+        // Viewport wider than image — scale to fill width, overflow vertically.
+        planeW = viewW;
+        planeH = viewW / IMAGE_ASPECT;
       } else {
-        sy = visibleH / 2;
-        sx = sy * planeAspect;
+        // Viewport taller than image — scale to fill height, overflow horizontally.
+        planeH = viewH;
+        planeW = viewH * IMAGE_ASPECT;
       }
-      // Add a touch of overscale so the displacement can't reveal plane edges
-      // at extreme camera positions.
-      mesh.scale.set(sx * 1.12, sy * 1.12, 1);
+      // Small overscale so camera arcs at extreme positions can't reveal
+      // the plane edge.
+      mesh.scale.set(planeW * 1.08, planeH * 1.08, 1);
     }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
 
-    // Scroll progress (0..1) through the hero section.
+    // ResizeObserver picks up anything that changes the canvas size:
+    // window resize, font swap, content reflow, devtools, mobile address
+    // bar collapse/expand. This is the only sizing trigger we need.
+    const ro = new ResizeObserver(() => fitCanvas());
+    ro.observe(canvas);
+
+    // Scroll progress through the section, 0 at top, 1 at bottom.
     let scrollProgress = 0;
     function updateScroll() {
       const rect = section.getBoundingClientRect();
-      const span = section.clientHeight;
+      const span = rect.height;
       const scrolled = -rect.top;
       scrollProgress = Math.max(0, Math.min(1, scrolled / span));
     }
     window.addEventListener('scroll', updateScroll, { passive: true });
     updateScroll();
 
-    // Pause the render loop when the hero scrolls fully out of view, so the
-    // GPU isn't drawing frames the visitor can't see.
+    // Pause the render loop when the hero scrolls fully out of view.
     let inView = true;
-    const observer = new IntersectionObserver(([entry]) => {
+    new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting;
-    }, { threshold: 0 });
-    observer.observe(section);
+    }, { threshold: 0 }).observe(section);
 
-    // Animation loop — shallow arc on scroll, optional autoplay micro-drift.
+    // Animation loop. Shallow camera arc driven by scroll, plus an
+    // optional autoplay micro-drift breathing the camera at idle.
     let frameId: number | null = null;
     function startLoop() {
-      let prev = performance.now();
       function frame(now: number) {
         if (!inView) {
-          // Skip frame, keep loop alive cheaply.
           frameId = requestAnimationFrame(frame);
           return;
         }
         const t = now / 1000;
-        prev = now;
 
-        // Scroll-driven arc — shallow swing on X and Z, slight downward Y.
-        const arcAngle = scrollProgress * 0.28; // ~16° max
-        const arcX = Math.sin(arcAngle) * 0.45;
-        const arcZ = (1 - Math.cos(arcAngle)) * 0.45;
-        const arcY = -scrollProgress * 0.08;
+        // Scroll-driven shallow arc — about 13° max swing on X, mild Z push.
+        const arcAngle = scrollProgress * 0.23;
+        const arcX = Math.sin(arcAngle) * 0.32;
+        const arcZ = (1 - Math.cos(arcAngle)) * 0.32;
+        const arcY = -scrollProgress * 0.06;
 
-        // Autoplay micro-drift — slow oscillation, ~1° equivalent, breathes
-        // the camera before the visitor scrolls.
-        let driftX = 0;
-        let driftY = 0;
+        // Autoplay drift: ~1° equivalent oscillation, slow.
+        let driftX = 0, driftY = 0;
         if (autoplay) {
-          driftX = Math.sin(t * 0.32) * 0.025;
-          driftY = Math.cos(t * 0.27) * 0.015;
+          driftX = Math.sin(t * 0.28) * 0.022;
+          driftY = Math.cos(t * 0.23) * 0.014;
         }
 
         camera.position.x = arcX + driftX;
@@ -385,20 +379,19 @@ const fallbackUrl = url(fallbackImage);
       frameId = requestAnimationFrame(frame);
     }
 
-    // Clean up if the page hides the hero entirely (SPA navigation, etc.)
+    // Clean up on page unload (SPA navigation, tab close).
     window.addEventListener('pagehide', () => {
       if (frameId != null) cancelAnimationFrame(frameId);
+      ro.disconnect();
       renderer.dispose();
       geometry.dispose();
       material.dispose();
-      colorTex.dispose();
-      depthTex.dispose();
     });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', initHero);
   } else {
-    init();
+    initHero();
   }
 </script>
