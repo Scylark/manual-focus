@@ -1463,20 +1463,41 @@ const posts = (await getCollection('blog'))
      ============================ */
   .section.dwell-pin,
   .dwell-pin {
-    min-height: 220vh;
+    /* Section just tall enough for ~50vh of pinned dwell + the stage
+       itself. Larger numbers mean longer dwell BUT also mean a
+       longer "exit phase" where the stage slides up out of view
+       with empty section background trailing it — what the user
+       was seeing as "scroll into black".  150vh keeps the exit
+       phase to about half a viewport so the next section follows
+       on closely. */
+    min-height: 150vh;
     padding-block: 0;
     position: relative;
+    background: var(--color-bg);
   }
   .dwell-pin-stage {
     position: sticky;
     top: 0;
-    min-height: 100vh;
+    /* 100svh = exactly one safe viewport so the stage fills the
+       screen edge-to-edge while pinned. Content centred inside, so
+       a section with less content has equal top/bottom breathing
+       room instead of all the empty space landing below the text. */
+    min-height: 100svh;
     display: flex;
     align-items: center;
     padding-block: var(--space-2xl);
     width: 100%;
+    background: var(--color-bg);
   }
   .dwell-pin-stage > .container { width: 100%; }
+  /* Section variants that have their own background colour need to
+     pass that through to the dwell-pin sticky stage too, otherwise
+     during the exit phase the stage's bg differs from the section's
+     and you get a visible colour seam. */
+  .section.section-alt.dwell-pin,
+  .section.section-alt.dwell-pin .dwell-pin-stage {
+    background: var(--color-bg-alt, var(--color-bg));
+  }
   @media (max-width: 768px) {
     /* On mobile the dwell-pin pattern reverts to a normal section —
        sticky-pinned sections would add too much scroll distance for a
