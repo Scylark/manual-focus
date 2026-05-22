@@ -1,75 +1,45 @@
 ---
 /**
- * HeroCyclist — two-layer depth parallax hero.
+ * HeroCyclist — autoplay background video hero.
  *
- * The cyclist + bike + foreground rocks live on a transparent
- * foreground layer (alpha-masked using the depth map). A separately
- * inpainted background sits behind. As the visitor scrolls — and
- * subtly at rest via an autoplay drift — the background translates
- * while the foreground stays anchored, producing the drone-pass
- * parallax read without shader artefacts.
+ * Immersity AI generates the depth-displacement drone-pass directly
+ * as an MP4 with the camera motion already animated. We just play it
+ * as a background video — no shaders, no layer separation, no
+ * possible silhouette artefacts. The motion in the file IS the
+ * effect the spec describes.
  *
- * Pure CSS transforms on the layers. No WebGL — every shader-only
- * attempt on a single-image depth map ran into one of: rider tearing
- * at the silhouette, ghost copies of the rider sampled through the
- * shift, or a visible static halo around him. Separating into two
- * physical layers eliminates the class of artefact entirely.
- *
- * Asset prep (one-time, kept in /scripts/build-hero-layers.py if you
- * need to re-run): the depth map's silhouette is used as the alpha
- * channel for the foreground PNG, and the colour image is heavily
- * blurred in the cyclist's region to inpaint the background JPG.
- * The inpaint quality only matters in the narrow strip the parallax
- * shift reveals — the rest is covered by the sharp foreground.
+ * The poster image is the static JPG so first paint is sharp while
+ * the video buffers, and reduced-motion preference falls back to the
+ * static poster permanently (the <video> still renders but doesn't
+ * autoplay — the poster keeps showing).
  */
 import { url } from '../utils/paths';
 
 interface Props {
-  background?: string;
-  foreground?: string;
+  video?: string;
   fallbackImage?: string;
-  /** Background drift per scroll-pixel. 0.20 = bg moves 20% of scroll. */
-  parallax?: number;
 }
 
 const {
-  background = '/images/hero-cyclist-background.jpg',
-  foreground = '/images/hero-cyclist-foreground.png',
+  video = '/images/hero-cyclist.mp4',
   fallbackImage = '/images/hero-cyclist.jpg',
-  parallax = 0.25,
 } = Astro.props;
 
-const bgUrl = url(background);
-const fgUrl = url(foreground);
+const videoUrl = url(video);
 const fallbackUrl = url(fallbackImage);
 ---
-<section
-  class="hero-cyclist"
-  data-hero-cyclist
-  data-parallax-amount={String(parallax)}
->
-  <noscript>
-    <img class="hero-cyclist-img-noscript" src={fallbackUrl} alt="" aria-hidden="true" />
-  </noscript>
-
-  <img
-    class="hero-cyclist-bg"
-    src={bgUrl}
-    alt=""
+<section class="hero-cyclist" data-hero-cyclist>
+  <video
+    class="hero-cyclist-video"
+    src={videoUrl}
+    poster={fallbackUrl}
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
     aria-hidden="true"
-    loading="eager"
-    decoding="async"
-    fetchpriority="high"
-  />
-  <img
-    class="hero-cyclist-fg"
-    src={fgUrl}
-    alt=""
-    aria-hidden="true"
-    loading="eager"
-    decoding="async"
-    fetchpriority="high"
-  />
+  ></video>
 
   <div class="hero-cyclist-overlay" aria-hidden="true"></div>
 
@@ -89,38 +59,26 @@ const fallbackUrl = url(fallbackImage);
     isolation: isolate;
   }
 
-  .hero-cyclist-img-noscript {
+  .hero-cyclist-video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Bias toward the rider on the right so the cropping eats the
+       empty sky on the left, not the subject. Matches the IMG
+       fallback elsewhere. */
     object-position: 65% center;
     z-index: 0;
-  }
-
-  .hero-cyclist-bg,
-  .hero-cyclist-fg {
-    position: absolute;
-    /* Slight overscale so the bg can drift on the X axis without
-       revealing the section edge. The drift is clamped to this
-       headroom in the JS below. */
-    top: -3%;
-    left: -6%;
-    width: 112%;
-    height: 106%;
-    object-fit: cover;
-    object-position: 65% center;
-    pointer-events: none;
+    /* will-change keeps GPU compositing on for the video element so
+       the playback stays smooth on lower-end hardware. */
     will-change: transform;
   }
-  .hero-cyclist-bg { z-index: 0; }
-  .hero-cyclist-fg { z-index: 1; }
 
   .hero-cyclist-overlay {
     position: absolute;
     inset: 0;
-    z-index: 2;
+    z-index: 1;
     pointer-events: none;
     background:
       linear-gradient(to right,
@@ -136,11 +94,7 @@ const fallbackUrl = url(fallbackImage);
 
   .hero-cyclist-content {
     position: relative;
-    z-index: 3;
-    /* Match the global .container constraint so the hero copy aligns
-       with the page sections below it on wide viewports. Without
-       this the hero text hugs the viewport edge while the rest of
-       the page sits inside a 1280px centred container. */
+    z-index: 2;
     width: 100%;
     max-width: var(--max-width);
     margin-inline: auto;
@@ -172,82 +126,28 @@ const fallbackUrl = url(fallbackImage);
     }
   }
 
+  /* Reduced motion: pause the video so the poster image stays. */
   @media (prefers-reduced-motion: reduce) {
-    .hero-cyclist-bg,
-    .hero-cyclist-fg {
-      transform: none !important;
+    .hero-cyclist-video {
+      /* The poster shows until the video buffers; pausing keeps the
+         poster as the visible frame. */
+      animation-play-state: paused;
     }
   }
 </style>
 
 <script>
+  // Respect prefers-reduced-motion by pausing the video so the poster
+  // image stays as the visible frame. Without this the CSS media query
+  // can't stop a <video> from playing — that has to be done in JS.
   function initHero() {
-    const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
-    if (!section) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    const bg = section.querySelector<HTMLElement>('.hero-cyclist-bg');
-    const fg = section.querySelector<HTMLElement>('.hero-cyclist-fg');
-    if (!bg || !fg) return;
-
-    const amount = parseFloat(section.dataset.parallaxAmount || '0.25');
-    if (amount <= 0) return;
-
-    // Track scroll progress through the hero section (0 at top, 1 at
-    // the point the section's bottom hits the top of the viewport).
-    let scrollProgress = 0;
-    function updateScroll() {
-      const rect = section.getBoundingClientRect();
-      const span = rect.height;
-      const scrolled = -rect.top;
-      scrollProgress = Math.max(0, Math.min(1, scrolled / span));
+    const video = document.querySelector<HTMLVideoElement>('.hero-cyclist-video');
+    if (!video) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.pause();
+      video.removeAttribute('autoplay');
     }
-    window.addEventListener('scroll', updateScroll, { passive: true });
-    window.addEventListener('resize', updateScroll, { passive: true });
-    updateScroll();
-
-    // Pause animation when off-screen so we're not running RAFs for
-    // nothing on long scrolling pages.
-    let inView = true;
-    new IntersectionObserver(([entry]) => {
-      inView = entry.isIntersecting;
-    }, { threshold: 0 }).observe(section);
-
-    // Continuous render loop driven by RAF. Combines scroll progress
-    // with an autoplay drift sine wave so the background breathes
-    // even at rest before the visitor scrolls.
-    function frame(now: number) {
-      requestAnimationFrame(frame);
-      if (!inView) return;
-      const t = now / 1000;
-
-      // Scroll-driven sweep: the background slides left and dips
-      // slightly as the visitor moves down through the hero. Clamp
-      // to ±3% horizontally and ±1.5% vertically so the overscaled
-      // layer never reveals its edge.
-      const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-      const scrollX = -ease * 36;   // px, negative = bg drifts LEFT
-      const scrollY = ease * 16;    // px, positive = bg drifts DOWN
-
-      // Autoplay drift: gentle sine breathing on top of scroll.
-      const driftX = Math.sin(t * 0.32) * 12;
-      const driftY = Math.cos(t * 0.21) * 6;
-
-      const bgX = scrollX + driftX;
-      const bgY = scrollY + driftY;
-      bg.style.transform = `translate3d(${bgX.toFixed(2)}px, ${bgY.toFixed(2)}px, 0)`;
-
-      // Foreground gets a much smaller counter-drift so the cyclist
-      // feels alive without breaking the anchored read. Keep this
-      // subtle — 25% of the bg drift, opposite direction so they
-      // separate visually on scroll.
-      const fgX = -bgX * 0.15;
-      const fgY = -bgY * 0.15;
-      fg.style.transform = `translate3d(${fgX.toFixed(2)}px, ${fgY.toFixed(2)}px, 0)`;
-    }
-    requestAnimationFrame(frame);
   }
-
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initHero);
   } else {
