@@ -192,6 +192,10 @@ const fallbackUrl = url(fallbackImage);
       return;
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // sRGB output so the texture's gradients don't get crushed in the
+    // default linear pipeline — visible as posterization in the dawn sky
+    // without this set.
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     // Scene + camera
     const scene = new THREE.Scene();
@@ -222,8 +226,16 @@ const fallbackUrl = url(fallbackImage);
     const colorTex = loader.load(textureUrl, ready);
     const depthTex = loader.load(depthUrl, ready);
     colorTex.colorSpace = THREE.SRGBColorSpace;
+    // Sharpest possible sampling for the colour texture — anisotropy max for
+    // grazing angles, linear mag for the upscale, mipmaps off so we always
+    // sample the full-resolution texture rather than a downsampled level.
     colorTex.minFilter = THREE.LinearFilter;
+    colorTex.magFilter = THREE.LinearFilter;
+    colorTex.generateMipmaps = false;
+    colorTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
     depthTex.minFilter = THREE.LinearFilter;
+    depthTex.magFilter = THREE.LinearFilter;
+    depthTex.generateMipmaps = false;
 
     // Shader — vertex samples the depth map and offsets Z, fragment samples
     // the colour texture as a plain texture lookup.
