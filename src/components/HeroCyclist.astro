@@ -1,61 +1,73 @@
 ---
 /**
- * HeroCyclist — static illustration hero with CSS scroll parallax.
+ * HeroCyclist — depth-driven parallax hero where the cyclist stays
+ * anchored and the background drifts around him.
  *
- * The depth-displacement WebGL approach in the original spec was tried
- * across several rounds (vertex displacement, fragment-shader UV
- * parallax, parallax-occlusion mapping) and each variation produced
- * artefacts on this particular asset — the cyclist sits on the right
- * edge of the 16:9 frame with no padding, so any meaningful depth-
- * weighted shift pushes the sample lookup off the right edge of the
- * image and the rider visibly tears apart.
+ * The conventional "drone pass" framing for a marketing hero locks
+ * the subject as the focal point and animates the surroundings —
+ * opposite to physical motion parallax (where closer things shift
+ * more). Earlier attempts shifted the cyclist (depth × offset), which
+ * sampled the colour texture from off the right edge of the frame and
+ * visibly tore the rider apart.
  *
- * The pragmatic call: ship the static IMG with a scroll-driven CSS
- * parallax. The image drifts up at a slower rate than the page scroll,
- * creating depth read without sampling-off-image artefacts. Same
- * technique most marketing heroes use. Reliable. Clean.
+ * This version inverts that — shift = (1 - depth) × offset. The rider
+ * (depth ~1) samples at the un-shifted UV and stays exactly where the
+ * source IMG puts him. The sky and distant cliffs (depth ~0) shift
+ * the full amount and produce the visible parallax read against the
+ * anchored cyclist.
  *
- * Parked spec + assets stay in:
- *   /Users/jamesvickers/Downloads/manual-focus-hero-spec.md
- *   /public/images/hero-cyclist-depth.png
- * to revisit once a re-rendered image with proper padding exists.
+ * MeshBasicMaterial + onBeforeCompile injects the UV shift into the
+ * standard <map_fragment> chunk so Three.js's built-in sRGB pipeline
+ * handles the colour pass — output matches the source IMG exactly.
+ * Skipped on mobile and reduced-motion, which fall back to the IMG.
  */
 import { url } from '../utils/paths';
 
 interface Props {
   texture?: string;
+  depthMap?: string;
   fallbackImage?: string;
-  /** Pixels per scroll-pixel for the CSS parallax. 0 disables. */
-  parallax?: number;
+  /**
+   * UV-shift magnitude for the background (depth=0). 0.10 = max 10%
+   * shift of the sky relative to the anchored cyclist at peak combined
+   * scroll + drift. Tuned so the background drifts visibly without
+   * sampling past the image edge on the left.
+   */
+  strength?: number;
+  /** Idle drift on the background before the visitor scrolls. */
+  autoplay?: boolean;
 }
 
 const {
   texture = '/images/hero-cyclist.webp',
+  depthMap = '/images/hero-cyclist-depth.png',
   fallbackImage = '/images/hero-cyclist.jpg',
-  parallax = 0.20,
+  strength = 0.10,
+  autoplay = true,
 } = Astro.props;
 
-const imageUrl = url(texture);
+const textureUrl = url(texture);
+const depthUrl = url(depthMap);
 const fallbackUrl = url(fallbackImage);
 ---
 <section
   class="hero-cyclist"
   data-hero-cyclist
-  data-parallax-amount={String(parallax)}
+  data-texture={textureUrl}
+  data-depth={depthUrl}
+  data-strength={String(strength)}
+  data-autoplay={autoplay ? 'true' : 'false'}
 >
-  <picture class="hero-cyclist-picture">
-    <source srcset={imageUrl} type="image/webp" />
-    <img
-      class="hero-cyclist-img"
-      src={fallbackUrl}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    />
-  </picture>
-
+  <img
+    class="hero-cyclist-img"
+    src={fallbackUrl}
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+  <canvas class="hero-cyclist-canvas" aria-hidden="true"></canvas>
   <div class="hero-cyclist-overlay" aria-hidden="true"></div>
 
   <div class="hero-cyclist-content">
@@ -74,32 +86,31 @@ const fallbackUrl = url(fallbackImage);
     isolation: isolate;
   }
 
-  .hero-cyclist-picture {
+  .hero-cyclist-img,
+  .hero-cyclist-canvas {
     position: absolute;
     inset: 0;
-    z-index: 0;
-    display: block;
-    /* Slight overscale so the scroll-parallax translateY can drift the
-       image without revealing the section edge. Matches the max drift
-       distance. */
     width: 100%;
-    height: 115%;
-    top: -7.5%;
-    will-change: transform;
+    height: 100%;
+    display: block;
   }
 
   .hero-cyclist-img {
-    width: 100%;
-    height: 100%;
+    z-index: 0;
     object-fit: cover;
     object-position: 65% center;
-    display: block;
   }
+  .hero-cyclist-canvas {
+    z-index: 1;
+    visibility: hidden;
+  }
+  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-canvas { visibility: visible; }
+  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { visibility: hidden; }
 
   .hero-cyclist-overlay {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
     background:
       linear-gradient(to right,
@@ -115,7 +126,7 @@ const fallbackUrl = url(fallbackImage);
 
   .hero-cyclist-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     height: 100%;
     display: flex;
@@ -145,52 +156,228 @@ const fallbackUrl = url(fallbackImage);
     }
   }
 
-  /* Disable parallax for reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-cyclist-picture {
-      transform: none !important;
-    }
+  @media (prefers-reduced-motion: reduce), (max-width: 768px) {
+    .hero-cyclist-canvas { display: none; }
+    .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { visibility: visible; }
   }
 </style>
 
 <script>
-  function initParallax() {
+  import * as THREE from 'three';
+
+  function initHero() {
     const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
     if (!section) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const picture = section.querySelector<HTMLElement>('.hero-cyclist-picture');
-    if (!picture) return;
-
-    const amount = parseFloat(section.dataset.parallaxAmount || '0');
-    if (amount <= 0) return;
-
-    let pending = false;
-    function update() {
-      const rect = section.getBoundingClientRect();
-      // Drift the picture vertically by a fraction of how far the
-      // section has scrolled past the viewport top. Clamp to ±7.5% of
-      // the section height so the 115%/-7.5% overscale never reveals
-      // the edge.
-      const max = rect.height * 0.075;
-      const shift = Math.max(-max, Math.min(max, -rect.top * amount));
-      picture.style.transform = `translate3d(0, ${shift.toFixed(2)}px, 0)`;
-      pending = false;
+    const skipWebGL =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+      window.matchMedia('(max-width: 768px)').matches;
+    if (skipWebGL) {
+      section.dataset.webglReady = 'true';
+      return;
     }
-    function onScroll() {
-      if (!pending) {
-        pending = true;
-        requestAnimationFrame(update);
+
+    const canvas = section.querySelector<HTMLCanvasElement>('.hero-cyclist-canvas');
+    if (!canvas) return;
+
+    const textureUrl = section.dataset.texture!;
+    const depthUrl = section.dataset.depth!;
+    const strength = parseFloat(section.dataset.strength || '0.10');
+    const autoplay = section.dataset.autoplay === 'true';
+
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: false,
+        antialias: true,
+        powerPreference: 'high-performance',
+      });
+    } catch {
+      section.dataset.webglReady = 'true';
+      return;
+    }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    // Static camera + flat plane. All motion happens in the fragment
+    // shader via the UV shift uniform.
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    const baseZ = 1.6;
+    camera.position.set(0, 0, baseZ);
+    camera.lookAt(0, 0, 0);
+
+    const geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
+
+    // MeshBasicMaterial + onBeforeCompile keeps Three.js's built-in
+    // sRGB colour pipeline intact so the rendered output matches the
+    // source IMG. Inject the depth-driven UV shift into the standard
+    // <map_fragment> chunk.
+    const depthUniform = { value: null as THREE.Texture | null };
+    const offsetUniform = { value: new THREE.Vector2(0, 0) };
+    const strengthUniform = { value: strength };
+    const material = new THREE.MeshBasicMaterial({ map: null });
+    material.onBeforeCompile = (shader) => {
+      shader.uniforms.uDepth = depthUniform;
+      shader.uniforms.uOffset = offsetUniform;
+      shader.uniforms.uStrength = strengthUniform;
+
+      shader.fragmentShader = shader.fragmentShader
+        .replace(
+          '#include <common>',
+          `#include <common>
+           uniform sampler2D uDepth;
+           uniform vec2 uOffset;
+           uniform float uStrength;`,
+        )
+        .replace(
+          '#include <map_fragment>',
+          `#ifdef USE_MAP
+             // Background (depth=0) shifts the full uOffset × uStrength.
+             // Foreground (depth=1) shifts zero — the cyclist stays
+             // anchored in place at his source-image UV, so the rider
+             // never tears apart at the silhouette and never samples
+             // past the image edge.
+             float d = texture2D(uDepth, vMapUv).r;
+             vec2 shift = uOffset * (1.0 - d) * uStrength;
+             vec4 sampledDiffuseColor = texture2D(map, vMapUv + shift);
+             diffuseColor *= sampledDiffuseColor;
+           #endif`,
+        );
+    };
+
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    function configureColor(t: THREE.Texture) {
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.minFilter = THREE.LinearFilter;
+      t.magFilter = THREE.LinearFilter;
+      t.generateMipmaps = false;
+      t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      t.wrapS = THREE.ClampToEdgeWrapping;
+      t.wrapT = THREE.ClampToEdgeWrapping;
+      t.needsUpdate = true;
+    }
+    function configureDepth(t: THREE.Texture) {
+      t.colorSpace = THREE.NoColorSpace;
+      t.minFilter = THREE.LinearFilter;
+      t.magFilter = THREE.LinearFilter;
+      t.generateMipmaps = false;
+      t.wrapS = THREE.ClampToEdgeWrapping;
+      t.wrapT = THREE.ClampToEdgeWrapping;
+      t.needsUpdate = true;
+    }
+
+    const loader = new THREE.TextureLoader();
+    let loaded = 0;
+    function onLoad() {
+      if (++loaded < 2) return;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          fitCanvas();
+          renderer.render(scene, camera);
+          section.dataset.webglReady = 'true';
+          startLoop();
+        });
+      });
+    }
+    function onTexErr() {
+      canvas.style.display = 'none';
+    }
+    loader.load(textureUrl, (t) => {
+      configureColor(t);
+      material.map = t;
+      material.needsUpdate = true;
+      onLoad();
+    }, undefined, onTexErr);
+    loader.load(depthUrl, (t) => {
+      configureDepth(t);
+      depthUniform.value = t;
+      onLoad();
+    }, undefined, onTexErr);
+
+    const IMAGE_ASPECT = 1920 / 1080;
+    function fitCanvas() {
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      if (w <= 0 || h <= 0) return;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+
+      const vFov = (camera.fov * Math.PI) / 180;
+      const viewH = 2 * Math.tan(vFov / 2) * baseZ;
+      const viewW = viewH * camera.aspect;
+      const viewAspect = w / h;
+
+      let planeW: number, planeH: number;
+      if (viewAspect > IMAGE_ASPECT) {
+        planeW = viewW;
+        planeH = viewW / IMAGE_ASPECT;
+      } else {
+        planeH = viewH;
+        planeW = viewH * IMAGE_ASPECT;
       }
+      mesh.scale.set(planeW, planeH, 1);
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    update();
+    const ro = new ResizeObserver(() => fitCanvas());
+    ro.observe(canvas);
+
+    let scrollProgress = 0;
+    function updateScroll() {
+      const rect = section.getBoundingClientRect();
+      const span = rect.height;
+      const scrolled = -rect.top;
+      scrollProgress = Math.max(0, Math.min(1, scrolled / span));
+    }
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    updateScroll();
+
+    let inView = true;
+    new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+    }, { threshold: 0 }).observe(section);
+
+    let frameId: number | null = null;
+    function startLoop() {
+      function frame(now: number) {
+        if (inView) {
+          const t = now / 1000;
+          const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
+          // Scroll-driven sweep — the sky drifts left and dips down
+          // slightly as the visitor scrolls through the hero, while the
+          // cyclist stays anchored. Negative scrollX so the background
+          // shifts LEFT (sky reveals what's to the right of itself),
+          // which leaves the rider visually pushed RIGHT into the cliff —
+          // the cinematic "world is moving past the rider" read.
+          const scrollX = ease * -0.70;
+          const scrollY = ease * 0.30;
+          // Autoplay drift so the sky breathes before the visitor scrolls.
+          const driftX = autoplay ? Math.sin(t * 0.25) * 0.35 : 0;
+          const driftY = autoplay ? Math.cos(t * 0.19) * 0.20 : 0;
+          offsetUniform.value.set(scrollX + driftX, scrollY + driftY);
+          renderer.render(scene, camera);
+        }
+        frameId = requestAnimationFrame(frame);
+      }
+      frameId = requestAnimationFrame(frame);
+    }
+
+    window.addEventListener('pagehide', () => {
+      if (frameId != null) cancelAnimationFrame(frameId);
+      ro.disconnect();
+      renderer.dispose();
+      geometry.dispose();
+      material.dispose();
+    });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initParallax);
+    document.addEventListener('DOMContentLoaded', initHero);
   } else {
-    initParallax();
+    initHero();
   }
 </script>
