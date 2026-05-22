@@ -235,13 +235,17 @@ const fallbackUrl = url(fallbackImage);
         .replace(
           '#include <map_fragment>',
           `#ifdef USE_MAP
-             // Background (depth=0) shifts the full uOffset × uStrength.
-             // Foreground (depth=1) shifts zero — the cyclist stays
-             // anchored in place at his source-image UV, so the rider
-             // never tears apart at the silhouette and never samples
-             // past the image edge.
+             // Anchor the cyclist, drift the background. The depth map
+             // is soft-edged (Gaussian-blurred silhouette), so a raw
+             // (1 - d) multiplier would still shift the cyclist's edge
+             // pixels by ~half because their depth reads ~0.5. The
+             // smoothstep below treats anything with d ≥ 0.55 as fully
+             // anchored (shift = 0) and only the genuine background
+             // (d < 0.45) shifts. The 0.10-wide transition band keeps
+             // a smooth fade so the silhouette doesn't snap.
              float d = texture2D(uDepth, vMapUv).r;
-             vec2 shift = uOffset * (1.0 - d) * uStrength;
+             float bg = smoothstep(0.55, 0.45, d);  // 1 in sky, 0 on rider
+             vec2 shift = uOffset * bg * uStrength;
              vec4 sampledDiffuseColor = texture2D(map, vMapUv + shift);
              diffuseColor *= sampledDiffuseColor;
            #endif`,
