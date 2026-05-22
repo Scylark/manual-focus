@@ -100,6 +100,16 @@ const hueOverride = [
     filter: drop-shadow(0 12px 24px var(--ring-shadow, rgba(26, 22, 18, 0.18)));
   }
 
+  /* Mobile: drop the drop-shadow filter — it re-renders every frame
+     the ring spins, and there are multiple FocusObjects on the page
+     each running an infinite spin. Significant GPU pressure on
+     phones. The rings still read clearly without it. */
+  @media (max-width: 768px) {
+    .focus-object {
+      filter: none;
+    }
+  }
+
   /* Entrance offset (cleared by .has-entered) */
   .focus-object--right { transform: translate(100px, 30px); }
   .focus-object--left  { transform: translate(-100px, 30px); }
@@ -139,8 +149,14 @@ const hueOverride = [
     width: 100%;
     height: 100%;
     animation: focus-object-spin var(--spinDur) linear infinite;
+    /* Paused by default — JS toggles via IntersectionObserver so the
+       spin only runs when the object is actually on-screen. */
+    animation-play-state: paused;
     transform-style: preserve-3d;
     transform-origin: 50% 50%;
+  }
+  .focus-object.is-visible .focus-object__spin {
+    animation-play-state: running;
   }
   .focus-object[style*="--spinDir: -1"] .focus-object__spin {
     animation-direction: reverse;

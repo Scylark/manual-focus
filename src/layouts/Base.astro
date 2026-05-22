@@ -150,13 +150,26 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     // Focus objects — scroll-driven rotation + entrance observer
     const focusObjects = document.querySelectorAll<HTMLElement>('[data-scroll-spin]');
     if (focusObjects.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      // Entrance observer
+      // Entrance observer — also toggles is-visible so the infinite
+      // spin animation only runs while the object is actually on
+      // screen. Each FocusObject runs 56 ring slices in 3D; with a
+      // few of them on the page that's a lot of GPU work to chew
+      // continuously when they're nowhere near the viewport.
       const enterObs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('has-entered');
         });
       }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
       focusObjects.forEach(el => enterObs.observe(el));
+
+      // Visibility observer — pauses the spin animation when the
+      // object scrolls off-screen.
+      const visObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        });
+      }, { threshold: 0, rootMargin: '50px 0px 50px 0px' });
+      focusObjects.forEach(el => visObs.observe(el));
 
       // Scroll-driven rotation + Y parallax — single rAF, no per-element listener.
       // Depth is derived from the ring's size: bigger rings sit closer to the

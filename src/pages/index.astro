@@ -1421,6 +1421,25 @@ const posts = (await getCollection('blog'))
     .container { padding-inline: var(--space-sm); }
     .hero-headline { font-size: clamp(2rem, 10vw, 3rem); }
   }
+
+  /* ============================
+     MOBILE PERF — strip expensive paint effects on phones.
+     backdrop-filter and large filter:blur() are re-evaluated every
+     frame the content behind them changes, which on a fixed nav
+     over a scrolling page means every scroll frame. Disabling them
+     on small viewports is invisible to the user and saves a huge
+     amount of GPU work on mid-range Android and any iPhone before
+     the Pro Max line.
+     ============================ */
+  @media (max-width: 768px) {
+    .stat-card {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .forge-aura {
+      filter: blur(8px);
+    }
+  }
 </style>
 
 <script>

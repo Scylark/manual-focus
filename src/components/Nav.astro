@@ -82,6 +82,18 @@ const currentPath = Astro.url.pathname;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Mobile: drop backdrop-filter. On a fixed-position nav over a
+     scrolling page, every frame the content behind it changes forces
+     the browser to re-run the blur — major perf hit on phones. Solid
+     background reads almost identically and frees up the GPU. */
+  @media (max-width: 768px) {
+    .nav-header {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background-color: var(--color-bg);
+    }
+  }
+
   .nav-header.is-visible {
     transform: translateY(0);
   }
