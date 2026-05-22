@@ -327,40 +327,25 @@ a {
   border-color: var(--color-text);
 }
 
-/* --- Scroll reveal --- */
+/* --- Scroll reveal ---
+ * Initial state only. The Base.astro script drives opacity and
+ * transform per-frame from scroll position, so no CSS transition
+ * is needed (and a transition would fight the per-frame writes by
+ * interpolating between target values).
+ *
+ * Reduced-motion: the Base.astro script snaps these to their
+ * revealed state immediately rather than running the RAF loop.
+ */
 .reveal {
   opacity: 0;
-  transform: translateY(2.5rem);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 40px, 0);
+  will-change: opacity, transform;
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered children */
 .stagger > * {
   opacity: 0;
-  transform: translateY(2rem);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
-.stagger.is-visible > *:nth-child(2) { transition-delay: 0.08s; }
-.stagger.is-visible > *:nth-child(3) { transition-delay: 0.16s; }
-.stagger.is-visible > *:nth-child(4) { transition-delay: 0.24s; }
-.stagger.is-visible > *:nth-child(5) { transition-delay: 0.32s; }
-.stagger.is-visible > *:nth-child(6) { transition-delay: 0.40s; }
-.stagger.is-visible > *:nth-child(7) { transition-delay: 0.48s; }
-.stagger.is-visible > *:nth-child(8) { transition-delay: 0.56s; }
-.stagger.is-visible > *:nth-child(9) { transition-delay: 0.64s; }
-
-.stagger.is-visible > * {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 40px, 0);
+  will-change: opacity, transform;
 }
 
 /* --- Word-by-word reveal (set inline transition-delay per word) --- */

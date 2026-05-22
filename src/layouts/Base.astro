@@ -90,19 +90,80 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       }, { passive: true });
     }
 
-    // Scroll reveal with IntersectionObserver
-    const revealElements = document.querySelectorAll('.reveal, .stagger');
-    if (revealElements.length > 0) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    // Scroll-driven reveal. Each element animates as it enters the
+    // viewport (opacity + translateY), then HOLDS at its revealed
+    // state — no exit transition, headlines stay anchored once
+    // they've landed. Tied to scroll progress rather than a single
+    // IO threshold so the reveal dwells naturally as the user
+    // scrolls into each section, the same feel as the hero and
+    // manifesto.
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const revealItems: HTMLElement[] = [];
+      // Collect .reveal elements + direct children of .stagger so
+      // each gets driven by its own viewport position.
+      document.querySelectorAll<HTMLElement>('.reveal').forEach(el => revealItems.push(el));
+      document.querySelectorAll<HTMLElement>('.stagger').forEach(parent => {
+        parent.querySelectorAll<HTMLElement>(':scope > *').forEach(child => revealItems.push(child));
+      });
 
-      revealElements.forEach(el => observer.observe(el));
+      if (revealItems.length > 0) {
+        // Per-element last-opacity cache so we skip style writes
+        // when nothing's changed. Crucial — on a long page with
+        // many reveal elements, redundant writes cost real frames.
+        const lastP = new WeakMap<HTMLElement, number>();
+
+        // Only animate elements that are currently near the
+        // viewport (within ±150vh). Far-away elements stay at their
+        // initial state in CSS and don't get touched per-frame.
+        const nearViewport = new Set<HTMLElement>();
+        const visObs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) nearViewport.add(entry.target as HTMLElement);
+            else nearViewport.delete(entry.target as HTMLElement);
+          });
+        }, { rootMargin: '150% 0% 50% 0%' });
+        revealItems.forEach(el => visObs.observe(el));
+
+        let pending = false;
+        function update() {
+          const vh = window.innerHeight;
+          // 70% of viewport height is the reveal window: element
+          // starts revealing when its top is at vh, fully revealed
+          // when its top is at 30% from the top of the viewport.
+          const window70 = vh * 0.7;
+          nearViewport.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const raw = (vh - rect.top) / window70;
+            const p = raw < 0 ? 0 : raw > 1 ? 1 : raw;
+            const prev = lastP.get(el);
+            if (prev !== undefined && Math.abs(p - prev) < 0.01) return;
+            const eased = p * p * (3 - 2 * p);
+            el.style.opacity = eased.toFixed(3);
+            el.style.transform = `translate3d(0, ${((1 - eased) * 40).toFixed(1)}px, 0)`;
+            lastP.set(el, p);
+          });
+          pending = false;
+        }
+        window.addEventListener('scroll', () => {
+          if (!pending) { pending = true; requestAnimationFrame(update); }
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+          if (!pending) { pending = true; requestAnimationFrame(update); }
+        }, { passive: true });
+        update();
+      }
+    } else {
+      // Reduced motion: snap everything visible immediately, no
+      // transforms. Headlines, copy and stagger lists all show
+      // at full opacity.
+      document.querySelectorAll<HTMLElement>('.reveal').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      document.querySelectorAll<HTMLElement>('.stagger > *').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
     }
 
     // Counter animation for stats
