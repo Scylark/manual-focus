@@ -137,7 +137,13 @@ const fallbackUrl = url(fallbackImage);
   .hero-cyclist-content {
     position: relative;
     z-index: 3;
+    /* Match the global .container constraint so the hero copy aligns
+       with the page sections below it on wide viewports. Without
+       this the hero text hugs the viewport edge while the rest of
+       the page sits inside a 1280px centred container. */
     width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
     height: 100%;
     display: flex;
     align-items: center;
