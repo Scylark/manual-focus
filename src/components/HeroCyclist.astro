@@ -55,11 +55,12 @@
       />
     </svg>
 
-    <!-- Wordmark that reveals as the rings break apart. Centred at
-         the resting position, scroll choreographs the transform. -->
+    <!-- Wordmark that reveals as the rings break apart. The two
+         lines are individually transformable so they can fly in
+         opposite directions on the exit "explosion". -->
     <div class="hero-wordmark" data-wordmark aria-hidden="true">
-      <span class="hero-wordmark-line">MANUAL</span>
-      <span class="hero-wordmark-line">FOCUS</span>
+      <span class="hero-wordmark-line" data-word-top>MANUAL</span>
+      <span class="hero-wordmark-line" data-word-bot>FOCUS</span>
     </div>
 
     <!-- Slot for the actual hero copy (eyebrow, headline, CTAs).
@@ -74,12 +75,11 @@
   .hero-scroll {
     position: relative;
     width: 100%;
-    /* Generous scroll runway with a long deliberate "hold" phase
-       on the wordmark — about 5 viewport-heights of scroll, ~4 of
-       which is animated (rest is sticky release). The hold lands
-       at ~1.5 viewport-heights of scrolling, which feels like the
-       wordmark genuinely sits before handing off. */
-    height: 500vh;
+    /* 600vh = ~500vh of pinned scroll runway. Enough room for the
+       full choreography PLUS a proper pause after the wordmark
+       exits and a rest phase where the hero copy holds fully
+       visible before the sticky releases. */
+    height: 600vh;
     background: var(--color-bg);
     isolation: isolate;
     overflow: clip;
@@ -160,9 +160,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    /* Faint glow behind the type so the gradient pops against the
-       background even before the rings fade out. */
-    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.08));
+    will-change: transform, filter;
+    transform-origin: 50% 50%;
   }
 
   .hero-content {
@@ -197,10 +196,10 @@
      smaller ring base size so it fits a narrower viewport. */
   @media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .hero-scroll {
-      /* 360vh on mobile — proportionally shorter than desktop's 500vh
-         since each vh is a smaller absolute distance on a phone, but
-         still leaves a clear hold phase on the wordmark. */
-      height: 360vh;
+      /* 420vh on mobile — proportionally shorter than desktop's
+         600vh since each vh is a smaller absolute distance on a
+         phone, but still leaves a clear hold + pause structure. */
+      height: 420vh;
     }
     .hero-scroll-sticky {
       min-height: 560px;
@@ -275,10 +274,13 @@
 
     let startTime = performance.now();
 
+    const wordTop = wordmark.querySelector<HTMLElement>('[data-word-top]');
+    const wordBot = wordmark.querySelector<HTMLElement>('[data-word-bot]');
+
     // Cache last-applied values so we don't thrash style/property
     // updates when nothing has changed frame-to-frame.
     let lastRingScale = -1, lastRingRot = -1, lastRingOpacity = -1, lastRingSep = -1;
-    let lastWordOpacity = -1, lastWordScale = -1, lastWordY = -999;
+    let lastWordOpacity = -1, lastWordExitT = -1, lastWordFadeIn = -1;
     let lastContentT = -1;
 
     function frame(now: number) {
@@ -319,29 +321,56 @@
       }
 
       // ── Wordmark ──────────────────────────────────────────────
-      // Fades in 0.40..0.55, HOLDS at full size 0.55..0.94 — the
-      // deliberate dwell is now ~40% of the total scroll progress.
-      // With the section at 500vh that's ~160vh of pure dwell time
-      // on the wordmark, ≈1.5 viewport-heights of scrolling before
-      // the hand-off begins. Fade-out 0.94..1.00.
-      const wordFadeIn = smooth(norm(p, 0.40, 0.55));
-      const wordFadeOut = smooth(norm(p, 0.94, 1.00));
-      const wordOpacity = wordFadeIn * (1 - wordFadeOut);
-      const wordScale = lerp(0.7, 1.0, wordFadeIn) * lerp(1.0, 0.55, wordFadeOut);
-      const wordTranslateY = lerp(40, 0, wordFadeIn) - lerp(0, 40, wordFadeOut);
+      // Choreography (with 600vh section ≈ 500vh of useful scroll):
+      //   0.40 → 0.52  fade in (~60vh of scroll)
+      //   0.52 → 0.74  HOLD at full size (~110vh of scroll dwell)
+      //   0.74 → 0.82  EXPLODE: MANUAL flies up + scales + blurs,
+      //                FOCUS flies down + scales + blurs, both fade
+      //   0.82 → 0.88  PAUSE — empty stage, gives the brand reveal
+      //                time to land before the next content block
+      //   0.86 → 0.94  hero copy fades in
+      //   0.94 → 1.00  REST — hero copy fully visible while the
+      //                sticky still pins (~30vh of read time)
+      const wordFadeIn = smooth(norm(p, 0.40, 0.52));
+      const wordExit = smooth(norm(p, 0.74, 0.82));
+      const wordOpacity = wordFadeIn * (1 - wordExit);
 
       if (Math.abs(wordOpacity - lastWordOpacity) > 0.005) {
         wordmark.style.opacity = String(wordOpacity);
         lastWordOpacity = wordOpacity;
       }
-      if (Math.abs(wordScale - lastWordScale) > 0.002 || Math.abs(wordTranslateY - lastWordY) > 0.2) {
-        wordmark.style.transform = `translate3d(0, ${wordTranslateY.toFixed(2)}px, 0) scale(${wordScale.toFixed(3)})`;
-        lastWordScale = wordScale;
-        lastWordY = wordTranslateY;
+      // Drive the entrance translate via the parent wordmark, the
+      // exit explosion via the two individual lines (so they fly in
+      // opposite directions).
+      if (Math.abs(wordFadeIn - lastWordFadeIn) > 0.005) {
+        const entryY = lerp(40, 0, wordFadeIn);
+        const entryScale = lerp(0.7, 1.0, wordFadeIn);
+        wordmark.style.transform =
+          `translate3d(0, ${entryY.toFixed(2)}px, 0) scale(${entryScale.toFixed(3)})`;
+        lastWordFadeIn = wordFadeIn;
+      }
+      if (wordTop && wordBot && Math.abs(wordExit - lastWordExitT) > 0.005) {
+        // Explode: MANUAL launches up + back, FOCUS launches down +
+        // back, both scale up and blur as they go. The smoothstep
+        // ease pushes the bulk of motion late in the window — the
+        // wordmark sits still then suddenly flies apart.
+        const upPx = -lerp(0, 220, wordExit);
+        const dnPx = lerp(0, 220, wordExit);
+        const expScale = lerp(1.0, 1.6, wordExit);
+        const expBlur = lerp(0, 18, wordExit);
+        wordTop.style.transform =
+          `translate3d(0, ${upPx.toFixed(2)}px, 0) scale(${expScale.toFixed(3)})`;
+        wordBot.style.transform =
+          `translate3d(0, ${dnPx.toFixed(2)}px, 0) scale(${expScale.toFixed(3)})`;
+        wordTop.style.filter = `blur(${expBlur.toFixed(1)}px)`;
+        wordBot.style.filter = `blur(${expBlur.toFixed(1)}px)`;
+        lastWordExitT = wordExit;
       }
 
       // ── Hero content ──────────────────────────────────────────
-      const contentT = smooth(norm(p, 0.92, 1.0));
+      // Fades in 0.86 → 0.94, then HOLDS fully visible through to
+      // 1.00 so the visitor has read-time before the sticky releases.
+      const contentT = smooth(norm(p, 0.86, 0.94));
       if (Math.abs(contentT - lastContentT) > 0.005) {
         content.style.opacity = String(contentT);
         content.style.transform = `translate3d(0, ${lerp(24, 0, contentT).toFixed(2)}px, 0)`;

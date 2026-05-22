@@ -1281,6 +1281,10 @@ const posts = (await getCollection('blog'))
     justify-content: center;
     padding-inline: var(--space-md);
     overflow: hidden;
+    /* Perspective on the stage gives each line real depth — they
+       fly through space, not slide across a flat plane. */
+    perspective: 1200px;
+    perspective-origin: 50% 50%;
   }
   .manifesto-spacer { height: 100vh; }
   /* The outer .manifesto-line is just a centering container for the
@@ -1493,16 +1497,27 @@ const posts = (await getCollection('blog'))
         const slot = progress * total - i - 0.5;
         const clamped = Math.max(-1.2, Math.min(1.2, slot));
         const abs = Math.abs(clamped);
-        // Plateau opacity: full from 0..0.28, smooth falloff to 0 at 0.5.
-        // Adjacent lines have a 0.5 slot offset, so when this line is fully
-        // visible the next/previous is already at 0, never overlapping.
-        const t = Math.max(0, Math.min(1, (abs - 0.28) / 0.22));
-        const opacity = 1 - t * t * (3 - 2 * t); // smoothstep
-        const x = -clamped * 90; // px, wider travel since visible window is tighter
-        const skew = -clamped * 3; // deg
-        const blur = t * 8;
+
+        // Plateau opacity: full from 0..0.25, smooth falloff to 0 at 0.55.
+        const t = Math.max(0, Math.min(1, (abs - 0.25) / 0.30));
+        const opacity = 1 - t * t * (3 - 2 * t);
+
+        // Each line flies through 3D space toward and past the camera.
+        // Incoming line (clamped < 0): translateZ negative = far away,
+        // perspective makes it small. Reaches sharp focus at clamped = 0.
+        // Outgoing line (clamped > 0): translateZ positive = past the
+        // screen plane, perspective makes it loom large. The X drift,
+        // rotateX tilt and depth-of-field blur compound the read.
+        const x = -clamped * 60;                 // px gentle drift
+        const z = clamped * 420;                 // px depth fly-through
+        const rotX = clamped * -14;              // deg pitch as it passes
+        const skew = -clamped * 2;               // deg
+        const blur = abs * 14;                   // depth-of-field at extremes
+
         line.style.opacity = opacity.toFixed(3);
-        line.style.transform = `translate3d(${x.toFixed(1)}px, 0, 0) skewX(${skew.toFixed(2)}deg)`;
+        line.style.transform =
+          `translate3d(${x.toFixed(1)}px, 0, ${z.toFixed(1)}px)` +
+          ` rotateX(${rotX.toFixed(2)}deg) skewX(${skew.toFixed(2)}deg)`;
         line.style.filter = `blur(${blur.toFixed(1)}px)`;
       });
       manifestoPending = false;
