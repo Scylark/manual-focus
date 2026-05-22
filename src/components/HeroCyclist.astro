@@ -109,12 +109,28 @@
     transform-origin: 50% 50%;
     will-change: transform, opacity;
     z-index: 1;
+    /* Drives the per-circle separation transform below. Updated by
+       the scroll loop via setProperty. Using a CSS variable + CSS
+       transform here keeps the geometry attributes static, which
+       means each frame is a GPU-composited transform rather than
+       an SVG layout recalculation. */
+    --ring-sep: 0;
   }
 
-  .hero-ring {
-    /* Slight inner highlight pulse — gives the rings a sense of
-       presence even when static. */
-    filter: drop-shadow(0 8px 32px var(--color-cta-mid));
+  /* Each ring translates symmetrically off-centre via the variable.
+     SVG inner elements respect CSS transforms with viewBox-unit
+     scaling, so the values are in viewBox coordinates. */
+  .hero-ring-top {
+    transform: translateY(calc(var(--ring-sep) * -1));
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+  .hero-ring-bot {
+    transform: translateY(var(--ring-sep));
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    will-change: transform;
   }
 
   .hero-wordmark {
@@ -257,9 +273,13 @@
     /** Smoothstep — eases the 0..1 input on a cubic curve. */
     const smooth = (t: number) => t * t * (3 - 2 * t);
 
-    // Idle drift timestamp — adds a tiny constant rotation so the
-    // rings have life on first paint, before any scroll.
     let startTime = performance.now();
+
+    // Cache last-applied values so we don't thrash style/property
+    // updates when nothing has changed frame-to-frame.
+    let lastRingScale = -1, lastRingRot = -1, lastRingOpacity = -1, lastRingSep = -1;
+    let lastWordOpacity = -1, lastWordScale = -1, lastWordY = -999;
+    let lastContentT = -1;
 
     function frame(now: number) {
       requestAnimationFrame(frame);
@@ -269,24 +289,33 @@
       const t = (now - startTime) / 1000;
 
       // ── Rings ──────────────────────────────────────────────────
-      // Phase A (0.00..0.55): present, scaling slightly up, rotating
-      // Phase B (0.40..0.70): scale up further + rotate faster + fade
-      // Idle drift: a constant slow rotation on top of the scroll one.
-      const ringIdleRot = t * 8; // 8 deg/s baseline rotation
-      const ringScrollRot = p * 540; // 1.5 full turns by end
+      // Idle drift: constant slow rotation on top of scroll rotation.
+      const ringIdleRot = t * 8;
+      const ringScrollRot = p * 540;
       const ringRotation = ringIdleRot + ringScrollRot;
       const ringScale = lerp(1.0, 2.4, smooth(p));
-      const ringSeparate = lerp(0, 60, smooth(norm(p, 0.25, 0.50))); // viewBox-units of vertical spread
+      const ringSeparate = lerp(0, 6, smooth(norm(p, 0.25, 0.50)));
       const ringOpacity = 1 - smooth(norm(p, 0.30, 0.50));
 
-      rings.style.transform = `translateZ(0) scale(${ringScale.toFixed(3)}) rotate(${ringRotation.toFixed(2)}deg)`;
-      rings.style.opacity = String(ringOpacity);
-      // Separate the two circles by repositioning them along Y.
-      const top = rings.querySelector<SVGCircleElement>('.hero-ring-top');
-      const bot = rings.querySelector<SVGCircleElement>('.hero-ring-bot');
-      if (top && bot) {
-        top.setAttribute('cy', String(45 - ringSeparate));
-        bot.setAttribute('cy', String(93 + ringSeparate));
+      // Only update style when values have meaningfully changed —
+      // skips the redundant transform/style writes that would
+      // otherwise trigger style recalc every frame on a tab that
+      // hasn't actually scrolled.
+      if (Math.abs(ringScale - lastRingScale) > 0.001 || Math.abs(ringRotation - lastRingRot) > 0.05) {
+        rings.style.transform = `translateZ(0) scale(${ringScale.toFixed(3)}) rotate(${ringRotation.toFixed(2)}deg)`;
+        lastRingScale = ringScale;
+        lastRingRot = ringRotation;
+      }
+      if (Math.abs(ringOpacity - lastRingOpacity) > 0.005) {
+        rings.style.opacity = String(ringOpacity);
+        lastRingOpacity = ringOpacity;
+      }
+      if (Math.abs(ringSeparate - lastRingSep) > 0.05) {
+        // CSS variable drives the per-circle translateY transform —
+        // GPU-composited, no SVG layout recalc. Way cheaper than
+        // setAttribute('cy', ...) was.
+        rings.style.setProperty('--ring-sep', String(ringSeparate));
+        lastRingSep = ringSeparate;
       }
 
       // ── Wordmark ──────────────────────────────────────────────
@@ -301,16 +330,24 @@
       const wordScale = lerp(0.7, 1.0, wordFadeIn) * lerp(1.0, 0.55, wordFadeOut);
       const wordTranslateY = lerp(40, 0, wordFadeIn) - lerp(0, 40, wordFadeOut);
 
-      wordmark.style.opacity = String(wordOpacity);
-      wordmark.style.transform = `translate3d(0, ${wordTranslateY.toFixed(2)}px, 0) scale(${wordScale.toFixed(3)})`;
+      if (Math.abs(wordOpacity - lastWordOpacity) > 0.005) {
+        wordmark.style.opacity = String(wordOpacity);
+        lastWordOpacity = wordOpacity;
+      }
+      if (Math.abs(wordScale - lastWordScale) > 0.002 || Math.abs(wordTranslateY - lastWordY) > 0.2) {
+        wordmark.style.transform = `translate3d(0, ${wordTranslateY.toFixed(2)}px, 0) scale(${wordScale.toFixed(3)})`;
+        lastWordScale = wordScale;
+        lastWordY = wordTranslateY;
+      }
 
       // ── Hero content ──────────────────────────────────────────
-      // Fades + slides up across 0.92..1.00 — quick hand-off at the
-      // end, while the wordmark is still finishing its fade-out.
       const contentT = smooth(norm(p, 0.92, 1.0));
-      content.style.opacity = String(contentT);
-      content.style.transform = `translate3d(0, ${lerp(24, 0, contentT).toFixed(2)}px, 0)`;
-      content.style.pointerEvents = contentT > 0.5 ? 'auto' : 'none';
+      if (Math.abs(contentT - lastContentT) > 0.005) {
+        content.style.opacity = String(contentT);
+        content.style.transform = `translate3d(0, ${lerp(24, 0, contentT).toFixed(2)}px, 0)`;
+        content.style.pointerEvents = contentT > 0.5 ? 'auto' : 'none';
+        lastContentT = contentT;
+      }
     }
     requestAnimationFrame(frame);
   }
