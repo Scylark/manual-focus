@@ -1,64 +1,51 @@
 ---
 /**
- * HeroCyclist — depth-displacement scroll hero, rewritten clean.
+ * HeroCyclist — static illustration hero with optional CSS scroll parallax.
  *
- * One source image (1920×1080 illustrated cyclist on a cliff) and one
- * matching greyscale depth map. Three.js displaces a subdivided plane
- * along Z based on the depth values, then arcs the camera on scroll
- * to produce a drone-pass parallax over the still image.
+ * Replaces the WebGL displacement experiment after several rounds of
+ * rendering bugs. The IMG renders via the browser's native bicubic
+ * scaling, which already looks sharp on every viewport. A subtle
+ * transform: translateY drifts the image as the visitor scrolls,
+ * giving the hero life without any shader complexity.
  *
- * The section sizes itself to 16:9 (matching the image aspect) so the
- * image fills its natural shape with no cover-fit cropping or
- * letterboxing. Capped at viewport height on tall displays, floored at
- * 540px so it stays impactful on narrow mobile.
- *
- * Renders the IMG as a base layer until WebGL has its first frame ready,
- * then fades the canvas in over the top. On reduced-motion, touch, or
- * narrow viewports, skips WebGL entirely and leaves the IMG showing.
+ * The depth-displacement WebGL approach is parked, not abandoned —
+ * the spec is still in /Users/jamesvickers/Downloads/manual-focus-hero-spec.md
+ * and the cyclist + depth assets are in /public/images/. Worth coming
+ * back to once the rest of the site is settled.
  */
 import { url } from '../utils/paths';
 
 interface Props {
   texture?: string;
-  depthMap?: string;
   fallbackImage?: string;
-  /** Z displacement strength. 0.10 subtle, 0.20 strong. */
-  strength?: number;
-  /** Idle camera oscillation on top of the scroll-driven arc. */
-  autoplay?: boolean;
+  /** Pixels per scroll-pixel for the parallax drift. 0 disables. */
+  parallax?: number;
 }
 
 const {
   texture = '/images/hero-cyclist.webp',
-  depthMap = '/images/hero-cyclist-depth.png',
   fallbackImage = '/images/hero-cyclist.jpg',
-  strength = 0.15,
-  autoplay = true,
+  parallax = 0.15,
 } = Astro.props;
 
-const textureUrl = url(texture);
-const depthUrl = url(depthMap);
+const imageUrl = url(texture);
 const fallbackUrl = url(fallbackImage);
 ---
 
-<section
-  class="hero-cyclist"
-  data-hero-cyclist
-  data-texture={textureUrl}
-  data-depth={depthUrl}
-  data-strength={String(strength)}
-  data-autoplay={autoplay ? 'true' : 'false'}
->
-  <img
-    class="hero-cyclist-img"
-    src={fallbackUrl}
-    alt=""
-    aria-hidden="true"
-    loading="eager"
-    decoding="async"
-    fetchpriority="high"
-  />
-  <canvas class="hero-cyclist-canvas" aria-hidden="true"></canvas>
+<section class="hero-cyclist" data-hero-cyclist data-parallax-amount={String(parallax)}>
+  <picture class="hero-cyclist-picture">
+    <source srcset={imageUrl} type="image/webp" />
+    <img
+      class="hero-cyclist-img"
+      src={fallbackUrl}
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </picture>
+
   <div class="hero-cyclist-overlay" aria-hidden="true"></div>
 
   <div class="hero-cyclist-content">
@@ -70,48 +57,44 @@ const fallbackUrl = url(fallbackImage);
   .hero-cyclist {
     position: relative;
     width: 100%;
-    /* The image is 16:9. Size the section to match it exactly so the
-       image fills its natural shape — no cropping, no letterboxing. */
+    /* Section matches the image's 16:9 aspect so the IMG fills its
+       natural shape. Capped at viewport height on tall monitors, floored
+       at 540px on narrow mobile so it stays impactful. */
     aspect-ratio: 16 / 9;
-    /* Cap on tall monitors so the hero doesn't dwarf the viewport. */
     max-height: 100svh;
-    /* Floor on narrow viewports so it stays impactful. */
     min-height: 540px;
     overflow: hidden;
     background: var(--color-bg);
     isolation: isolate;
   }
 
-  .hero-cyclist-img,
-  .hero-cyclist-canvas {
+  .hero-cyclist-picture {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    z-index: 0;
     display: block;
-    transition: opacity 0.5s ease;
+    /* Slight overscale so the parallax translateY can drift without
+       revealing the section edge. The amount matches the max drift. */
+    width: 100%;
+    height: 110%;
+    top: -5%;
+    /* will-change keeps the GPU compositor in charge of this transform
+       on scroll, so the parallax stays smooth without paint churn. */
+    will-change: transform;
   }
 
   .hero-cyclist-img {
-    z-index: 0;
-    /* min/max-height can clip the 16:9 box on extreme viewports — cover
-       keeps the image filling whatever the section's final size is. */
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
+    display: block;
   }
-
-  .hero-cyclist-canvas {
-    z-index: 1;
-    opacity: 0;
-  }
-
-  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-canvas { opacity: 1; }
-  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { opacity: 0; }
 
   .hero-cyclist-overlay {
     position: absolute;
     inset: 0;
-    z-index: 2;
+    z-index: 1;
     pointer-events: none;
     /* Soft left-side darkening so the headline reads on the dawn sky.
        Fades to clear by 65% so the cyclist on the right stays untouched. */
@@ -125,7 +108,7 @@ const fallbackUrl = url(fallbackImage);
 
   .hero-cyclist-content {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     width: 100%;
     height: 100%;
     display: flex;
@@ -134,8 +117,8 @@ const fallbackUrl = url(fallbackImage);
     color: #f6f0e8;
   }
 
-  /* Slot child gets pulled to the left half so the headline sits on the
-     empty sky, not over the cyclist on the right. */
+  /* Pull slot child to the left half so the headline sits on the empty
+     sky, not over the cyclist on the right. */
   .hero-cyclist-content > :global(*) {
     width: 100%;
     max-width: 55%;
@@ -144,254 +127,53 @@ const fallbackUrl = url(fallbackImage);
     .hero-cyclist-content > :global(*) { max-width: 100%; }
   }
 
-  /* Reduced-motion + touch + narrow: keep the IMG, skip WebGL entirely. */
+  /* No parallax for reduced-motion. */
   @media (prefers-reduced-motion: reduce) {
-    .hero-cyclist-canvas { display: none; }
-    .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { opacity: 1; }
-  }
-  @media (max-width: 768px) {
-    .hero-cyclist-canvas { display: none; }
-    .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { opacity: 1; }
+    .hero-cyclist-picture {
+      transform: none !important;
+    }
   }
 </style>
 
 <script>
-  import * as THREE from 'three';
-
-  function initHero() {
+  function initParallax() {
     const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
     if (!section) return;
 
-    // Skip WebGL on small viewports, touch devices, and reduced-motion.
-    // The IMG fallback is already showing, nothing else to do.
-    if (
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
-      window.matchMedia('(max-width: 768px)').matches
-    ) {
-      section.dataset.webglReady = 'true';
-      return;
-    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const canvas = section.querySelector<HTMLCanvasElement>('.hero-cyclist-canvas');
-    if (!canvas) return;
+    const picture = section.querySelector<HTMLElement>('.hero-cyclist-picture');
+    if (!picture) return;
 
-    const textureUrl = section.dataset.texture!;
-    const depthUrl = section.dataset.depth!;
-    const strength = parseFloat(section.dataset.strength || '0.15');
-    const autoplay = section.dataset.autoplay === 'true';
+    const amount = parseFloat(section.dataset.parallaxAmount || '0');
+    if (amount <= 0) return;
 
-    // Renderer.
-    let renderer: THREE.WebGLRenderer;
-    try {
-      renderer = new THREE.WebGLRenderer({
-        canvas,
-        alpha: false,
-        antialias: true,
-        powerPreference: 'high-performance',
-      });
-    } catch {
-      section.dataset.webglReady = 'true';
-      return;
-    }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-    // Scene + camera. Perspective with shallow FOV so the parallax reads
-    // as cinematic rather than wide-angle.
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
-    const baseZ = 1.6;
-    camera.position.set(0, 0, baseZ);
-    camera.lookAt(0, 0, 0);
-
-    // 1×1 plane geometry — we scale to fit at runtime. 200 subdivisions
-    // for smooth displacement without crushing low-end GPUs.
-    const geometry = new THREE.PlaneGeometry(1, 1, 200, 200);
-
-    // Material. Plain texture lookup + Z-displacement vertex shader.
-    // No clever sharpening, no bicubic. Linear sampling looks as good as
-    // the texture upload allows.
-    const material = new THREE.ShaderMaterial({
-      uniforms: {
-        uTexture: { value: null as THREE.Texture | null },
-        uDepth: { value: null as THREE.Texture | null },
-        uStrength: { value: strength },
-      },
-      vertexShader: /* glsl */ `
-        uniform sampler2D uDepth;
-        uniform float uStrength;
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          float d = texture2D(uDepth, uv).r;
-          vec3 displaced = position;
-          // Depth 0..1, centred at 0.5 so mid-grey doesn't shift.
-          displaced.z += (d - 0.5) * uStrength * 2.0;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(displaced, 1.0);
-        }
-      `,
-      fragmentShader: /* glsl */ `
-        uniform sampler2D uTexture;
-        varying vec2 vUv;
-        void main() {
-          gl_FragColor = texture2D(uTexture, vUv);
-        }
-      `,
-    });
-
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-
-    // Texture loading. Configure for sharp upscale: max anisotropy, linear
-    // filtering, no mipmaps (we want full-res sampling, not a downsampled
-    // mip level when the texture is rendered at native size).
-    const loader = new THREE.TextureLoader();
-    let loadedCount = 0;
-    function onTextureReady() {
-      loadedCount++;
-      if (loadedCount === 2) {
-        // Two RAFs to let layout settle (font swap, content reflow) before
-        // measuring the canvas. Then size, render the first frame, expose,
-        // and start the animation loop.
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            fitCanvas();
-            renderer.render(scene, camera);
-            section.dataset.webglReady = 'true';
-            startLoop();
-          });
-        });
-      }
-    }
-    function configureTexture(t: THREE.Texture, isColor: boolean) {
-      t.colorSpace = isColor ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-      t.minFilter = THREE.LinearFilter;
-      t.magFilter = THREE.LinearFilter;
-      t.generateMipmaps = false;
-      t.anisotropy = renderer.capabilities.getMaxAnisotropy();
-      t.needsUpdate = true;
-    }
-    loader.load(textureUrl, (t) => {
-      configureTexture(t, true);
-      material.uniforms.uTexture.value = t;
-      onTextureReady();
-    });
-    loader.load(depthUrl, (t) => {
-      configureTexture(t, false);
-      material.uniforms.uDepth.value = t;
-      onTextureReady();
-    });
-
-    // Fit the plane to the visible viewport with object-fit:cover behaviour,
-    // based on the canvas's actual rendered dimensions (NOT the section's,
-    // which can lag during layout). Called via ResizeObserver from the
-    // start, so any size change picks up automatically.
-    const IMAGE_ASPECT = 16 / 9;
-    function fitCanvas() {
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-      if (w <= 0 || h <= 0) return;
-
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-
-      // Compute the visible world area at the plane's z=0 depth.
-      const vFov = (camera.fov * Math.PI) / 180;
-      const viewH = 2 * Math.tan(vFov / 2) * baseZ;
-      const viewW = viewH * camera.aspect;
-
-      // Cover: pick the larger overflow direction and scale to fill the
-      // other. The plane will overflow the canvas on one axis; the canvas
-      // CSS overflow:hidden crops it cleanly.
-      const viewAspect = w / h;
-      let planeW: number, planeH: number;
-      if (viewAspect > IMAGE_ASPECT) {
-        // Viewport wider than image — scale to fill width, overflow vertically.
-        planeW = viewW;
-        planeH = viewW / IMAGE_ASPECT;
-      } else {
-        // Viewport taller than image — scale to fill height, overflow horizontally.
-        planeH = viewH;
-        planeW = viewH * IMAGE_ASPECT;
-      }
-      // Small overscale so camera arcs at extreme positions can't reveal
-      // the plane edge.
-      mesh.scale.set(planeW * 1.08, planeH * 1.08, 1);
-    }
-
-    // ResizeObserver picks up anything that changes the canvas size:
-    // window resize, font swap, content reflow, devtools, mobile address
-    // bar collapse/expand. This is the only sizing trigger we need.
-    const ro = new ResizeObserver(() => fitCanvas());
-    ro.observe(canvas);
-
-    // Scroll progress through the section, 0 at top, 1 at bottom.
-    let scrollProgress = 0;
-    function updateScroll() {
+    let pending = false;
+    function update() {
       const rect = section.getBoundingClientRect();
-      const span = rect.height;
-      const scrolled = -rect.top;
-      scrollProgress = Math.max(0, Math.min(1, scrolled / span));
+      // Drift the picture vertically by a fraction of how far the section
+      // has been scrolled past the top of the viewport. Negative rect.top
+      // = section has scrolled up. Multiply by the parallax amount.
+      // The 5% top offset + 110% height in CSS gives ±5% headroom so the
+      // drift never reveals the section edge.
+      const shift = Math.max(-rect.height * 0.05, Math.min(rect.height * 0.05, -rect.top * amount));
+      picture.style.transform = `translate3d(0, ${shift.toFixed(2)}px, 0)`;
+      pending = false;
     }
-    window.addEventListener('scroll', updateScroll, { passive: true });
-    updateScroll();
-
-    // Pause the render loop when the hero scrolls fully out of view.
-    let inView = true;
-    new IntersectionObserver(([entry]) => {
-      inView = entry.isIntersecting;
-    }, { threshold: 0 }).observe(section);
-
-    // Animation loop. Shallow camera arc driven by scroll, plus an
-    // optional autoplay micro-drift breathing the camera at idle.
-    let frameId: number | null = null;
-    function startLoop() {
-      function frame(now: number) {
-        if (!inView) {
-          frameId = requestAnimationFrame(frame);
-          return;
-        }
-        const t = now / 1000;
-
-        // Scroll-driven shallow arc — about 13° max swing on X, mild Z push.
-        const arcAngle = scrollProgress * 0.23;
-        const arcX = Math.sin(arcAngle) * 0.32;
-        const arcZ = (1 - Math.cos(arcAngle)) * 0.32;
-        const arcY = -scrollProgress * 0.06;
-
-        // Autoplay drift: ~1° equivalent oscillation, slow.
-        let driftX = 0, driftY = 0;
-        if (autoplay) {
-          driftX = Math.sin(t * 0.28) * 0.022;
-          driftY = Math.cos(t * 0.23) * 0.014;
-        }
-
-        camera.position.x = arcX + driftX;
-        camera.position.y = arcY + driftY;
-        camera.position.z = baseZ - arcZ;
-        camera.lookAt(0, 0, 0);
-
-        renderer.render(scene, camera);
-        frameId = requestAnimationFrame(frame);
+    function onScroll() {
+      if (!pending) {
+        pending = true;
+        requestAnimationFrame(update);
       }
-      frameId = requestAnimationFrame(frame);
     }
-
-    // Clean up on page unload (SPA navigation, tab close).
-    window.addEventListener('pagehide', () => {
-      if (frameId != null) cancelAnimationFrame(frameId);
-      ro.disconnect();
-      renderer.dispose();
-      geometry.dispose();
-      material.dispose();
-    });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHero);
+    document.addEventListener('DOMContentLoaded', initParallax);
   } else {
-    initHero();
+    initParallax();
   }
 </script>
