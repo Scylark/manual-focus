@@ -213,36 +213,42 @@ const fallbackUrl = url(fallbackImage);
     // Subdivided plane — 200×200 segments per the spec. Each vertex
     // samples the depth map and offsets along z, turning the flat image
     // into a relief surface.
-    const geometry = new THREE.PlaneGeometry(1, 1, 200, 200);
+    // Flat plane — UV-shift parallax in the fragment shader, not vertex
+    // displacement. The vertex approach kept producing geometry-stretching
+    // distortion at the bike wheels and rider silhouette. UV parallax
+    // keeps the plane flat (no warped polygons) and shifts the sampled
+    // image position per-pixel based on depth.
+    const geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
 
-    // MeshBasicMaterial with onBeforeCompile is the canonical Three.js
-    // pattern here: the basic material guarantees the rendered output
-    // matches the source colour texture pixel-for-pixel (Three.js handles
-    // the sRGB → linear → sRGB pipeline for built-in materials, which a
-    // custom ShaderMaterial doesn't get automatically), and we inject
-    // depth-driven vertex displacement into the basic shader's vertex
-    // stage so the relief effect still works.
+    // MeshBasicMaterial preserves source colours via Three.js's built-in
+    // sRGB pipeline. Inject the depth-driven UV shift into the standard
+    // <map_fragment> chunk so the shifted sample still goes through the
+    // same colour conversion path as the unshifted one.
     const depthUniform = { value: null as THREE.Texture | null };
+    const offsetUniform = { value: new THREE.Vector2(0, 0) };
     const strengthUniform = { value: strength };
-    const material = new THREE.MeshBasicMaterial({
-      map: null,
-    });
+    const material = new THREE.MeshBasicMaterial({ map: null });
     material.onBeforeCompile = (shader) => {
       shader.uniforms.uDepth = depthUniform;
+      shader.uniforms.uOffset = offsetUniform;
       shader.uniforms.uStrength = strengthUniform;
-      // Add our uniforms + a vertex displacement after #include <begin_vertex>
-      shader.vertexShader = shader.vertexShader
+
+      shader.fragmentShader = shader.fragmentShader
         .replace(
           '#include <common>',
           `#include <common>
            uniform sampler2D uDepth;
+           uniform vec2 uOffset;
            uniform float uStrength;`,
         )
         .replace(
-          '#include <begin_vertex>',
-          `#include <begin_vertex>
-           float d = texture2D(uDepth, uv).r;
-           transformed.z += d * uStrength;`,
+          '#include <map_fragment>',
+          `#ifdef USE_MAP
+             float d = texture2D(uDepth, vMapUv).r;
+             vec2 shift = uOffset * d * uStrength;
+             vec4 sampledDiffuseColor = texture2D(map, vMapUv + shift);
+             diffuseColor *= sampledDiffuseColor;
+           #endif`,
         );
     };
 
@@ -354,31 +360,27 @@ const fallbackUrl = url(fallbackImage);
       inView = entry.isIntersecting;
     }, { threshold: 0 }).observe(section);
 
-    // Render loop with the scroll-driven shallow arc + autoplay drift.
+    // Render loop. UV-shift parallax means the camera stays put — the
+    // uOffset uniform drives the apparent motion of the foreground
+    // against the static background. Smoothstep eases the scroll-driven
+    // shift so the parallax accelerates into the scroll rather than
+    // jerking on the first pixel.
     let frameId: number | null = null;
     function startLoop() {
       function frame(now: number) {
         if (inView) {
           const t = now / 1000;
-          // Shallow ~15° camera arc on x + z per the spec. Smoothstep
-          // ease so the parallax accelerates into the scroll rather
-          // than jerking on the first pixel.
           const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-          // ~10° arc — comfortably inside the spec's 8-15° range, where
-          // the parallax reads as a clear drone-pass without exposing
-          // displaced-polygon stretching at the cyclist's silhouette.
-          const angle = ease * 0.18;
-          const arcX = Math.sin(angle) * 0.36;
-          const arcZ = (1 - Math.cos(angle)) * 0.36;
-          const arcY = -ease * 0.06;
-          // Autoplay micro-drift — gentle breathing at rest so the
-          // hero has life before the visitor scrolls.
-          const driftX = autoplay ? Math.sin(t * 0.30) * 0.030 : 0;
-          const driftY = autoplay ? Math.cos(t * 0.23) * 0.018 : 0;
-          camera.position.x = arcX + driftX;
-          camera.position.y = arcY + driftY;
-          camera.position.z = baseZ - arcZ;
-          camera.lookAt(0, 0, 0);
+          // Scroll sweeps the foreground right and dips it slightly.
+          const scrollX = ease * 0.80;
+          const scrollY = ease * -0.40;
+          // Autoplay drift — sized so the cyclist drifts ~80px against
+          // the static sky at peak, visible motion without overshooting
+          // image bounds (uStrength × max|offset| ≈ 0.15 × 1.25 ≈ 0.19,
+          // well under the 0.5 hard limit at the silhouette).
+          const driftX = autoplay ? Math.sin(t * 0.30) * 0.45 : 0;
+          const driftY = autoplay ? Math.cos(t * 0.23) * 0.25 : 0;
+          offsetUniform.value.set(scrollX + driftX, scrollY + driftY);
           renderer.render(scene, camera);
         }
         frameId = requestAnimationFrame(frame);
