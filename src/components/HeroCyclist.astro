@@ -1,47 +1,61 @@
 ---
 /**
- * HeroCyclist — scroll-scrubbed Immersity drone-pass hero.
+ * HeroCyclist — scroll-driven image sequence hero.
  *
- * Per the spec: scroll progress 0 → 1 drives the camera through the
- * arc. With Immersity producing the parallax as a pre-rendered MP4,
- * we get that by scrubbing the video's currentTime from 0 to duration
- * as the visitor scrolls through the hero section. No shaders, no
- * layer separation — just the animation Immersity already baked in,
- * driven by scroll instead of autoplay.
+ * Immersity AI generated the depth-displacement drone-pass as an MP4,
+ * but video scrubbing via currentTime is choppy on every browser
+ * (video decoders aren't built for seeking). The reliable pattern
+ * used by Apple product pages is to render the animation as a JPG
+ * sequence and swap which frame is visible based on scroll position.
  *
- * Before scroll engages there's a subtle idle drift — the video
- * currentTime oscillates gently around the start frame so the hero
- * has life before the visitor scrolls. Once they scroll, the scroll
- * value takes over and the idle drift fades out.
+ * Build-time: extract every 5th frame from hero-cyclist.mp4 at
+ * 1280×720 JPG → /images/hero-frames/frame-001.jpg ... frame-060.jpg.
+ *   ffmpeg -i hero-cyclist.mp4 -vf "select=not(mod(n\,5)),scale=1280:720" \
+ *          -vsync vfr -q:v 4 hero-frames/frame-%03d.jpg
  *
- * Reduced-motion holds the poster frame, no video plays.
+ * Runtime: preload all 60 frames into the image cache, then on scroll
+ * compute the target frame and set the visible <img>'s src. Browsers
+ * swap cached images instantly with no decode lag, so the scrub is
+ * pixel-precise and tear-free.
+ *
+ * Mobile + reduced-motion fall back to the static JPG.
  */
 import { url } from '../utils/paths';
 
 interface Props {
-  video?: string;
+  /** Folder containing the JPG sequence (frame-001.jpg, ...). */
+  framesDir?: string;
+  /** Number of frames in the sequence. */
+  frameCount?: number;
   fallbackImage?: string;
 }
 
 const {
-  video = '/images/hero-cyclist.mp4',
+  framesDir = '/images/hero-frames',
+  frameCount = 60,
   fallbackImage = '/images/hero-cyclist.jpg',
 } = Astro.props;
 
-const videoUrl = url(video);
+const firstFrameUrl = url(`${framesDir}/frame-001.jpg`);
 const fallbackUrl = url(fallbackImage);
+const framesDirUrl = url(framesDir);
 ---
-<section class="hero-cyclist" data-hero-cyclist>
+<section
+  class="hero-cyclist"
+  data-hero-cyclist
+  data-frames-dir={framesDirUrl}
+  data-frame-count={String(frameCount)}
+>
   <div class="hero-cyclist-sticky">
-    <video
-      class="hero-cyclist-video"
-      src={videoUrl}
-      poster={fallbackUrl}
-      muted
-      playsinline
-      preload="auto"
+    <img
+      class="hero-cyclist-frame"
+      src={firstFrameUrl}
+      alt=""
       aria-hidden="true"
-    ></video>
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
 
     <div class="hero-cyclist-overlay" aria-hidden="true"></div>
 
@@ -55,10 +69,9 @@ const fallbackUrl = url(fallbackImage);
   .hero-cyclist {
     position: relative;
     width: 100%;
-    /* Section is taller than the viewport so there's actual scroll
-       distance to drive the parallax through. The inner .sticky
-       child pins to the viewport while this scrolls under it,
-       turning every pixel of scroll into a pixel of progress. */
+    /* Taller than the viewport so the sticky child has scroll
+       distance to scrub through the frame sequence. ~7 viewport-
+       heights of total scroll, ~6 of useful scrub. */
     height: 260vh;
     background: #1a1612;
     isolation: isolate;
@@ -73,7 +86,7 @@ const fallbackUrl = url(fallbackImage);
     overflow: hidden;
   }
 
-  .hero-cyclist-video {
+  .hero-cyclist-frame {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -81,7 +94,9 @@ const fallbackUrl = url(fallbackImage);
     object-fit: cover;
     object-position: 65% center;
     z-index: 0;
-    will-change: transform;
+    /* Disable image dragging — purely decorative. */
+    -webkit-user-drag: none;
+    user-select: none;
   }
 
   .hero-cyclist-overlay {
@@ -122,8 +137,14 @@ const fallbackUrl = url(fallbackImage);
   @media (max-width: 1024px) {
     .hero-cyclist-content > :global(*) { max-width: 72%; }
   }
-  @media (max-width: 768px) {
-    .hero-cyclist { min-height: 560px; }
+
+  /* Mobile + touch: drop the scrolly behaviour. The 160vh of extra
+     scroll distance is annoying on a phone, and the scroll-scrub
+     adds nothing because the visitor can't really see frame-by-
+     frame parallax on a small screen. Just show the first frame. */
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .hero-cyclist { height: 100svh; min-height: 560px; }
+    .hero-cyclist-sticky { position: relative; height: 100%; }
     .hero-cyclist-content > :global(*) { max-width: 100%; }
     .hero-cyclist-overlay {
       background:
@@ -140,82 +161,64 @@ const fallbackUrl = url(fallbackImage);
   function initHero() {
     const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
     if (!section) return;
-    const video = section.querySelector<HTMLVideoElement>('.hero-cyclist-video');
-    if (!video) return;
+    const imgEl = section.querySelector<HTMLImageElement>('.hero-cyclist-frame');
+    if (!imgEl) return;
 
-    // Reduced-motion: leave the poster as the visible frame, no playback.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
+    // Reduced-motion + mobile + touch: hold the first frame, no scrub.
+    const skipScrub =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(max-width: 768px)').matches ||
+      window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (skipScrub) return;
+
+    const framesDir = section.dataset.framesDir!;
+    const frameCount = parseInt(section.dataset.frameCount || '60', 10);
+
+    // Preload the entire sequence into the browser cache so the src
+    // swap on scroll is instant (cached images don't re-decode).
+    const frameUrls: string[] = [];
+    for (let i = 1; i <= frameCount; i++) {
+      const n = String(i).padStart(3, '0');
+      const u = `${framesDir}/frame-${n}.jpg`;
+      frameUrls.push(u);
+      const pre = new Image();
+      pre.src = u;
     }
 
-    // Pause the video so currentTime drives the frame — we'll set the
-    // time ourselves from scroll and the idle drift loop. The poster
-    // covers the first paint until the video metadata is loaded enough
-    // to seek.
-    video.pause();
-
-    let duration = 0;
+    // Track scroll progress through the sticky-pinned scroll range
+    // (section height minus viewport height — the distance the
+    // sticky child stays in place).
     let scrollProgress = 0;
-    let lastInteraction = 0;       // timestamp of last scroll event
-    let idleDriftActive = true;     // true until the visitor scrolls
-
-    // Once the metadata is loaded we know how long the clip is and can
-    // start setting currentTime. Until then leave the poster up.
-    video.addEventListener('loadedmetadata', () => {
-      duration = video.duration || 0;
-    });
-
-    // Map the section's scroll position to a 0..1 progress value.
-    // The .sticky child stays pinned to the viewport while the
-    // section scrolls underneath it — useful progress is therefore
-    // the section's scroll distance MINUS the viewport height,
-    // because that's how far the sticky stays pinned. After that
-    // the sticky releases and the hero ends.
     function updateScroll() {
       const rect = section.getBoundingClientRect();
       const usefulSpan = Math.max(1, rect.height - window.innerHeight);
       const scrolled = -rect.top;
       scrollProgress = Math.max(0, Math.min(1, scrolled / usefulSpan));
-      lastInteraction = performance.now();
-      // First user scroll cancels the idle drift permanently — the
-      // scroll position is now the source of truth.
-      if (scrollProgress > 0.005 && idleDriftActive) idleDriftActive = false;
     }
     window.addEventListener('scroll', updateScroll, { passive: true });
     window.addEventListener('resize', updateScroll, { passive: true });
     updateScroll();
 
-    // Pause render when off-screen so we're not pegging the seek
-    // pipeline on long scrolling pages.
+    // Pause work when the hero is off-screen.
     let inView = true;
     new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting;
     }, { threshold: 0 }).observe(section);
 
-    function frame(now: number) {
+    // RAF loop: pick the frame for the current scroll position and
+    // swap the visible <img>'s src. Caching means this is essentially
+    // free — no decode, no flash, no tear.
+    let lastFrame = -1;
+    function frame() {
       requestAnimationFrame(frame);
-      if (!inView || duration <= 0) return;
-
-      let target: number;
-      if (idleDriftActive) {
-        // Idle drift — gentle oscillation around the start of the clip
-        // so the hero has life before the visitor scrolls. Uses about
-        // 8% of the clip length, sinewaved over a 6-second period.
-        const t = now / 1000;
-        const driftFrac = (Math.sin(t * (Math.PI * 2 / 6)) + 1) * 0.5; // 0..1
-        target = duration * 0.08 * driftFrac;
-      } else {
-        // Scroll-driven scrub. Smoothstep eased so the parallax
-        // accelerates into the scroll rather than jerking on the
-        // first pixel. Maps progress 0..1 across the full clip.
-        const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-        target = ease * duration;
-      }
-
-      // Only seek if the target moved meaningfully — saves the browser
-      // from a stream of identical seeks per frame, which can hitch.
-      if (Math.abs(video.currentTime - target) > 0.01) {
-        video.currentTime = target;
+      if (!inView) return;
+      // Smoothstep so the parallax accelerates into the scroll
+      // rather than jerking on the first pixel.
+      const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
+      const idx = Math.min(frameCount - 1, Math.floor(ease * frameCount));
+      if (idx !== lastFrame) {
+        imgEl.src = frameUrls[idx];
+        lastFrame = idx;
       }
     }
     requestAnimationFrame(frame);
