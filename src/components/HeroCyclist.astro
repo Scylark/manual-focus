@@ -1,73 +1,76 @@
 ---
 /**
- * HeroCyclist — depth-driven parallax hero where the cyclist stays
- * anchored and the background drifts around him.
+ * HeroCyclist — two-layer depth parallax hero.
  *
- * The conventional "drone pass" framing for a marketing hero locks
- * the subject as the focal point and animates the surroundings —
- * opposite to physical motion parallax (where closer things shift
- * more). Earlier attempts shifted the cyclist (depth × offset), which
- * sampled the colour texture from off the right edge of the frame and
- * visibly tore the rider apart.
+ * The cyclist + bike + foreground rocks live on a transparent
+ * foreground layer (alpha-masked using the depth map). A separately
+ * inpainted background sits behind. As the visitor scrolls — and
+ * subtly at rest via an autoplay drift — the background translates
+ * while the foreground stays anchored, producing the drone-pass
+ * parallax read without shader artefacts.
  *
- * This version inverts that — shift = (1 - depth) × offset. The rider
- * (depth ~1) samples at the un-shifted UV and stays exactly where the
- * source IMG puts him. The sky and distant cliffs (depth ~0) shift
- * the full amount and produce the visible parallax read against the
- * anchored cyclist.
+ * Pure CSS transforms on the layers. No WebGL — every shader-only
+ * attempt on a single-image depth map ran into one of: rider tearing
+ * at the silhouette, ghost copies of the rider sampled through the
+ * shift, or a visible static halo around him. Separating into two
+ * physical layers eliminates the class of artefact entirely.
  *
- * MeshBasicMaterial + onBeforeCompile injects the UV shift into the
- * standard <map_fragment> chunk so Three.js's built-in sRGB pipeline
- * handles the colour pass — output matches the source IMG exactly.
- * Skipped on mobile and reduced-motion, which fall back to the IMG.
+ * Asset prep (one-time, kept in /scripts/build-hero-layers.py if you
+ * need to re-run): the depth map's silhouette is used as the alpha
+ * channel for the foreground PNG, and the colour image is heavily
+ * blurred in the cyclist's region to inpaint the background JPG.
+ * The inpaint quality only matters in the narrow strip the parallax
+ * shift reveals — the rest is covered by the sharp foreground.
  */
 import { url } from '../utils/paths';
 
 interface Props {
-  texture?: string;
-  depthMap?: string;
+  background?: string;
+  foreground?: string;
   fallbackImage?: string;
-  /**
-   * UV-shift magnitude for the background (depth=0). 0.10 = max 10%
-   * shift of the sky relative to the anchored cyclist at peak combined
-   * scroll + drift. Tuned so the background drifts visibly without
-   * sampling past the image edge on the left.
-   */
-  strength?: number;
-  /** Idle drift on the background before the visitor scrolls. */
-  autoplay?: boolean;
+  /** Background drift per scroll-pixel. 0.20 = bg moves 20% of scroll. */
+  parallax?: number;
 }
 
 const {
-  texture = '/images/hero-cyclist.webp',
-  depthMap = '/images/hero-cyclist-depth.png',
+  background = '/images/hero-cyclist-background.jpg',
+  foreground = '/images/hero-cyclist-foreground.png',
   fallbackImage = '/images/hero-cyclist.jpg',
-  strength = 0.10,
-  autoplay = true,
+  parallax = 0.25,
 } = Astro.props;
 
-const textureUrl = url(texture);
-const depthUrl = url(depthMap);
+const bgUrl = url(background);
+const fgUrl = url(foreground);
 const fallbackUrl = url(fallbackImage);
 ---
 <section
   class="hero-cyclist"
   data-hero-cyclist
-  data-texture={textureUrl}
-  data-depth={depthUrl}
-  data-strength={String(strength)}
-  data-autoplay={autoplay ? 'true' : 'false'}
+  data-parallax-amount={String(parallax)}
 >
+  <noscript>
+    <img class="hero-cyclist-img-noscript" src={fallbackUrl} alt="" aria-hidden="true" />
+  </noscript>
+
   <img
-    class="hero-cyclist-img"
-    src={fallbackUrl}
+    class="hero-cyclist-bg"
+    src={bgUrl}
     alt=""
     aria-hidden="true"
     loading="eager"
     decoding="async"
     fetchpriority="high"
   />
-  <canvas class="hero-cyclist-canvas" aria-hidden="true"></canvas>
+  <img
+    class="hero-cyclist-fg"
+    src={fgUrl}
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+
   <div class="hero-cyclist-overlay" aria-hidden="true"></div>
 
   <div class="hero-cyclist-content">
@@ -86,26 +89,33 @@ const fallbackUrl = url(fallbackImage);
     isolation: isolate;
   }
 
-  .hero-cyclist-img,
-  .hero-cyclist-canvas {
+  .hero-cyclist-img-noscript {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    display: block;
-  }
-
-  .hero-cyclist-img {
-    z-index: 0;
     object-fit: cover;
     object-position: 65% center;
+    z-index: 0;
   }
-  .hero-cyclist-canvas {
-    z-index: 1;
-    visibility: hidden;
+
+  .hero-cyclist-bg,
+  .hero-cyclist-fg {
+    position: absolute;
+    /* Slight overscale so the bg can drift on the X axis without
+       revealing the section edge. The drift is clamped to this
+       headroom in the JS below. */
+    top: -3%;
+    left: -6%;
+    width: 112%;
+    height: 106%;
+    object-fit: cover;
+    object-position: 65% center;
+    pointer-events: none;
+    will-change: transform;
   }
-  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-canvas { visibility: visible; }
-  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { visibility: hidden; }
+  .hero-cyclist-bg { z-index: 0; }
+  .hero-cyclist-fg { z-index: 1; }
 
   .hero-cyclist-overlay {
     position: absolute;
@@ -156,193 +166,29 @@ const fallbackUrl = url(fallbackImage);
     }
   }
 
-  @media (prefers-reduced-motion: reduce), (max-width: 768px) {
-    .hero-cyclist-canvas { display: none; }
-    .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { visibility: visible; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-cyclist-bg,
+    .hero-cyclist-fg {
+      transform: none !important;
+    }
   }
 </style>
 
 <script>
-  import * as THREE from 'three';
-
   function initHero() {
     const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
     if (!section) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const skipWebGL =
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
-      window.matchMedia('(max-width: 768px)').matches;
-    if (skipWebGL) {
-      section.dataset.webglReady = 'true';
-      return;
-    }
+    const bg = section.querySelector<HTMLElement>('.hero-cyclist-bg');
+    const fg = section.querySelector<HTMLElement>('.hero-cyclist-fg');
+    if (!bg || !fg) return;
 
-    const canvas = section.querySelector<HTMLCanvasElement>('.hero-cyclist-canvas');
-    if (!canvas) return;
+    const amount = parseFloat(section.dataset.parallaxAmount || '0.25');
+    if (amount <= 0) return;
 
-    const textureUrl = section.dataset.texture!;
-    const depthUrl = section.dataset.depth!;
-    const strength = parseFloat(section.dataset.strength || '0.10');
-    const autoplay = section.dataset.autoplay === 'true';
-
-    let renderer: THREE.WebGLRenderer;
-    try {
-      renderer = new THREE.WebGLRenderer({
-        canvas,
-        alpha: false,
-        antialias: true,
-        powerPreference: 'high-performance',
-      });
-    } catch {
-      section.dataset.webglReady = 'true';
-      return;
-    }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-    // Static camera + flat plane. All motion happens in the fragment
-    // shader via the UV shift uniform.
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
-    const baseZ = 1.6;
-    camera.position.set(0, 0, baseZ);
-    camera.lookAt(0, 0, 0);
-
-    const geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
-
-    // MeshBasicMaterial + onBeforeCompile keeps Three.js's built-in
-    // sRGB colour pipeline intact so the rendered output matches the
-    // source IMG. Inject the depth-driven UV shift into the standard
-    // <map_fragment> chunk.
-    const depthUniform = { value: null as THREE.Texture | null };
-    const offsetUniform = { value: new THREE.Vector2(0, 0) };
-    const strengthUniform = { value: strength };
-    const material = new THREE.MeshBasicMaterial({ map: null });
-    material.onBeforeCompile = (shader) => {
-      shader.uniforms.uDepth = depthUniform;
-      shader.uniforms.uOffset = offsetUniform;
-      shader.uniforms.uStrength = strengthUniform;
-
-      shader.fragmentShader = shader.fragmentShader
-        .replace(
-          '#include <common>',
-          `#include <common>
-           uniform sampler2D uDepth;
-           uniform vec2 uOffset;
-           uniform float uStrength;`,
-        )
-        .replace(
-          '#include <map_fragment>',
-          `#ifdef USE_MAP
-             // Anchor the cyclist, drift the background WITHOUT
-             // duplicating him.
-             //
-             // The naïve (1 - depth) inverted parallax keeps the rider
-             // pixels in place, but the sky pixels next to him still
-             // shift — and a sky pixel just left of the rider sampled
-             // through his silhouette returns the rider's colour, so
-             // the rider appears duplicated to the left.
-             //
-             // Solution: only apply the shift when both the source
-             // depth (current pixel) AND the shifted-target depth are
-             // background. If shifting would land the sample on the
-             // rider, fall back to the unshifted UV — the sky pixel
-             // just holds still rather than copying the rider.
-             float dHere = texture2D(uDepth, vMapUv).r;
-             float bgHere = smoothstep(0.55, 0.45, dHere);
-
-             vec2 wantShift = uOffset * uStrength;
-             float dTarget = texture2D(uDepth, vMapUv + wantShift).r;
-             float bgTarget = smoothstep(0.55, 0.45, dTarget);
-
-             float bgMask = bgHere * bgTarget;
-             vec2 shift = wantShift * bgMask;
-
-             vec4 sampledDiffuseColor = texture2D(map, vMapUv + shift);
-             diffuseColor *= sampledDiffuseColor;
-           #endif`,
-        );
-    };
-
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-
-    function configureColor(t: THREE.Texture) {
-      t.colorSpace = THREE.SRGBColorSpace;
-      t.minFilter = THREE.LinearFilter;
-      t.magFilter = THREE.LinearFilter;
-      t.generateMipmaps = false;
-      t.anisotropy = renderer.capabilities.getMaxAnisotropy();
-      t.wrapS = THREE.ClampToEdgeWrapping;
-      t.wrapT = THREE.ClampToEdgeWrapping;
-      t.needsUpdate = true;
-    }
-    function configureDepth(t: THREE.Texture) {
-      t.colorSpace = THREE.NoColorSpace;
-      t.minFilter = THREE.LinearFilter;
-      t.magFilter = THREE.LinearFilter;
-      t.generateMipmaps = false;
-      t.wrapS = THREE.ClampToEdgeWrapping;
-      t.wrapT = THREE.ClampToEdgeWrapping;
-      t.needsUpdate = true;
-    }
-
-    const loader = new THREE.TextureLoader();
-    let loaded = 0;
-    function onLoad() {
-      if (++loaded < 2) return;
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          fitCanvas();
-          renderer.render(scene, camera);
-          section.dataset.webglReady = 'true';
-          startLoop();
-        });
-      });
-    }
-    function onTexErr() {
-      canvas.style.display = 'none';
-    }
-    loader.load(textureUrl, (t) => {
-      configureColor(t);
-      material.map = t;
-      material.needsUpdate = true;
-      onLoad();
-    }, undefined, onTexErr);
-    loader.load(depthUrl, (t) => {
-      configureDepth(t);
-      depthUniform.value = t;
-      onLoad();
-    }, undefined, onTexErr);
-
-    const IMAGE_ASPECT = 1920 / 1080;
-    function fitCanvas() {
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-      if (w <= 0 || h <= 0) return;
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-
-      const vFov = (camera.fov * Math.PI) / 180;
-      const viewH = 2 * Math.tan(vFov / 2) * baseZ;
-      const viewW = viewH * camera.aspect;
-      const viewAspect = w / h;
-
-      let planeW: number, planeH: number;
-      if (viewAspect > IMAGE_ASPECT) {
-        planeW = viewW;
-        planeH = viewW / IMAGE_ASPECT;
-      } else {
-        planeH = viewH;
-        planeW = viewH * IMAGE_ASPECT;
-      }
-      mesh.scale.set(planeW, planeH, 1);
-    }
-    const ro = new ResizeObserver(() => fitCanvas());
-    ro.observe(canvas);
-
+    // Track scroll progress through the hero section (0 at top, 1 at
+    // the point the section's bottom hits the top of the viewport).
     let scrollProgress = 0;
     function updateScroll() {
       const rect = section.getBoundingClientRect();
@@ -351,45 +197,49 @@ const fallbackUrl = url(fallbackImage);
       scrollProgress = Math.max(0, Math.min(1, scrolled / span));
     }
     window.addEventListener('scroll', updateScroll, { passive: true });
+    window.addEventListener('resize', updateScroll, { passive: true });
     updateScroll();
 
+    // Pause animation when off-screen so we're not running RAFs for
+    // nothing on long scrolling pages.
     let inView = true;
     new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting;
     }, { threshold: 0 }).observe(section);
 
-    let frameId: number | null = null;
-    function startLoop() {
-      function frame(now: number) {
-        if (inView) {
-          const t = now / 1000;
-          const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-          // Scroll-driven sweep — the sky drifts left and dips down
-          // slightly as the visitor scrolls through the hero, while the
-          // cyclist stays anchored. Negative scrollX so the background
-          // shifts LEFT (sky reveals what's to the right of itself),
-          // which leaves the rider visually pushed RIGHT into the cliff —
-          // the cinematic "world is moving past the rider" read.
-          const scrollX = ease * -0.70;
-          const scrollY = ease * 0.30;
-          // Autoplay drift so the sky breathes before the visitor scrolls.
-          const driftX = autoplay ? Math.sin(t * 0.25) * 0.35 : 0;
-          const driftY = autoplay ? Math.cos(t * 0.19) * 0.20 : 0;
-          offsetUniform.value.set(scrollX + driftX, scrollY + driftY);
-          renderer.render(scene, camera);
-        }
-        frameId = requestAnimationFrame(frame);
-      }
-      frameId = requestAnimationFrame(frame);
-    }
+    // Continuous render loop driven by RAF. Combines scroll progress
+    // with an autoplay drift sine wave so the background breathes
+    // even at rest before the visitor scrolls.
+    function frame(now: number) {
+      requestAnimationFrame(frame);
+      if (!inView) return;
+      const t = now / 1000;
 
-    window.addEventListener('pagehide', () => {
-      if (frameId != null) cancelAnimationFrame(frameId);
-      ro.disconnect();
-      renderer.dispose();
-      geometry.dispose();
-      material.dispose();
-    });
+      // Scroll-driven sweep: the background slides left and dips
+      // slightly as the visitor moves down through the hero. Clamp
+      // to ±3% horizontally and ±1.5% vertically so the overscaled
+      // layer never reveals its edge.
+      const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
+      const scrollX = -ease * 36;   // px, negative = bg drifts LEFT
+      const scrollY = ease * 16;    // px, positive = bg drifts DOWN
+
+      // Autoplay drift: gentle sine breathing on top of scroll.
+      const driftX = Math.sin(t * 0.32) * 12;
+      const driftY = Math.cos(t * 0.21) * 6;
+
+      const bgX = scrollX + driftX;
+      const bgY = scrollY + driftY;
+      bg.style.transform = `translate3d(${bgX.toFixed(2)}px, ${bgY.toFixed(2)}px, 0)`;
+
+      // Foreground gets a much smaller counter-drift so the cyclist
+      // feels alive without breaking the anchored read. Keep this
+      // subtle — 25% of the bg drift, opposite direction so they
+      // separate visually on scroll.
+      const fgX = -bgX * 0.15;
+      const fgY = -bgY * 0.15;
+      fg.style.transform = `translate3d(${fgX.toFixed(2)}px, ${fgY.toFixed(2)}px, 0)`;
+    }
+    requestAnimationFrame(frame);
   }
 
   if (document.readyState === 'loading') {
