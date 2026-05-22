@@ -1,17 +1,20 @@
 ---
 /**
- * HeroCyclist — autoplay background video hero.
+ * HeroCyclist — scroll-scrubbed Immersity drone-pass hero.
  *
- * Immersity AI generates the depth-displacement drone-pass directly
- * as an MP4 with the camera motion already animated. We just play it
- * as a background video — no shaders, no layer separation, no
- * possible silhouette artefacts. The motion in the file IS the
- * effect the spec describes.
+ * Per the spec: scroll progress 0 → 1 drives the camera through the
+ * arc. With Immersity producing the parallax as a pre-rendered MP4,
+ * we get that by scrubbing the video's currentTime from 0 to duration
+ * as the visitor scrolls through the hero section. No shaders, no
+ * layer separation — just the animation Immersity already baked in,
+ * driven by scroll instead of autoplay.
  *
- * The poster image is the static JPG so first paint is sharp while
- * the video buffers, and reduced-motion preference falls back to the
- * static poster permanently (the <video> still renders but doesn't
- * autoplay — the poster keeps showing).
+ * Before scroll engages there's a subtle idle drift — the video
+ * currentTime oscillates gently around the start frame so the hero
+ * has life before the visitor scrolls. Once they scroll, the scroll
+ * value takes over and the idle drift fades out.
+ *
+ * Reduced-motion holds the poster frame, no video plays.
  */
 import { url } from '../utils/paths';
 
@@ -33,9 +36,7 @@ const fallbackUrl = url(fallbackImage);
     class="hero-cyclist-video"
     src={videoUrl}
     poster={fallbackUrl}
-    autoplay
     muted
-    loop
     playsinline
     preload="auto"
     aria-hidden="true"
@@ -65,13 +66,8 @@ const fallbackUrl = url(fallbackImage);
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Bias toward the rider on the right so the cropping eats the
-       empty sky on the left, not the subject. Matches the IMG
-       fallback elsewhere. */
     object-position: 65% center;
     z-index: 0;
-    /* will-change keeps GPU compositing on for the video element so
-       the playback stays smooth on lower-end hardware. */
     will-change: transform;
   }
 
@@ -125,29 +121,90 @@ const fallbackUrl = url(fallbackImage);
           rgba(15, 12, 8, 0.65) 100%);
     }
   }
-
-  /* Reduced motion: pause the video so the poster image stays. */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-cyclist-video {
-      /* The poster shows until the video buffers; pausing keeps the
-         poster as the visible frame. */
-      animation-play-state: paused;
-    }
-  }
 </style>
 
 <script>
-  // Respect prefers-reduced-motion by pausing the video so the poster
-  // image stays as the visible frame. Without this the CSS media query
-  // can't stop a <video> from playing — that has to be done in JS.
   function initHero() {
-    const video = document.querySelector<HTMLVideoElement>('.hero-cyclist-video');
+    const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
+    if (!section) return;
+    const video = section.querySelector<HTMLVideoElement>('.hero-cyclist-video');
     if (!video) return;
+
+    // Reduced-motion: leave the poster as the visible frame, no playback.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      video.pause();
-      video.removeAttribute('autoplay');
+      return;
     }
+
+    // Pause the video so currentTime drives the frame — we'll set the
+    // time ourselves from scroll and the idle drift loop. The poster
+    // covers the first paint until the video metadata is loaded enough
+    // to seek.
+    video.pause();
+
+    let duration = 0;
+    let scrollProgress = 0;
+    let lastInteraction = 0;       // timestamp of last scroll event
+    let idleDriftActive = true;     // true until the visitor scrolls
+
+    // Once the metadata is loaded we know how long the clip is and can
+    // start setting currentTime. Until then leave the poster up.
+    video.addEventListener('loadedmetadata', () => {
+      duration = video.duration || 0;
+    });
+
+    // Map the section's scroll position to a 0..1 progress value.
+    // 0 when the section top is at the viewport top, 1 when the
+    // section's bottom edge hits the viewport top.
+    function updateScroll() {
+      const rect = section.getBoundingClientRect();
+      const span = rect.height;
+      const scrolled = -rect.top;
+      scrollProgress = Math.max(0, Math.min(1, scrolled / span));
+      lastInteraction = performance.now();
+      // First user scroll cancels the idle drift permanently — the
+      // scroll position is now the source of truth.
+      if (scrollProgress > 0.005 && idleDriftActive) idleDriftActive = false;
+    }
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    window.addEventListener('resize', updateScroll, { passive: true });
+    updateScroll();
+
+    // Pause render when off-screen so we're not pegging the seek
+    // pipeline on long scrolling pages.
+    let inView = true;
+    new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+    }, { threshold: 0 }).observe(section);
+
+    function frame(now: number) {
+      requestAnimationFrame(frame);
+      if (!inView || duration <= 0) return;
+
+      let target: number;
+      if (idleDriftActive) {
+        // Idle drift — gentle oscillation around the start of the clip
+        // so the hero has life before the visitor scrolls. Uses about
+        // 8% of the clip length, sinewaved over a 6-second period.
+        const t = now / 1000;
+        const driftFrac = (Math.sin(t * (Math.PI * 2 / 6)) + 1) * 0.5; // 0..1
+        target = duration * 0.08 * driftFrac;
+      } else {
+        // Scroll-driven scrub. Smoothstep eased so the parallax
+        // accelerates into the scroll rather than jerking on the
+        // first pixel. Maps progress 0..1 across the full clip.
+        const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
+        target = ease * duration;
+      }
+
+      // Only seek if the target moved meaningfully — saves the browser
+      // from a stream of identical seeks per frame, which can hitch.
+      if (Math.abs(video.currentTime - target) > 0.01) {
+        video.currentTime = target;
+      }
+    }
+    requestAnimationFrame(frame);
   }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initHero);
   } else {
