@@ -1,18 +1,14 @@
 /* ============================================
    Manual Focus — Design Tokens & Base Styles
-   Premium endurance — natural light, warm contrast,
-   Moebius-adjacent illustration palette.
+   Two themes:
+   - DAY (default, :root) — premium endurance, Moebius-adjacent natural
+     palette, bone-cream background, warm-ink text, sunrise-to-sage accent.
+   - NIGHT ([data-theme="dark"]) — original dark + neon system, kept as
+     a deliberate alternate look the visitor can toggle into.
    ============================================ */
 
-/* --- Tokens --- */
+/* --- Tokens — DAY (default) --- */
 :root {
-  /* Colours
-     Background sits on a warm bone/cream like the sky in the Moebius
-     reference, never pure white. Text is a warm near-black with no blue
-     in it so it reads as ink on paper rather than neon on glass. The
-     accent gradient walks across natural-light tones — terracotta sunrise
-     to soft amber to a believable dawn cyan — so it carries the same
-     "first light over the ridge" feel a gravel ride starts with. */
   --color-bg: #F1EBE0;
   --color-bg-alt: #E7DECF;
   --color-surface: #FFFFFF;
@@ -26,6 +22,20 @@
   --color-cta-gradient: linear-gradient(135deg, var(--color-cta-start), var(--color-cta-mid) 50%, var(--color-cta-end));
   --color-spray-pink: rgba(196, 90, 44, 0.85);
   --color-spray-cyan: rgba(124, 168, 154, 0.85);
+
+  /* Ring + extrusion hues — also theme-controlled so the FocusObject
+     ring slices and THE FORGE text-shadow stack flip with the toggle.
+     The two ring hues are interpolated per-slice via color-mix in CSS. */
+  --ring-hue-a: #C45A2C;
+  --ring-hue-b: #7CA89A;
+  --ring-shadow: rgba(26, 22, 18, 0.18);
+  --ring-inset: rgba(26, 22, 18, 0.18);
+  --ring-highlight: rgba(255, 255, 255, 0.20);
+
+  /* Surface effects — glass panels (nav, cards) and shadow tones */
+  --color-glass: rgba(241, 235, 224, 0.85);
+  --color-card-bg: rgba(255, 255, 255, 0.6);
+  --color-shadow-warm: rgba(22, 12, 6, 0.4);
 
   /* Typography */
   --font-display: 'Anton', 'Bebas Neue', 'Arial Narrow', sans-serif;
@@ -55,6 +65,53 @@
   /* Layout */
   --max-width: 1280px;
   --max-width-prose: 720px;
+}
+
+/* --- Tokens — NIGHT (the original dark + neon look) --- */
+[data-theme="dark"] {
+  --color-bg: #0A0A0B;
+  --color-bg-alt: #111114;
+  --color-surface: #16161B;
+  --color-text: #F2EDE6;
+  --color-text-secondary: #8C8780;
+  --color-text-muted: #4A4845;
+  --color-line: rgba(242, 237, 230, 0.08);
+  --color-cta-start: #FF2D78;
+  --color-cta-mid: #C026D3;
+  --color-cta-end: #00E5FF;
+  --color-cta-gradient: linear-gradient(135deg, var(--color-cta-start), var(--color-cta-mid) 50%, var(--color-cta-end));
+  --color-spray-pink: rgba(255, 45, 120, 0.85);
+  --color-spray-cyan: rgba(0, 229, 255, 0.85);
+
+  --ring-hue-a: #FF2D78;
+  --ring-hue-b: #00E5FF;
+  --ring-shadow: rgba(0, 0, 0, 0.55);
+  --ring-inset: rgba(0, 0, 0, 0.40);
+  --ring-highlight: rgba(255, 255, 255, 0.10);
+
+  --color-glass: rgba(10, 10, 11, 0.75);
+  --color-card-bg: rgba(10, 10, 11, 0.6);
+  --color-shadow-warm: rgba(0, 0, 0, 0.85);
+}
+
+/* Smooth crossfade when the visitor toggles themes — applies to the
+   handful of properties that change between the two systems. */
+html {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+body,
+.nav-header,
+.way-card,
+.btn-ghost,
+.btn-cta,
+.related-card,
+.stat-card {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
 }
 
 /* --- Reset --- */

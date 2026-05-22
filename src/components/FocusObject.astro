@@ -32,13 +32,15 @@ const {
   enterFrom = 'right',
 } = Astro.props;
 
-// Pre-compute per-slice values so each <div> can be styled inline
+// Pre-compute per-slice values. We no longer bake the hex colour at SSR
+// because that hardcodes the theme — instead we expose --t (0..1) per slice
+// and let CSS color-mix between the theme-driven --ring-hue-a / --ring-hue-b
+// at runtime. Toggling theme then re-tints every ring instantly.
 const half = (slices - 1) / 2;
 const layers = Array.from({ length: slices }, (_, i) => {
   const t = i / (slices - 1);            // 0..1
   const centerDist = Math.abs(i - half) / half;  // 0 at middle, 1 at edges
   const z = (i - half) * (thickness / slices);   // -thickness/2 .. +thickness/2
-  // Subtle opacity falloff at the edges of the stack
   const op = 1 - centerDist * 0.4;
   return { i, t, z, op };
 });
@@ -46,25 +48,14 @@ const layers = Array.from({ length: slices }, (_, i) => {
 const spinDir = spin < 0 ? '-1' : '1';
 const spinDur = Math.abs(spin);
 
-// Interpolate hex colours so each slice gets its own border colour
-function lerpHex(a: string, b: string, t: number) {
-  const ah = a.replace('#', '');
-  const bh = b.replace('#', '');
-  const ar = parseInt(ah.slice(0, 2), 16);
-  const ag = parseInt(ah.slice(2, 4), 16);
-  const ab = parseInt(ah.slice(4, 6), 16);
-  const br = parseInt(bh.slice(0, 2), 16);
-  const bg = parseInt(bh.slice(2, 4), 16);
-  const bb = parseInt(bh.slice(4, 6), 16);
-  const r = Math.round(ar + (br - ar) * t);
-  const g = Math.round(ag + (bg - ag) * t);
-  const bl = Math.round(ab + (bb - ab) * t);
-  return `rgb(${r}, ${g}, ${bl})`;
-}
+// Allow callers to override the theme hues for a single ring if they
+// genuinely need to (rare). Default = use whatever the theme provides.
+const hueAVar = hueA && hueA.startsWith('#') ? hueA : 'var(--ring-hue-a)';
+const hueBVar = hueB && hueB.startsWith('#') ? hueB : 'var(--ring-hue-b)';
 ---
 <div
   class={`focus-object focus-object--${enterFrom} ${className}`}
-  style={`width: ${size}px; height: ${size}px; --tiltX: ${tiltX}deg; --tiltY: ${tiltY}deg; --tiltZ: ${tiltZ}deg; --spinDur: ${spinDur}s; --spinDir: ${spinDir}; --scrollSpin: ${scrollSpin}; --enter-opacity: ${opacity}; ${style}`}
+  style={`width: ${size}px; height: ${size}px; --tiltX: ${tiltX}deg; --tiltY: ${tiltY}deg; --tiltZ: ${tiltZ}deg; --spinDur: ${spinDur}s; --spinDir: ${spinDir}; --scrollSpin: ${scrollSpin}; --enter-opacity: ${opacity}; --hueA: ${hueAVar}; --hueB: ${hueBVar}; ${style}`}
   data-scroll-spin={scrollSpin}
   aria-hidden="true"
 >
@@ -73,18 +64,18 @@ function lerpHex(a: string, b: string, t: number) {
       <div class="focus-object__scroll">
         <div class="focus-object__spin">
           <div class="ring3d ring3d--top">
-            {layers.map(({ i, t, z, op }) => (
+            {layers.map(({ t, z, op }) => (
               <div
                 class="ring3d__slice"
-                style={`transform: translateZ(${z}px); border-color: ${lerpHex(hueA, hueB, t)}; opacity: ${op};`}
+                style={`transform: translateZ(${z}px); opacity: ${op}; --t: ${t};`}
               ></div>
             ))}
           </div>
           <div class="ring3d ring3d--bot">
-            {layers.map(({ i, t, z, op }) => (
+            {layers.map(({ t, z, op }) => (
               <div
                 class="ring3d__slice"
-                style={`transform: translateZ(${z}px); border-color: ${lerpHex(hueB, hueA, t)}; opacity: ${op};`}
+                style={`transform: translateZ(${z}px); opacity: ${op}; --t: ${t};`}
               ></div>
             ))}
           </div>
@@ -102,7 +93,7 @@ function lerpHex(a: string, b: string, t: number) {
     transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
     opacity: 0;
-    filter: drop-shadow(0 12px 24px rgba(26, 22, 18, 0.18));
+    filter: drop-shadow(0 12px 24px var(--ring-shadow, rgba(26, 22, 18, 0.18)));
   }
 
   /* Entrance offset (cleared by .has-entered) */
@@ -170,13 +161,27 @@ function lerpHex(a: string, b: string, t: number) {
     background: transparent;
     box-sizing: border-box;
   }
+  /* Slice colour interpolated between the two theme hues. Top ring lerps
+     A -> B as slices step back, bottom ring lerps B -> A so the two rings
+     are mirror-coloured. --t is set per-slice inline. */
+  .ring3d--top .ring3d__slice {
+    border-color: color-mix(in srgb,
+      var(--hueA, var(--ring-hue-a)) calc((1 - var(--t)) * 100%),
+      var(--hueB, var(--ring-hue-b)));
+  }
+  .ring3d--bot .ring3d__slice {
+    border-color: color-mix(in srgb,
+      var(--hueB, var(--ring-hue-b)) calc((1 - var(--t)) * 100%),
+      var(--hueA, var(--ring-hue-a)));
+  }
 
-  /* Highlight + shadow on the front and back of the stack */
+  /* Highlight + shadow on the front and back of the stack — both
+     theme-controlled so they soften on the cream backdrop. */
   .ring3d__slice:first-child {
-    box-shadow: 0 0 18px rgba(26, 22, 18, 0.18) inset;
+    box-shadow: 0 0 18px var(--ring-inset, rgba(26, 22, 18, 0.18)) inset;
   }
   .ring3d__slice:last-child {
-    box-shadow: 0 0 16px rgba(255, 255, 255, 0.10);
+    box-shadow: 0 0 16px var(--ring-highlight, rgba(255, 255, 255, 0.20));
   }
 
   @keyframes focus-object-spin {

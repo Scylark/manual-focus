@@ -18,7 +18,7 @@ const posts = (await getCollection('blog'))
   <section class="hero">
     <!-- 3D focus objects scattered -->
     <FocusObject size={380} tiltX={62} tiltY={-15} spin={90} scrollSpin={120} style="top: 8vh; right: 4vw;" />
-    <FocusObject size={200} tiltX={50} tiltY={22} tiltZ={-12} spin={-110} scrollSpin={-180} hueA="#7CA89A" hueB="#C45A2C" style="bottom: 14vh; right: 24vw;" enterFrom="left" />
+    <FocusObject size={200} tiltX={50} tiltY={22} tiltZ={-12} spin={-110} scrollSpin={-180} style="bottom: 14vh; right: 24vw;" enterFrom="left" />
 
     <div class="container hero-inner">
       <div class="hero-eyebrow">
@@ -87,7 +87,7 @@ const posts = (await getCollection('blog'))
 
   <!-- PROBLEM -->
   <section class="section problem-section">
-    <FocusObject size={320} tiltX={70} tiltY={25} spin={140} scrollSpin={90} hueA="#C45A2C" hueB="#D89B3F" style="top: 6%; right: 4%;" enterFrom="right" />
+    <FocusObject size={320} tiltX={70} tiltY={25} spin={140} scrollSpin={90} style="top: 6%; right: 4%;" enterFrom="right" />
 
     <div class="container">
       <div class="eyebrow">001 · THE PROBLEM</div>
@@ -113,7 +113,7 @@ const posts = (await getCollection('blog'))
 
   <!-- THREE WAYS TO WORK TOGETHER -->
   <section class="section ways-section">
-    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} hueA="#C45A2C" hueB="#7CA89A" style="top: 6%; right: 3%;" enterFrom="right" />
+    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 6%; right: 3%;" enterFrom="right" />
 
     <div class="container">
       <div class="eyebrow">002 · HOW WE WORK TOGETHER</div>
@@ -240,7 +240,7 @@ const posts = (await getCollection('blog'))
 
   <!-- STATS -->
   <section class="section stats-section section-alt">
-    <FocusObject size={240} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} hueA="#7CA89A" hueB="#C45A2C" style="top: 8%; right: 4%;" enterFrom="left" />
+    <FocusObject size={240} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} style="top: 8%; right: 4%;" enterFrom="left" />
 
     <div class="container">
       <div class="eyebrow">004 · WHAT IT'S WORTH</div>
@@ -352,7 +352,7 @@ const posts = (await getCollection('blog'))
   <!-- CTA CLOSE -->
   <section class="section cta-close">
     <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -100px; left: -120px;" enterFrom="left" />
-    <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} hueA="#7CA89A" hueB="#C45A2C" style="bottom: -80px; right: -60px;" enterFrom="right" />
+    <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} style="bottom: -80px; right: -60px;" enterFrom="right" />
 
     <div class="container cta-close-inner">
       <h2 class="cta-headline reveal">
@@ -633,7 +633,7 @@ const posts = (await getCollection('blog'))
     line-height: 0.88;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    /* Deep ink front face reads cleanly on the cream backdrop. */
+    /* Day: deep ink on cream. Night: cream on black (set further down). */
     color: #1A1612;
     margin: 0;
     transform-style: preserve-3d;
@@ -699,6 +699,38 @@ const posts = (await getCollection('blog'))
   .forge-3d-text.is-revealed .fchar {
     opacity: 1;
     transform: translateY(0) rotateX(0);
+  }
+
+  /* Night theme: flip the wordmark back to cream face + pink-to-purple-black
+     extrusion that the dark/neon original was built around. */
+  :global([data-theme="dark"]) .forge-3d-text {
+    color: #f6f0e8;
+  }
+  :global([data-theme="dark"]) .fchar {
+    text-shadow:
+      -1px -1px 0 rgba(255, 255, 255, 0.18),
+      1px 1px 0 #e02862,
+      2px 2px 0 #d2255b,
+      3px 3px 0 #c52255,
+      4px 4px 0 #b81f4e,
+      5px 5px 0 #ab1c47,
+      6px 6px 0 #9e1941,
+      7px 7px 0 #91163a,
+      8px 8px 0 #841333,
+      9px 9px 0 #77102d,
+      10px 10px 0 #6a0d26,
+      11px 11px 0 #5d0a20,
+      12px 12px 0 #500819,
+      13px 13px 0 #430613,
+      14px 14px 0 #36040d,
+      15px 15px 0 #290208,
+      16px 16px 0 #1c0104,
+      17px 17px 0 #100002,
+      18px 18px 0 #060001,
+      19px 19px 1px rgba(0, 0, 0, 0.9),
+      20px 20px 2px rgba(0, 0, 0, 0.85),
+      22px 22px 6px rgba(0, 0, 0, 0.7),
+      26px 36px 50px rgba(0, 0, 0, 0.85);
   }
 
   /* ============================
@@ -842,7 +874,7 @@ const posts = (await getCollection('blog'))
     padding: var(--space-md);
     border: 1px solid var(--color-line);
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--color-card-bg);
     backdrop-filter: blur(6px);
     overflow: hidden;
     transition: border-color 0.3s ease, transform 0.3s ease;

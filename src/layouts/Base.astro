@@ -23,6 +23,22 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
 
+  {/* Theme bootstrap — runs before the body paints so the right theme is
+      applied without a flash. Reads the visitor's saved preference, falls
+      back to their system preference, defaults to day. */}
+  <script is:inline>
+    (function () {
+      try {
+        var saved = localStorage.getItem('mf-theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved === 'dark' || saved === 'light'
+          ? saved
+          : (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) { /* localStorage blocked — fine, defaults apply */ }
+    })();
+  </script>
+
   <!-- Favicons -->
   <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
   <link rel="icon" href={url('/favicon.ico')} sizes="32x32" />

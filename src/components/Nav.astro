@@ -46,6 +46,22 @@ const currentPath = Astro.url.pathname;
           </li>
         ))}
       </ul>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle theme"
+        title="Toggle day / night"
+        data-theme-toggle
+      >
+        {/* Two icons stacked, one visible per theme. CSS handles which. */}
+        <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
       <a href={url('/enquire')} class="btn-cta nav-cta">Enquire</a>
     </div>
   </nav>
@@ -58,7 +74,7 @@ const currentPath = Astro.url.pathname;
     left: 0;
     right: 0;
     z-index: 100;
-    background-color: rgba(241, 235, 224, 0.85);
+    background-color: var(--color-glass);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--color-line);
@@ -191,6 +207,44 @@ const currentPath = Astro.url.pathname;
       align-items: center;
     }
   }
+
+  /* Theme toggle button. Shows the sun in day mode (because clicking it goes
+     to night), the moon in night mode. Icons cross-fade on theme change. */
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid var(--color-line);
+    color: var(--color-text);
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  }
+  .theme-toggle:hover {
+    border-color: var(--color-text);
+    transform: rotate(15deg);
+  }
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-cta-mid);
+    outline-offset: 2px;
+  }
+  .theme-icon {
+    width: 1.05rem;
+    height: 1.05rem;
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  /* Day mode: show sun (clicking goes to night) */
+  .theme-icon--sun { opacity: 1; transform: rotate(0); }
+  .theme-icon--moon { opacity: 0; transform: rotate(-90deg); }
+  /* Night mode: show moon */
+  :global([data-theme="dark"]) .theme-icon--sun { opacity: 0; transform: rotate(90deg); }
+  :global([data-theme="dark"]) .theme-icon--moon { opacity: 1; transform: rotate(0); }
 </style>
 
 <script>
@@ -241,5 +295,23 @@ const currentPath = Astro.url.pathname;
         header.classList.remove('is-visible');
       }
     }, { passive: true });
+  }
+
+  // Theme toggle. The initial theme is already applied by the inline script
+  // in <head> before paint. Here we only handle the click event, persisting
+  // the new choice to localStorage and updating the document attribute.
+  const themeToggle = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        root.removeAttribute('data-theme');
+        try { localStorage.setItem('mf-theme', 'light'); } catch (e) { /* ignore */ }
+      } else {
+        root.setAttribute('data-theme', 'dark');
+        try { localStorage.setItem('mf-theme', 'dark'); } catch (e) { /* ignore */ }
+      }
+    });
   }
 </script>

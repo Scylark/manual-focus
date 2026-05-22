@@ -30,7 +30,7 @@ import { url } from '../utils/paths';
 
   <!-- WHO'S BEHIND IT -->
   <section class="about-section section-alt">
-    <FocusObject size={220} tiltX={50} tiltY={20} spin={-110} scrollSpin={-80} hueA="#7CA89A" hueB="#C45A2C" style="bottom: -40px; left: -40px;" enterFrom="left" />
+    <FocusObject size={220} tiltX={50} tiltY={20} spin={-110} scrollSpin={-80} style="bottom: -40px; left: -40px;" enterFrom="left" />
 
     <div class="container about-grid">
       <div class="about-grid-side">
@@ -236,7 +236,7 @@ import { url } from '../utils/paths';
     padding: var(--space-md);
     border: 1px solid var(--color-line);
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--color-card-bg);
     backdrop-filter: blur(4px);
     transition: border-color 0.3s ease, transform 0.3s ease;
   }
