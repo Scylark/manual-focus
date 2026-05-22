@@ -405,19 +405,21 @@ const posts = (await getCollection('blog'))
   }
 
   .hero-headline {
-    font-size: clamp(2.25rem, 7vw, 6.5rem);
+    font-size: clamp(2rem, 6vw, 5.25rem);
     line-height: 0.98;
     letter-spacing: -0.02em;
     margin-top: var(--space-sm);
-    max-width: 1240px;
     /* Cyclist-hero sits behind, so the headline overrides theme text colour
-       and gets a subtle shadow so it reads cleanly on the dawn sky. */
+       and gets a subtle shadow so it reads cleanly on the dawn sky. Font
+       size reduced from the full-width version since the headline now sits
+       in the left half of the viewport. */
     color: #f6f0e8;
-    text-shadow: 0 2px 24px rgba(15, 12, 8, 0.45);
+    text-shadow: 0 2px 18px rgba(15, 12, 8, 0.55);
   }
   .hero-sub {
-    color: rgba(246, 240, 232, 0.9) !important;
-    text-shadow: 0 1px 16px rgba(15, 12, 8, 0.45);
+    color: rgba(246, 240, 232, 0.92) !important;
+    text-shadow: 0 1px 12px rgba(15, 12, 8, 0.55);
+    max-width: 540px;
   }
   .hero-eyebrow {
     color: rgba(246, 240, 232, 0.85) !important;

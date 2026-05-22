@@ -98,26 +98,20 @@ const fallbackUrl = url(fallbackImage);
   }
   .cyclist-hero.is-webgl-ready .cyclist-hero-fallback { opacity: 0; }
 
-  /* Soft gradient overlay — lifts text readability on the left where the
-     headline sits, fades to transparent across the subject area on the right. */
+  /* Soft left-side gradient — lifts text readability without dimming the
+     subject area on the right. No bottom darkening, that was reading as a
+     band against the already-dark cliff foreground. */
   .cyclist-hero-vignette {
     position: absolute;
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background:
-      linear-gradient(
-        to right,
-        rgba(15, 12, 8, 0.55) 0%,
-        rgba(15, 12, 8, 0.30) 30%,
-        rgba(15, 12, 8, 0.10) 55%,
-        transparent 80%
-      ),
-      linear-gradient(
-        to top,
-        rgba(15, 12, 8, 0.45) 0%,
-        transparent 35%
-      );
+    background: linear-gradient(
+      to right,
+      rgba(15, 12, 8, 0.45) 0%,
+      rgba(15, 12, 8, 0.20) 35%,
+      transparent 65%
+    );
   }
 
   .cyclist-hero-content {
@@ -129,6 +123,17 @@ const fallbackUrl = url(fallbackImage);
     justify-content: center;
     padding-block: var(--space-xl);
     color: #f6f0e8;
+  }
+
+  /* Pull the slot content to the left half of the viewport so it sits on
+     the empty sky/cliff rather than overlapping the cyclist on the right. */
+  .cyclist-hero-content > :global(*) {
+    max-width: 55%;
+  }
+  @media (max-width: 900px) {
+    .cyclist-hero-content > :global(*) {
+      max-width: 100%;
+    }
   }
 
   /* Reduced motion / touch devices — keep the still image, skip WebGL. */
