@@ -22,8 +22,8 @@ const {
   tiltZ = 0,
   spin = 90,
   scrollSpin = 60,
-  hueA = '#C45A2C',
-  hueB = '#7CA89A',
+  hueA,
+  hueB,
   thickness = 50,
   slices = 28,
   opacity = 1,
@@ -48,14 +48,18 @@ const layers = Array.from({ length: slices }, (_, i) => {
 const spinDir = spin < 0 ? '-1' : '1';
 const spinDur = Math.abs(spin);
 
-// Allow callers to override the theme hues for a single ring if they
-// genuinely need to (rare). Default = use whatever the theme provides.
-const hueAVar = hueA && hueA.startsWith('#') ? hueA : 'var(--ring-hue-a)';
-const hueBVar = hueB && hueB.startsWith('#') ? hueB : 'var(--ring-hue-b)';
+// Only write inline --hueA/--hueB overrides when the caller actually
+// passed a hex value. Otherwise the slice CSS resolves --ring-hue-a /
+// --ring-hue-b directly from :root / [data-theme="dark"] and the ring
+// flips with the theme toggle.
+const hueOverride = [
+  hueA ? `--hueA: ${hueA};` : '',
+  hueB ? `--hueB: ${hueB};` : '',
+].join('');
 ---
 <div
   class={`focus-object focus-object--${enterFrom} ${className}`}
-  style={`width: ${size}px; height: ${size}px; --tiltX: ${tiltX}deg; --tiltY: ${tiltY}deg; --tiltZ: ${tiltZ}deg; --spinDur: ${spinDur}s; --spinDir: ${spinDir}; --scrollSpin: ${scrollSpin}; --enter-opacity: ${opacity}; --hueA: ${hueAVar}; --hueB: ${hueBVar}; ${style}`}
+  style={`width: ${size}px; height: ${size}px; --tiltX: ${tiltX}deg; --tiltY: ${tiltY}deg; --tiltZ: ${tiltZ}deg; --spinDur: ${spinDur}s; --spinDir: ${spinDir}; --scrollSpin: ${scrollSpin}; --enter-opacity: ${opacity}; ${hueOverride} ${style}`}
   data-scroll-spin={scrollSpin}
   aria-hidden="true"
 >
