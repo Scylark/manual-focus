@@ -83,27 +83,29 @@ const posts = (await getCollection('blog'))
   </section>
 
   <!-- PROBLEM -->
-  <section class="section problem-section">
-    <FocusObject size={320} tiltX={70} tiltY={25} spin={140} scrollSpin={90} style="top: 6%; right: 4%;" enterFrom="right" />
+  <section class="section problem-section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={320} tiltX={70} tiltY={25} spin={140} scrollSpin={90} style="top: 6%; right: 4%;" enterFrom="right" />
 
-    <div class="container">
-      <div class="eyebrow">001 · THE PROBLEM</div>
-      <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-        Flat campaigns result in<br/>
-        <span class="gradient-text">diminishing returns.</span>
-      </h2>
-      <div class="problem-grid">
-        <p class="problem-copy reveal">
-          Most marketing still launches the same way it has for a decade, with a six-week
-          campaign, a content flurry, a paid push and the hope something sticks. A flat
-          campaign produces flat results regardless of brief quality, budget size or how
-          shiny the launch deck looks.
-        </p>
-        <p class="problem-copy reveal">
-          We build something that keeps working after launch week ends, with owned, earned
-          and paid wired together through the Forge. The system learns from each campaign
-          and improves as new AI models arrive, so growth holds steady instead of tailing off.
-        </p>
+      <div class="container">
+        <div class="eyebrow">001 · THE PROBLEM</div>
+        <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+          Flat campaigns result in<br/>
+          <span class="gradient-text">diminishing returns.</span>
+        </h2>
+        <div class="problem-grid">
+          <p class="problem-copy reveal">
+            Most marketing still launches the same way it has for a decade, with a six-week
+            campaign, a content flurry, a paid push and the hope something sticks. A flat
+            campaign produces flat results regardless of brief quality, budget size or how
+            shiny the launch deck looks.
+          </p>
+          <p class="problem-copy reveal">
+            We build something that keeps working after launch week ends, with owned, earned
+            and paid wired together through the Forge. The system learns from each campaign
+            and improves as new AI models arrive, so growth holds steady instead of tailing off.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -208,124 +210,134 @@ const posts = (await getCollection('blog'))
   </section>
 
   <!-- WHY THE AI STAYS SHARP -->
-  <section class="section forge-body-section">
-    <div class="container">
-      <div class="eyebrow">003 · WHY THE AI STAYS SHARP</div>
-      <h3 class="forge-headline">The <span class="gradient-text">Forge</span> keeps us current.</h3>
-      <p class="forge-copy">
-        We're part of a collective of senior operators called the Foundry. The Foundry shares
-        AI tooling through a platform called the Forge. That's why we ship at machine speed,
-        and why our capability keeps getting sharper as new AI models arrive. The shared part
-        is tooling and pipelines, not strategy or content.
-      </p>
-      <div class="forge-stats">
-        <div class="forge-stat">
-          <div class="forge-stat-num">50+</div>
-          <div class="forge-stat-label">years of senior marketing experience across the collective</div>
-        </div>
-        <div class="forge-stat">
-          <div class="forge-stat-num">SHARED</div>
-          <div class="forge-stat-label">tooling and pipelines, not strategy or content</div>
-        </div>
-        <div class="forge-stat">
-          <div class="forge-stat-num">LIVE</div>
-          <div class="forge-stat-label">new AI models added as they ship</div>
+  <section class="section forge-body-section dwell-pin">
+    <div class="dwell-pin-stage">
+      <div class="container">
+        <div class="eyebrow">003 · WHY THE AI STAYS SHARP</div>
+        <h3 class="forge-headline">The <span class="gradient-text">Forge</span> keeps us current.</h3>
+        <p class="forge-copy">
+          We're part of a collective of senior operators called the Foundry. The Foundry shares
+          AI tooling through a platform called the Forge. That's why we ship at machine speed,
+          and why our capability keeps getting sharper as new AI models arrive. The shared part
+          is tooling and pipelines, not strategy or content.
+        </p>
+        <div class="forge-stats">
+          <div class="forge-stat">
+            <div class="forge-stat-num">50+</div>
+            <div class="forge-stat-label">years of senior marketing experience across the collective</div>
+          </div>
+          <div class="forge-stat">
+            <div class="forge-stat-num">SHARED</div>
+            <div class="forge-stat-label">tooling and pipelines, not strategy or content</div>
+          </div>
+          <div class="forge-stat">
+            <div class="forge-stat-num">LIVE</div>
+            <div class="forge-stat-label">new AI models added as they ship</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- STATS -->
-  <section class="section stats-section section-alt">
-    <FocusObject size={240} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} style="top: 8%; right: 4%;" enterFrom="left" />
+  <section class="section stats-section section-alt dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={240} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} style="top: 8%; right: 4%;" enterFrom="left" />
 
-    <div class="container">
-      <div class="eyebrow">004 · WHAT IT'S WORTH</div>
-      <h2 class="stats-headline reveal">More marketing output, in a fraction of the time.</h2>
-      <div class="stats-grid stagger">
-        <div class="stat-card">
-          <div class="stat-value" data-counter="4x" data-counter-prefix="">0x</div>
-          <div class="stat-label">faster brief-to-live, on average</div>
+      <div class="container">
+        <div class="eyebrow">004 · WHAT IT'S WORTH</div>
+        <h2 class="stats-headline reveal">More marketing output, in a fraction of the time.</h2>
+        <div class="stats-grid stagger">
+          <div class="stat-card">
+            <div class="stat-value" data-counter="4x" data-counter-prefix="">0x</div>
+            <div class="stat-label">faster brief-to-live, on average</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-counter="3" data-counter-prefix="">0</div>
+            <div class="stat-label">channels covered (owned, earned and paid) from day one</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-counter="60%" data-counter-prefix="">0%</div>
+            <div class="stat-label">less time on production, more on strategy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-counter="50+" data-counter-prefix="">0+</div>
+            <div class="stat-label">years of marketing experience, combined</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" data-counter="3" data-counter-prefix="">0</div>
-          <div class="stat-label">channels covered (owned, earned and paid) from day one</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" data-counter="60%" data-counter-prefix="">0%</div>
-          <div class="stat-label">less time on production, more on strategy</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" data-counter="50+" data-counter-prefix="">0+</div>
-          <div class="stat-label">years of marketing experience, combined</div>
-        </div>
+        <p class="stats-disclaimer mono">* Across recent engagements. Best results when the strategy was right to begin with.</p>
       </div>
-      <p class="stats-disclaimer mono">* Across recent engagements. Best results when the strategy was right to begin with.</p>
     </div>
   </section>
 
   <!-- BRAND LOGOS -->
-  <section class="section section-alt logos-section">
-    <div class="container">
-      <div class="eyebrow">005 · IN THE WILD</div>
-      <h2 class="reveal logos-headline">Endurance and sports brands we've shipped with.</h2>
-      <div class="logo-bar stagger">
-        <span class="brand-mark brand-display">Classified</span>
-        <span class="brand-mark brand-serif">Wahoo</span>
-        <span class="brand-mark brand-display">Wattbike</span>
-        <span class="brand-mark brand-mono">Ribble</span>
-        <span class="brand-mark brand-display">RGT</span>
-        <span class="brand-mark brand-serif">motif <em>AI</em></span>
-        <span class="brand-mark brand-mono">Muuvr</span>
-        <span class="brand-mark brand-display">Planet X</span>
-        <span class="brand-mark brand-serif">Pelotan</span>
+  <section class="section section-alt logos-section dwell-pin">
+    <div class="dwell-pin-stage">
+      <div class="container">
+        <div class="eyebrow">005 · IN THE WILD</div>
+        <h2 class="reveal logos-headline">Endurance and sports brands we've shipped with.</h2>
+        <div class="logo-bar stagger">
+          <span class="brand-mark brand-display">Classified</span>
+          <span class="brand-mark brand-serif">Wahoo</span>
+          <span class="brand-mark brand-display">Wattbike</span>
+          <span class="brand-mark brand-mono">Ribble</span>
+          <span class="brand-mark brand-display">RGT</span>
+          <span class="brand-mark brand-serif">motif <em>AI</em></span>
+          <span class="brand-mark brand-mono">Muuvr</span>
+          <span class="brand-mark brand-display">Planet X</span>
+          <span class="brand-mark brand-serif">Pelotan</span>
+        </div>
+        <p class="logos-note reveal">And further afield in AI, fintech, sports tech, hardware and digital assets.</p>
       </div>
-      <p class="logos-note reveal">And further afield in AI, fintech, sports tech, hardware and digital assets.</p>
     </div>
   </section>
 
   <!-- CREDIBILITY -->
-  <section class="section credibility-section">
-    <FocusObject size={360} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 8%; right: 4%;" enterFrom="right" />
+  <section class="section credibility-section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={360} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 8%; right: 4%;" enterFrom="right" />
 
-    <div class="container">
-      <div class="credibility-grid">
-        <div class="credibility-copy">
-          <div class="eyebrow">006 · WHO WE ARE</div>
-          <h2 class="reveal">
-            Operators first.<br/>
-            <span class="gradient-text">Marketers always.</span>
-          </h2>
-          <p class="reveal">
-            Manual Focus is a marketing agency led by James Vickers, with 15+ years running
-            brand, demand, product and growth across AI, fintech, sports tech, hardware and
-            digital assets. James co-founded RGT Cycling and took it from 19k to 350k users
-            before Wahoo Fitness acquired it. Around him, the Foundry brings senior operators
-            with deep marketing CVs of their own. We do the hard miles on AI so the marketing
-            side gets the upside.
-          </p>
-          {/* TODO: replace href with the Foundry website URL once available */}
-          <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
+      <div class="container">
+        <div class="credibility-grid">
+          <div class="credibility-copy">
+            <div class="eyebrow">006 · WHO WE ARE</div>
+            <h2 class="reveal">
+              Operators first.<br/>
+              <span class="gradient-text">Marketers always.</span>
+            </h2>
+            <p class="reveal">
+              Manual Focus is a marketing agency led by James Vickers, with 15+ years running
+              brand, demand, product and growth across AI, fintech, sports tech, hardware and
+              digital assets. James co-founded RGT Cycling and took it from 19k to 350k users
+              before Wahoo Fitness acquired it. Around him, the Foundry brings senior operators
+              with deep marketing CVs of their own. We do the hard miles on AI so the marketing
+              side gets the upside.
+            </p>
+            {/* TODO: replace href with the Foundry website URL once available */}
+            <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
+          </div>
+          <div class="credibility-mark" aria-hidden="true"></div>
         </div>
-        <div class="credibility-mark" aria-hidden="true"></div>
       </div>
     </div>
   </section>
 
   <!-- BLOG / PERSPECTIVE -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="eyebrow">007 · PERSPECTIVE</div>
-      <h2 class="reveal">Notes from the work.</h2>
-      <div class="blog-grid stagger">
-        {posts.map(post => (
-          <BlogCard
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.date}
-            slug={post.id}
-          />
-        ))}
+  <section class="section section-alt dwell-pin">
+    <div class="dwell-pin-stage">
+      <div class="container">
+        <div class="eyebrow">007 · PERSPECTIVE</div>
+        <h2 class="reveal">Notes from the work.</h2>
+        <div class="blog-grid stagger">
+          {posts.map(post => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              slug={post.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -347,17 +359,19 @@ const posts = (await getCollection('blog'))
   </section>
 
   <!-- CTA CLOSE -->
-  <section class="section cta-close">
-    <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -100px; left: -120px;" enterFrom="left" />
-    <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} style="bottom: -80px; right: -60px;" enterFrom="right" />
+  <section class="section cta-close dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -100px; left: -120px;" enterFrom="left" />
+      <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} style="bottom: -80px; right: -60px;" enterFrom="right" />
 
-    <div class="container cta-close-inner">
-      <h2 class="cta-headline reveal">
-        Got a problem, a brief,<br/>
-        or a <span class="gradient-text">vague feeling</span> something's off?
-      </h2>
-      <p class="cta-sub reveal">Bring it. We'll figure out the shape of the work together. 30-minute working session, free.</p>
-      <a href={url('/enquire')} class="btn-cta reveal">Book a working session</a>
+      <div class="container cta-close-inner">
+        <h2 class="cta-headline reveal">
+          Got a problem, a brief,<br/>
+          or a <span class="gradient-text">vague feeling</span> something's off?
+        </h2>
+        <p class="cta-sub reveal">Bring it. We'll figure out the shape of the work together. 30-minute working session, free.</p>
+        <a href={url('/enquire')} class="btn-cta reveal">Book a working session</a>
+      </div>
     </div>
   </section>
 </Base>
@@ -1286,7 +1300,11 @@ const posts = (await getCollection('blog'))
     perspective: 1200px;
     perspective-origin: 50% 50%;
   }
-  .manifesto-spacer { height: 100vh; }
+  /* Each spacer drives one pledge's scroll slot. 180vh = each
+     pledge gets ~1.8 viewport-heights of scroll progress, with the
+     active "fully in focus" window being most of that, so the
+     visitor can actually read each line as it lands. */
+  .manifesto-spacer { height: 180vh; }
   /* The outer .manifesto-line is just a centering container for the
      absolutely-positioned slot in the sticky stage. The opacity, transform
      and blur are driven directly from scroll position by JS per frame, so
@@ -1332,7 +1350,9 @@ const posts = (await getCollection('blog'))
   }
   @media (max-width: 768px) {
     .manifesto-stage { height: 70vh; }
-    .manifesto-spacer { height: 70vh; }
+    /* Mobile: 140vh per pledge keeps the dwell substantial without
+       feeling like padding on a phone. */
+    .manifesto-spacer { height: 140vh; }
     .manifesto-text { font-size: clamp(2rem, 11vw, 4rem); }
     .manifesto-line-final .manifesto-text { font-size: clamp(1.25rem, 5vw, 2rem); }
   }
@@ -1427,6 +1447,44 @@ const posts = (await getCollection('blog'))
   }
 
   /* ============================
+     DWELL-PIN — sections that should hold the visitor's eye briefly
+     as they scroll past. Same pattern as the hero and manifesto:
+     the section is tall, the content inside is sticky-pinned at the
+     top of the viewport for the duration of the pin. Combined with
+     the scroll-driven reveal in Base.astro, the visitor sees the
+     headline + body fade up into place during the section approach,
+     then HOLD in view for ~100vh of pinned scroll before the section
+     releases and the next one slides up. The vertical movement
+     genuinely pauses for a moment even while the scroll wheel keeps
+     spinning. Mobile drops the pin entirely — adds too much page
+     length on a phone for too little visual payoff.
+     ============================ */
+  .section.dwell-pin,
+  .dwell-pin {
+    min-height: 220vh;
+    padding-block: 0;
+    position: relative;
+  }
+  .dwell-pin-stage {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-2xl);
+    width: 100%;
+  }
+  .dwell-pin-stage > .container { width: 100%; }
+  @media (max-width: 768px) {
+    .dwell-pin { min-height: auto; }
+    .dwell-pin-stage {
+      position: relative;
+      min-height: auto;
+      padding-block: var(--space-xl);
+    }
+  }
+
+  /* ============================
      MOBILE PERF — strip expensive paint effects on phones.
      backdrop-filter and large filter:blur() are re-evaluated every
      frame the content behind them changes, which on a fixed nav
@@ -1498,8 +1556,11 @@ const posts = (await getCollection('blog'))
         const clamped = Math.max(-1.2, Math.min(1.2, slot));
         const abs = Math.abs(clamped);
 
-        // Plateau opacity: full from 0..0.25, smooth falloff to 0 at 0.55.
-        const t = Math.max(0, Math.min(1, (abs - 0.25) / 0.30));
+        // Plateau opacity: each pledge is sharp + at full opacity
+        // across most of its slot, only blurring + fading at the
+        // very edges of the transition to the next/previous line.
+        // Wide plateau = real dwell time to read.
+        const t = Math.max(0, Math.min(1, (abs - 0.38) / 0.17));
         const opacity = 1 - t * t * (3 - 2 * t);
 
         // Each line flies through 3D space toward and past the camera.

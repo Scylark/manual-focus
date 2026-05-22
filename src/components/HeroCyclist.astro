@@ -75,11 +75,12 @@
   .hero-scroll {
     position: relative;
     width: 100%;
-    /* 600vh = ~500vh of pinned scroll runway. Enough room for the
-       full choreography PLUS a proper pause after the wordmark
-       exits and a rest phase where the hero copy holds fully
-       visible before the sticky releases. */
-    height: 600vh;
+    /* 800vh = ~700vh of pinned scroll runway. Each phase gets
+       genuine dwell time — rings present long enough to register,
+       wordmark hold long enough to read, post-exit pause long
+       enough to anticipate, hero copy read time long enough to
+       actually read before the sticky releases. */
+    height: 800vh;
     background: var(--color-bg);
     isolation: isolate;
     overflow: clip;
@@ -196,10 +197,10 @@
      smaller ring base size so it fits a narrower viewport. */
   @media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .hero-scroll {
-      /* 420vh on mobile — proportionally shorter than desktop's
-         600vh since each vh is a smaller absolute distance on a
-         phone, but still leaves a clear hold + pause structure. */
-      height: 420vh;
+      /* 560vh on mobile — proportionally shorter than desktop's
+         800vh since each vh is a smaller absolute distance on a
+         phone, but still gives the dwell time needed. */
+      height: 560vh;
     }
     .hero-scroll-sticky {
       min-height: 560px;
@@ -296,8 +297,8 @@
       const ringScrollRot = p * 540;
       const ringRotation = ringIdleRot + ringScrollRot;
       const ringScale = lerp(1.0, 2.4, smooth(p));
-      const ringSeparate = lerp(0, 6, smooth(norm(p, 0.25, 0.50)));
-      const ringOpacity = 1 - smooth(norm(p, 0.30, 0.50));
+      const ringSeparate = lerp(0, 6, smooth(norm(p, 0.20, 0.40)));
+      const ringOpacity = 1 - smooth(norm(p, 0.25, 0.40));
 
       // Only update style when values have meaningfully changed —
       // skips the redundant transform/style writes that would
@@ -321,18 +322,19 @@
       }
 
       // ── Wordmark ──────────────────────────────────────────────
-      // Choreography (with 600vh section ≈ 500vh of useful scroll):
-      //   0.40 → 0.52  fade in (~60vh of scroll)
-      //   0.52 → 0.74  HOLD at full size (~110vh of scroll dwell)
-      //   0.74 → 0.82  EXPLODE: MANUAL flies up + scales + blurs,
+      // Choreography (with 800vh section ≈ 700vh of useful scroll):
+      //   0.35 → 0.45  fade in (~70vh of scroll)
+      //   0.45 → 0.75  HOLD at full size (~210vh of pure dwell —
+      //                3 viewport-heights of scrolling on the
+      //                wordmark before any motion at all)
+      //   0.75 → 0.82  EXPLODE: MANUAL flies up + scales + blurs,
       //                FOCUS flies down + scales + blurs, both fade
-      //   0.82 → 0.88  PAUSE — empty stage, gives the brand reveal
-      //                time to land before the next content block
-      //   0.86 → 0.94  hero copy fades in
-      //   0.94 → 1.00  REST — hero copy fully visible while the
-      //                sticky still pins (~30vh of read time)
-      const wordFadeIn = smooth(norm(p, 0.40, 0.52));
-      const wordExit = smooth(norm(p, 0.74, 0.82));
+      //   0.82 → 0.87  PAUSE — empty stage, brand reveal lands
+      //   0.87 → 0.93  hero copy fades in
+      //   0.93 → 1.00  REST — hero copy fully visible while the
+      //                sticky still pins (~50vh of actual read time)
+      const wordFadeIn = smooth(norm(p, 0.35, 0.45));
+      const wordExit = smooth(norm(p, 0.75, 0.82));
       const wordOpacity = wordFadeIn * (1 - wordExit);
 
       if (Math.abs(wordOpacity - lastWordOpacity) > 0.005) {
@@ -368,9 +370,10 @@
       }
 
       // ── Hero content ──────────────────────────────────────────
-      // Fades in 0.86 → 0.94, then HOLDS fully visible through to
-      // 1.00 so the visitor has read-time before the sticky releases.
-      const contentT = smooth(norm(p, 0.86, 0.94));
+      // Fades in 0.87 → 0.93, then HOLDS fully visible through to
+      // 1.00 so the visitor has ~50vh of read time before the
+      // sticky releases.
+      const contentT = smooth(norm(p, 0.87, 0.93));
       if (Math.abs(contentT - lastContentT) > 0.005) {
         content.style.opacity = String(contentT);
         content.style.transform = `translate3d(0, ${lerp(24, 0, contentT).toFixed(2)}px, 0)`;
