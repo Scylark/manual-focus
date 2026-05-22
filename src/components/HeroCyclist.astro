@@ -32,7 +32,7 @@ const {
   texture = '/images/hero-cyclist.webp',
   depthMap = '/images/hero-cyclist-depth.png',
   fallbackImage = '/images/hero-cyclist.jpg',
-  strength = 0.10,
+  strength = 0.15,
   autoplay = true,
 } = Astro.props;
 
@@ -182,7 +182,7 @@ const fallbackUrl = url(fallbackImage);
 
     const textureUrl = section.dataset.texture!;
     const depthUrl = section.dataset.depth!;
-    const strength = parseFloat(section.dataset.strength || '0.10');
+    const strength = parseFloat(section.dataset.strength || '0.15');
     const autoplay = section.dataset.autoplay === 'true';
 
     // Renderer.
@@ -215,59 +215,58 @@ const fallbackUrl = url(fallbackImage);
     // into a relief surface.
     const geometry = new THREE.PlaneGeometry(1, 1, 200, 200);
 
-    const material = new THREE.ShaderMaterial({
-      uniforms: {
-        uTexture: { value: null as THREE.Texture | null },
-        uDepth: { value: null as THREE.Texture | null },
-        uStrength: { value: strength },
-      },
-      vertexShader: /* glsl */ `
-        uniform sampler2D uDepth;
-        uniform float uStrength;
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          // Depth 0..1 — brighter = closer (per spec). Push the vertex
-          // toward the camera (+z in Three.js space) so foreground
-          // points actually move forward in the scene.
-          float d = texture2D(uDepth, uv).r;
-          vec3 displaced = position;
-          displaced.z += d * uStrength;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(displaced, 1.0);
-        }
-      `,
-      fragmentShader: /* glsl */ `
-        precision highp float;
-        uniform sampler2D uTexture;
-        varying vec2 vUv;
-        void main() {
-          // Texture is stored as sRGB but sampled as raw bytes (because
-          // colorSpace = NoColorSpace above). Decode to linear here so
-          // the renderer's outputColorSpace = sRGB encodes it back
-          // correctly on canvas write. Without this, the result is
-          // double-gamma'd and reads as a dark, desaturated, purple-cast
-          // version of the source.
-          vec4 col = texture2D(uTexture, vUv);
-          col.rgb = pow(col.rgb, vec3(2.2));
-          gl_FragColor = col;
-        }
-      `,
+    // MeshBasicMaterial with onBeforeCompile is the canonical Three.js
+    // pattern here: the basic material guarantees the rendered output
+    // matches the source colour texture pixel-for-pixel (Three.js handles
+    // the sRGB → linear → sRGB pipeline for built-in materials, which a
+    // custom ShaderMaterial doesn't get automatically), and we inject
+    // depth-driven vertex displacement into the basic shader's vertex
+    // stage so the relief effect still works.
+    const depthUniform = { value: null as THREE.Texture | null };
+    const strengthUniform = { value: strength };
+    const material = new THREE.MeshBasicMaterial({
+      map: null,
     });
+    material.onBeforeCompile = (shader) => {
+      shader.uniforms.uDepth = depthUniform;
+      shader.uniforms.uStrength = strengthUniform;
+      // Add our uniforms + a vertex displacement after #include <begin_vertex>
+      shader.vertexShader = shader.vertexShader
+        .replace(
+          '#include <common>',
+          `#include <common>
+           uniform sampler2D uDepth;
+           uniform float uStrength;`,
+        )
+        .replace(
+          '#include <begin_vertex>',
+          `#include <begin_vertex>
+           float d = texture2D(uDepth, uv).r;
+           transformed.z += d * uStrength;`,
+        );
+    };
 
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    function configureTexture(t: THREE.Texture, _isColor: boolean) {
-      // NoColorSpace on both textures so we read raw bytes. The colour
-      // shader does manual sRGB→linear, which the renderer then encodes
-      // back to sRGB on output. Trying to rely on Three.js's automatic
-      // colorspace conversion through a ShaderMaterial double-applies
-      // the gamma and produces the dark/purple cast.
-      t.colorSpace = THREE.NoColorSpace;
+    function configureColor(t: THREE.Texture) {
+      // sRGB texture so Three.js's built-in MeshBasicMaterial pipeline
+      // decodes correctly and the canvas output matches the source.
+      t.colorSpace = THREE.SRGBColorSpace;
       t.minFilter = THREE.LinearFilter;
       t.magFilter = THREE.LinearFilter;
       t.generateMipmaps = false;
       t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      t.wrapS = THREE.ClampToEdgeWrapping;
+      t.wrapT = THREE.ClampToEdgeWrapping;
+      t.needsUpdate = true;
+    }
+    function configureDepth(t: THREE.Texture) {
+      // Depth is greyscale data, not a colour — read linearly.
+      t.colorSpace = THREE.NoColorSpace;
+      t.minFilter = THREE.LinearFilter;
+      t.magFilter = THREE.LinearFilter;
+      t.generateMipmaps = false;
       t.wrapS = THREE.ClampToEdgeWrapping;
       t.wrapT = THREE.ClampToEdgeWrapping;
       t.needsUpdate = true;
@@ -293,13 +292,14 @@ const fallbackUrl = url(fallbackImage);
       canvas.style.display = 'none';
     }
     loader.load(textureUrl, (t) => {
-      configureTexture(t, true);
-      material.uniforms.uTexture.value = t;
+      configureColor(t);
+      material.map = t;
+      material.needsUpdate = true;
       onLoad();
     }, undefined, onTexErr);
     loader.load(depthUrl, (t) => {
-      configureTexture(t, false);
-      material.uniforms.uDepth.value = t;
+      configureDepth(t);
+      depthUniform.value = t;
       onLoad();
     }, undefined, onTexErr);
 
@@ -364,17 +364,17 @@ const fallbackUrl = url(fallbackImage);
           // ease so the parallax accelerates into the scroll rather
           // than jerking on the first pixel.
           const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-          // ~8° arc, the conservative end of the spec's 8-15° range —
-          // any more and the lower-strength displacement stops hiding
-          // the polygon stretching at the cyclist's silhouette.
-          const angle = ease * 0.14;
-          const arcX = Math.sin(angle) * 0.32;
-          const arcZ = (1 - Math.cos(angle)) * 0.32;
-          const arcY = -ease * 0.05;
-          // Autoplay micro-drift — small enough that the cyclist
-          // breathes against the cliff without warping at peak.
-          const driftX = autoplay ? Math.sin(t * 0.30) * 0.022 : 0;
-          const driftY = autoplay ? Math.cos(t * 0.23) * 0.013 : 0;
+          // ~10° arc — comfortably inside the spec's 8-15° range, where
+          // the parallax reads as a clear drone-pass without exposing
+          // displaced-polygon stretching at the cyclist's silhouette.
+          const angle = ease * 0.18;
+          const arcX = Math.sin(angle) * 0.36;
+          const arcZ = (1 - Math.cos(angle)) * 0.36;
+          const arcY = -ease * 0.06;
+          // Autoplay micro-drift — gentle breathing at rest so the
+          // hero has life before the visitor scrolls.
+          const driftX = autoplay ? Math.sin(t * 0.30) * 0.030 : 0;
+          const driftY = autoplay ? Math.cos(t * 0.23) * 0.018 : 0;
           camera.position.x = arcX + driftX;
           camera.position.y = arcY + driftY;
           camera.position.z = baseZ - arcZ;
