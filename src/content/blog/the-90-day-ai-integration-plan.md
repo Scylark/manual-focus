@@ -3,6 +3,20 @@ title: "The 90-day AI integration plan for marketing leaders"
 date: 2026-05-28
 tags: ["ai", "fractional-cmo", "leadership"]
 description: "A concrete week-by-week plan for marketing leaders to integrate AI without breaking the team or the brand. No hype, no agentic theatre."
+howToName: "Integrate AI into a marketing function in 90 days"
+howToSteps:
+  - name: "Weeks 1–2: audit current AI usage and the brand voice doc"
+    text: "Survey the team for what's actually being used (sanctioned and shadow), audit the brand voice doc for whether it's operational, and produce a one-page picture of current state and top three pain points."
+  - name: "Weeks 3–4: write the voice prompt and standardise the tool stack"
+    text: "Build an operational brand-voice prompt with positive examples, negative examples and specific bans. Pick one chat model, one research tool, one media-production tool. Kill the unsanctioned shadow stack."
+  - name: "Weeks 5–6: rebuild one workflow end-to-end"
+    text: "Take the biggest drag (usually content production) and rebuild it with AI in the loop properly. The brief is AI-generated and human-edited, the draft is AI-produced against brief and voice, the edit is human, repurposing is AI from the long-form."
+  - name: "Weeks 7–8: roll the workflow pattern to a second function"
+    text: "Apply the same defined-inputs, AI-production, human-decisions, defined-outputs pattern to a second workflow — reporting, campaign briefs, ad creative or social repurposing."
+  - name: "Weeks 9–10: build the weekly measurement loop"
+    text: "One dashboard, one source of truth, weekly cadence. Each piece tagged by workflow, topic and format. The model summarises what's working, the senior person makes the call on what to adjust."
+  - name: "Weeks 11–12: hold the team conversation"
+    text: "Run a one-hour session — not a strategy presentation, a conversation. What's working, what's not, where the team is nervous. Be explicit that AI magnifies the senior marketing problem, it doesn't reduce it."
 ---
 
 If you're a CMO or marketing leader and your team is using ChatGPT inconsistently, you don't have an AI strategy, you have AI usage. Those are different things, and the gap between them is where most marketing functions are quietly losing ground right now.

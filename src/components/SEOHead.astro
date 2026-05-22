@@ -4,6 +4,11 @@ interface BreadcrumbItem {
   url: string;
 }
 
+interface HowToStep {
+  name: string;
+  text: string;
+}
+
 interface Props {
   type: 'website' | 'article' | 'faq' | 'profile' | 'service';
   title: string;
@@ -14,6 +19,8 @@ interface Props {
   image?: string;
   faqItems?: { question: string; answer: string }[];
   breadcrumbs?: BreadcrumbItem[];
+  howToName?: string;
+  howToSteps?: HowToStep[];
 }
 
 const {
@@ -26,6 +33,8 @@ const {
   image,
   faqItems,
   breadcrumbs,
+  howToName,
+  howToSteps,
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
@@ -235,6 +244,25 @@ const breadcrumbSchema =
         })),
       }
     : null;
+
+// HowTo schema — emitted when an article supplies steps. Makes the post
+// rich-result eligible for "how to" queries.
+const howToSchema =
+  howToSteps && howToSteps.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: howToName ?? title,
+        description,
+        inLanguage: 'en-GB',
+        step: howToSteps.map((s, i) => ({
+          '@type': 'HowToStep',
+          position: i + 1,
+          name: s.name,
+          text: s.text,
+        })),
+      }
+    : null;
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
@@ -244,3 +272,4 @@ const breadcrumbSchema =
 {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 {serviceSchemas && serviceSchemas.map(s => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+{howToSchema && <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}

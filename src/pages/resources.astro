@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+import { url } from '../utils/paths';
+
+const resources = [
+  {
+    title: 'SEO audit skill',
+    file: '/downloads/seo-audit-skill.md',
+    bytes: 9526,
+    format: 'SKILL.md',
+    description:
+      'The skill we use to run end-to-end SEO audits. Keyword research, on-page issues, content gaps, technical checklist, competitor comparison, and a prioritised action plan with quick wins and strategic investments. Drop into Claude Code as a slash command, or paste into any LLM as a prompt.',
+    article: '/blog/seo-playbook-premium-endurance-brands',
+    articleLabel: 'Read the SEO playbook for premium endurance brands',
+  },
+];
+---
+<Base title="Resources — Free downloads from Manual Focus" description="Free, no-email-required downloads from Manual Focus. The actual skills, prompts and playbooks our team uses with clients.">
+  <SEOHead slot="seo" type="website" title="Resources — Free downloads from Manual Focus" description="Free, no-email-required downloads from Manual Focus. The actual skills, prompts and playbooks our team uses with clients." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Resources', url: '/resources' }]} />
+
+  <section class="section">
+    <div class="container reveal">
+      <div class="eyebrow">RESOURCES</div>
+      <h1>Take the playbook.</h1>
+      <p class="lead">Free, no email gate, no signup. The actual skills, prompts and playbooks we use with clients. If running them yourself works, great. If you want a hand, you know where we are.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="resource-grid">
+        {resources.map(r => (
+          <article class="resource-card">
+            <div class="resource-meta mono">{r.format} · {(r.bytes / 1024).toFixed(1)} KB</div>
+            <h2 class="resource-title">{r.title}</h2>
+            <p class="resource-desc">{r.description}</p>
+            <div class="resource-actions">
+              <a href={url(r.file)} class="btn-cta" download>Download</a>
+              {r.article && (
+                <a href={url(r.article)} class="btn-ghost">{r.articleLabel}</a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>More on the way</h2>
+      <p class="lead">Brand-voice prompt, content brief template, fractional-CMO 30-60-90, paid-creative QA checklist — all on the build list. Drop us a note via <a href={url('/enquire')}>the enquiry form</a> if you want a specific playbook first.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    max-width: var(--max-width-prose);
+    margin-top: var(--space-md);
+  }
+  .lead a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .resource-card {
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+  }
+  .resource-meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+  }
+  .resource-title {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.05;
+    margin-bottom: var(--space-sm);
+  }
+  .resource-desc {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: 1.55;
+    max-width: 60ch;
+    margin-bottom: var(--space-md);
+  }
+  .resource-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+</style>

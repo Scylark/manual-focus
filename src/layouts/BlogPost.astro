@@ -4,15 +4,20 @@ import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
 import { getCollection } from 'astro:content';
 
+interface HowToStep { name: string; text: string }
+
 interface Props {
   title: string;
   description: string;
   date: Date;
+  updated?: Date;
   tags: string[];
   image?: string;
+  howToName?: string;
+  howToSteps?: HowToStep[];
 }
 
-const { title, description, date, tags, image } = Astro.props;
+const { title, description, date, updated, tags, image, howToName, howToSteps } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
 const breadcrumbs = [
@@ -40,7 +45,7 @@ const related = allPosts
   .map(x => x.post);
 ---
 <Base title={title} description={description} ogImage={image}>
-  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} tags={tags} image={image} breadcrumbs={breadcrumbs} />
+  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} />
 
   <article class="section">
     <div class="container prose">

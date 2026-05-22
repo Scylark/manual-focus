@@ -20,9 +20,17 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
     tags: z.array(z.enum(ALLOWED_TAGS)).min(1),
     description: z.string().max(160),
     image: z.string().optional(),
+    // Optional HowTo schema steps for step-by-step articles. When set,
+    // SEOHead emits HowTo structured data for rich-result eligibility.
+    howToName: z.string().optional(),
+    howToSteps: z.array(z.object({
+      name: z.string(),
+      text: z.string(),
+    })).optional(),
   }),
 });
 
