@@ -1,86 +1,89 @@
 ---
 /**
- * HeroCyclist — scroll-driven image sequence hero, drawn to a canvas.
+ * HeroCyclist — scroll-driven graphic hero.
  *
- * Switching the visible <img>'s src on scroll causes a brief flash on
- * every browser because JPGs aren't decoded until they're actually
- * rendered — fast scrolling hides this, slow scrolling exposes it.
+ * The cyclist image fought against scroll-scrub because Midjourney
+ * composed it for a static frame. The site is graphic-led anyway, so
+ * the hero is now built from the brand's own visual language — the
+ * Manual Focus interlocking rings — scaled massive and scroll-
+ * choreographed into a wordmark reveal.
  *
- * The canonical fix (used by Apple's product pages) is a <canvas>:
- * decode each frame once with img.decode(), then on scroll just
- * drawImage() the matching frame. Canvas drawing is a synchronous
- * pixel blit, no decode-on-display step, no swap flash.
+ * Choreography across 0..1 scroll progress through the section:
+ *  0.00 → 0.40: rings huge + centred, spinning slowly, breathing
+ *  0.40 → 0.60: rings scale up, rotate faster, separate vertically
+ *  0.55 → 0.75: rings fade out as the MANUAL FOCUS wordmark fades in
+ *  0.70 → 0.90: wordmark settles, hero copy fades in beneath it
+ *  0.90 → 1.00: wordmark shrinks to the final eyebrow position
  *
- * Build-time: extract every 5th frame from hero-cyclist.mp4 at
- * 1280×720 JPG → /images/hero-frames/frame-001.jpg ... frame-060.jpg.
- *   ffmpeg -i hero-cyclist.mp4 -vf "select=not(mod(n\,5)),scale=1280:720" \
- *          -vsync vfr -q:v 4 hero-frames/frame-%03d.jpg
- *
- * Mobile + reduced-motion render the first frame and skip the
- * scroll-scrub loop entirely.
+ * Mobile + reduced-motion: holds the final frame (wordmark resting,
+ * hero copy visible). No scroll-scrub.
  */
-import { url } from '../utils/paths';
-
-interface Props {
-  framesDir?: string;
-  frameCount?: number;
-  fallbackImage?: string;
-}
-
-const {
-  framesDir = '/images/hero-frames',
-  frameCount = 60,
-  fallbackImage = '/images/hero-cyclist.jpg',
-} = Astro.props;
-
-const fallbackUrl = url(fallbackImage);
-const framesDirUrl = url(framesDir);
-const firstFrameUrl = url(`${framesDir}/frame-001.jpg`);
 ---
-<section
-  class="hero-cyclist"
-  data-hero-cyclist
-  data-frames-dir={framesDirUrl}
-  data-frame-count={String(frameCount)}
->
-  <div class="hero-cyclist-sticky">
-    <!-- Poster image for first paint + reduced-motion + mobile.
-         JS hides this once the canvas is rendering. -->
-    <img
-      class="hero-cyclist-poster"
-      src={firstFrameUrl}
-      alt=""
+<section class="hero-scroll" data-hero-scroll>
+  <div class="hero-scroll-sticky">
+    <!-- Two interlocking rings, scaled massive. SVG so they stay
+         razor-sharp at any size and we get a real stroke gradient. -->
+    <svg
+      class="hero-rings"
+      viewBox="-10 -50 110 240"
+      preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    />
-    <canvas
-      class="hero-cyclist-canvas"
-      aria-hidden="true"
-      data-fallback={fallbackUrl}
-    ></canvas>
+      data-rings
+    >
+      <defs>
+        <linearGradient id="hero-ring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--color-cta-start)" />
+          <stop offset="50%" stop-color="var(--color-cta-mid)" />
+          <stop offset="100%" stop-color="var(--color-cta-end)" />
+        </linearGradient>
+      </defs>
+      <circle
+        class="hero-ring hero-ring-top"
+        cx="45" cy="45" r="42"
+        fill="none"
+        stroke="url(#hero-ring-gradient)"
+        stroke-width="5.86"
+        stroke-miterlimit="10"
+      />
+      <circle
+        class="hero-ring hero-ring-bot"
+        cx="45" cy="93" r="42"
+        fill="none"
+        stroke="url(#hero-ring-gradient)"
+        stroke-width="5.86"
+        stroke-miterlimit="10"
+      />
+    </svg>
 
-    <div class="hero-cyclist-overlay" aria-hidden="true"></div>
+    <!-- Wordmark that reveals as the rings break apart. Centred at
+         the resting position, scroll choreographs the transform. -->
+    <div class="hero-wordmark" data-wordmark aria-hidden="true">
+      <span class="hero-wordmark-line">MANUAL</span>
+      <span class="hero-wordmark-line">FOCUS</span>
+    </div>
 
-    <div class="hero-cyclist-content">
+    <!-- Slot for the actual hero copy (eyebrow, headline, CTAs).
+         Fades in once the wordmark has resolved. -->
+    <div class="hero-content" data-content>
       <slot />
     </div>
   </div>
 </section>
 
 <style>
-  .hero-cyclist {
+  .hero-scroll {
     position: relative;
     width: 100%;
-    /* ~260vh of section gives ~160vh of pinned scroll distance for
-       the canvas scrub. */
-    height: 260vh;
-    background: #1a1612;
+    /* Generous scroll runway so the choreography has room to play
+       out — about 3 viewport-heights of scroll distance, ~2 of which
+       are usefully animated (the rest is the sticky's release). */
+    height: 320vh;
+    background: var(--color-bg);
     isolation: isolate;
+    overflow: clip;
   }
 
-  .hero-cyclist-sticky {
+  .hero-scroll-sticky {
     position: sticky;
     top: 0;
     width: 100%;
@@ -89,95 +92,116 @@ const firstFrameUrl = url(`${framesDir}/frame-001.jpg`);
     overflow: hidden;
   }
 
-  .hero-cyclist-poster,
-  .hero-cyclist-canvas {
+  /* MASSIVE rings — width and height set so the SVG box dominates the
+     viewport. The viewBox is set up to centre the ring pair around
+     (45, 69) in viewBox units, which we offset with transform-origin
+     so transforms rotate / scale around the visual centre. */
+  .hero-rings {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  .hero-cyclist-poster {
-    object-fit: cover;
-    object-position: 65% center;
-    z-index: 0;
-  }
-
-  .hero-cyclist-canvas {
+    margin: auto;
+    width: min(160vh, 100vw);
+    height: min(160vh, 100vw);
+    /* Set initially — JS overrides via the animation loop. */
+    transform: translateZ(0) scale(1) rotate(0deg);
+    transform-origin: 50% 50%;
+    will-change: transform, opacity;
     z-index: 1;
-    /* Hidden until the canvas pipeline is up and rendering frames.
-       JS flips this to visible once the first drawImage lands. */
-    visibility: hidden;
   }
 
-  .hero-cyclist[data-canvas-ready="true"] .hero-cyclist-canvas {
-    visibility: visible;
-  }
-  .hero-cyclist[data-canvas-ready="true"] .hero-cyclist-poster {
-    visibility: hidden;
+  .hero-ring {
+    /* Slight inner highlight pulse — gives the rings a sense of
+       presence even when static. */
+    filter: drop-shadow(0 8px 32px var(--color-cta-mid));
   }
 
-  .hero-cyclist-overlay {
+  .hero-wordmark {
     position: absolute;
     inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.2rem, 1vh, 0.6rem);
     z-index: 2;
+    opacity: 0;
     pointer-events: none;
-    background:
-      linear-gradient(to right,
-        rgba(15, 12, 8, 0.62) 0%,
-        rgba(15, 12, 8, 0.30) 38%,
-        rgba(15, 12, 8, 0.0) 60%),
-      linear-gradient(to bottom,
-        rgba(15, 12, 8, 0.35) 0%,
-        rgba(15, 12, 8, 0.0) 22%,
-        rgba(15, 12, 8, 0.0) 70%,
-        rgba(15, 12, 8, 0.35) 100%);
+    will-change: opacity, transform;
+    transform: translateZ(0) scale(0.7);
+    transform-origin: 50% 50%;
   }
 
-  .hero-cyclist-content {
-    position: relative;
+  .hero-wordmark-line {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(4rem, 18vw, 16rem);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Faint glow behind the type so the gradient pops against the
+       background even before the rings fade out. */
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.08));
+  }
+
+  .hero-content {
+    position: absolute;
+    inset: 0;
     z-index: 3;
     width: 100%;
     max-width: var(--max-width);
     margin-inline: auto;
-    height: 100%;
     display: flex;
     align-items: center;
     padding-inline: var(--space-md);
     padding-block: clamp(4rem, 9vh, 6.5rem);
-    color: #f6f0e8;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity, transform;
+    transform: translate3d(0, 24px, 0);
   }
 
-  .hero-cyclist-content > :global(*) {
+  .hero-content > :global(*) {
     width: 100%;
     max-width: 58%;
   }
+
   @media (max-width: 1024px) {
-    .hero-cyclist-content > :global(*) { max-width: 72%; }
+    .hero-content > :global(*) { max-width: 72%; }
   }
 
-  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
-    .hero-cyclist { height: 100svh; min-height: 560px; }
-    .hero-cyclist-sticky { position: relative; height: 100%; }
-    .hero-cyclist-content > :global(*) { max-width: 100%; }
-    .hero-cyclist-overlay {
-      background:
-        linear-gradient(to bottom,
-          rgba(15, 12, 8, 0.55) 0%,
-          rgba(15, 12, 8, 0.20) 35%,
-          rgba(15, 12, 8, 0.45) 80%,
-          rgba(15, 12, 8, 0.65) 100%);
+  /* Mobile + reduced-motion: skip the scrolly animation. Section
+     becomes a normal 100svh height, all three layers render in their
+     final state. */
+  @media (max-width: 768px), (hover: none) and (pointer: coarse), (prefers-reduced-motion: reduce) {
+    .hero-scroll { height: 100svh; min-height: 560px; }
+    .hero-scroll-sticky { position: relative; height: 100%; }
+    .hero-rings {
+      width: min(80vh, 60vw);
+      transform: scale(0.6) translate(0, -30%);
+      opacity: 0.5;
     }
+    .hero-wordmark { display: none; }
+    .hero-content {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+    .hero-content > :global(*) { max-width: 100%; }
   }
 </style>
 
 <script>
   function initHero() {
-    const section = document.querySelector<HTMLElement>('[data-hero-cyclist]');
+    const section = document.querySelector<HTMLElement>('[data-hero-scroll]');
     if (!section) return;
-    const canvas = section.querySelector<HTMLCanvasElement>('.hero-cyclist-canvas');
-    if (!canvas) return;
+    const rings = section.querySelector<HTMLElement>('[data-rings]');
+    const wordmark = section.querySelector<HTMLElement>('[data-wordmark]');
+    const content = section.querySelector<HTMLElement>('[data-content]');
+    if (!rings || !wordmark || !content) return;
 
     const skipScrub =
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
@@ -185,81 +209,7 @@ const firstFrameUrl = url(`${framesDir}/frame-001.jpg`);
       window.matchMedia('(hover: none) and (pointer: coarse)').matches;
     if (skipScrub) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const framesDir = section.dataset.framesDir!;
-    const frameCount = parseInt(section.dataset.frameCount || '60', 10);
-
-    // Load + DECODE every frame. img.decode() is the bit that fixes
-    // the flash on swap — it forces the browser to do the JPG decode
-    // ahead of time, so drawImage just blits already-decoded pixels.
-    const frames: HTMLImageElement[] = [];
-    let loadedCount = 0;
-    const promises: Promise<void>[] = [];
-    for (let i = 1; i <= frameCount; i++) {
-      const n = String(i).padStart(3, '0');
-      const img = new Image();
-      img.src = `${framesDir}/frame-${n}.jpg`;
-      frames.push(img);
-      promises.push(
-        (img.decode ? img.decode() : new Promise((r) => {
-          if (img.complete) r(undefined);
-          else img.addEventListener('load', () => r(undefined), { once: true });
-        }))
-          .catch(() => {})
-          .then(() => {
-            loadedCount++;
-          }),
-      );
-    }
-
-    // Canvas sizing — backing-store resolution matches CSS box × DPR
-    // so the rendered output isn't blurry on retina displays.
-    function sizeCanvas() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-      if (w <= 0 || h <= 0) return;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-    }
-    const ro = new ResizeObserver(sizeCanvas);
-    ro.observe(canvas);
-
-    // CSS object-fit:cover + object-position:65% center, recreated in
-    // drawImage with a source rect. Picks which slice of the frame to
-    // blit so the canvas fills with no letterboxing and the rider
-    // stays roughly where the poster has him.
-    function drawCover(img: HTMLImageElement) {
-      const cw = canvas.width;
-      const ch = canvas.height;
-      if (cw <= 0 || ch <= 0) return;
-      const iw = img.naturalWidth || img.width;
-      const ih = img.naturalHeight || img.height;
-      if (iw <= 0 || ih <= 0) return;
-
-      const canvasA = cw / ch;
-      const imageA = iw / ih;
-      let sx: number, sy: number, sw: number, sh: number;
-      if (canvasA > imageA) {
-        // Canvas wider than image — fill width, crop top/bottom.
-        sw = iw;
-        sh = iw / canvasA;
-        sx = 0;
-        sy = (ih - sh) * 0.5;
-      } else {
-        // Canvas taller than image — fill height, crop sides. Bias
-        // toward x=0.65 to match the IMG's object-position.
-        sh = ih;
-        sw = ih * canvasA;
-        sx = (iw - sw) * 0.65;
-        sy = 0;
-      }
-      ctx!.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
-    }
-
-    // Track scroll progress.
+    // Scroll progress 0..1 across the sticky-pinned distance.
     let scrollProgress = 0;
     function updateScroll() {
       const rect = section.getBoundingClientRect();
@@ -276,31 +226,67 @@ const firstFrameUrl = url(`${framesDir}/frame-001.jpg`);
       inView = entry.isIntersecting;
     }, { threshold: 0 }).observe(section);
 
-    // Wait for ALL frames to decode before showing the canvas — that
-    // way the first paint is a complete, smooth scrub-ready hero.
-    // Until then the poster image stays visible.
-    Promise.all(promises).then(() => {
-      sizeCanvas();
-      drawCover(frames[0]);
-      section.dataset.canvasReady = 'true';
-      // Start RAF loop.
-      let lastFrame = -1;
-      function loop() {
-        requestAnimationFrame(loop);
-        if (!inView) return;
-        const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-        const idx = Math.min(frameCount - 1, Math.floor(ease * frameCount));
-        if (idx !== lastFrame) {
-          drawCover(frames[idx]);
-          lastFrame = idx;
-        }
-      }
-      requestAnimationFrame(loop);
-    });
+    /** Linear interpolation between a..b across t in [0, 1]. */
+    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+    /** Maps src in [srcMin, srcMax] to [0, 1], clamped. */
+    const norm = (src: number, srcMin: number, srcMax: number) =>
+      Math.max(0, Math.min(1, (src - srcMin) / (srcMax - srcMin)));
+    /** Smoothstep — eases the 0..1 input on a cubic curve. */
+    const smooth = (t: number) => t * t * (3 - 2 * t);
 
-    window.addEventListener('pagehide', () => {
-      ro.disconnect();
-    });
+    // Idle drift timestamp — adds a tiny constant rotation so the
+    // rings have life on first paint, before any scroll.
+    let startTime = performance.now();
+
+    function frame(now: number) {
+      requestAnimationFrame(frame);
+      if (!inView) return;
+
+      const p = scrollProgress;
+      const t = (now - startTime) / 1000;
+
+      // ── Rings ──────────────────────────────────────────────────
+      // Phase A (0.00..0.55): present, scaling slightly up, rotating
+      // Phase B (0.40..0.70): scale up further + rotate faster + fade
+      // Idle drift: a constant slow rotation on top of the scroll one.
+      const ringIdleRot = t * 8; // 8 deg/s baseline rotation
+      const ringScrollRot = p * 540; // 1.5 full turns by end
+      const ringRotation = ringIdleRot + ringScrollRot;
+      const ringScale = lerp(1.0, 2.4, smooth(p));
+      const ringSeparate = lerp(0, 60, smooth(norm(p, 0.35, 0.7))); // viewBox-units of vertical spread
+      const ringOpacity = 1 - smooth(norm(p, 0.40, 0.65));
+
+      rings.style.transform = `translateZ(0) scale(${ringScale.toFixed(3)}) rotate(${ringRotation.toFixed(2)}deg)`;
+      rings.style.opacity = String(ringOpacity);
+      // Separate the two circles by repositioning them along Y.
+      const top = rings.querySelector<SVGCircleElement>('.hero-ring-top');
+      const bot = rings.querySelector<SVGCircleElement>('.hero-ring-bot');
+      if (top && bot) {
+        top.setAttribute('cy', String(45 - ringSeparate));
+        bot.setAttribute('cy', String(93 + ringSeparate));
+      }
+
+      // ── Wordmark ──────────────────────────────────────────────
+      // Fades in over 0.45..0.70, settles at full size 0.70..0.85,
+      // then gently shrinks + fades 0.85..1.00 to make way for the
+      // hero copy.
+      const wordFadeIn = smooth(norm(p, 0.45, 0.70));
+      const wordFadeOut = smooth(norm(p, 0.85, 1.00));
+      const wordOpacity = wordFadeIn * (1 - wordFadeOut);
+      const wordScale = lerp(0.7, 1.0, wordFadeIn) * lerp(1.0, 0.55, wordFadeOut);
+      const wordTranslateY = lerp(40, 0, wordFadeIn) - lerp(0, 40, wordFadeOut);
+
+      wordmark.style.opacity = String(wordOpacity);
+      wordmark.style.transform = `translate3d(0, ${wordTranslateY.toFixed(2)}px, 0) scale(${wordScale.toFixed(3)})`;
+
+      // ── Hero content ──────────────────────────────────────────
+      // Fades + slides up across 0.80..1.00.
+      const contentT = smooth(norm(p, 0.80, 1.0));
+      content.style.opacity = String(contentT);
+      content.style.transform = `translate3d(0, ${lerp(24, 0, contentT).toFixed(2)}px, 0)`;
+      content.style.pointerEvents = contentT > 0.5 ? 'auto' : 'none';
+    }
+    requestAnimationFrame(frame);
   }
 
   if (document.readyState === 'loading') {
