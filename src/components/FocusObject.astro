@@ -6,8 +6,8 @@ interface Props {
   tiltZ?: number;
   spin?: number;          // continuous rotation period (s). Negative for reverse.
   scrollSpin?: number;    // deg per 1000px scrolled
-  hueA?: string;          // e.g. '#FF2D78' — used in stack-color gradient
-  hueB?: string;          // e.g. '#00E5FF'
+  hueA?: string;          // e.g. '#C45A2C' — terracotta sunrise (default)
+  hueB?: string;          // e.g. '#7CA89A' — soft sage / dawn cyan
   thickness?: number;     // physical extrusion depth in px
   slices?: number;        // number of ring layers per ring
   opacity?: number;
@@ -22,8 +22,8 @@ const {
   tiltZ = 0,
   spin = 90,
   scrollSpin = 60,
-  hueA = '#FF2D78',
-  hueB = '#00E5FF',
+  hueA = '#C45A2C',
+  hueB = '#7CA89A',
   thickness = 50,
   slices = 28,
   opacity = 1,
@@ -102,7 +102,7 @@ function lerpHex(a: string, b: string, t: number) {
     transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
     opacity: 0;
-    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.55));
+    filter: drop-shadow(0 12px 24px rgba(26, 22, 18, 0.18));
   }
 
   /* Entrance offset (cleared by .has-entered) */
@@ -173,7 +173,7 @@ function lerpHex(a: string, b: string, t: number) {
 
   /* Highlight + shadow on the front and back of the stack */
   .ring3d__slice:first-child {
-    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4) inset;
+    box-shadow: 0 0 18px rgba(26, 22, 18, 0.18) inset;
   }
   .ring3d__slice:last-child {
     box-shadow: 0 0 16px rgba(255, 255, 255, 0.10);

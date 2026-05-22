@@ -19,10 +19,12 @@ const {
 } = Astro.props;
 
 const id = `spray-${Math.random().toString(36).slice(2, 9)}`;
+// Natural endurance palette — terracotta sunrise + dawn sage as the two
+// named accents, gradient walks across the same palette as --color-cta-gradient.
 const fill = color === 'pink'
-  ? '#FF2D78'
+  ? '#C45A2C'
   : color === 'cyan'
-  ? '#00E5FF'
+  ? '#7CA89A'
   : `url(#${id}-grad)`;
 ---
 <svg
@@ -36,9 +38,9 @@ const fill = color === 'pink'
 >
   <defs>
     <linearGradient id={`${id}-grad`} x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF2D78" />
-      <stop offset="50%" stop-color="#C026D3" />
-      <stop offset="100%" stop-color="#00E5FF" />
+      <stop offset="0%" stop-color="#C45A2C" />
+      <stop offset="50%" stop-color="#D89B3F" />
+      <stop offset="100%" stop-color="#7CA89A" />
     </linearGradient>
     <filter id={`${id}-spray`} x="-20%" y="-20%" width="140%" height="140%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>

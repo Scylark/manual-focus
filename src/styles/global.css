@@ -1,24 +1,31 @@
 /* ============================================
    Manual Focus — Design Tokens & Base Styles
-   Dark, bold, scroll-driven
+   Premium endurance — natural light, warm contrast,
+   Moebius-adjacent illustration palette.
    ============================================ */
 
 /* --- Tokens --- */
 :root {
-  /* Colours */
-  --color-bg: #0A0A0B;
-  --color-bg-alt: #111114;
-  --color-surface: #16161B;
-  --color-text: #F2EDE6;
-  --color-text-secondary: #8C8780;
-  --color-text-muted: #4A4845;
-  --color-line: rgba(242, 237, 230, 0.08);
-  --color-cta-start: #FF2D78;
-  --color-cta-mid: #C026D3;
-  --color-cta-end: #00E5FF;
+  /* Colours
+     Background sits on a warm bone/cream like the sky in the Moebius
+     reference, never pure white. Text is a warm near-black with no blue
+     in it so it reads as ink on paper rather than neon on glass. The
+     accent gradient walks across natural-light tones — terracotta sunrise
+     to soft amber to a believable dawn cyan — so it carries the same
+     "first light over the ridge" feel a gravel ride starts with. */
+  --color-bg: #F1EBE0;
+  --color-bg-alt: #E7DECF;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1612;
+  --color-text-secondary: #5F574A;
+  --color-text-muted: #9B9180;
+  --color-line: rgba(26, 22, 18, 0.10);
+  --color-cta-start: #C45A2C;
+  --color-cta-mid: #D89B3F;
+  --color-cta-end: #7CA89A;
   --color-cta-gradient: linear-gradient(135deg, var(--color-cta-start), var(--color-cta-mid) 50%, var(--color-cta-end));
-  --color-spray-pink: rgba(255, 45, 120, 0.85);
-  --color-spray-cyan: rgba(0, 229, 255, 0.85);
+  --color-spray-pink: rgba(196, 90, 44, 0.85);
+  --color-spray-cyan: rgba(124, 168, 154, 0.85);
 
   /* Typography */
   --font-display: 'Anton', 'Bebas Neue', 'Arial Narrow', sans-serif;

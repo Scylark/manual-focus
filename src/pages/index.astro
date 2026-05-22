@@ -18,7 +18,7 @@ const posts = (await getCollection('blog'))
   <section class="hero">
     <!-- 3D focus objects scattered -->
     <FocusObject size={380} tiltX={62} tiltY={-15} spin={90} scrollSpin={120} style="top: 8vh; right: 4vw;" />
-    <FocusObject size={200} tiltX={50} tiltY={22} tiltZ={-12} spin={-110} scrollSpin={-180} hueA="#00E5FF" hueB="#FF2D78" style="bottom: 14vh; right: 24vw;" enterFrom="left" />
+    <FocusObject size={200} tiltX={50} tiltY={22} tiltZ={-12} spin={-110} scrollSpin={-180} hueA="#7CA89A" hueB="#C45A2C" style="bottom: 14vh; right: 24vw;" enterFrom="left" />
 
     <div class="container hero-inner">
       <div class="hero-eyebrow">
@@ -87,7 +87,7 @@ const posts = (await getCollection('blog'))
 
   <!-- PROBLEM -->
   <section class="section problem-section">
-    <FocusObject size={320} tiltX={70} tiltY={25} spin={140} scrollSpin={90} hueA="#FF2D78" hueB="#C026D3" style="top: 6%; right: 4%;" enterFrom="right" />
+    <FocusObject size={320} tiltX={70} tiltY={25} spin={140} scrollSpin={90} hueA="#C45A2C" hueB="#D89B3F" style="top: 6%; right: 4%;" enterFrom="right" />
 
     <div class="container">
       <div class="eyebrow">001 · THE PROBLEM</div>
@@ -113,7 +113,7 @@ const posts = (await getCollection('blog'))
 
   <!-- THREE WAYS TO WORK TOGETHER -->
   <section class="section ways-section">
-    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} hueA="#FF2D78" hueB="#00E5FF" style="top: 6%; right: 3%;" enterFrom="right" />
+    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} hueA="#C45A2C" hueB="#7CA89A" style="top: 6%; right: 3%;" enterFrom="right" />
 
     <div class="container">
       <div class="eyebrow">002 · HOW WE WORK TOGETHER</div>
@@ -240,7 +240,7 @@ const posts = (await getCollection('blog'))
 
   <!-- STATS -->
   <section class="section stats-section section-alt">
-    <FocusObject size={240} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} hueA="#00E5FF" hueB="#FF2D78" style="top: 8%; right: 4%;" enterFrom="left" />
+    <FocusObject size={240} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} hueA="#7CA89A" hueB="#C45A2C" style="top: 8%; right: 4%;" enterFrom="left" />
 
     <div class="container">
       <div class="eyebrow">004 · WHAT IT'S WORTH</div>
@@ -352,7 +352,7 @@ const posts = (await getCollection('blog'))
   <!-- CTA CLOSE -->
   <section class="section cta-close">
     <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -100px; left: -120px;" enterFrom="left" />
-    <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} hueA="#00E5FF" hueB="#FF2D78" style="bottom: -80px; right: -60px;" enterFrom="right" />
+    <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} hueA="#7CA89A" hueB="#C45A2C" style="bottom: -80px; right: -60px;" enterFrom="right" />
 
     <div class="container cta-close-inner">
       <h2 class="cta-headline reveal">
@@ -633,7 +633,8 @@ const posts = (await getCollection('blog'))
     line-height: 0.88;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    color: #f6f0e8;
+    /* Deep ink front face reads cleanly on the cream backdrop. */
+    color: #1A1612;
     margin: 0;
     transform-style: preserve-3d;
     /* Scale builds from 0.72 (off in the distance) up to 1.05 (right in your
@@ -659,36 +660,38 @@ const posts = (await getCollection('blog'))
     transform: translateY(80px) rotateX(-90deg);
     transform-origin: 50% 100% -20px;
     backface-visibility: hidden;
-    /* Deep extrusion: 24 layers stepping into shadow, with edge highlight
-       on the front face and a diffused ground shadow at the base. */
+    /* Deep extrusion: 18 layers walking from a terracotta sunrise edge into
+       a deep cocoa shadow, then atmospheric softening, then a warm-dark
+       ground shadow. Moebius-adjacent comic depth — single hue family,
+       saturated front edge, fading to ink. */
     text-shadow:
-      /* Top-left edge highlight on the front face */
-      -1px -1px 0 rgba(255, 255, 255, 0.18),
-      /* Extruded depth — 24 layers, pink fading to deep purple-black */
-      1px 1px 0 #e02862,
-      2px 2px 0 #d2255b,
-      3px 3px 0 #c52255,
-      4px 4px 0 #b81f4e,
-      5px 5px 0 #ab1c47,
-      6px 6px 0 #9e1941,
-      7px 7px 0 #91163a,
-      8px 8px 0 #841333,
-      9px 9px 0 #77102d,
-      10px 10px 0 #6a0d26,
-      11px 11px 0 #5d0a20,
-      12px 12px 0 #500819,
-      13px 13px 0 #430613,
-      14px 14px 0 #36040d,
-      15px 15px 0 #290208,
-      16px 16px 0 #1c0104,
-      17px 17px 0 #100002,
-      18px 18px 0 #060001,
-      /* Atmospheric blur on the deepest layers */
-      19px 19px 1px rgba(0, 0, 0, 0.9),
-      20px 20px 2px rgba(0, 0, 0, 0.85),
-      22px 22px 6px rgba(0, 0, 0, 0.7),
+      /* Edge highlight catching the morning light on the front face */
+      -1px -1px 0 rgba(255, 255, 255, 0.35),
+      /* Extruded depth — terracotta sunrise fading into deep cocoa */
+      1px 1px 0 #C45A2C,
+      2px 2px 0 #B85429,
+      3px 3px 0 #AC4E26,
+      4px 4px 0 #9F4823,
+      5px 5px 0 #934220,
+      6px 6px 0 #863B1C,
+      7px 7px 0 #793519,
+      8px 8px 0 #6C2F16,
+      9px 9px 0 #5F2913,
+      10px 10px 0 #532410,
+      11px 11px 0 #461E0D,
+      12px 12px 0 #39190B,
+      13px 13px 0 #2D1408,
+      14px 14px 0 #221006,
+      15px 15px 0 #170B04,
+      16px 16px 0 #0E0702,
+      17px 17px 0 #060301,
+      18px 18px 0 #020100,
+      /* Atmospheric blur on the deepest layers — warm dark, not cool black */
+      19px 19px 1px rgba(22, 12, 6, 0.85),
+      20px 20px 2px rgba(22, 12, 6, 0.75),
+      22px 22px 6px rgba(22, 12, 6, 0.55),
       /* Diffuse ground shadow */
-      26px 36px 50px rgba(0, 0, 0, 0.85);
+      26px 36px 50px rgba(22, 12, 6, 0.4);
     transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: calc(var(--i) * 0.08s);
@@ -839,7 +842,7 @@ const posts = (await getCollection('blog'))
     padding: var(--space-md);
     border: 1px solid var(--color-line);
     border-radius: 4px;
-    background: rgba(10, 10, 11, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(6px);
     overflow: hidden;
     transition: border-color 0.3s ease, transform 0.3s ease;
