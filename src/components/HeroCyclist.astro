@@ -75,9 +75,10 @@
     position: relative;
     width: 100%;
     /* Generous scroll runway so the choreography has room to play
-       out — about 3 viewport-heights of scroll distance, ~2 of which
-       are usefully animated (the rest is the sticky's release). */
-    height: 320vh;
+       out, plus a deliberate "hold" phase on the wordmark — about 4
+       viewport-heights of scroll distance, ~3 of which are usefully
+       animated (the rest is the sticky's release at the end). */
+    height: 400vh;
     background: var(--color-bg);
     isolation: isolate;
     overflow: clip;
@@ -267,11 +268,12 @@
       }
 
       // ── Wordmark ──────────────────────────────────────────────
-      // Fades in over 0.45..0.70, settles at full size 0.70..0.85,
-      // then gently shrinks + fades 0.85..1.00 to make way for the
-      // hero copy.
-      const wordFadeIn = smooth(norm(p, 0.45, 0.70));
-      const wordFadeOut = smooth(norm(p, 0.85, 1.00));
+      // Fades in 0.45..0.65, HOLDS at full size 0.65..0.92 (the
+      // deliberate dwell — about a third of the total scroll
+       // progress, ~80vh of scroll distance), then gently shrinks
+      // + fades 0.92..1.00 to make way for the hero copy.
+      const wordFadeIn = smooth(norm(p, 0.45, 0.65));
+      const wordFadeOut = smooth(norm(p, 0.92, 1.00));
       const wordOpacity = wordFadeIn * (1 - wordFadeOut);
       const wordScale = lerp(0.7, 1.0, wordFadeIn) * lerp(1.0, 0.55, wordFadeOut);
       const wordTranslateY = lerp(40, 0, wordFadeIn) - lerp(0, 40, wordFadeOut);
@@ -280,8 +282,9 @@
       wordmark.style.transform = `translate3d(0, ${wordTranslateY.toFixed(2)}px, 0) scale(${wordScale.toFixed(3)})`;
 
       // ── Hero content ──────────────────────────────────────────
-      // Fades + slides up across 0.80..1.00.
-      const contentT = smooth(norm(p, 0.80, 1.0));
+      // Fades + slides up across 0.90..1.00 — quick hand-off at the
+      // end, while the wordmark is still finishing its fade-out.
+      const contentT = smooth(norm(p, 0.90, 1.0));
       content.style.opacity = String(contentT);
       content.style.transform = `translate3d(0, ${lerp(24, 0, contentT).toFixed(2)}px, 0)`;
       content.style.pointerEvents = contentT > 0.5 ? 'auto' : 'none';
