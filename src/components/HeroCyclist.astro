@@ -197,10 +197,12 @@
      smaller ring base size so it fits a narrower viewport. */
   @media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .hero-scroll {
-      /* 560vh on mobile — proportionally shorter than desktop's
-         800vh since each vh is a smaller absolute distance on a
-         phone, but still gives the dwell time needed. */
-      height: 560vh;
+      /* 400vh on mobile. Each thumb-swipe on a phone covers more
+         viewport-relative distance than a desktop scroll wheel, so
+         a shorter section gives equivalent dwell-feel without
+         tiring the visitor. The proportions still put a full ~1
+         viewport-height of scroll on the MANUAL FOCUS hold phase. */
+      height: 400vh;
     }
     .hero-scroll-sticky {
       min-height: 560px;

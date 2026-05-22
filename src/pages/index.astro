@@ -1350,9 +1350,11 @@ const posts = (await getCollection('blog'))
   }
   @media (max-width: 768px) {
     .manifesto-stage { height: 70vh; }
-    /* Mobile: 140vh per pledge keeps the dwell substantial without
-       feeling like padding on a phone. */
-    .manifesto-spacer { height: 140vh; }
+    /* Mobile: 100vh per pledge — each pledge gets a viewport-height
+       of scroll, with the active read window being ~40vh of that.
+       Substantial dwell, still ~5 viewport-heights total for the
+       whole manifesto so the visitor isn't swiping forever. */
+    .manifesto-spacer { height: 100vh; }
     .manifesto-text { font-size: clamp(2rem, 11vw, 4rem); }
     .manifesto-line-final .manifesto-text { font-size: clamp(1.25rem, 5vw, 2rem); }
   }
@@ -1476,11 +1478,22 @@ const posts = (await getCollection('blog'))
   }
   .dwell-pin-stage > .container { width: 100%; }
   @media (max-width: 768px) {
-    .dwell-pin { min-height: auto; }
+    /* On mobile the dwell-pin pattern reverts to a normal section —
+       sticky-pinned sections would add too much scroll distance for a
+       phone, where each swipe is more effort than a desktop wheel
+       tick. The content still gets the scroll-driven reveal as it
+       enters the viewport, just without the pinned hold. */
+    .section.dwell-pin,
+    .dwell-pin {
+      min-height: 0;
+      padding-block: var(--space-xl);
+    }
     .dwell-pin-stage {
       position: relative;
-      min-height: auto;
-      padding-block: var(--space-xl);
+      top: auto;
+      min-height: 0;
+      display: block;
+      padding-block: 0;
     }
   }
 
