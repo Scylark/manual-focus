@@ -32,20 +32,22 @@ const videoUrl = url(video);
 const fallbackUrl = url(fallbackImage);
 ---
 <section class="hero-cyclist" data-hero-cyclist>
-  <video
-    class="hero-cyclist-video"
-    src={videoUrl}
-    poster={fallbackUrl}
-    muted
-    playsinline
-    preload="auto"
-    aria-hidden="true"
-  ></video>
+  <div class="hero-cyclist-sticky">
+    <video
+      class="hero-cyclist-video"
+      src={videoUrl}
+      poster={fallbackUrl}
+      muted
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    ></video>
 
-  <div class="hero-cyclist-overlay" aria-hidden="true"></div>
+    <div class="hero-cyclist-overlay" aria-hidden="true"></div>
 
-  <div class="hero-cyclist-content">
-    <slot />
+    <div class="hero-cyclist-content">
+      <slot />
+    </div>
   </div>
 </section>
 
@@ -53,11 +55,22 @@ const fallbackUrl = url(fallbackImage);
   .hero-cyclist {
     position: relative;
     width: 100%;
+    /* Section is taller than the viewport so there's actual scroll
+       distance to drive the parallax through. The inner .sticky
+       child pins to the viewport while this scrolls under it,
+       turning every pixel of scroll into a pixel of progress. */
+    height: 260vh;
+    background: #1a1612;
+    isolation: isolate;
+  }
+
+  .hero-cyclist-sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
     height: 100svh;
     min-height: 640px;
     overflow: hidden;
-    background: #1a1612;
-    isolation: isolate;
   }
 
   .hero-cyclist-video {
@@ -153,13 +166,16 @@ const fallbackUrl = url(fallbackImage);
     });
 
     // Map the section's scroll position to a 0..1 progress value.
-    // 0 when the section top is at the viewport top, 1 when the
-    // section's bottom edge hits the viewport top.
+    // The .sticky child stays pinned to the viewport while the
+    // section scrolls underneath it — useful progress is therefore
+    // the section's scroll distance MINUS the viewport height,
+    // because that's how far the sticky stays pinned. After that
+    // the sticky releases and the hero ends.
     function updateScroll() {
       const rect = section.getBoundingClientRect();
-      const span = rect.height;
+      const usefulSpan = Math.max(1, rect.height - window.innerHeight);
       const scrolled = -rect.top;
-      scrollProgress = Math.max(0, Math.min(1, scrolled / span));
+      scrollProgress = Math.max(0, Math.min(1, scrolled / usefulSpan));
       lastInteraction = performance.now();
       // First user scroll cancels the idle drift permanently — the
       // scroll position is now the source of truth.
