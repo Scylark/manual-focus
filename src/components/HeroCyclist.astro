@@ -25,9 +25,10 @@ interface Props {
   depthMap?: string;
   fallbackImage?: string;
   /**
-   * Max UV offset depth multiplier. 0.06 ≈ 6% UV shift between
-   * foreground and background at full scroll — a visible drone-pass
-   * read without sampling outside the image bounds.
+   * Depth multiplier for the parallax shift. 0.12 gives ≈12% UV
+   * separation between foreground (cyclist) and background (sky) at
+   * full scroll — a clearly visible drone-pass read. Bounded by the
+   * shader's MAX_SHIFT inset so the lookup never leaves the image.
    */
   strength?: number;
   /** Idle camera oscillation on top of the scroll-driven arc. */
@@ -38,7 +39,7 @@ const {
   texture = '/images/hero-cyclist.webp',
   depthMap = '/images/hero-cyclist-depth.png',
   fallbackImage = '/images/hero-cyclist.jpg',
-  strength = 0.06,
+  strength = 0.18,
   autoplay = true,
 } = Astro.props;
 
@@ -205,7 +206,7 @@ const fallbackUrl = url(fallbackImage);
 
     const textureUrl = section.dataset.texture!;
     const depthUrl = section.dataset.depth!;
-    const strength = parseFloat(section.dataset.strength || '0.06');
+    const strength = parseFloat(section.dataset.strength || '0.18');
     const autoplay = section.dataset.autoplay === 'true';
 
     let renderer: THREE.WebGLRenderer;
@@ -285,8 +286,10 @@ const fallbackUrl = url(fallbackImage);
         void main() {
           // Inset the sampling region by MAX_SHIFT on every side so the
           // parallax offset never pushes the texture lookup outside the
-          // image bounds (which would smear the clamped edge).
-          const float MAX_SHIFT = 0.04;
+          // image bounds (which would smear the clamped edge). Sized
+          // to fit max parallax of strength=0.18 × depth=0.5 × offset≈0.85
+          // ≈ 0.076 with a small safety margin.
+          const float MAX_SHIFT = 0.08;
           vec2 baseUv = cover(vUv);
           baseUv = baseUv * (1.0 - 2.0 * MAX_SHIFT) + vec2(MAX_SHIFT);
 
@@ -337,16 +340,24 @@ const fallbackUrl = url(fallbackImage);
         });
       });
     }
+    function onTexErr() {
+      // If either texture fails to load via WebGL (rare, usually a
+      // browser-specific WebP decode issue) the IMG fallback is already
+      // on screen, so we just hide the canvas and leave the IMG in place
+      // rather than swapping in a broken layer.
+      const c = section.querySelector<HTMLElement>('.hero-cyclist-canvas');
+      if (c) c.style.display = 'none';
+    }
     loader.load(textureUrl, (t) => {
       configureTexture(t, true);
       material.uniforms.uTexture.value = t;
       onLoad();
-    });
+    }, undefined, onTexErr);
     loader.load(depthUrl, (t) => {
       configureTexture(t, false);
       material.uniforms.uDepth.value = t;
       onLoad();
-    });
+    }, undefined, onTexErr);
 
     function fitCanvas() {
       const w = canvas.clientWidth;
@@ -380,16 +391,19 @@ const fallbackUrl = url(fallbackImage);
       function frame(now: number) {
         if (inView) {
           const t = now / 1000;
-          // Scroll-driven offset: as the visitor scrolls down through
-          // the hero the camera arcs right and dips slightly. uOffset
-          // ranges 0..1 over the full scroll span, giving a max
-          // depth-weighted shift of strength * 0.5 ≈ 3% UV.
+          // Scroll-driven offset: as the visitor scrolls through the
+          // hero the virtual camera arcs right and dips down. Smoothstep
+          // ease so the parallax accelerates into the scroll rather
+          // than jerking on the first pixel.
           const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-          const scrollX = ease * 1.0;
-          const scrollY = ease * -0.4;
-          // Autoplay micro-drift: gentle breathing on top of scroll.
-          const driftX = autoplay ? Math.sin(t * 0.32) * 0.18 : 0;
-          const driftY = autoplay ? Math.cos(t * 0.24) * 0.10 : 0;
+          const scrollX = ease * 0.50;
+          const scrollY = ease * -0.30;
+          // Autoplay micro-drift: heavier than the scroll-driven shift so
+          // the depth read is obvious at rest, before the visitor scrolls.
+          // Two slightly different periods so X and Y don't trace a simple
+          // ellipse and feel motorised.
+          const driftX = autoplay ? Math.sin(t * 0.32) * 0.35 : 0;
+          const driftY = autoplay ? Math.cos(t * 0.23) * 0.20 : 0;
           material.uniforms.uOffset.value.set(scrollX + driftX, scrollY + driftY);
           renderer.render(scene, camera);
         }
