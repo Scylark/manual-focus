@@ -174,10 +174,32 @@
     .hero-content > :global(*) { max-width: 72%; }
   }
 
-  /* Mobile + reduced-motion: skip the scrolly animation. Section
-     becomes a normal 100svh height, all three layers render in their
-     final state. */
-  @media (max-width: 768px), (hover: none) and (pointer: coarse), (prefers-reduced-motion: reduce) {
+  /* Mobile: keep the scrolly animation — CSS transforms + a JS
+     scroll listener handle touch fine — but shorter section height so
+     the scroll-dwell doesn't feel like padding on a phone, and
+     smaller ring base size so it fits a narrower viewport. */
+  @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .hero-scroll {
+      /* 280vh = ~180vh of useful animation on mobile, vs 300vh on
+         desktop. Shorter because mobile scroll-distance feels longer
+         (smaller viewport = more wheel/swipe motion per vh). */
+      height: 280vh;
+    }
+    .hero-scroll-sticky {
+      min-height: 560px;
+    }
+    .hero-rings {
+      width: min(100vh, 90vw);
+      height: min(100vh, 90vw);
+    }
+    .hero-content {
+      padding-block: clamp(3rem, 8vh, 5rem);
+    }
+    .hero-content > :global(*) { max-width: 100%; }
+  }
+
+  /* Reduced-motion: hold the resting state, no scroll animation. */
+  @media (prefers-reduced-motion: reduce) {
     .hero-scroll { height: 100svh; min-height: 560px; }
     .hero-scroll-sticky { position: relative; height: 100%; }
     .hero-rings {
@@ -204,11 +226,10 @@
     const content = section.querySelector<HTMLElement>('[data-content]');
     if (!rings || !wordmark || !content) return;
 
-    const skipScrub =
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      window.matchMedia('(max-width: 768px)').matches ||
-      window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-    if (skipScrub) return;
+    // Only bail on reduced-motion. The CSS-transform animation
+    // performs well on mobile — Safari and Android Chrome both
+    // batch RAF efficiently against touch scroll events.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     // Scroll progress 0..1 across the sticky-pinned distance.
     let scrollProgress = 0;
