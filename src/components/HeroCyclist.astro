@@ -100,15 +100,17 @@ const fallbackUrl = url(fallbackImage);
     /* Bias toward the rider on the right so cropping eats the empty
        sky on the left rather than the subject. */
     object-position: 65% center;
-    transition: opacity 0.5s ease 0.1s;
   }
   .hero-cyclist-canvas {
     z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    /* Hidden until WebGL renders its first frame so we never see a
+       partial/blank canvas. No fade — IMG and canvas swap instantly so
+       the parallax-shifted canvas never composites over the static IMG
+       (which would double the rider during the fade window). */
+    visibility: hidden;
   }
-  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-canvas { opacity: 1; }
-  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { opacity: 0; }
+  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-canvas { visibility: visible; }
+  .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { visibility: hidden; }
 
   .hero-cyclist-overlay {
     position: absolute;
@@ -174,7 +176,7 @@ const fallbackUrl = url(fallbackImage);
   /* Skip WebGL on reduced-motion and mobile. IMG stays visible. */
   @media (prefers-reduced-motion: reduce), (max-width: 768px) {
     .hero-cyclist-canvas { display: none; }
-    .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { opacity: 1; }
+    .hero-cyclist[data-webgl-ready="true"] .hero-cyclist-img { visibility: visible; }
   }
 </style>
 
