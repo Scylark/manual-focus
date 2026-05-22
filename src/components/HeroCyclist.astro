@@ -32,7 +32,7 @@ const {
   texture = '/images/hero-cyclist.webp',
   depthMap = '/images/hero-cyclist-depth.png',
   fallbackImage = '/images/hero-cyclist.jpg',
-  strength = 0.30,
+  strength = 0.10,
   autoplay = true,
 } = Astro.props;
 
@@ -182,7 +182,7 @@ const fallbackUrl = url(fallbackImage);
 
     const textureUrl = section.dataset.texture!;
     const depthUrl = section.dataset.depth!;
-    const strength = parseFloat(section.dataset.strength || '0.30');
+    const strength = parseFloat(section.dataset.strength || '0.10');
     const autoplay = section.dataset.autoplay === 'true';
 
     // Renderer.
@@ -241,7 +241,15 @@ const fallbackUrl = url(fallbackImage);
         uniform sampler2D uTexture;
         varying vec2 vUv;
         void main() {
-          gl_FragColor = texture2D(uTexture, vUv);
+          // Texture is stored as sRGB but sampled as raw bytes (because
+          // colorSpace = NoColorSpace above). Decode to linear here so
+          // the renderer's outputColorSpace = sRGB encodes it back
+          // correctly on canvas write. Without this, the result is
+          // double-gamma'd and reads as a dark, desaturated, purple-cast
+          // version of the source.
+          vec4 col = texture2D(uTexture, vUv);
+          col.rgb = pow(col.rgb, vec3(2.2));
+          gl_FragColor = col;
         }
       `,
     });
@@ -249,8 +257,13 @@ const fallbackUrl = url(fallbackImage);
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    function configureTexture(t: THREE.Texture, isColor: boolean) {
-      t.colorSpace = isColor ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+    function configureTexture(t: THREE.Texture, _isColor: boolean) {
+      // NoColorSpace on both textures so we read raw bytes. The colour
+      // shader does manual sRGB→linear, which the renderer then encodes
+      // back to sRGB on output. Trying to rely on Three.js's automatic
+      // colorspace conversion through a ShaderMaterial double-applies
+      // the gamma and produces the dark/purple cast.
+      t.colorSpace = THREE.NoColorSpace;
       t.minFilter = THREE.LinearFilter;
       t.magFilter = THREE.LinearFilter;
       t.generateMipmaps = false;
@@ -351,14 +364,17 @@ const fallbackUrl = url(fallbackImage);
           // ease so the parallax accelerates into the scroll rather
           // than jerking on the first pixel.
           const ease = scrollProgress * scrollProgress * (3 - 2 * scrollProgress);
-          const angle = ease * 0.26;  // ~15°
-          const arcX = Math.sin(angle) * 0.35;
-          const arcZ = (1 - Math.cos(angle)) * 0.35;
-          const arcY = -ease * 0.08;
-          // Autoplay micro-drift — about 1° equivalent oscillation so
-          // the hero breathes before the visitor scrolls.
-          const driftX = autoplay ? Math.sin(t * 0.30) * 0.040 : 0;
-          const driftY = autoplay ? Math.cos(t * 0.23) * 0.025 : 0;
+          // ~8° arc, the conservative end of the spec's 8-15° range —
+          // any more and the lower-strength displacement stops hiding
+          // the polygon stretching at the cyclist's silhouette.
+          const angle = ease * 0.14;
+          const arcX = Math.sin(angle) * 0.32;
+          const arcZ = (1 - Math.cos(angle)) * 0.32;
+          const arcY = -ease * 0.05;
+          // Autoplay micro-drift — small enough that the cyclist
+          // breathes against the cliff without warping at peak.
+          const driftX = autoplay ? Math.sin(t * 0.30) * 0.022 : 0;
+          const driftY = autoplay ? Math.cos(t * 0.23) * 0.013 : 0;
           camera.position.x = arcX + driftX;
           camera.position.y = arcY + driftY;
           camera.position.z = baseZ - arcZ;
