@@ -1491,6 +1491,33 @@ const posts = (await getCollection('blog'))
   }
 
   /* ============================
+     INTERMEDIATE — tablet portrait/landscape and small laptops
+     (769–1024px). Previously the site had a hard cut at 768px:
+     below = mobile rules, above = full desktop layout. That left
+     iPads and 13" laptops getting desktop type sizes calibrated for
+     a 1440+ canvas, which read oversized in the smaller viewport.
+     This band tightens type and gutters without flipping to the
+     mobile layout (sticky dwell-pin etc. still works in this band).
+     ============================ */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero-headline { font-size: clamp(2.5rem, 6vw, 4rem); }
+    .big-statement { font-size: clamp(2.25rem, 6vw, 3.5rem); }
+    .stats-headline { font-size: clamp(2rem, 5.5vw, 3rem); }
+    .logos-headline { font-size: clamp(1.75rem, 4.5vw, 2.5rem); }
+    .cta-headline { font-size: clamp(2rem, 5.5vw, 3.25rem); }
+    .forge-headline { font-size: clamp(2rem, 5vw, 3rem); }
+    .way-product-headline { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+
+    /* Tighter section gutters so content doesn't hug edge-padding
+       designed for a 1280+ canvas. */
+    .container { padding-inline: var(--space-md); }
+
+    /* Way-cards stay 3-column but with tighter padding so the cards
+       don't feel stretched on a narrower viewport. */
+    .way-card { padding: var(--space-md); }
+  }
+
+  /* ============================
      DWELL-PIN — sections that should hold the visitor's eye briefly
      as they scroll past. Same pattern as the hero and manifesto:
      the section is tall, the content inside is sticky-pinned at the
@@ -1519,9 +1546,15 @@ const posts = (await getCollection('blog'))
   .dwell-pin::after {
     content: "";
     display: block;
-    /* 220vh on desktop = the dwell-pin pin duration, matching the
-       wordmark hold the user said felt right. */
-    height: 220vh;
+    /* 100vh on desktop = the dwell-pin pin duration. Previously 220vh
+       which felt right on the hero (where the wordmark visibly
+       animates through phases) but read as "broken page" on the
+       middle-of-page sections where content is mostly static during
+       the pin — the scrollbar moves, the visible content doesn't, a
+       first-time visitor reads that as the page hanging. 100vh keeps
+       the felt pause but limits the disconnect to about one wheel
+       flick before the section releases. */
+    height: 100vh;
     background: inherit;
   }
   .dwell-pin-stage {

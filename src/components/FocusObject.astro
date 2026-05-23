@@ -59,7 +59,7 @@ const hueOverride = [
 ---
 <div
   class={`focus-object focus-object--${enterFrom} ${className}`}
-  style={`width: ${size}px; height: ${size}px; --tiltX: ${tiltX}deg; --tiltY: ${tiltY}deg; --tiltZ: ${tiltZ}deg; --spinDur: ${spinDur}s; --spinDir: ${spinDir}; --scrollSpin: ${scrollSpin}; --enter-opacity: ${opacity}; ${hueOverride} ${style}`}
+  style={`--fo-size: ${size}px; --tiltX: ${tiltX}deg; --tiltY: ${tiltY}deg; --tiltZ: ${tiltZ}deg; --spinDur: ${spinDur}s; --spinDir: ${spinDir}; --scrollSpin: ${scrollSpin}; --enter-opacity: ${opacity}; ${hueOverride} ${style}`}
   data-scroll-spin={scrollSpin}
   aria-hidden="true"
 >
@@ -98,27 +98,38 @@ const hueOverride = [
                 transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
     opacity: 0;
     filter: drop-shadow(0 12px 24px var(--ring-shadow, rgba(26, 22, 18, 0.18)));
+    /* Aspect-ratio locked, vmin-driven sizing. --fo-size is the
+       desktop-intent maximum (passed via the size prop). Width
+       resolves to the smaller of: the declared px max, or 40% of
+       the viewport's short side. 40vmin tuned so the typical
+       declared 320px ring renders at exactly 320 on a 1280×800
+       laptop (40 × 8 = 320), respecting the desktop-approved sizing
+       while still scaling DOWN on smaller viewports (≈150px on
+       a 375px phone, ≈307px on an iPad). Square aspect-ratio means
+       height follows width automatically. Replaces the previous
+       fixed-px width/height which didn't adapt at all — a 520px
+       declared ring was the same 520px on a phone, an iPad, and a
+       4K display. */
+    width: min(var(--fo-size, 320px), 40vmin);
+    aspect-ratio: 1;
   }
 
-  /* Mobile: keep the full 28-slice depth so the rings still read as
-     overlapping 3D circles, but cap their box size so the bigger
-     declared sizes (320, 360, 520) don't render as sliced fragments
-     when section overflow:hidden clips most of an oversized ring.
-     45vw / 45vw gives each ring a max of ~170px on a 375px viewport
-     while preserving its declared aspect ratio. The internal 3D
-     rotation and slice geometry scale proportionally. */
+  /* Mobile: drop the drop-shadow filter (the expensive paint op on
+     a per-scroll-frame basis), and zero the enterFrom translateX
+     so .focus-object--left/right don't sit 100px past the section
+     edge while waiting for .has-entered. Mobile Safari doesn't
+     reliably clip 3D-transformed children even with body
+     overflow-x:hidden — that was the source of the sideways-drag
+     on vertical scroll. translateY-only entrance still gives the
+     fade-up feel without the horizontal bleed.
+
+     Sizing is handled at the top-level rule via min(--fo-size,
+     28vmin) so there's no per-breakpoint sizing override needed
+     here. */
   @media (max-width: 768px) {
     .focus-object {
       filter: none;
-      max-width: 45vw !important;
-      max-height: 45vw !important;
     }
-    /* The enterFrom translateX offsets push rings 100px past the
-       left/right section edge while waiting for the IntersectionObserver
-       to fire. On mobile Safari, body's overflow-x:hidden does NOT
-       reliably clip 3D-transformed children, so this 100px sits in
-       the document width and the user can drag the page sideways.
-       Use translateY-only entrance on mobile — no horizontal bleed. */
     .focus-object--right,
     .focus-object--left  { transform: translate(0, 30px); }
   }
