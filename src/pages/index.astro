@@ -133,6 +133,7 @@ const posts = (await getCollection('blog'))
          scroll through them -->
     <div class="dwell-pin ways-cards-pin">
       <div class="dwell-pin-stage">
+        <FocusObject size={220} tiltX={48} tiltY={-22} spin={170} scrollSpin={-120} style="top: 8%; left: 2%;" enterFrom="left" />
         <div class="container">
           <div class="ways-grid stagger">
             <article class="way-card">
@@ -184,6 +185,7 @@ const posts = (await getCollection('blog'))
     <!-- 2.2 — /04 PRODUCT card, dwell-pinned -->
     <div class="dwell-pin ways-product-pin">
       <div class="dwell-pin-stage">
+        <FocusObject size={260} tiltX={55} tiltY={18} spin={-140} scrollSpin={90} style="top: 6%; right: 3%;" enterFrom="right" />
         <div class="container">
           <article class="way-product reveal">
             <div class="way-product-inner">
@@ -235,6 +237,7 @@ const posts = (await getCollection('blog'))
   <!-- WHY THE AI STAYS SHARP -->
   <section class="section forge-body-section dwell-pin">
     <div class="dwell-pin-stage">
+      <FocusObject size={300} tiltX={62} tiltY={-22} spin={150} scrollSpin={-80} style="top: 8%; left: 4%;" enterFrom="left" />
       <div class="container">
         <div class="eyebrow">003 · WHY THE AI STAYS SHARP</div>
         <h3 class="forge-headline">The <span class="gradient-text">Forge</span> keeps us current.</h3>
@@ -296,6 +299,7 @@ const posts = (await getCollection('blog'))
   <!-- BRAND LOGOS -->
   <section class="section section-alt logos-section dwell-pin">
     <div class="dwell-pin-stage">
+      <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
         <div class="eyebrow">005 · IN THE WILD</div>
         <h2 class="reveal logos-headline">Endurance and sports brands we've shipped with.</h2>
@@ -348,6 +352,7 @@ const posts = (await getCollection('blog'))
   <!-- BLOG / PERSPECTIVE -->
   <section class="section section-alt dwell-pin">
     <div class="dwell-pin-stage">
+      <FocusObject size={320} tiltX={56} tiltY={-15} spin={140} scrollSpin={-120} style="top: 5%; left: 3%;" enterFrom="left" />
       <div class="container">
         <div class="eyebrow">007 · PERSPECTIVE</div>
         <h2 class="reveal">Notes from the work.</h2>
@@ -1553,15 +1558,23 @@ const posts = (await getCollection('blog'))
     background: var(--color-bg-alt, var(--color-bg));
   }
   @media (max-width: 768px) {
-    /* On mobile the dwell-pin pattern reverts to a normal section —
-       sticky-pinned sections would add too much scroll distance for a
-       phone, where each swipe is more effort than a desktop wheel
-       tick. The content still gets the scroll-driven reveal as it
-       enters the viewport, just without the pinned hold. */
-    .section.dwell-pin,
-    .dwell-pin {
+    /* On mobile the dwell-pin pattern reverts to normal flow.
+       Sticky-pinned sections add too much scroll distance for a phone
+       where each swipe is more effort than a desktop wheel tick. */
+
+    /* Section-level dwell-pins keep their natural section padding. */
+    .section.dwell-pin {
       min-height: 0;
       padding-block: var(--space-xl);
+    }
+    /* Sub-block dwell-pins (the ways-section headline/cards/product
+       wrappers) are layout-only on mobile — no padding, since they
+       sit INSIDE a section that already pads itself. Otherwise three
+       stacked dwell-pin wrappers each adding padding-block makes the
+       content feel disjointed and pushed off-centre. */
+    .dwell-pin:not(.section) {
+      min-height: 0;
+      padding-block: 0;
     }
     .dwell-pin-stage {
       position: relative;
@@ -1569,6 +1582,10 @@ const posts = (await getCollection('blog'))
       min-height: 0;
       display: block;
       padding-block: 0;
+      /* Drop the sticky-stage background on mobile — it was creating
+         a visible colour band where the stage met the section. With
+         the section providing its own bg there's no need. */
+      background: transparent;
     }
   }
 
