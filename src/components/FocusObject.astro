@@ -100,13 +100,16 @@ const hueOverride = [
     filter: drop-shadow(0 12px 24px var(--ring-shadow, rgba(26, 22, 18, 0.18)));
   }
 
-  /* Mobile: drop the drop-shadow filter — it re-renders every frame
-     the ring spins, and there are multiple FocusObjects on the page
-     each running an infinite spin. Significant GPU pressure on
-     phones. The rings still read clearly without it. */
+  /* Mobile: hide FocusObjects entirely. They exist to add scroll-
+     driven decoration during the desktop dwell-pin phases — on
+     mobile the dwell-pin is disabled (sections flow normally) so
+     the rings float as ambient decoration on a normal-flow page
+     while costing significant GPU for their 28-slice 3D
+     animation × ~10 instances on the page. Cleaner mobile layout,
+     smoother scroll. */
   @media (max-width: 768px) {
     .focus-object {
-      filter: none;
+      display: none;
     }
   }
 
