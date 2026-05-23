@@ -114,13 +114,22 @@ const posts = (await getCollection('blog'))
   <section class="section ways-section">
     <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 6%; right: 3%;" enterFrom="right" />
 
-    <div class="container">
-      <div class="eyebrow">002 · HOW WE WORK TOGETHER</div>
-      <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-        Three ways to engage.<br/>
-        One product, <span class="gradient-text">fully run by us</span>.
-      </h2>
+    <!-- Headline gets the dwell-pin treatment so the section's key
+         message (Three ways to engage…) anchors and holds while the
+         visitor scrolls into the cards. -->
+    <div class="dwell-pin ways-headline-pin">
+      <div class="dwell-pin-stage">
+        <div class="container">
+          <div class="eyebrow">002 · HOW WE WORK TOGETHER</div>
+          <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+            Three ways to engage.<br/>
+            One product, <span class="gradient-text">fully run by us</span>.
+          </h2>
+        </div>
+      </div>
+    </div>
 
+    <div class="container">
       <div class="ways-grid stagger">
         <article class="way-card">
           <div class="way-num mono">/01 · STRATEGIC ADVISOR</div>
@@ -355,7 +364,7 @@ const posts = (await getCollection('blog'))
     <div class="manifesto-spacer"></div>
     <div class="manifesto-spacer"></div>
     <div class="manifesto-spacer"></div>
-    <div class="manifesto-spacer"></div>
+    <div class="manifesto-spacer manifesto-spacer-final"></div>
   </section>
 
   <!-- CTA CLOSE -->
@@ -949,7 +958,15 @@ const posts = (await getCollection('blog'))
   /* ============================
      THREE WAYS TO WORK TOGETHER
      ============================ */
-  .ways-section { overflow: hidden; position: relative; }
+  /* overflow:visible so the .dwell-pin headline wrapper's sticky
+     stage can engage. FocusObjects in this section have small
+     offsets so they don't visually extend past the section bounds. */
+  .ways-section { overflow: visible; position: relative; }
+  /* Headline-only dwell — shorter pin than full section dwell-pins
+     because we still want the cards below to flow in normally
+     soon after. ~150vh of pin = the headline anchors briefly
+     while you scroll, then releases as the cards approach. */
+  .ways-section .ways-headline-pin.dwell-pin { min-height: 250vh; }
   .ways-grid {
     margin-top: var(--space-lg);
     display: grid;
@@ -1300,11 +1317,16 @@ const posts = (await getCollection('blog'))
     perspective: 1200px;
     perspective-origin: 50% 50%;
   }
-  /* Each spacer drives one pledge's scroll slot. 180vh = each
-     pledge gets ~1.8 viewport-heights of scroll progress, with the
-     active "fully in focus" window being most of that, so the
-     visitor can actually read each line as it lands. */
-  .manifesto-spacer { height: 180vh; }
+  /* Each spacer drives one pledge's scroll slot. 220vh per pledge
+     × 4 pledges, plus an extra trailing spacer for the senior
+     operators line so it gets bonus dwell at the end of the
+     manifesto. Hold zone per pledge ≈ 154vh (~1.5 viewport-heights
+     of pure static dwell) before transitioning to the next. */
+  .manifesto-spacer { height: 220vh; }
+  /* Trailing extra spacer that gives the senior operators line
+     more time on screen — it's the final read of the manifesto,
+     deserves the longest hold. */
+  .manifesto-spacer.manifesto-spacer-final { height: 260vh; }
   /* The outer .manifesto-line is just a centering container for the
      absolutely-positioned slot in the sticky stage. The opacity, transform
      and blur are driven directly from scroll position by JS per frame, so
@@ -1350,11 +1372,10 @@ const posts = (await getCollection('blog'))
   }
   @media (max-width: 768px) {
     .manifesto-stage { height: 70vh; }
-    /* Mobile: 100vh per pledge — each pledge gets a viewport-height
-       of scroll, with the active read window being ~40vh of that.
-       Substantial dwell, still ~5 viewport-heights total for the
-       whole manifesto so the visitor isn't swiping forever. */
-    .manifesto-spacer { height: 100vh; }
+    /* Mobile: 140vh per pledge — substantial dwell without becoming
+       absurd. Final pledge gets 180vh. */
+    .manifesto-spacer { height: 140vh; }
+    .manifesto-spacer.manifesto-spacer-final { height: 180vh; }
     .manifesto-text { font-size: clamp(2rem, 11vw, 4rem); }
     .manifesto-line-final .manifesto-text { font-size: clamp(1.25rem, 5vw, 2rem); }
   }
@@ -1594,30 +1615,38 @@ const posts = (await getCollection('blog'))
         ? Math.max(0, Math.min(1, -rect.top / scrollable))
         : 0;
       manifestoLines.forEach((line, i) => {
-        // slot = -0.5 .. +0.5 across this line's own scroll range.
-        // 0 = centred, sharp. Past ±0.5 means the next/previous line owns it.
+        // slot = where this pledge sits in scroll progress.
+        // slot < -HOLD_BAND: entering from far away
+        // -HOLD_BAND <= slot <= HOLD_BAND: HOLDING at sharp focus,
+        //   no transform, full opacity — true dwell
+        // slot > HOLD_BAND: exiting toward camera
         const slot = progress * total - i - 0.5;
         const clamped = Math.max(-1.2, Math.min(1.2, slot));
-        const abs = Math.abs(clamped);
 
-        // Plateau opacity: each pledge is sharp + at full opacity
-        // across most of its slot, only blurring + fading at the
-        // very edges of the transition to the next/previous line.
-        // Wide plateau = real dwell time to read.
-        const t = Math.max(0, Math.min(1, (abs - 0.38) / 0.17));
-        const opacity = 1 - t * t * (3 - 2 * t);
+        // 70% of each pledge's slot is the hold zone where it sits
+        // sharp + static. 15% on each side is enter/exit transition.
+        const HOLD_BAND = 0.35;
 
-        // Each line flies through 3D space toward and past the camera.
-        // Incoming line (clamped < 0): translateZ negative = far away,
-        // perspective makes it small. Reaches sharp focus at clamped = 0.
-        // Outgoing line (clamped > 0): translateZ positive = past the
-        // screen plane, perspective makes it loom large. The X drift,
-        // rotateX tilt and depth-of-field blur compound the read.
-        const x = -clamped * 60;                 // px gentle drift
-        const z = clamped * 420;                 // px depth fly-through
-        const rotX = clamped * -14;              // deg pitch as it passes
-        const skew = -clamped * 2;               // deg
-        const blur = abs * 14;                   // depth-of-field at extremes
+        // Phase: -1 (far behind) ... 0 (in hold) ... +1 (far past)
+        let phase = 0;
+        if (clamped < -HOLD_BAND) {
+          phase = (clamped + HOLD_BAND) / (1 - HOLD_BAND);
+        } else if (clamped > HOLD_BAND) {
+          phase = (clamped - HOLD_BAND) / (1 - HOLD_BAND);
+        }
+        const absPhase = Math.abs(phase);
+
+        // Opacity holds at 1 through the hold zone, drops smoothly
+        // in the transitions.
+        const opacity = 1 - absPhase * absPhase * (3 - 2 * absPhase);
+
+        // Phase drives ALL motion. During hold (phase=0) every value
+        // is 0 = pledge sits perfectly still at the focal point.
+        const x = -phase * 30;
+        const z = phase * 500;
+        const rotX = phase * -12;
+        const skew = -phase * 1.5;
+        const blur = absPhase * 16;
 
         line.style.opacity = opacity.toFixed(3);
         line.style.transform =
