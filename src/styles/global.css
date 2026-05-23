@@ -144,14 +144,12 @@ html {
   font-size: 100%;
   scroll-behavior: smooth;
   background: var(--color-bg);
-  /* overflow-x:hidden MUST sit on both html and body for mobile.
-     Body alone doesn't stop iOS Safari (and some Android browsers)
-     from letting a touch drag scroll the page sideways when any
-     descendant renders past the viewport edge — and the 3D-rotated
-     FocusObject rings (perspective + rotateX/Y) project visually
-     wider than their declared 320px box, so they push past the
-     right edge unless html itself clips. */
-  overflow-x: hidden;
+  /* DO NOT set overflow-x on html — per CSS spec, setting overflow on
+     one axis to anything other than visible forces the other axis to
+     resolve to auto, which makes html a scroll container. That breaks
+     position:sticky on every dwell-pin descendant and disrupts the
+     page's natural scroll. Horizontal-overflow clipping happens on
+     body and on sections, never on html. */
 }
 
 body {
