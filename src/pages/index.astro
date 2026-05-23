@@ -1464,16 +1464,18 @@ const posts = (await getCollection('blog'))
   .section.dwell-pin,
   .dwell-pin {
     /* Pin range = section height MINUS stage height. With stage at
-       100svh, this 240vh gives ~140vh of pinned dwell — about 1.4
-       viewport-heights of pure pause as the visitor scrolls through.
-       Then 100vh of exit phase where the stage slides up out of
-       view; the section's explicit background below matches the
-       page bg so there's no visible colour gap during that exit.
+       100svh, 320vh gives ~220vh of pinned dwell — matching the
+       MANUAL FOCUS wordmark's hold phase in the hero so every section
+       has the same "scroll wheel keeps moving but content stays put"
+       feel that the user said felt right. FocusObjects inside each
+       stage keep spinning during the pin (design flourishes alive).
+       Then 100vh exit phase; the section's explicit bg matches the
+       page bg so the exit doesn't show a colour gap.
        overflow MUST be visible — many .section variants have an
        overflow:hidden rule to contain absolutely-positioned
        FocusObjects, but that rule on the parent of a sticky child
        kills position:sticky. We clip at the stage level instead. */
-    min-height: 240vh;
+    min-height: 320vh;
     padding-block: 0;
     position: relative;
     background: var(--color-bg);
