@@ -100,15 +100,18 @@ const hueOverride = [
     filter: drop-shadow(0 12px 24px var(--ring-shadow, rgba(26, 22, 18, 0.18)));
   }
 
-  /* Mobile: hide FocusObjects entirely. They exist to add scroll-
-     driven decoration during the desktop dwell-pin phases — on
-     mobile the dwell-pin is disabled (sections flow normally) so
-     the rings float as ambient decoration on a normal-flow page
-     while costing significant GPU for their 28-slice 3D
-     animation × ~10 instances on the page. Cleaner mobile layout,
-     smoother scroll. */
+  /* Mobile: keep the ring visible so each section has a visual
+     marker of scroll progression during the dwell — but only render
+     a handful of slices (instead of the full ~28). That removes the
+     bulk of the 3D-extrusion overhead while leaving enough rings to
+     read as a spinning shape. ~10 FocusObjects × 3 slices/ring × 2
+     rings = 60 composited elements (down from 560), which is back
+     in mobile GPU budget. Drop-shadow stays off. */
   @media (max-width: 768px) {
     .focus-object {
+      filter: none;
+    }
+    .ring3d__slice:nth-child(n+4) {
       display: none;
     }
   }

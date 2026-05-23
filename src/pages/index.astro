@@ -981,11 +981,6 @@ const posts = (await getCollection('blog'))
      stage can engage. FocusObjects in this section have small
      offsets so they don't visually extend past the section bounds. */
   .ways-section { overflow: visible; position: relative; }
-  /* Headline-only dwell — shorter pin than full section dwell-pins
-     because we still want the cards below to flow in normally
-     soon after. ~150vh of pin = the headline anchors briefly
-     while you scroll, then releases as the cards approach. */
-  .ways-section .ways-headline-pin.dwell-pin { min-height: 250vh; }
   .ways-grid {
     margin-top: var(--space-lg);
     display: grid;
@@ -1512,23 +1507,24 @@ const posts = (await getCollection('blog'))
      ============================ */
   .section.dwell-pin,
   .dwell-pin {
-    /* Pin range = section height MINUS stage height. With stage at
-       100svh, 320vh gives ~220vh of pinned dwell — matching the
-       MANUAL FOCUS wordmark's hold phase in the hero so every section
-       has the same "scroll wheel keeps moving but content stays put"
-       feel that the user said felt right. FocusObjects inside each
-       stage keep spinning during the pin (design flourishes alive).
-       Then 100vh exit phase; the section's explicit bg matches the
-       page bg so the exit doesn't show a colour gap.
-       overflow MUST be visible — many .section variants have an
-       overflow:hidden rule to contain absolutely-positioned
-       FocusObjects, but that rule on the parent of a sticky child
-       kills position:sticky. We clip at the stage level instead. */
-    min-height: 320vh;
+    /* Section height = stage's natural height + a trailing pad that
+       provides the pin range. Using a ::after trailer instead of
+       min-height means tall content (like the 3 stacked way-cards
+       on mobile) still gets a consistent dwell-pin range — with
+       min-height alone, when the stage's content exceeded the
+       section min-height, the pin range collapsed to zero. */
     padding-block: 0;
     position: relative;
     background: var(--color-bg);
     overflow: visible;
+  }
+  .dwell-pin::after {
+    content: "";
+    display: block;
+    /* 220vh on desktop = the dwell-pin pin duration, matching the
+       wordmark hold the user said felt right. */
+    height: 220vh;
+    background: inherit;
   }
   .dwell-pin-stage {
     position: sticky;
@@ -1558,25 +1554,15 @@ const posts = (await getCollection('blog'))
     background: var(--color-bg-alt, var(--color-bg));
   }
   @media (max-width: 768px) {
-    /* On mobile the dwell-pin pattern keeps the sticky behaviour but
-       at a shorter total height — each pin gives ~80vh of dwell on
-       a phone, where each swipe covers more viewport-relative
-       distance than a desktop scroll wheel. Now that the
-       FocusObjects don't render on mobile the GPU load is back in
-       budget, so sticky scrolling stays smooth. */
-    .section.dwell-pin,
-    .dwell-pin {
-      min-height: 180vh;
-      padding-block: 0;
-    }
-    /* Sub-block dwell-pins inside a section get slightly shorter
-       so the ways-section's three stacked dwell-pins don't pile up
-       too much total height. */
-    .dwell-pin:not(.section) {
-      min-height: 170vh;
+    /* Mobile pin trailer — shorter than desktop because each thumb
+       swipe covers more viewport-relative distance. 80vh of pin =
+       roughly one swipe of held dwell per section. Works for both
+       short and tall content because the ::after trailer is on top
+       of the stage's natural height. */
+    .dwell-pin::after {
+      height: 80vh;
     }
     .dwell-pin-stage {
-      min-height: 100svh;
       padding-block: var(--space-md);
     }
   }
