@@ -62,6 +62,13 @@ const year = new Date().getFullYear();
     overflow: hidden;
     padding-block: var(--space-md) var(--space-lg);
     container-type: inline-size;
+    /* Flex centring guarantees the wordmark sits dead-centre even when
+       text-align:center fights with white-space:nowrap overflow at narrow
+       viewports — without this the h2 fills the stage width but the
+       nowrap text inside it can pin-left when wider than its container. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .footer-wordmark {
     font-family: var(--font-display);

@@ -1565,6 +1565,30 @@ const posts = (await getCollection('blog'))
     .dwell-pin-stage {
       padding-block: var(--space-md);
     }
+    /* The ways sub-blocks 2.1 (3 stacked cards) and 2.2 (/04 product)
+       stack tall on mobile so the sticky stage itself overflows the
+       viewport. With a short 80vh trailer the perceptible pin period
+       collapses to almost nothing. Bumping the trailer to 200vh gives
+       a clearly-felt freeze after the cards settle at the top of the
+       viewport, matching the dwell rhythm on the simpler top-level
+       sections. */
+    .ways-cards-pin::after,
+    .ways-product-pin::after {
+      height: 200vh;
+    }
+    .ways-headline-pin::after {
+      height: 120vh;
+    }
+    /* Way-cards more compact on mobile so the whole card stack has
+       half a chance of fitting in the pinned stage. Tighter padding
+       and trimmed margins inside each card cut total stack height
+       roughly 30%, which means the pin engages while the cards are
+       still visually anchored at the top of the viewport. */
+    .way-card { padding: var(--space-sm) var(--space-md); }
+    .way-num { margin-bottom: var(--space-sm); }
+    .way-for { margin-bottom: var(--space-sm); }
+    .way-list { margin-bottom: var(--space-sm); }
+    .way-list li { margin-bottom: 0.35rem; }
   }
 
   /* ============================

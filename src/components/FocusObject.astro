@@ -104,15 +104,22 @@ const hueOverride = [
      marker of scroll progression during the dwell — but only render
      a handful of slices (instead of the full ~28). That removes the
      bulk of the 3D-extrusion overhead while leaving enough rings to
-     read as a spinning shape. ~10 FocusObjects × 3 slices/ring × 2
-     rings = 60 composited elements (down from 560), which is back
-     in mobile GPU budget. Drop-shadow stays off. */
+     read as a spinning shape. ~10 FocusObjects × 6 slices/ring × 2
+     rings = 120 composited elements (down from 560), which is back
+     in mobile GPU budget while still letting the spin read clearly.
+     Drop-shadow stays off. */
   @media (max-width: 768px) {
     .focus-object {
       filter: none;
     }
-    .ring3d__slice:nth-child(n+4) {
+    .ring3d__slice:nth-child(n+7) {
       display: none;
+    }
+    /* Thinner stroke so the smaller mobile rings don't look chunky
+       and the remaining slices read as a layered band rather than a
+       solid disc. */
+    .ring3d__slice {
+      border-width: 14px;
     }
   }
 
@@ -226,12 +233,15 @@ const hueOverride = [
     .focus-object--bottom { transform: none; }
   }
 
-  /* Mobile — rings fade back so they sit behind text rather than over it.
-     Inline width/height still drive the box size, but the visual is dimmer
-     so text remains the focal point. */
+  /* Mobile — rings sit behind text but stay clearly visible so the
+     spin reads as a flourish marking scroll progression. Previously
+     0.35 was too faint to register as motion on a phone screen, so
+     the section pin looked static. 0.6 keeps text dominant while
+     letting the spin signal that something IS happening during the
+     dwell. */
   @media (max-width: 768px) {
     .focus-object.has-entered {
-      opacity: calc(var(--enter-opacity, 1) * 0.35);
+      opacity: calc(var(--enter-opacity, 1) * 0.6);
     }
   }
 </style>
