@@ -66,14 +66,23 @@ const year = new Date().getFullYear();
   .footer-wordmark {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2.5rem, 13.5vw, 16rem);
+    /* 12.5vw on the upper edge keeps "MANUAL FOCUS" inside the
+       viewport on every common phone width without needing a
+       media-query bump — at 320px we get ~40px which fits with
+       margin to spare, at 1280px we hit the 16rem ceiling. The
+       previous 13.5vw was pushing the letterforms right to the
+       edge on 380-400px viewports. */
+    font-size: clamp(2.5rem, 12.5vw, 16rem);
     line-height: 0.82;
     letter-spacing: -0.01em;
     color: var(--color-text);
     text-align: center;
     white-space: nowrap;
     margin: 0;
-    padding-inline: var(--space-sm);
+    /* Inner horizontal padding leaves clean breathing room around
+       the wordmark so the gradient-cut letterforms never touch the
+       stage edge. */
+    padding-inline: var(--space-md);
   }
 
   .footer-inner {

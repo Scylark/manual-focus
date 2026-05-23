@@ -129,74 +129,88 @@ const posts = (await getCollection('blog'))
       </div>
     </div>
 
-    <div class="container">
-      <div class="ways-grid stagger">
-        <article class="way-card">
-          <div class="way-num mono">/01 · STRATEGIC ADVISOR</div>
-          <h3>The senior voice in the room</h3>
-          <p class="way-for">For companies with a marketing team but no senior leader running it.</p>
-          <ul class="way-list">
-            <li>Weekly working sessions on what to do next</li>
-            <li>Reviews of work in progress</li>
-            <li>Briefings on the AI tooling worth using, and where it fits your team's workflow</li>
-            <li>Hiring and team-shape advice</li>
-          </ul>
-          <p class="way-shape mono">1–2 days a month. Day rate or monthly retainer.</p>
-          <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
-        </article>
+    <!-- 2.1 — three way-cards, dwell-pinned so they hold while you
+         scroll through them -->
+    <div class="dwell-pin ways-cards-pin">
+      <div class="dwell-pin-stage">
+        <div class="container">
+          <div class="ways-grid stagger">
+            <article class="way-card">
+              <div class="way-num mono">/01 · STRATEGIC ADVISOR</div>
+              <h3>The senior voice in the room</h3>
+              <p class="way-for">For companies with a marketing team but no senior leader running it.</p>
+              <ul class="way-list">
+                <li>Weekly working sessions on what to do next</li>
+                <li>Reviews of work in progress</li>
+                <li>Briefings on the AI tooling worth using, and where it fits your team's workflow</li>
+                <li>Hiring and team-shape advice</li>
+              </ul>
+              <p class="way-shape mono">1–2 days a month. Day rate or monthly retainer.</p>
+              <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
+            </article>
 
-        <article class="way-card way-card-featured">
-          <div class="way-num mono"><span>/02 · FRACTIONAL CMO</span><span class="way-flag">MOST CHOSEN</span></div>
-          <h3>Embedded senior marketer</h3>
-          <p class="way-for">For companies that need senior marketing leadership without a full-time hire.</p>
-          <ul class="way-list">
-            <li>Set the marketing thesis and 90-day plan</li>
-            <li>Lead and grow the existing team</li>
-            <li>Embed AI and emerging tech into the workflows your team already runs</li>
-            <li>Ship key pieces of the plan with that leverage in place</li>
-          </ul>
-          <p class="way-shape mono">1–2 days a week. Three-month minimum.</p>
-          <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
-        </article>
+            <article class="way-card way-card-featured">
+              <div class="way-num mono"><span>/02 · FRACTIONAL CMO</span><span class="way-flag">MOST CHOSEN</span></div>
+              <h3>Embedded senior marketer</h3>
+              <p class="way-for">For companies that need senior marketing leadership without a full-time hire.</p>
+              <ul class="way-list">
+                <li>Set the marketing thesis and 90-day plan</li>
+                <li>Lead and grow the existing team</li>
+                <li>Embed AI and emerging tech into the workflows your team already runs</li>
+                <li>Ship key pieces of the plan with that leverage in place</li>
+              </ul>
+              <p class="way-shape mono">1–2 days a week. Three-month minimum.</p>
+              <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
+            </article>
 
-        <article class="way-card">
-          <div class="way-num mono">/03 · BUILD &amp; HAND OVER</div>
-          <h3>Scoped outcome, shipped fast</h3>
-          <p class="way-for">For companies that know what they need built, and want it shipped fast.</p>
-          <ul class="way-list">
-            <li>Launches, SEO programs, content engines, brand refreshes</li>
-            <li>Headless and rapid web builds on Shopify, BigCommerce, WooCommerce and WordPress</li>
-            <li>AI and emerging tech wired into the build, not bolted on after</li>
-            <li>Handed back with docs and training, fixed scope, fixed timeline, fixed price</li>
-          </ul>
-          <p class="way-shape mono">Project-based. Typical builds: 4–12 weeks.</p>
-          <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
-        </article>
-      </div>
-
-      <!-- /04 PRODUCT — AI workflows we own and run -->
-      <article class="way-product reveal">
-        <div class="way-product-inner">
-          <div class="way-product-head">
-            <div class="way-num mono"><span>/04 · MANUAL FOCUS · AI</span><span class="way-flag way-flag-alt">PRODUCT</span></div>
-            <h3 class="way-product-headline">We run the AI workflows. You get the output.</h3>
-            <p class="way-for way-product-for">For CTOs, CMOs and teams who don't have the bandwidth to keep up with new models, build pipelines or learn another tool every week.</p>
-          </div>
-          <div class="way-product-body">
-            <ul class="way-list way-product-list">
-              <li>Content planning, wireframing and production owned end-to-end by Manual Focus</li>
-              <li>Pipelines maintained, models swapped in as they ship</li>
-              <li>Output delivered on agreed cadence, in your brand, ready to use</li>
-              <li>No internal training, no tool sprawl, no learning curve</li>
-            </ul>
-            <div class="way-product-foot">
-              <p class="way-shape mono">Monthly retainer. Output on cadence.</p>
-              <a href={url('/enquire')} class="btn-cta way-product-cta">Book a working session</a>
-            </div>
+            <article class="way-card">
+              <div class="way-num mono">/03 · BUILD &amp; HAND OVER</div>
+              <h3>Scoped outcome, shipped fast</h3>
+              <p class="way-for">For companies that know what they need built, and want it shipped fast.</p>
+              <ul class="way-list">
+                <li>Launches, SEO programs, content engines, brand refreshes</li>
+                <li>Headless and rapid web builds on Shopify, BigCommerce, WooCommerce and WordPress</li>
+                <li>AI and emerging tech wired into the build, not bolted on after</li>
+                <li>Handed back with docs and training, fixed scope, fixed timeline, fixed price</li>
+              </ul>
+              <p class="way-shape mono">Project-based. Typical builds: 4–12 weeks.</p>
+              <a href={url('/enquire')} class="btn-ghost way-cta">Book a session</a>
+            </article>
           </div>
         </div>
-      </article>
+      </div>
+    </div>
 
+    <!-- 2.2 — /04 PRODUCT card, dwell-pinned -->
+    <div class="dwell-pin ways-product-pin">
+      <div class="dwell-pin-stage">
+        <div class="container">
+          <article class="way-product reveal">
+            <div class="way-product-inner">
+              <div class="way-product-head">
+                <div class="way-num mono"><span>/04 · MANUAL FOCUS · AI</span><span class="way-flag way-flag-alt">PRODUCT</span></div>
+                <h3 class="way-product-headline">We run the AI workflows. You get the output.</h3>
+                <p class="way-for way-product-for">For CTOs, CMOs and teams who don't have the bandwidth to keep up with new models, build pipelines or learn another tool every week.</p>
+              </div>
+              <div class="way-product-body">
+                <ul class="way-list way-product-list">
+                  <li>Content planning, wireframing and production owned end-to-end by Manual Focus</li>
+                  <li>Pipelines maintained, models swapped in as they ship</li>
+                  <li>Output delivered on agreed cadence, in your brand, ready to use</li>
+                  <li>No internal training, no tool sprawl, no learning curve</li>
+                </ul>
+                <div class="way-product-foot">
+                  <p class="way-shape mono">Monthly retainer. Output on cadence.</p>
+                  <a href={url('/enquire')} class="btn-cta way-product-cta">Book a working session</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
       <div class="services-cta reveal">
         <p class="services-note">Across endurance and sports brands, AI, fintech and digital assets. Every engagement starts with a 30-minute working session, free.</p>
         <a href={url('/services')} class="btn-ghost">Read the detail</a>
@@ -1376,8 +1390,17 @@ const posts = (await getCollection('blog'))
        absurd. Final pledge gets 180vh. */
     .manifesto-spacer { height: 140vh; }
     .manifesto-spacer.manifesto-spacer-final { height: 180vh; }
-    .manifesto-text { font-size: clamp(2rem, 11vw, 4rem); }
-    .manifesto-line-final .manifesto-text { font-size: clamp(1.25rem, 5vw, 2rem); }
+    /* Smaller type on mobile so the longer pledges wrap inside the
+       viewport instead of running off the edges. Cap with a max-width
+       in ch units so the eye doesn't have to track too far. */
+    .manifesto-text {
+      font-size: clamp(1.75rem, 9vw, 3rem);
+      max-width: 14ch;
+    }
+    .manifesto-line-final .manifesto-text {
+      font-size: clamp(1.1rem, 4.5vw, 1.75rem);
+      max-width: 22ch;
+    }
   }
 
   /* ============================
