@@ -1555,15 +1555,19 @@ const posts = (await getCollection('blog'))
   }
   @media (max-width: 768px) {
     /* ============================
-       MOBILE — restore normal section flow. This matches the layout
-       from commit f5bfc42 which the user confirmed was smooth on
-       a real phone. No sticky, no trailers, no overflow:hidden on
-       sections (which combined with scroll-driven decoration to
-       trigger repaints). Each .dwell-pin section just gets its
-       natural section padding; sub-block dwell-pins are layout-only
-       since they sit inside a section that already pads itself.
-       Drop the ::after trailer — no sticky to feed it into.
+       MOBILE — normal section flow. Matches f5bfc42 (the smooth
+       baseline) but with FocusObjects visible and EVERY section
+       clipping its content so the absolutely-positioned rings can't
+       leak past the section edges. Body's overflow-x:hidden doesn't
+       reliably clip 3D-transformed children on mobile Safari, so we
+       clip at the section level instead. This is safe because the
+       sections are NOT sticky on mobile — overflow:hidden on a
+       sticky ancestor would break sticky, but here every section
+       is a static block.
        ============================ */
+    .section {
+      overflow: hidden;
+    }
     .section.dwell-pin {
       min-height: 0;
       padding-block: var(--space-xl);
@@ -1583,6 +1587,12 @@ const posts = (await getCollection('blog'))
       padding-block: 0;
       background: transparent;
     }
+    /* CTA close has FocusObjects with negative left/right inline
+       offsets (size 520 at left:-120, size 360 at right:-60) designed
+       to bleed past the section edges on desktop. With section
+       overflow:hidden above, those rings are clipped to the section
+       width on mobile — visible inside the section instead of
+       bleeding past, which is the right call on a phone screen. */
   }
 
   /* ============================

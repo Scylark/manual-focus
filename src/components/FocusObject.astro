@@ -114,6 +114,14 @@ const hueOverride = [
     .ring3d__slice {
       border-width: 14px;
     }
+    /* The enterFrom translateX offsets push rings 100px past the
+       left/right section edge while waiting for the IntersectionObserver
+       to fire. On mobile Safari, body's overflow-x:hidden does NOT
+       reliably clip 3D-transformed children, so this 100px sits in
+       the document width and the user can drag the page sideways.
+       Use translateY-only entrance on mobile — no horizontal bleed. */
+    .focus-object--right,
+    .focus-object--left  { transform: translate(0, 30px); }
   }
 
   /* Entrance offset (cleared by .has-entered) */
