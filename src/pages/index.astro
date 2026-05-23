@@ -1468,11 +1468,16 @@ const posts = (await getCollection('blog'))
        viewport-heights of pure pause as the visitor scrolls through.
        Then 100vh of exit phase where the stage slides up out of
        view; the section's explicit background below matches the
-       page bg so there's no visible colour gap during that exit. */
+       page bg so there's no visible colour gap during that exit.
+       overflow MUST be visible — many .section variants have an
+       overflow:hidden rule to contain absolutely-positioned
+       FocusObjects, but that rule on the parent of a sticky child
+       kills position:sticky. We clip at the stage level instead. */
     min-height: 240vh;
     padding-block: 0;
     position: relative;
     background: var(--color-bg);
+    overflow: visible;
   }
   .dwell-pin-stage {
     position: sticky;
@@ -1487,6 +1492,10 @@ const posts = (await getCollection('blog'))
     padding-block: var(--space-2xl);
     width: 100%;
     background: var(--color-bg);
+    /* Clip FocusObjects + other absolutely-positioned decoration
+       inside the stage instead of on the section (which would break
+       the sticky behaviour). */
+    overflow: hidden;
   }
   .dwell-pin-stage > .container { width: 100%; }
   /* Section variants that have their own background colour need to
