@@ -317,12 +317,13 @@ const currentPath = Astro.url.pathname;
     themeToggle.addEventListener('click', () => {
       const root = document.documentElement;
       const isDark = root.getAttribute('data-theme') === 'dark';
+      // Session-only toggle — Base.astro forces dark on every page load
+      // so we don't persist the choice (no localStorage write). Refreshes
+      // and navigations always return to dark.
       if (isDark) {
         root.removeAttribute('data-theme');
-        try { localStorage.setItem('mf-theme', 'light'); } catch (e) { /* ignore */ }
       } else {
         root.setAttribute('data-theme', 'dark');
-        try { localStorage.setItem('mf-theme', 'dark'); } catch (e) { /* ignore */ }
       }
     });
   }

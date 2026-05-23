@@ -24,21 +24,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <link rel="canonical" href={canonicalUrl} />
 
   {/* Theme bootstrap — runs before the body paints so the right theme is
-      applied without a flash. Reads the visitor's saved preference if they
-      explicitly toggled, otherwise defaults to dark (the brand's primary
-      mode). System prefers-color-scheme is intentionally ignored on first
-      load so the design lands as intended. */}
+      applied without a flash. ALWAYS lands in dark mode on page load —
+      the brand's primary mode — regardless of system prefers-color-scheme
+      or any prior toggle saved to localStorage. The in-page theme toggle
+      still works to switch during a session, but the choice doesn't
+      persist across loads. Dark is the canonical state of this site. */}
   <script is:inline>
-    (function () {
-      try {
-        var saved = localStorage.getItem('mf-theme');
-        var theme = saved === 'light' ? 'light' : 'dark';
-        if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-      } catch (e) {
-        // localStorage blocked — still default to dark
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
+    document.documentElement.setAttribute('data-theme', 'dark');
   </script>
 
   <!-- Favicons -->
