@@ -1558,34 +1558,26 @@ const posts = (await getCollection('blog'))
     background: var(--color-bg-alt, var(--color-bg));
   }
   @media (max-width: 768px) {
-    /* On mobile the dwell-pin pattern reverts to normal flow.
-       Sticky-pinned sections add too much scroll distance for a phone
-       where each swipe is more effort than a desktop wheel tick. */
-
-    /* Section-level dwell-pins keep their natural section padding. */
-    .section.dwell-pin {
-      min-height: 0;
-      padding-block: var(--space-xl);
-    }
-    /* Sub-block dwell-pins (the ways-section headline/cards/product
-       wrappers) are layout-only on mobile — no padding, since they
-       sit INSIDE a section that already pads itself. Otherwise three
-       stacked dwell-pin wrappers each adding padding-block makes the
-       content feel disjointed and pushed off-centre. */
-    .dwell-pin:not(.section) {
-      min-height: 0;
+    /* On mobile the dwell-pin pattern keeps the sticky behaviour but
+       at a shorter total height — each pin gives ~80vh of dwell on
+       a phone, where each swipe covers more viewport-relative
+       distance than a desktop scroll wheel. Now that the
+       FocusObjects don't render on mobile the GPU load is back in
+       budget, so sticky scrolling stays smooth. */
+    .section.dwell-pin,
+    .dwell-pin {
+      min-height: 180vh;
       padding-block: 0;
+    }
+    /* Sub-block dwell-pins inside a section get slightly shorter
+       so the ways-section's three stacked dwell-pins don't pile up
+       too much total height. */
+    .dwell-pin:not(.section) {
+      min-height: 170vh;
     }
     .dwell-pin-stage {
-      position: relative;
-      top: auto;
-      min-height: 0;
-      display: block;
-      padding-block: 0;
-      /* Drop the sticky-stage background on mobile — it was creating
-         a visible colour band where the stage met the section. With
-         the section providing its own bg there's no need. */
-      background: transparent;
+      min-height: 100svh;
+      padding-block: var(--space-md);
     }
   }
 
