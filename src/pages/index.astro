@@ -451,23 +451,21 @@ const posts = (await getCollection('blog'))
     line-height: 1.02;
     letter-spacing: -0.02em;
     margin-top: var(--space-sm);
-    /* Cyclist-hero sits behind, so the headline overrides theme text colour
-       and gets a subtle shadow so it reads cleanly on the dawn sky. Font
-       size tuned so all three lines + the italic punchline fit comfortably
-       in the left half of the viewport without clipping. */
-    color: #f6f0e8;
-    text-shadow: 0 2px 18px rgba(15, 12, 8, 0.55);
+    /* Use theme tokens — the hero used to sit over a dark dawn-sky WebGL
+       cyclist which justified overriding to cream + text-shadow, but the
+       new graphic hero renders on the page bg (cream in light mode, dark
+       in dark mode) so theme-driven text colour is correct on both. */
+    color: var(--color-text);
   }
   .hero-sub {
-    color: rgba(246, 240, 232, 0.92) !important;
-    text-shadow: 0 1px 12px rgba(15, 12, 8, 0.55);
+    color: var(--color-text-secondary);
     max-width: 540px;
   }
   .hero-eyebrow {
-    color: rgba(246, 240, 232, 0.85) !important;
+    color: var(--color-text-secondary);
   }
   .hero-scroll-hint .mono {
-    color: rgba(246, 240, 232, 0.7);
+    color: var(--color-text-muted);
   }
 
   .hero-line {
@@ -1555,44 +1553,33 @@ const posts = (await getCollection('blog'))
   }
   @media (max-width: 768px) {
     /* ============================
-       MOBILE — normal section flow. Matches f5bfc42 (the smooth
-       baseline) but with FocusObjects visible and EVERY section
-       clipping its content so the absolutely-positioned rings can't
-       leak past the section edges. Body's overflow-x:hidden doesn't
-       reliably clip 3D-transformed children on mobile Safari, so we
-       clip at the section level instead. This is safe because the
-       sections are NOT sticky on mobile — overflow:hidden on a
-       sticky ancestor would break sticky, but here every section
-       is a static block.
+       MOBILE — dwell-pin sticky pattern mirrors desktop using the
+       ::after trailer technique. The trailer pads each dwell-pin's
+       height by a fixed amount on top of the stage's natural height,
+       which is the only way to guarantee a perceptible pin range
+       when stage content is taller than the viewport (e.g. the
+       ways-cards-pin holds 3 stacked cards = ~2400px on a phone, so
+       a static min-height pin range would collapse to zero). With
+       the trailer, pin range stays constant at 60–80vh regardless
+       of stage height.
+
+       overflow-x:clip on every section catches any 3D-transform
+       bleed without becoming a scroll container — sticky inside
+       still resolves to the viewport. (hidden would break sticky.)
        ============================ */
     .section {
-      overflow: hidden;
+      overflow-x: clip;
     }
-    .section.dwell-pin {
-      min-height: 0;
-      padding-block: var(--space-xl);
-    }
-    .dwell-pin:not(.section) {
-      min-height: 0;
+    .section.dwell-pin,
+    .dwell-pin {
       padding-block: 0;
     }
-    .dwell-pin::after {
-      display: none;
+    .section.dwell-pin::after {
+      height: 80vh;
     }
-    .dwell-pin-stage {
-      position: relative;
-      top: auto;
-      min-height: 0;
-      display: block;
-      padding-block: 0;
-      background: transparent;
+    .dwell-pin:not(.section)::after {
+      height: 60vh;
     }
-    /* CTA close has FocusObjects with negative left/right inline
-       offsets (size 520 at left:-120, size 360 at right:-60) designed
-       to bleed past the section edges on desktop. With section
-       overflow:hidden above, those rings are clipped to the section
-       width on mobile — visible inside the section instead of
-       bleeding past, which is the right call on a phone screen. */
   }
 
   /* ============================

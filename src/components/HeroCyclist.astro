@@ -151,6 +151,16 @@
   }
 
   .hero-wordmark-line {
+    /* display:block (not the default inline for <span>) so each line
+       gets a real block box for -webkit-background-clip:text to
+       resolve against. Some mobile browsers (notably older Chrome on
+       Android and iOS Safari) compute the gradient bounds as a
+       zero-height fragment when the element is intrinsically inline
+       AND the parent is a flex column — the second flex item then
+       renders fully transparent (FOCUS invisible, MANUAL fine).
+       Block display gives both lines an explicit box and the
+       gradient paints reliably on both. */
+    display: block;
     font-family: var(--font-display);
     font-weight: 800;
     font-size: clamp(4rem, 18vw, 16rem);
