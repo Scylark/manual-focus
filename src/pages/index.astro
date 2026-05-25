@@ -1546,28 +1546,26 @@ const posts = (await getCollection('blog'))
   .dwell-pin::after {
     content: "";
     display: block;
-    /* 100vh on desktop = the dwell-pin pin duration. Previously 220vh
-       which felt right on the hero (where the wordmark visibly
-       animates through phases) but read as "broken page" on the
-       middle-of-page sections where content is mostly static during
-       the pin — the scrollbar moves, the visible content doesn't, a
-       first-time visitor reads that as the page hanging. 100vh keeps
-       the felt pause but limits the disconnect to about one wheel
-       flick before the section releases. */
-    height: 100vh;
+    /* 50vh on desktop = the dwell-pin pin duration. Half a viewport
+       of scroll runway. Long enough for the brain to register a
+       pause, short enough that the empty section bg scrolling past
+       doesn't read as dead space. Was 100vh (still felt long) and
+       220vh originally (definitely too long). */
+    height: 50vh;
     background: inherit;
   }
   .dwell-pin-stage {
     position: sticky;
     top: 0;
-    /* 100svh = exactly one safe viewport so the stage fills the
-       screen edge-to-edge while pinned. Content centred inside, so
-       a section with less content has equal top/bottom breathing
-       room instead of all the empty space landing below the text. */
+    /* 100svh stage so it fills the viewport while pinned. Content
+       centred inside, so a section with less content has equal
+       top/bottom breathing room. Padding tightened from --space-2xl
+       to --space-lg so content sits closer to viewport edges during
+       the pin — less empty space above/below the headline + body. */
     min-height: 100svh;
     display: flex;
     align-items: center;
-    padding-block: var(--space-2xl);
+    padding-block: var(--space-lg);
     width: 100%;
     background: var(--color-bg);
     /* Clip FocusObjects + other absolutely-positioned decoration
