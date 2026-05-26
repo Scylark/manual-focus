@@ -123,10 +123,12 @@ The pipeline is gated against four failure modes.
 
 **Auto-follow-up over the journalist's "I'm not interested."** The follow-up sequence is suppressed if the journalist replies with anything that reads as a decline. The model classifies replies into accept / decline / out-of-office / question and routes accordingly. False positives on decline-detection are fine; false positives on "keep emailing them" are not.
 
-## The receipts
+## The pattern in practice
 
-**Health-tech, scale-stage.** Brand had been doing PR through an agency at £15k/month with mediocre coverage. We ran 6 stories through the pipeline over 3 months. Coverage hits: 14, including two named outlets the agency hadn't placed in two years. Cost: an in-house PR lead and the pipeline run-cost. Agency dropped, in-house PR lead promoted to head of comms.
+Illustrative scenarios — common shapes earned-media pipelines take. Specifics are illustrative; the patterns repeat.
 
-**B2B SaaS, growth-stage.** Brand was at a "we need PR but can't afford an agency" stage. Pipeline plus the brand's internal PR-comms lead replaced the agency tier entirely. 9 placements in 6 months, including TechCrunch, The Information, and a major podcast. The cost was the team member's time, not external retainers.
+**Health-tech, scale-stage — the agency-replacement.** A brand doing PR through an agency at a substantial monthly retainer with mediocre coverage. Running six stories through the pipeline over a quarter typically lands more coverage hits than the agency had produced in the prior year — including named outlets the agency hadn't placed in. Cost: an in-house PR lead's time plus the pipeline run-cost. Agency drops out, the in-house lead grows into the head of comms role.
 
-**Consumer goods, partial-failure engagement.** Pipeline produced strong pitches against a weak story. The brand was insistent that a routine product line extension was newsworthy. Coverage rate was 2 of 30 sends — well below the typical 8-12 of 30 we see on stronger stories. The pipeline performed exactly as designed; the input was the constraint. We added a story-quality gate in V2 that asks "would a journalist with no relationship to the brand find this newsworthy?" and pauses the pipeline if the answer is no.
+**B2B SaaS, growth-stage — the no-agency tier.** A brand at the "we need PR but can't afford an agency" stage. Pipeline plus the brand's internal PR-comms lead replaces the agency tier. Substantial placements over six months, including tier-1 publications and a major podcast. The cost is the team member's time, not external retainers.
+
+**Consumer goods — the weak-story failure.** A common failure mode: strong pitches against a weak story. The brand insists a routine product extension is newsworthy. Coverage rate runs well below what stronger stories produce. The pipeline performs exactly as designed; the input is the constraint. This is why the current pipeline includes a story-quality gate asking "would a journalist with no relationship to the brand find this newsworthy?" and pauses if the answer is no.

@@ -173,30 +173,33 @@ consent or use as-is.
 asks for consent. Audience tires of it. Set a frequency cap on
 customer-content asks (e.g. once per customer per quarter).
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had no consent
-collection. Used 30+ customer photos a year without explicit
-permission. We installed the pipeline. Conversion rate on consent
-DMs: 47%. Brand now has a 600+ asset customer-content library with
-explicit scope on each. Email open rates on customer-content
-features 1.8x brand-content features.
+Illustrative scenarios — common shapes consent-led customer content takes. Specifics are illustrative; the patterns repeat.
 
-**Trail running brand, growth-stage.** Brand had been using only
-brand-produced content. Pipeline launched with a consent flow on
-post-purchase email. Within 6 months, 200+ customer race photos
-with consent in the library. Customer-content posts became the
-strongest organic-social drivers, out-performing brand content
-2.3x.
+**Premium cycling brand, scale-stage — the consent-rate find.** A
+brand with no consent collection, using customer photos
+informally. Installing the pipeline typically lands a consent DM
+conversion rate around half — much higher than teams expect.
+Within a year the library reaches hundreds of assets with explicit
+scope on each. Customer-content features typically out-perform
+brand-content features on email open rates because the attribution
+is real.
 
-**Multi-sport apparel brand, retired engagement.** Brand resisted
-the consent discipline ("everyone uses customer content, why are we
-adding friction?"). Six months in, a customer publicly called out
-the brand for using their image without permission. Apology, asset
-retracted, brand reputation took a hit on social. We added the
-consent gate as the entry to the engagement; the brand declined and
-the engagement ended. Some disciplines aren't optional, and consent
-is one.
+**Trail running brand, growth-stage — the post-purchase consent
+flow.** A brand using only brand-produced content. Launching with
+a consent flow on post-purchase email typically builds a sizeable
+library of customer race photos within six months. Customer-
+content posts become the strongest organic-social drivers,
+substantially out-performing brand content.
+
+**Multi-sport apparel brand — the resisted-consent failure.** A
+common failure mode: the brand resists the consent discipline
+("everyone uses customer content, why are we adding friction?").
+Months later, a customer publicly calls out the brand for using
+their image without permission. Apology, asset retracted, brand
+reputation takes a hit on social. Some disciplines aren't
+optional, and consent is one.
 
 ## Hand-off
 

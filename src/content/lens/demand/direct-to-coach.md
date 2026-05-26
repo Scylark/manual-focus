@@ -202,28 +202,32 @@ ahead of the change.
 unsubscribe. The channel decays. Coach communications need a
 different register, different cadence, different content.
 
-## The receipts
+## The pattern in practice
 
-**Premium running brand, scale-stage.** Brand had no coach
-programme; built one around the playbook. 12 months in: 48 Tier A
-coaches across UK and EU, 380 Tier B coaches on the list. Sample-
-to-purchase conversion in Tier A: 34%. Channel attribution at
-checkout (coach name mentioned) grew from <1% to 11% over a year.
-LTV of coach-channel customers 1.8x brand average.
+Illustrative scenarios — common shapes a coach-channel programme takes. Specifics are illustrative; the patterns repeat.
 
-**Triathlon brand, growth-stage.** Brand was sponsoring 6 elite
-athletes; the audience the brand wanted was age-group triathletes
-served by independent coaches. We restructured: 2 elite athletes
-retained, 4 sponsorship slots converted to a coach-partner programme.
-Channel attribution rose from negligible to 18% within two seasons.
+**Premium running brand, scale-stage — the build-from-zero.** A
+brand with no existing coach programme. Building one around the
+playbook over 12 months typically lands at a few dozen Tier A
+coaches across the target geographies and several hundred Tier B
+coaches on the list. Sample-to-purchase conversion in Tier A
+typically runs around a third. Channel attribution at checkout
+(coach name mentioned) climbs from negligible into double-digit
+percentages within a year. LTV of coach-channel customers runs
+materially above brand average.
 
-**Cycling brand, retired engagement.** Brand wanted a coach programme
-but refused to budget the sample fulfilment. Tier A coaches signed
-up, expected samples for their athletes, didn't receive them, the
-channel went cold within six months. We retired the engagement;
-the brand later relaunched with proper budget and the programme
-worked. The lesson: sample budget is the programme. Without it,
-there is no programme.
+**Triathlon brand, growth-stage — the elite-to-coach reallocation.**
+A brand sponsoring elite athletes whose audiences are other elite
+athletes — but the audience the brand wants is age-group triathletes
+served by independent coaches. Reallocating elite-sponsorship slots
+to a coach-partner programme typically lifts channel attribution
+into double-digit percentages within two seasons.
+
+**Cycling brand — the no-sample-budget failure.** A brand wants a
+coach programme but refuses to budget sample fulfilment. Tier A
+coaches sign up, expect samples for their athletes, don't receive
+them, the channel goes cold within months. The lesson: sample
+budget is the programme. Without it, there is no programme.
 
 ## Hand-off
 

@@ -222,28 +222,32 @@ swimming terms in a cycling recap. The voice profile should be
 sport-aware. If the brand covers multiple sports, route through the
 right sub-profile.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had been publishing
-recaps 18–24 hours post-race. Pipeline took average time-to-publish
-to 47 minutes across a year of Tier 1 events. Email open rates on
-race-day sends up 38% (caught the audience in the post-race window
-instead of the next morning).
+Illustrative scenarios — common shapes race-recap automation takes. Specifics are illustrative; the patterns repeat.
 
-**Marathon brand, growth-stage.** Brand had been writing recaps that
-read like press releases. Pipeline + endurance voice profile
-produced recaps that the brand's email subscribers reported in
-survey as "the first recaps that sound like an actual fan wrote
-them." Newsletter open rates on race-day sends up 52%; share rate
-up 3x.
+**Premium cycling brand, scale-stage — the time-to-publish compress.**
+A brand publishing recaps 18–24 hours post-race. The pipeline
+typically takes average time-to-publish under an hour across a
+year of Tier 1 events. Email open rates on race-day sends lift
+materially because the recap catches the audience in the post-race
+window instead of the next morning.
 
-**Triathlon brand, partial-failure engagement.** Pipeline V1 over-
-indexed on sponsored-athlete coverage even when those athletes
-finished outside the top 20. We added the proportionality eval in
-V2. Brand had to accept that the recap was about the race, not
-about the brand's roster — which felt counter-intuitive to the
-sponsor relations team but recovered audience trust over the
-following quarter.
+**Marathon brand, growth-stage — the voice unlock.** A brand
+writing recaps that read like press releases. Pipeline + endurance
+voice profile produces recaps that subscribers report as "the
+first recaps that sound like an actual fan wrote them." Open
+rates and share rates lift substantially. The voice was always the
+issue; the recap structure was fine.
+
+**Triathlon brand — the sponsor-bias failure.** A common pattern in
+early versions: over-indexing on sponsored-athlete coverage even
+when those athletes finished outside the top 20. This is why the
+current pipeline includes the proportionality eval — coverage
+should match actual race performance, not sponsorship status.
+Brands have to accept that the recap is about the race, not the
+brand's roster. The shift feels counter-intuitive to sponsor-
+relations teams but recovers audience trust within a quarter.
 
 ## Hand-off
 

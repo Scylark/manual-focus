@@ -318,29 +318,33 @@ and loses its category positioning. Cap the AI-news posts at 30–40%
 of LinkedIn output. The rest is the brand's actual category work
 (endurance marketing, in Manual Focus's case).
 
-## The receipts
+## The pattern in practice
+
+Illustrative scenarios — common shapes the AI-news pipeline takes. Specifics are illustrative; the patterns repeat.
 
 **Manual Focus's own LinkedIn.** We run this pipeline against our
-own LinkedIn presence. Weekly cadence: 3 news posts + 2 category-
-specific posts (endurance marketing). News posts get ~2x the
-engagement of category posts because of the audience-overlap with
-broader marketing-AI interest. Category posts convert higher to
-discovery calls because they're more specifically targeted.
+own LinkedIn presence on a weekly cadence — three news posts plus
+two category-specific posts (endurance marketing). News posts
+typically get higher raw engagement because of the audience-overlap
+with broader marketing-AI interest. Category posts convert higher
+to discovery calls because they're more specifically targeted to
+the audience we actually serve.
 
-**B2B SaaS, scale-stage.** Client brand was passive on LinkedIn.
-Pipeline launched with weekly news posts in their adjacent space
-(developer tools), drafted in the brand's voice with the founder's
-POV on each release. LinkedIn follower count grew 14k → 38k in
-six months. Inbound demo requests sourced from LinkedIn up 6x.
+**B2B SaaS, scale-stage — the LinkedIn-from-passive lift.** A
+brand passive on LinkedIn. Launching with weekly news posts in
+their adjacent space (developer tools, fintech, design tooling),
+drafted in the brand's voice with the founder's POV on each
+release, typically multiplies follower count over six months and
+substantially lifts inbound demo requests sourced from LinkedIn.
 
-**Endurance media partner, partial-failure engagement.** Brand's
-LinkedIn audience was largely sport-focused, not marketing-AI
-focused. The news pipeline drove engagement on the posts but didn't
-convert to the brand's actual business outcomes (subscriber
-acquisition for endurance content). We retired the news pipeline
-for this brand after a quarter. Lesson: news content fits brands
-whose audience overlaps with marketing-AI interest, not every
-brand.
+**Endurance media partner — the wrong-audience failure.** A common
+pattern: a brand's LinkedIn audience is largely sport-focused, not
+marketing-AI focused. The news pipeline drives engagement on the
+posts but doesn't convert to the brand's actual business outcomes
+(subscriber acquisition for endurance content). The honest read is
+that this pipeline fits brands whose audience overlaps with
+marketing-AI interest. For audiences that don't, the playbook
+needs a different content engine.
 
 ## Hand-off
 

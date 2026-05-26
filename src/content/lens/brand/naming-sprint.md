@@ -102,10 +102,12 @@ The pipeline is gated against four failure modes.
 
 **You forgot the domain.** The pipeline doesn't check domain availability by default because it's noisy data (some are listed but unsold, some sit on registrar squat lists). We add a separate Pass 7 for engagements where domain matters at launch.
 
-## The receipts
+## The pattern in practice
 
-**Climate-tech B2B, naming a new product line.** Old process would have been a six-week sprint with an external naming agency at £45k. Pipeline ran in a working day. Final pick "Ecotone" — survived all four eval gates, came from the modified-real-word strategy, scored 8.4 on distinctiveness. Shipped 11 weeks after the sprint completed. Live now in 4 markets.
+Illustrative scenarios — common shapes the sprint takes. Specifics are illustrative; the patterns repeat.
 
-**D2C wellness brand, full rebrand.** 12 founders, 6 of them with strong opinions. Pipeline produced the top 8 in a day, blind rationale review in a 90-minute session, picked unanimously. The honest read: without the pipeline, we'd have had four rounds of opinion-led elimination. With it, the pre-screening removed the names that would have triggered the debates.
+**Climate-tech B2B, naming a new product line.** Six-week sprint with an external naming agency at £45k is the traditional path. The sprint compresses to a working day. A typical winning name comes from the modified-real-word strategy, survives all four eval gates, scores around 8 on distinctiveness, and ships within a quarter of the sprint completing. The compounding value is the trademark first-pass running in parallel rather than after.
 
-**Fintech, scrapped engagement.** Brand insisted on a name we'd already flagged as a near-match against a registered mark in the same class. Trademark attorney later agreed the risk was material. Brand chose to proceed anyway and received a cease-and-desist within four months. The lesson isn't about the pipeline — it's about respecting Pass 5. We now make trademark headroom a hard gate, not a flag.
+**D2C wellness brand, full rebrand.** Twelve founders, half of them with strong opinions. The sprint produces the top 8 in a day, blind rationale review in a 90-minute session usually picks unanimously. The honest read: without the sprint, four rounds of opinion-led elimination would have run. With it, pre-screening removes the names that would have triggered the debates.
+
+**Fintech, scrapped — the cautionary pattern.** A brand insists on a name flagged as a near-match against a registered mark in the same class. Trademark attorney later agrees the risk is material. The brand proceeds anyway and receives a cease-and-desist within months. The lesson isn't about the sprint — it's about respecting Pass 5. Trademark headroom belongs as a hard gate, not a flag.

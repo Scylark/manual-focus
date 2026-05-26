@@ -216,29 +216,33 @@ that ships in Phase 5 as the audience deepens.
 [major]." Audience checks. Trust drops. Race-day claims need to
 be true, specific, and survive scrutiny.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had launched 6
-products in 3 years; 2 met the demand forecast, 4 underperformed.
-We installed the sequence on the next launch. 12-month plan, hero
-capture in May, whisper to Tier 1 reviewers in October, reveal in
-January, Tier 1 event race-day proof in March, sustained sell-
-through across the European race season. Product hit 130% of demand
-forecast in the first three months; reached 200% over the full year.
+Illustrative scenarios — common shapes a gear launch sequence takes. Specifics are illustrative; the patterns repeat.
 
-**Trail running brand, growth-stage.** Brand had been launching
-shoes against the calendar of trade-show announcements rather than
-the audience's running year. Re-sequenced launches to align with
-spring race build-up. Year-on-year shoe sales up 60% without
-increasing the launch count — better timing alone did the work.
+**Premium cycling brand, scale-stage — the full-sequence launch.**
+A brand with a track record where half their launches miss demand
+forecast. Installing the sequence on the next launch — 12-month
+plan, hero capture in late spring, whisper to Tier 1 reviewers in
+autumn, reveal in early new year, Tier 1 event race-day proof in
+the first race window, sustained sell-through across the European
+race season — typically lands the product above demand forecast in
+the first quarter and well above forecast over the full year.
 
-**Triathlon brand, partial-failure engagement.** Pipeline V1
-produced a strong calendar. Brand executed Phase 1–3 well, then
-under-resourced Phase 5 (race-day proof). The launch peaked at
-reveal and decayed across the season without the racing footage
-that would have sustained interest. V2 of the pipeline now requires
-explicit Phase 5 production resource allocation before reveal is
-approved.
+**Trail running brand, growth-stage — the audience-calendar shift.**
+A brand launching shoes against the calendar of trade-show
+announcements rather than the audience's running year. Re-
+sequencing launches to align with spring race build-up typically
+lifts year-on-year shoe sales materially without increasing the
+launch count. Better timing alone does the work.
+
+**Triathlon brand — the Phase-5 under-resourcing failure.** A
+common failure mode: the sequence runs cleanly through Phase 1–3,
+then Phase 5 (race-day proof) gets under-resourced. The launch
+peaks at reveal and decays across the season without the racing
+footage that would have sustained interest. This is why the
+current pipeline requires explicit Phase 5 production resource
+allocation before reveal is approved.
 
 ## Hand-off
 

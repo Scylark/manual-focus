@@ -206,31 +206,35 @@ prior purchases the same as a first-time-claimer is a missed
 loyalty signal. Customer history should influence the tier
 decision visibly.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had a quiet warranty
-process. We rebuilt as a public crash-replacement programme with
-Tier 1 (50% replacement on crashed helmets within 3 years of
-purchase) and Tier 2 (25% for older or edge cases). Programme
-adoption surfaced in customer surveys as the second-strongest
-brand-loyalty driver. Repeat-purchase rate of customers who
-claimed: 82%, vs 51% for non-claim customers.
+Illustrative scenarios — common shapes a replacement programme takes. Specifics are illustrative; the patterns repeat.
 
-**Running brand, growth-stage.** Brand introduced a wear-out
-programme for premium racing shoes (replacement at 30% off if the
-midsole compresses prematurely under defined conditions). Claim
-rate sat at 0.4% of units sold — fraudulently inflated only briefly
-when posted on a coupon-deal site, brand handled the spike with
-extra evidence requirements and the claim rate normalised.
-Customer-facing NPS up 7 points overall.
+**Premium cycling brand, scale-stage — the public-programme rebuild.**
+A brand with a quiet warranty process. Rebuilding as a public
+crash-replacement programme with explicit tier rules (e.g. 50%
+replacement on crashed helmets within three years of purchase,
+25% for older or edge cases) typically surfaces in customer
+surveys as one of the strongest brand-loyalty drivers. Repeat-
+purchase rate of customers who claim runs substantially above
+non-claim customers — the moment is loyalty-defining.
 
-**Multi-sport brand, partial-failure engagement.** Brand launched
-a programme with vague rules ("we'll replace gear at our discretion
-for major mishaps"). Customer-service decisions varied; some
-customers got free replacement, some got told to buy new. Front-
-line confusion eroded trust faster than no programme would have.
-We rebuilt with specific tier rules. Resolution: clear policy
-beats generous discretion.
+**Running brand, growth-stage — the wear-out programme.** A brand
+introducing a wear-out programme for premium racing shoes
+(replacement at a discount if the midsole compresses prematurely
+under defined conditions). Claim rate typically sits well below
+1% of units sold under healthy operation. Coupon-site exposure
+spikes the rate briefly; tightening evidence requirements
+normalises it. Customer-facing NPS lifts overall — the programme's
+existence matters even to customers who never claim.
+
+**Multi-sport brand — the vague-rules failure.** A common failure
+mode: launching with vague rules ("we'll replace gear at our
+discretion for major mishaps"). Customer-service decisions vary;
+some customers get free replacement, some get told to buy new.
+Front-line confusion erodes trust faster than no programme would
+have. The fix is specific tier rules. Clear policy beats generous
+discretion.
 
 ## Hand-off
 

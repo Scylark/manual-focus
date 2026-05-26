@@ -51,8 +51,10 @@ Five phases.
 
 **Long-tail query starvation.** Bid adjustments based on recent volume can throttle low-volume but high-quality queries. The agent uses 30-day windows for low-volume groups (5+ conversions) and 90-day windows for very-low-volume groups (1-4 conversions) to keep the long tail responsive but stable.
 
-## The receipts
+## The pattern in practice
 
-**D2C, growth-stage.** Brand had 4 distinct product categories with 3-9x margin differences. Platform bidding treated them as equal-revenue. Agent installed and tuned over 6 weeks. Margin-weighted ROAS up 32%; revenue ROAS down 2% (acceptable trade). Net contribution from paid-search up materially despite slightly lower revenue.
+Illustrative scenarios — common shapes margin-aware bidding takes. Specifics are illustrative; the patterns repeat.
 
-**B2B SaaS, scale-stage.** Brand was bidding against itself across 4 product lines. Agent rationalised bids based on which queries actually converted to which products. Cost per qualified opportunity down 19%, no impact on volume.
+**D2C, growth-stage — the margin gap.** A brand with multiple product categories at meaningfully different margins. Platform bidding treats them as equal-revenue. Installing and tuning the agent over 4–8 weeks typically lifts margin-weighted ROAS materially while accepting a small revenue-ROAS dip. Net contribution from paid-search rises despite slightly lower revenue — the right trade for most brands with margin spread.
+
+**B2B SaaS, scale-stage — the self-bidding rationalisation.** A brand bidding against itself across multiple product lines. The agent rationalises bids based on which queries actually convert to which products. Cost per qualified opportunity drops without hitting volume — the bids the brand was placing against itself were noise, not signal.

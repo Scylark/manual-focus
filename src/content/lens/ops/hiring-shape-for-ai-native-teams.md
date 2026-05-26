@@ -83,8 +83,10 @@ A trial task is 4-6 hours of focused work that mirrors the role's actual day. Fo
 
 **Over-rotating to AI literacy.** Some hiring managers screen so aggressively for AI competence that they miss strong marketing operators who haven't yet had to use it. AI literacy is teachable in 6-12 weeks for a strong operator. Marketing judgement isn't teachable in 6-12 months. Hire for the harder thing.
 
-## The receipts
+## The pattern in practice
 
-**B2B SaaS, scale-stage.** Function had been 9 generalist content marketers. After two quarters of installing the role taxonomy and running 4 hires through the new trial packs, the function is 6 people in the four-role shape and shipping 70% more output that hits its briefs. Two of the original 9 transitioned into the new shape; the others moved to other teams or companies.
+Illustrative scenarios — common shapes the hiring-shape reset takes. Specifics are illustrative; the patterns repeat.
 
-**D2C, growth-stage.** Brand was about to hire a 5th content marketer. We mapped the workload against the taxonomy and the function was missing a pipeline curator entirely. Brand hired the curator instead. Six months later, throughput was up 4x without the extra two heads they'd budgeted for. The pipeline curator's compensation paid for itself within the first quarter.
+**B2B SaaS, scale-stage — the taxonomy rebuild.** A marketing function around 9 generalist content marketers. After installing the role taxonomy and running new hires through the trial packs over two quarters, the function typically restructures to 5–6 people in the four-role shape and ships substantially more output that hits its briefs. A couple of the original team transition into the new shape; the others move on. Same budget, much higher leverage.
+
+**D2C, growth-stage — the missing-role finding.** A brand about to hire its fifth content marketer. Mapping the workload against the taxonomy surfaces that the function is missing a pipeline curator entirely. The brand hires the curator instead. Throughput multiplies within two quarters without the extra heads originally budgeted. The pipeline curator's compensation pays for itself within the first quarter.

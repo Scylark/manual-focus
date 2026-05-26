@@ -204,31 +204,34 @@ should change with each event — sometimes a results focus, sometimes
 a "what surprised us" angle, sometimes a forward-look to the next
 race.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had been operating
-without a calendar — campaigns assembled in the 2–3 weeks before each
-event. We built a 14-month rolling calendar with Tier 1 events
-locked, shoots scheduled, AI augmentation planned. Year-over-year
-campaign performance up 47%, mostly from better creative quality (it
-no longer arrived rushed) and better paid programme prep (audience
-targeting and bids set 30 days out instead of day-of).
+Illustrative scenarios — common shapes the race-day calendar takes. Specifics are illustrative; the patterns repeat.
 
-**Running brand, growth-stage.** Brand was over-investing in the
-six majors and under-serving the regional half-marathon and 10k
-calendar where their actual audience raced. Recalibrated to 4 majors
-+ 12 regional races + dedicated taper-week content. Email engagement
-in the regional segments up 3x. The audience felt seen for the first
-time outside marathon weekend.
+**Premium cycling brand, scale-stage — the calendar reclaim.** A
+brand operating without a calendar — campaigns assembled in the two
+or three weeks before each event. Building a 14-month rolling
+calendar with Tier 1 events locked, shoots scheduled and AI
+augmentation planned typically lifts year-over-year campaign
+performance materially. Most of the lift comes from better creative
+quality (no longer arriving rushed) and better paid programme prep
+(audience targeting and bids set 30 days out instead of day-of).
 
-**Triathlon brand, partial-failure engagement.** Calendar was built;
-the brand committed to AI-generated rider footage to fill creative
-gaps where the shoot fell through. The output looked like AI even
-to non-cyclists. The audience noticed and called it out publicly.
-Brand pulled the work and re-shot under deadline pressure. Lesson
-incorporated: the capability boundary is non-negotiable. If the shoot
-can't happen, the campaign reduces, the AI doesn't try to substitute
-for the unshippable artefact.
+**Running brand, growth-stage — the regional rebalance.** A brand
+over-investing in the six majors and under-serving the regional
+half-marathon and 10k calendar where its actual audience races.
+Recalibrating to a handful of majors + a deeper bench of regional
+races + dedicated taper-week content typically lifts engagement in
+the regional segments substantially. The audience feels seen for
+the first time outside marathon weekend.
+
+**Triathlon brand — the capability-boundary failure.** A calendar
+is built; the brand commits to AI-generated rider footage to fill
+creative gaps where the shoot falls through. The output looks like
+AI even to non-cyclists. The audience notices and calls it out
+publicly. This is why the capability boundary is non-negotiable —
+if the shoot can't happen, the campaign reduces; AI doesn't try to
+substitute for the unshippable artefact.
 
 ## Hand-off
 

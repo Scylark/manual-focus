@@ -51,8 +51,10 @@ Five phases.
 
 **On-screen text fights with dialogue.** Captions that compete with what's being said split the viewer's attention. The pipeline aligns on-screen text with key takeaways, not with running dialogue. Static keywords, not running subtitles.
 
-## The receipts
+## The pattern in practice
 
-**B2B SaaS, scale-stage.** Brand was shooting one explainer video a month, taking a full week of producer time per video, retention rates around 30% at 30 seconds. Pipeline cut script-prep from 3 days to 1. Retention at 30 seconds up to 52% after the hook-quality gate started enforcing.
+Illustrative scenarios — common shapes a video-script system takes. Specifics are illustrative; the patterns repeat.
 
-**D2C, growth-stage.** Brand wanted to ship 4 product videos a month, only had a small in-house team. Pipeline plus a 1-day shoot day per week produced 4-5 videos per week. The unlock was the shootable-script discipline — the team stopped improvising on the day and started executing a tight plan.
+**B2B SaaS, scale-stage — the retention lift.** A brand shooting an explainer video a month, taking a full week of producer time per video, with retention around 30% at 30 seconds. The pipeline cuts script-prep from days to a working session. Retention at 30 seconds typically improves materially once the hook-quality gate starts enforcing — because the first three seconds finally get the deliberate attention they deserve.
+
+**D2C, growth-stage — the small-team throughput.** A brand wanting to ship product videos at higher cadence with only a small in-house team. The pipeline plus a regular shoot day per week produces a multiple of the previous output. The unlock is the shootable-script discipline — the team stops improvising on the day and starts executing a tight plan, which is what makes the higher cadence sustainable.

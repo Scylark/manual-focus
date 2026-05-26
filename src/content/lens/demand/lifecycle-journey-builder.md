@@ -119,10 +119,12 @@ The pipeline is gated against five failure modes.
 
 **One bad signal trigger floods the journey.** A poorly-defined behaviour signal can flood a segment with 12 emails in a week. Always run a 7-day frequency cap at the ESP level, regardless of what the journey graph says. The pipeline outputs a recommended cap; honour it.
 
-## The receipts
+## The pattern in practice
 
-**B2B SaaS, scale-stage.** Brand had 4 active lifecycle journeys, all generic, written by a contractor in 2023. Pipeline rebuilt 8 journeys across the lifecycle (onboarding, expansion, retention, win-back, plus four product-specific). Build took 6 days. Trial-to-paid conversion up 11% within the first quarter. The unlock wasn't better copy — it was finally having behaviour-routed paths that didn't exist before.
+Illustrative scenarios — common shapes journey-builder work takes. Specifics are illustrative; the patterns repeat.
 
-**D2C, growth-stage.** Brand had a post-purchase journey of 5 emails, all sent at fixed intervals. Pipeline rebuilt it as 14 touchpoints across email + SMS, routed by product category, purchase amount and behaviour signals. Repeat-purchase rate at 90 days up 23%.
+**B2B SaaS, scale-stage — the behaviour-routing unlock.** A brand with a handful of generic lifecycle journeys written years ago. Rebuilding around behaviour-routed paths (onboarding, expansion, retention, win-back, product-specific) typically lifts trial-to-paid conversion within the first quarter. The unlock isn't better copy — it's finally having paths that respond to what the user has actually done.
 
-**Marketplace, retired engagement.** Pipeline V1 was used to draft a winback journey for an audience the brand had under-defined. The segment "lapsed users" turned out to mean five different things to five different teams. We drafted to one of those meanings; the team launched to all five. Performance was indistinguishable from no-touch. V2 of the pipeline now refuses to draft until segment definitions pass an objective-statement test. Lesson: the pipeline can't fix unclear strategy. It can only make unclear strategy ship faster.
+**D2C, growth-stage — the post-purchase rebuild.** A brand with a post-purchase journey of a handful of emails at fixed intervals. Rebuilding as ~14 touchpoints across email + SMS routed by product category, purchase amount and behaviour signals typically lifts repeat-purchase at 90 days substantially. Cadence per channel matters; sequence on top of behaviour matters more.
+
+**Marketplace — the underdefined-segment failure.** A common failure mode: drafting a winback journey for "lapsed users" without a tight definition. The label means five different things to five different teams. Whichever meaning the draft assumes, when the team launches to all five, performance ends up indistinguishable from no-touch. This is why the current pipeline refuses to draft until segment definitions pass an objective-statement test. The pipeline can't fix unclear strategy — it can only make unclear strategy ship faster.

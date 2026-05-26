@@ -197,28 +197,33 @@ but only sold £80k of it is a problem disguised as a strong account.
 self-correct without the conversation. Have it. The relationship
 survives if the conversation is data-led and respectful.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had 220 stocking
-partners; couldn't tell which were performing. We installed the
-tier-and-scorecard system. After one annual review, the brand had:
-14 Tier A, 70 Tier B, 90 Tier C, 46 partners ended. Total revenue
-held; cost-to-serve dropped 35%; sell-through ratio across the
-remaining base improved 22 percentage points within two seasons.
+Illustrative scenarios — common shapes retail partner programmes take. Specifics are illustrative; the patterns repeat.
 
-**Trail running brand, growth-stage.** Brand had been treating all
-running stores identically. The training cadence revealed that 30%
-of partners had never had a staff member attend a session. We
-restructured around the tier definitions; the brand now invests
-heavily in 25 Tier A partners. Comparable sales in those 25 shops
-up 40% year-on-year.
+**Premium cycling brand, scale-stage — the tier reckoning.** A
+brand with 200+ stocking partners and no way to tell which are
+performing. Installing the tier-and-scorecard system and running
+one honest annual review typically splits the base into a small
+top tier, a larger middle, a long tail of low-performance partners,
+and a meaningful number of relationships to end. Total revenue
+usually holds; cost-to-serve drops materially; sell-through ratio
+across the remaining base improves within two seasons.
 
-**Multi-sport brand, partial-failure engagement.** Pipeline ran; the
-brand executed phases 1–4 but skipped Phase 5 — the annual review
-never happened because nobody wanted to make the demote calls.
-Partners drifted to Tier C-quality with Tier A-cost-to-serve. The
-brand needs to commit to the discipline of the annual review, not
-just the framework.
+**Trail running brand, growth-stage — the training cadence
+finding.** A brand treating all running stores identically. The
+training cadence reveals that a substantial fraction of partners
+have never had a staff member attend a session. Restructuring
+around the tier definitions and investing heavily in a small group
+of Tier A partners typically lifts comparable sales in those
+shops materially year-on-year.
+
+**Multi-sport brand — the skipped-review failure.** A common
+pattern: the brand executes phases 1–4 cleanly but skips Phase 5 —
+the annual review never happens because nobody wants to make the
+demote calls. Partners drift to Tier C-quality with Tier A-cost-
+to-serve and the programme decays. The framework only works if
+the discipline of the annual review is held.
 
 ## Hand-off
 

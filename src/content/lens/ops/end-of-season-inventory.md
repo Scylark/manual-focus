@@ -182,28 +182,32 @@ visible in the brand's primary marketing; audience clicks through
 to the outlet for the discount instead of buying full price.
 Outlet should be discoverable but not promoted.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had been running
-season-end clearances 35–40% off entire range. Audience had learnt
-to wait. We installed the sequenced calendar; the public clearance
-moved to 4 weeks pre-end and stayed narrower. First-time-buyer
-share at full-price climbed 22% within two seasons. Margin erosion
-reversed; net contribution per unit up 17%.
+Illustrative scenarios — common shapes end-of-season management takes. Specifics are illustrative; the patterns repeat.
 
-**Trail running brand, growth-stage.** Brand was over-ordering at
-P80 because production was offshore with long lead times. We re-
-calibrated to P50 with a faster re-order line for the strongest
-SKUs. End-of-season sell-through up from 62% to 79% in one cycle.
-Less clearance pressure, less brand-margin damage.
+**Premium cycling brand, scale-stage — the broadcast-clearance break.**
+A brand running season-end clearances at 35–40% off entire range,
+heavily promoted. Audience has learnt to wait. Installing the
+sequenced calendar — public clearance moved to a few weeks pre-end
+and kept narrower — typically lifts first-time-buyer share at
+full-price within two seasons. Margin erosion reverses; net
+contribution per unit rises.
 
-**Multi-sport brand, partial-failure engagement.** Pipeline ran;
-the brand's marketing team executed the sequence in spring but
-broke discipline in winter under pressure to hit revenue targets,
-running a brand-surface 40% off campaign. Sell-through hit
-short-term but next-season's full-price purchase rate dropped.
-Lesson: the discipline has to be defended quarterly. One break
-costs more than the break recovers.
+**Trail running brand, growth-stage — the forecast recalibration.**
+A brand over-ordering at P80 because production is offshore with
+long lead times. Recalibrating to P50 with a faster re-order line
+for the strongest SKUs typically lifts end-of-season sell-through
+substantially in one cycle. Less clearance pressure, less brand-
+margin damage.
+
+**Multi-sport brand — the discipline-break failure.** A common
+failure mode: the sequence executes well in spring but breaks
+discipline in winter under pressure to hit revenue targets,
+running a brand-surface 40% off campaign. Sell-through hits
+short-term but next-season's full-price purchase rate drops. The
+discipline has to be defended quarterly. One break costs more than
+the break recovers.
 
 ## Hand-off
 

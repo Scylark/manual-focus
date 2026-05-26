@@ -105,10 +105,12 @@ The pipeline gates are the eval harness, mostly. Two additional checks at the pi
 
 **Gate 4 turns into a rule book.** Once teams see the structural gate, they over-correct. Every page becomes "intro, then 4 H2s, then a conclusion." Avoid by treating the gate thresholds as floors, not patterns. The drafter prompt should still emphasise that the structure serves the argument, not the gate.
 
-## The receipts
+## The pattern in practice
 
-**Publishing, scale-stage.** Editorial team was shipping 8 long-form pieces a month and spending 14 hours per piece on editing. Pipeline took drafts to passing-gates in 2-3 cycles, editor time dropped to 4 hours per piece. Same standard, judged by an independent reader panel on a blind comparison. Team is now shipping 18 pieces a month with no headcount increase.
+Illustrative scenarios — common shapes eval-gated drafting takes. Specifics are illustrative; the patterns repeat.
 
-**B2B SaaS, growth-stage.** Brand was burning out a single in-house writer. Pipeline replaced 70% of the drafting workload. The writer now owns the briefs and the final 30 minutes of polish per piece. Output went from 4 pieces a month to 9, retention of the writer improved markedly. The pipeline didn't replace the writer — it replaced the soul-crushing first-draft work.
+**Publishing, scale-stage — the editor-time reclaim.** An editorial team shipping a handful of long-form pieces a month and spending double-digit hours per piece on editing. With the pipeline, drafts hit passing-gates in 2–3 cycles and editor time per piece drops by roughly two-thirds. Same standard (blind reader-panel verification). Output capacity roughly doubles without headcount increase.
 
-**Marketplace, partial-success engagement.** Pipeline shipped, gates calibrated, output strong. Two quarters in, the brand brought in a new editor who didn't trust the gates and re-edited everything to their personal taste, dropping the throughput back to pre-pipeline levels. The pipeline still ran; the human stopped honouring it. Lesson: the gates only work if the team agrees to trust them when they pass. Train the editor on what each gate actually measures so they understand what's already been checked.
+**B2B SaaS, growth-stage — the writer-burnout fix.** A brand burning out a single in-house writer with first-draft work. The pipeline replaces most of the drafting workload. The writer now owns the briefs and the final polish per piece — the work that needs their judgement, not the soul-crushing first-draft work. Output rises; the writer stays.
+
+**Marketplace — the editor-overrides failure.** A common failure mode: pipeline ships, gates calibrate, output is strong. A new editor joins who doesn't trust the gates and re-edits everything to personal taste. Throughput drops back to pre-pipeline levels. The pipeline still runs; the human stopped honouring it. The gates only work if the team agrees to trust them when they pass. Train the editor on what each gate measures so they understand what's already been checked.

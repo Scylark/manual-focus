@@ -215,34 +215,36 @@ a frame where the athlete's face has subtly changed. Even small
 drift is jarring. Eval pass should include face-consistency check
 on any frame where athletes are visible.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had 6 hero shoots in
-the bank but ran out of fresh cuts between shoots. We installed the
-augmentation pipeline against the existing archive. Output inventory
-went from 30 cuts to 90 cuts over a year, with the same shoot
-budget. Audience engagement on social held steady — the AI cuts
-were used for environmental b-roll backdrops rather than hero
-moments, so the audience never saw "AI riders." Cleanest split: AI
-fills the environment, practical fills the subject.
+Illustrative scenarios — common shapes shoot-plus-augmentation takes. Specifics are illustrative; the patterns repeat.
 
-**Trail running brand, growth-stage.** Brand had been using stock
-trail-running footage. Pipeline replaced stock with practical shoot
-+ AI augmentation across 4 named environments (alpine, coastal,
-desert, forest). 18 months in, the brand's social feels visually
-distinctive in a category where most competitors still use stock.
-The audience-perception lift was the unlock more than the cost
-saving.
+**Premium cycling brand, scale-stage — the archive multiplier.** A
+brand with several hero shoots in the bank but running out of
+fresh cuts between shoots. Installing the augmentation pipeline
+against the existing archive typically triples the usable output
+inventory over a year with the same shoot budget. Audience
+engagement on social holds steady — the AI cuts get used for
+environmental b-roll backdrops rather than hero moments, so the
+audience never sees "AI riders." The cleanest split: AI fills the
+environment, practical fills the subject.
 
-**Multisport brand, partial-failure engagement.** Brand pushed for
-AI generation of named athletes in scenes that hadn't been
-captured. Pipeline refused; the brand contracted with another
-provider who agreed. The output was technically impressive and
-audience-detectable within a quarter. Brand pulled the assets, lost
-the budget, and re-committed to practical-only for named-athlete
-content. We added a stronger refusal at Phase 4 in V2 — the AI
-augmentation brief explicitly cannot include named-athlete generation
-prompts.
+**Trail running brand, growth-stage — the stock replacement.** A
+brand using stock trail-running footage. Replacing stock with
+practical shoot + AI augmentation across named environments
+(alpine, coastal, desert, forest) typically gives the brand a
+visually distinctive social presence within a year-plus, in a
+category where most competitors still use stock. The audience-
+perception lift is usually the unlock more than the cost saving.
+
+**Multisport brand — the named-athlete failure.** A common failure
+mode: a brand pushing for AI generation of named athletes in
+scenes that weren't captured. The pipeline refuses; the brand
+contracts another provider that agrees. The output is technically
+impressive and audience-detectable within a quarter. Brand pulls
+the assets, loses the budget, re-commits to practical-only for
+named-athlete content. This is why the current pipeline explicitly
+refuses named-athlete generation prompts.
 
 ## Hand-off
 

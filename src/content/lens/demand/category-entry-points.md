@@ -103,10 +103,12 @@ The pipeline is gated against four failure modes.
 
 **Eight interviews aren't enough for a small CEP set.** If the brand's category has fewer than 10-15 likely CEPs, eight interviews give reasonable coverage. If the category is broader (categorically, B2B with multi-stakeholder buying), you'll want 16-20 interviews and a longer pipeline. The pipeline scales but doesn't shortcut the discovery time on more complex categories.
 
-## The receipts
+## The pattern in practice
 
-**Premium endurance-sports brand, Series C.** Brand had been buying brand-awareness ads in cycling press for two years. Pipeline surfaced that 11 of the top 15 CEPs related to first-time-event prep (first century ride, first ultramarathon, first triathlon), where the brand had near-zero content coverage. We re-prioritised the content engine toward those moments. Quarterly direct-traffic from those queries up 4x within two quarters.
+Illustrative scenarios — common shapes CEP research takes. Specifics are illustrative; the patterns repeat.
 
-**Fintech, B2B mid-market.** Pipeline surfaced that the strongest CEP was "quarter-end and finance team is doing the close manually." Brand's category framing had been "automation" — too generic. Repositioned around the quarter-end trigger with content, ads and lifecycle. Pipeline coverage up from 8 to 22% in the segment.
+**Premium endurance-sports brand, Series C — the first-time-event finding.** A brand buying brand-awareness ads in cycling press for years. The research surfaces that most of the top CEPs relate to first-time-event prep (first century ride, first ultramarathon, first triathlon), where the brand has near-zero content coverage. Re-prioritising the content engine toward those moments typically multiplies direct traffic from CEP-aligned queries within a couple of quarters.
 
-**Wellness brand, growth-stage, partial-success engagement.** Pipeline produced a strong CEP list but the brand executed on only the top 2 (out of 9 ranked) due to capacity constraints. Quarter-over-quarter, the top 2 CEPs drove a 18% lift in qualified traffic. CEPs 3-9 went unexecuted and the brand still doesn't cover them. Pipeline does the analysis; capacity does the work.
+**Fintech, B2B mid-market — the trigger over the noun.** The research surfaces that the strongest CEP isn't "automation" (the brand's existing framing) but the specific moment of "quarter-end and the finance team is doing the close manually." Repositioning around the quarter-end trigger across content, ads and lifecycle typically lifts pipeline coverage materially in the segment within a quarter.
+
+**Wellness brand, growth-stage — the capacity gap.** Research produces a strong CEP list but the brand only has capacity to execute on the top two of nine ranked. The top two drive a real lift in qualified traffic; CEPs three through nine sit unexecuted. The pipeline does the analysis; capacity does the work. The honest read: an unrealistic execution plan against a strong CEP list still leaves most of the value on the table.

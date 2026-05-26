@@ -185,32 +185,35 @@ institutional voice is the succession insurance.
 the founder's voice and shifts to institutional mid-way. Readers
 notice; the piece feels off. Pick one voice per piece.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand was founder-voice
-dependent. We extracted both voices, built the institutional
-voice profile, ran the contract conversation. Six months in, the
-founder's writing output dropped 30% (intentional reclaim of their
-time), institutional content output up 4x, brand engagement metrics
-held steady. The founder reported less burnout; the brand scaled.
+Illustrative scenarios — common shapes the dual-voice discipline takes. Specifics are illustrative; the patterns repeat.
 
-**Trail running brand, growth-stage.** Brand had been ghosting the
-founder's social. Pipeline surfaced this in the voice audit; we
-made the contract conversation explicit. Founder took over their
-own LinkedIn (with AI drafting help they could edit), the
-institutional voice took over @brand on Instagram and X. The
-distinct registers became part of the brand's positioning — both
-voices recognisable, neither pretending.
+**Premium cycling brand, scale-stage — the founder-time reclaim.**
+A founder-voice dependent brand. Extracting both voices, building
+the institutional profile and running the contract conversation
+typically reclaims a meaningful fraction of the founder's writing
+time within six months. Institutional output multiplies; brand
+engagement holds because the new institutional voice is a credible
+peer to the founder's, not a faded copy. The founder reports less
+burnout; the brand scales past the bottleneck.
 
-**Multi-sport brand, partial-failure engagement.** Founder
-resisted the dual-voice framing ("the brand IS me"). Pipeline
-ran the audit anyway, surfaced the over-dependence risk, framed
-the institutional voice as the brand's safety net. Founder
-declined to invest in it. Six months later, founder took a
-medical absence; the brand's content output dropped 80% during
-the absence. The framework existed; the founder hadn't chosen to
-build the redundancy. Lesson: this discipline needs founder buy-in
-or it doesn't deploy.
+**Trail running brand, growth-stage — the de-ghosting.** A brand
+ghosting the founder's social. The voice audit makes this visible
+and the contract conversation makes it explicit. Founder takes
+over their own LinkedIn (with drafting help they can edit), the
+institutional voice takes @brand on Instagram and X. The distinct
+registers become part of the brand's positioning — both voices
+recognisable, neither pretending.
+
+**Multi-sport brand — the discipline-needs-buy-in failure.** A
+founder resists the dual-voice framing ("the brand IS me"). The
+audit runs anyway, surfaces the over-dependence risk, frames the
+institutional voice as the brand's safety net. The founder declines
+to invest in it. When the founder eventually takes a medical
+absence or a long break, the brand's content output collapses
+during the gap. The framework can exist; if the founder doesn't
+choose to build the redundancy, the framework can't deploy.
 
 ## Hand-off
 

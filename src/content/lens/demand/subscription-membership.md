@@ -184,30 +184,35 @@ appetite.
 flows. Short-term retention up, long-term audience trust down. The
 endurance audience talks. Don't.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand launched a £180/year
-club membership with three anchored benefits (early product access,
-monthly group rides hosted by athletes, regional event invitations).
-After 18 months: 6,400 members, 87% 90-day retention, members
-LTV-ing at 2.1x non-members, NPS delta of +18 over non-members.
-The programme funded itself by month 4.
+Illustrative scenarios — common shapes membership programmes take. Specifics are illustrative; the patterns repeat.
 
-**Endurance nutrition brand, growth-stage.** Brand designed a
-quarterly product-refresh subscription ("monthly box, your choice
-of flavours"). Looked smart in launch deck. Reality: most customers
-preferred to buy on demand at their own race-week cadence. Sub-
-scribers cancelled within 3 months. Brand pivoted to a single annual
-"refresh" event with priority access for past customers — earned
-the same recurring value with none of the subscription friction.
+**Premium cycling brand, scale-stage — the well-anchored club.** A
+brand launches an annual club membership with three anchored
+benefits (early product access, monthly group rides hosted by
+athletes, regional event invitations). At 12–18 months: thousands
+of members, strong 90-day retention, members LTV-ing at roughly
+2x non-members, materially higher NPS than non-members. A
+well-designed programme typically funds itself within a few
+months.
 
-**Multisport brand, partial-failure engagement.** Brand launched a
-membership with seven benefits "to maximise value." Members signed
-up, used 2–3, didn't see why they were paying for the others. Six-
-month retention 41% — well below target. We cut benefits to three,
-re-launched, retention climbed to 72% the following quarter. Lesson:
-fewer benefits, valued more often, beats many benefits valued
-rarely.
+**Endurance nutrition brand, growth-stage — the wrong-cadence
+failure.** A brand designs a quarterly product-refresh
+subscription ("monthly box, your choice of flavours"). Looks
+strong on launch. Reality: most customers prefer to buy on demand
+at their own race-week cadence. Subscribers cancel within months.
+The honest pivot is a single annual "refresh" event with priority
+access for past customers — same recurring value, none of the
+subscription friction.
+
+**Multisport brand — the too-many-benefits failure.** A brand
+launches a membership with seven benefits "to maximise value."
+Members sign up, use two or three, don't see why they're paying
+for the rest. Six-month retention sits well below target. Cutting
+to three benefits and re-launching typically rescues retention
+within a quarter. Fewer benefits, valued more often, beats many
+benefits valued rarely.
 
 ## Hand-off
 

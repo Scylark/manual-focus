@@ -101,12 +101,12 @@ The pipeline is gated against three failure modes.
 
 **The brand has no competitors with public output.** Common in B2B and early-stage. Substitute press coverage of the category, third-party analyst takes, or job descriptions from the same company stage. The pipeline handles JSON input from any source.
 
-## The receipts
+## The pattern in practice
 
-Three engagements where we ran this pipeline. Brand names redacted under standard NDA, the patterns are the point.
+Illustrative scenarios — what the audit typically surfaces when run against brands at these stages. Specifics are illustrative; the patterns repeat.
 
-**Endurance-sports brand, Series B.** Brand believed it was positioned on "performance for the dedicated athlete." Pipeline found that customers thanked the brand 4-to-1 for fit and durability, almost never for performance metrics. Competitive contrast showed the performance angle was the most contested ground in the category. Sharpened position: "endurance kit that survives the kit-bag, season after season." Six months later, that line is the homepage hero.
+**Endurance-sports brand, Series B — the common one.** The brand believes it is positioned on "performance for the dedicated athlete." The audit surfaces that customers thank the brand four-to-one for fit and durability, almost never for performance metrics. Competitive contrast shows the performance angle is the most contested ground in the category. The sharpened position lands as something like "endurance kit that survives the kit-bag, season after season." A line like that typically ends up on the homepage within a season of acting on the audit.
 
-**Fintech, pre-Series A.** Brand positioned around "AI-powered" everything. Pipeline pulled apart the website's three implicit audience definitions (developers, finance teams, ops leads) and showed they contradicted each other on every page. Customer reviews thanked the brand for reliability of integrations, not AI features. Brief recommended a category re-position from "AI" to "integrations infrastructure." Now a $40M ARR business with that positioning.
+**Fintech, pre-Series A — the category re-frame.** A brand positioned around "AI-powered" everything. The audit pulls apart the implicit audience definitions on the website (developers, finance teams, ops leads) and shows they contradict each other on every page. Customer reviews thank the brand for reliability of integrations, not AI features. The brief recommends a category re-position from "AI" to "integrations infrastructure" — moving the brand into a category it already credibly serves rather than the one it claims to.
 
-**Sports tech, Series C, retired entry.** This pipeline version (V2) failed to detect a contradiction between the brand's stated audience (consumers) and its actual book of business (pro teams). We added Pass 4's "revenue mix vs marketing mix" sub-pass off the back of this engagement. V3 catches the issue.
+**Sports tech, Series C — the missed contradiction.** A failure mode pattern: pipelines that compare stated audience to public materials but ignore revenue mix can miss the contradiction between marketed audience (consumers) and book of business (pro teams). Pass 4 includes a "revenue mix vs marketing mix" sub-pass to catch this — built into the pipeline because the failure mode is real.

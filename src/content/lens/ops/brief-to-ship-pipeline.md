@@ -100,10 +100,12 @@ The pipeline gates at the function level, not just per-pipeline.
 
 **Pipelines proliferate.** Marketing teams love to add a new pipeline for every new tactic. Resist. The library is curated — only pipelines that earn their place via repeated successful application stay. Most teams need 8-12 pipelines, not 40.
 
-## The receipts
+## The pattern in practice
 
-**B2B SaaS, scale-stage.** Marketing function was 11 people, shipping ~30 pieces of work a month, with brief-to-ship cycle times ranging from 3 days to 9 weeks. We installed the pipeline. After two quarters: 42 pieces a month, median cycle time 11 working days, brief acceptance rate at 67%, outcome correlation at 54% (i.e. just over half of bets paid off — exactly the target).
+Illustrative scenarios — common shapes the brief-to-ship pipeline takes. Specifics are illustrative; the patterns repeat.
 
-**D2C, growth-stage.** Marketing function was 4 people, doing everything by Slack. Brief intake was the contentious part — the founder felt the template added bureaucracy. Six weeks in, the founder retracted, after the template surfaced that two of his "urgent" briefs had no clear audience definition. The pipeline became the way the founder briefed too. Function output up 60% without headcount.
+**B2B SaaS, scale-stage — the throughput unlock.** A marketing function around 10 people, shipping ~30 pieces a month, with brief-to-ship cycle times ranging from a few days to a couple of months. Installing the pipeline typically lifts output by a third or more within two quarters, with median cycle time around two working weeks and brief acceptance rates settling around two-thirds on the first submission. Outcome correlation lands near the target (just over half of bets pay off — exactly the target, because if you're right 90% of the time you're shipping safe work).
 
-**Fintech, retired engagement.** We installed the pipeline. Two quarters later, the marketing head left and her successor wanted to ship faster by skipping the template. Within a quarter the team was back in Slack-driven chaos. We don't claim the pipeline survives a hostile leadership change. It needs a sponsor inside the team who values the discipline.
+**D2C, growth-stage — the founder-buy-in moment.** A small marketing function doing everything by Slack. Brief intake is the contentious part — the founder feels the template adds bureaucracy. Then the template surfaces that one of his "urgent" briefs has no clear audience definition. The pipeline becomes the way the founder briefs too. Function output rises substantially without headcount.
+
+**Fintech — the leadership-change failure.** A common failure mode: pipeline installs cleanly. Two quarters later, the marketing head leaves and a successor wants to ship faster by skipping the template. Within a quarter the team is back in Slack-driven chaos. The pipeline doesn't survive a hostile leadership change. It needs a sponsor inside the team who values the discipline.

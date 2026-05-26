@@ -206,31 +206,34 @@ are recreational athletes doing 5ks shouldn't write like it's
 producing copy for Ironman finishers. Match the voice to the audience's
 actual practice, not to the most extreme tier of the sport.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, Series C.** Brand had been writing in
-generic sports-lifestyle voice for three years. Pipeline produced a
-voice profile that surfaced the founder's actual long-form writing
-(buried in a personal blog) as the strongest brand-voice candidate.
-Re-pointed the content engine at his voice. Email open rates up 31%
-in the first quarter. Subscribers reported in survey that the brand
-"finally sounds like cycling, not like marketing."
+Illustrative scenarios — common shapes endurance voice work takes. Specifics are illustrative; the patterns repeat.
 
-**Endurance nutrition, growth-stage.** Brand had founders who actually
-trained but a marketing team that didn't. Pipeline built two profiles:
-"founder voice" for thought-leadership pieces and high-credibility
-launches, "brand voice" for utility content like product descriptions.
-The split ended the perpetual revision cycle between founders and
-marketing team — both got to write in their own register, the brand
-was coherent across surfaces.
+**Premium cycling brand, Series C — the founder-voice find.** A brand
+writing in generic sports-lifestyle voice for years. The extraction
+surfaces the founder's actual long-form writing (often buried in a
+personal blog) as the strongest brand-voice candidate. Re-pointing
+the content engine at that voice typically lifts email open rates
+materially within a quarter. Subscribers tend to report in survey
+that the brand "finally sounds like cycling, not like marketing."
 
-**Multi-sport apparel brand, retired engagement.** Pipeline V1 produced
-a single voice profile across the brand's cycling, running and
-training audiences. The cycling pieces read fine. The running pieces
-sounded slightly off to runners. The training pieces actively turned
-off the gym audience. V2 of the playbook now requires sub-profiles
-per discipline. Lesson: voice is sport-specific in this category, not
-brand-generic.
+**Endurance nutrition, growth-stage — the founder/team split.** A
+brand whose founders actually train but whose marketing team doesn't.
+The extraction builds two profiles: "founder voice" for thought-
+leadership pieces and high-credibility launches, "brand voice" for
+utility content like product descriptions. The split ends the
+perpetual revision cycle between founders and marketing team — both
+get to write in their own register, the brand reads coherent across
+surfaces.
+
+**Multi-sport apparel brand — the retired-V1 lesson.** An early
+version of this playbook produced a single voice profile across a
+brand's cycling, running and training audiences. Cycling pieces
+read fine. Running pieces sounded slightly off to runners. Training
+pieces actively turned off the gym audience. This is why the
+current version requires sub-profiles per discipline — voice is
+sport-specific in this category, not brand-generic.
 
 ## Hand-off
 

@@ -98,8 +98,10 @@ Full prompt library for TikTok scripts, Twitter / X threads, Instagram captions,
 
 **Hashtag spam.** Some old-school playbooks recommend 10+ hashtags per Instagram post. Modern algorithms penalise this. The pipeline caps hashtags at the platform's tolerance and validates against current best practice quarterly.
 
-## The receipts
+## The pattern in practice
 
-**D2C apparel, growth-stage.** Brand was cross-posting one blog excerpt across four channels weekly. Pipeline produced channel-native variants for one quarter. LinkedIn engagement up 4.5x, Instagram up 2x, TikTok up 9x (from a very low base, but real). The cross-posted blog excerpts had been training the algorithms to deprioritise the brand for months.
+Illustrative scenarios — common shapes channel-native social work takes. Specifics are illustrative; the patterns repeat.
 
-**B2B SaaS, scale-stage.** Brand was active on LinkedIn only. Pipeline expanded to LinkedIn + Twitter / X with channel-native form. Twitter / X generated more pipeline-qualified inquiries in three months than two prior years of LinkedIn-only posting — because the channel was different but the audience overlap is real.
+**D2C apparel, growth-stage — the cross-post fix.** A brand cross-posting one blog excerpt across four channels weekly. Switching to channel-native variants for a quarter typically lifts engagement substantially on every channel — multiples on LinkedIn and Instagram, often much larger lifts on TikTok (from a low base). The cross-posted excerpts had been training the algorithms to deprioritise the brand for months; the channel-native rebuild reverses that.
+
+**B2B SaaS, scale-stage — the second-channel addition.** A brand active on LinkedIn only. Expanding to LinkedIn + Twitter / X with channel-native form typically generates more pipeline-qualified inquiries from Twitter / X in a quarter than a year-plus of LinkedIn-only posting produced. The channel is different but the audience overlap is real — most senior marketing audiences live on both, just in different registers.

@@ -114,10 +114,12 @@ Yes, you evaluate the evals.
 
 **Brand lead bypasses the rubric.** If the lead overrides the rubric in either direction (rejecting passes, accepting fails) more than 10% of the time, the rubric isn't aligned with their judgement. Either retrain it against the recent overrides, or have a conversation about which criteria are actually the deciding ones.
 
-## The receipts
+## The pattern in practice
 
-**Publishing, scale-stage.** Editorial team had been using "the editor's gut" as the standard. Inconsistent across staff. We built rubrics for the 6 most-produced output types. Inter-editor consistency on accept/reject improved from 62% to 89%. Editor time freed up for the judgement calls that the rubric can't make.
+Illustrative scenarios — common shapes evaluation frameworks take. Specifics are illustrative; the patterns repeat.
 
-**B2B SaaS, growth-stage.** Content team had been shipping AI-drafted content that the brand lead kept rejecting. Pipeline built a rubric calibrated to the lead's actual rejections. After two months, the rubric caught 9 of 10 pieces the lead would have rejected — before the lead had to see them. Lead's time on review dropped 70%.
+**Publishing, scale-stage — the gut-to-rubric standardisation.** An editorial team using "the editor's gut" as the standard. Inconsistent across staff. Building rubrics for the most-produced output types typically lifts inter-editor consistency on accept/reject from the 60s into the high 80s in percentage points. Editor time frees up for the judgement calls the rubric can't make.
 
-**Marketplace, partial-failure engagement.** We built the rubric. The team treated it as gospel and stopped questioning judgement calls. After a quarter, output was technically passing but flat and risk-averse — the rubric had pushed the team toward safe work that hit every criterion and surprised no one. We added an "originality" criterion that explicitly required at least one element the team hadn't tried before. Throughput dropped slightly; engagement on output recovered. The lesson: rubrics enforce floors. They shouldn't be ceilings.
+**B2B SaaS, growth-stage — the upstream catch.** A content team shipping AI-drafted content that the brand lead keeps rejecting. Building a rubric calibrated to the lead's actual rejections typically catches the majority of pieces the lead would have rejected — before the lead has to see them. Lead's time on review drops dramatically.
+
+**Marketplace — the rubric-as-ceiling failure.** A common failure mode: the rubric ships and the team treats it as gospel. After a quarter, output is technically passing but flat and risk-averse — the rubric has pushed the team toward safe work that hits every criterion and surprises no one. The fix is an "originality" criterion that explicitly requires at least one element the team hasn't tried before. The lesson: rubrics enforce floors. They shouldn't be ceilings.

@@ -215,29 +215,35 @@ event contract.
 brand is at 14 events a year, none with depth. Better: 3–6
 events with full activation than 14 with logos.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand was Tier C-sponsoring
-8 European races for £400k total. We audited: 2 of 8 produced
-meaningful content yield, the rest were logo-only. Rationalised
-to 3 events with Tier B sponsorships and full activation. Same
-total spend, content yield up 6x, attributed pipeline up 4x.
+Illustrative scenarios — common shapes event sponsorship takes. Specifics are illustrative; the patterns repeat.
 
-**Trail running brand, growth-stage.** Brand had been doing Tier D
-activation-only at 4 races, paying about £20k each. Pipeline
-formalised the activation playbook — coaching workshops, race-week
-shake-out runs, post-race recovery sessions. Brand's email list
-grew 22% across the year directly attributable to event-attendee
-signups. Lowest-cost sponsorship tier, highest organic-growth
-contribution.
+**Premium cycling brand, scale-stage — the consolidation.** A brand
+Tier C-sponsoring eight European races for a substantial total
+spend. Auditing finds only a couple produced meaningful content
+yield; the rest were logo-only. Rationalising to a smaller set of
+events with Tier B sponsorships and full activation typically
+holds the total spend while multiplying content yield and
+attributed pipeline. The decision to consolidate is the unlock,
+not extra budget.
 
-**Triathlon brand, partial-failure engagement.** Brand signed a
-Tier B multi-year contract with a major European race. Year 1
-went well. Year 2, the race organiser changed the bike-discipline
-distance, the brand's target audience (long-distance triathletes)
-shifted away from the event. Contract had no break clause; brand
-paid Tier B prices for two more years against a now-marginal
-audience. Lesson: annual break clauses on every multi-year deal.
+**Trail running brand, growth-stage — the Tier D advantage.** A
+brand doing Tier D activation-only at a handful of races, paying
+modest fees. Formalising the activation playbook (coaching
+workshops, race-week shake-out runs, post-race recovery sessions)
+typically grows the email list materially across the year from
+event-attendee signups. The lowest-cost sponsorship tier is often
+the highest organic-growth contribution because activation matters
+more than logo placement.
+
+**Triathlon brand — the multi-year-without-break-clause failure.**
+A brand signs a Tier B multi-year contract with a major race.
+Year 1 goes well. Year 2, the organiser changes the bike-discipline
+distance and the brand's target audience shifts away from the
+event. With no break clause, the brand pays Tier B prices for two
+more years against a now-marginal audience. This is why annual
+break clauses belong on every multi-year deal.
 
 ## Hand-off
 

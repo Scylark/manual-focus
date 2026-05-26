@@ -53,8 +53,10 @@ Five phases.
 
 **The team treats the output as a verdict.** The pipeline produces a list of probable misattributions. It's a starting point for tests, not a final answer. Treating it as the verdict is exactly the failure the pipeline is meant to fix.
 
-## The receipts
+## The pattern in practice
 
-**D2C, scale-stage.** Brand had been crediting paid social with 45% of acquisitions. Cross-reference found GA4 data-driven attribution put it at 28%, the platform pixel at 52%, and a recent incrementality test at 19%. The team cut paid social by 30% as a test; revenue held within 4%, releasing budget for SEO content investment that paid back within two quarters.
+Illustrative scenarios — common shapes attribution tear-downs take. Specifics are illustrative; the patterns repeat.
 
-**B2B SaaS, growth-stage.** Brand was about to kill Display because GA4 last-click reported near-zero. Pipeline surfaced that Display's branded-search lift was 8% on weeks when Display ran heavily. Brand kept Display, made it cheaper and more targeted, and the branded-search lift held. Display went from "kill" to "small but earning."
+**D2C, scale-stage — the over-credited channel.** A brand crediting paid social with around 45% of acquisitions. Cross-reference finds GA4 data-driven attribution at ~28%, the platform pixel at ~52%, an incrementality test at ~19% — wide variance, so the channel is contested. A bounded test cut typically holds revenue within a few percentage points while releasing budget for an under-credited channel (often SEO content) that pays back within two quarters.
+
+**B2B SaaS, growth-stage — the under-credited brand effect.** A brand about to kill Display because GA4 last-click reports near-zero. The tear-down surfaces a measurable branded-search lift on weeks when Display runs heavily. Keeping Display, making it cheaper and more targeted, holds the branded-search lift. Display moves from "kill" to "small but earning" because the right metric for it was upstream, not last-click.

@@ -49,8 +49,10 @@ Four phases.
 
 **Found in translation, lost in another.** A tagline that works in the brand's primary market may have no resonance (or bad resonance) in a secondary market. If multi-market launch is planned, run the pipeline in each language with native-speaker filtering. Don't translate; recompose.
 
-## The receipts
+## The pattern in practice
 
-**Wellness brand, growth-stage.** Brand had been running "Find Your Glow" for three years. Brand audit found customers thanked the brand for consistency, not glow. Tagline pipeline produced a shortlist; the team A/B-tested three across paid social. Winner: "Skin you can rely on." CTR improvement of 21% on the new tagline ad creative, sustained over six months.
+Illustrative scenarios — common shapes a tagline sprint takes. Specifics are illustrative; the patterns repeat.
 
-**B2B SaaS, scale-stage.** Brand was about to ship "Marketing, Reimagined" as a rebrand cornerstone. Pipeline flagged it as generic (8 other SaaS brands had used similar phrasing in the last two years). The shortlist surfaced "The work compounds" — same root insight, no other brand using it. Tagline still in use 18 months later, defensibly distinctive.
+**Wellness brand, growth-stage — the audit-to-tagline flip.** A brand running an existing tagline for years that doesn't match what its customers thank it for. A positioning audit surfaces the gap; the tagline sprint produces a shortlist anchored in what customers actually say. Three finalists A/B-test on paid social. The winner — typically the one closest to the verbatim customer language — lifts CTR materially and holds the lift over the following season.
+
+**B2B SaaS, scale-stage — the genericness check.** A brand about to ship a "Marketing, Reimagined"-shaped tagline as a rebrand cornerstone. The sprint flags it as generic (several other SaaS brands have used similar phrasing in recent years). The shortlist surfaces something with the same root insight but a structure no other brand is using. The differentiation is what makes the tagline durable.

@@ -171,31 +171,32 @@ overlap heavily (three pieces on "easy running") and undersell the
 breadth. The topic taxonomy is the discipline; cover the breadth
 before doubling up.
 
-## The receipts
+## The pattern in practice
 
-**Cycling brand, scale-stage.** Brand had been publishing 1–2
-training pieces a month, ad-hoc. We installed the engine with the
-brand's sponsored cycling coach as the credible voice. Output went
-to 6 pieces a month with expert-review on every one. Email open
-rates on training content vs gear content: 3.2x. Newsletter sub-
-to-customer conversion from training content readers: 4.5x the
+Illustrative scenarios — common shapes a training-content engine takes. Specifics are illustrative; the patterns repeat.
+
+**Cycling brand, scale-stage — the credible-coach unlock.** A brand
+publishing a couple of training pieces a month, ad-hoc. Installing
+the engine with a sponsored cycling coach as the credible voice
+typically lifts output to several pieces a month with expert-review
+on every one. Email open rates on training content run a multiple
+of open rates on gear content; newsletter sub-to-customer
+conversion from training-content readers runs well above the
 brand average.
 
-**Trail running brand, growth-stage.** Brand's founder is a
-practicing ultrarunner. Pipeline extracted his POV in a single
-working session, generated the topic tree, drafted 50 pieces across
-two quarters with founder-as-reviewer. The training content became
-the single largest organic traffic source within 9 months,
-overtaking gear content.
+**Trail running brand, growth-stage — the founder-as-coach.** A
+brand whose founder is a practicing ultrarunner. Extracting his
+POV in a single working session, generating the topic tree, and
+drafting against a founder-as-reviewer cadence typically makes
+training content the single largest organic traffic source within
+a year, overtaking gear content.
 
-**Triathlon brand, partial-failure engagement.** Brand wanted
-training content but didn't have a credible coaching voice on the
-team or under contract. We refused to launch the pipeline until
-they signed a coach. They went ahead with a junior writer
-drafting against a generic POV; engagement was indistinguishable
-from their gear content. Six months later, they retained a coach
-and re-launched with proper expert-review. Engagement metrics
-followed. The lesson: the credible voice is non-negotiable.
+**Triathlon brand — the no-credible-voice failure.** A common
+failure mode: a brand wanting training content without a credible
+coaching voice on the team or under contract. Drafting against a
+generic POV produces engagement indistinguishable from the brand's
+gear content. The honest fix is signing a coach first. Engagement
+follows. The lesson: the credible voice is non-negotiable.
 
 ## Hand-off
 

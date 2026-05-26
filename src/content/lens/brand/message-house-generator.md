@@ -47,8 +47,10 @@ Four phases.
 
 **Channel lines drift over time.** A line that worked at launch may have been overused six months in. The message house is a living document — quarterly refresh the channel lines while keeping the narrative and pillars stable. Stability at the top, freshness at the channel.
 
-## The receipts
+## The pattern in practice
 
-**B2B SaaS, scale-stage.** Brand had three different elevator pitches depending on whom you asked. Message house unified the narrative in a single session. Six months later, sales pipeline conversion improved 14% — partly because the brand was finally being described consistently across all touchpoints.
+Illustrative scenarios — common shapes a message house takes when run cleanly. Specifics are illustrative; the patterns repeat.
 
-**D2C, growth-stage.** Brand had a strong positioning but no message house, so every piece of content had to re-derive what to say. Pipeline built the house in a day. The team's drafting speed for new content increased 3x in the following quarter, because the pillars and proof points were now reusable infrastructure, not invented per-piece.
+**B2B SaaS, scale-stage — the unification.** A brand with three different elevator pitches depending on whom you asked. The message house unifies the narrative in a single session. The compounding effect typically lands a quarter or two later: sales pipeline conversion improves because the brand is finally being described consistently across all touchpoints.
+
+**D2C, growth-stage — the drafting unlock.** A brand with strong positioning but no message house, so every piece of content re-derives what to say from scratch. The pipeline builds the house in a day. Drafting speed for new content multiplies in the following quarter, because the pillars and proof points become reusable infrastructure rather than invented per-piece.

@@ -113,10 +113,12 @@ The pipeline is gated against four failure modes.
 
 **Pillar-spoke length mismatch.** Pillars work when they're meaningfully more comprehensive than the spokes — typically 3-5x longer. If your pillar plan is 1,200 words and your spokes are 1,000, the pillar isn't a pillar; it's another spoke. Pillar plans default to 3,000-5,000 words. Spokes default to 800-1,500.
 
-## The receipts
+## The pattern in practice
 
-**B2B SaaS, growth-stage.** Brand had been publishing 4 posts a month with no cluster strategy. Pipeline ran on the seed "marketing operations" and produced a pillar + 24 spokes. We rebuilt the content backlog around it. Six months later, the pillar ranks #3 for the seed and 11 of the spokes rank in the top 10 for their primary query. Organic traffic to the topic up 6x.
+Illustrative scenarios — common shapes a cluster build takes. Specifics are illustrative; the patterns repeat.
 
-**D2C, scale-stage.** Brand wanted to claim a niche category. Pipeline ran on a seed query with 4,400 monthly searches and surfaced a coherent 18-spoke cluster. Differentiation hooks pulled from the brand's own customer-survey data, which competitors didn't have. Cluster shipped in 9 weeks. Drove 38% of new-customer organic acquisition within two quarters.
+**B2B SaaS, growth-stage — the cluster-around-a-strong-seed.** A brand publishing a handful of posts a month with no cluster strategy. Running the pipeline on a strong seed (e.g. "marketing operations") produces a pillar + 20+ spokes. Rebuilding the content backlog around the cluster typically lands the pillar in the top results for its seed within two quarters and a meaningful share of spokes in their top results. Organic traffic to the topic multiplies several-fold.
 
-**Publishing, retired engagement.** Pipeline V2 produced a strong cluster but the brand executed it with a heavy LLM-drafting workflow that didn't include original data or expert review. Pages ranked initially, then 9 of the 22 dropped in the next Helpful Content Update. We refused to extend the engagement until the brand committed to original-data hooks per page. The pipeline now hard-flags any spoke whose hook depends on synthesis alone with no first-party input.
+**D2C, scale-stage — the niche claim.** A brand trying to claim a niche category. The pipeline runs on a moderate-volume seed and surfaces a coherent cluster. Differentiation hooks come from the brand's own customer-survey data — something competitors don't have. The cluster ships in a couple of months and drives a substantial fraction of new-customer organic acquisition within two quarters. Original data per page is the unlock.
+
+**Publishing — the Helpful-Content-Update failure.** A common failure mode: a brand executes a strong cluster with a heavy LLM-drafting workflow that doesn't include original data or expert review. Pages rank initially, then drop in the next Helpful Content Update. This is why the current pipeline hard-flags any spoke whose hook depends on synthesis alone with no first-party input.

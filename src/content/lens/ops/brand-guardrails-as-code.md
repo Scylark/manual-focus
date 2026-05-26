@@ -110,10 +110,12 @@ Two checks at the ruleset level.
 
 **Rules grow without retirement.** Every quarterly review adds rules. Few retirements happen. After two years, the ruleset is a slow, over-blocking mess. Establish a "retire 3 rules per quarter" discipline, even if it's hard to pick three. Old rules earn their keep or get cut.
 
-## The receipts
+## The pattern in practice
 
-**Health-tech, regulated category.** Brand had a 60-page guideline document and a compliance officer who reviewed every piece of marketing manually. Pipeline encoded 47 of the rules. Compliance officer's manual review dropped from 4 hours per piece to 40 minutes. Three escalations to regulator-required revisions in the past 18 months — all caught by the LLM-judgement rule for unsourced claims. Pre-pipeline, those would have shipped.
+Illustrative scenarios — common shapes brand guardrails as code take. Specifics are illustrative; the patterns repeat.
 
-**D2C brand.** Brand had been losing voice consistency across a growing team. We installed the ruleset. After one quarter, voice consistency complaints from the brand lead dropped to near-zero. The brand lead's actual job shifted from policing to creating — she'd been spending 30% of her week on consistency review. That time is now original work.
+**Health-tech, regulated category — the compliance-time reclaim.** A brand with a long-form guideline document and a compliance officer who manually reviews every piece. Encoding most of the rules into the ruleset typically reduces manual review time by an order of magnitude. The high-value rules — LLM-judgement checks for unsourced claims — catch the regulator-flagged issues that would otherwise have shipped.
 
-**B2B SaaS, growth-stage, partial-failure engagement.** We installed the pipeline. Within two months, sales had built a workaround — a separate Notion space where they drafted pitches without the check. Sales hit pipeline targets at the cost of brand consistency. We added a rule that flagged pitches from the sales workaround and routed them through the check anyway. The lesson: the check has to cover all surfaces, not just the ones marketing controls. If sales is generating outbound, sales is generating brand surface.
+**D2C brand — the brand-lead-as-creator unlock.** A brand losing voice consistency across a growing team. Installing the ruleset typically takes brand-consistency complaints from the brand lead to near-zero within a quarter. The brand lead's actual job shifts from policing to creating — recovering a substantial portion of the week previously spent on consistency review for original work.
+
+**B2B SaaS — the sales-workaround failure.** A common failure mode: the pipeline installs cleanly. Within months, sales builds a workaround — a separate Notion space where they draft pitches without the check. Sales hits pipeline targets at the cost of brand consistency. The fix is to extend the check to all surfaces, not just the ones marketing controls. If sales is generating outbound, sales is generating brand surface.

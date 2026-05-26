@@ -51,8 +51,10 @@ This playbook installs the middle path. A 5-day ritual, with structure, that pro
 
 **The ritual replaces the work.** Some functions over-plan and under-ship. The ritual is bounded to 5 days because more would crowd out the actual work. If a team is spending 2 weeks on quarterly planning, the planning has become the product. Cut it.
 
-## The receipts
+## The pattern in practice
 
-**B2B SaaS, scale-stage.** Function had been doing planning as a 3-day off-site, light on data, heavy on argument. We installed the 5-day ritual with the data-extraction front-loaded. After two quarters, the function's bet-success rate (briefs whose target metric actually moved) climbed from 38% to 56% — partly because the trade-off discipline kept the team focused, partly because the retires cleared capacity for the bets that mattered.
+Illustrative scenarios — common shapes the quarterly planning ritual takes. Specifics are illustrative; the patterns repeat.
 
-**D2C, growth-stage.** Function had been planning by reaction — whatever was urgent that week. The ritual gave the function a quarterly shape for the first time. The metric story drafted in Day 4 went to the board in the next meeting and dramatically changed how non-marketing leadership talked about the function's work. Brand had under-credited marketing for two quarters because nobody was writing the story; once it was written, the budget conversation went differently.
+**B2B SaaS, scale-stage — the data-led discipline.** A function doing planning as a 3-day off-site, light on data, heavy on argument. Installing the 5-day ritual with the data-extraction front-loaded typically lifts the function's bet-success rate (briefs whose target metric actually moved) materially over two quarters — partly because the trade-off discipline keeps the team focused, partly because the retires clear capacity for the bets that mattered.
+
+**D2C, growth-stage — the metric-story unlock.** A function planning by reaction — whatever's urgent that week. The ritual gives the function a quarterly shape for the first time. The metric story drafted in Day 4 goes to the board in the next meeting and changes how non-marketing leadership talks about the function's work. The brand had been under-crediting marketing because nobody was writing the story; once it gets written, the budget conversation goes differently.

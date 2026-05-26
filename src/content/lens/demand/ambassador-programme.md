@@ -196,32 +196,38 @@ Audience pattern-matches it as automated. Replace with one specific
 observation per race — what changed in the athlete's performance,
 what the race meant in their season, what conditions they overcame.
 
-## The receipts
+## The pattern in practice
 
-**Premium cycling brand, scale-stage.** Brand had 8 ambassadors,
-spent £600k/year, couldn't articulate the return. Pipeline rebuilt
-the roster around the rubric. Tapered to 4 athletes with substantially
-higher fit. £400k spend. Engagement on athlete content up 3x. Brand
-traffic from athlete content up 5x in the following two quarters.
-The decision to taper was the unlock.
+Illustrative scenarios — common shapes ambassador programmes take. Specifics are illustrative; the patterns repeat.
 
-**Running brand, growth-stage.** Brand had been signing fast-time
-athletes whose audiences were primarily other fast-time athletes.
-Pipeline surfaced that the brand's actual customer was an
-intermediate runner who couldn't relate to 2:25 marathoners. Re-
-focused signings toward 2:50–3:30 marathoners with strong
-intermediate-runner audience and a relatable personal narrative.
-Newsletter conversion from athlete-introduced content up 8x.
+**Premium cycling brand, scale-stage — the taper unlock.** A brand
+with eight ambassadors, substantial annual spend, no articulable
+return. Rebuilding the roster around the selection rubric typically
+tapers to a smaller named group with substantially higher fit.
+Total spend drops. Engagement on athlete content multiplies — not
+because each athlete is suddenly stronger, but because the four
+remaining are real audience matches and the noise of the other
+four was suppressing the signal.
 
-**Triathlon brand, partial-failure engagement.** Pipeline produced a
-strong selection rubric. Brand signed two athletes who scored well,
-but the contracts didn't include AI augmentation language. 18 months
-in, the brand wanted to extend a hero shoot's footage with AI
-variants for the next season. One athlete declined under their
-contract, the other granted permission for a fee that wasn't
-budgeted. We added the AI augmentation clause as a contract non-
-negotiable in V2. Lesson: AI-augmentation rights are now table-
-stakes contract language.
+**Running brand, growth-stage — the wrong-tier audience.** A brand
+signing fast-time elite athletes whose audiences are primarily
+other fast-time athletes — but the brand's actual customer is an
+intermediate runner who can't relate to 2:25 marathoners. Re-
+focusing signings toward 2:50–3:30 marathoners with strong
+intermediate-runner audiences and relatable personal narratives
+typically lifts newsletter conversion from athlete-introduced
+content multiple times over. Audience-fit beats raw performance
+in ambassador economics.
+
+**Triathlon brand — the contract-clause-that-wasn't.** A common
+historical failure: signing athletes who score well on the rubric
+but with contracts that don't include AI augmentation language.
+Eighteen months in, the brand wants to extend a hero shoot with
+AI variants for the next season and finds the contracts don't
+cover it. One athlete declines; the other grants permission for
+an unbudgeted fee. This is why AI-augmentation rights are now
+table-stakes contract language — every contract carries the
+clause from day one.
 
 ## Hand-off
 
