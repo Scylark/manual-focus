@@ -1,0 +1,19 @@
+{
+  "name": "manual-focus",
+  "owner": {
+    "name": "Manual Focus",
+    "url": "https://manual-focus.co.uk"
+  },
+  "metadata": {
+    "description": "The Lens — Manual Focus's working library of AI marketing skills for endurance-sport brands. Companion to the playbooks at manual-focus.co.uk/lens.",
+    "version": "0.1.0",
+    "repository": "https://github.com/Scylark/manual-focus"
+  },
+  "plugins": [
+    {
+      "name": "the-lens",
+      "description": "14 AI marketing skills covering positioning, brand voice, naming, demand-gen, content systems, lifecycle, and the endurance-specific workflows (race-day demand pipelines, race-result content, segment b-roll, endurance brand voice) plus the AI studio news watch.",
+      "source": "./lens-skills"
+    }
+  ]
+}
