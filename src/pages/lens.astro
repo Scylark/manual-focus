@@ -38,9 +38,59 @@ import { url } from '../utils/paths';
         <div class="lens-ctas reveal">
           <a href={url('/lens/start-here')} class="btn-cta">Start here</a>
           <a href={url('/lens/library')} class="btn-ghost">Browse the library</a>
-          <a href={url('/enquire')} class="btn-ghost">Request founding access</a>
         </div>
-        <p class="lens-meta mono reveal">36 playbooks live · 14 skills · Endurance-sport focus · Updated as the models shift</p>
+        <p class="lens-meta mono reveal">FREE · 36 playbooks · 14 skills · Endurance focus · Updated as the models shift</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRST TIME HERE -->
+  <section class="section lens-first-time">
+    <div class="container">
+      <div class="eyebrow">FIRST TIME HERE?</div>
+      <h2 class="reveal lens-first-headline">Pick your starting point.</h2>
+      <p class="lens-first-lead reveal">
+        The Lens is 36 playbooks. Most readers don't need 36; they need
+        the right one for the work in front of them. Match your
+        situation below and you'll land on the playbook to start with.
+      </p>
+      <div class="lens-first-grid stagger">
+        <a href={url('/lens/brand/positioning-audit-pipeline')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>I've inherited a brand and need an honest read</h3>
+          <p>Positioning audit → voice extraction → message house. Five to ten working days end-to-end.</p>
+          <span class="first-card-cue mono">POSITIONING AUDIT →</span>
+        </a>
+        <a href={url('/lens/content/eval-gated-drafting')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>I need to ship more content without losing the brand</h3>
+          <p>Eval-gated drafting → social factory. Drafts pass voice, fact and originality gates before a human sees them.</p>
+          <span class="first-card-cue mono">EVAL-GATED DRAFTING →</span>
+        </a>
+        <a href={url('/lens/ops/brief-to-ship-pipeline')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>The team ships but the system around it is chaos</h3>
+          <p>Brief-to-ship pipeline. Structured intake, weekly triage, weekly shipping cadence. Replaces ten tools.</p>
+          <span class="first-card-cue mono">BRIEF-TO-SHIP →</span>
+        </a>
+        <a href={url('/lens/demand/channel-mix-simulator')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>I need to defend a budget allocation to the CFO</h3>
+          <p>Channel-mix simulator with reach-curve fitting. Walk into the meeting with three scenarios and the maths.</p>
+          <span class="first-card-cue mono">CHANNEL-MIX SIMULATOR →</span>
+        </a>
+        <a href={url('/lens/brand/endurance-brand-voice')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>I'm an endurance brand and our content sounds generic</h3>
+          <p>Endurance brand voice — the lexicon and credibility tells that separate practitioner-led brands from sports-lifestyle ones.</p>
+          <span class="first-card-cue mono">ENDURANCE BRAND VOICE →</span>
+        </a>
+        <a href={url('/lens/start-here')} class="first-card first-card-fallback">
+          <div class="first-card-tag mono">OR</div>
+          <h3>None of those — show me the full guide</h3>
+          <p>The "Start here" page has the by-situation lookup table covering 26 specific scenarios, plus the three composition patterns.</p>
+          <span class="first-card-cue mono">FULL GUIDE →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -298,32 +348,57 @@ import { url } from '../utils/paths';
     </div>
   </section>
 
-  <!-- PRICING -->
+  <!-- ACCESS -->
   <section class="section section-alt dwell-pin">
     <div class="dwell-pin-stage">
       <FocusObject size={300} tiltX={50} tiltY={-18} spin={130} scrollSpin={-100} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
         <div class="eyebrow">008 · THE TERMS</div>
-        <h2 class="reveal">Founding subscriber rate. Locked for life.</h2>
+        <h2 class="reveal">Free. Email required.</h2>
+        <p class="lead reveal">
+          Every playbook, every skill, the capability reference, the
+          AI-news pipeline — all of it free. The only thing we ask
+          for is your email, so we can tell you when new entries
+          ship and when existing ones get updated.
+        </p>
         <div class="lens-price reveal">
           <div class="lens-price-inner">
             <div class="price-head">
-              <div class="price-tag mono"><span>FOUNDING SUBSCRIBER</span><span class="price-flag">FIRST 100 SEATS</span></div>
-              <div class="price-amount">£80<span class="price-per">/month</span></div>
-              <p class="price-shape mono">Billed annually · £960/year · Locked for life</p>
+              <div class="price-tag mono"><span>FREE ACCESS</span><span class="price-flag">EMAIL FOR UPDATES</span></div>
+              <div class="price-amount">£0<span class="price-per">/forever</span></div>
+              <p class="price-shape mono">No paywall · No credit card · Unsubscribe anytime</p>
             </div>
             <ul class="price-list">
-              <li>Full access to every stack and every playbook in the library</li>
-              <li>New playbooks added every month, drawn from live client work (36 playbooks at launch)</li>
-              <li>Eval harnesses, prompts and pipelines included with every entry</li>
-              <li>Refresh annotations within 72 hours of frontier-model releases</li>
-              <li>Members-only async clinic, bring a workflow that won't behave</li>
-              <li>Founding rate stays at £80/month even after standard pricing rises</li>
+              <li>Full read access to every stack and every playbook</li>
+              <li>Skill plugin installable in Claude Code (free, open source under MIT)</li>
+              <li>Notified when new playbooks ship — typically four to six a month</li>
+              <li>Notified when existing entries get refreshed against new frontier models</li>
+              <li>AI-studio news pipeline summary in your inbox weekly (optional)</li>
+              <li>No upsell. No drip funnel. Just the library and the updates.</li>
             </ul>
-            <div class="price-foot">
-              <a href={url('/enquire')} class="btn-cta">Request access</a>
-              <p class="price-note">Standard rate after founding seats close: £140/month, £1,680/year.</p>
-            </div>
+            <form
+              class="lens-signup-form"
+              data-newsletter-form
+              action="https://manual-focus.us20.list-manage.com/subscribe/post?u=PLACEHOLDER&amp;id=PLACEHOLDER"
+              method="POST"
+              target="_blank"
+              novalidate
+            >
+              <label for="lens-email-signup" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="lens-email-signup"
+                name="EMAIL"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+              />
+              <button type="submit" class="btn-cta">Get free access</button>
+            </form>
+            <p class="price-note">
+              We send roughly one email a week. <a href={url('/privacy')}>What we do with your data</a>.
+              Or skip the email and read everything directly at <a href={url('/lens/library')}>/lens/library</a>.
+            </p>
           </div>
         </div>
       </div>
@@ -335,56 +410,57 @@ import { url } from '../utils/paths';
     <div class="dwell-pin-stage">
       <FocusObject size={260} tiltX={55} tiltY={-22} spin={140} scrollSpin={70} style="top: 8%; left: 4%;" enterFrom="left" />
       <div class="container">
-        <div class="eyebrow">009 · BEFORE YOU SUBSCRIBE</div>
+        <div class="eyebrow">009 · BEFORE YOU GO IN</div>
         <h2 class="reveal">The questions you'd be right to ask.</h2>
         <div class="lens-faq stagger">
+          <details class="lens-faq-item">
+            <summary>It's really free?</summary>
+            <p>
+              Yes. Every playbook, every skill, the capability reference
+              and the AI-news pipeline. No paywall. No credit card. We
+              ask for your email so we can let you know when new entries
+              ship and existing ones get refreshed, but the library itself
+              is fully open at <a href={url('/lens/library')}>/lens/library</a>
+              even without signing up.
+            </p>
+          </details>
+          <details class="lens-faq-item">
+            <summary>What's in it for Manual Focus, then?</summary>
+            <p>
+              The Lens is the brand. Senior marketers who use the playbooks
+              eventually have work that fits a Manual Focus engagement —
+              Fractional CMO, Strategic Advisor, Build & Hand Over, or the
+              AI product. A free, opinionated, regularly-updated library is
+              how we earn the right to that conversation. If you never
+              need us, that's also fine.
+            </p>
+          </details>
           <details class="lens-faq-item">
             <summary>How is this different from a course?</summary>
             <p>
               A course is content you consume once. The Lens is a reference
-              library you keep coming back to, pull a playbook the day a
+              library you keep coming back to — pull a playbook the day a
               brief lands, swap the model when a new one ships, hand a
               workflow to a junior with the eval harness intact. The shape
               is more like a Bloomberg Terminal than a Udemy unit.
             </p>
           </details>
           <details class="lens-faq-item">
-            <summary>Why not just publish this on a blog?</summary>
-            <p>
-              Because the eval results, the failure modes and the actual
-              outputs are competitive information for the brands we ship
-              for. The Lens is gated so we can include the things we
-              couldn't include in a public write-up. Members agree to
-              non-circulation in the subscription terms.
-            </p>
-          </details>
-          <details class="lens-faq-item">
-            <summary>What happens to my access if I stop subscribing?</summary>
-            <p>
-              You lose access to the library, including any playbooks you
-              haven't downloaded. Annual subscribers can export their
-              favourited entries before cancellation as a PDF bundle for
-              personal reference. The eval harnesses stay yours if you've
-              already wired them up, we don't have a kill switch on your
-              local pipelines.
-            </p>
-          </details>
-          <details class="lens-faq-item">
             <summary>How many playbooks are in there now?</summary>
             <p>
-              Twenty live at the founding launch — five per stack — with
-              four to six new playbooks shipping each month from real
-              client work. Existing entries get refreshed as the models
-              shift, and entries that have been overtaken get retired.
-              The library is growing and pruning at the same time.
+              36 live across the four stacks — Brand, Demand, Content,
+              Ops — plus 14 runnable skills installable as a Claude Code
+              plugin and a capability reference page that grades what AI
+              can actually do this quarter. Four to six new playbooks
+              ship each month from live client work.
             </p>
           </details>
           <details class="lens-faq-item">
-            <summary>Can my team share one seat?</summary>
+            <summary>Can I share with my team?</summary>
             <p>
-              No. Each seat is for one senior operator. Team licences are
-              available for three or more seats at a per-seat rate, talk
-              to us before applying.
+              Yes. Pass the URLs around. Install the plugin on every
+              team member's Claude Code. The library is meant to be
+              used by working teams, not gate-kept.
             </p>
           </details>
           <details class="lens-faq-item">
@@ -419,15 +495,18 @@ import { url } from '../utils/paths';
 
       <div class="container cta-close-inner">
         <h2 class="cta-headline reveal">
-          The first hundred founding<br/>
-          seats <span class="gradient-text">close when they close</span>.
+          Read the work.<br/>
+          <span class="gradient-text">Or pick one playbook and ship.</span>
         </h2>
         <p class="cta-sub reveal">
-          Request access in five minutes. We'll send the onboarding shape and
-          a sample entry inside two working days so you can read the work
-          before you subscribe.
+          The Lens compounds when used, not when read. Start with the
+          guide if you're new, or jump straight to the library if you
+          know what you're after.
         </p>
-        <a href={url('/enquire')} class="btn-cta reveal">Request access</a>
+        <div class="cta-close-buttons reveal">
+          <a href={url('/lens/start-here')} class="btn-cta">Start here</a>
+          <a href={url('/lens/library')} class="btn-ghost">Browse the library</a>
+        </div>
       </div>
     </div>
   </section>
@@ -566,6 +645,147 @@ import { url } from '../utils/paths';
     margin-top: auto;
     padding-top: var(--space-sm);
     border-top: 1px solid var(--color-line);
+  }
+
+  /* First-time-here grid */
+  .lens-first-time {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .lens-first-headline {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    color: var(--color-text);
+    margin-block: var(--space-sm);
+  }
+  .lens-first-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    max-width: 65ch;
+    margin-bottom: var(--space-lg);
+  }
+  .lens-first-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  @media (min-width: 769px) {
+    .lens-first-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .lens-first-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .first-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    background: var(--color-bg);
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .first-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .first-card:hover {
+    border-color: var(--color-cta-start);
+    background: var(--color-bg-alt);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  .first-card:hover::before { opacity: 1; }
+  .first-card-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+  }
+  .first-card h3 {
+    font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+    color: var(--color-text);
+    line-height: 1.25;
+    margin: 0;
+    transition: color 0.2s ease;
+  }
+  .first-card:hover h3 {
+    color: var(--color-cta-start);
+  }
+  .first-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    font-size: var(--font-size-body);
+    flex: 1 1 auto;
+    margin: 0;
+  }
+  .first-card-cue {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+    margin-top: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-line);
+  }
+  .first-card-fallback {
+    background: var(--color-bg-alt);
+  }
+
+  /* Email signup form */
+  .lens-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  @media (min-width: 600px) {
+    .lens-signup-form {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+  .lens-signup-form input[type="email"] {
+    flex: 1 1 auto;
+    padding: 0.85rem 1.2rem;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    transition: border-color 0.2s ease;
+  }
+  .lens-signup-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-cta-start);
+  }
+  .lens-signup-form input[type="email"]::placeholder {
+    color: var(--color-text-muted);
+  }
+  .lens-signup-form .btn-cta {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* CTA close buttons */
+  .cta-close-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-top: var(--space-md);
   }
 
   /* Skills section CTA */
