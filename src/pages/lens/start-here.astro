@@ -583,6 +583,10 @@ import { url } from '../../utils/paths';
   @media (min-width: 769px) {
     .stack-quick-ref { grid-template-columns: 1fr 1fr; }
   }
+  /* Five stack cards lay out as 3+2 at desktop instead of 2+2+1. */
+  @media (min-width: 1024px) {
+    .stack-quick-ref { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
   .stack-quick {
     display: block;
     padding: var(--space-md);

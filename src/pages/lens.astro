@@ -39,61 +39,11 @@ import { url } from '../utils/paths';
         <div class="lens-ctas reveal">
           <a href={url('/lens/start-here')} class="btn-cta">Start here</a>
           <a href={url('/lens/library')} class="btn-ghost">Browse the library</a>
-          <a href={url('/lens/primer')} class="btn-ghost">New to prompting? Read the 101</a>
-          <a href={url('/lens/cowork')} class="btn-ghost">New to Cowork? Read the primer</a>
         </div>
+        <p class="lens-secondary-links reveal">
+          New to AI? Read the <a href={url('/lens/primer')}>prompting 101</a> or the <a href={url('/lens/cowork')}>Cowork setup primer</a>.
+        </p>
         <p class="lens-meta mono reveal">FREE · 46 playbooks · 25 skills · Endurance focus · Updated as the models shift</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FIRST TIME HERE -->
-  <section class="section lens-first-time">
-    <div class="container">
-      <div class="eyebrow">FIRST TIME HERE?</div>
-      <h2 class="reveal lens-first-headline">Pick your starting point.</h2>
-      <p class="lens-first-lead reveal">
-        The Lens is 46 playbooks. Most readers don't need 46, they need
-        the right one for the work in front of them. Match your
-        situation below and you'll land on the playbook to start with.
-      </p>
-      <div class="lens-first-grid stagger">
-        <a href={url('/lens/brand/positioning-audit-pipeline')} class="first-card">
-          <div class="first-card-tag mono">START WITH</div>
-          <h3>I've inherited a brand and need an honest read</h3>
-          <p>Positioning audit, voice extraction, message house. Five to ten working days end to end.</p>
-          <span class="first-card-cue mono">POSITIONING AUDIT →</span>
-        </a>
-        <a href={url('/lens/content/eval-gated-drafting')} class="first-card">
-          <div class="first-card-tag mono">START WITH</div>
-          <h3>I need to ship more content without losing the brand</h3>
-          <p>Eval-gated drafting feeding a social factory. Drafts pass voice, fact and originality gates before a human sees them.</p>
-          <span class="first-card-cue mono">EVAL-GATED DRAFTING →</span>
-        </a>
-        <a href={url('/lens/ops/brief-to-ship-pipeline')} class="first-card">
-          <div class="first-card-tag mono">START WITH</div>
-          <h3>The team ships but the system around it is chaos</h3>
-          <p>Brief-to-ship pipeline. Structured intake, weekly triage, weekly shipping cadence. Replaces ten tools.</p>
-          <span class="first-card-cue mono">BRIEF-TO-SHIP →</span>
-        </a>
-        <a href={url('/lens/demand/channel-mix-simulator')} class="first-card">
-          <div class="first-card-tag mono">START WITH</div>
-          <h3>I need to defend a budget allocation to the CFO</h3>
-          <p>Channel-mix simulator with reach-curve fitting. Walk into the meeting with three scenarios and the maths.</p>
-          <span class="first-card-cue mono">CHANNEL-MIX SIMULATOR →</span>
-        </a>
-        <a href={url('/lens/brand/endurance-brand-voice')} class="first-card">
-          <div class="first-card-tag mono">START WITH</div>
-          <h3>I'm an endurance brand and our content sounds generic</h3>
-          <p>Endurance brand voice, the lexicon and credibility tells that separate practitioner-led brands from sports-lifestyle ones.</p>
-          <span class="first-card-cue mono">ENDURANCE BRAND VOICE →</span>
-        </a>
-        <a href={url('/lens/start-here')} class="first-card first-card-fallback">
-          <div class="first-card-tag mono">OR</div>
-          <h3>None of those, show me the full guide</h3>
-          <p>The "Start here" page has the by-situation lookup table covering 26 specific scenarios, plus the three composition patterns.</p>
-          <span class="first-card-cue mono">FULL GUIDE →</span>
-        </a>
       </div>
     </div>
   </section>
@@ -183,6 +133,57 @@ import { url } from '../utils/paths';
             </p>
           </article>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PICK YOUR STARTING POINT -->
+  <section class="section lens-first-time">
+    <div class="container">
+      <div class="eyebrow">003 · PICK YOUR STARTING POINT</div>
+      <h2 class="reveal lens-first-headline">Match your situation, land on the playbook.</h2>
+      <p class="lens-first-lead reveal">
+        The Lens is 46 playbooks. Most readers don't need 46, they need
+        the right one for the work in front of them. Match your
+        situation below and you'll land on the right starter.
+      </p>
+      <div class="lens-first-grid stagger">
+        <a href={url('/lens/brand/positioning-audit-pipeline')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>I've inherited a brand and need an honest read</h3>
+          <p>Positioning audit, voice extraction, message house. Five to ten working days end to end.</p>
+          <span class="first-card-cue mono">POSITIONING AUDIT →</span>
+        </a>
+        <a href={url('/lens/content/eval-gated-drafting')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>I need to ship more content without losing the brand</h3>
+          <p>Eval-gated drafting feeding a social factory. Drafts pass voice, fact and originality gates before a human sees them.</p>
+          <span class="first-card-cue mono">EVAL-GATED DRAFTING →</span>
+        </a>
+        <a href={url('/lens/ops/brief-to-ship-pipeline')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>The team ships but the system around it is chaos</h3>
+          <p>Brief-to-ship pipeline. Structured intake, weekly triage, weekly shipping cadence. Replaces ten tools.</p>
+          <span class="first-card-cue mono">BRIEF-TO-SHIP →</span>
+        </a>
+        <a href={url('/lens/demand/channel-mix-simulator')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>I need to defend a budget allocation to the CFO</h3>
+          <p>Channel-mix simulator with reach-curve fitting. Walk into the meeting with three scenarios and the maths.</p>
+          <span class="first-card-cue mono">CHANNEL-MIX SIMULATOR →</span>
+        </a>
+        <a href={url('/lens/productivity/daily-briefing-pipeline')} class="first-card">
+          <div class="first-card-tag mono">START WITH</div>
+          <h3>My day is reactive and I want it back</h3>
+          <p>Daily briefing pipeline. Calendar plus inbox plus Slack plus CRM stitched into a five-minute morning brief.</p>
+          <span class="first-card-cue mono">DAILY BRIEFING →</span>
+        </a>
+        <a href={url('/lens/start-here')} class="first-card first-card-fallback">
+          <div class="first-card-tag mono">OR</div>
+          <h3>None of those, show me the full guide</h3>
+          <p>The "Start here" page has the by-situation lookup table, plus the three composition patterns and the install path.</p>
+          <span class="first-card-cue mono">FULL GUIDE →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -465,11 +466,13 @@ import { url } from '../utils/paths';
           <details class="lens-faq-item">
             <summary>How many playbooks are in there now?</summary>
             <p>
-              36 live across the four stacks of Brand, Demand, Content
-              and Ops, plus 14 runnable skills installable as a Claude Code
-              plugin and a capability reference page that grades what AI
-              can actually do this quarter. New entries ship regularly
-              as new patterns prove themselves in live work.
+              46 live across the five stacks of Brand, Demand, Content,
+              Ops and Productivity, plus 25 runnable skills installable
+              as a Claude Code plugin (24 workflow skills plus the
+              setup-the-lens welcome skill) and a capability reference
+              page that grades what AI can actually do this quarter.
+              New entries ship regularly as new patterns prove themselves
+              in live work.
             </p>
           </details>
           <details class="lens-faq-item">
@@ -556,6 +559,20 @@ import { url } from '../utils/paths';
     flex-wrap: wrap;
     gap: var(--space-sm);
     margin-top: var(--space-md);
+  }
+  .lens-secondary-links {
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-body);
+    color: var(--color-text-secondary);
+  }
+  .lens-secondary-links a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-cta-start);
+    text-underline-offset: 0.2em;
+  }
+  .lens-secondary-links a:hover {
+    text-decoration-thickness: 2px;
   }
   .lens-meta {
     font-size: 0.7rem;
@@ -1059,6 +1076,11 @@ import { url } from '../utils/paths';
     .lens-pillars { grid-template-columns: 1fr 1fr; }
     .lens-stacks { grid-template-columns: 1fr 1fr; }
     .lens-fit-grid { grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+  }
+  /* Five stack cards lay out as 3+2 at desktop instead of 2+2+1
+     so the last card doesn't sit alone in its own row. */
+  @media (min-width: 1024px) {
+    .lens-stacks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
 
   @media (max-width: 768px) {
