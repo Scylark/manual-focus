@@ -80,13 +80,35 @@ Sum campaign-level purchases into a single "Paid social, Meta" row at the channe
 
 **Step 1.4, build the master sheet.**
 
-Open a fresh spreadsheet. Build it with these columns:
+Two ways to do this. Pick whichever is faster for you.
 
-| Channel | Week | Conversions_GA4_DDA | Conversions_GA4_LC | Conversions_Platform | Notes |
+**Option A, download the starter template.** Grab the pre-built CSV here: [attribution-master.csv](/lens/templates/attribution-master.csv). It has the six standard channels (Paid social, Paid search, Display, SEO, Email, Direct) pre-filled across 12 weeks, with the seven columns ready to paste into. Open it in Sheets or Excel, paste your exports into the right cells, save.
 
-One row per channel-week combination. Paste from your three exports. For organic, direct and email you will only have the GA4 columns and that is fine, the point of the comparison is the paid channels where you have a platform reading to disagree with GA4.
+**Option B, build a custom template for your channel mix.** If your channel list does not match the standard six (you run TikTok ads, you have an affiliate channel, you do not run Display), ask Claude to build the template:
 
-If you have an incrementality test result, add a column **Conversions_Incrementality** with the test-measured value for the channels you have it on.
+```text
+SYSTEM: You generate an attribution master sheet template for a
+brand based on their actual channel mix. The template covers 12
+weeks and includes one row per channel-week combination.
+
+USER:
+My paid channels: {LIST_YOUR_PAID_CHANNELS}
+My organic and owned channels: {LIST_YOUR_ORGANIC_CHANNELS}
+Attribution sources I have access to: {LIST_YOUR_SOURCES}
+
+Generate a CSV template with these columns:
+Channel, Week, Conversions_GA4_DDA, Conversions_GA4_LC,
+Conversions_Platform, Conversions_Incrementality, Spend, Notes
+
+Pre-fill the Channel column with my channels and the Week column
+with W01 through W12. Leave the metric columns empty for me to
+paste data into. Mark "n/a" in the Conversions_Platform column for
+channels with no platform reading (organic search, direct, email).
+
+Return the CSV directly, no commentary.
+```
+
+Either way you end up with the same shape, one row per channel-week, columns for each attribution source. Paste your exports from steps 1.1-1.3 into the right cells.
 
 **Sample finished Phase 1 output, a fictional D2C apparel brand, first four weeks shown:**
 

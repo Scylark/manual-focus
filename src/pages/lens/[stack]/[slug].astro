@@ -284,6 +284,49 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
   .playbook-prose :global(li) {
     margin-bottom: 0.5rem;
   }
+  /* GFM task lists. The markdown renderer wraps task-list-items
+     in a `.contains-task-list` ul. We hide the default bullet,
+     style the checkbox to fit the dark theme, and align the input
+     to the first text line. */
+  .playbook-prose :global(ul.contains-task-list) {
+    list-style: none;
+    padding-left: 0;
+  }
+  .playbook-prose :global(li.task-list-item) {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding-left: 0;
+  }
+  .playbook-prose :global(li.task-list-item input[type="checkbox"]) {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+    border: 1px solid var(--color-cta-start);
+    border-radius: 3px;
+    background: transparent;
+    cursor: default;
+    position: relative;
+    opacity: 1;
+  }
+  .playbook-prose :global(li.task-list-item input[type="checkbox"]:checked) {
+    background: var(--color-cta-start);
+  }
+  .playbook-prose :global(li.task-list-item input[type="checkbox"]:checked)::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid var(--color-bg);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
   .playbook-prose :global(strong) {
     color: var(--color-text);
   }
