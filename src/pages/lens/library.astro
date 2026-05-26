@@ -204,13 +204,40 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
     border-radius: 4px;
     background: var(--color-bg);
     text-decoration: none;
-    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
+    cursor: pointer;
+  }
+  .library-card::after {
+    content: "READ PLAYBOOK →";
+    position: absolute;
+    bottom: var(--space-md);
+    right: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    background: var(--color-bg-alt);
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    pointer-events: none;
   }
   .library-card:hover {
     border-color: var(--color-cta-start);
     background: var(--color-bg-alt);
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+  .library-card:hover::after {
+    opacity: 1;
+  }
+  .library-card:hover .card-title {
+    color: var(--color-cta-start);
+  }
+  .library-card .card-title {
+    transition: color 0.2s ease;
   }
   .card-head {
     display: flex;
