@@ -1,0 +1,23 @@
+Channel,Week,Spend_GBP,Conversions,Cost_per_conversion,Saturation_estimate_0_to_1,Notes
+Paid social - Meta,W01,,,,,12-month weekly history goes here
+Paid social - Meta,W02,,,,,
+Paid search - Google brand,W01,,,,,
+Paid search - Google brand,W02,,,,,
+Paid search - Google non-brand,W01,,,,,
+Paid search - Google non-brand,W02,,,,,
+Display retargeting,W01,,,,,
+Display retargeting,W02,,,,,
+SEO,W01,,,,,Spend proxy is content + technical investment
+SEO,W02,,,,,
+Email lifecycle,W01,,,,,Spend proxy is ESP + ops cost
+Email lifecycle,W02,,,,,
+Affiliate,W01,,,,,
+Affiliate,W02,,,,,
+Sponsored events,W01,,,,,Allocate event spend across activation weeks
+Sponsored events,W02,,,,,
+Scenario,Channel,Current_share_pct,Proposed_share_pct,Delta_GBP,Projected_conv_delta,90th_pct_band,10th_pct_band,Most_fragile_assumption
+Current,Paid social - Meta,38,38,0,0,0,0,Meta saturation curve fit
+Best mathematical,Paid social - Meta,38,30,-32000,-110,-180,-45,Display cross-channel multiplier
+Best mathematical,SEO,12,18,24000,+85,+30,+135,SEO 9-month lag holds
+Best mathematical,Sponsored events,8,12,16000,+60,+10,+105,Event activation rate ~30%
+Strategic floors,Paid social - Meta,38,34,-16000,-55,-95,-20,Same as above with SEO floor at 12%

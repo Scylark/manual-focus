@@ -1,0 +1,14 @@
+Coach_name,Discipline,Platform,Country,Roster_size,Tier_current,Annual_sample_allowance,Athletes_seeded_YTD,Verified_purchases_attributed,Last_contact_date,Renewal_decision,Notes
+Example, Saoirse Burns,Trail ultra coaching,TrainingPeaks Premium,UK,22,A,3 personal kits + 12 athlete samples,9,7,2026-04-12,Renew with expand,Top performer for the year
+Example, Aleks Vrana,Marathon coaching,Final Surge,Czech Republic,16,B,1 personal kit + 4 athlete samples,4,2,2026-03-08,Maintain,Engagement steady
+Example, Phil Owusu,Triathlon coaching collective,TrainingPeaks coach directory,UK,48,A,3 personal kits + 16 athlete samples,12,5,2026-05-02,Renew flat,Roster is 70% age-group
+Example, Mara Kjeldsen,Independent trail coach,Strava,Norway,9,C,n/a (database only),0,0,2026-02-15,Promote to B,Newsletter engagement strong
+Example, North Cotswold Tri Squad,Club coaching,Independent,UK,80,B,1 club kit + 8 athlete samples,3,1,2025-12-01,Demote to C,Sample-to-purchase below threshold
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,

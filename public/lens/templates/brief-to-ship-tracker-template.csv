@@ -1,0 +1,9 @@
+Brief_ID,Title,Pipeline_Route,Status,Brief_Submitted,Brief_Accepted,Triage_Date,Ship_Target,Actual_Ship,Outcome_Metric,Baseline,Target,Window,Actual_Result,Result_Logged_Date,Owner,Requester,Notes
+B-001,Vahla Range pre-order email,lifecycle-journey-builder,shipped,2026-04-01,2026-04-02,2026-04-03,2026-04-15,2026-04-15,Email click rate,4.2%,7.0%,14 days,8.1%,2026-04-29,Beth Lyons,Marcus Hale,Beat target
+B-002,UTMB athlete recap reel,race-result-content-engine,shipped,2026-04-04,2026-04-04,2026-04-10,2026-04-22,2026-04-23,Instagram saves,1200,3000,7 days,4400,2026-04-30,Saoirse Burns,Marcus Hale,Strong overshoot, replicate
+B-003,Trail Club retention nudge,lifecycle-journey-builder,in_production,2026-04-08,2026-04-09,2026-04-10,2026-04-29,,Trail Club renewal rate,68%,75%,30 days,,,Beth Lyons,Marcus Hale,
+B-004,Spring trail shoe paid push,channel-mix-simulator,pre_ship_review,2026-04-12,2026-04-14,2026-04-17,2026-04-29,,Paid social ROAS,2.1,3.0,30 days,,,Saoirse Burns,Marcus Hale,Geo-holdout enabled
+B-005,Athlete coffee-table content,segment-broll-production,triaged,2026-04-18,2026-04-21,2026-04-24,2026-05-13,,Organic social reach,180000,300000,30 days,,,Beth Lyons,Marcus Hale,
+B-006,SEO race-guide cluster,seo-keyword-research,returned_for_gaps,2026-04-22,,,,,,Organic sessions,,,,,,Marcus Hale,Missing success metric and audience segment
+B-007,Crash replacement comms refresh,crash-replacement-programme,in_production,2026-04-24,2026-04-25,2026-05-01,2026-05-20,,Claim CSAT,3.8,4.4,60 days,,,Beth Lyons,Marcus Hale,
+B-008,Vahla Range launch hero film,gear-launch-sequence,triaged,2026-04-28,2026-04-29,2026-05-01,2026-07-15,,Product page conversion rate,2.4%,3.5%,30 days,,,Saoirse Burns,Marcus Hale,Tier 1 reviewers under NDA

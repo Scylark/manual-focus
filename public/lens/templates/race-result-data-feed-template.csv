@@ -1,0 +1,10 @@
+Event_id,Event_name,Date,Discipline,Course_km,Conditions,Final_result_rank,Athlete_name,Athlete_team,Country,Finish_time,Gap_to_winner,Brand_relevant,Event_log_ref,Source_url,Notes
+2026-LAV-001,Lavaredo Ultra Trail,2026-06-25,trail-ultra,120,clear 14C tail wind,1,Hannes Namberger,Adidas Terrex,DE,11:42:18,00:00:00,false,EL-2026-LAV-01,https://utmb.world/results,course record contender
+2026-LAV-001,Lavaredo Ultra Trail,2026-06-25,trail-ultra,120,clear 14C tail wind,2,Beth Lyons,Cascadia Endurance,UK,11:48:32,00:06:14,true,EL-2026-LAV-02,https://utmb.world/results,Vahla Range shell field test
+2026-LAV-001,Lavaredo Ultra Trail,2026-06-25,trail-ultra,120,clear 14C tail wind,3,Mathieu Blanchard,Salomon,FR,11:53:09,00:10:51,false,EL-2026-LAV-03,https://utmb.world/results,
+2026-LAV-001,Lavaredo Ultra Trail,2026-06-25,trail-ultra,120,clear 14C tail wind,8,Saoirse Burns,Cascadia Endurance,IE,12:14:55,00:32:37,true,EL-2026-LAV-08,https://utmb.world/results,first 100k of the season for SB
+2026-UTMB-001,UTMB,2026-08-28,trail-ultra,170,storm in middle section,1,Kilian Jornet,NNormal,ES,19:32:11,00:00:00,false,EL-2026-UTMB-01,https://utmb.world/results,
+2026-UTMB-001,UTMB,2026-08-28,trail-ultra,170,storm in middle section,4,Beth Lyons,Cascadia Endurance,UK,20:48:33,01:16:22,true,EL-2026-UTMB-04,https://utmb.world/results,Courmayeur split decision recap angle
+2026-UTMB-001,UTMB,2026-08-28,trail-ultra,170,storm in middle section,12,Marcus Hale,Cascadia Endurance,UK,21:55:09,02:22:58,true,EL-2026-UTMB-12,https://utmb.world/results,coach Marcus running his first UTMB
+2026-SNOW-001,Snowdonia Trail Marathon,2026-07-12,trail-marathon,42,rain heavy wind,1,Tom Evans,Asics,UK,3:12:44,00:00:00,false,EL-2026-SNOW-01,https://snowdonia.com/results,
+2026-SNOW-001,Snowdonia Trail Marathon,2026-07-12,trail-marathon,42,rain heavy wind,2,Beth Lyons,Cascadia Endurance,UK,3:14:21,00:01:37,true,EL-2026-SNOW-02,https://snowdonia.com/results,close finish narrative

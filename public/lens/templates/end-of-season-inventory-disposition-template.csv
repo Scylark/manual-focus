@@ -1,0 +1,14 @@
+SKU,Product_Name,Category,Season,Units_On_Hand,Units_Sold_To_Date,Sell_Through_Pct,Forecast_P25,Forecast_P50,Forecast_P75,Variance_To_P50,Margin_Per_Unit_Full,Health_Status,Disposition_Phase,Discount_Pct,Channel_Sequence,Member_Eligible,Email_List_Eligible,Public_Eligible,Outlet_Eligible,Bundle_Plan,Notes
+CAS-WS-RED-M,Cascadia Winter Shell Red M,outerwear,winter,142,418,75%,440,500,560,-82,84,below_p25,soft_launch,15,retail_partners,no,no,no,no,none,Soft launch retail partners 8 weeks pre end
+CAS-WS-RED-L,Cascadia Winter Shell Red L,outerwear,winter,38,512,93%,460,520,580,-8,84,healthy,hold,0,full_price,n/a,n/a,n/a,n/a,none,Tracking above P50
+CAS-WS-CHR-M,Cascadia Winter Shell Charcoal M,outerwear,winter,89,371,81%,400,450,500,-79,84,below_p25,soft_launch,15,retail_partners,no,no,no,no,none,Quiet retail clearance
+CAS-WS-CHR-L,Cascadia Winter Shell Charcoal L,outerwear,winter,4,496,99%,420,490,560,6,84,sold_through,replenish,0,full_price,n/a,n/a,n/a,n/a,none,Replenishment if lead time allows
+CAS-BL-BLK-S,Cascadia Base Layer Black S,base_layer,winter,210,140,40%,200,260,320,-120,18,below_p25,member_first,25,member_only_then_email,yes,yes,no,no,bundle_with_socks,Bundle with winter sock 3-pack
+CAS-BL-BLK-M,Cascadia Base Layer Black M,base_layer,winter,180,420,70%,400,480,560,-60,18,below_p25,email_clearance,20,email_then_public,yes,yes,yes,no,bundle_with_socks,Email clearance 4 weeks pre end
+CAS-BL-BLK-L,Cascadia Base Layer Black L,base_layer,winter,52,398,88%,360,420,480,-22,18,healthy,hold,0,full_price,n/a,n/a,n/a,n/a,none,
+VAH-WG-GRY-M,Vahla Winter Gloves Grey M,accessories,winter,304,196,39%,260,320,380,-124,14,below_p25,member_first,30,member_then_outlet,yes,yes,no,yes,bundle_with_beanie,Member-first then outlet
+VAH-WG-GRY-L,Vahla Winter Gloves Grey L,accessories,winter,280,220,44%,280,340,400,-120,14,below_p25,member_first,30,member_then_outlet,yes,yes,no,yes,bundle_with_beanie,
+CAS-TR-BLU-9,Cascadia Trail Runner Blue UK9,footwear,spring,4,496,99%,420,490,560,6,42,sold_through,replenish,0,full_price,n/a,n/a,n/a,n/a,none,Replenishment ordered
+CAS-TR-BLU-10,Cascadia Trail Runner Blue UK10,footwear,spring,18,482,96%,440,510,580,-28,42,healthy,hold,0,full_price,n/a,n/a,n/a,n/a,none,
+CAS-WT-GRN-M,Cascadia Winter Tights Green M,apparel,winter,420,80,16%,140,200,260,-120,32,critical_below_p25,member_first,35,member_then_outlet,yes,yes,no,yes,bundle_with_base_layer,Steepest discount allowed mid-clearance
+CAS-WT-GRN-L,Cascadia Winter Tights Green L,apparel,winter,380,110,22%,160,220,280,-110,32,critical_below_p25,member_first,35,member_then_outlet,yes,yes,no,yes,bundle_with_base_layer,

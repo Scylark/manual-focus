@@ -1,0 +1,29 @@
+Section,Item_ID,Title,Pipeline_Route,Type,Quarter,Status,Prior_Quarter_Metric_Hit,Owner,Estimate_Working_Days,Slot_Week,Displaced_Alternative,Rationale,Falsifiable_Claim,Notes
+1_data,DATA-1,UTMB recap reel,race-result-content-engine,outcome_log,Q2,hit,n/a,Saoirse,n/a,n/a,n/a,4400 saves vs 3000 target,Race recap engine moves engagement by 40%+,Strong overshoot
+1_data,DATA-2,Trail Club renewal nudge,lifecycle-journey-builder,outcome_log,Q2,miss,n/a,Beth,n/a,n/a,n/a,73% renewal vs 75% target,Lifecycle nudges move renewal +7pp,Just under target
+1_data,DATA-3,Spring trail shoe paid push,channel-mix-simulator,outcome_log,Q2,hit,n/a,Saoirse,n/a,n/a,n/a,3.2 ROAS vs 3.0 target,Channel-mix recommendation lifts ROAS 15%+,
+1_data,DATA-4,Crash comms refresh,crash-replacement-programme,outcome_log,Q2,hit,n/a,Beth,n/a,n/a,n/a,4.5 CSAT vs 4.4 target,Programme refresh lifts CSAT measurably,
+1_data,DATA-5,Vahla pre-order email,lifecycle-journey-builder,outcome_log,Q2,hit,n/a,Beth,n/a,n/a,n/a,8.1% CTR vs 7.0% target,Pre-order touchpoint converts engaged segment,
+2_bets_candidates,BET-C1,UTMB+Lavaredo recap series,race-result-content-engine,candidate,Q3,proposed,yes,Saoirse,4,W2,n/a,Double down on race recap engine,Recap engine moves engagement on every Tier 1 event,Continuation of Q2 win
+2_bets_candidates,BET-C2,Vahla launch hero film cycle,gear-launch-sequence,candidate,Q3,proposed,n/a,Beth,12,W3,n/a,Phase 4 reveal in September,Launch reveal lifts pre-orders 20%+ vs forecast,New bet
+2_bets_candidates,BET-C3,Channel-mix simulator on autumn budget,channel-mix-simulator,candidate,Q3,proposed,yes,Saoirse,3,W4,n/a,Apply Q2 wins to autumn budget,Reallocation lifts ROAS another 10%,Continuation
+2_bets_candidates,BET-C4,Brand voice extraction v2,brand-voice-extraction,candidate,Q3,proposed,n/a,Beth,5,W5,n/a,Refresh voice profile after 18 months,Refresh catches drift in 30%+ of outputs,
+2_bets_candidates,BET-C5,Lifecycle journey for Storm Shell,lifecycle-journey-builder,candidate,Q3,proposed,no,Beth,7,W6,n/a,Post-purchase onboarding for Vahla buyers,Lifecycle journey lifts second-order rate +12pp,Q2 lifecycle missed but specific to renewals
+2_bets_candidates,BET-C6,Ambassador 2027 signing,ambassador-programme,candidate,Q3,proposed,n/a,Marcus,8,W7,n/a,Plan ambassador roster for next year,Signing lifts brand audience reach 30%+,
+2_bets_candidates,BET-C7,Crash programme story library,customer-content-rights,candidate,Q3,proposed,yes,Beth,4,W8,n/a,Build the consented story flywheel,Story library out-engages brand content 3x,Continuation
+2_bets_candidates,BET-C8,Attribution teardown rerun,attribution-teardown,candidate,Q3,proposed,n/a,Saoirse,5,W9,n/a,Re-run with autumn data,Rerun shifts at least one budget line item,
+2_bets_candidates,BET-C9,Seasonal SEO cluster expansion,seo-keyword-research,candidate,Q3,proposed,n/a,Saoirse,6,W10,n/a,Build out winter race SEO,Cluster lands top-3 on 5+ target queries,
+2_bets_candidates,BET-C10,Trail Club event series,brand-experiences,candidate,Q3,proposed,n/a,Marcus,9,W11,n/a,Three regional Trail Club meets,Events lift Trail Club retention +5pp,
+2_bets_candidates,BET-C11,Race-day demand pipeline refresh,race-day-demand-pipeline,candidate,Q3,proposed,n/a,Beth,3,W2,n/a,Re-pick events for 2027,Refresh aligns spend with audience calendar,
+2_bets_candidates,BET-C12,Paid search bidding agent v2,paid-search-bidding-agent,candidate,Q3,proposed,n/a,Saoirse,5,W4,n/a,Iterate on agent rules,Agent lifts paid search efficiency 10%+,
+3_bets_committed,BET-1,UTMB+Lavaredo recap series,race-result-content-engine,committed,Q3,locked,n/a,Saoirse,4,W2,BET-C10 Trail Club events,Continuation of strongest Q2 pattern,Recap engine moves engagement 40%+,
+3_bets_committed,BET-2,Vahla launch hero film cycle,gear-launch-sequence,committed,Q3,locked,n/a,Beth,12,W3,BET-C6 ambassador signing,Anchor bet for Q3 brand-building,Launch reveal lifts pre-orders 20%+,
+3_bets_committed,BET-3,Channel-mix simulator on autumn budget,channel-mix-simulator,committed,Q3,locked,n/a,Saoirse,3,W4,BET-C9 SEO cluster,Continue compounding Q2 win,Reallocation lifts ROAS 10%+,
+3_bets_committed,BET-4,Lifecycle journey for Storm Shell,lifecycle-journey-builder,committed,Q3,locked,n/a,Beth,7,W6,BET-C11 race-day refresh,Storm Shell launch needs lifecycle,Lifecycle journey lifts second-order +12pp,
+3_bets_committed,BET-5,Crash programme story library,customer-content-rights,committed,Q3,locked,n/a,Beth,4,W8,BET-C12 paid search agent,Strongest social proof source,Story library out-engages brand content 3x,
+3_bets_committed,BET-6,Attribution teardown rerun,attribution-teardown,committed,Q3,locked,n/a,Saoirse,5,W9,BET-C4 voice extraction v2,Need before autumn budget locks,Rerun shifts at least one budget line,
+3_bets_committed,BET-7,Brand voice extraction v2,brand-voice-extraction,committed,Q3,locked,n/a,Beth,5,W5,BET-C8 attribution overlap,18-month refresh due,Refresh catches drift in 30%+ outputs,Could not fit BET-C6 or BET-C10
+4_retires,RETIRE-1,Quarterly trail-marathon partnership pack,trail-marathon-partnership,retire,Q3,retiring,no,Marcus,n/a,n/a,n/a,Three quarters of misses, no clear path to outcome,n/a,Publicly thank the original builder
+4_retires,RETIRE-2,Weekly LinkedIn long-form,linkedin-thought-leadership,retire,Q3,retiring,no,Beth,n/a,n/a,n/a,Engagement halved YoY audience wrong fit,n/a,Move energy to athlete-led content
+4_retires,RETIRE-3,Monthly print mailer,direct-mail,retire,Q3,retiring,no,Saoirse,n/a,n/a,n/a,Cost per response 8x other channels,n/a,Keep one annual mailer for top-tier members
+5_metric_story,STORY-1,Q2 metric story for board,n/a,narrative,Q3,drafting,n/a,Marcus,1,W1,n/a,One-page narrative on Q2 outcomes,n/a,For board pack July

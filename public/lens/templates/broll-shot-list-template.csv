@@ -1,0 +1,16 @@
+Shot_id,Segment,Sub_segment,Condition,Time_of_day,Subject_visible,Product_visible,Athlete_named,Capability_tag,Asset_type,Aspect_ratios,Source_shoot,Source_file,Status,Used_in,Notes
+S001,trail,single-track,dry,golden-hour,runner-mid-frame,Vahla-shell,Beth-Lyons,real_footage_required,hero-cut,16x9 9x16 1x1,Chamonix-July-2026,raw_001.mov,captured,UTMB-campaign-hero,
+S002,trail,single-track,wet,overcast,runner-mid-frame,Vahla-shell,Beth-Lyons,real_footage_required,mid-cut,16x9 9x16,Chamonix-July-2026,raw_002.mov,captured,UTMB-campaign-day3,
+S003,trail,ridge-line,dry,blue-hour,runner-wide,Vahla-shell,Beth-Lyons,real_footage_required,hero-cut,16x9,Chamonix-July-2026,raw_003.mov,captured,UTMB-film-opener,
+S004,trail,ridge-line,fog,dawn,no-subject,no-product,none,ai_augmentation,environmental,16x9 9x16 1x1,Chamonix-July-2026,raw_003.mov,augmented,fog-variant-social,augmented from S003
+S005,trail,technical-descent,dry,midday,runner-feet,Vahla-shoe,Beth-Lyons,real_footage_required,cut-shot,9x16 1x1,Chamonix-July-2026,raw_005.mov,captured,product-detail-reels,
+S006,trail,forest,dry,midday,no-subject,no-product,none,ai_augmentation,environmental,16x9 9x16,Chamonix-July-2026,raw_010.mov,augmented,blog-header-backdrops,
+S007,trail,exposed-alpine,wind,midday,runner-back,Vahla-shell,Marcus-Hale,real_footage_required,mid-cut,16x9 9x16,Snowdonia-July-2026,raw_021.mov,captured,Snowdonia-event-recap,
+S008,trail,exposed-alpine,snow,blue-hour,no-subject,no-product,none,ai_augmentation,environmental,16x9 9x16,Snowdonia-July-2026,raw_021.mov,planned,winter-campaign,augmented from S007
+S009,trail,fire-road,dry,golden-hour,runner-pack-detail,Vahla-vest,Saoirse-Burns,real_footage_required,cut-shot,9x16 1x1,Lavaredo-June-2026,raw_030.mov,captured,vest-product-launch,
+S010,trail,river-crossing,dry,midday,no-subject,no-product,none,generic_ai,editorial,16x9,no-shoot,gen_001.mp4,generated,training-content-blog-header,editorial illustration only no brand visible
+S011,trail,switchback,dry,sunset,runner-far,Vahla-shell,Beth-Lyons,real_footage_required,hero-cut,16x9 9x16,Chamonix-July-2026,raw_040.mov,captured,UTMB-film-closer,
+S012,trail,single-track,rain,overcast,no-subject,no-product,none,ai_augmentation,environmental,16x9 9x16 1x1,Chamonix-July-2026,raw_001.mov,planned,rain-variant-social,augmented from S001
+S013,road,coastal,dry,dawn,no-subject,no-product,none,not_applicable,environmental,16x9 9x16,no-shoot,stock_004.mov,killed,n/a,not in brand segment
+S014,trail,bothy-shelter,dry,evening,runner-static,Vahla-mid-layer,Saoirse-Burns,real_footage_required,mid-cut,16x9 1x1,Snowdonia-July-2026,raw_045.mov,captured,training-content-piece,
+S015,trail,single-track,dry,night,runner-headlamp,Vahla-shell,Beth-Lyons,real_footage_required,hero-cut,16x9 9x16,Chamonix-July-2026,raw_050.mov,captured,UTMB-night-section,

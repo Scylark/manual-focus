@@ -1,9 +1,9 @@
 ---
 title: "Race-result content engine, timing data to editorial recap"
 stack: content
-description: "Turn live timing data, lap splits and race officials' results into editorial-quality recap content within 90 minutes of race finish. Fact-checked, voice-gated, ready to ship."
+description: "Turn live timing data, lap splits and race officials' results into editorial recap content within 90 minutes of race finish. Fact-checked, voice-gated, ready to ship."
 outputs: "Recap drafter pipeline, fact-check harness, channel-mapped publishing schedule"
-readMin: 11
+readMin: 22
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "email", "organic-social"]
@@ -13,154 +13,350 @@ status: live
 preview: false
 ---
 
-## The brief
+## What you'll have when you're done
 
-A race finishes Sunday afternoon. The audience wants the story by Sunday evening. Most endurance brands ship a generic congratulations post Monday, then a longer recap Tuesday or Wednesday, by which time the audience has already read three other versions on Velo, RunBlogger, Triathlete or their preferred outlet. The brand looks late and adds nothing.
+By the end of this playbook you will have shipped five artefacts.
 
-This pipeline cuts that. The moment the race result is final, the pipeline pulls the timing data, the official results, the significant-margin events of the race, and produces a recap drafted in the brand's voice that ships to email and social within 60 to 90 minutes of race finish. Fact-checked, voice-gated, ready.
+1. A **race-result data feed CSV** populated for the next four Tier 1 events on the calendar, with timing-source URLs, athlete identifiers and event-log references ready to read.
+2. A **recap drafter pipeline** that takes the data feed plus an event log and produces a 350 to 500 word editorial recap in the brand's voice within 30 minutes of result finalisation.
+3. A **fact-check harness** that gates every recap against the official result and the event log, blocking publish on unverifiable claims.
+4. A **channel-mapped publishing schedule** that takes the recap and ships it to email, social, the website news feed and the lifecycle journey within 60 to 90 minutes of final result.
+5. A **post-publish audit log** with proportionality data, fact-accuracy checks and aging-well notes used to refine the pipeline quarter on quarter.
 
-It doesn't try to be the New York Times. It tries to be the brand's authentic take on the race, fast enough that the audience reads it during the post-race wind-down.
+## Who this is for
+
+A growth or scale-stage endurance brand whose audience races a recognisable calendar and whose content team can hold a 60-minute publish window on race day. If the brand has fewer than four Tier 1 events on the calendar in a year, the pipeline runs but the volume does not justify the build. If sponsored athletes are central to the brand and finish outside the top 30 most of the time, expect the proportionality eval to bite.
+
+## Before you start
+
+- [ ] List of Tier 1 events from the race-day-demand-pipeline calendar
+- [ ] Official timing feed URLs for each event (UTMB Live, ITRA, AIMS for road, UCI, World Triathlon)
+- [ ] CMS access (Webflow, Shopify, WordPress) so the recap can publish without manual handoff
+- [ ] Email platform access (Klaviyo, Mailchimp, HubSpot) and a race-day send template
+- [ ] Social scheduler (Buffer, Hootsuite, Later) with race-day post containers ready
+- [ ] Voice profile from the brand-voice-extraction playbook
+- [ ] Endurance-specific voice extension if you cover multiple sports
+- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A spreadsheet for the result data feed and the event log
+- [ ] Sponsored athletes' Strava and Garmin Connect handles for context, where available
+
+If you cannot pull a live timing feed for a given event, a human watcher producing shift notes is the fallback. Build that into the race-day rota.
 
 ## The pipeline
 
-Five phases.
+Six phases. Build the feed and harness over a working week. After that, each race-day run takes 30 to 90 minutes end-to-end.
 
-**Phase 1, data sources.** Before the race, identify and connect:
+### Phase 1, data feed setup
 
-- **Official timing feed.** Race organiser's results page or live timing API where available (USA Track and Field, AIMS for road running, UCI for cycling, World Triathlon for tri)
-- **Race-day social.** Official race accounts, key journalists covering the race, audience sentiment via tracked hashtags
-- **Athlete data, if branded.** Sponsored athletes' Strava, Garmin Connect, race-specific stats from team or federation feeds
-- **Weather and conditions.** Local meteorological data for the race window
+Stand up the result data feed before the race so the pipeline reads from a known schema.
 
-Test the feeds 24 hours before the race. Brands routinely discover the timing feed format changed two weeks before a major race and find out 90 minutes after the finish.
+**Step 1.1, choose your template path.**
 
-**Phase 2, race watch and event detection.** During the race, the pipeline monitors the timing feed every 30 to 60 seconds. Significant events get logged automatically.
+**Option A, download the data feed template.** Grab [race-result-data-feed-template.csv](/lens/templates/race-result-data-feed-template.csv). It has columns for event ID, name, date, discipline, course distance, conditions, final result rank, athlete name, team, country, finish time, gap to winner, brand-relevance flag, event-log reference, source URL and notes. Open in Sheets or Excel, populate the brand's Tier 1 events from the calendar.
 
-- **Margin events.** A gap opens, closes, or splits
-- **Pace events.** An athlete sets a personal best, a course record falls, a pace pack shatters
-- **Brand events.** Sponsored athletes' position changes (in or out of contention, mechanical incident, drop)
-- **Drama beats.** Late surge, crash or fall, lead change in the closing kilometres
+**Option B, build a custom feed for non-standard events.** If the brand covers an event format the standard schema does not fit (multi-stage races, relay formats, time-trial series), ask Claude to generate a tailored feed.
 
-The events go to a structured event log the recap drafter will read.
+```text
+SYSTEM: You generate a race-result data feed template for an endurance
+brand. The template is one row per finisher per event, with columns
+covering identification, result data, event-log linkage and
+brand-relevance tags.
 
-**Phase 3, result finalisation.** When the official results post, the pipeline pulls the final standings. It cross-references against the event log to verify which dramatic moments actually happened (the late surge that didn't quite take the win gets recorded as a near-miss, the breakaway that survived gets recorded as the headline).
+USER:
+Discipline: {DISCIPLINE}
+Event formats covered: {LIST_FORMATS}
+Tier 1 events for the next 12 months: {LIST_EVENTS}
+Sponsored athletes: {LIST_ATHLETES}
 
-**Phase 4, recap drafting.** The drafter prompt loads:
+Generate a CSV template with columns appropriate to the discipline.
+At minimum include:
+Event_id, Event_name, Date, Discipline, Course_km, Conditions,
+Final_result_rank, Athlete_name, Athlete_team, Country, Finish_time,
+Gap_to_winner, Brand_relevant, Event_log_ref, Source_url, Notes
 
-- Brand voice profile (from `.lens/voice-profile.json`)
-- Endurance-specific voice extension (from the endurance-brand-voice playbook if applicable)
-- Final results and event log
-- The brand's POV on this race (set in advance, "we cover this race every year and our angle has historically been the tactical story, not the bare results")
-- Brand-relevant athletes flagged
+Add discipline-specific columns where appropriate (stage_rank for
+multi-stage, leg_split for relays, swim_bike_run_splits for tri).
+
+Return the CSV directly, no commentary.
+```
+
+**Step 1.2, test the feed twenty-four hours before each race.**
+
+Open the timing feed URL for the event. Verify the format still parses. Brands routinely discover the timing feed format changed two weeks before a major race and find out 90 minutes after the finish.
+
+**You should now have** a populated data feed for the upcoming events and a confirmed read on each feed's format.
+
+### Phase 2, race watch and event log
+
+During the race, capture the moments the recap will lean on.
+
+**Step 2.1, instrument the watch.**
+
+For each race, two watch layers run in parallel.
+
+Layer A, the timing feed. Poll the official timing feed every 30 to 60 seconds. Capture position changes, gap widenings, gap closures and any aid-station split that exceeds a threshold from the predicted pace.
+
+Layer B, the human watcher. A person on the team watches the race livestream or follows the race's official social. They capture the unstructured detail the timing feed will miss, a crash on a descent, a course-marshal incident, the moment an athlete visibly dropped pace.
+
+**Step 2.2, log significant events.**
+
+The event log captures any of the following.
+
+- Margin events, a gap opens, closes or splits past a threshold
+- Pace events, an athlete sets a personal best, a course record falls, a pace pack shatters
+- Brand events, sponsored athletes' position changes (in contention, out of contention, mechanical incident, drop)
+- Drama beats, late surge, crash, lead change in the closing kilometres
+- Tactical inflection points, the moment the race turned
+
+Each event has a timestamp, an event type, the athletes involved, a one-line description and a source reference. The event log is the raw material the recap drafter will read.
+
+**Expect the event log to read like:**
+
+```json
+[
+  {"t": "10:14:22", "type": "margin", "athletes": ["Beth Lyons"], "description": "Lyons closes 2:30 gap to the lead pack on the Trinciedi descent", "source": "UTMB Live + watcher"},
+  {"t": "11:02:11", "type": "drama", "athletes": ["Namberger", "Lyons"], "description": "Lead changes three times in 6km on the Cibiana climb", "source": "UTMB Live"},
+  {"t": "11:38:55", "type": "tactical", "athletes": ["Namberger"], "description": "Namberger surges on the final descent, opens 4 minutes in 8km", "source": "UTMB Live + watcher"}
+]
+```
+
+You should now have a structured event log capturing the moments the recap will name.
+
+### Phase 3, result finalisation
+
+When the official result posts, the pipeline finalises and the drafter runs.
+
+**Step 3.1, pull the final result.**
+
+Wait for the official result, not the provisional. Provisional results sometimes change (disqualifications, time penalties). Late by ten minutes is fine, wrong is not.
+
+Update the data feed CSV with the final rankings, finish times and gaps. Flag any brand-relevant athletes with `Brand_relevant: true`.
+
+**Step 3.2, cross-reference the event log against the result.**
+
+Some events in the log may not have made the final result (the late surge that did not quite take the win gets recorded as a near-miss). Tag each event with its outcome in the final standings. The drafter needs this so it does not over-claim drama that did not pay off.
+
+You should now have a finalised data feed and a cross-referenced event log.
+
+### Phase 4, recap drafting
+
+The drafter takes the result, the event log, the voice profile and the brand's POV on the race, and produces the recap.
+
+**Step 4.1, run the recap drafter prompt.**
 
 ```text
 SYSTEM: You write race recaps for an endurance brand. You write like
 someone who watched the race, not someone who read the results
 afterwards. You name the tactical inflection points. You distinguish
-the dominant narrative from the side stories worth a line. You do not
-hyperbolise.
+the dominant narrative from the side stories worth a line. You do
+not hyperbolise. Endurance audiences distrust hyperbole.
 
 USER:
 Race: {RACE_NAME}, {DATE}
-Course / discipline: {COURSE_DESCRIPTION}
+Course and discipline: {COURSE_DESCRIPTION}
 Conditions: {WEATHER_CONDITIONS}
-Result: {OFFICIAL_RESULT}
+Final result: {OFFICIAL_RESULT_JSON}
 Event log: {EVENT_LOG_JSON}
-Brand-relevant athletes: {BRAND_ATHLETES_AND_RESULTS}
+Brand-relevant athletes and their finishes: {BRAND_ATHLETES_JSON}
 Brand POV on this race: {POV_NOTE}
+Voice profile: {VOICE_PROFILE_SHORT}
+Banned phrases: {BANNED_PHRASES_LIST}
 
-Draft:
-1. Headline (≤ 65 chars) — names the dominant story.
-2. Lede (1 sentence, ≤ 30 words) — the result + the inflection.
-3. Body (350–500 words):
-   - Para 1: what happened up to the decisive moment
-   - Para 2: the decisive moment itself, with the timing data
-   - Para 3: the side stories worth knowing (one brand-relevant
-     athlete maximum)
-   - Para 4: what it means for the season ahead
+Draft.
+
+1. Headline, under 65 characters, names the dominant story.
+2. Lede, one sentence, under 30 words, the result plus the inflection.
+3. Body, 350 to 500 words across four paragraphs:
+   - Para 1, what happened up to the decisive moment
+   - Para 2, the decisive moment itself with the timing data
+   - Para 3, the side stories worth knowing, one brand-relevant
+     athlete maximum, proportional to their actual finish
+   - Para 4, what it means for the season ahead
+
+Return JSON:
+
+{
+  "headline": "<verbatim>",
+  "lede": "<verbatim>",
+  "body_paragraphs": ["<p1>", "<p2>", "<p3>", "<p4>"],
+  "social_cut_60_chars": "<under 60 char social hook>",
+  "email_subject_50_chars": "<under 50 char email subject>",
+  "fact_claims": [
+    {"claim": "<verbatim from draft>", "source": "<result | event_log | both>"}
+  ]
+}
 
 Rules:
 - Only cite numbers that appear in the result or event log.
 - Brand-relevant athlete coverage proportional to their actual race
-  performance, not their sponsorship status. A 47th-place finish
-  doesn't carry the recap.
-- No hyperbole. Endurance audiences distrust it.
-- One specific tactical observation. The audience knows the
-  difference between a real race recap and a sponsorship-driven one.
-
-Return JSON:
-{
-  "headline": "<...>",
-  "lede": "<...>",
-  "body_paragraphs": ["<p1>", "<p2>", "<p3>", "<p4>"],
-  "social_cut_60_chars": "<≤ 60 char social hook>",
-  "email_subject_50_chars": "<≤ 50 char email subject>",
-  "fact_claims": [
-    {"claim": "<verbatim>", "source": "<result|event_log|both>"}
-  ]
-}
+  performance, not their sponsorship status. A 47th-place finish does
+  not carry the recap.
+- No hyperbole. No "epic", "incredible", "unstoppable", "redefined"
+  unless the redefinition is a record in the official record book.
+- One specific tactical observation per recap.
+- Endurance audiences read closely. Be precise.
 ```
 
-**Phase 5, fact-check and publish.** Every claim in the draft is cross-referenced against the result or event log. Claims without a source citation are flagged and either grounded or removed.
+**Expect output like:**
 
-Once the draft passes the fact-check, it's pushed to the publishing queue covering email send, social posts (channel-native via the social-content-factory pipeline), website update, and news feed.
+> **Headline.** Namberger holds Lyons off in Cortina sprint
+>
+> **Lede.** Hannes Namberger took Lavaredo by six minutes over Beth Lyons after three lead changes in the closing 8 km on Cibiana.
+>
+> **Para 1.** The first half of the race ran to script. A four-rider pack held together through the early climbs and through Auronzo, with Mathieu Blanchard, Namberger and Lyons trading the front in turns. Conditions were clear at 14 C with a tail wind on the long descents, which is the weather Cascadia Endurance has historically called "fast Lavaredo" in its pre-race notes.
+>
+> **Para 2.** The race turned on Cibiana. Lyons closed a 2 minute 30 gap to Namberger on the Trinciedi descent, sat on his shoulder through the final aid, and watched him counter on the climb. The two traded the lead three times in 6 km. Namberger broke clear on the final descent and put 4 minutes into the field across the last 8 km to the line.
+>
+> **Para 3.** Beth Lyons's second place is her best result over 100 km. The Vahla Range shell she field-tested through the storm-prone middle section came off intact, which matters for the brand's launch plans for the autumn. Saoirse Burns finished eighth in 12:14, her first 100 km of the season.
+>
+> **Para 4.** The Lavaredo result sets up the UTMB build. Namberger is now the favourite at Chamonix, Lyons becomes the credible top-five contender, and the Cascadia roster goes into August with the right kind of race in the legs.
 
-The whole pipeline from official result to publish target is 30 to 60 minutes for a routine race, up to 90 minutes for a major where the narrative warrants a longer recap.
+**Step 4.2, run the voice gate.**
 
-## The capability boundary
+The recap runs through the voice rubric from the brand-voice-extraction playbook. Score under 10 of 12 means a repair cycle with the failing checks named.
 
-This is the workflow where text-generation reliability shines and where image or video generation should not be touched. See the [capabilities reference](/lens/capabilities) for context.
+You should now have a voice-gated recap with structured fact claims attached.
 
-**Works:**
+### Phase 5, fact-check harness
 
-- Drafting the recap from structured results and event log
-- Voice-gating against the brand's profile
-- Fact-grounded eval that catches invented numbers, dates, or podium positions
-- Generating channel-native social variants (LinkedIn, X, Instagram, TikTok script) from the recap
+Before publish, every claim in the draft is cross-referenced against the data feed and the event log.
 
-**Doesn't work:**
+**Step 5.1, run the fact-check prompt.**
 
-- Auto-generating "race-day imagery" of named athletes. Use practical race-day photography or rights-cleared event imagery, never AI.
-- Inferring athletes' emotional state ("she was devastated", "he knew he had it"). The model doesn't know. Stick to what the data and the post-race interviews say.
-- "Predicting" outcomes after the result. The recap is the recap. Predictions about the next race belong in a separate piece.
+```text
+SYSTEM: You verify factual claims in a race recap against the
+official result and the event log. For each numerical, positional,
+or tactical claim in the draft, you cite the source row. If a claim
+has no source, you flag it.
 
-## The eval harness
+USER:
+Draft (paragraphs and headline): {DRAFT_JSON}
+Official result rows: {RESULT_CSV}
+Event log: {EVENT_LOG_JSON}
+Brand POV: {POV_NOTE}
 
-**Eval R1, time-to-publish.** Median 60 minutes from final result to publish on routine races. Above 90 minutes means a step in the pipeline is bottlenecking and needs investigation (usually the event-log to draft handoff).
+For each factual claim in the draft, return JSON:
 
-**Eval R2, fact accuracy.** Every published recap goes through a post-publish audit within 24 hours. Sample 5 factual claims and verify against official sources. Acceptance is 100%. A single wrong result or wrong margin gets noticed and shared by the audience.
+[
+  {
+    "claim": "<verbatim from draft>",
+    "source": "<result_row_id | event_log_id | both | NONE>",
+    "supported": <true | false>,
+    "action_if_unsupported": "<remove | reword to opinion | verify with human>"
+  }
+]
 
-**Eval R3, voice rubric pass.** Recap drafts score ≥10/12 on the voice rubric before publish. Failed drafts regenerate with the failing checks named.
+Pass criterion: every claim has a source. No silent assertions.
+Anything sourced NONE blocks publish.
+```
 
-**Eval R4, branded-athlete proportionality.** Audit recaps over a quarter. Branded athletes should not be over-represented relative to their actual race performance. If 80% of recaps lead with a branded athlete who finished outside the top 20, the audience notices and the brand loses credibility.
+**Step 5.2, run the proportionality check.**
+
+The brand-athlete proportionality eval runs at draft time. If a sponsored athlete finished outside the top 20 but carries more than one paragraph, the draft fails and regenerates with a tighter brief on athlete coverage.
+
+You should now have a fact-checked, proportionality-checked recap ready to publish.
+
+### Phase 6, channel publish and audit
+
+The recap ships to email, social, the website and the lifecycle journey, then enters the post-publish audit.
+
+**Step 6.1, publish.**
+
+The CMS gets the long-form recap with the headline, lede and body. The email platform gets the recap as a race-day send to the segment subscribed to that event. The social scheduler picks up the social cut for X, Instagram and LinkedIn (channel-native variants are produced by the social-content-factory pipeline downstream). The website news feed surfaces the recap on the homepage.
+
+**Step 6.2, log to the audit ledger.**
+
+Every published recap logs to the ledger.
+
+- Event, date, time-to-publish from final result
+- Headline, recap URL
+- Fact-claim count, fact-claim pass rate at publish
+- Brand-athlete proportionality, finish position vs paragraph share
+- 7-day engagement (email open rate, social engagement, recap reads)
+- 30-day aging note (did the result narrative hold up, did a subsequent disqualification change the story)
+
+**Step 6.3, run the quarterly retrospective.**
+
+Once per quarter, sample 10 published recaps. Review against the eval gates. Recap pipeline tunes against the patterns the ledger surfaces. Brand-athlete drift, voice drift, time-to-publish drift are all visible in the ledger if the ledger is being kept honestly.
+
+You should now have the recap pipeline running and a retrospective cadence that tunes it.
+
+## Worked example, end-to-end
+
+Cascadia Endurance covers the Lavaredo Ultra Trail in late June. Three sponsored athletes entered, Beth Lyons, Saoirse Burns and Marcus Hale (the brand's coaching voice).
+
+**Phase 1 output.** Data feed populated with the event, the start list and the timing-source URL (UTMB Live). Format tested 24 hours before the race, confirmed parseable.
+
+**Phase 2 output.** Race watch ran from 04:00 BST through to the final finisher. Event log captured 23 significant events including the four lead changes on Cibiana, Beth Lyons closing the gap on Trinciedi, and Saoirse Burns moving from 14th to 8th in the final 20 km.
+
+**Phase 3 output.** Final result posted at 16:42 BST. Namberger first in 11:42:18. Lyons second at +6:14. Burns eighth at +32:37. Hale did not start (DNS, illness). The DNS was logged and removed from the recap's athlete coverage scope.
+
+**Phase 4 output.** The recap drafter produced the headline "Namberger holds Lyons off in Cortina sprint" with the lede and four paragraphs as shown in the Expect Output block above. Voice rubric scored 11 of 12, ship.
+
+**Phase 5 output.** Fact-check ran. Sixteen factual claims, all sourced. One claim about Lyons "closing a 2 minute 30 gap" was sourced to both the timing feed and the human watcher. Proportionality check passed, Burns received one mention in paragraph 3 proportional to her eighth-place finish, Lyons received two mentions in paragraphs 2 and 3 proportional to her second.
+
+**Phase 6 output.** Time-to-publish from final result was 47 minutes. Email sent at 17:29 BST to 8,200 subscribers on the trail-ultra segment with the subject "Lyons second at Lavaredo, the Vahla shell tested." Social cuts published on Instagram, X and LinkedIn within the next 20 minutes. The CMS recap went live with internal links to the Vahla Range product page and to Lyons's athlete profile.
+
+The audit ledger logged 7-day engagement at 41% email open rate (against a Cascadia baseline of 28% on race-day sends) and 380 social engagements on the Instagram cut (against a baseline of 220). The 30-day aging note recorded no change to the result, the story aged cleanly.
+
+A quarter into running the pipeline, Cascadia's race-day email programme is the highest-performing send in the lifecycle programme. The audience trusts the brand's voice on race recaps because the proportionality is honest and the fact-check is tight.
+
+## Try it yourself
+
+Three exercises, each takes 30 to 60 minutes.
+
+### Exercise 1, build the event log for one race you watched
+
+Pick a race you watched in the last 90 days. From memory plus a quick check of the official result and any race highlights, write the event log for the race. Capture the margin events, the pace events, the drama beats and the tactical inflections. The exercise teaches you how thin most generic recaps are because they only have the result, not the log.
+
+### Exercise 2, run the recap drafter on a real result
+
+Take the result of a recent race in your brand's discipline. Pull the official result and a few notes from race coverage. Run the Phase 4 prompt with the brand's voice profile. Read the recap. Does it pass the proportionality test? Does it cite numbers that match the source? If it invents anything, the prompt's source constraints need sharpening.
+
+### Exercise 3, run the proportionality check on a year of your own recaps
+
+Take a year of your brand's race recaps. For each, log the lead athlete's actual finish position and the paragraph share they received in the recap. Compute the average paragraph share per finish-position decile. If your sponsored athletes finishing outside the top 30 carry 30% or more of paragraph share, the proportionality gate would have caught the drift.
+
+## The eval gates
+
+**Eval 1, time-to-publish.** Median publish time within 60 minutes of final result on routine races, up to 90 minutes for majors. Above 90 minutes means a step in the pipeline is bottlenecking, usually the event-log handoff to drafting.
+
+**Eval 2, fact accuracy.** Every published recap goes through a post-publish audit within 24 hours. Sample five factual claims and verify against official sources. Acceptance is 100%. A single wrong result or wrong margin gets noticed and shared by the audience.
+
+**Eval 3, voice rubric pass.** Recap drafts score 10 of 12 or higher on the voice rubric before publish. Failed drafts regenerate with the failing checks named.
+
+**Eval 4, brand-athlete proportionality.** Audit recaps quarterly. Branded athletes are not over-represented relative to actual race performance. If 80% of recaps lead with a branded athlete who finished outside the top 20, the proportionality gate is failing and the audience will notice.
+
+**Eval 5, aging well.** At 30 days post-publish, the claims still hold. If a disqualification or correction changes the story, ship a correction note. Trust comes from showing the working.
 
 ## The failure modes
 
-**Pipeline runs ahead of the official result.** Provisional results sometimes change (disqualifications, time penalties). Always wait for the official final result before drafting. Late by 10 minutes is fine. Wrong is not.
+**Pipeline runs ahead of the official result.** Provisional results change. Wait for the official. Late by ten minutes is fine, wrong is not.
 
-**Timing feed breaks during the race.** Have a fallback. A human watching the race takes shift-notes that feed the pipeline if the automated feed drops. The recap is the priority output and the automation is the means.
+**Timing feed breaks during the race.** Have a fallback. The human watcher takes shift notes that feed the pipeline if the automated feed drops. The recap is the priority output, the automation is the means.
 
-**Drafted hyperbole slips through.** The endurance audience is particularly allergic to it. Hard regex check against a banned-phrase list ("epic", "incredible", "unstoppable", "redefined", "made history" unless it actually made history in a verifiable record-keeping sense). Block the draft if any are present.
+**Drafted hyperbole slips through.** The endurance audience is allergic to it. Hard regex check against a banned-phrase list ("epic", "incredible", "unstoppable", "redefined", "made history" unless the record is in the official register). Block the draft if any are present.
 
-**Athlete-bias drift.** Brand wants every recap to lead with their sponsored athlete. Over a quarter, this becomes obvious and the audience tunes out. The proportionality eval is the discipline.
+**Athlete-bias drift.** Brand wants every recap to lead with their sponsored athlete. Over a quarter this becomes obvious and the audience tunes out. The proportionality eval is the discipline.
 
-**Cross-platform inconsistency.** Email subject says one headline, the social post says another, the website recap says a third. Pipeline output should generate the channel cuts from the same source, not in parallel.
+**Cross-platform inconsistency.** Email subject says one thing, social says another, the website recap says a third. The pipeline output generates channel cuts from the same source, not in parallel.
 
-**Wrong sport vocabulary.** Cycling vocabulary in a running recap, swimming terms in a cycling recap. The voice profile should be sport-aware. If the brand covers multiple sports, route through the right sub-profile.
+**Wrong sport vocabulary.** Cycling vocabulary in a running recap, swimming terms in a cycling recap. The voice profile is sport-aware. If the brand covers multiple sports, route through the right sub-profile.
 
 ## The pattern in practice
 
-Illustrative scenarios that show common shapes race-recap automation takes. Specifics are illustrative and the patterns repeat.
+Illustrative scenarios that show common shapes race-recap automation takes. Specifics are illustrative, patterns repeat.
 
-**Premium cycling brand, scale-stage, the time-to-publish compress.** A brand publishing recaps 18 to 24 hours post-race. The pipeline typically takes average time-to-publish under an hour across a year of Tier 1 events. Email open rates on race-day sends lift materially because the recap catches the audience in the post-race window instead of the next morning.
+**Premium cycling brand, scale-stage, the time-to-publish compress.** A brand publishing recaps 18 to 24 hours post-race. The pipeline typically takes the average time-to-publish under an hour across a year of Tier 1 events. Email open rates on race-day sends lift materially because the recap catches the audience in the post-race window instead of the next morning.
 
-**Marathon brand, growth-stage, the voice unlock.** A brand writing recaps that read like press releases. Pipeline plus endurance voice profile produces recaps that subscribers report as "the first recaps that sound like an actual fan wrote them." Open rates and share rates lift substantially. The voice was always the issue, the recap structure was fine.
+**Marathon brand, growth-stage, the voice unlock.** A brand writing recaps that read like press releases. Pipeline plus endurance voice profile produces recaps subscribers describe as "the first recaps that sound like an actual fan wrote them." Open rates and share rates lift substantially. The voice was always the issue, the recap structure was fine.
 
-**Triathlon brand, the sponsor-bias failure.** A common pattern in early versions is over-indexing on sponsored-athlete coverage even when those athletes finished outside the top 20. This is why the current pipeline includes the proportionality eval. Coverage should match actual race performance rather than sponsorship status. Brands have to accept that the recap is about the race, not the brand's roster. The shift feels counter-intuitive to sponsor-relations teams but recovers audience trust within a quarter.
+**Triathlon brand, the sponsor-bias failure.** Early pipeline versions over-index on sponsored-athlete coverage even when those athletes finish outside the top 20. The proportionality eval lands as the correction. Coverage matches actual race performance rather than sponsorship status. Brands accept that the recap is about the race, not the brand's roster. The shift recovers audience trust within a quarter.
 
 ## Hand-off
 
 The recap engine feeds:
-- **lifecycle-journey-builder** so race-day email touchpoints draw from the recap as content
-- **social-content-factory** for channel-native cuts of the recap
-- **earned-media-pitch** if the recap surfaces a genuine story angle that can be repurposed as a pitch to journalists
+- **lifecycle-journey-builder**, race-day email touchpoints draw from the recap as content
+- **social-content-factory**, channel-native cuts of the recap
+- **earned-media-pitch-generator**, if the recap surfaces a story angle worth pitching
+- **training-content-engine**, race-day learnings sometimes feed training pieces in the following weeks

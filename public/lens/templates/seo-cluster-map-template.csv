@@ -1,0 +1,15 @@
+Cluster,Page_type,Target_query,Search_volume,Intent,Buyer_stage,Confidence,Fits_audience,Differentiation_hook,Internal_links_in,Internal_links_out,Word_count_target,Priority,Status,Brief_owner,Notes
+trail-running-shoes,pillar,best trail running shoes,4400,commercial,evaluating,high,true,first-party 18-month wear panel across 80 UK runners,0,18,4200,P0,brief,Maya,anchor query for the whole cluster
+trail-running-shoes,spoke,trail running shoes for ultras,720,commercial,evaluating,high,true,Vahla Range fit log from Lavaredo entrants,2,3,1400,P0,brief,Maya,UTMB and Lavaredo focus
+trail-running-shoes,spoke,trail running shoes for wet weather,590,commercial,evaluating,high,true,grip test on Snowdonia wet rock,2,3,1300,P1,draft,Sam,winter audience
+trail-running-shoes,spoke,trail vs road running shoes,1200,informational,solution-aware,high,true,visual breakdown by audience tier,2,4,1500,P0,brief,Maya,top-of-funnel feeder
+trail-running-shoes,spoke,trail running shoes for beginners,880,informational,problem-aware,high,true,Trail Club onboarding survey n=412,2,3,1400,P1,brief,Sam,builds Trail Club signups
+trail-running-shoes,spoke,how to choose trail running shoes,1900,informational,solution-aware,high,true,decision tree from coach Marcus Hale,3,4,1800,P0,brief,Maya,evergreen hub
+trail-running-shoes,spoke,trail running shoes lifespan,260,informational,product-aware,medium,true,wear panel mileage data,2,2,1100,P2,brief,Sam,trust builder
+trail-running-shoes,spoke,trail running shoes for flat feet,390,commercial,evaluating,medium,true,fit panel data by foot shape,2,2,1200,P2,brief,Sam,long tail
+trail-running-shoes,spoke,best trail running shoes for women,720,commercial,evaluating,high,true,Beth Lyons and Saoirse Burns fit notes,2,3,1400,P1,brief,Maya,segment specific
+trail-running-shoes,spoke,maximalist vs minimalist trail shoes,210,informational,solution-aware,medium,true,coach POV from Marcus Hale,2,2,1200,P2,brief,Sam,POV anchor
+trail-running-shoes,spoke,how to clean trail running shoes,480,informational,decided,high,true,care guide tied to repair programme,1,2,900,P3,brief,Sam,lifecycle support
+trail-running-shoes,spoke,trail running shoes ankle support,170,informational,problem-aware,medium,true,injury data from Trail Club survey,1,2,1000,P3,brief,Sam,beginner concern
+trail-running-shoes,spoke,trail running shoes carbon plate,140,commercial,product-aware,low,false,thin audience overlap drop or merge,0,0,0,P4,killed,Maya,too niche merge into ultras page
+trail-running-shoes,spoke,UTMB shoe choice 2026,90,commercial,product-aware,medium,true,Beth Lyons race recap angle,2,3,1100,P1,brief,Maya,seasonal spike June to August
