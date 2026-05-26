@@ -133,13 +133,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             if (prev !== undefined && Math.abs(p - prev) < 0.01) continue;
             const eased = p * p * (3 - 2 * p);
             el.style.opacity = eased.toFixed(3);
-            // Elements with data-scroll-scale (big-statement
-            // headlines) own their own transform via the page-level
-            // updateScale function. We only set opacity for them
-            // so the two systems don't clobber each other.
-            if (!el.hasAttribute('data-scroll-scale')) {
-              el.style.transform = `translate3d(0, ${((1 - eased) * 40).toFixed(1)}px, 0)`;
-            }
+            el.style.transform = `translate3d(0, ${((1 - eased) * 40).toFixed(1)}px, 0)`;
             lastP.set(el, p);
           }
         }
