@@ -246,7 +246,17 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
   .playbook-body {
     padding-block: var(--space-xl);
   }
-  .playbook-prose {
+  /* The body uses the standard .container (1280px, centered) so it
+     aligns horizontally with .playbook-header above. Reading width
+     is constrained on the text children rather than on the outer
+     wrapper, so paragraphs stay readable but everything left-aligns
+     to the container edge. */
+  .playbook-prose :global(> h2),
+  .playbook-prose :global(> h3),
+  .playbook-prose :global(> p),
+  .playbook-prose :global(> ul),
+  .playbook-prose :global(> ol),
+  .playbook-prose :global(> blockquote) {
     max-width: 70ch;
   }
   .playbook-prose :global(h2) {

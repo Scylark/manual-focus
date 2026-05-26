@@ -433,7 +433,16 @@ You are a brand strategist running a six-pass positioning audit...
   .p101-section.section-alt {
     background: var(--color-bg-alt);
   }
-  .p101-prose {
+  /* The body sections use the standard .container (1280px, centered)
+     so they align horizontally with the .p101-head section above.
+     Reading width is constrained on the text children rather than
+     on the outer wrapper, so paragraphs stay readable but everything
+     left-aligns to the container edge, not centred at 72ch. */
+  .p101-prose > h2,
+  .p101-prose > h3,
+  .p101-prose > p,
+  .p101-prose > ul,
+  .p101-prose > ol {
     max-width: 72ch;
   }
   .p101-prose h2 {
