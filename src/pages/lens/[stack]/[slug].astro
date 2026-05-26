@@ -1,0 +1,328 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import SEOHead from '../../../components/SEOHead.astro';
+import { url } from '../../../utils/paths';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('lens');
+  return entries.map(entry => ({
+    params: { stack: entry.data.stack, slug: entry.id.split('/').pop()?.replace(/\.md$/, '') ?? entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const stackName = {
+  brand: 'Brand & positioning',
+  demand: 'Demand & growth',
+  content: 'Content & channels',
+  ops: 'Operating systems',
+}[d.stack];
+const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+<Base title={`${d.title} — The Lens`} description={d.description}>
+  <SEOHead
+    slot="seo"
+    type="article"
+    title={`${d.title} — The Lens`}
+    description={d.description}
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'The Lens', url: '/lens' },
+      { name: stackName, url: `/lens/${d.stack}` },
+      { name: d.title, url: `/lens/${d.stack}/${entry.id.split('/').pop()?.replace(/\.md$/, '')}` },
+    ]}
+  />
+
+  <article class="playbook-page">
+    <!-- HEADER -->
+    <header class="playbook-header">
+      <div class="container">
+        <a href={url(`/lens/${d.stack}`)} class="playbook-back mono">← {stackName.toUpperCase()}</a>
+        <div class="playbook-tags mono">
+          <span class="playbook-stack">STACK · {d.stack.toUpperCase()}</span>
+          {d.status !== 'live' && <span class={`playbook-status status-${d.status}`}>{d.status.toUpperCase()}</span>}
+          {d.preview && <span class="playbook-status status-preview">FREE PREVIEW</span>}
+        </div>
+        <h1 class="playbook-title">{d.title}</h1>
+        <p class="playbook-desc">{d.description}</p>
+
+        <div class="playbook-meta">
+          <div class="playbook-meta-block">
+            <span class="meta-label mono">OUTPUTS</span>
+            <span class="meta-value">{d.outputs}</span>
+          </div>
+          <div class="playbook-meta-block">
+            <span class="meta-label mono">SHIP TIME</span>
+            <span class="meta-value">{d.shipTime}</span>
+          </div>
+          <div class="playbook-meta-block">
+            <span class="meta-label mono">READ</span>
+            <span class="meta-value">{d.readMin} min</span>
+          </div>
+          <div class="playbook-meta-block">
+            <span class="meta-label mono">STAGE</span>
+            <span class="meta-value">{d.brandStage.join(', ')}</span>
+          </div>
+          {d.channels.length > 0 && (
+            <div class="playbook-meta-block">
+              <span class="meta-label mono">CHANNELS</span>
+              <span class="meta-value">{d.channels.join(', ')}</span>
+            </div>
+          )}
+          <div class="playbook-meta-block">
+            <span class="meta-label mono">MODELS</span>
+            <span class="meta-value">{d.models.join(', ')}</span>
+          </div>
+          <div class="playbook-meta-block">
+            <span class="meta-label mono">UPDATED</span>
+            <span class="meta-value">{formatDate(d.updatedAt ?? d.publishedAt)}</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <section class="playbook-body">
+      <div class="container playbook-prose">
+        <Content />
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="section section-alt playbook-foot">
+      <div class="container">
+        <div class="playbook-foot-grid">
+          <div class="playbook-foot-copy">
+            <div class="eyebrow">THE LENS</div>
+            <h2>Sixty-plus playbooks like this one.</h2>
+            <p>Pull this workflow today. Browse the rest of the stack to find what fits your next brief.</p>
+            <div class="playbook-foot-ctas">
+              <a href={url(`/lens/${d.stack}`)} class="btn-ghost">More {stackName}</a>
+              <a href={url('/lens')} class="btn-cta">Subscribe to the Lens</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .playbook-page {
+    background: var(--color-bg);
+  }
+  .playbook-header {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .playbook-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+    transition: color 0.2s ease;
+  }
+  .playbook-back:hover { color: var(--color-text); }
+
+  .playbook-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+  .playbook-stack {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+  }
+  .playbook-status {
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    line-height: 1;
+  }
+  .status-beta { color: var(--color-cta-start); border-color: var(--color-cta-start); }
+  .status-updated { color: #7CA89A; border-color: #7CA89A; }
+  .status-retired { color: var(--color-text-muted); border-color: var(--color-line); }
+  .status-preview {
+    color: var(--color-text);
+    border-color: var(--color-cta-start);
+    background: rgba(196, 90, 44, 0.08);
+  }
+
+  .playbook-title {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    max-width: 22ch;
+  }
+  .playbook-desc {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    max-width: 60ch;
+    margin-bottom: var(--space-lg);
+  }
+
+  .playbook-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    padding-block: var(--space-md);
+    margin-top: var(--space-md);
+  }
+  .playbook-meta-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .meta-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+  }
+  .meta-value {
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+    text-transform: capitalize;
+  }
+
+  @media (min-width: 769px) {
+    .playbook-meta {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+  }
+  @media (min-width: 1024px) {
+    .playbook-meta {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .playbook-body {
+    padding-block: var(--space-xl);
+  }
+  .playbook-prose {
+    max-width: 70ch;
+  }
+  .playbook-prose :global(h2) {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+  .playbook-prose :global(h2:first-child) {
+    margin-top: 0;
+  }
+  .playbook-prose :global(h3) {
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+  }
+  .playbook-prose :global(p) {
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-body);
+  }
+  .playbook-prose :global(ul),
+  .playbook-prose :global(ol) {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: var(--space-sm) 0;
+    padding-left: 1.25rem;
+  }
+  .playbook-prose :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .playbook-prose :global(strong) {
+    color: var(--color-text);
+  }
+  .playbook-prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-bg-alt);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--color-text);
+  }
+  .playbook-prose :global(pre) {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: var(--space-md);
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+    font-size: 0.85em;
+    line-height: 1.5;
+  }
+  .playbook-prose :global(pre code) {
+    background: transparent;
+    padding: 0;
+  }
+  .playbook-prose :global(blockquote) {
+    border-left: 2px solid var(--color-cta-start);
+    padding-left: var(--space-md);
+    margin: var(--space-md) 0;
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+  }
+  .playbook-prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-md) 0;
+    font-size: var(--font-size-body);
+  }
+  .playbook-prose :global(th),
+  .playbook-prose :global(td) {
+    border-bottom: 1px solid var(--color-line);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    color: var(--color-text-secondary);
+  }
+  .playbook-prose :global(th) {
+    color: var(--color-text);
+    font-weight: 600;
+    background: var(--color-bg-alt);
+  }
+
+  .playbook-foot {
+    border-top: 1px solid var(--color-line);
+  }
+  .playbook-foot-grid {
+    max-width: 720px;
+  }
+  .playbook-foot h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+  .playbook-foot p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+  }
+  .playbook-foot-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+</style>

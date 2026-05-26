@@ -36,10 +36,10 @@ import { url } from '../utils/paths';
           work, refreshed monthly, searchable by what you're trying to ship.
         </p>
         <div class="lens-ctas reveal">
-          <a href={url('/enquire')} class="btn-cta">Request access</a>
-          <a href="#stacks" class="btn-ghost">Browse the stacks</a>
+          <a href={url('/lens/library')} class="btn-cta">Browse the library</a>
+          <a href={url('/enquire')} class="btn-ghost">Request founding access</a>
         </div>
-        <p class="lens-meta mono reveal">Founding subscriber rate · Annual access · New playbooks every month</p>
+        <p class="lens-meta mono reveal">20 playbooks live · New entries every month · Founding subscriber rate</p>
       </div>
     </div>
   </section>
@@ -145,46 +145,46 @@ import { url } from '../utils/paths';
           tool. Pull what you need, ignore the rest.
         </p>
         <div class="lens-stacks stagger">
-          <article class="lens-stack">
+          <a href={url('/lens/brand')} class="lens-stack">
             <div class="stack-num mono">STACK · BRAND</div>
             <h3>Brand &amp; positioning</h3>
             <p>
-              Naming workflows, positioning audits, message-house generators,
-              tagline systems, brand-voice training, identity systems that
-              compress a four-week sprint into a working day.
+              Positioning audits, naming sprints, brand-voice extraction,
+              message-house generators and tagline systems that compress a
+              four-week sprint into a working day.
             </p>
-            <p class="stack-count mono">12 playbooks · growing</p>
-          </article>
-          <article class="lens-stack">
+            <p class="stack-count mono">5 playbooks · growing →</p>
+          </a>
+          <a href={url('/lens/demand')} class="lens-stack">
             <div class="stack-num mono">STACK · DEMAND</div>
             <h3>Demand &amp; growth</h3>
             <p>
-              Channel-mix simulators, paid-media bidding agents, attribution
-              tear-downs, lifecycle journey builders, retention playbooks,
-              category-entry-point research workflows.
+              Channel-mix simulators with reach-curve fitting, paid-search
+              bidding agents, attribution tear-downs, lifecycle journey
+              builders and category-entry-point research.
             </p>
-            <p class="stack-count mono">18 playbooks · growing</p>
-          </article>
-          <article class="lens-stack">
+            <p class="stack-count mono">5 playbooks · growing →</p>
+          </a>
+          <a href={url('/lens/content')} class="lens-stack">
             <div class="stack-num mono">STACK · CONTENT</div>
             <h3>Content &amp; channels</h3>
             <p>
-              SEO clusters that self-update, owned-channel publishing engines,
-              social-content factories, earned-media pitch generators,
-              video-script systems, eval-gated drafting pipelines.
+              SEO cluster generators, eval-gated drafting pipelines,
+              earned-media pitch matchers, social-content factories and
+              video-script systems.
             </p>
-            <p class="stack-count mono">24 playbooks · growing</p>
-          </article>
-          <article class="lens-stack">
+            <p class="stack-count mono">5 playbooks · growing →</p>
+          </a>
+          <a href={url('/lens/ops')} class="lens-stack">
             <div class="stack-num mono">STACK · OPS</div>
             <h3>Operating systems</h3>
             <p>
-              Brief-to-ship pipelines, hiring shape for AI-native teams, brand
-              guardrails as code, evaluation frameworks, decision logs,
-              quarterly planning rituals, the connective tissue.
+              Brief-to-ship pipelines, brand guardrails as code, evaluation
+              frameworks, hiring shapes for AI-native teams, quarterly
+              planning rituals — the connective tissue.
             </p>
-            <p class="stack-count mono">9 playbooks · growing</p>
-          </article>
+            <p class="stack-count mono">5 playbooks · growing →</p>
+          </a>
         </div>
       </div>
     </div>
@@ -347,9 +347,10 @@ import { url } from '../utils/paths';
           <details class="lens-faq-item">
             <summary>How many playbooks are in there now?</summary>
             <p>
-              Sixty-three at launch, across the four stacks. We add four to
-              eight new playbooks every month, refresh existing ones as the
-              models shift, and retire the entries that have been overtaken.
+              Twenty live at the founding launch — five per stack — with
+              four to six new playbooks shipping each month from real
+              client work. Existing entries get refreshed as the models
+              shift, and entries that have been overtaken get retired.
               The library is growing and pruning at the same time.
             </p>
           </details>
@@ -508,6 +509,16 @@ import { url } from '../utils/paths';
     gap: 0.5rem;
     position: relative;
     z-index: 2;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+  .lens-stack:hover {
+    border-color: var(--color-cta-start);
+    background: var(--color-bg-alt);
+    transform: translateY(-2px);
+  }
+  .lens-stack h3 {
+    color: var(--color-text);
   }
   .stack-num {
     font-size: 0.7rem;

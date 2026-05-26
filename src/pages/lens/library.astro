@@ -1,0 +1,262 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import { url } from '../../utils/paths';
+
+const entries = await getCollection('lens');
+entries.sort((a, b) => {
+  const da = (a.data.updatedAt ?? a.data.publishedAt).getTime();
+  const db = (b.data.updatedAt ?? b.data.publishedAt).getTime();
+  return db - da;
+});
+
+const stacks = [
+  { id: 'brand', name: 'Brand & positioning', short: 'Brand' },
+  { id: 'demand', name: 'Demand & growth', short: 'Demand' },
+  { id: 'content', name: 'Content & channels', short: 'Content' },
+  { id: 'ops', name: 'Operating systems', short: 'Ops' },
+] as const;
+
+const grouped = stacks.map(s => ({
+  ...s,
+  entries: entries.filter(e => e.data.stack === s.id),
+}));
+
+const totalCount = entries.length;
+const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+<Base title="The Lens — Library" description="The full library of AI marketing playbooks. Brand, demand, content and operating-system workflows. Search and browse.">
+  <SEOHead
+    slot="seo"
+    type="service"
+    title="The Lens — Library"
+    description="Browse the full library of AI marketing playbooks. Brand, demand, content and operating-system workflows, drawn from live client work."
+    breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'The Lens', url: '/lens' }, { name: 'Library', url: '/lens/library' }]}
+  />
+
+  <section class="library-head">
+    <div class="container">
+      <a href={url('/lens')} class="library-back mono">← THE LENS</a>
+      <div class="eyebrow">LIBRARY</div>
+      <h1 class="library-title">{totalCount} playbooks, four stacks.</h1>
+      <p class="library-lead">Every workflow shipped to a Manual Focus client in the last ninety days. Filter by stack, by stage, by channel. Pull what fits the brief in front of you.</p>
+
+      <div class="library-stack-nav" role="navigation" aria-label="Stack filters">
+        {stacks.map(s => (
+          <a href={url(`/lens/${s.id}`)} class="library-stack-chip">
+            <span class="chip-stack mono">{s.short.toUpperCase()}</span>
+            <span class="chip-count mono">{grouped.find(g => g.id === s.id)?.entries.length ?? 0} ENTRIES</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {grouped.map(group => group.entries.length > 0 && (
+    <section class="library-stack-section">
+      <div class="container">
+        <div class="library-stack-head">
+          <div class="eyebrow">STACK · {group.short.toUpperCase()}</div>
+          <h2>{group.name}</h2>
+          <a href={url(`/lens/${group.id}`)} class="library-stack-link mono">VIEW STACK →</a>
+        </div>
+        <div class="library-grid">
+          {group.entries.map(entry => {
+            const slug = entry.id.split('/').pop()?.replace(/\.md$/, '') ?? entry.id;
+            return (
+              <a href={url(`/lens/${entry.data.stack}/${slug}`)} class="library-card">
+                <div class="card-head mono">
+                  <span class="card-stack">{group.short.toUpperCase()}</span>
+                  {entry.data.status === 'updated' && <span class="card-flag flag-updated">UPDATED</span>}
+                  {entry.data.status === 'beta' && <span class="card-flag flag-beta">BETA</span>}
+                  {entry.data.preview && <span class="card-flag flag-preview">FREE</span>}
+                </div>
+                <h3 class="card-title">{entry.data.title}</h3>
+                <p class="card-desc">{entry.data.description}</p>
+                <div class="card-foot mono">
+                  <span>{entry.data.shipTime}</span>
+                  <span>·</span>
+                  <span>{entry.data.readMin} min read</span>
+                  <span>·</span>
+                  <span>{formatDate(entry.data.updatedAt ?? entry.data.publishedAt)}</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .library-head {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .library-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  .library-back:hover { color: var(--color-text); }
+  .library-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-block: var(--space-sm);
+  }
+  .library-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    max-width: 60ch;
+    margin-bottom: var(--space-lg);
+  }
+  .library-stack-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+  @media (min-width: 769px) {
+    .library-stack-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  .library-stack-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    text-decoration: none;
+    background: var(--color-bg);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .library-stack-chip:hover {
+    border-color: var(--color-cta-start);
+    background: var(--color-bg-alt);
+  }
+  .chip-stack {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+  }
+  .chip-count {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+  }
+
+  .library-stack-section {
+    padding-block: var(--space-xl);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .library-stack-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+  .library-stack-head h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0;
+    flex: 1 1 auto;
+  }
+  .library-stack-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+    text-decoration: none;
+  }
+  .library-stack-link:hover { color: var(--color-text); }
+
+  .library-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  @media (min-width: 769px) {
+    .library-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .library-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  .library-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-bg);
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    position: relative;
+  }
+  .library-card:hover {
+    border-color: var(--color-cta-start);
+    background: var(--color-bg-alt);
+    transform: translateY(-2px);
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+  }
+  .card-stack { color: var(--color-cta-start); }
+  .card-flag {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    line-height: 1;
+  }
+  .flag-updated {
+    color: #7CA89A;
+    border: 1px solid #7CA89A;
+  }
+  .flag-beta {
+    color: var(--color-cta-start);
+    border: 1px solid var(--color-cta-start);
+  }
+  .flag-preview {
+    color: var(--color-text);
+    border: 1px solid var(--color-cta-start);
+    background: rgba(196, 90, 44, 0.08);
+  }
+  .card-title {
+    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+    line-height: 1.2;
+    color: var(--color-text);
+    margin: 0;
+  }
+  .card-desc {
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    flex: 1 1 auto;
+    font-size: var(--font-size-body);
+  }
+  .card-foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--color-text-muted);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-line);
+  }
+</style>

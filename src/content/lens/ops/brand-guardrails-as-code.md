@@ -1,0 +1,119 @@
+---
+title: "Brand guardrails as code"
+stack: ops
+description: "Turn the brand guidelines from a PDF nobody reads into a programmatic check that runs against every piece of content before it ships. Catches drift before it ships, not after."
+outputs: "Guardrails ruleset, linting script, CI integration"
+readMin: 9
+shipTime: "1 working week"
+brandStage: ["growth", "scale", "enterprise"]
+channels: ["brand", "content"]
+models: ["claude-4.5-sonnet", "gpt-5"]
+publishedAt: 2026-04-20
+status: live
+preview: false
+---
+
+## The brief
+
+Brand guidelines are typically 40 pages of PDF that nobody on the team has read in a year. The team breaks the guidelines in small ways every week. The brand lead notices six months in, has a difficult conversation, the team apologises, the guidelines stay un-read, the cycle repeats.
+
+This playbook turns the guidelines that matter into code. The rules become a programmatic ruleset. The ruleset runs against every piece of outbound content — content drafts, ad copy, social posts, email subject lines, deck text — before ship. Violations block the merge or the schedule. The brand stops drifting because the system won't let it.
+
+It does not replace human judgement. There will always be rules that need a person to call. But the dozens of rules that are objectively checkable — banned phrases, tone tells, claim limits, factual guards, formatting — those run automatically and stop being a recurring conversation.
+
+## The pipeline
+
+Four phases to install. Then it just runs.
+
+**Phase 1 — Rule extraction.** Read the existing brand guidelines (PDF, deck, Notion, wherever). Identify every rule that's objectively checkable. Examples: "never use the word 'solutions'", "always capitalise the product name as one word", "never claim X without the legal disclaimer", "headlines under 60 chars", "no exclamation marks", "use the Oxford comma", "British spelling not American". Reject rules that depend on judgement ("be warm but professional") — those stay for human review.
+
+**Phase 2 — Rule classification.** For each rule, classify the check type: regex match, deterministic count, LLM judgement, fact-cross-reference. Most rules are regex or count. Some need LLM judgement (e.g., "the tone matches the voice profile"). Some need a cross-reference (e.g., "every product claim has a source").
+
+**Phase 3 — Ruleset implementation.** Build the ruleset as a runnable script. Each rule is a function with a clear name, a check, and a fix suggestion. The output of running the script against a piece of content is a structured JSON report: passes, warnings, blocks.
+
+**Phase 4 — CI integration.** Wire the script into the team's content workflow. For docs in a repo: a pre-commit hook + CI check. For docs in a CMS: a pre-publish webhook. For ad copy: a Slack-bot that scans pasted text before the team submits. The check is as fast and frictionless as possible — under 2 seconds per piece — or the team will work around it.
+
+## The ruleset shape
+
+Every rule lives in one file. This is the structure we use:
+
+```yaml
+rules:
+  - id: brand_name_capitalization
+    type: regex
+    severity: block
+    description: "Brand name must be capitalised as one word."
+    pattern: "(?i)manual focus"
+    allowed: ["Manual Focus", "MANUAL FOCUS"]
+    fix_suggestion: "Replace with 'Manual Focus' (capitalised, no hyphen)."
+
+  - id: banned_buzzwords
+    type: regex
+    severity: warn
+    description: "Avoid generic SaaS buzzwords."
+    patterns:
+      - "(?i)\\bsolutions\\b"
+      - "(?i)\\bsynergy\\b"
+      - "(?i)\\bleverage\\b(?!\\sas)"
+      - "(?i)\\bunlock\\s+the\\s+power\\b"
+    fix_suggestion: "Replace with a specific noun naming what we do."
+
+  - id: claim_proof_required
+    type: llm_judgement
+    severity: block
+    description: "Performance claims must have a cited source or be hedged."
+    model: claude-4.5-sonnet
+    prompt: "{{CLAIM_AUDIT_PROMPT}}"
+    pass_criterion: "no_unsourced_performance_claims"
+
+  - id: headline_length
+    type: count
+    severity: block
+    description: "Headlines under 65 characters."
+    target_selector: "headline"
+    check: "length <= 65"
+    fix_suggestion: "Trim. Strong headlines are 8-12 words."
+
+  - id: exclamation_marks
+    type: count
+    severity: warn
+    description: "No more than 1 exclamation mark per 500 words."
+    check: "count('!') <= ceil(word_count / 500)"
+
+  - id: oxford_comma
+    type: regex
+    severity: warn
+    description: "Use the Oxford comma in lists of 3+."
+    pattern: "(?<=\\w),\\s\\w+\\s+and\\s"
+    fix_suggestion: "Add a comma before 'and' in lists of three or more items."
+```
+
+The rule registry is checked into the same repo as your content. Changes to the rules require a PR — brand updates happen in a reviewable, versioned way, not by sending a new PDF to Slack.
+
+## The eval harness
+
+Two checks at the ruleset level.
+
+**Eval 1 — False positive rate.** Run the ruleset against 50 pieces of content the brand lead considers exemplary. The block rate against this corpus should be under 5%. If exemplary content is being blocked, the rules are too strict — review the false positives and either soften the rule or downgrade its severity.
+
+**Eval 2 — False negative rate.** Run the ruleset against 30 pieces of content that violated guidelines in the past (catch them from past audits or escalations). The ruleset should catch 80%+ of historic violations. If it catches fewer, the rules don't cover the actual failure modes the brand experiences — extend.
+
+## The failure modes
+
+**Rules people can't fix become noise.** If a rule blocks but the fix isn't actionable, the team submits override requests until the rule effectively doesn't exist. Every block-severity rule must come with a fix_suggestion that's actually implementable in <2 minutes.
+
+**LLM-judgement rules drift.** The "tone matches voice" or "claim is supported" rules use a model and their behaviour changes when the model updates. Pin model versions. Re-run the calibration corpus monthly. Recalibrate the rule when the calibration drifts.
+
+**Brand lead bypasses the system.** If the person who built the guidelines has commit access and pushes content directly without the check running, the system is dead. The check must run on the brand lead's content too. The rule is the rule, not the personality.
+
+**Rules contradict.** Sometimes the brand guidelines have rules that contradict in edge cases — "be conversational" and "no contractions" can both be true until you write a customer-facing email. When the ruleset surfaces a contradiction, document it. The check becomes a hard decision rather than a recurring argument.
+
+**Rules grow without retirement.** Every quarterly review adds rules. Few retirements happen. After two years, the ruleset is a slow, over-blocking mess. Establish a "retire 3 rules per quarter" discipline, even if it's hard to pick three. Old rules earn their keep or get cut.
+
+## The receipts
+
+**Health-tech, regulated category.** Brand had a 60-page guideline document and a compliance officer who reviewed every piece of marketing manually. Pipeline encoded 47 of the rules. Compliance officer's manual review dropped from 4 hours per piece to 40 minutes. Three escalations to regulator-required revisions in the past 18 months — all caught by the LLM-judgement rule for unsourced claims. Pre-pipeline, those would have shipped.
+
+**D2C brand.** Brand had been losing voice consistency across a growing team. We installed the ruleset. After one quarter, voice consistency complaints from the brand lead dropped to near-zero. The brand lead's actual job shifted from policing to creating — she'd been spending 30% of her week on consistency review. That time is now original work.
+
+**B2B SaaS, growth-stage, partial-failure engagement.** We installed the pipeline. Within two months, sales had built a workaround — a separate Notion space where they drafted pitches without the check. Sales hit pipeline targets at the cost of brand consistency. We added a rule that flagged pitches from the sales workaround and routed them through the check anyway. The lesson: the check has to cover all surfaces, not just the ones marketing controls. If sales is generating outbound, sales is generating brand surface.

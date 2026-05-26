@@ -42,4 +42,66 @@ const faq = defineCollection({
   }),
 });
 
-export const collections = { blog, faq };
+// The Lens — the library of AI marketing playbooks. Each entry is a real
+// workflow run by Manual Focus partners on client work, structured as the
+// six artefacts the marketing page promises (brief, pipeline, prompts,
+// eval harness, failure modes, receipts) and stored as one markdown file
+// per playbook under src/content/lens/<stack>/<slug>.md.
+const LENS_STACKS = ['brand', 'demand', 'content', 'ops'] as const;
+const LENS_MODELS = [
+  'gpt-5',
+  'gpt-4.1',
+  'claude-4.5-opus',
+  'claude-4.5-sonnet',
+  'claude-3.7',
+  'gemini-2.5-pro',
+  'gemini-2.5-flash',
+  'llama-3.3',
+  'mistral-large',
+  'deepseek-v3',
+] as const;
+const LENS_STATUS = ['live', 'updated', 'beta', 'retired'] as const;
+const LENS_BRAND_STAGE = ['pre-launch', 'launch', 'growth', 'scale', 'enterprise'] as const;
+const LENS_CHANNELS = [
+  'seo',
+  'paid-search',
+  'paid-social',
+  'organic-social',
+  'email',
+  'lifecycle',
+  'pr',
+  'content',
+  'video',
+  'web',
+  'product-marketing',
+  'analytics',
+  'brand',
+] as const;
+
+const lens = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/lens' }),
+  schema: z.object({
+    title: z.string(),
+    stack: z.enum(LENS_STACKS),
+    description: z.string().max(180),
+    // What the workflow produces in plain English, one short noun phrase.
+    outputs: z.string(),
+    // Approximate read time for the playbook page itself.
+    readMin: z.number().int().min(2).max(40),
+    // Approximate ship time once a member has wired it up.
+    shipTime: z.string(), // e.g. "1 working day", "2 weeks"
+    // Filters surfaced in library UI.
+    brandStage: z.array(z.enum(LENS_BRAND_STAGE)).min(1),
+    channels: z.array(z.enum(LENS_CHANNELS)).default([]),
+    models: z.array(z.enum(LENS_MODELS)).min(1),
+    // Lifecycle.
+    publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date().optional(),
+    status: z.enum(LENS_STATUS).default('live'),
+    // Free preview — readable without subscription. Use sparingly to seed
+    // credibility on the public marketing page.
+    preview: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, faq, lens };

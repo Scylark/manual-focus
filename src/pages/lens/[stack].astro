@@ -1,0 +1,194 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import { url } from '../../utils/paths';
+
+export async function getStaticPaths() {
+  return [
+    { params: { stack: 'brand' }, props: { stackKey: 'brand', name: 'Brand & positioning', short: 'Brand', tagline: 'Workflows for naming, positioning, voice and identity. Compress a four-week sprint into a working day.' } },
+    { params: { stack: 'demand' }, props: { stackKey: 'demand', name: 'Demand & growth', short: 'Demand', tagline: 'Channel-mix simulators, paid-bidding agents, attribution tear-downs and lifecycle journey builders that compound.' } },
+    { params: { stack: 'content' }, props: { stackKey: 'content', name: 'Content & channels', short: 'Content', tagline: 'SEO clusters, owned-channel publishing engines, social factories and eval-gated drafting pipelines.' } },
+    { params: { stack: 'ops' }, props: { stackKey: 'ops', name: 'Operating systems', short: 'Ops', tagline: 'Brief-to-ship pipelines, hiring shapes, brand guardrails as code, decision logs and quarterly planning rituals.' } },
+  ];
+}
+
+const { stack } = Astro.params;
+const { stackKey, name, short, tagline } = Astro.props;
+
+const all = await getCollection('lens');
+const entries = all
+  .filter(e => e.data.stack === stackKey)
+  .sort((a, b) => (b.data.updatedAt ?? b.data.publishedAt).getTime() - (a.data.updatedAt ?? a.data.publishedAt).getTime());
+
+const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+<Base title={`${name} — The Lens`} description={tagline}>
+  <SEOHead
+    slot="seo"
+    type="service"
+    title={`${name} — The Lens`}
+    description={tagline}
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'The Lens', url: '/lens' },
+      { name, url: `/lens/${stack}` },
+    ]}
+  />
+
+  <section class="stack-head">
+    <div class="container">
+      <a href={url('/lens/library')} class="stack-back mono">← LIBRARY</a>
+      <div class="eyebrow">STACK · {short.toUpperCase()}</div>
+      <h1 class="stack-title">{name}</h1>
+      <p class="stack-lead">{tagline}</p>
+      <p class="stack-count mono">{entries.length} {entries.length === 1 ? 'PLAYBOOK' : 'PLAYBOOKS'} · GROWING</p>
+    </div>
+  </section>
+
+  <section class="stack-body">
+    <div class="container">
+      {entries.length === 0 && (
+        <p class="stack-empty">No playbooks published in this stack yet. Check back next month, or browse another stack from the <a href={url('/lens/library')}>library</a>.</p>
+      )}
+      <div class="library-grid">
+        {entries.map(entry => {
+          const slug = entry.id.split('/').pop()?.replace(/\.md$/, '') ?? entry.id;
+          return (
+            <a href={url(`/lens/${entry.data.stack}/${slug}`)} class="library-card">
+              <div class="card-head mono">
+                <span class="card-stack">{short.toUpperCase()}</span>
+                {entry.data.status === 'updated' && <span class="card-flag flag-updated">UPDATED</span>}
+                {entry.data.status === 'beta' && <span class="card-flag flag-beta">BETA</span>}
+                {entry.data.preview && <span class="card-flag flag-preview">FREE</span>}
+              </div>
+              <h3 class="card-title">{entry.data.title}</h3>
+              <p class="card-desc">{entry.data.description}</p>
+              <div class="card-foot mono">
+                <span>{entry.data.shipTime}</span>
+                <span>·</span>
+                <span>{entry.data.readMin} min read</span>
+                <span>·</span>
+                <span>{formatDate(entry.data.updatedAt ?? entry.data.publishedAt)}</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .stack-head {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .stack-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  .stack-back:hover { color: var(--color-text); }
+  .stack-title {
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-block: var(--space-sm);
+  }
+  .stack-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    max-width: 65ch;
+    margin-bottom: var(--space-md);
+  }
+  .stack-count {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+  }
+  .stack-body {
+    padding-block: var(--space-xl);
+  }
+  .stack-empty {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    max-width: 60ch;
+  }
+  .stack-empty a { color: var(--color-cta-start); text-decoration: underline; }
+
+  /* Re-use library card styles inline */
+  .library-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  @media (min-width: 769px) {
+    .library-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .library-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .library-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-bg);
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+  .library-card:hover {
+    border-color: var(--color-cta-start);
+    background: var(--color-bg-alt);
+    transform: translateY(-2px);
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+  }
+  .card-stack { color: var(--color-cta-start); }
+  .card-flag {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    line-height: 1;
+  }
+  .flag-updated { color: #7CA89A; border: 1px solid #7CA89A; }
+  .flag-beta { color: var(--color-cta-start); border: 1px solid var(--color-cta-start); }
+  .flag-preview { color: var(--color-text); border: 1px solid var(--color-cta-start); background: rgba(196, 90, 44, 0.08); }
+  .card-title {
+    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+    line-height: 1.2;
+    color: var(--color-text);
+    margin: 0;
+  }
+  .card-desc {
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    flex: 1 1 auto;
+    font-size: var(--font-size-body);
+  }
+  .card-foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--color-text-muted);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-line);
+  }
+</style>
