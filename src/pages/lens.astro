@@ -1,0 +1,779 @@
+---
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+import FocusObject from '../components/FocusObject.astro';
+import { url } from '../utils/paths';
+---
+<Base
+  title="The Lens — A living library of AI marketing playbooks"
+  description="The Lens. A curated, growing library of AI workflows, prompts and eval results for senior marketers. Built by Manual Focus, powered by the Forge."
+>
+  <SEOHead
+    slot="seo"
+    type="service"
+    title="The Lens — A living library of AI marketing playbooks"
+    description="A curated, growing library of AI workflows, prompts and eval results for senior marketers — drawn from live client work, refreshed monthly, search-first."
+    breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'The Lens', url: '/lens' }]}
+  />
+
+  <!-- HERO -->
+  <section class="section lens-hero dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={420} tiltX={62} tiltY={-18} spin={140} scrollSpin={-80} style="top: 4%; right: 4%;" enterFrom="right" />
+      <FocusObject size={300} tiltX={55} tiltY={20} spin={-110} scrollSpin={90} style="bottom: 6%; left: 3%;" enterFrom="left" />
+
+      <div class="container lens-hero-inner">
+        <div class="eyebrow reveal">000 · THE LENS</div>
+        <h1 class="lens-headline reveal">
+          Marketing,<br/>
+          seen through a<br/>
+          <span class="gradient-text">sharper lens</span>.
+        </h1>
+        <p class="lens-lead reveal">
+          A curated, living library of the AI workflows Manual Focus runs for
+          clients. Prompts, pipelines, eval results, failure modes — the full
+          shape of how the work actually gets done. Drawn from live client
+          work, refreshed monthly, searchable by what you're trying to ship.
+        </p>
+        <div class="lens-ctas reveal">
+          <a href={url('/enquire')} class="btn-cta">Request access</a>
+          <a href="#stacks" class="btn-ghost">Browse the stacks</a>
+        </div>
+        <p class="lens-meta mono reveal">Founding subscriber rate · Annual access · New playbooks every month</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE GAP -->
+  <section class="section section-alt dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={320} tiltX={60} tiltY={-22} spin={150} scrollSpin={-70} style="top: 8%; left: 4%;" enterFrom="left" />
+      <div class="container">
+        <div class="eyebrow">001 · THE GAP</div>
+        <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+          Most senior marketers<br/>
+          are using AI <span class="gradient-text">like a typewriter</span>.
+        </h2>
+        <div class="lens-grid">
+          <p class="reveal">
+            They draft a meta description in ChatGPT. They Midjourney a stock-photo
+            replacement. They sit through webinars about agents and walk away
+            with a list of tools they'll never actually wire up. The pipeline
+            still looks like 2020 with a faster pen.
+          </p>
+          <p class="reveal">
+            The operators a step ahead are using AI as a team. Briefs that
+            self-iterate. Content systems that run themselves. Pipelines that
+            improve every time a new model ships. The difference isn't talent
+            or budget, it's having seen the workflow written down with all
+            the failure modes labelled.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section class="section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={360} tiltX={58} tiltY={18} spin={-130} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">002 · WHAT IT IS</div>
+        <h2 class="reveal">A living library, not a course you finish.</h2>
+        <p class="lead reveal">
+          The Lens is a curated reference for senior marketers. Each entry is
+          a complete AI workflow shipped with the prompts, the evaluation
+          harness, the failure modes and the actual eval results from the
+          pipeline running in production. No ninety-minute video that loses
+          relevance the moment a new model lands.
+        </p>
+
+        <div class="lens-pillars stagger">
+          <article class="lens-pillar">
+            <div class="pillar-num mono">/A</div>
+            <h3>Workflows that ran in production</h3>
+            <p>
+              Every playbook in the library came out of a Manual Focus client
+              engagement in the prior ninety days. Nothing theoretical, nothing
+              "what if you tried", only patterns that held up when real money
+              was on the line.
+            </p>
+          </article>
+          <article class="lens-pillar">
+            <div class="pillar-num mono">/B</div>
+            <h3>Full eval harness, not just prompts</h3>
+            <p>
+              The prompts are the easy part. Each entry ships with the eval
+              criteria, the test set, the failure cases and the score thresholds
+              we use to decide a workflow is shippable. Swap the model, re-run
+              the harness, ship.
+            </p>
+          </article>
+          <article class="lens-pillar">
+            <div class="pillar-num mono">/C</div>
+            <h3>Refreshed as the models shift</h3>
+            <p>
+              When a frontier model lands we re-run the harness across every
+              affected workflow. If it changes the result, the entry gets
+              annotated and the prompts updated. The library stays current
+              instead of going stale.
+            </p>
+          </article>
+          <article class="lens-pillar">
+            <div class="pillar-num mono">/D</div>
+            <h3>Search-first, browse second</h3>
+            <p>
+              Filter by channel, by brand stage, by output type, by model.
+              You're not reading the library cover to cover, you're pulling
+              the playbook you need for the brief on your desk this week.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STACKS -->
+  <section class="section section-alt dwell-pin" id="stacks">
+    <div class="dwell-pin-stage">
+      <FocusObject size={280} tiltX={50} tiltY={-15} spin={120} scrollSpin={-110} style="top: 8%; right: 5%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">003 · THE STACKS</div>
+        <h2 class="reveal">Four stacks. Each one growing.</h2>
+        <p class="lead reveal">
+          The library is organised by what you're trying to ship, not by
+          tool. Pull what you need, ignore the rest.
+        </p>
+        <div class="lens-stacks stagger">
+          <article class="lens-stack">
+            <div class="stack-num mono">STACK · BRAND</div>
+            <h3>Brand &amp; positioning</h3>
+            <p>
+              Naming workflows, positioning audits, message-house generators,
+              tagline systems, brand-voice training, identity systems that
+              compress a four-week sprint into a working day.
+            </p>
+            <p class="stack-count mono">12 playbooks · growing</p>
+          </article>
+          <article class="lens-stack">
+            <div class="stack-num mono">STACK · DEMAND</div>
+            <h3>Demand &amp; growth</h3>
+            <p>
+              Channel-mix simulators, paid-media bidding agents, attribution
+              tear-downs, lifecycle journey builders, retention playbooks,
+              category-entry-point research workflows.
+            </p>
+            <p class="stack-count mono">18 playbooks · growing</p>
+          </article>
+          <article class="lens-stack">
+            <div class="stack-num mono">STACK · CONTENT</div>
+            <h3>Content &amp; channels</h3>
+            <p>
+              SEO clusters that self-update, owned-channel publishing engines,
+              social-content factories, earned-media pitch generators,
+              video-script systems, eval-gated drafting pipelines.
+            </p>
+            <p class="stack-count mono">24 playbooks · growing</p>
+          </article>
+          <article class="lens-stack">
+            <div class="stack-num mono">STACK · OPS</div>
+            <h3>Operating systems</h3>
+            <p>
+              Brief-to-ship pipelines, hiring shape for AI-native teams, brand
+              guardrails as code, evaluation frameworks, decision logs,
+              quarterly planning rituals, the connective tissue.
+            </p>
+            <p class="stack-count mono">9 playbooks · growing</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIDE EACH ENTRY -->
+  <section class="section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={340} tiltX={62} tiltY={-12} spin={170} scrollSpin={60} style="top: 8%; left: 4%;" enterFrom="left" />
+      <div class="container">
+        <div class="eyebrow">004 · INSIDE AN ENTRY</div>
+        <h2 class="reveal">What's actually in each playbook.</h2>
+        <p class="lead reveal">
+          A playbook isn't a prompt. It's the full shape of a workflow
+          shipped to a paying client and held to a defined standard. Every
+          entry includes the same six artefacts.
+        </p>
+        <ul class="lens-anatomy stagger">
+          <li><span class="mono">A</span><span><strong>The brief.</strong> The problem the workflow solves, the output it produces, the kind of brand it suits.</span></li>
+          <li><span class="mono">B</span><span><strong>The pipeline.</strong> The full step-by-step, including which model, which tool, which human checkpoint, in which order.</span></li>
+          <li><span class="mono">C</span><span><strong>The prompts.</strong> Every prompt, in working order, with the variables labelled and the system prompts intact.</span></li>
+          <li><span class="mono">D</span><span><strong>The eval harness.</strong> The test set, the criteria, the scoring rubric, the thresholds to ship.</span></li>
+          <li><span class="mono">E</span><span><strong>The failure modes.</strong> Where the workflow breaks, what tells you it's breaking, what to swap in when it does.</span></li>
+          <li><span class="mono">F</span><span><strong>The receipts.</strong> The actual outputs we shipped to actual clients, with the brand name redacted and the permissions on file.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section section-alt dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={320} tiltX={55} tiltY={20} spin={-160} scrollSpin={80} style="top: 6%; right: 4%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">005 · WHO IT'S FOR</div>
+        <h2 class="reveal">Senior operators only.</h2>
+        <div class="lens-fit-grid">
+          <div class="lens-fit reveal">
+            <h3>Built for</h3>
+            <ul>
+              <li>Heads of marketing and CMOs at $5M–$200M brands</li>
+              <li>Fractional CMOs running two to four portfolio clients</li>
+              <li>Senior in-house operators owning brand, demand or growth</li>
+              <li>Marketing leaders at AI-native startups who need depth, not hot takes</li>
+            </ul>
+          </div>
+          <div class="lens-fit reveal">
+            <h3>Not built for</h3>
+            <ul>
+              <li>Generalists trying to break into marketing</li>
+              <li>Agencies looking to re-sell the workflows as their own</li>
+              <li>Anyone hoping for a "five prompts to grow your business" listicle</li>
+              <li>People who want to skim, not ship</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO CURATES IT -->
+  <section class="section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={400} tiltX={58} tiltY={-18} spin={160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">006 · WHO CURATES IT</div>
+        <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+          Operators<br/>
+          <span class="gradient-text">running the work</span>,<br/>
+          not selling the dream.
+        </h2>
+        <p class="lead reveal">
+          The Lens is curated by the Manual Focus partners and a rotating cast
+          from the Foundry collective. Fifty-plus years of senior marketing
+          experience between them. Every playbook came out of a real client
+          engagement that quarter. The eval results are our actual eval
+          results, including the ones where the workflow didn't ship.
+        </p>
+        <p class="reveal">
+          Nothing in the Lens is theoretical. When a workflow gets retired
+          we say so on the entry and explain why. When a model change breaks
+          a workflow we annotate the entry within seventy-two hours of the
+          model release.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section section-alt dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={300} tiltX={50} tiltY={-18} spin={130} scrollSpin={-100} style="top: 6%; right: 4%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">007 · THE TERMS</div>
+        <h2 class="reveal">Founding subscriber rate. Locked for life.</h2>
+        <div class="lens-price reveal">
+          <div class="lens-price-inner">
+            <div class="price-head">
+              <div class="price-tag mono"><span>FOUNDING SUBSCRIBER</span><span class="price-flag">FIRST 100 SEATS</span></div>
+              <div class="price-amount">£200<span class="price-per">/month</span></div>
+              <p class="price-shape mono">Billed annually · £2,400/year · Locked for life</p>
+            </div>
+            <ul class="price-list">
+              <li>Full access to every stack and every playbook in the library</li>
+              <li>New playbooks added every month, drawn from live client work</li>
+              <li>Eval harnesses, prompts and pipelines included with every entry</li>
+              <li>Refresh annotations within 72 hours of frontier-model releases</li>
+              <li>Members-only async clinic, bring a workflow that won't behave</li>
+              <li>Founding rate stays at £200/month even after standard pricing rises</li>
+            </ul>
+            <div class="price-foot">
+              <a href={url('/enquire')} class="btn-cta">Request access</a>
+              <p class="price-note">Standard rate after founding seats close: £350/month, £4,200/year.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={260} tiltX={55} tiltY={-22} spin={140} scrollSpin={70} style="top: 8%; left: 4%;" enterFrom="left" />
+      <div class="container">
+        <div class="eyebrow">008 · BEFORE YOU SUBSCRIBE</div>
+        <h2 class="reveal">The questions you'd be right to ask.</h2>
+        <div class="lens-faq stagger">
+          <details class="lens-faq-item">
+            <summary>How is this different from a course?</summary>
+            <p>
+              A course is content you consume once. The Lens is a reference
+              library you keep coming back to, pull a playbook the day a
+              brief lands, swap the model when a new one ships, hand a
+              workflow to a junior with the eval harness intact. The shape
+              is more like a Bloomberg Terminal than a Udemy unit.
+            </p>
+          </details>
+          <details class="lens-faq-item">
+            <summary>Why not just publish this on a blog?</summary>
+            <p>
+              Because the eval results, the failure modes and the actual
+              outputs are competitive information for the brands we ship
+              for. The Lens is gated so we can include the things we
+              couldn't include in a public write-up. Members agree to
+              non-circulation in the subscription terms.
+            </p>
+          </details>
+          <details class="lens-faq-item">
+            <summary>What happens to my access if I stop subscribing?</summary>
+            <p>
+              You lose access to the library, including any playbooks you
+              haven't downloaded. Annual subscribers can export their
+              favourited entries before cancellation as a PDF bundle for
+              personal reference. The eval harnesses stay yours if you've
+              already wired them up, we don't have a kill switch on your
+              local pipelines.
+            </p>
+          </details>
+          <details class="lens-faq-item">
+            <summary>How many playbooks are in there now?</summary>
+            <p>
+              Sixty-three at launch, across the four stacks. We add four to
+              eight new playbooks every month, refresh existing ones as the
+              models shift, and retire the entries that have been overtaken.
+              The library is growing and pruning at the same time.
+            </p>
+          </details>
+          <details class="lens-faq-item">
+            <summary>Can my team share one seat?</summary>
+            <p>
+              No. Each seat is for one senior operator. Team licences are
+              available for three or more seats at a per-seat rate, talk
+              to us before applying.
+            </p>
+          </details>
+          <details class="lens-faq-item">
+            <summary>What if a model change breaks a workflow I'm running?</summary>
+            <p>
+              We annotate the affected entries within seventy-two hours of
+              a frontier-model release. The annotation says what changed,
+              which prompts were updated, what the new eval scores look
+              like and whether the workflow still ships. If your version
+              is running fine, you don't need to touch it.
+            </p>
+          </details>
+          <details class="lens-faq-item">
+            <summary>Is this a replacement for hiring Manual Focus?</summary>
+            <p>
+              For teams that can run the playbooks themselves, yes, this
+              is the leverage without the cost of a Fractional CMO. For
+              others it sits alongside one of the services as a way to
+              keep the in-house team sharp between engagements.
+            </p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="section cta-close dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -10%; left: -10%;" enterFrom="left" />
+      <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} style="bottom: -10%; right: -8%;" enterFrom="right" />
+
+      <div class="container cta-close-inner">
+        <h2 class="cta-headline reveal">
+          The first hundred founding<br/>
+          seats <span class="gradient-text">close when they close</span>.
+        </h2>
+        <p class="cta-sub reveal">
+          Request access in five minutes. We'll send the onboarding shape and
+          a sample entry inside two working days so you can read the work
+          before you subscribe.
+        </p>
+        <a href={url('/enquire')} class="btn-cta reveal">Request access</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ============================
+     LENS HERO
+     ============================ */
+  .lens-hero-inner {
+    max-width: 1000px;
+  }
+  .lens-headline {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-top: var(--space-sm);
+    color: var(--color-text);
+  }
+  .lens-lead {
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    max-width: 60ch;
+    margin-top: var(--space-md);
+  }
+  .lens-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+  .lens-meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+    margin-top: var(--space-md);
+  }
+
+  /* Two-column problem grid */
+  .lens-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    max-width: 90ch;
+  }
+  .lens-grid p {
+    font-size: var(--font-size-body);
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+
+  /* Pillars grid — 2x2 */
+  .lens-pillars {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  .lens-pillar {
+    background: var(--color-bg);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .pillar-num {
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.18em;
+    margin-bottom: var(--space-xs);
+  }
+  .lens-pillar h3 {
+    font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+    margin-bottom: 0.25rem;
+  }
+  .lens-pillar p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+  }
+
+  /* The Stacks */
+  .lens-stacks {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .lens-stack {
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .stack-num {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+    margin-bottom: var(--space-xs);
+  }
+  .lens-stack h3 {
+    font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  }
+  .lens-stack p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+  }
+  .stack-count {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.12em;
+    margin-top: auto;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-line);
+  }
+
+  /* Anatomy of an entry */
+  .lens-anatomy {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 900px;
+  }
+  .lens-anatomy li {
+    background: var(--color-bg);
+    padding: var(--space-md);
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: var(--space-sm);
+    align-items: baseline;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+  .lens-anatomy .mono {
+    color: var(--color-cta-start);
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+  }
+  .lens-anatomy strong {
+    color: var(--color-text);
+    margin-right: 0.25rem;
+  }
+
+  /* Built for / not built for */
+  .lens-fit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  .lens-fit {
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-bg);
+    position: relative;
+    z-index: 2;
+  }
+  .lens-fit h3 {
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    margin-bottom: var(--space-sm);
+  }
+  .lens-fit ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .lens-fit li {
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-xs);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .lens-fit li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--color-cta-start);
+    font-weight: 700;
+  }
+
+  /* Pricing card */
+  .lens-price {
+    margin-top: var(--space-lg);
+    max-width: 720px;
+    position: relative;
+    z-index: 2;
+  }
+  .lens-price-inner {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    background: var(--color-bg);
+    padding: var(--space-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .lens-price-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+  }
+  .price-head {
+    margin-bottom: var(--space-md);
+  }
+  .price-tag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+  }
+  .price-flag {
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-cta-start);
+    color: var(--color-cta-start);
+    border-radius: 999px;
+    background: rgba(196, 90, 44, 0.06);
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .price-amount {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1;
+    color: var(--color-text);
+  }
+  .price-per {
+    font-family: var(--font-family);
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    margin-left: 0.5rem;
+  }
+  .price-shape {
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-top: var(--space-xs);
+  }
+  .price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-md);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    padding-block: var(--space-md);
+  }
+  .price-list li {
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-xs);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .price-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-cta-start);
+    font-weight: 700;
+  }
+  .price-list li:last-child {
+    margin-bottom: 0;
+  }
+  .price-foot {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .price-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  /* FAQ */
+  .lens-faq {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+  .lens-faq-item {
+    background: var(--color-bg);
+    padding: var(--space-md);
+  }
+  .lens-faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+    font-weight: 600;
+    color: var(--color-text);
+    position: relative;
+    padding-right: 2rem;
+  }
+  .lens-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .lens-faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--color-cta-start);
+    transition: transform 0.2s ease;
+    line-height: 1;
+  }
+  .lens-faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .lens-faq-item p {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-top: var(--space-sm);
+    max-width: 80ch;
+  }
+
+  /* ============================
+     RESPONSIVE
+     ============================ */
+  @media (min-width: 769px) {
+    .lens-grid { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+    .lens-pillars { grid-template-columns: 1fr 1fr; }
+    .lens-stacks { grid-template-columns: 1fr 1fr; }
+    .lens-fit-grid { grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+  }
+
+  @media (max-width: 768px) {
+    .lens-ctas { flex-direction: column; align-items: stretch; }
+    .lens-ctas .btn-cta,
+    .lens-ctas .btn-ghost { text-align: center; }
+    .lens-price-inner { padding: var(--space-md); }
+    .lens-anatomy li { grid-template-columns: 1.5rem 1fr; padding: var(--space-sm) var(--space-md); }
+  }
+</style>
