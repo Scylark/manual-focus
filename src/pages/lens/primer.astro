@@ -1,0 +1,516 @@
+---
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import { url } from '../../utils/paths';
+---
+<Base
+  title="The Lens 101 — prompting and skills, plainly"
+  description="A primer for readers new to prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
+>
+  <SEOHead
+    slot="seo"
+    type="article"
+    title="The Lens 101 — prompting and skills, plainly"
+    description="A primer for readers new to prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'The Lens', url: '/lens' },
+      { name: 'The Lens 101', url: '/lens/primer' },
+    ]}
+  />
+
+  <section class="p101-head">
+    <div class="container">
+      <a href={url('/lens')} class="p101-back mono">← THE LENS</a>
+      <div class="eyebrow">THE LENS 101</div>
+      <h1 class="p101-title">Prompting and skills, plainly.</h1>
+      <p class="p101-lead">
+        Most readers landing on a playbook hit a code block titled
+        "SYSTEM:" and either get it or close the tab. This page is for
+        the second group — and for the first group who want a sharper
+        mental model. What a prompt is, what makes one good, what an
+        agent skill is, and how the two relate.
+      </p>
+      <p class="p101-meta mono">Read time: 7 minutes</p>
+    </div>
+  </section>
+
+  <!-- WHAT IS A PROMPT -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <h2>1 · What a prompt is</h2>
+      <p>
+        A prompt is the instruction you give a language model — the same
+        way you'd brief a junior on a task. The model reads the prompt,
+        runs it through its training, and writes a reply. The prompt is
+        the only thing you control. The reply is what comes back.
+      </p>
+      <p>
+        Most teams use prompts the way people use Google: a few words,
+        hope for the best. That works for low-stakes tasks ("summarise
+        this email") and falls apart for anything that needs to ship.
+        The playbooks in The Lens use prompts the way you'd brief a
+        senior colleague: clear context, explicit constraints, a
+        specific output format, and the rules for what counts as good.
+      </p>
+      <p>
+        The Lens shows real prompts inside the playbooks as fenced code
+        blocks. They look something like this:
+      </p>
+      <pre class="p101-code"><code>SYSTEM: You are a stylometrician analysing a brand's writing.
+You surface measurable, observable patterns — not adjectives,
+not feelings. Every pattern must be one a human editor could
+verify by counting or reading.
+
+USER: Corpus (JSON list of {`{title, body}`}): {`{CORPUS}`}
+
+Return JSON in this exact shape:
+{`{
+  "sentence": {
+    "mean_words": <number>,
+    "variance": "<high|medium|low>"
+  },
+  ...
+}`}</code></pre>
+      <p>
+        Two parts to notice. The <code>SYSTEM:</code> block tells the
+        model what role to take and what rules to follow. The
+        <code>USER:</code> block is the actual request — the data, the
+        question, the specific shape of what's wanted back. This pattern
+        repeats across every playbook with a prompt example. Once you
+        recognise the shape, the prompts get fast to read.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES A GOOD PROMPT -->
+  <section class="p101-section section-alt">
+    <div class="container p101-prose">
+      <h2>2 · What makes a prompt good</h2>
+      <p>
+        Six properties separate prompts that ship from prompts that
+        produce slop:
+      </p>
+      <h3>Role and rules in the system block</h3>
+      <p>
+        Tell the model what kind of expert to be ("You are a brand
+        strategist…"), what it never does ("You do not editorialise"),
+        and what counts as success. Vague system blocks produce vague
+        output.
+      </p>
+      <h3>Structured output, not narrative</h3>
+      <p>
+        Asking for "a list of customer pain points" gives you prose.
+        Asking for JSON in a named schema with field types and rules
+        gives you data you can use in the next step. The Lens prompts
+        return JSON almost everywhere for this reason.
+      </p>
+      <h3>Examples, not adjectives</h3>
+      <p>
+        "Write in our warm, confident voice" tells the model nothing
+        useful. "Average sentence length 14 words, no em dashes, no
+        contractions, opener follows the pattern shown in these three
+        examples" tells it something measurable. Adjectives are
+        unfalsifiable; counts and patterns aren't.
+      </p>
+      <h3>Constraints, explicitly named</h3>
+      <p>
+        Word counts. Banned phrases. Acceptable sources. What the model
+        is allowed to invent vs what must come from supplied data. The
+        more explicit the constraint, the more predictable the output.
+      </p>
+      <h3>Refusal conditions</h3>
+      <p>
+        Good prompts tell the model when to <em>not</em> do the task —
+        when the input is too thin, when the request crosses an ethical
+        line, when an upstream artefact is missing. The Lens skills
+        refuse named-athlete image generation, fabricated journalist
+        quotes, and unsourced factual claims because the prompts tell
+        them to.
+      </p>
+      <h3>A self-check</h3>
+      <p>
+        The best prompts ask the model to verify its own output before
+        returning. "Spot-check your sentence-length counts against the
+        corpus before outputting" turns a one-shot generation into a
+        two-pass generation with built-in QA.
+      </p>
+      <p>
+        Every prompt in The Lens has been through this list. When you
+        write your own, run them through it too.
+      </p>
+    </div>
+  </section>
+
+  <!-- ANATOMY -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <h2>3 · Anatomy of a Lens prompt</h2>
+      <p>
+        Open any playbook with a prompt and the structure repeats:
+      </p>
+      <ol>
+        <li>
+          <strong>SYSTEM block</strong> — role, rules, never-does list, refusal
+          conditions
+        </li>
+        <li>
+          <strong>USER block intro</strong> — what task is being asked
+        </li>
+        <li>
+          <strong>Inputs</strong> — variables in <code>{`{CURLY_BRACES}`}</code>, filled at
+          runtime
+        </li>
+        <li>
+          <strong>Output schema</strong> — the exact JSON or text shape to return
+        </li>
+        <li>
+          <strong>Rules</strong> — verbatim-only / counts must be plausible / no
+          invented numbers / etc
+        </li>
+      </ol>
+      <p>
+        That structure isn't arbitrary. It maps to how the model parses
+        the request — role first, rules second, task third, format
+        fourth, constraints repeated last so they survive the model's
+        attention window. Writing prompts in any other order produces
+        worse output for the same effort.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT IS A SKILL -->
+  <section class="p101-section section-alt">
+    <div class="container p101-prose">
+      <h2>4 · What an agent skill is</h2>
+      <p>
+        A skill is a prompt wearing a uniform. More precisely: a
+        directory containing a <code>SKILL.md</code> file with a structured
+        frontmatter declaring what the skill triggers on, plus the
+        prompt body the agent runs when invoked.
+      </p>
+      <p>
+        Skills follow the <a href="https://agentskills.io" target="_blank" rel="noopener">Anthropic Agent Skills spec</a>. They work with
+        Claude Code, Cursor, Codex, Windsurf and any agent that loads
+        skills. The Lens ships 14 of them, paired with the playbooks
+        whose workflows fit cleanly as single agent tasks.
+      </p>
+      <p>
+        A minimal SKILL.md looks like this:
+      </p>
+      <pre class="p101-code"><code>---
+name: positioning-audit
+description: "When the user wants to audit a brand's positioning,
+sharpen a positioning brief, or run a contradiction-surfacing
+pass on a brand's surface. Also triggers on 'review our position',
+'is our positioning clear', or pasting a brand URL with 'audit this'."
+metadata:
+  version: 0.2.0
+---
+
+# Positioning audit
+
+You are a brand strategist running a six-pass positioning audit...
+
+## Inputs to gather first
+
+1. Brand URL...
+
+## The pipeline (six passes)
+
+### Pass 1 — Surface extraction
+
+...</code></pre>
+      <p>
+        The frontmatter is the discoverability layer — the
+        <code>description</code> is what the agent reads to decide
+        whether to offer this skill for a given task. The body is the
+        playbook the agent then runs.
+      </p>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <h2>5 · Installing the Lens skills</h2>
+      <p>
+        Two commands in any Claude Code session:
+      </p>
+      <pre class="p101-code"><code>/plugin marketplace add Scylark/manual-focus
+/plugin install the-lens@manual-focus</code></pre>
+      <p>
+        After install, asking Claude "run a positioning audit on
+        [brand]" surfaces the <code>positioning-audit</code> skill.
+        Asking "draft a recap of the race that just finished" surfaces
+        the <code>race-result-content-engine</code>. The agent picks
+        from the descriptions; you just describe the task.
+      </p>
+    </div>
+  </section>
+
+  <!-- THREE TYPES OF PLAYBOOK -->
+  <section class="p101-section section-alt">
+    <div class="container p101-prose">
+      <h2>6 · Three kinds of playbook</h2>
+      <p>
+        Not every playbook is a prompt. The Lens has three flavours,
+        worth knowing about so you don't expect a SYSTEM block where
+        none belongs:
+      </p>
+      <h3>Pipeline playbooks</h3>
+      <p>
+        Workflows mediated primarily by an LLM. These have full prompt
+        examples and a paired skill. <code>positioning-audit</code>,
+        <code>brand-voice-extraction</code>, <code>seo-cluster-generator</code>,
+        <code>eval-gated-drafting</code>, <code>earned-media-pitch</code>,
+        <code>race-result-content-engine</code>, <code>ai-studio-news-pipeline</code>
+        and others. Sixteen of the thirty-six playbooks sit here.
+      </p>
+      <h3>Hybrid playbooks</h3>
+      <p>
+        Workflows where LLM work is a step but the bulk of the work is
+        analytical (running models, calling APIs) or operational
+        (running a process). These have partial prompt examples and
+        sometimes a skill. <code>channel-mix-simulator</code>,
+        <code>attribution-teardown</code>, <code>paid-search-bidding-agent</code>,
+        <code>category-entry-points</code>, <code>lifecycle-journey-builder</code>.
+      </p>
+      <h3>System playbooks</h3>
+      <p>
+        Operational programmes, calendars, rituals. AI helps inside
+        them, but the playbook itself is a tier menu, a contract
+        template, a calendar shape. <code>brief-to-ship-pipeline</code>,
+        <code>retail-partner-programme</code>,
+        <code>gear-launch-sequence</code>, <code>ambassador-programme</code>,
+        <code>quarterly-planning-ritual</code>, <code>customer-content-rights</code>.
+        These don't ship as skills because they aren't single agent
+        tasks — they're functions you build inside the team.
+      </p>
+      <p>
+        The library index doesn't tag these explicitly yet, but the
+        shape becomes obvious once you've read 2-3 of each. Pipeline
+        playbooks have prompts. System playbooks have rituals.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHEN TO USE WHAT -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <h2>7 · Prompt or skill or pipeline?</h2>
+      <p>
+        A practical rule for your own work:
+      </p>
+      <ul>
+        <li>
+          <strong>One-off task</strong> — paste the prompt into ChatGPT or
+          Claude.ai. No need for a skill.
+        </li>
+        <li>
+          <strong>Recurring task you do alone</strong> — save the prompt as a
+          Notion / text snippet. Still no skill needed.
+        </li>
+        <li>
+          <strong>Recurring task you do across projects</strong> — write a
+          skill. The agent learns when to offer it; you stop pasting prompts.
+        </li>
+        <li>
+          <strong>Recurring task that has multiple steps and evals</strong> —
+          this is a pipeline. The skill orchestrates; the steps within can
+          call sub-models, scripts, or APIs.
+        </li>
+      </ul>
+      <p>
+        Most readers can ignore skills entirely if they're using the
+        Lens for occasional reference. Skills are the unlock when the
+        workflow becomes part of how you work week-to-week.
+      </p>
+    </div>
+  </section>
+
+  <!-- COMMON STUMBLES -->
+  <section class="p101-section section-alt">
+    <div class="container p101-prose">
+      <h2>8 · Common stumbles</h2>
+      <h3>The model invents things</h3>
+      <p>
+        It will, unless you tell it not to. Every prompt that touches
+        factual claims should include "every claim must be sourced or
+        flagged for human verification" or equivalent. The Lens prompts
+        all do this; your own prompts should too.
+      </p>
+      <h3>The model is too verbose</h3>
+      <p>
+        Add a word-count cap. Models honour them more reliably than
+        you'd expect, especially when the cap is named in the rules
+        section, not buried in narrative.
+      </p>
+      <h3>The model "agrees" with everything</h3>
+      <p>
+        Default model behaviour leans agreeable. To push back on a
+        weak input, include "If the input is too thin to produce a
+        useful output, say so and name what's missing." This pattern
+        appears in most Lens prompts.
+      </p>
+      <h3>The output isn't parseable</h3>
+      <p>
+        If you need to use the output downstream (e.g. feed it into a
+        script), demand JSON in the exact schema. Prose output is for
+        humans; structured output is for everything else.
+      </p>
+      <h3>The skill doesn't trigger</h3>
+      <p>
+        Skills trigger on the <code>description</code> field in their
+        frontmatter. If the agent isn't offering the skill you expect,
+        the description doesn't match your phrasing. Either rephrase
+        your request or open the SKILL.md and improve the
+        description.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <div class="p101-foot-grid">
+        <div class="eyebrow">NEXT</div>
+        <h2>Now pick a playbook.</h2>
+        <p>
+          The 101 is the pattern; the playbooks are the work. Skim
+          one in your stack of choice, look at the prompt block, and
+          notice the structure you just read about. Once you can see
+          it, you can write it.
+        </p>
+        <div class="p101-foot-ctas">
+          <a href={url('/lens/start-here')} class="btn-cta">Pick a starting playbook</a>
+          <a href={url('/lens/library')} class="btn-ghost">Browse the library</a>
+          <a href={url('/lens/skills')} class="btn-ghost">Browse the skills</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .p101-head {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .p101-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  .p101-back:hover { color: var(--color-text); }
+  .p101-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-block: var(--space-sm);
+    max-width: 22ch;
+  }
+  .p101-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    max-width: 65ch;
+  }
+  .p101-meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+    margin-top: var(--space-md);
+  }
+
+  .p101-section {
+    padding-block: var(--space-xl);
+  }
+  .p101-section.section-alt {
+    background: var(--color-bg-alt);
+  }
+  .p101-prose {
+    max-width: 72ch;
+  }
+  .p101-prose h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0 0 var(--space-md);
+    letter-spacing: -0.01em;
+  }
+  .p101-prose h3 {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    color: var(--color-text);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+  .p101-prose p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-body);
+  }
+  .p101-prose ul,
+  .p101-prose ol {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: var(--space-md) 0;
+    padding-left: 1.25rem;
+  }
+  .p101-prose li { margin-bottom: var(--space-sm); }
+  .p101-prose strong { color: var(--color-text); }
+  .p101-prose em { color: var(--color-text); }
+  .p101-prose a { color: var(--color-cta-start); text-decoration: underline; }
+  .p101-prose code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-bg-alt);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--color-text);
+  }
+  .p101-section.section-alt code {
+    background: var(--color-bg);
+  }
+
+  .p101-code {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-md);
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  .p101-section.section-alt .p101-code {
+    background: var(--color-bg);
+  }
+  .p101-code code {
+    background: transparent;
+    padding: 0;
+    color: var(--color-text);
+  }
+
+  .p101-foot-grid {
+    max-width: 720px;
+  }
+  .p101-foot-grid h2 {
+    margin-top: var(--space-sm) !important;
+  }
+  .p101-foot-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+</style>
