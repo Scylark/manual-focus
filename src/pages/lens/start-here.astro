@@ -1,0 +1,724 @@
+---
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import { url } from '../../utils/paths';
+---
+<Base
+  title="Start here — how to use The Lens"
+  description="Where to begin with The Lens. Pick your starting point by situation, follow the natural sequence of playbooks, install the skills into Claude Code."
+>
+  <SEOHead
+    slot="seo"
+    type="article"
+    title="Start here — how to use The Lens"
+    description="Where to begin with The Lens. Pick your starting point by situation, follow the natural sequence of playbooks, install the skills into Claude Code."
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'The Lens', url: '/lens' },
+      { name: 'Start here', url: '/lens/start-here' },
+    ]}
+  />
+
+  <section class="start-head">
+    <div class="container">
+      <a href={url('/lens')} class="start-back mono">← THE LENS</a>
+      <div class="eyebrow">START HERE</div>
+      <h1 class="start-title">Where to begin.</h1>
+      <p class="start-lead">
+        The Lens is 36 playbooks across four stacks. Most readers don't
+        need to read 36 things. They need to know which three to start
+        with. This page is that map.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN HERE -->
+  <section class="start-section">
+    <div class="container start-prose">
+      <h2>What's in The Lens</h2>
+      <p>
+        Two kinds of artefact:
+      </p>
+      <ul>
+        <li>
+          <strong>Playbooks</strong> — written documents, 1,000–1,500 words
+          each. The shape of a workflow Manual Focus has run for clients
+          in the last 90 days. The brief, the pipeline, the prompts, the
+          eval harness, the failure modes, the receipts. <a href={url('/lens/library')}>Browse the full library →</a>
+        </li>
+        <li>
+          <strong>Skills</strong> — runnable agent companions to 14 of
+          the playbooks. SKILL.md files in the Anthropic Agent Skills
+          spec, installable as a Claude Code plugin. The playbook
+          explains the work; the skill <em>is</em> the work. <a href={url('/lens/skills')}>Browse the skills →</a>
+        </li>
+      </ul>
+
+      <p>
+        Both are organised into four stacks based on what they help you
+        ship. Pick the stack that matches the work in front of you this
+        week.
+      </p>
+
+      <div class="stack-quick-ref">
+        <a href={url('/lens/brand')} class="stack-quick">
+          <div class="stack-quick-name mono">BRAND</div>
+          <p>How the brand is positioned, the voice it writes in, the names and pillars that anchor it. <strong>7 playbooks.</strong></p>
+        </a>
+        <a href={url('/lens/demand')} class="stack-quick">
+          <div class="stack-quick-name mono">DEMAND</div>
+          <p>Channel-mix decisions, ambassador programmes, lifecycle journeys, the way demand actually gets created. <strong>11 playbooks.</strong></p>
+        </a>
+        <a href={url('/lens/content')} class="stack-quick">
+          <div class="stack-quick-name mono">CONTENT</div>
+          <p>SEO clusters, eval-gated drafting, social, video, race-result automation, AI-news pipelines. <strong>9 playbooks.</strong></p>
+        </a>
+        <a href={url('/lens/ops')} class="stack-quick">
+          <div class="stack-quick-name mono">OPS</div>
+          <p>The connective tissue. Briefs, evals, guardrails, hiring, planning, launches, inventory, replacements. <strong>9 playbooks.</strong></p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE PATHS -->
+  <section class="start-section section-alt">
+    <div class="container start-prose">
+      <h2>Three starting paths</h2>
+      <p>
+        The Lens is built to be entered from any direction, but three
+        sequences cover most teams. Pick the one that matches the
+        situation you're walking into.
+      </p>
+
+      <article class="path-card">
+        <div class="eyebrow">PATH 1</div>
+        <h3>You've inherited a brand and need an honest read</h3>
+        <p>
+          Most common starting situation. New CMO, fractional engagement,
+          rebrand consideration, founder-led brand outgrowing its early
+          positioning. Three plays in order:
+        </p>
+        <ol class="path-list">
+          <li>
+            <strong><a href={url('/lens/brand/positioning-audit-pipeline')}>Positioning audit</a></strong>
+            — Run the brand's surface through a six-pass audit. Output: where the brand actually sits today, and where it should.
+          </li>
+          <li>
+            <strong><a href={url('/lens/brand/brand-voice-extraction')}>Brand voice extraction</a></strong>
+            — From the audit's corpus, extract the observable voice patterns. Output: a voice profile + scoring rubric for every future draft.
+          </li>
+          <li>
+            <strong><a href={url('/lens/brand/message-house-generator')}>Message house</a></strong>
+            — Convert the sharpened position into pillars, proof points and channel-mapped lines. Output: the messaging spine for the next 12 months.
+          </li>
+        </ol>
+        <p class="path-time mono">TYPICAL ELAPSED TIME · 5–10 WORKING DAYS</p>
+      </article>
+
+      <article class="path-card">
+        <div class="eyebrow">PATH 2</div>
+        <h3>You need to ship better content, faster, in the brand's voice</h3>
+        <p>
+          You already know what the brand stands for; what you don't have
+          is the production line that ships consistent work at the
+          standard the brand needs. Three plays in order:
+        </p>
+        <ol class="path-list">
+          <li>
+            <strong><a href={url('/lens/brand/brand-voice-extraction')}>Brand voice extraction</a></strong>
+            — If you don't already have a voice profile in observable patterns, build one. Adjective-based voice guides won't work as input.
+          </li>
+          <li>
+            <strong><a href={url('/lens/content/eval-gated-drafting')}>Eval-gated drafting pipeline</a></strong>
+            — The production line. Drafts score against four gates (voice, fact-grounded, originality, structural) before a human editor sees them.
+          </li>
+          <li>
+            <strong><a href={url('/lens/content/social-content-factory')}>Social content factory</a></strong>
+            — Channel-native social production from a single weekly story brief. Stops cross-posting blog excerpts.
+          </li>
+        </ol>
+        <p class="path-time mono">TYPICAL ELAPSED TIME · 1–2 WEEKS TO INSTALL, ONGOING DAILY</p>
+      </article>
+
+      <article class="path-card">
+        <div class="eyebrow">PATH 3</div>
+        <h3>You're building the marketing function's operating system</h3>
+        <p>
+          The function ships output but the system around it is ad-hoc.
+          Briefs are chats, evals are missing, every piece needs senior
+          review because the standard isn't codified. Three plays in
+          order:
+        </p>
+        <ol class="path-list">
+          <li>
+            <strong><a href={url('/lens/ops/brief-to-ship-pipeline')}>Brief-to-ship pipeline</a></strong>
+            — The structured brief template, the weekly triage, the production cadence, the post-mortem. Replaces ten tools and three weekly meetings.
+          </li>
+          <li>
+            <strong><a href={url('/lens/ops/evaluation-frameworks')}>Evaluation frameworks</a></strong>
+            — Rubrics per output type. Deterministic where possible, LLM-as-judge where necessary. The standard becomes objective, not "the editor's gut."
+          </li>
+          <li>
+            <strong><a href={url('/lens/ops/brand-guardrails-as-code')}>Brand guardrails as code</a></strong>
+            — Turn brand guidelines into a programmatic ruleset that runs against every piece before it ships. Catches drift before it ships, not after.
+          </li>
+        </ol>
+        <p class="path-time mono">TYPICAL ELAPSED TIME · 2–4 WEEKS TO INSTALL, COMPOUND BENEFIT FOR YEARS</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- BY SITUATION -->
+  <section class="start-section">
+    <div class="container start-prose">
+      <h2>By situation</h2>
+      <p>
+        If the three paths don't match what you're walking in to, the
+        table below points to the right starting playbook for specific
+        situations. Each link drops you straight into the relevant
+        entry.
+      </p>
+
+      <table class="situation-table">
+        <thead>
+          <tr>
+            <th>If you're…</th>
+            <th>Start with…</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Naming a brand or product line</td>
+            <td><a href={url('/lens/brand/naming-sprint')}>Naming sprint</a></td>
+          </tr>
+          <tr>
+            <td>An endurance-sports brand and your content sounds generic</td>
+            <td><a href={url('/lens/brand/endurance-brand-voice')}>Endurance brand voice</a></td>
+          </tr>
+          <tr>
+            <td>Trying to pick a tagline that won't embarrass you in two years</td>
+            <td><a href={url('/lens/brand/tagline-system')}>Tagline system</a></td>
+          </tr>
+          <tr>
+            <td>Scaling past founder-only writing and need an institutional voice</td>
+            <td><a href={url('/lens/brand/founder-and-institutional-voice')}>Founder and institutional voice</a></td>
+          </tr>
+          <tr>
+            <td>Trying to figure out which channels are actually working</td>
+            <td><a href={url('/lens/demand/attribution-teardown')}>Attribution tear-down</a></td>
+          </tr>
+          <tr>
+            <td>Deciding how to allocate next quarter's spend</td>
+            <td><a href={url('/lens/demand/channel-mix-simulator')}>Channel-mix simulator</a></td>
+          </tr>
+          <tr>
+            <td>Finding the buying moments the brand should be present for</td>
+            <td><a href={url('/lens/demand/category-entry-points')}>Category entry points</a></td>
+          </tr>
+          <tr>
+            <td>Building or rebuilding a lifecycle email programme</td>
+            <td><a href={url('/lens/demand/lifecycle-journey-builder')}>Lifecycle journey builder</a></td>
+          </tr>
+          <tr>
+            <td>Planning campaigns around the race / event calendar</td>
+            <td><a href={url('/lens/demand/race-day-demand-pipeline')}>Race-day demand pipeline</a></td>
+          </tr>
+          <tr>
+            <td>Restructuring an athlete / ambassador programme</td>
+            <td><a href={url('/lens/demand/ambassador-programme')}>Ambassador programme</a></td>
+          </tr>
+          <tr>
+            <td>Building an event sponsorship programme that actually pays back</td>
+            <td><a href={url('/lens/demand/event-sponsorship-playbook')}>Event sponsorship</a></td>
+          </tr>
+          <tr>
+            <td>Selling through bike shops, run stores or multisport retailers</td>
+            <td><a href={url('/lens/demand/retail-partner-programme')}>Retail partner programme</a></td>
+          </tr>
+          <tr>
+            <td>Designing a subscription / membership programme</td>
+            <td><a href={url('/lens/demand/subscription-membership')}>Subscription and membership</a></td>
+          </tr>
+          <tr>
+            <td>Building a coach-as-channel programme</td>
+            <td><a href={url('/lens/demand/direct-to-coach')}>Direct-to-coach</a></td>
+          </tr>
+          <tr>
+            <td>Planning an SEO topic cluster</td>
+            <td><a href={url('/lens/content/seo-cluster-generator')}>SEO cluster generator</a></td>
+          </tr>
+          <tr>
+            <td>Getting press coverage without spray-and-pray</td>
+            <td><a href={url('/lens/content/earned-media-pitch-generator')}>Earned-media pitch</a></td>
+          </tr>
+          <tr>
+            <td>Producing race-day recaps within an hour of finish</td>
+            <td><a href={url('/lens/content/race-result-content-engine')}>Race-result content engine</a></td>
+          </tr>
+          <tr>
+            <td>Planning a year of training-content for endurance audiences</td>
+            <td><a href={url('/lens/content/training-content-engine')}>Training content engine</a></td>
+          </tr>
+          <tr>
+            <td>Setting up b-roll production for an endurance brand</td>
+            <td><a href={url('/lens/content/segment-broll-production')}>Segment b-roll production</a></td>
+          </tr>
+          <tr>
+            <td>Building a LinkedIn pipeline that explains AI releases</td>
+            <td><a href={url('/lens/content/ai-studio-news-pipeline')}>AI studio news pipeline</a></td>
+          </tr>
+          <tr>
+            <td>Launching a new gear or apparel product</td>
+            <td><a href={url('/lens/ops/gear-launch-sequence')}>Gear launch sequence</a></td>
+          </tr>
+          <tr>
+            <td>Cleaning up end-of-season inventory</td>
+            <td><a href={url('/lens/ops/end-of-season-inventory')}>End-of-season inventory</a></td>
+          </tr>
+          <tr>
+            <td>Setting up a crash-replacement or wear-out programme</td>
+            <td><a href={url('/lens/ops/crash-replacement-programme')}>Crash-replacement programme</a></td>
+          </tr>
+          <tr>
+            <td>Hiring for an AI-leveraged marketing team</td>
+            <td><a href={url('/lens/ops/hiring-shape-for-ai-native-teams')}>Hiring shape</a></td>
+          </tr>
+          <tr>
+            <td>Earning customer permission to use their race photos</td>
+            <td><a href={url('/lens/ops/customer-content-rights')}>Customer content rights</a></td>
+          </tr>
+          <tr>
+            <td>Running a quarterly planning ritual that doesn't collapse</td>
+            <td><a href={url('/lens/ops/quarterly-planning-ritual')}>Quarterly planning ritual</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- HOW SKILLS COMPOSE -->
+  <section class="start-section section-alt">
+    <div class="container start-prose">
+      <h2>How the skills compose</h2>
+      <p>
+        14 of the playbooks ship as runnable skills for Claude Code,
+        Cursor, Codex, Windsurf or any agent that honours the
+        <a href="https://agentskills.io" target="_blank" rel="noopener">Agent Skills spec</a>. Skills reference each other — the output of one becomes
+        the input of the next — so they compose into a real working
+        cadence rather than 14 separate things.
+      </p>
+
+      <p>
+        Three composition patterns worth knowing:
+      </p>
+
+      <h3>Brand foundation</h3>
+      <p class="composition">
+        <code>positioning-audit</code> produces a positioning brief →
+        <code>brand-voice-extraction</code> reads it for context →
+        <code>message-house</code> builds pillars and channel lines →
+        <code>eval-gated-drafting</code> uses the message house and voice
+        rubric to gate every draft.
+      </p>
+
+      <h3>Endurance content engine</h3>
+      <p class="composition">
+        <code>endurance-brand-voice</code> extends the standard voice
+        profile with sport-specific lexicon →
+        <code>seo-cluster-generator</code> plans topic clusters around
+        the brand's audience CEPs →
+        <code>eval-gated-drafting</code> drafts each piece with voice +
+        cluster context →
+        <code>social-content-factory</code> repurposes each piece into
+        channel-native social posts →
+        <code>race-result-content-engine</code> ships race recaps fast.
+      </p>
+
+      <h3>Demand and lifecycle</h3>
+      <p class="composition">
+        <code>category-entry-points</code> identifies the buying
+        triggers the brand should own →
+        <code>lifecycle-journey-builder</code> uses the CEP map to define
+        journey entry triggers and touchpoint copy →
+        <code>earned-media-pitch</code> uses the CEP map to surface
+        story angles for journalists →
+        <code>ai-studio-news-watch</code> drafts LinkedIn posts about
+        AI releases that compound the brand's CEP ownership.
+      </p>
+
+      <p>
+        Each skill's SKILL.md ends with a hand-off section naming the
+        downstream skills it feeds. The composition is documented in
+        the work; you don't need to memorise it.
+      </p>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section class="start-section">
+    <div class="container start-prose">
+      <h2>Install the skills</h2>
+      <p>
+        The skills run as a Claude Code plugin. Install with two
+        commands in any Claude Code session:
+      </p>
+      <pre class="install-block"><code>/plugin marketplace add Scylark/manual-focus
+/plugin install the-lens@manual-focus</code></pre>
+      <p>
+        After install, the agent will recognise relevant tasks and
+        offer the right skill. Asking Claude something like
+        "audit our positioning against the competitive set" surfaces
+        the <code>positioning-audit</code> skill; pasting a race
+        result URL with "draft the recap" surfaces the
+        <code>race-result-content-engine</code>.
+      </p>
+      <p>
+        Skills source: <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">github.com/Scylark/manual-focus/tree/main/lens-skills ↗</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- READ BEFORE YOU SHIP -->
+  <section class="start-section section-alt">
+    <div class="container start-prose">
+      <h2>Read the capability reference before you ship</h2>
+      <p>
+        The Lens is honest about what AI can and cannot reliably do
+        this quarter. The <a href={url('/lens/capabilities')}>capability reference</a> grades every category — text,
+        voice matching, original research, image (generic vs branded),
+        video (generic vs branded vs named athletes), audio, browser
+        automation, data analysis — and tells you which ones are
+        production-ready, which need guardrails, which are
+        experimental, and which are not-yet.
+      </p>
+      <p>
+        For endurance brands specifically: AI compounds time hard on
+        analysis, drafting, orchestration and environmental b-roll
+        variants. Practical shoots still matter for branded products
+        and named athletes. The capability reference draws the line
+        explicitly.
+      </p>
+      <p>
+        We re-grade quarterly. Updates ship as the model landscape
+        moves.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT TO DO IF -->
+  <section class="start-section">
+    <div class="container start-prose">
+      <h2>What to do if…</h2>
+
+      <h3>You don't know which playbook applies</h3>
+      <p>
+        Ask Claude. With the plugin installed, describing your
+        situation in plain language is enough — the agent will pick
+        the right skill. Without the plugin, the by-situation table
+        above covers most starting points.
+      </p>
+
+      <h3>The playbook calls for a customer-call sprint and you don't have time</h3>
+      <p>
+        Some playbooks (positioning-audit, category-entry-points,
+        retail-partner-programme) recommend a small customer interview
+        set as input. They run without it but with lower confidence —
+        every playbook documents what running on degraded inputs
+        actually costs you in the eval section.
+      </p>
+
+      <h3>You want to use a different model from the one the playbook names</h3>
+      <p>
+        Fine. Every playbook lists the models we've tested it against;
+        most workflows are model-agnostic with the right prompt
+        scaffolding. The playbook's eval gates catch model drift
+        directly — if a swap breaks output quality, the gates will
+        tell you before the output ships.
+      </p>
+
+      <h3>You spot a gap in a playbook</h3>
+      <p>
+        Open a PR on <a href="https://github.com/Scylark/manual-focus" target="_blank" rel="noopener">github.com/Scylark/manual-focus</a> or email
+        the team. Real client work surfaces gaps faster than internal
+        review; we update the playbooks as soon as the gap is real.
+      </p>
+
+      <h3>You want to talk to Manual Focus instead</h3>
+      <p>
+        Some workflows benefit from a Manual Focus partner running them
+        with you, especially the foundational ones (positioning,
+        ambassador programmes, gear launches). <a href={url('/enquire')}>Book a working session →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="start-section section-alt">
+    <div class="container start-prose">
+      <div class="start-foot-grid">
+        <div class="eyebrow">START NOW</div>
+        <h2>Pick a path. Run one playbook this week.</h2>
+        <p>
+          The Lens compounds when used, not when read. The shortest
+          path to value is to take one playbook into a real piece of
+          work in front of you. Whichever you pick, the eval gates and
+          failure-mode sections will catch you before you ship
+          something the brand will regret.
+        </p>
+        <div class="start-foot-ctas">
+          <a href={url('/lens/library')} class="btn-cta">Browse the library</a>
+          <a href={url('/lens/skills')} class="btn-ghost">Browse the skills</a>
+          <a href={url('/lens/capabilities')} class="btn-ghost">Read the capabilities</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .start-head {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .start-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  .start-back:hover { color: var(--color-text); }
+  .start-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-block: var(--space-sm);
+    max-width: 18ch;
+  }
+  .start-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    max-width: 65ch;
+  }
+
+  .start-section {
+    padding-block: var(--space-xl);
+  }
+  .start-section.section-alt {
+    background: var(--color-bg-alt);
+  }
+  .start-prose {
+    max-width: 75ch;
+  }
+  .start-prose h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.1;
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.01em;
+  }
+  .start-prose h3 {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: var(--color-text);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+  .start-prose p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-body);
+  }
+  .start-prose ul {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: var(--space-md) 0;
+    padding-left: 1.25rem;
+  }
+  .start-prose li { margin-bottom: var(--space-sm); }
+  .start-prose strong { color: var(--color-text); }
+  .start-prose a { color: var(--color-cta-start); text-decoration: underline; }
+  .start-prose code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-bg-alt);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--color-text);
+  }
+
+  .stack-quick-ref {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+  }
+  @media (min-width: 769px) {
+    .stack-quick-ref { grid-template-columns: 1fr 1fr; }
+  }
+  .stack-quick {
+    display: block;
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-bg);
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .stack-quick:hover {
+    border-color: var(--color-cta-start);
+    transform: translateY(-2px);
+  }
+  .stack-quick-name {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+    margin-bottom: var(--space-sm);
+  }
+  .stack-quick p {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    font-size: var(--font-size-body);
+    margin: 0;
+  }
+  .stack-quick strong { color: var(--color-text); }
+
+  .path-card {
+    margin: var(--space-lg) 0;
+    padding: var(--space-lg);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .path-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+  }
+  .path-card h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  .path-list {
+    list-style: none;
+    counter-reset: path-step;
+    padding-left: 0;
+    margin: var(--space-md) 0;
+  }
+  .path-list li {
+    counter-increment: path-step;
+    padding-left: 2.5rem;
+    position: relative;
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+  .path-list li::before {
+    content: counter(path-step);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--color-cta-start);
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    border: 1px solid var(--color-cta-start);
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .path-time {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-line);
+    margin-top: var(--space-md);
+  }
+
+  .situation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-md) 0;
+    font-size: var(--font-size-body);
+  }
+  .situation-table th,
+  .situation-table td {
+    border-bottom: 1px solid var(--color-line);
+    padding: 0.75rem;
+    text-align: left;
+    color: var(--color-text-secondary);
+    vertical-align: top;
+  }
+  .situation-table th {
+    color: var(--color-text);
+    font-weight: 600;
+    background: var(--color-bg-alt);
+    font-size: 0.85rem;
+  }
+  .situation-table td:last-child {
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .situation-table td,
+    .situation-table th {
+      padding: 0.6rem 0.4rem;
+      font-size: 0.85rem;
+    }
+    .situation-table td:last-child { white-space: normal; }
+  }
+
+  .composition {
+    background: var(--color-bg-alt);
+    padding: var(--space-md);
+    border-radius: 4px;
+    border-left: 3px solid var(--color-cta-start);
+    line-height: 1.8;
+  }
+  .composition code {
+    background: var(--color-bg);
+  }
+
+  .install-block {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: var(--space-md);
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .start-foot-grid {
+    max-width: 720px;
+  }
+  .start-foot-grid h2 {
+    margin-top: var(--space-sm) !important;
+  }
+  .start-foot-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+</style>
