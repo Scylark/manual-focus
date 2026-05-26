@@ -39,7 +39,7 @@ The structure of this skills collection is inspired by the work of [Corey Haines
 
 ## Contributing
 
-The Lens skills evolve from live Manual Focus client work. Pull requests are welcome from subscribers and the wider community. To contribute a new skill or improve an existing one, open a PR with the SKILL.md and a short note on what client problem the skill came from.
+The Lens skills evolve as new patterns prove themselves in live work. Pull requests are welcome from the wider community. To contribute a new skill or improve an existing one, open a PR with the SKILL.md and a short note on the problem the skill solves.
 
 ## Licence
 
