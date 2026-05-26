@@ -144,6 +144,30 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         window.addEventListener('resize', () => {
           if (!pending) { pending = true; requestAnimationFrame(update); }
         }, { passive: true });
+
+        // Initial reveal for above-the-fold items. The
+        // IntersectionObserver fires asynchronously so on first
+        // paint, `nearViewport` is empty and `update()` skips every
+        // element — leaving above-the-fold content invisible until
+        // the user scrolls. Fix by synchronously identifying items
+        // clearly within the initial viewport and snapping them to
+        // their revealed state. Items below the fold are NOT touched
+        // so positioning, stacking contexts and other transform-using
+        // systems (data-scroll-scale, focus objects) stay untouched.
+        const vhInit = window.innerHeight;
+        revealItems.forEach(el => {
+          // Skip elements that own their own transform via another
+          // system (big-statement headlines use data-scroll-scale).
+          if (el.hasAttribute('data-scroll-scale')) return;
+          const rect = el.getBoundingClientRect();
+          // Clearly within initial viewport — snap to revealed state.
+          if (rect.top < vhInit * 0.85 && rect.bottom > 0) {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            lastP.set(el, 1);
+            nearViewport.add(el);
+          }
+        });
         update();
       }
     } else {
