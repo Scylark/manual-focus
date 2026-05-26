@@ -1,0 +1,13 @@
+{
+  "name": "the-lens",
+  "description": "Manual Focus's working library of AI marketing skills. Pulled from live client work — positioning, brand voice, naming, demand-gen, content systems, lifecycle and ops workflows. Each skill is the executable companion to a playbook in The Lens.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Manual Focus",
+    "url": "https://manual-focus.co.uk"
+  },
+  "homepage": "https://manual-focus.co.uk/lens",
+  "repository": "https://github.com/Scylark/manual-focus",
+  "license": "MIT",
+  "skills": "./"
+}

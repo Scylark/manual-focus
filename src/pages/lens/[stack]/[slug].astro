@@ -15,6 +15,16 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+
+// Find the paired skill (if any) by matching the skill's `playbook` URL
+// against this playbook's path. Skills carry the canonical playbook URL in
+// their frontmatter; we use the path portion as a stable match key.
+const slug = entry.id.split('/').pop()?.replace(/\.md$/, '') ?? entry.id;
+const skills = await getCollection('lensSkills');
+const pairedSkill = skills.find(s => {
+  if (!s.data.metadata.playbook) return false;
+  return s.data.metadata.playbook.includes(`/lens/${d.stack}/${slug}`);
+});
 const stackName = {
   brand: 'Brand & positioning',
   demand: 'Demand & growth',
@@ -84,6 +94,28 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
         </div>
       </div>
     </header>
+
+    {pairedSkill && (
+      <section class="playbook-skill-callout">
+        <div class="container">
+          <div class="skill-callout-inner">
+            <div class="skill-callout-copy">
+              <div class="eyebrow">RUN AS A SKILL</div>
+              <h2>This playbook ships as <code>{pairedSkill.data.name}</code></h2>
+              <p>
+                Installable as a Claude Code plugin or readable as a standalone
+                SKILL.md. Pair it with your Claude / Codex / Cursor / Windsurf
+                setup and the agent runs the workflow described below.
+              </p>
+              <div class="skill-callout-ctas">
+                <a href={url(`/lens/skills/${pairedSkill.data.name}`)} class="btn-cta">Open the skill</a>
+                <a href={url('/lens/skills')} class="btn-ghost">All skills</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
 
     <!-- BODY -->
     <section class="playbook-body">
@@ -302,6 +334,54 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
     color: var(--color-text);
     font-weight: 600;
     background: var(--color-bg-alt);
+  }
+
+  .playbook-skill-callout {
+    padding-block: var(--space-lg) var(--space-md);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .skill-callout-inner {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+  }
+  .skill-callout-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+  }
+  .skill-callout-copy h2 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.15;
+    margin-block: var(--space-sm);
+    color: var(--color-text);
+  }
+  .skill-callout-copy h2 code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-bg);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    color: var(--color-cta-start);
+  }
+  .skill-callout-copy p {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-bottom: var(--space-md);
+    max-width: 65ch;
+  }
+  .skill-callout-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
   }
 
   .playbook-foot {

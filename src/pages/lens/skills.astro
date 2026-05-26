@@ -1,0 +1,258 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import { url } from '../../utils/paths';
+
+const skills = await getCollection('lensSkills');
+skills.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+// Map each skill to its playbook for cross-linking
+const playbooks = await getCollection('lens');
+const playbookByUrl = new Map(
+  playbooks.map(p => {
+    const slug = p.id.split('/').pop()?.replace(/\.md$/, '') ?? '';
+    const u = `https://manual-focus.co.uk/lens/${p.data.stack}/${slug}`;
+    return [u, { ...p, slug, urlPath: `/lens/${p.data.stack}/${slug}` }];
+  })
+);
+
+// Pull the first sentence of each skill description as the trigger summary
+const summarise = (desc: string) => {
+  const sentence = desc.split('.')[0];
+  return sentence.length > 180 ? sentence.slice(0, 177) + '…' : sentence + '.';
+};
+---
+<Base
+  title="The Lens — Skills"
+  description="Manual Focus's working AI marketing skills, installable as a Claude Code plugin. Executable companions to the playbooks in The Lens."
+>
+  <SEOHead
+    slot="seo"
+    type="service"
+    title="The Lens — Skills"
+    description="Manual Focus's working AI marketing skills, installable as a Claude Code plugin. Each skill pairs with a playbook in The Lens."
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'The Lens', url: '/lens' },
+      { name: 'Skills', url: '/lens/skills' },
+    ]}
+  />
+
+  <!-- HEADER -->
+  <section class="skills-head">
+    <div class="container">
+      <a href={url('/lens')} class="skills-back mono">← THE LENS</a>
+      <div class="eyebrow">SKILLS</div>
+      <h1 class="skills-title">The playbooks, as runnable skills.</h1>
+      <p class="skills-lead">
+        Every skill in The Lens is the executable companion to a playbook.
+        The playbook explains the workflow; the skill is the workflow you
+        can run. Built to the Agent Skills spec — works with Claude Code,
+        Codex, Cursor, Windsurf and anywhere else.
+      </p>
+      <div class="skills-install">
+        <p class="skills-install-label mono">INSTALL AS A CLAUDE CODE PLUGIN</p>
+        <pre class="skills-install-code"><code>/plugin install https://github.com/Scylark/manual-focus</code></pre>
+        <p class="skills-install-note">
+          Once installed, the agent will recognise relevant tasks and
+          offer to invoke the right skill. Source lives in <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">lens-skills/</a> on GitHub.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS GRID -->
+  <section class="skills-body">
+    <div class="container">
+      <p class="skills-count mono">{skills.length} SKILLS · GROWING</p>
+      <div class="skills-grid">
+        {skills.map(skill => {
+          const playbook = skill.data.metadata.playbook
+            ? playbookByUrl.get(skill.data.metadata.playbook)
+            : null;
+          return (
+            <a href={url(`/lens/skills/${skill.data.name}`)} class="skill-card">
+              <div class="skill-card-head mono">
+                <span class="skill-name">{skill.data.name}</span>
+                <span class="skill-version">v{skill.data.metadata.version}</span>
+              </div>
+              <p class="skill-card-trigger">{summarise(skill.data.description)}</p>
+              {playbook && (
+                <div class="skill-card-foot mono">
+                  PAIRS WITH: <span>{playbook.data.title}</span>
+                </div>
+              )}
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- ATTRIBUTION -->
+      <div class="skills-attribution">
+        <p class="eyebrow">PRIOR ART</p>
+        <p>
+          The Lens skills follow the Anthropic Agent Skills spec. The collection
+          format — directory per skill, a SKILL.md with trigger-shaped description,
+          composable skills referencing each other — is inspired by
+          <a href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noopener">Corey Haines's marketingskills</a> (MIT). The Lens skills are
+          Manual Focus's own work, drawn from live client engagements, with
+          distinct methodology and examples.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .skills-head {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .skills-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  .skills-back:hover { color: var(--color-text); }
+  .skills-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-block: var(--space-sm);
+    max-width: 22ch;
+  }
+  .skills-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    max-width: 65ch;
+  }
+
+  .skills-install {
+    margin-top: var(--space-lg);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    max-width: 720px;
+  }
+  .skills-install-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+    margin-bottom: var(--space-sm);
+  }
+  .skills-install-code {
+    background: var(--color-bg);
+    border: 1px solid var(--color-line);
+    border-radius: 3px;
+    padding: var(--space-sm) var(--space-md);
+    overflow-x: auto;
+    margin: 0 0 var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+  .skills-install-code code {
+    color: var(--color-text);
+  }
+  .skills-install-note {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+  }
+  .skills-install-note a {
+    color: var(--color-cta-start);
+    text-decoration: underline;
+  }
+
+  .skills-body {
+    padding-block: var(--space-xl);
+  }
+  .skills-count {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+    margin-bottom: var(--space-lg);
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  @media (min-width: 769px) {
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  .skill-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-bg);
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+  .skill-card:hover {
+    border-color: var(--color-cta-start);
+    background: var(--color-bg-alt);
+    transform: translateY(-2px);
+  }
+  .skill-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+  .skill-name {
+    color: var(--color-cta-start);
+    font-weight: 600;
+  }
+  .skill-version {
+    color: var(--color-text-muted);
+  }
+  .skill-card-trigger {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    font-size: var(--font-size-body);
+    flex: 1 1 auto;
+  }
+  .skill-card-foot {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-line);
+  }
+  .skill-card-foot span {
+    color: var(--color-text-secondary);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .skills-attribution {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-line);
+    max-width: 70ch;
+  }
+  .skills-attribution p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-top: var(--space-sm);
+  }
+  .skills-attribution a {
+    color: var(--color-cta-start);
+    text-decoration: underline;
+  }
+</style>

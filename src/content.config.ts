@@ -104,4 +104,19 @@ const lens = defineCollection({
   }),
 });
 
-export const collections = { blog, faq, lens };
+// The Lens — Skills. Executable companion to the playbooks. Source-of-truth
+// lives at /lens-skills (alongside the .claude-plugin manifest so it's
+// installable as a Claude Code plugin). Astro loads them from there.
+const lensSkills = defineCollection({
+  loader: glob({ pattern: '*/SKILL.md', base: './lens-skills' }),
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    metadata: z.object({
+      version: z.string(),
+      playbook: z.string().url().optional(),
+    }),
+  }),
+});
+
+export const collections = { blog, faq, lens, lensSkills };

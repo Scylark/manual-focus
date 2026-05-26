@@ -1,0 +1,308 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import SEOHead from '../../../components/SEOHead.astro';
+import { url } from '../../../utils/paths';
+
+export async function getStaticPaths() {
+  const skills = await getCollection('lensSkills');
+  return skills.map(skill => ({
+    params: { slug: skill.data.name },
+    props: { skill },
+  }));
+}
+
+const { skill } = Astro.props;
+const { Content } = await render(skill);
+const d = skill.data;
+
+// Find the paired playbook
+const playbooks = await getCollection('lens');
+let pairedPlaybook: { stack: string; slug: string; title: string } | null = null;
+if (d.metadata.playbook) {
+  const match = d.metadata.playbook.match(/\/lens\/([^/]+)\/([^/]+)/);
+  if (match) {
+    const [, stack, slug] = match;
+    const found = playbooks.find(p => p.data.stack === stack && p.id.includes(slug));
+    if (found) {
+      pairedPlaybook = {
+        stack,
+        slug,
+        title: found.data.title,
+      };
+    }
+  }
+}
+
+// Build the raw markdown URL on GitHub for the "View on GitHub" link
+const githubRaw = `https://github.com/Scylark/manual-focus/blob/main/lens-skills/${d.name}/SKILL.md`;
+---
+<Base title={`${d.name} — The Lens Skills`} description={d.description.slice(0, 160)}>
+  <SEOHead
+    slot="seo"
+    type="article"
+    title={`${d.name} — The Lens Skills`}
+    description={d.description.slice(0, 160)}
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'The Lens', url: '/lens' },
+      { name: 'Skills', url: '/lens/skills' },
+      { name: d.name, url: `/lens/skills/${d.name}` },
+    ]}
+  />
+
+  <article class="skill-page">
+    <!-- HEADER -->
+    <header class="skill-header">
+      <div class="container">
+        <a href={url('/lens/skills')} class="skill-back mono">← ALL SKILLS</a>
+        <div class="skill-tags mono">
+          <span class="skill-kind">SKILL · v{d.metadata.version}</span>
+          {pairedPlaybook && (
+            <a href={url(`/lens/${pairedPlaybook.stack}/${pairedPlaybook.slug}`)} class="skill-pair">
+              PLAYBOOK: {pairedPlaybook.title.toUpperCase()}
+            </a>
+          )}
+        </div>
+        <h1 class="skill-name-title">{d.name}</h1>
+
+        <div class="skill-meta">
+          <div class="skill-meta-block">
+            <span class="meta-label mono">TRIGGERS ON</span>
+            <p class="meta-trigger">{d.description}</p>
+          </div>
+          <div class="skill-meta-block">
+            <span class="meta-label mono">INSTALL</span>
+            <pre class="meta-install"><code>/plugin install https://github.com/Scylark/manual-focus</code></pre>
+          </div>
+          <div class="skill-meta-block">
+            <span class="meta-label mono">SOURCE</span>
+            <a href={githubRaw} target="_blank" rel="noopener" class="meta-source-link">
+              View SKILL.md on GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <section class="skill-body">
+      <div class="container skill-prose">
+        <Content />
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="section section-alt skill-foot">
+      <div class="container">
+        <div class="skill-foot-grid">
+          <div class="eyebrow">THE LENS</div>
+          <h2>Ten skills, twenty playbooks, growing.</h2>
+          <p>Browse the rest of the skill set or read the paired playbook for the strategic context.</p>
+          <div class="skill-foot-ctas">
+            <a href={url('/lens/skills')} class="btn-ghost">All skills</a>
+            {pairedPlaybook && (
+              <a href={url(`/lens/${pairedPlaybook.stack}/${pairedPlaybook.slug}`)} class="btn-cta">Read the playbook</a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .skill-page {
+    background: var(--color-bg);
+  }
+  .skill-header {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .skill-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  .skill-back:hover { color: var(--color-text); }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+  .skill-kind {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+  }
+  .skill-pair {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    line-height: 1;
+  }
+  .skill-pair:hover {
+    border-color: var(--color-cta-start);
+    color: var(--color-text);
+  }
+
+  .skill-name-title {
+    font-family: var(--font-mono);
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+  }
+
+  .skill-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    border-top: 1px solid var(--color-line);
+    padding-top: var(--space-md);
+  }
+  @media (min-width: 769px) {
+    .skill-meta { grid-template-columns: 1fr 1fr; }
+  }
+  .skill-meta-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .meta-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+  }
+  .meta-trigger {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    font-size: var(--font-size-body);
+  }
+  .meta-install {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 3px;
+    padding: var(--space-sm);
+    overflow-x: auto;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+  .meta-source-link {
+    color: var(--color-cta-start);
+    text-decoration: underline;
+    font-size: var(--font-size-body);
+  }
+
+  .skill-body {
+    padding-block: var(--space-xl);
+  }
+  .skill-prose {
+    max-width: 75ch;
+  }
+  .skill-prose :global(h1) {
+    display: none;  /* The h1 in markdown is redundant with the page header */
+  }
+  .skill-prose :global(h2) {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+  .skill-prose :global(h2:first-of-type) { margin-top: 0; }
+  .skill-prose :global(h3) {
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+  }
+  .skill-prose :global(p) {
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-body);
+  }
+  .skill-prose :global(ul),
+  .skill-prose :global(ol) {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: var(--space-sm) 0;
+    padding-left: 1.25rem;
+  }
+  .skill-prose :global(li) { margin-bottom: 0.5rem; }
+  .skill-prose :global(strong) { color: var(--color-text); }
+  .skill-prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-bg-alt);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--color-text);
+  }
+  .skill-prose :global(pre) {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: var(--space-md);
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+    font-size: 0.85em;
+    line-height: 1.5;
+  }
+  .skill-prose :global(pre code) { background: transparent; padding: 0; }
+  .skill-prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-md) 0;
+    font-size: var(--font-size-body);
+  }
+  .skill-prose :global(th),
+  .skill-prose :global(td) {
+    border-bottom: 1px solid var(--color-line);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    color: var(--color-text-secondary);
+  }
+  .skill-prose :global(th) {
+    color: var(--color-text);
+    font-weight: 600;
+    background: var(--color-bg-alt);
+  }
+
+  .skill-foot {
+    border-top: 1px solid var(--color-line);
+  }
+  .skill-foot-grid {
+    max-width: 720px;
+  }
+  .skill-foot h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+  .skill-foot p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+  }
+  .skill-foot-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+</style>

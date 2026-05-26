@@ -190,12 +190,36 @@ import { url } from '../utils/paths';
     </div>
   </section>
 
-  <!-- INSIDE EACH ENTRY -->
+  <!-- SKILLS -->
   <section class="section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={300} tiltX={56} tiltY={-15} spin={140} scrollSpin={-80} style="top: 6%; right: 5%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">004 · RUNNABLE COMPANIONS</div>
+        <h2 class="reveal">Every playbook ships as a <span class="gradient-text">runnable skill</span>.</h2>
+        <p class="lead reveal">
+          The playbook explains the work. The skill is the work. Install the
+          Lens skill pack into Claude Code, Cursor, Codex or any agent that
+          honours the Agent Skills spec, and the workflow runs alongside the
+          team.
+        </p>
+        <div class="lens-skills-cta reveal">
+          <a href={url('/lens/skills')} class="btn-cta">Browse the skills</a>
+          <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener" class="btn-ghost">View on GitHub ↗</a>
+        </div>
+        <p class="lens-skills-note mono reveal">
+          10 skills live · Plugin-installable · Composable across workflows
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIDE EACH ENTRY -->
+  <section class="section section-alt dwell-pin">
     <div class="dwell-pin-stage">
       <FocusObject size={340} tiltX={62} tiltY={-12} spin={170} scrollSpin={60} style="top: 8%; left: 4%;" enterFrom="left" />
       <div class="container">
-        <div class="eyebrow">004 · INSIDE AN ENTRY</div>
+        <div class="eyebrow">005 · INSIDE AN ENTRY</div>
         <h2 class="reveal">What's actually in each playbook.</h2>
         <p class="lead reveal">
           A playbook isn't a prompt. It's the full shape of a workflow
@@ -219,7 +243,7 @@ import { url } from '../utils/paths';
     <div class="dwell-pin-stage">
       <FocusObject size={320} tiltX={55} tiltY={20} spin={-160} scrollSpin={80} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">005 · WHO IT'S FOR</div>
+        <div class="eyebrow">006 · WHO IT'S FOR</div>
         <h2 class="reveal">Senior operators only.</h2>
         <div class="lens-fit-grid">
           <div class="lens-fit reveal">
@@ -250,7 +274,7 @@ import { url } from '../utils/paths';
     <div class="dwell-pin-stage">
       <FocusObject size={400} tiltX={58} tiltY={-18} spin={160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">006 · WHO CURATES IT</div>
+        <div class="eyebrow">007 · WHO CURATES IT</div>
         <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
           Operators<br/>
           <span class="gradient-text">running the work</span>,<br/>
@@ -278,7 +302,7 @@ import { url } from '../utils/paths';
     <div class="dwell-pin-stage">
       <FocusObject size={300} tiltX={50} tiltY={-18} spin={130} scrollSpin={-100} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">007 · THE TERMS</div>
+        <div class="eyebrow">008 · THE TERMS</div>
         <h2 class="reveal">Founding subscriber rate. Locked for life.</h2>
         <div class="lens-price reveal">
           <div class="lens-price-inner">
@@ -310,7 +334,7 @@ import { url } from '../utils/paths';
     <div class="dwell-pin-stage">
       <FocusObject size={260} tiltX={55} tiltY={-22} spin={140} scrollSpin={70} style="top: 8%; left: 4%;" enterFrom="left" />
       <div class="container">
-        <div class="eyebrow">008 · BEFORE YOU SUBSCRIBE</div>
+        <div class="eyebrow">009 · BEFORE YOU SUBSCRIBE</div>
         <h2 class="reveal">The questions you'd be right to ask.</h2>
         <div class="lens-faq stagger">
           <details class="lens-faq-item">
@@ -541,6 +565,20 @@ import { url } from '../utils/paths';
     margin-top: auto;
     padding-top: var(--space-sm);
     border-top: 1px solid var(--color-line);
+  }
+
+  /* Skills section CTA */
+  .lens-skills-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+  .lens-skills-note {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+    margin-top: var(--space-md);
   }
 
   /* Anatomy of an entry */
