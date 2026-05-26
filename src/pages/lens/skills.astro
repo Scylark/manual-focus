@@ -53,10 +53,13 @@ const summarise = (desc: string) => {
       </p>
       <div class="skills-install">
         <p class="skills-install-label mono">INSTALL AS A CLAUDE CODE PLUGIN</p>
-        <pre class="skills-install-code"><code>/plugin install https://github.com/Scylark/manual-focus</code></pre>
+        <pre class="skills-install-code"><code>/plugin marketplace add Scylark/manual-focus
+/plugin install the-lens@manual-focus</code></pre>
         <p class="skills-install-note">
-          Once installed, the agent will recognise relevant tasks and
-          offer to invoke the right skill. Source lives in <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">lens-skills/</a> on GitHub.
+          Two commands installs all 25 skills. After install, ask Claude
+          <strong>"set up The Lens"</strong> and the welcome skill picks a
+          starter playbook based on the work in front of you. Source lives
+          in <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">lens-skills/</a> on GitHub.
         </p>
       </div>
     </div>
