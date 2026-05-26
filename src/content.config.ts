@@ -47,7 +47,7 @@ const faq = defineCollection({
 // six artefacts the marketing page promises (brief, pipeline, prompts,
 // eval harness, failure modes, receipts) and stored as one markdown file
 // per playbook under src/content/lens/<stack>/<slug>.md.
-const LENS_STACKS = ['brand', 'demand', 'content', 'ops'] as const;
+const LENS_STACKS = ['brand', 'demand', 'content', 'ops', 'productivity'] as const;
 const LENS_MODELS = [
   'gpt-5',
   'gpt-4.1',
@@ -76,6 +76,13 @@ const LENS_CHANNELS = [
   'product-marketing',
   'analytics',
   'brand',
+  // Productivity / back-office channels
+  'inbox',
+  'calendar',
+  'crm',
+  'meetings',
+  'docs',
+  'tasks',
 ] as const;
 
 const lens = defineCollection({

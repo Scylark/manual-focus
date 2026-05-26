@@ -1,0 +1,17 @@
+Action,Trigger_Signals,Reply_Window,Reply_Length,Auto_Execute,Example
+reply-now,VIP plus urgency / customer escalation / today-deadline language / exec ask,within 2 hours,short-paragraph or one-line,no,Marcus Hale asking for the launch budget before his 11:00 finance meeting
+reply-today,substantive answer expected within 24 hours / known customer asking / partner check-in with ask,within 24 hours,short-paragraph,no,Foundry agency asking for sign-off on the asset list
+reply-week,substantive but not urgent / requires context to respond well,within 5 working days,full,no,Wholesale rep asking about Spring 2027 pre-book dates
+delegate,handled by a named team member / standard template fits / sender does not require the operator personally,within 24 hours by delegate,short-paragraph,no,Wholesale standard pre-book question routes to sales coordinator
+schedule,requires 30+ minute slot for a real response / strategic conversation,calendar block within 48 hours,full,no,Long-form ambassador programme conversation
+archive,cc-only / FYI / acknowledged thread / informational with no ask,n/a,n/a,yes,Internal newsletter cc list
+block,newsletter / marketing blast / automated alert with no signal,n/a,n/a,yes,Salesforce daily digest the operator never reads
+VIP_Sender,marcus.hale@cascadia-endurance.com,Founder,n/a,n/a,n/a
+VIP_Sender,beth@cascadia-endurance.com,Brand and content lead,n/a,n/a,n/a
+VIP_Sender,press@utmb.world,UTMB press desk,n/a,n/a,n/a
+VIP_Sender,investor@oakdene.partners,Lead investor,n/a,n/a,n/a
+Delegate_Type,wholesale-standard-prebook,Sales coordinator,n/a,n/a,Aros Outdoors pre-book question
+Delegate_Type,press-accreditation,PR lead,n/a,n/a,UTMB photo pass request
+Delegate_Type,it-or-facilities,Ops manager,n/a,n/a,Laptop provisioning ticket
+Delegate_Type,inbound-recruiter,Auto-decline template,n/a,n/a,Cold recruiter pitch
+Delegate_Type,vendor-cold-pitch,Mark as read no reply,n/a,n/a,Agency cold outreach

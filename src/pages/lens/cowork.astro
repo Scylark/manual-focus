@@ -1,0 +1,629 @@
+---
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import { url } from '../../utils/paths';
+---
+<Base
+  title="Cowork primer. Claude with your tools loaded"
+  description="How to install and set up Cowork so The Lens playbooks run against the real work you already do. Plugins, MCP connectors and the workflows that pay back fastest."
+>
+  <SEOHead
+    slot="seo"
+    type="article"
+    title="Cowork primer. Claude with your tools loaded"
+    description="How to install and set up Cowork so The Lens playbooks run against the real work you already do. Plugins, MCP connectors and the workflows that pay back fastest."
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'The Lens', url: '/lens' },
+      { name: 'Cowork primer', url: '/lens/cowork' },
+    ]}
+  />
+
+  <section class="p101-head">
+    <div class="container">
+      <a href={url('/lens')} class="p101-back mono">← THE LENS</a>
+      <div class="eyebrow">COWORK PRIMER</div>
+      <h1 class="p101-title">Claude with your tools loaded.</h1>
+      <p class="p101-lead">
+        The Lens playbooks describe the work. Cowork is what lets the
+        agent see the work, the inbox, the calendar, the transcripts and
+        the pipeline already on your desk. This page is the bridge,
+        from a useful chatbot to a daily-driver assistant that knows
+        what's happening in your week and can act on your behalf with
+        permission.
+      </p>
+      <p class="p101-meta mono">Read time 8 minutes</p>
+    </div>
+  </section>
+
+  <!-- WHAT COWORK IS -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <h2>1 · What Cowork is</h2>
+      <p>
+        Cowork is Claude Code's mode for running with your real
+        workplace tools loaded as context. Instead of a chat window
+        with no memory of your week, the agent reads from your Gmail,
+        Slack, Notion, Linear, HubSpot, Granola transcripts, Google
+        Calendar, Figma files and GitHub repos. It sees the actual
+        emails sitting in your inbox this morning, the actual call
+        transcript from yesterday, the actual deal stages in your CRM.
+        Then it can summarise, draft replies, update records, file
+        tasks and produce the next artefact, with your approval before
+        anything ships.
+      </p>
+      <p>
+        The mechanism underneath is MCP, the Model Context Protocol.
+        Anthropic published the spec, and every major tool vendor now
+        ships an MCP server. The server exposes a tool's data and
+        actions in a structured way the agent can read. Once a server
+        is connected, the agent can list your Gmail threads or update
+        a HubSpot deal as easily as it can run a shell command.
+      </p>
+      <p>
+        Cowork combines three things into one working surface.
+      </p>
+      <ul>
+        <li>
+          <strong>The agent</strong>, Claude in its Code form, which
+          can reason across the loaded context and call tools to act.
+        </li>
+        <li>
+          <strong>The MCP connectors</strong>, one per tool, that the
+          agent uses to read state and take actions on your behalf.
+        </li>
+        <li>
+          <strong>The plugins</strong>, packaged collections of skills
+          like the ones in The Lens, that tell the agent how to do
+          named workflows well.
+        </li>
+      </ul>
+      <p>
+        For Saoirse at Cascadia Endurance, that means asking Claude
+        what's on her plate this morning and getting back a real
+        answer drawn from her actual calendar, her actual unread
+        inbox and the actual Slack threads that mention her name,
+        instead of generic productivity advice.
+      </p>
+    </div>
+  </section>
+
+  <!-- INSTALL AND SET UP -->
+  <section class="p101-section section-alt">
+    <div class="container p101-prose">
+      <h2>2 · Install Cowork and set it up</h2>
+      <p>
+        Five steps end to end. The whole sequence takes about thirty
+        minutes if you're connecting accounts as you go.
+      </p>
+
+      <h3>Install Claude Code</h3>
+      <p>
+        Claude Code is the desktop client that hosts Cowork. Download
+        and install from <a href="https://claude.com/code" target="_blank" rel="noopener">claude.com/code</a>.
+        Sign in with the same account you use for claude.ai. On first
+        launch it walks you through giving filesystem access and a
+        working folder.
+      </p>
+
+      <h3>Add the Manual Focus plugin marketplace</h3>
+      <p>
+        In Claude Code, run the marketplace command to point the
+        plugin manager at the Lens skills and any other Manual Focus
+        plugins we publish.
+      </p>
+      <pre class="p101-code"><code>/plugin marketplace add Scylark/manual-focus</code></pre>
+
+      <h3>Install the Lens plugin</h3>
+      <p>
+        One command installs all 24 Lens skills at once, so the agent
+        recognises positioning audits, eval-gated drafting, race
+        recap pipelines and the rest the moment you describe a task
+        that fits.
+      </p>
+      <pre class="p101-code"><code>/plugin install the-lens@manual-focus</code></pre>
+
+      <h3>Run the Cowork setup wizard</h3>
+      <p>
+        Anthropic ships a guided setup for Cowork. It walks through
+        the recommended plugins by role and helps you connect the MCP
+        servers you'll use most.
+      </p>
+      <pre class="p101-code"><code>/setup-cowork</code></pre>
+      <p>
+        The wizard asks what kind of work you do, suggests a starter
+        plugin set, and then opens the connector flow for each tool
+        it recommends. Each connector takes you through an OAuth
+        prompt in your browser, the same way you'd authorise any
+        SaaS integration, and the credentials live in Claude Code's
+        secure store rather than in your prompts.
+      </p>
+
+      <h3>Connect the MCP servers you need first</h3>
+      <p>
+        You don't have to wire up everything on day one. The
+        priority order in section 4 is the one that pays back
+        fastest for a marketing operator. Start with email, calendar
+        and call transcripts, then add the others as the workflows
+        surface what you're missing.
+      </p>
+    </div>
+  </section>
+
+  <!-- PLUGINS THAT MATTER MOST -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <h2>3 · The plugins that matter most</h2>
+      <p>
+        Cowork plugins are packaged collections of skills, the same
+        shape as the Lens skills but built for different jobs. The
+        right starter set depends on the role you're playing. Three
+        common shapes.
+      </p>
+
+      <h3>Solo marketer or fractional CMO</h3>
+      <p>
+        One person running the function across one or two brands.
+        The four plugins below cover daily voice work, campaign
+        planning, the personal back office and the post-call loop
+        from sales conversations.
+      </p>
+      <ul>
+        <li><code>brand-voice</code>, generates and enforces brand voice guidelines across every draft.</li>
+        <li><code>marketing</code>, campaign plans, email sequences, content briefs and channel strategy.</li>
+        <li><code>productivity</code>, daily briefings, inbox triage, task management.</li>
+        <li><code>sales</code>, used here for the call-summary skill so customer-call transcripts become CRM updates and follow-up drafts.</li>
+      </ul>
+
+      <h3>In-house GTM team</h3>
+      <p>
+        Marketing leader inside a 20-to-200-person endurance brand
+        with a sales counterpart and a product team to coordinate
+        with. Add the full sales and product-management plugins on
+        top of the solo set.
+      </p>
+      <ul>
+        <li>Everything above, plus</li>
+        <li><code>sales</code> in full, pipeline reviews, account research, draft outreach, daily briefings, competitive intel.</li>
+        <li><code>product-management</code>, spec writing, sprint planning, stakeholder updates, metrics reviews, research synthesis.</li>
+      </ul>
+
+      <h3>Agency or design studio</h3>
+      <p>
+        A small team shipping work for several brands at once, with
+        design output and a need to keep every client's voice
+        distinct. Add design tooling and the brand-voice-enforcement
+        skill on top of the GTM stack.
+      </p>
+      <ul>
+        <li>Everything above, plus</li>
+        <li><code>design</code>, design critique, accessibility review, UX copy, design-system audits, research synthesis.</li>
+        <li><code>brand-voice-enforcement</code> as a standalone skill, applied to client content drafts as a gate before delivery.</li>
+      </ul>
+
+      <p>
+        Each plugin installs the same way the Lens does.
+      </p>
+      <pre class="p101-code"><code>/plugin install brand-voice
+/plugin install marketing
+/plugin install productivity
+/plugin install sales</code></pre>
+
+      <p>
+        Once installed, every plugin can be customised to your
+        organisation's vocabulary, tools and workflows. The
+        <code>/cowork-plugin-customizer</code> command walks through
+        which connectors you have wired up, which skills inside the
+        plugin make sense for your role and which to disable. The
+        plugin you end up running is yours, not a generic install.
+      </p>
+    </div>
+  </section>
+
+  <!-- MCP CONNECTORS -->
+  <section class="p101-section section-alt">
+    <div class="container p101-prose">
+      <h2>4 · MCP connectors to wire up first</h2>
+      <p>
+        Connectors are where Cowork stops being a fancy chatbot and
+        starts being a real working surface. Each one opens a tool to
+        the agent. The priority order below is what we've seen pay
+        back fastest for a marketing operator at an endurance brand.
+      </p>
+
+      <ol>
+        <li>
+          <strong>Email</strong>, Gmail or Outlook. The single
+          highest-leverage connector. Reading and drafting replies
+          collapses inbox triage from an hour to fifteen minutes.
+        </li>
+        <li>
+          <strong>Calendar</strong>, Google Calendar or Outlook.
+          Without it the agent can't tell you what's on your plate
+          today or prep you for the call at three.
+        </li>
+        <li>
+          <strong>Slack</strong>, or whatever your team uses for chat.
+          Mentions, threads you're in, the channels you watch.
+          Surfaces what's heating up without you needing to scroll.
+        </li>
+        <li>
+          <strong>Your CRM</strong>, HubSpot, Salesforce, Close or
+          Apollo. Pipeline status, deal stages, the last touch on
+          each account. Lets the agent update records after calls
+          and surface deals that have gone quiet.
+        </li>
+        <li>
+          <strong>Notion or your knowledge base</strong>. The
+          brand's institutional memory. Wiki pages, briefs, the
+          positioning doc, the voice guide. Lets the agent ground
+          drafts in the actual brand, not a generic version.
+        </li>
+        <li>
+          <strong>Granola or Fireflies</strong>, the call-transcript
+          surface. Once meeting transcripts are connected, every
+          call becomes a CRM update, a follow-up draft and a task
+          list in one prompt.
+        </li>
+        <li>
+          <strong>Linear or Asana</strong>, the task surface. Lets
+          the agent file work, update statuses and pull the right
+          ticket into context when you're drafting against it.
+        </li>
+      </ol>
+
+      <p>
+        You don't have to install everything on day one. Start with
+        email, calendar and transcripts, see what the agent surfaces
+        in a week of normal work, and add connectors as the gaps
+        become obvious. Two or three connectors is enough to feel
+        the shift. Seven is enough to make Cowork the place you
+        start every morning.
+      </p>
+    </div>
+  </section>
+
+  <!-- THREE WAYS COWORK SHOWS UP -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <h2>5 · Three ways Cowork shows up day to day</h2>
+      <p>
+        Three illustrative shapes, all running on the same Cowork
+        stack at Cascadia Endurance.
+      </p>
+
+      <h3>Monday morning, the briefing</h3>
+      <p>
+        Saoirse opens Claude Code with her coffee and asks "what's
+        on my plate today?" The agent reads her calendar, scans the
+        last 24 hours of unread mail, checks the Slack channels she
+        watches and surfaces the three things that need attention
+        before lunch. Two press enquiries that came in over the
+        weekend, the gear launch brief sitting in her review queue,
+        a Slack thread about the race weekend logistics with
+        unresolved questions. She has a clean read of her day in
+        five minutes instead of forty.
+      </p>
+
+      <h3>Wednesday afternoon, the call loop</h3>
+      <p>
+        Saoirse finishes a discovery call with a prospective retail
+        partner. Granola recorded the transcript. She opens Claude
+        Code and asks for the post-call loop. The agent reads the
+        transcript, drafts the HubSpot update with the right
+        attributes (account size, decision-maker, next step,
+        timeline), drafts the follow-up email in the Cascadia voice,
+        and files a Linear ticket for the sample shipment that came
+        up in the conversation. She reviews each artefact, edits
+        where her judgement says so, and sends. The whole loop
+        takes ten minutes instead of the hour it used to.
+      </p>
+
+      <h3>Friday afternoon, the rollup</h3>
+      <p>
+        End of week. Saoirse asks for the pipeline rollup and the
+        content cadence check. The agent pulls deal movement from
+        HubSpot, the week's published content from the Notion
+        editorial calendar, the social posts that went live, and
+        the open Linear tickets in the content pipeline. It
+        produces a written rollup for the founder, drafts next
+        week's editorial slate based on the cluster plan, and
+        queues three social posts for review on Monday. Saoirse
+        spends fifteen minutes reviewing instead of two hours
+        compiling.
+      </p>
+
+      <p>
+        None of these workflows replace her judgement. They remove
+        the friction in the work she already knows how to do well,
+        so the time she keeps gets spent on the work the agent
+        can't do for her.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PRODUCTIVITY STACK -->
+  <section class="p101-section section-alt">
+    <div class="container p101-prose">
+      <h2>6 · The Productivity stack of The Lens</h2>
+      <p>
+        The 10 playbooks in the Productivity stack are written
+        specifically for Cowork operators. Each one is a workflow
+        you can run today once the right connectors are wired up.
+      </p>
+      <p>
+        <a href={url('/lens/productivity')}>Browse the Productivity stack →</a>
+      </p>
+      <ul>
+        <li><strong>daily-briefing-pipeline</strong>, the morning briefing that pulls calendar, inbox and Slack into one prioritised read.</li>
+        <li><strong>email-triage-and-draft</strong>, batch processing the inbox with reply drafts ready for review.</li>
+        <li><strong>meeting-prep-stack</strong>, account research, attendee context and a suggested agenda before every call.</li>
+        <li><strong>call-follow-up-loop</strong>, transcript to CRM update to follow-up email to filed task, in one prompt.</li>
+        <li><strong>slack-focus-pass</strong>, the channels-you-watch surface, with what's actually worth your attention pulled forward.</li>
+        <li><strong>document-drafting-partner</strong>, the long-form drafting partner that grounds every doc in your existing voice profile and message house.</li>
+        <li><strong>weekly-pipeline-rollup</strong>, the Friday view of deal movement, stuck accounts and the week's content cadence.</li>
+        <li><strong>quarterly-okr-synthesis</strong>, the quarter-close ritual that turns notes, retros and metrics into the next quarter's OKRs.</li>
+        <li><strong>personal-knowledge-base</strong>, the second-brain pattern that captures what you read, what you wrote and what you learned, in the place you can search later.</li>
+        <li><strong>inbox-to-task-pipeline</strong>, the bridge from a one-line email request to a properly filed task with the right context attached.</li>
+      </ul>
+      <p>
+        These ten compose. The morning briefing surfaces what needs
+        attention. Inbox triage clears the easy ones. Meeting prep
+        loads the next call. The call follow-up loop closes the
+        loop. The weekly rollup brings the whole week together.
+        The cadence is the point.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT COWORK IS NOT -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <h2>7 · What Cowork is not</h2>
+      <p>
+        Four boundaries worth stating up front, so the install pays
+        back without overshooting.
+      </p>
+
+      <h3>Not a replacement for your judgement</h3>
+      <p>
+        The agent drafts, summarises and proposes. The decisions
+        about what to send, what to commit to and how to read the
+        room stay with you. Cowork is a leverage layer over your
+        work, and the work itself still belongs to you.
+      </p>
+
+      <h3>Not an autonomous agent running unsupervised</h3>
+      <p>
+        Cowork acts with permission. Every email draft, every CRM
+        update, every task filed shows up for your review before
+        anything goes out. The agent can prep a ten-step workflow
+        in a minute, and you still approve each step that touches
+        the outside world. The point is faster review, not removed
+        review.
+      </p>
+
+      <h3>Not a fix for broken processes</h3>
+      <p>
+        If the underlying process is unclear, the agent will speed
+        up confusion. If your CRM stages don't mean anything, the
+        agent will update them faithfully and you'll have faster
+        meaningless data. Wire Cowork into workflows that already
+        work, and it compounds. Wire it into a broken process and
+        you've just made the broken process faster.
+      </p>
+
+      <h3>Not a silver bullet for back-office overwhelm</h3>
+      <p>
+        The agent removes friction from workflows you already do
+        well. It does not remove the underlying volume. If your
+        week has too much in it, Cowork helps you process the
+        load. It doesn't help you decide what to drop. That call
+        is still yours, and the strategic playbooks in the rest
+        of The Lens are where to start with it.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHERE TO START -->
+  <section class="p101-section section-alt">
+    <div class="container p101-prose">
+      <h2>8 · Where to start</h2>
+      <p>
+        The five-step install plan most readers should follow.
+      </p>
+      <ol>
+        <li>
+          <strong>Install Claude Code today.</strong>
+          Download from <a href="https://claude.com/code" target="_blank" rel="noopener">claude.com/code</a>,
+          sign in, give it a working folder.
+        </li>
+        <li>
+          <strong>Install the Lens plugin.</strong>
+          Two commands. <code>/plugin marketplace add Scylark/manual-focus</code>, then <code>/plugin install the-lens@manual-focus</code>. The 24 Lens skills are now available to the agent.
+        </li>
+        <li>
+          <strong>Run /setup-cowork and connect three things.</strong>
+          Gmail (or Outlook), Google Calendar (or Outlook) and your
+          CRM. The wizard walks through OAuth for each. Skip the
+          rest for now.
+        </li>
+        <li>
+          <strong>Run the daily-briefing-pipeline playbook this Monday morning.</strong>
+          One prompt, one read of your day. See where the agent is
+          right and where it's missing context. That's the signal
+          for which connectors to wire up next.
+        </li>
+        <li>
+          <strong>Add one new connector per week.</strong>
+          Slack the second week, Granola the third, Notion the
+          fourth. By week six you have a Cowork stack that
+          collapses your daily back-office friction without ever
+          having taken a whole afternoon to set up.
+        </li>
+      </ol>
+      <p>
+        The reason this works is that each connector compounds the
+        last. Email plus calendar is useful. Email plus calendar
+        plus call transcripts is a different category of useful.
+        Add Slack and the CRM and the agent is now reading the same
+        surface you do, which is what makes the briefing actually
+        match your morning instead of guessing at it.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="p101-section">
+    <div class="container p101-prose">
+      <div class="p101-foot-grid">
+        <div class="eyebrow">NEXT</div>
+        <h2>Pick a workflow. Run it Monday.</h2>
+        <p>
+          The Cowork stack pays back the moment the first playbook
+          runs against real data. The Productivity stack of The Lens
+          is the fastest path to that first run, and the rest of the
+          library composes on top once the briefing pattern feels
+          natural.
+        </p>
+        <div class="p101-foot-ctas">
+          <a href={url('/lens/productivity')} class="btn-cta">Read the Productivity stack</a>
+          <a href={url('/lens/library')} class="btn-ghost">Browse the full library</a>
+          <a href={url('/lens/skills')} class="btn-ghost">Browse the skills</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .p101-head {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .p101-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  .p101-back:hover { color: var(--color-text); }
+  .p101-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-block: var(--space-sm);
+    max-width: 22ch;
+  }
+  .p101-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    max-width: 65ch;
+  }
+  .p101-meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+    margin-top: var(--space-md);
+  }
+
+  .p101-section {
+    padding-block: var(--space-xl);
+  }
+  .p101-section.section-alt {
+    background: var(--color-bg-alt);
+  }
+  /* Body sections use the standard .container (1280px, centered) so
+     they align horizontally with the .p101-head above. Reading width
+     is constrained on the text children rather than on the outer
+     wrapper, so paragraphs stay readable but everything left-aligns
+     to the container edge. */
+  .p101-prose > h2,
+  .p101-prose > h3,
+  .p101-prose > p,
+  .p101-prose > ul,
+  .p101-prose > ol {
+    max-width: 72ch;
+  }
+  .p101-prose h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0 0 var(--space-md);
+    letter-spacing: -0.01em;
+  }
+  .p101-prose h3 {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    color: var(--color-text);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+  .p101-prose p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-body);
+  }
+  .p101-prose ul,
+  .p101-prose ol {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: var(--space-md) 0;
+    padding-left: 1.25rem;
+  }
+  .p101-prose li { margin-bottom: var(--space-sm); }
+  .p101-prose strong { color: var(--color-text); }
+  .p101-prose em { color: var(--color-text); }
+  .p101-prose a { color: var(--color-cta-start); text-decoration: underline; }
+  .p101-prose code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-bg-alt);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--color-text);
+  }
+  .p101-section.section-alt code {
+    background: var(--color-bg);
+  }
+
+  .p101-code {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-md);
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  .p101-section.section-alt .p101-code {
+    background: var(--color-bg);
+  }
+  .p101-code code {
+    background: transparent;
+    padding: 0;
+    color: var(--color-text);
+  }
+
+  .p101-foot-grid {
+    max-width: 720px;
+  }
+  .p101-foot-grid h2 {
+    margin-top: var(--space-sm) !important;
+  }
+  .p101-foot-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+</style>

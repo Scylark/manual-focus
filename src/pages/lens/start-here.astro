@@ -25,8 +25,8 @@ import { url } from '../../utils/paths';
       <div class="eyebrow">START HERE</div>
       <h1 class="start-title">Where to begin.</h1>
       <p class="start-lead">
-        The Lens is 36 playbooks across four stacks. Most readers don't
-        need to read 36 things. They need to know which three to start
+        The Lens is 46 playbooks across five stacks. Most readers don't
+        need to read 46 things. They need to know which three to start
         with. This page is that map.
       </p>
     </div>
@@ -50,7 +50,7 @@ import { url } from '../../utils/paths';
           <a href={url('/lens/library')}>Browse the full library →</a>
         </li>
         <li>
-          <strong>Skills</strong>, runnable agent companions to 14 of
+          <strong>Skills</strong>, runnable agent companions to 24 of
           the playbooks. SKILL.md files in the Anthropic Agent Skills
           spec, installable as a Claude Code plugin. The playbook
           explains the work, the skill <em>is</em> the work. <a href={url('/lens/skills')}>Browse the skills →</a>
@@ -64,7 +64,14 @@ import { url } from '../../utils/paths';
       </p>
 
       <p>
-        Both are organised into four stacks based on what they help you
+        <strong>New to Cowork?</strong> <a href={url('/lens/cowork')}>Read the Cowork primer</a>, the eight-minute setup guide for running Claude Code with your real
+        tools loaded (email, calendar, CRM, transcripts) so the Lens
+        playbooks act on the work you already do instead of generic
+        examples.
+      </p>
+
+      <p>
+        Both are organised into five stacks based on what they help you
         ship. Pick the stack that matches the work in front of you this
         week.
       </p>
@@ -85,6 +92,10 @@ import { url } from '../../utils/paths';
         <a href={url('/lens/ops')} class="stack-quick">
           <div class="stack-quick-name mono">OPS</div>
           <p>The connective tissue. Briefs, evals, guardrails, hiring, planning, launches, inventory, replacements. <strong>9 playbooks.</strong></p>
+        </a>
+        <a href={url('/lens/productivity')} class="stack-quick">
+          <div class="stack-quick-name mono">PRODUCTIVITY</div>
+          <p>Daily briefings, email triage, meeting prep, call follow-up, pipeline rollups, OKR synthesis. The personal-assistant workflows that turn Cowork into a real second brain. <strong>10 playbooks.</strong></p>
         </a>
       </div>
     </div>
@@ -311,7 +322,7 @@ import { url } from '../../utils/paths';
     <div class="container start-prose">
       <h2>How the skills compose</h2>
       <p>
-        14 of the playbooks ship as runnable skills for Claude Code,
+        24 of the playbooks ship as runnable skills for Claude Code,
         Cursor, Codex, Windsurf or any agent that honours the
         <a href="https://agentskills.io" target="_blank" rel="noopener">Agent Skills spec</a>. Skills reference each other, with the output of one becoming
         the input of the next, so they compose into a real working

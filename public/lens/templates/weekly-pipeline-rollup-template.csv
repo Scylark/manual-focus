@@ -1,0 +1,71 @@
+Section,Field,Value,Notes
+Summary_Metrics,open_pipeline_value,482000,Sum of open deal amounts
+Summary_Metrics,currency,GBP,Reporting currency
+Summary_Metrics,open_deals_count,24,Count of open deals
+Summary_Metrics,deals_advanced_this_week,3,Stage changed forward since last rollup
+Summary_Metrics,deals_stalled,5,Days idle >= 14 and not closed
+Summary_Metrics,deals_closed_won_this_week,2,Closed in last 7 days
+Summary_Metrics,deals_closed_lost_this_week,1,Lost in last 7 days
+Summary_Metrics,weekly_net_movement,71000,Signed net pipeline change
+Pacing,quarter_target,380000,Commit number
+Pacing,closed_won_quarter_to_date,268000,Sum of closed-won this quarter
+Pacing,pacing_percentage,70.5,closed_won / quarter_target * 100
+Pacing,gap_to_target,-112000,Signed gap remaining
+Pacing,weeks_remaining_in_quarter,4,Weeks left
+Deal_Log,Deal_Name,Aros Outdoors AW27 pre-book,Wholesale pre-book
+Deal_Log,Company,Aros Outdoors,Wholesale account
+Deal_Log,Owner,Beth Lyons,Brand and content lead
+Deal_Log,Amount,48000,GBP
+Deal_Log,Stage,Negotiation,Advanced from Discovery this week
+Deal_Log,Stage_Changed_At,2026-09-10,Date stage changed
+Deal_Log,Close_Date,2026-09-30,Expected close
+Deal_Log,Last_Activity_At,2026-09-12,Most recent activity
+Deal_Log,Last_Activity_Type,call,Type
+Deal_Log,Movement_This_Week,advanced,advanced / stalled / new / closed_won / closed_lost
+Deal_Log,At_Risk_Flag,no,yes if in top_5_at_risk
+Deal_Log,Risk_Signal,,One sentence if at risk
+Deal_Log,Deal_Name,Trail Club Manchester partnership,Partnership
+Deal_Log,Company,Trail Club,Partnership account
+Deal_Log,Owner,Saoirse Burns,Marketing lead
+Deal_Log,Amount,25000,GBP
+Deal_Log,Stage,Discovery,Advanced from Cold this week
+Deal_Log,Stage_Changed_At,2026-09-08,Date stage changed
+Deal_Log,Close_Date,2026-10-15,Expected close
+Deal_Log,Last_Activity_At,2026-09-08,Most recent activity
+Deal_Log,Last_Activity_Type,meeting,Type
+Deal_Log,Movement_This_Week,advanced,advanced
+Deal_Log,At_Risk_Flag,no,
+Deal_Log,Risk_Signal,,
+Deal_Log,Deal_Name,Foundry retainer renewal,Renewal
+Deal_Log,Company,Foundry,Agency
+Deal_Log,Owner,Beth Lyons,
+Deal_Log,Amount,36000,GBP
+Deal_Log,Stage,Proposal,Stalled
+Deal_Log,Stage_Changed_At,2026-08-16,Last stage change
+Deal_Log,Close_Date,2026-09-30,At risk of slip
+Deal_Log,Last_Activity_At,2026-08-22,Last activity
+Deal_Log,Last_Activity_Type,email,Type
+Deal_Log,Movement_This_Week,stalled,stalled
+Deal_Log,At_Risk_Flag,yes,Top 5 at risk
+Deal_Log,Risk_Signal,27 days idle, Beth has next step,One sentence
+Deal_Log,Deal_Name,Lavaredo activation kit deal,At risk
+Deal_Log,Company,Lavaredo Ultra Trail,Event sponsorship
+Deal_Log,Owner,Saoirse Burns,
+Deal_Log,Amount,22000,GBP
+Deal_Log,Stage,Proposal,
+Deal_Log,Stage_Changed_At,2026-08-04,
+Deal_Log,Close_Date,2026-09-22,Slipped twice
+Deal_Log,Last_Activity_At,2026-09-05,
+Deal_Log,Last_Activity_Type,call,
+Deal_Log,Movement_This_Week,no change,
+Deal_Log,At_Risk_Flag,yes,Top 5 at risk
+Deal_Log,Risk_Signal,Close date slipped twice, buyer shopping competitors,One sentence
+Top_5_At_Risk,Rank,1,Highest risk
+Top_5_At_Risk,Deal,Lavaredo activation kit deal,Named
+Top_5_At_Risk,Amount,22000,GBP
+Top_5_At_Risk,Risk_Signal,Close date slipped twice buyer shopping competitors,
+Top_5_At_Risk,Rank,2,
+Top_5_At_Risk,Deal,Foundry retainer renewal,
+Top_5_At_Risk,Amount,36000,
+Top_5_At_Risk,Risk_Signal,27 days idle owner has next step,
+One_Ask,Sentence,"Marcus, would you call Aros Outdoors directly on the AW27 deal before the Tuesday call?",Concrete answerable

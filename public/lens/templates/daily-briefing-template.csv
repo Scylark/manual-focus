@@ -1,0 +1,53 @@
+Section,Item_Index,Field,Value,Notes
+First_Thing,1,Sentence,"Confirm the Vahla Storm Shell launch creative with the agency. Marcus needs sign-off by Wednesday and the asset list is one revision behind.","One sentence, the single most important opener"
+Meetings,1,Time,09:30,Today
+Meetings,1,Title,Cascadia weekly strategy,Recurring
+Meetings,1,Prep_Status,ready,Agenda has Vahla as the third item
+Meetings,2,Time,11:00,Today
+Meetings,2,Title,Beth Lyons 1:1,Recurring
+Meetings,2,Prep_Status,partial,Last week's notes linked in event
+Meetings,3,Time,14:00,Today
+Meetings,3,Title,Storm Shell creative review,External, Foundry agency
+Meetings,3,Prep_Status,not started,Asset list landed Friday at 18:42
+Meetings,4,Time,16:30,Today
+Meetings,4,Title,James Whitaker intro,External, Trail Club regional lead
+Meetings,4,Prep_Status,ready,Background note attached in CRM
+Inbox,1,Sender,Marcus Hale,Founder
+Inbox,1,Subject,Vahla launch budget question,Reply before 11:00
+Inbox,1,Urgency,high,Finance meeting at 11:00
+Inbox,2,Sender,UTMB press desk,Accreditation
+Inbox,2,Subject,Accreditation deadline Thursday,Form attached
+Inbox,2,Urgency,high,Hard deadline
+Inbox,3,Sender,Aros Outdoors wholesale,Standard template
+Inbox,3,Subject,Spring 2027 pre-book dates,Low urgency
+Inbox,3,Urgency,low,Template reply ready
+Inbox,4,Sender,Foundry agency,Awaiting sign-off
+Inbox,4,Subject,Storm Shell asset list,Linked to 14:00 meeting
+Inbox,4,Urgency,medium,Today action
+Inbox,5,Sender,Trail Club James Whitaker,Intro thread
+Inbox,5,Subject,Intro for tomorrow's 16:30,Low urgency
+Inbox,5,Urgency,low,Acknowledge only
+Slack,1,Channel,#marketing-launches,Beth tagged Friday
+Slack,1,Topic,Vahla press list,Approve or amend
+Slack,1,Action,reply,Today
+Slack,2,Channel,#cascadia-creative,Foundry third cut
+Slack,2,Topic,Launch film notes,By Tuesday
+Slack,2,Action,reply,Today
+Slack,3,Channel,DM Marcus,Direct ask
+Slack,3,Topic,Q3 race-recap reach numbers,Pull from dashboard
+Slack,3,Action,reply,Today
+Slack,4,Channel,#sales-pipeline,Wholesale rep question
+Slack,4,Topic,Which deck to send,One sentence answer
+Slack,4,Action,reply,Today
+Slack,5,Channel,#internal-ops,IT ticket 4172
+Slack,5,Topic,New contractor laptop,Decision required
+Slack,5,Action,acknowledge,Delegate to ops
+Pipeline,1,Type,Advanced,Vahla Range pre-launch interest list
+Pipeline,1,Detail,4200 signups up from 3650 Friday,Weekend lift
+Pipeline,2,Type,Advanced,Two wholesale deals,Into negotiation
+Pipeline,2,Detail,Aros Outdoors and Trail Co,Beth owns
+Pipeline,3,Type,Stalled,Foundry retainer renewal,27 days idle
+Pipeline,3,Detail,Next step required,Beth has the action
+Tomorrow,1,Time,07:30,Tomorrow
+Tomorrow,1,Item,Flight to Chamonix for UTMB pre-event,Boarding pass attached
+Tomorrow,1,Prep_Today,yes,Pack tonight
