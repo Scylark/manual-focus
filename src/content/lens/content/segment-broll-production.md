@@ -1,0 +1,256 @@
+---
+title: "Segment-specific b-roll — AI-augmented production for endurance"
+stack: content
+description: "Plan and produce b-roll for endurance segments — road, gravel, trail, swim, triathlon. What's worth shooting, what AI can augment, what AI can't touch."
+outputs: "B-roll production plan, AI augmentation brief, capability boundary memo"
+readMin: 12
+shipTime: "1 working week"
+brandStage: ["growth", "scale", "enterprise"]
+channels: ["video", "organic-social", "content"]
+models: ["claude-4.5-opus", "gpt-5"]
+publishedAt: 2026-06-25
+status: live
+preview: true
+---
+
+## The brief
+
+B-roll is the connective tissue of endurance marketing. The wide of
+the rider in a coastal switchback. The runner cresting a ridge at
+golden hour. The swimmer mid-stroke under a lane line. Most brands
+either over-invest (shoot every cut from scratch) or under-invest
+(stock library generic that any competitor can use too).
+
+This playbook is the middle path. Plan the shoot to capture what
+only a real shoot can capture — the brand's products in real
+environments, the named athletes, the practical-craft footage that
+carries the brand. Use AI to augment that capture into a multiplied
+inventory: time-of-day variants, weather-condition variants, social-
+cut adaptations, segment-specific environmental b-roll the shoot
+didn't reach.
+
+Built with the realism boundary explicit. If the workflow needs
+something AI can't reliably do today, the playbook says so and
+recommends the practical alternative.
+
+## The pipeline
+
+Six phases.
+
+**Phase 1 — Segment scoping.** The brand defines which endurance
+segments it serves and how each segment looks visually:
+
+- **Road cycling** — open road, climb, descent, group ride, solo,
+  coastal, alpine, lowland, dawn, golden hour, blue hour, wet weather
+- **Gravel cycling** — fire road, forest trail, exposed open country,
+  river crossing, mixed-surface
+- **Trail running** — single track, technical descent, ridge line,
+  forest, alpine, desert, urban-edge
+- **Road running** — urban morning, suburban evening, track, treadmill
+- **Swimming** — pool, open water (sea, lake), masters group, solo lap
+- **Triathlon** — transition, swim exit, bike-run transition, finish
+  chute
+
+Some brands span all. Most span 2–3. The matrix is the planning
+artefact.
+
+**Phase 2 — Inventory of need.** For each segment + condition
+combination, define what shots the brand actually needs across a
+typical 12-month content year. Categories:
+
+- **Hero shots** — long-form film hero, campaign headline, paid hero
+  creative
+- **Mid shots** — blog hero, email hero, athlete-feature backdrop
+- **Cut shots** — social b-roll, reel/short backdrop, ad creative
+  variant, transition
+- **Environmental** — pure terrain / weather / time-of-day footage
+  without subject
+
+For a brand spanning road + gravel + trail running, a typical year's
+inventory is 30–60 shots in total. Most brands attempt 8–10 and
+struggle to keep content fresh; the planned brands have 30–60 in
+the can.
+
+**Phase 3 — Shoot plan.** From the inventory, identify what must be
+captured practically:
+
+- **Branded product in motion** — the brand's actual bike, kit, shoe,
+  goggle, helmet visible and intact through the frame. Real shoot.
+- **Named athletes** — sponsored riders or runners on camera, doing
+  the work. Real shoot.
+- **Specific events** — the brand's race-day footage, branded
+  feed-zone, sponsored team. Real shoot.
+- **Foundational segment moments** — the brand's signature angle on
+  a segment (the coastal switchback that the audience associates
+  with the brand). Real shoot, once, used for years.
+
+The shoot consolidates into 2–4 days of capture per year, run during
+the seasons that match the brand's segments. Plan for multiple
+environments, multiple time-of-days, multiple weather conditions
+where possible (chase the conditions; budget the chase).
+
+**Phase 4 — AI augmentation brief.** What AI generates from the
+shoot's archive:
+
+- **Environmental b-roll variants.** Original: golden-hour gravel
+  ride captured in summer. AI augmentations: blue-hour version,
+  overcast version, autumn-leaf version, dawn-mist version. The
+  rider isn't in these; they're pure environmental cuts that
+  carry the segment.
+- **Time-of-day adaptations.** Original: midday road climb. AI: same
+  road in pre-dawn, in late afternoon, in night.
+- **Weather-condition adaptations.** Original: dry trail. AI: rain
+  variant, snow variant, fog variant.
+- **Atmosphere shots without product.** Generic close-ups of
+  cobblestones, finish-line chutes, transition racks, swim lane
+  lines, trail markers, water bottles in cages. No named brand
+  visible, no named athlete — environmental texture.
+
+Each AI augmentation has a reference image from the practical shoot.
+The model edits the environment, not the product or athlete.
+
+**Phase 5 — Production schedule.** The practical shoot books 8–12
+weeks out. The AI augmentation pipeline produces 2–5 days post-
+shoot, with one human editor reviewing each output for plausibility
+errors (limb physics, water dynamics, gear correctness).
+
+**Phase 6 — Asset library.** Final inventory lives in the brand's
+DAM (Digital Asset Management). Each asset tagged with: segment,
+condition, time-of-day, named-athlete-or-not, product-visible-or-not,
+practical-or-AI-augmented. The tagging matters for the next playbook
+— social-content-factory and lifecycle-journey-builder both filter
+this library to find the right asset for a touchpoint.
+
+## The capability boundary
+
+This playbook is the canonical answer to "what can AI generate for
+endurance video work this quarter?" Reading the
+[capabilities reference](/lens/capabilities) is required before
+running this pipeline.
+
+**Works reliably:**
+
+- Environmental b-roll of generic endurance scenes (no named athlete,
+  no specific product)
+- Time-of-day and weather variants of an environment shot from your
+  practical capture
+- Short clips (4–10 seconds) suitable for social cuts and reel
+  backdrops
+- Image-to-image augmentation of practical shoot outputs where the
+  product and athlete stay practical and the environment changes
+
+**Doesn't work reliably:**
+
+- Generating named athletes in scenarios they weren't filmed in
+- Generating the brand's actual products with logos / colourways /
+  geometry intact across motion
+- Generating long-form video (>15 seconds) of consistent named
+  subjects
+- Generating audio of named athletes (voice cloning still requires
+  separate consent and disclosure even where technically possible)
+
+**The honest summary for endurance brands:** the practical shoot is
+where the brand identity lives. AI multiplies its reach but cannot
+substitute for it.
+
+## The eval harness
+
+**Eval B1 — Inventory coverage.** At any point, the brand has at
+least 30 segment-condition cells covered in the asset library. Empty
+cells get prioritised for the next shoot or AI augmentation cycle.
+
+**Eval B2 — Plausibility check per AI augmentation.** Every AI-
+generated asset gets a human review before entering the library.
+Checks: limb physics, water dynamics, gear correctness (pedal
+rotations, swim stroke, foot strike), environment continuity. Below
+80% pass on first review, the augmentation prompt or model needs
+revision.
+
+**Eval B3 — Audience response.** Quarterly check: engagement on
+AI-augmented assets vs practical-only assets at the social-post
+level. If AI-augmented assets perform >20% lower, the audience is
+noticing the AI in a way that's costing engagement. Pull back on
+the AI cut share.
+
+**Eval B4 — Asset-to-touchpoint mapping.** When social-content-
+factory or lifecycle-journey-builder requests an asset for a
+touchpoint, the library should fulfil >85% of requests without
+needing new capture. Below that, the inventory has gaps that need
+the next shoot.
+
+## The failure modes
+
+**Trying to replace the shoot.** Brand cuts the shoot budget,
+expects AI to fill the gap entirely. Result: generic-feeling content
+that the endurance audience pattern-matches to AI within weeks.
+The shoot is the brand identity layer. Cut it and the brand
+flattens.
+
+**Over-augmenting individual assets.** A single shot turned into 14
+AI variants. Audience sees the same composition four times in a
+month. Variety is the goal, not augmentation count. Cap variants per
+source shot at 3–4.
+
+**Disclosure debt.** Brand ships AI-augmented work without
+acknowledging it. Audience finds out (through forensic frame
+analysis, a leaked production document, or simply pattern-
+matching). Trust drops sharply. Cleaner path: disclose where the
+audience would reasonably believe it was practical. The honesty
+itself becomes part of the brand's positioning.
+
+**Limb / gear physics errors slip through.** Generated cyclist with
+3.5 pedals per crank rotation, runner with mismatched gait, swimmer
+with a stroke that doesn't propel. The eval gate catches these only
+if a knowledgeable reviewer is on the team. Don't outsource the
+plausibility check to a generalist.
+
+**Right-time, wrong-segment asset.** Brand pulls a gravel asset for
+a road campaign because nothing in the road bucket fits. Audience
+notices the wrong segment cues (different tyre profile, different
+rider position). Tag the inventory specifically; don't cross-borrow
+between segments under deadline.
+
+**Athletes' likeness drift.** AI augmentation accidentally produces
+a frame where the athlete's face has subtly changed. Even small
+drift is jarring. Eval pass should include face-consistency check
+on any frame where athletes are visible.
+
+## The receipts
+
+**Premium cycling brand, scale-stage.** Brand had 6 hero shoots in
+the bank but ran out of fresh cuts between shoots. We installed the
+augmentation pipeline against the existing archive. Output inventory
+went from 30 cuts to 90 cuts over a year, with the same shoot
+budget. Audience engagement on social held steady — the AI cuts
+were used for environmental b-roll backdrops rather than hero
+moments, so the audience never saw "AI riders." Cleanest split: AI
+fills the environment, practical fills the subject.
+
+**Trail running brand, growth-stage.** Brand had been using stock
+trail-running footage. Pipeline replaced stock with practical shoot
++ AI augmentation across 4 named environments (alpine, coastal,
+desert, forest). 18 months in, the brand's social feels visually
+distinctive in a category where most competitors still use stock.
+The audience-perception lift was the unlock more than the cost
+saving.
+
+**Multisport brand, partial-failure engagement.** Brand pushed for
+AI generation of named athletes in scenes that hadn't been
+captured. Pipeline refused; the brand contracted with another
+provider who agreed. The output was technically impressive and
+audience-detectable within a quarter. Brand pulled the assets, lost
+the budget, and re-committed to practical-only for named-athlete
+content. We added a stronger refusal at Phase 4 in V2 — the AI
+augmentation brief explicitly cannot include named-athlete generation
+prompts.
+
+## Hand-off
+
+The asset library feeds:
+- **social-content-factory** — channel-native cuts using tagged
+  assets
+- **lifecycle-journey-builder** — touchpoint imagery from segment
+  inventory
+- **race-day-demand-pipeline** — campaign assets pulled per event
+- **ambassador-programme** — athlete shoot output augmented through
+  this pipeline
