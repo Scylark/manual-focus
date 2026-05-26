@@ -522,9 +522,10 @@ import { url } from '../utils/paths';
   /* ============================
      LENS HERO
      ============================ */
-  .lens-hero-inner {
-    max-width: 1000px;
-  }
+  /* Hero shares the same container width as the rest of the
+     page (1280px from global .container) so the H1 and eyebrow
+     align with the section headlines below it instead of sitting
+     ~280px further in from the viewport edge. */
   .lens-headline {
     font-size: clamp(2.5rem, 7vw, 6rem);
     line-height: 1.02;
