@@ -15,25 +15,25 @@ preview: false
 
 ## The brief
 
-Lifecycle marketing is where good intent dies. Every team has the same problem: a "journey map" sitting in a Miro board with 80 touchpoints sketched, three of which actually exist. The agency engagement to build the other 77 quotes at £60-£90k and 8 weeks, and at the end you get drafts that have to be voice-edited anyway because the agency briefer never had access to the brand's full corpus.
+Lifecycle marketing is where good intent dies. Every team has the same problem, a "journey map" sitting in a Miro board with 80 touchpoints sketched, three of which actually exist. The agency engagement to build the other 77 quotes at £60-£90k and 8 weeks, and at the end you get drafts that have to be voice-edited anyway because the agency briefer never had access to the brand's full corpus.
 
 This playbook builds the full journey in a working week. The pipeline ingests the brand's voice profile, the segment definitions, and the behaviour signal taxonomy. It outputs every touchpoint as a first-draft that passes the brand voice eval, routes by behaviour signal, and includes the evaluation rubric so the in-house team can keep building without breaking the system later.
 
-The agency-quality version of this work still has a role — for the strategic shape of the journey, the segmentation logic, the win-condition definitions. But the production-line draft writing is the part AI does better and faster than a contracted copywriter who doesn't know the brand.
+The agency-quality version of this work still has a role, for the strategic shape of the journey, the segmentation logic, the win-condition definitions. The production-line draft writing is the part AI does better and faster than a contracted copywriter who doesn't know the brand.
 
 ## The pipeline
 
 Five phases.
 
-**Phase 1 — Inputs and gates.** Confirm three inputs exist before the pipeline runs: a voice profile (from the brand-voice-extraction playbook or equivalent), a segment taxonomy with explicit definitions (not just "VIPs"), and a behaviour-signal map (what events trigger what routes). If any is missing, the pipeline pauses and prompts to build it — there's no draft that survives without these.
+**Phase 1, inputs and gates.** Confirm three inputs exist before the pipeline runs, a voice profile (from the brand-voice-extraction playbook or equivalent), a segment taxonomy with explicit definitions (not just "VIPs"), and a behaviour-signal map (what events trigger what routes). If any is missing, the pipeline pauses and prompts to build it, because there is no draft that survives without these.
 
-**Phase 2 — Journey map generation.** For each segment, generate the full journey: trigger entry, touchpoint sequence, exit conditions, win/loss states. The model outputs a structured journey tree — JSON, not narrative — that can be reviewed before any drafting starts. This is the cheap, fast pass. Strategy disagreements get resolved here, not after 80 drafts are written.
+**Phase 2, journey map generation.** For each segment, generate the full journey covering trigger entry, touchpoint sequence, exit conditions, win/loss states. The model outputs a structured journey tree as JSON rather than narrative, which can be reviewed before any drafting starts. This is the cheap, fast pass. Strategy disagreements get resolved here rather than after 80 drafts are written.
 
-**Phase 3 — Touchpoint drafting.** For each touchpoint in the approved tree, draft the content. The draft prompt loads the voice profile, the segment context, the touchpoint's job (re-engage / nurture / convert / win-back), the upstream and downstream touchpoints (so it doesn't repeat content), and a length constraint per channel. Outputs draft + alternative-line options.
+**Phase 3, touchpoint drafting.** For each touchpoint in the approved tree, draft the content. The draft prompt loads the voice profile, the segment context, the touchpoint's job (re-engage, nurture, convert, win-back), the upstream and downstream touchpoints (so it doesn't repeat content), and a length constraint per channel. Outputs draft plus alternative-line options.
 
-**Phase 4 — Voice and quality gating.** Every draft runs through the voice-eval rubric (the same one from the brand-voice playbook). Drafts that score below the threshold get regenerated. Drafts above the threshold proceed to the team review.
+**Phase 4, voice and quality gating.** Every draft runs through the voice-eval rubric (the same one from the brand-voice playbook). Drafts that score below the threshold get regenerated. Drafts above the threshold proceed to the team review.
 
-**Phase 5 — Routing and instrumentation.** Generate the conditional routing logic for the ESP / journey tool (Braze, Klaviyo, Customer.io, HubSpot, whichever). The pipeline outputs the conditions in plain English and as a JSON spec the engineering team can import.
+**Phase 5, routing and instrumentation.** Generate the conditional routing logic for the ESP or journey tool (Braze, Klaviyo, Customer.io, HubSpot, whichever). The pipeline outputs the conditions in plain English and as a JSON spec the engineering team can import.
 
 ## The prompts
 
@@ -97,34 +97,34 @@ The full prompt library (with templates for win-back, upgrade-prompt, abandoned-
 
 The pipeline is gated against five failure modes.
 
-**Eval 1 — Voice rubric pass rate.** Every drafted touchpoint runs through the voice-eval rubric from the brand-voice playbook. Pass rate target: 90%+. Below 80% means the voice profile and the drafting prompt are misaligned — usually the profile has rules the drafting prompt doesn't reference.
+**Eval 1, voice rubric pass rate.** Every drafted touchpoint runs through the voice-eval rubric from the brand-voice playbook. Pass rate target 90%+. Below 80% means the voice profile and the drafting prompt are misaligned, usually the profile has rules the drafting prompt doesn't reference.
 
-**Eval 2 — Within-journey repetition check.** Compute pairwise semantic similarity across all drafts within a single journey. Any pair scoring above 0.85 similarity is too close — the drafter has repeated itself. Regenerate the later touchpoint with an explicit "do not echo touchpoint N" constraint.
+**Eval 2, within-journey repetition check.** Compute pairwise semantic similarity across all drafts within a single journey. Any pair scoring above 0.85 similarity is too close, and the drafter has repeated itself. Regenerate the later touchpoint with an explicit "do not echo touchpoint N" constraint.
 
-**Eval 3 — CTA distinctness.** Across a journey, count unique CTAs. A 12-touchpoint journey with 3 unique CTAs is a journey with 4x the same email. Target: at least 8 unique CTAs per 12-touchpoint journey.
+**Eval 3, CTA distinctness.** Across a journey, count unique CTAs. A 12-touchpoint journey with 3 unique CTAs is a journey with 4x the same email. Target at least 8 unique CTAs per 12-touchpoint journey.
 
-**Eval 4 — Segment-touchpoint match.** Sample 20 drafts and human-rate whether the draft makes sense for the segment + signal combination. Target: 85%+ "yes" rate. Below that, the segment definitions need sharpening — the model can't write for "engaged users" but it can write for "users who opened 3+ emails in the last 14 days but haven't purchased."
+**Eval 4, segment-touchpoint match.** Sample 20 drafts and human-rate whether the draft makes sense for the segment plus signal combination. Target 85%+ "yes" rate. Below that, the segment definitions need sharpening. The model can't write for "engaged users" but it can write for "users who opened 3+ emails in the last 14 days but haven't purchased."
 
-**Eval 5 — Holdout cohort.** Once the journey ships, randomly hold out 10% of the segment as a "no contact" control. Compare conversion at 30 / 60 / 90 days. If the holdout converts within 10% of the treated group, the journey isn't actually doing the work, and the pipeline has nothing to do with it — that's a strategy problem.
+**Eval 5, holdout cohort.** Once the journey ships, randomly hold out 10% of the segment as a "no contact" control. Compare conversion at 30, 60 and 90 days. If the holdout converts within 10% of the treated group, the journey isn't actually doing the work, and the pipeline has nothing to do with it. That is a strategy problem.
 
 ## The failure modes
 
 **Voice profile too thin.** A profile that only specifies tone-adjectives ("warm, knowledgeable") won't pass the voice eval at any meaningful rate. The drafting pipeline needs the observable patterns from the brand-voice playbook (sentence length, punctuation counts, opener patterns, never-does list). If the profile isn't that detailed, run the extraction playbook first.
 
-**Segments are demographic, not behavioural.** "Premium subscribers" is a billing tier, not a lifecycle segment. The drafter handles behavioural segments ("users who purchased twice in 30 days then went silent for 60") much better than demographic ones ("women 35-54") because the touchpoint job is naturally clearer. If your segmentation is demographic, the work to redo segmentation often dwarfs the work to draft the journey.
+**Segments are demographic, not behavioural.** "Premium subscribers" is a billing tier rather than a lifecycle segment. The drafter handles behavioural segments ("users who purchased twice in 30 days then went silent for 60") much better than demographic ones ("women 35-54") because the touchpoint job is naturally clearer. If your segmentation is demographic, the work to redo segmentation often dwarfs the work to draft the journey.
 
-**Routing logic gets edited in the ESP and the pipeline doesn't know.** Lifecycle teams routinely tweak the journey conditions in the ESP after launch. The pipeline doesn't see those tweaks unless you re-import. Build a quarterly drift-check ritual: export the live conditions, diff against the original spec, decide whether to back-port to the source-of-truth.
+**Routing logic gets edited in the ESP and the pipeline doesn't know.** Lifecycle teams routinely tweak the journey conditions in the ESP after launch. The pipeline doesn't see those tweaks unless you re-import. Build a quarterly drift-check ritual, export the live conditions, diff against the original spec, decide whether to back-port to the source-of-truth.
 
-**The model writes "great" copy that doesn't sound like the brand.** This is the single most common complaint and it's almost always a sign the voice profile is set up wrong (see failure #1). The model isn't to blame. The profile is.
+**The model writes "great" copy that doesn't sound like the brand.** This is the single most common complaint and it is almost always a sign the voice profile is set up wrong (see failure #1). The model isn't to blame. The profile is.
 
-**One bad signal trigger floods the journey.** A poorly-defined behaviour signal can flood a segment with 12 emails in a week. Always run a 7-day frequency cap at the ESP level, regardless of what the journey graph says. The pipeline outputs a recommended cap; honour it.
+**One bad signal trigger floods the journey.** A poorly-defined behaviour signal can flood a segment with 12 emails in a week. Always run a 7-day frequency cap at the ESP level, regardless of what the journey graph says. The pipeline outputs a recommended cap, so honour it.
 
 ## The pattern in practice
 
-Illustrative scenarios — common shapes journey-builder work takes. Specifics are illustrative; the patterns repeat.
+Illustrative scenarios that show common shapes journey-builder work takes. Specifics are illustrative and the patterns repeat.
 
-**B2B SaaS, scale-stage — the behaviour-routing unlock.** A brand with a handful of generic lifecycle journeys written years ago. Rebuilding around behaviour-routed paths (onboarding, expansion, retention, win-back, product-specific) typically lifts trial-to-paid conversion within the first quarter. The unlock isn't better copy — it's finally having paths that respond to what the user has actually done.
+**B2B SaaS, scale-stage, the behaviour-routing unlock.** A brand with a handful of generic lifecycle journeys written years ago. Rebuilding around behaviour-routed paths (onboarding, expansion, retention, win-back, product-specific) typically lifts trial-to-paid conversion within the first quarter. The unlock is finally having paths that respond to what the user has actually done, rather than better copy.
 
-**D2C, growth-stage — the post-purchase rebuild.** A brand with a post-purchase journey of a handful of emails at fixed intervals. Rebuilding as ~14 touchpoints across email + SMS routed by product category, purchase amount and behaviour signals typically lifts repeat-purchase at 90 days substantially. Cadence per channel matters; sequence on top of behaviour matters more.
+**D2C, growth-stage, the post-purchase rebuild.** A brand with a post-purchase journey of a handful of emails at fixed intervals. Rebuilding as ~14 touchpoints across email plus SMS routed by product category, purchase amount and behaviour signals typically lifts repeat-purchase at 90 days substantially. Cadence per channel matters, and sequence on top of behaviour matters more.
 
-**Marketplace — the underdefined-segment failure.** A common failure mode: drafting a winback journey for "lapsed users" without a tight definition. The label means five different things to five different teams. Whichever meaning the draft assumes, when the team launches to all five, performance ends up indistinguishable from no-touch. This is why the current pipeline refuses to draft until segment definitions pass an objective-statement test. The pipeline can't fix unclear strategy — it can only make unclear strategy ship faster.
+**Marketplace, the underdefined-segment failure.** A common failure mode is drafting a winback journey for "lapsed users" without a tight definition. The label means five different things to five different teams. Whichever meaning the draft assumes, when the team launches to all five, performance ends up indistinguishable from no-touch. This is why the current pipeline refuses to draft until segment definitions pass an objective-statement test. The pipeline can't fix unclear strategy, only make unclear strategy ship faster.

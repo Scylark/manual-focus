@@ -7,13 +7,13 @@ const lastUpdated = '2026-06-28';
 const nextReview = 'Q3 2026';
 ---
 <Base
-  title="What's actually possible — The Lens capability reference"
+  title="What's actually possible. The Lens capability reference"
   description="Honest read on what AI can and cannot reliably do this quarter for endurance and sports marketing. Updated quarterly with the model landscape."
 >
   <SEOHead
     slot="seo"
     type="article"
-    title="What's actually possible — The Lens capability reference"
+    title="What's actually possible. The Lens capability reference"
     description="Honest read on what AI can and cannot reliably do this quarter for endurance and sports marketing. Updated quarterly with the model landscape."
     breadcrumbs={[
       { name: 'Home', url: '/' },
@@ -30,12 +30,12 @@ const nextReview = 'Q3 2026';
       <p class="cap-lead">
         Every playbook in The Lens has to be grounded in what AI can really
         do today, not what the keynote demo promised. This page is the
-        honest read — by capability, with concrete examples of what holds
+        honest read, by capability, with concrete examples of what holds
         up and what falls apart. We update it every quarter as the models
         shift.
       </p>
       <p class="cap-meta mono">
-        Last updated: {lastUpdated} · Next review: {nextReview}
+        Last updated {lastUpdated} · Next review {nextReview}
       </p>
     </div>
   </section>
@@ -45,19 +45,19 @@ const nextReview = 'Q3 2026';
 
       <h2>The grading</h2>
       <p>
-        Each capability gets one of four ratings:
+        Each capability gets one of four ratings.
       </p>
       <ul>
-        <li><strong class="rating green">Production-ready</strong> — used on
+        <li><strong class="rating green">Production-ready</strong>, used on
         live client work without supervision beyond standard QA. The output
         ships.</li>
-        <li><strong class="rating amber">Production-with-guardrails</strong> —
+        <li><strong class="rating amber">Production-with-guardrails</strong>,
         works in the pipeline but needs an eval gate, a fact-check pass, or
         a human spot-check before it ships.</li>
-        <li><strong class="rating orange">Experimental</strong> — useful for
+        <li><strong class="rating orange">Experimental</strong>, useful for
         internal drafting or as a starting point a human heavily edits.
         Not yet shippable as the final artefact.</li>
-        <li><strong class="rating red">Not yet</strong> — the demo looks
+        <li><strong class="rating red">Not yet</strong>, the demo looks
         great. Real-world reliability is too low for production work.
         Don't promise it to a client.</li>
       </ul>
@@ -68,12 +68,12 @@ const nextReview = 'Q3 2026';
         This is where AI compounds time hardest. Drafting a long-form piece
         from a structured brief, extracting a brand voice from a corpus,
         classifying 500 search queries by intent, surfacing contradictions
-        across a brand's public surface — all of this works reliably with
+        across a brand's public surface, all of this works reliably with
         the right scaffolding. The Lens's drafting, voice, positioning and
         SEO-cluster playbooks all sit in this category.
       </p>
       <p>
-        Caveat: factual claims need grounding. The model will assert plausible-
+        Caveat. Factual claims need grounding. The model will assert plausible-
         sounding numbers and quotes if you don't constrain it. Every
         production drafting pipeline in The Lens runs a fact-grounded
         eval gate that verifies claims against approved sources.
@@ -85,31 +85,31 @@ const nextReview = 'Q3 2026';
         A draft scored against a 12-check voice rubric ships. A draft based
         on "write in our voice" without a profile produces generic copy
         every time. The brand-voice-extraction playbook builds the
-        observable profile; everything downstream relies on it.
+        observable profile, and everything downstream relies on it.
       </p>
 
       <h2>Original research and fact-finding</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> when paired with web search and explicit source citation. Never trust the model's "knowledge" for anything date-sensitive or industry-specific.</p>
       <p>
         Race results, athlete bios, sponsorship deal terms, regulatory
-        changes — these need real sources retrieved at run-time, not
+        changes, these need real sources retrieved at run-time, not
         recall from training. The earned-media-pitch playbook hard-fails
         any reference that wasn't fetched and verified, precisely because
         a hallucinated journalist quote burns relationships permanently.
       </p>
 
-      <h2>Image generation — generic subjects</h2>
+      <h2>Image generation, generic subjects</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for context shots, mood imagery, hero backdrops, and lifestyle scenes with generic subjects.</p>
       <p>
         Generating a wide shot of a road cyclist at dawn on a coastal
         switchback, a trail runner cresting a ridge, a swimmer at lap 60
-        of a session — this works. The output is usable for social
+        of a session, this works. The output is usable for social
         backdrops, brand mood pieces, blog hero images, paid ad
-        creative variants. Eval gate: human review for hand quirks,
+        creative variants. Eval gate is human review for hand quirks,
         bike geometry, and gear plausibility.
       </p>
 
-      <h2>Image generation — branded product</h2>
+      <h2>Image generation, branded product</h2>
       <p class="rating-line"><strong class="rating red">Not yet</strong> for product imagery where logo legibility, colourway accuracy, geometry, or model-specific details matter.</p>
       <p>
         We've tested every frontier model on this every quarter for two
@@ -121,60 +121,60 @@ const nextReview = 'Q3 2026';
         not the product card.
       </p>
       <p>
-        Workaround that does work: shoot the product once, then use
+        Workaround that does work is to shoot the product once, then use
         image-to-image with the real product as the source to produce
         variants in different environments (different light, different
         terrain, different season). The model edits the surroundings,
-        not the product. Eval gate: pixel-diff the product region
+        not the product. Eval gate is to pixel-diff the product region
         against the source.
       </p>
 
-      <h2>Video generation — generic subjects</h2>
-      <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for short clips (typically 4–10 seconds) of generic subjects in named environments.</p>
+      <h2>Video generation, generic subjects</h2>
+      <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for short clips (typically 4 to 10 seconds) of generic subjects in named environments.</p>
       <p>
         A wide of a cyclist on a Tuscany hill at golden hour, a runner
         climbing wooden stairs in a forest, a swimmer's underwater push-off
-        from a wall — these work. Useful for social cuts, paid creative
+        from a wall, these work. Useful for social cuts, paid creative
         variants, atmospheric brand films where named athletes and named
-        products aren't required. Eval gate: human review for limb
+        products aren't required. Eval gate is human review for limb
         physics, water dynamics, and the recurring "wrong number of pedal
         rotations per crank stroke" issue.
       </p>
 
-      <h2>Video generation — branded product or named athlete</h2>
+      <h2>Video generation, branded product or named athlete</h2>
       <p class="rating-line"><strong class="rating red">Not yet</strong>. Same constraints as branded image generation, compounded across frames.</p>
       <p>
         Generating video of <em>your specific bike</em> being ridden through
         an environment, with logos intact through every frame, with
-        accurate geometry maintained through motion — doesn't work today.
+        accurate geometry maintained through motion, doesn't work today.
         Logos warp. The bike morphs across frames. The kit colour drifts.
         Generating video of a named athlete who hasn't been licensed for
         AI use is legally fraught even where the model is convincing.
       </p>
       <p>
-        Workaround that does work: shoot the athlete and the product
+        Workaround that does work is to shoot the athlete and the product
         practically. Use AI for the supplementary cuts that don't need
-        the named athlete or product in frame — environmental shots,
+        the named athlete or product in frame, such as environmental shots,
         time-of-day variants, weather-condition variants for the same
         campaign.
       </p>
 
-      <h2>Audio generation — synthetic voice</h2>
+      <h2>Audio generation, synthetic voice</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for podcast pre-rolls, ad voiceover, internal training material. Disclose AI use where the audience expectation is human delivery.</p>
       <p>
         Quality is good enough for production in most contexts. The
-        ethical gate matters more than the technical one — listeners
+        ethical gate matters more than the technical one, because listeners
         feel misled if a brand pretends a synthetic voice is the
         founder's actual voice. Be honest. The brands that disclose are
-        winning trust; the brands that don't are losing it when found out.
+        winning trust, and the brands that don't are losing it when found out.
       </p>
 
-      <h2>Audio generation — music</h2>
+      <h2>Audio generation, music</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for short pieces. Track length and structural complexity push the limits fast.</p>
       <p>
-        15–60 second pieces for social cuts and reels work. Full-length
+        15 to 60 second pieces for social cuts and reels work. Full-length
         original tracks for hero films still struggle with structural
-        coherence past the 90-second mark. Licensing is also evolving — the
+        coherence past the 90-second mark. Licensing is also evolving, since the
         legal landscape for AI music in commercial use is changing every
         few months, and we re-check this section every quarter.
       </p>
@@ -184,7 +184,7 @@ const nextReview = 'Q3 2026';
       <p>
         Pulling a journalist's last five articles, scraping a competitor's
         product range, gathering GSC data, classifying a corpus of
-        reviews — all production-ready. The browser-using agents have
+        reviews, all production-ready. The browser-using agents have
         gotten reliable enough that this is now a workhorse capability
         in most Lens playbooks.
       </p>
@@ -193,10 +193,10 @@ const nextReview = 'Q3 2026';
       <p class="rating-line"><strong class="rating green">Production-ready</strong> for analytical reasoning over structured data. Generated charts need a human eye for axis sanity and label legibility.</p>
       <p>
         Channel-mix simulators, attribution tear-downs, retention cohort
-        analyses — all reliable with structured data input. The model
+        analyses, all reliable with structured data input. The model
         writes the analysis script (Python, R, SQL), runs it, interprets
         the result. Just don't trust visualisations the model invents
-        from prose — generate the chart from the data, not from the
+        from prose, since the chart should come from the data, not from the
         description.
       </p>
 
@@ -210,16 +210,16 @@ const nextReview = 'Q3 2026';
       </p>
       <p>
         <strong>The shoot still matters.</strong> Athletes, products, named
-        team imagery — these are practical work. You still hire a
+        team imagery, these are practical work. You still hire a
         photographer. You still fly to Tuscany. You still pay the
         athletes. AI augments the shoot's output (variants, social cuts,
         environmental b-roll) but doesn't replace the shoot itself.
       </p>
       <p>
-        Brands that pretend otherwise — "we used AI for our whole campaign,
-        including the product hero" — are either lying or shipping work
+        Brands that pretend otherwise, with claims like "we used AI for our whole campaign,
+        including the product hero", are either lying or shipping work
         that's hurting the brand. The brands actually winning treat AI as
-        the most productive intern they've ever had: brilliant at the
+        the most productive intern they've ever had, brilliant at the
         groundwork, supervised on the edge cases, and never trusted with
         the family silver until the eval gate proves they should be.
       </p>
@@ -228,11 +228,11 @@ const nextReview = 'Q3 2026';
       <p>
         We re-grade every capability quarterly. When a model lands that
         moves a rating, we annotate the entry with the date and the
-        evidence. When a capability is downgraded — yes, it happens —
+        evidence. When a capability is downgraded, and yes, it happens,
         we explain what stopped working and what the workaround is.
       </p>
       <p>
-        Subscribers get the change log; everyone gets the current state.
+        Subscribers get the change log, and everyone gets the current state.
       </p>
     </div>
   </section>

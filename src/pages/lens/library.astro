@@ -26,11 +26,11 @@ const grouped = stacks.map(s => ({
 const totalCount = entries.length;
 const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
-<Base title="The Lens — Library" description="The full library of AI marketing playbooks. Brand, demand, content and operating-system workflows. Search and browse.">
+<Base title="The Lens. Library" description="The full library of AI marketing playbooks. Brand, demand, content and operating-system workflows. Search and browse.">
   <SEOHead
     slot="seo"
     type="service"
-    title="The Lens — Library"
+    title="The Lens. Library"
     description="Browse the full library of AI marketing playbooks. Brand, demand, content and operating-system workflows from the Manual Focus methodology."
     breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'The Lens', url: '/lens' }, { name: 'Library', url: '/lens/library' }]}
   />
@@ -40,7 +40,7 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
       <a href={url('/lens')} class="library-back mono">← THE LENS</a>
       <div class="eyebrow">LIBRARY</div>
       <h1 class="library-title">{totalCount} playbooks, four stacks.</h1>
-      <p class="library-lead">The methodology Manual Focus brings to AI marketing work. Filter by stack, by stage, by channel. Pull what fits the brief in front of you. <strong>New to The Lens?</strong> <a href={url('/lens/start-here')} class="library-cap-link">Start here</a> for the orientation guide. Each playbook is honest about what AI can and cannot reliably do — see the <a href={url('/lens/capabilities')} class="library-cap-link">capability reference</a>.</p>
+      <p class="library-lead">The methodology Manual Focus brings to AI marketing work. Filter by stack, by stage, by channel. Pull what fits the brief in front of you. <strong>New to The Lens?</strong> <a href={url('/lens/start-here')} class="library-cap-link">Start here</a> for the orientation guide. Each playbook is honest about what AI can and cannot reliably do, so see the <a href={url('/lens/capabilities')} class="library-cap-link">capability reference</a>.</p>
 
       <div class="library-stack-nav" role="navigation" aria-label="Stack filters">
         {stacks.map(s => (

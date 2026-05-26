@@ -15,9 +15,9 @@ preview: false
 
 ## The brief
 
-"Write in our voice" is the single most-failed instruction in marketing AI. Every team has tried pasting their brand guidelines into a system prompt and watching the output come back generic, then blamed the model. The model isn't the issue. The brand guidelines are the issue — they describe the voice in adjectives ("confident, warm, knowledgeable") that any model can satisfy in a hundred different ways.
+"Write in our voice" is the single most-failed instruction in marketing AI. Every team has tried pasting their brand guidelines into a system prompt and watching the output come back generic, then blamed the model. The model isn't the issue. The brand guidelines are the issue, because they describe the voice in adjectives like "confident, warm, knowledgeable" that any model can satisfy in a hundred different ways.
 
-This playbook produces three artefacts that fix that. **A voice profile** built from observable patterns in the brand's actual best writing — not adjectives, but cadence rules, lexical choices, syntactic tells. **An evaluation rubric** that scores any draft against the profile. **A prompt library** of templates for the team's recurring outputs (blog opener, social caption, email subject, sales follow-up), each pre-loaded with the patterns the rubric will check for.
+This playbook produces three artefacts that fix that. A voice profile built from observable patterns in the brand's actual best writing, with cadence rules, lexical choices and syntactic tells rather than adjectives. An evaluation rubric that scores any draft against the profile. And a prompt library of templates for the team's recurring outputs (blog opener, social caption, email subject, sales follow-up), each pre-loaded with the patterns the rubric will check for.
 
 The result is content that reads like the brand wrote it because it's built against the same rules the brand's best writer actually follows, often without realising.
 
@@ -25,17 +25,17 @@ The result is content that reads like the brand wrote it because it's built agai
 
 The pipeline has four phases.
 
-**Phase 1 — Corpus curation.** Get the brand to nominate 10 to 15 pieces of writing they're proud of. Not their full output — their proudest. These set the high-water mark. Strip everything else.
+**Phase 1, corpus curation.** Get the brand to nominate 10 to 15 pieces of writing they're proud of. Not their full output, just their proudest. These set the high-water mark. Strip everything else.
 
-**Phase 2 — Pattern extraction.** Run the corpus through a structured-extraction prompt that pulls thirty-plus observable patterns: average sentence length, sentence length variance, paragraph length, contraction frequency, comma-to-full-stop ratio, opening-word patterns, transition words used, transition words avoided, lexical formality, jargon density, person (first/second/third), tense distribution, rhetorical devices present.
+**Phase 2, pattern extraction.** Run the corpus through a structured-extraction prompt that pulls thirty-plus observable patterns. Average sentence length, sentence length variance, paragraph length, contraction frequency, comma-to-full-stop ratio, opening-word patterns, transition words used, transition words avoided, lexical formality, jargon density, person (first/second/third), tense distribution, rhetorical devices present.
 
-**Phase 3 — Voice profile synthesis.** Aggregate the patterns into a voice profile that's specific enough to be falsifiable. Not "warm" — but "second-person, present tense, average sentence 14 words ±5, paragraphs of 2 or 3 sentences, contractions on, semicolons absent, em dashes absent, opening with the noun rarely with the article."
+**Phase 3, voice profile synthesis.** Aggregate the patterns into a voice profile that's specific enough to be falsifiable. Not "warm" but "second-person, present tense, average sentence 14 words ±5, paragraphs of 2 or 3 sentences, contractions on, semicolons absent, em dashes absent, opening with the noun rarely with the article."
 
-**Phase 4 — Prompt library build.** For each of the team's recurring output types, build a prompt template that constrains the model against the profile. The prompts read like recipe cards: input slots labelled, output rules explicit, evaluation criteria attached.
+**Phase 4, prompt library build.** For each of the team's recurring output types, build a prompt template that constrains the model against the profile. The prompts read like recipe cards, with input slots labelled, output rules explicit and evaluation criteria attached.
 
 ## The prompts
 
-The core extraction prompt is the one that earns the profile. We've shipped many versions; this is the one that holds up.
+The core extraction prompt is the one that earns the profile. Many versions have shipped, and this is the one that holds up.
 
 ```text
 SYSTEM: You are a stylometrician analysing a brand's writing. Your job is
@@ -101,9 +101,9 @@ The "what this brand never does" field is the most underrated. A voice is define
 
 ## The eval harness
 
-We score every draft against the profile using a deterministic rubric. Not a model-judges-model setup — those drift. A scoring script that counts the patterns.
+Every draft is scored against the profile using a deterministic rubric. A model-judges-model setup drifts, so a scoring script that counts the patterns is the better tool.
 
-The rubric has 12 checks, each pass/fail or numeric:
+The rubric has 12 checks, each pass/fail or numeric.
 
 | Check | Type | Threshold |
 |---|---|---|
@@ -120,28 +120,28 @@ The rubric has 12 checks, each pass/fail or numeric:
 | At least one rhetorical device from profile | Pattern | Present |
 | Reading-level within profile bracket | Numeric | Within range |
 
-A draft scoring 10+ ships. Scoring 8-9 goes back to the model with the failing checks named explicitly ("rewrite. Your draft has 3 em dashes; the brand uses 0. Mean sentence length 23; target is 14 ±5.") Scoring below 8 is regenerated from scratch, not edited.
+A draft scoring 10+ ships. Scoring 8-9 goes back to the model with the failing checks named explicitly ("rewrite. Your draft has 3 em dashes; the brand uses 0. Mean sentence length 23; target is 14 ±5."). Scoring below 8 is regenerated from scratch rather than edited.
 
-This eval is run by a script (Python or your runtime of choice), not a human. We ship the script and the rubric JSON as part of the playbook download. The script takes about 30ms per draft. You can wire it into a CI step on the content repo and it will block a merge.
+A script runs this eval (Python or your runtime of choice) rather than a human. The script and the rubric JSON ship as part of the playbook download. The script takes about 30ms per draft. Wire it into a CI step on the content repo and it can block a merge.
 
 ## The failure modes
 
-**The corpus contains a single dominant author.** If 12 of the 15 pieces are by one person, the profile is that person's voice, not the brand's. Solve by either (a) declaring that author as the canonical voice and being intentional about it, or (b) requiring at least 3 distinct authors in the corpus, with no author over 40% of total word count.
+**The corpus contains a single dominant author.** If 12 of the 15 pieces are by one person, the profile is that person's voice rather than the brand's. Solve by either (a) declaring that author as the canonical voice and being intentional about it, or (b) requiring at least 3 distinct authors in the corpus, with no author over 40% of total word count.
 
-**The model collapses the profile to vibes.** Some models will return adjectives even when prompted for counts. Watch for "warm" or "confident" appearing anywhere in the JSON; they shouldn't. If they do, regenerate with a different model. Claude tends to honour the structured-output discipline here; GPT-5 needs the rules tighter; smaller models often need few-shot examples.
+**The model collapses the profile to vibes.** Some models will return adjectives even when prompted for counts. Watch for "warm" or "confident" appearing anywhere in the JSON, because they shouldn't. If they do, regenerate with a different model. Claude tends to honour the structured-output discipline here. GPT-5 needs the rules tighter. Smaller models often need few-shot examples.
 
 **The rubric is too strict.** A 12-of-12 hit rate is unreachable in practice. Most brand voices have a sentence-length variance that the strictest numeric check will fail. Set the ship threshold at 10 and use the gap analysis (which 2 failed?) as the edit guide.
 
-**The brand voice is actually two voices.** Some brands write differently on the blog than they do in the product. That's not a problem; it's a real-world pattern. Build two profiles (blog-voice, product-voice) and route through the right one per channel. The prompt library should know which voice owns each output type.
+**The brand voice is actually two voices.** Some brands write differently on the blog than they do in the product. That's a real-world pattern rather than a problem. Build two profiles (blog-voice, product-voice) and route through the right one per channel. The prompt library should know which voice owns each output type.
 
-**Voice drift after 6 months.** The model providers update. The team's best writer leaves. Re-run the corpus extraction quarterly on the latest 90 days of "proud" output and diff the profile against the previous version. If the diff is significant, the voice is drifting in production — flag and decide whether to formalise the new state or pull it back.
+**Voice drift after 6 months.** The model providers update. The team's best writer leaves. Re-run the corpus extraction quarterly on the latest 90 days of "proud" output and diff the profile against the previous version. If the diff is significant, the voice is drifting in production. Flag and decide whether to formalise the new state or pull it back.
 
 ## The pattern in practice
 
-Illustrative scenarios — common shapes this pipeline surfaces. Specifics are illustrative; the patterns repeat.
+Illustrative scenarios that show common shapes this pipeline surfaces. Specifics are illustrative and the patterns repeat.
 
-**SaaS, Series B, 90-person team — the multi-voice corpus.** The brand has a long-form voice guide. Content output still sounds like everyone else in the category. Extraction surfaces that the "warm" voice the guide describes is actually three voices — the founder's, the head of content's, and the agency-written baseline. The honest move: keep the first two as named profiles, retire the agency baseline. The content team writes in either founder voice or content-head voice, deliberately picked per piece. Blog engagement improves measurably because every piece picks a real voice rather than splitting the difference.
+**SaaS, Series B, 90-person team, the multi-voice corpus.** A brand has a long-form voice guide, but content output still sounds like everyone else in the category. Extraction typically surfaces that the "warm" voice the guide describes is actually three voices, the founder's, the head of content's, and the agency-written baseline. The honest move is to keep the first two as named profiles and retire the agency baseline. The content team writes in either founder voice or content-head voice, deliberately picked per piece. Blog engagement tends to improve measurably because every piece picks a real voice rather than splitting the difference.
 
-**D2C apparel, growth-stage — the aspiration gap.** The brand has been told for years that its voice is "irreverent." The extraction shows the corpus actually runs neutral-to-formal, with no contractions and very few rhetorical devices. The "irreverent" framing is aspiration, not reality. Honest profile ships instead. The team stops trying to write irreverently — output gets more consistent and social engagement rises, because the voice matches the rest of the marketing surface.
+**D2C apparel, growth-stage, the aspiration gap.** A brand has been told for years that its voice is "irreverent." Extraction often shows the corpus actually runs neutral-to-formal, with no contractions and very few rhetorical devices. The "irreverent" framing is aspiration rather than reality. Honest profile ships instead. The team stops trying to write irreverently, output gets more consistent, and social engagement rises because the voice matches the rest of the marketing surface.
 
-**Endurance-sports brand, scale-stage — the buried pattern.** A brand with a strong voice can rarely articulate it. Extraction surfaces that this brand opens nearly every long-form piece with a single short sentence under 7 words, then a longer second sentence that contradicts or qualifies it. Bottle that as a rule. Every blog opener routes through a short-prompt template that enforces it. Bounce rate on long-form drops because the most distinctive thing about the brand's voice is now applied consistently.
+**Endurance-sports brand, scale-stage, the buried pattern.** A brand with a strong voice can rarely articulate it. Extraction often surfaces that this kind of brand opens nearly every long-form piece with a single short sentence under 7 words, then a longer second sentence that contradicts or qualifies it. Bottle that as a rule. Every blog opener routes through a short-prompt template that enforces it. Bounce rate on long-form tends to drop because the most distinctive thing about the brand's voice is now applied consistently.

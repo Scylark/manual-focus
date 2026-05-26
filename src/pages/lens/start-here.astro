@@ -4,13 +4,13 @@ import SEOHead from '../../components/SEOHead.astro';
 import { url } from '../../utils/paths';
 ---
 <Base
-  title="Start here — how to use The Lens"
+  title="Start here. How to use The Lens"
   description="Where to begin with The Lens. Pick your starting point by situation, follow the natural sequence of playbooks, install the skills into Claude Code."
 >
   <SEOHead
     slot="seo"
     type="article"
-    title="Start here — how to use The Lens"
+    title="Start here. How to use The Lens"
     description="Where to begin with The Lens. Pick your starting point by situation, follow the natural sequence of playbooks, install the skills into Claude Code."
     breadcrumbs={[
       { name: 'Home', url: '/' },
@@ -37,12 +37,12 @@ import { url } from '../../utils/paths';
     <div class="container start-prose">
       <h2>What's in The Lens</h2>
       <p>
-        Two kinds of artefact:
+        Two kinds of artefact.
       </p>
       <ul>
         <li>
-          <strong>Playbooks</strong> — written documents, 1,000–1,500 words
-          each. The shape of an AI-leveraged marketing workflow: the
+          <strong>Playbooks</strong>, written documents of 1,000 to 1,500 words
+          each. The shape of an AI-leveraged marketing workflow, with the
           brief, the pipeline, the prompts, the eval harness, the failure
           modes, and either a real receipt (where Manual Focus has run
           this work) or an illustrative example (where it's the
@@ -50,15 +50,15 @@ import { url } from '../../utils/paths';
           <a href={url('/lens/library')}>Browse the full library →</a>
         </li>
         <li>
-          <strong>Skills</strong> — runnable agent companions to 14 of
+          <strong>Skills</strong>, runnable agent companions to 14 of
           the playbooks. SKILL.md files in the Anthropic Agent Skills
           spec, installable as a Claude Code plugin. The playbook
-          explains the work; the skill <em>is</em> the work. <a href={url('/lens/skills')}>Browse the skills →</a>
+          explains the work, the skill <em>is</em> the work. <a href={url('/lens/skills')}>Browse the skills →</a>
         </li>
       </ul>
 
       <p>
-        <strong>New to prompting or AI skills?</strong> <a href={url('/lens/primer')}>Read The Lens 101</a> — a seven-minute primer on what a prompt is, what
+        <strong>New to prompting or AI skills?</strong> <a href={url('/lens/primer')}>Read The Lens 101</a>, a seven-minute primer on what a prompt is, what
         makes one good, what an agent skill is, and how to install
         and use them. Worth reading before the first playbook.
       </p>
@@ -106,48 +106,48 @@ import { url } from '../../utils/paths';
         <p>
           Most common starting situation. New CMO, fractional engagement,
           rebrand consideration, founder-led brand outgrowing its early
-          positioning. Three plays in order:
+          positioning. Three plays in order.
         </p>
         <ol class="path-list">
           <li>
-            <strong><a href={url('/lens/brand/positioning-audit-pipeline')}>Positioning audit</a></strong>
-            — Run the brand's surface through a six-pass audit. Output: where the brand actually sits today, and where it should.
+            <strong><a href={url('/lens/brand/positioning-audit-pipeline')}>Positioning audit</a></strong>,
+            running the brand's surface through a six-pass audit. The output is where the brand actually sits today, and where it should.
           </li>
           <li>
-            <strong><a href={url('/lens/brand/brand-voice-extraction')}>Brand voice extraction</a></strong>
-            — From the audit's corpus, extract the observable voice patterns. Output: a voice profile + scoring rubric for every future draft.
+            <strong><a href={url('/lens/brand/brand-voice-extraction')}>Brand voice extraction</a></strong>,
+            taking the audit's corpus and extracting the observable voice patterns. The output is a voice profile and scoring rubric for every future draft.
           </li>
           <li>
-            <strong><a href={url('/lens/brand/message-house-generator')}>Message house</a></strong>
-            — Convert the sharpened position into pillars, proof points and channel-mapped lines. Output: the messaging spine for the next 12 months.
+            <strong><a href={url('/lens/brand/message-house-generator')}>Message house</a></strong>,
+            converting the sharpened position into pillars, proof points and channel-mapped lines. The output is the messaging spine for the next 12 months.
           </li>
         </ol>
-        <p class="path-time mono">TYPICAL ELAPSED TIME · 5–10 WORKING DAYS</p>
+        <p class="path-time mono">TYPICAL ELAPSED TIME · 5 TO 10 WORKING DAYS</p>
       </article>
 
       <article class="path-card">
         <div class="eyebrow">PATH 2</div>
         <h3>You need to ship better content, faster, in the brand's voice</h3>
         <p>
-          You already know what the brand stands for; what you don't have
+          You already know what the brand stands for. What you don't have
           is the production line that ships consistent work at the
-          standard the brand needs. Three plays in order:
+          standard the brand needs. Three plays in order.
         </p>
         <ol class="path-list">
           <li>
-            <strong><a href={url('/lens/brand/brand-voice-extraction')}>Brand voice extraction</a></strong>
-            — If you don't already have a voice profile in observable patterns, build one. Adjective-based voice guides won't work as input.
+            <strong><a href={url('/lens/brand/brand-voice-extraction')}>Brand voice extraction</a></strong>.
+            If you don't already have a voice profile in observable patterns, build one. Adjective-based voice guides won't work as input.
           </li>
           <li>
-            <strong><a href={url('/lens/content/eval-gated-drafting')}>Eval-gated drafting pipeline</a></strong>
-            — The production line. Drafts score against four gates (voice, fact-grounded, originality, structural) before a human editor sees them.
+            <strong><a href={url('/lens/content/eval-gated-drafting')}>Eval-gated drafting pipeline</a></strong>,
+            the production line. Drafts score against four gates (voice, fact-grounded, originality, structural) before a human editor sees them.
           </li>
           <li>
-            <strong><a href={url('/lens/content/social-content-factory')}>Social content factory</a></strong>
-            — Channel-native social production from a single weekly story brief. Stops cross-posting blog excerpts.
+            <strong><a href={url('/lens/content/social-content-factory')}>Social content factory</a></strong>,
+            channel-native social production from a single weekly story brief. Stops cross-posting blog excerpts.
           </li>
         </ol>
-        <p class="path-time mono">TYPICAL ELAPSED TIME · 1–2 WEEKS TO INSTALL, ONGOING DAILY</p>
+        <p class="path-time mono">TYPICAL ELAPSED TIME · 1 TO 2 WEEKS TO INSTALL, ONGOING DAILY</p>
       </article>
 
       <article class="path-card">
@@ -157,23 +157,23 @@ import { url } from '../../utils/paths';
           The function ships output but the system around it is ad-hoc.
           Briefs are chats, evals are missing, every piece needs senior
           review because the standard isn't codified. Three plays in
-          order:
+          order.
         </p>
         <ol class="path-list">
           <li>
-            <strong><a href={url('/lens/ops/brief-to-ship-pipeline')}>Brief-to-ship pipeline</a></strong>
-            — The structured brief template, the weekly triage, the production cadence, the post-mortem. Replaces ten tools and three weekly meetings.
+            <strong><a href={url('/lens/ops/brief-to-ship-pipeline')}>Brief-to-ship pipeline</a></strong>,
+            the structured brief template, the weekly triage, the production cadence, the post-mortem. Replaces ten tools and three weekly meetings.
           </li>
           <li>
-            <strong><a href={url('/lens/ops/evaluation-frameworks')}>Evaluation frameworks</a></strong>
-            — Rubrics per output type. Deterministic where possible, LLM-as-judge where necessary. The standard becomes objective, not "the editor's gut."
+            <strong><a href={url('/lens/ops/evaluation-frameworks')}>Evaluation frameworks</a></strong>,
+            rubrics per output type. Deterministic where possible, LLM-as-judge where necessary. The standard becomes objective, not "the editor's gut."
           </li>
           <li>
-            <strong><a href={url('/lens/ops/brand-guardrails-as-code')}>Brand guardrails as code</a></strong>
-            — Turn brand guidelines into a programmatic ruleset that runs against every piece before it ships. Catches drift before it ships, not after.
+            <strong><a href={url('/lens/ops/brand-guardrails-as-code')}>Brand guardrails as code</a></strong>,
+            turning brand guidelines into a programmatic ruleset that runs against every piece before it ships. Catches drift before it ships, not after.
           </li>
         </ol>
-        <p class="path-time mono">TYPICAL ELAPSED TIME · 2–4 WEEKS TO INSTALL, COMPOUND BENEFIT FOR YEARS</p>
+        <p class="path-time mono">TYPICAL ELAPSED TIME · 2 TO 4 WEEKS TO INSTALL, COMPOUND BENEFIT FOR YEARS</p>
       </article>
     </div>
   </section>
@@ -230,11 +230,11 @@ import { url } from '../../utils/paths';
             <td><a href={url('/lens/demand/lifecycle-journey-builder')}>Lifecycle journey builder</a></td>
           </tr>
           <tr>
-            <td>Planning campaigns around the race / event calendar</td>
+            <td>Planning campaigns around the race or event calendar</td>
             <td><a href={url('/lens/demand/race-day-demand-pipeline')}>Race-day demand pipeline</a></td>
           </tr>
           <tr>
-            <td>Restructuring an athlete / ambassador programme</td>
+            <td>Restructuring an athlete or ambassador programme</td>
             <td><a href={url('/lens/demand/ambassador-programme')}>Ambassador programme</a></td>
           </tr>
           <tr>
@@ -246,7 +246,7 @@ import { url } from '../../utils/paths';
             <td><a href={url('/lens/demand/retail-partner-programme')}>Retail partner programme</a></td>
           </tr>
           <tr>
-            <td>Designing a subscription / membership programme</td>
+            <td>Designing a subscription or membership programme</td>
             <td><a href={url('/lens/demand/subscription-membership')}>Subscription and membership</a></td>
           </tr>
           <tr>
@@ -313,20 +313,20 @@ import { url } from '../../utils/paths';
       <p>
         14 of the playbooks ship as runnable skills for Claude Code,
         Cursor, Codex, Windsurf or any agent that honours the
-        <a href="https://agentskills.io" target="_blank" rel="noopener">Agent Skills spec</a>. Skills reference each other — the output of one becomes
-        the input of the next — so they compose into a real working
+        <a href="https://agentskills.io" target="_blank" rel="noopener">Agent Skills spec</a>. Skills reference each other, with the output of one becoming
+        the input of the next, so they compose into a real working
         cadence rather than 14 separate things.
       </p>
 
       <p>
-        Three composition patterns worth knowing:
+        Three composition patterns worth knowing.
       </p>
 
       <h3>Brand foundation</h3>
       <p class="composition">
-        <code>positioning-audit</code> produces a positioning brief →
-        <code>brand-voice-extraction</code> reads it for context →
-        <code>message-house</code> builds pillars and channel lines →
+        <code>positioning-audit</code> produces a positioning brief.
+        <code>brand-voice-extraction</code> reads it for context.
+        <code>message-house</code> builds pillars and channel lines.
         <code>eval-gated-drafting</code> uses the message house and voice
         rubric to gate every draft.
       </p>
@@ -334,24 +334,24 @@ import { url } from '../../utils/paths';
       <h3>Endurance content engine</h3>
       <p class="composition">
         <code>endurance-brand-voice</code> extends the standard voice
-        profile with sport-specific lexicon →
+        profile with sport-specific lexicon.
         <code>seo-cluster-generator</code> plans topic clusters around
-        the brand's audience CEPs →
-        <code>eval-gated-drafting</code> drafts each piece with voice +
-        cluster context →
+        the brand's audience CEPs.
+        <code>eval-gated-drafting</code> drafts each piece with voice
+        and cluster context.
         <code>social-content-factory</code> repurposes each piece into
-        channel-native social posts →
+        channel-native social posts.
         <code>race-result-content-engine</code> ships race recaps fast.
       </p>
 
       <h3>Demand and lifecycle</h3>
       <p class="composition">
         <code>category-entry-points</code> identifies the buying
-        triggers the brand should own →
+        triggers the brand should own.
         <code>lifecycle-journey-builder</code> uses the CEP map to define
-        journey entry triggers and touchpoint copy →
+        journey entry triggers and touchpoint copy.
         <code>earned-media-pitch</code> uses the CEP map to surface
-        story angles for journalists →
+        story angles for journalists.
         <code>ai-studio-news-watch</code> drafts LinkedIn posts about
         AI releases that compound the brand's CEP ownership.
       </p>
@@ -359,7 +359,7 @@ import { url } from '../../utils/paths';
       <p>
         Each skill's SKILL.md ends with a hand-off section naming the
         downstream skills it feeds. The composition is documented in
-        the work; you don't need to memorise it.
+        the work, so you don't need to memorise it.
       </p>
     </div>
   </section>
@@ -370,7 +370,7 @@ import { url } from '../../utils/paths';
       <h2>Install the skills</h2>
       <p>
         The skills run as a Claude Code plugin. Install with two
-        commands in any Claude Code session:
+        commands in any Claude Code session.
       </p>
       <pre class="install-block"><code>/plugin marketplace add Scylark/manual-focus
 /plugin install the-lens@manual-focus</code></pre>
@@ -378,12 +378,12 @@ import { url } from '../../utils/paths';
         After install, the agent will recognise relevant tasks and
         offer the right skill. Asking Claude something like
         "audit our positioning against the competitive set" surfaces
-        the <code>positioning-audit</code> skill; pasting a race
+        the <code>positioning-audit</code> skill, while pasting a race
         result URL with "draft the recap" surfaces the
         <code>race-result-content-engine</code>.
       </p>
       <p>
-        Skills source: <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">github.com/Scylark/manual-focus/tree/main/lens-skills ↗</a>
+        Skills source at <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">github.com/Scylark/manual-focus/tree/main/lens-skills ↗</a>
       </p>
     </div>
   </section>
@@ -394,15 +394,15 @@ import { url } from '../../utils/paths';
       <h2>Read the capability reference before you ship</h2>
       <p>
         The Lens is honest about what AI can and cannot reliably do
-        this quarter. The <a href={url('/lens/capabilities')}>capability reference</a> grades every category — text,
+        this quarter. The <a href={url('/lens/capabilities')}>capability reference</a> grades every category, covering text,
         voice matching, original research, image (generic vs branded),
         video (generic vs branded vs named athletes), audio, browser
-        automation, data analysis — and tells you which ones are
+        automation and data analysis, and tells you which ones are
         production-ready, which need guardrails, which are
         experimental, and which are not-yet.
       </p>
       <p>
-        For endurance brands specifically: AI compounds time hard on
+        For endurance brands specifically, AI compounds time hard on
         analysis, drafting, orchestration and environmental b-roll
         variants. Practical shoots still matter for branded products
         and named athletes. The capability reference draws the line
@@ -423,7 +423,7 @@ import { url } from '../../utils/paths';
       <h3>You don't know which playbook applies</h3>
       <p>
         Ask Claude. With the plugin installed, describing your
-        situation in plain language is enough — the agent will pick
+        situation in plain language is enough, and the agent will pick
         the right skill. Without the plugin, the by-situation table
         above covers most starting points.
       </p>
@@ -432,17 +432,17 @@ import { url } from '../../utils/paths';
       <p>
         Some playbooks (positioning-audit, category-entry-points,
         retail-partner-programme) recommend a small customer interview
-        set as input. They run without it but with lower confidence —
-        every playbook documents what running on degraded inputs
+        set as input. They run without it but with lower confidence,
+        and every playbook documents what running on degraded inputs
         actually costs you in the eval section.
       </p>
 
       <h3>You want to use a different model from the one the playbook names</h3>
       <p>
-        Fine. Every playbook lists the models we've tested it against;
-        most workflows are model-agnostic with the right prompt
+        Fine. Every playbook lists the models we've tested it against,
+        and most workflows are model-agnostic with the right prompt
         scaffolding. The playbook's eval gates catch model drift
-        directly — if a swap breaks output quality, the gates will
+        directly. If a swap breaks output quality, the gates will
         tell you before the output ships.
       </p>
 
@@ -450,7 +450,7 @@ import { url } from '../../utils/paths';
       <p>
         Open a PR on <a href="https://github.com/Scylark/manual-focus" target="_blank" rel="noopener">github.com/Scylark/manual-focus</a> or email
         the team. Real client work surfaces gaps faster than internal
-        review; we update the playbooks as soon as the gap is real.
+        review, so we update the playbooks as soon as the gap is real.
       </p>
 
       <h3>You want to talk to Manual Focus instead</h3>

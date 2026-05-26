@@ -33,11 +33,11 @@ const stackName = {
 }[d.stack];
 const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
-<Base title={`${d.title} — The Lens`} description={d.description}>
+<Base title={`${d.title}. The Lens`} description={d.description}>
   <SEOHead
     slot="seo"
     type="article"
-    title={`${d.title} — The Lens`}
+    title={`${d.title}. The Lens`}
     description={d.description}
     breadcrumbs={[
       { name: 'Home', url: '/' },

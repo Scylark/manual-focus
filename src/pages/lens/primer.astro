@@ -4,13 +4,13 @@ import SEOHead from '../../components/SEOHead.astro';
 import { url } from '../../utils/paths';
 ---
 <Base
-  title="The Lens 101 — prompting and skills, plainly"
+  title="The Lens 101. Prompting and skills, plainly"
   description="A primer for readers new to prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
 >
   <SEOHead
     slot="seo"
     type="article"
-    title="The Lens 101 — prompting and skills, plainly"
+    title="The Lens 101. Prompting and skills, plainly"
     description="A primer for readers new to prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
     breadcrumbs={[
       { name: 'Home', url: '/' },
@@ -26,12 +26,12 @@ import { url } from '../../utils/paths';
       <h1 class="p101-title">Prompting and skills, plainly.</h1>
       <p class="p101-lead">
         Most readers landing on a playbook hit a code block titled
-        "SYSTEM:" and either get it or close the tab. This page is for
-        the second group — and for the first group who want a sharper
+        "SYSTEM" and either get it or close the tab. This page is for
+        the second group, and for the first group who want a sharper
         mental model. What a prompt is, what makes one good, what an
         agent skill is, and how the two relate.
       </p>
-      <p class="p101-meta mono">Read time: 7 minutes</p>
+      <p class="p101-meta mono">Read time 7 minutes</p>
     </div>
   </section>
 
@@ -40,22 +40,22 @@ import { url } from '../../utils/paths';
     <div class="container p101-prose">
       <h2>1 · What a prompt is</h2>
       <p>
-        A prompt is the instruction you give a language model — the same
+        A prompt is the instruction you give a language model, the same
         way you'd brief a junior on a task. The model reads the prompt,
         runs it through its training, and writes a reply. The prompt is
         the only thing you control. The reply is what comes back.
       </p>
       <p>
-        Most teams use prompts the way people use Google: a few words,
-        hope for the best. That works for low-stakes tasks ("summarise
+        Most teams use prompts the way people use Google, with a few words
+        and hope for the best. That works for low-stakes tasks ("summarise
         this email") and falls apart for anything that needs to ship.
         The playbooks in The Lens use prompts the way you'd brief a
-        senior colleague: clear context, explicit constraints, a
+        senior colleague, with clear context, explicit constraints, a
         specific output format, and the rules for what counts as good.
       </p>
       <p>
         The Lens shows real prompts inside the playbooks as fenced code
-        blocks. They look something like this:
+        blocks. They look something like this.
       </p>
       <pre class="p101-code"><code>SYSTEM: You are a stylometrician analysing a brand's writing.
 You surface measurable, observable patterns — not adjectives,
@@ -75,7 +75,7 @@ Return JSON in this exact shape:
       <p>
         Two parts to notice. The <code>SYSTEM:</code> block tells the
         model what role to take and what rules to follow. The
-        <code>USER:</code> block is the actual request — the data, the
+        <code>USER:</code> block is the actual request, the data, the
         question, the specific shape of what's wanted back. This pattern
         repeats across every playbook with a prompt example. Once you
         recognise the shape, the prompts get fast to read.
@@ -89,7 +89,7 @@ Return JSON in this exact shape:
       <h2>2 · What makes a prompt good</h2>
       <p>
         Six properties separate prompts that ship from prompts that
-        produce slop:
+        produce slop.
       </p>
       <h3>Role and rules in the system block</h3>
       <p>
@@ -111,7 +111,7 @@ Return JSON in this exact shape:
         useful. "Average sentence length 14 words, no em dashes, no
         contractions, opener follows the pattern shown in these three
         examples" tells it something measurable. Adjectives are
-        unfalsifiable; counts and patterns aren't.
+        unfalsifiable, where counts and patterns aren't.
       </p>
       <h3>Constraints, explicitly named</h3>
       <p>
@@ -121,9 +121,9 @@ Return JSON in this exact shape:
       </p>
       <h3>Refusal conditions</h3>
       <p>
-        Good prompts tell the model when to <em>not</em> do the task —
+        Good prompts tell the model when to <em>not</em> do the task,
         when the input is too thin, when the request crosses an ethical
-        line, when an upstream artefact is missing. The Lens skills
+        line, or when an upstream artefact is missing. The Lens skills
         refuse named-athlete image generation, fabricated journalist
         quotes, and unsourced factual claims because the prompts tell
         them to.
@@ -147,31 +147,31 @@ Return JSON in this exact shape:
     <div class="container p101-prose">
       <h2>3 · Anatomy of a Lens prompt</h2>
       <p>
-        Open any playbook with a prompt and the structure repeats:
+        Open any playbook with a prompt and the structure repeats.
       </p>
       <ol>
         <li>
-          <strong>SYSTEM block</strong> — role, rules, never-does list, refusal
-          conditions
+          <strong>SYSTEM block</strong>, with role, rules, never-does list and refusal
+          conditions.
         </li>
         <li>
-          <strong>USER block intro</strong> — what task is being asked
+          <strong>USER block intro</strong>, naming what task is being asked.
         </li>
         <li>
-          <strong>Inputs</strong> — variables in <code>{`{CURLY_BRACES}`}</code>, filled at
-          runtime
+          <strong>Inputs</strong>, with variables in <code>{`{CURLY_BRACES}`}</code>, filled at
+          runtime.
         </li>
         <li>
-          <strong>Output schema</strong> — the exact JSON or text shape to return
+          <strong>Output schema</strong>, the exact JSON or text shape to return.
         </li>
         <li>
-          <strong>Rules</strong> — verbatim-only / counts must be plausible / no
-          invented numbers / etc
+          <strong>Rules</strong>, such as verbatim-only, counts must be plausible, no
+          invented numbers, and so on.
         </li>
       </ol>
       <p>
         That structure isn't arbitrary. It maps to how the model parses
-        the request — role first, rules second, task third, format
+        the request, with role first, rules second, task third, format
         fourth, constraints repeated last so they survive the model's
         attention window. Writing prompts in any other order produces
         worse output for the same effort.
@@ -184,7 +184,7 @@ Return JSON in this exact shape:
     <div class="container p101-prose">
       <h2>4 · What an agent skill is</h2>
       <p>
-        A skill is a prompt wearing a uniform. More precisely: a
+        A skill is a prompt wearing a uniform. More precisely, a
         directory containing a <code>SKILL.md</code> file with a structured
         frontmatter declaring what the skill triggers on, plus the
         prompt body the agent runs when invoked.
@@ -196,7 +196,7 @@ Return JSON in this exact shape:
         whose workflows fit cleanly as single agent tasks.
       </p>
       <p>
-        A minimal SKILL.md looks like this:
+        A minimal SKILL.md looks like this.
       </p>
       <pre class="p101-code"><code>---
 name: positioning-audit
@@ -222,7 +222,7 @@ You are a brand strategist running a six-pass positioning audit...
 
 ...</code></pre>
       <p>
-        The frontmatter is the discoverability layer — the
+        The frontmatter is the discoverability layer, where the
         <code>description</code> is what the agent reads to decide
         whether to offer this skill for a given task. The body is the
         playbook the agent then runs.
@@ -235,7 +235,7 @@ You are a brand strategist running a six-pass positioning audit...
     <div class="container p101-prose">
       <h2>5 · Installing the Lens skills</h2>
       <p>
-        Two commands in any Claude Code session:
+        Two commands in any Claude Code session.
       </p>
       <pre class="p101-code"><code>/plugin marketplace add Scylark/manual-focus
 /plugin install the-lens@manual-focus</code></pre>
@@ -244,7 +244,7 @@ You are a brand strategist running a six-pass positioning audit...
         [brand]" surfaces the <code>positioning-audit</code> skill.
         Asking "draft a recap of the race that just finished" surfaces
         the <code>race-result-content-engine</code>. The agent picks
-        from the descriptions; you just describe the task.
+        from the descriptions, and you just describe the task.
       </p>
     </div>
   </section>
@@ -256,7 +256,7 @@ You are a brand strategist running a six-pass positioning audit...
       <p>
         Not every playbook is a prompt. The Lens has three flavours,
         worth knowing about so you don't expect a SYSTEM block where
-        none belongs:
+        none belongs.
       </p>
       <h3>Pipeline playbooks</h3>
       <p>
@@ -285,7 +285,7 @@ You are a brand strategist running a six-pass positioning audit...
         <code>gear-launch-sequence</code>, <code>ambassador-programme</code>,
         <code>quarterly-planning-ritual</code>, <code>customer-content-rights</code>.
         These don't ship as skills because they aren't single agent
-        tasks — they're functions you build inside the team.
+        tasks. They're functions you build inside the team.
       </p>
       <p>
         The library index doesn't tag these explicitly yet, but the
@@ -300,31 +300,31 @@ You are a brand strategist running a six-pass positioning audit...
     <div class="container p101-prose">
       <h2>7 · Prompt or skill or pipeline?</h2>
       <p>
-        A practical rule for your own work:
+        A practical rule for your own work.
       </p>
       <ul>
         <li>
-          <strong>One-off task</strong> — paste the prompt into ChatGPT or
+          <strong>One-off task</strong>, paste the prompt into ChatGPT or
           Claude.ai. No need for a skill.
         </li>
         <li>
-          <strong>Recurring task you do alone</strong> — save the prompt as a
-          Notion / text snippet. Still no skill needed.
+          <strong>Recurring task you do alone</strong>, save the prompt as a
+          Notion or text snippet. Still no skill needed.
         </li>
         <li>
-          <strong>Recurring task you do across projects</strong> — write a
-          skill. The agent learns when to offer it; you stop pasting prompts.
+          <strong>Recurring task you do across projects</strong>, write a
+          skill. The agent learns when to offer it, and you stop pasting prompts.
         </li>
         <li>
-          <strong>Recurring task that has multiple steps and evals</strong> —
-          this is a pipeline. The skill orchestrates; the steps within can
+          <strong>Recurring task that has multiple steps and evals</strong>,
+          this is a pipeline. The skill orchestrates, and the steps within can
           call sub-models, scripts, or APIs.
         </li>
       </ul>
       <p>
         Most readers can ignore skills entirely if they're using the
         Lens for occasional reference. Skills are the unlock when the
-        workflow becomes part of how you work week-to-week.
+        workflow becomes part of how you work week to week.
       </p>
     </div>
   </section>
@@ -338,7 +338,7 @@ You are a brand strategist running a six-pass positioning audit...
         It will, unless you tell it not to. Every prompt that touches
         factual claims should include "every claim must be sourced or
         flagged for human verification" or equivalent. The Lens prompts
-        all do this; your own prompts should too.
+        all do this, and your own prompts should too.
       </p>
       <h3>The model is too verbose</h3>
       <p>
@@ -357,7 +357,7 @@ You are a brand strategist running a six-pass positioning audit...
       <p>
         If you need to use the output downstream (e.g. feed it into a
         script), demand JSON in the exact schema. Prose output is for
-        humans; structured output is for everything else.
+        humans, and structured output is for everything else.
       </p>
       <h3>The skill doesn't trigger</h3>
       <p>
@@ -377,7 +377,7 @@ You are a brand strategist running a six-pass positioning audit...
         <div class="eyebrow">NEXT</div>
         <h2>Now pick a playbook.</h2>
         <p>
-          The 101 is the pattern; the playbooks are the work. Skim
+          The 101 is the pattern, and the playbooks are the work. Skim
           one in your stack of choice, look at the prompt block, and
           notice the structure you just read about. Once you can see
           it, you can write it.

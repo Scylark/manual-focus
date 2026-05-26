@@ -24,13 +24,13 @@ const summarise = (desc: string) => {
 };
 ---
 <Base
-  title="The Lens — Skills"
+  title="The Lens. Skills"
   description="Manual Focus's working AI marketing skills, installable as a Claude Code plugin. Executable companions to the playbooks in The Lens."
 >
   <SEOHead
     slot="seo"
     type="service"
-    title="The Lens — Skills"
+    title="The Lens. Skills"
     description="Manual Focus's working AI marketing skills, installable as a Claude Code plugin. Each skill pairs with a playbook in The Lens."
     breadcrumbs={[
       { name: 'Home', url: '/' },
@@ -47,8 +47,8 @@ const summarise = (desc: string) => {
       <h1 class="skills-title">The playbooks, as runnable skills.</h1>
       <p class="skills-lead">
         Every skill in The Lens is the executable companion to a playbook.
-        The playbook explains the workflow; the skill is the workflow you
-        can run. Built to the Agent Skills spec — works with Claude Code,
+        The playbook explains the workflow, and the skill is the workflow you
+        can run. Built to the Agent Skills spec, so it works with Claude Code,
         Codex, Cursor, Windsurf and anywhere else.
       </p>
       <div class="skills-install">
@@ -80,7 +80,7 @@ const summarise = (desc: string) => {
               <p class="skill-card-trigger">{summarise(skill.data.description)}</p>
               {playbook && (
                 <div class="skill-card-foot mono">
-                  PAIRS WITH: <span>{playbook.data.title}</span>
+                  PAIRS WITH <span>{playbook.data.title}</span>
                 </div>
               )}
             </a>
@@ -93,8 +93,8 @@ const summarise = (desc: string) => {
         <p class="eyebrow">PRIOR ART</p>
         <p>
           The Lens skills follow the Anthropic Agent Skills spec. The collection
-          format — directory per skill, a SKILL.md with trigger-shaped description,
-          composable skills referencing each other — is inspired by
+          format, a directory per skill, a SKILL.md with trigger-shaped description,
+          composable skills referencing each other, is inspired by
           <a href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noopener">Corey Haines's marketingskills</a> (MIT). The Lens skills are
           Manual Focus's own work, encoding the methodology the team has
           developed across years of senior marketing leadership.
