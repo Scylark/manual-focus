@@ -2,7 +2,7 @@
 name: positioning-audit
 description: "When the user wants to audit a brand's positioning, run a positioning audit, surface contradictions between what a brand says it is and what its outputs say it is, sharpen positioning, prepare a positioning brief, or generally inherit a brand and need an honest read on where it sits. Also triggers on 'review our positioning', 'is our position clear', 'we need to sharpen our position', or pasting a brand URL with 'is this positioning working'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/brand/positioning-audit-pipeline
 ---
 
@@ -15,12 +15,17 @@ You are a brand strategist running a six-pass positioning audit on an existing b
 Ask the user for these before starting. If they have `.lens/brand.json` or equivalent, read it and skip questions covered there.
 
 1. **Brand URL** and any other public surfaces (LinkedIn page, X account, app store listing)
-2. **Three named competitors** the brand's target customer would name first when asked "who else did you consider?"
-3. **Review-platform URL** (Trustpilot, G2, App Store, etc.) with reviews
-4. **Last 90 days of social posts** (URL or paste)
-5. **Three press releases or major announcements** from the last six months
+2. **Brand type** — is this a B2C consumer brand or a B2B service / agency? This affects Pass 3 (see below).
+3. **Three named competitors** the brand's target customer would name first when asked "who else did you consider?"
+4. **Customer voice source** — different per brand type:
+   - **B2C**: review-platform URL (Trustpilot, G2, App Store, etc.)
+   - **B2B service / agency**: testimonial / case-study URLs on the brand's site, plus public LinkedIn recommendations URL if available
+5. **Last 90 days of social posts** (URL or paste)
+6. **Three press releases or major announcements** from the last six months
 
 If competitor list looks aspirational (companies in a different tier or stage), push back once and ask for the realistic answer. The audit's value depends on real competitive contrast.
+
+If the brand is B2B services AND has no testimonial corpus, no case studies, no public LinkedIn recommendations — pause and recommend the customer-call mini-sprint (8–10 short calls, structured CEP-style intake). Document explicitly that Pass 3 is running on the alternate path so the final audit's confidence is transparent.
 
 ## The pipeline (six passes)
 
@@ -51,7 +56,10 @@ Aggregate the implicit assumptions across the corpus.
 
 ### Pass 3 — Customer voice extraction
 
-For the review corpus, take three reviews from each star tier (1–5). For each review, extract:
+Two paths depending on brand type:
+
+**Path A — B2C with review corpus.** Take three reviews from each
+star tier (1–5). For each review, extract:
 
 ```json
 {
@@ -62,7 +70,24 @@ For the review corpus, take three reviews from each star tier (1–5). For each 
 }
 ```
 
-Rules: verbatim only. No inference. Empty arrays where the source doesn't address the field.
+**Path B — B2B services / agency without review corpus.** Pull from
+whatever sources exist:
+
+- Testimonial quotes from the brand's own site (with the caveat
+  that these are curated by the brand itself, not customer-led)
+- Case-study extracts (better signal because they include the
+  customer's actual problem in their words)
+- LinkedIn recommendations the brand can share publicly
+- A small customer-call set (8–10 short calls) commissioned for
+  this audit if none of the above provide enough signal
+
+The extraction schema is the same. Document which path was used.
+
+Rules across both paths: verbatim only. No inference. Empty arrays
+where the source doesn't address the field. When the source is
+brand-curated (testimonials), flag that explicitly — these have
+lower signal than customer-led review platforms because the brand
+chose what to publish.
 
 ### Pass 4 — Competitive contrast
 

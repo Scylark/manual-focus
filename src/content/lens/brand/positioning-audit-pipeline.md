@@ -29,7 +29,9 @@ The pipeline has six passes. Each pass narrows the analysis from the brand's own
 
 **Pass 2 — Output sampling.** Pull the last ninety days of social posts, the last six paid creatives, the last three press releases, the last ten blog posts. Feed each through a "what does this assume the audience already believes" prompt. Aggregate the implicit assumptions.
 
-**Pass 3 — Customer voice extraction.** Take three reviews from each star tier (1 to 5) on the brand's primary review platform. Run a "what does the customer actually thank the brand for" pass alongside a "what does the customer say the brand is for" pass. The two answers rarely match.
+**Pass 3 — Customer voice extraction.** For a B2C brand with a review platform: take three reviews from each star tier (1 to 5). Run a "what does the customer actually thank the brand for" pass alongside a "what does the customer say the brand is for" pass. The two answers rarely match.
+
+For a B2B service or agency without a review corpus: pull from testimonials on the brand's site, case-study quotes, LinkedIn recommendations, and ideally an 8–10 customer call mini-sprint commissioned for this audit. Brand-curated sources (the testimonials the brand selected for its own site) get flagged as lower-signal than customer-led ones.
 
 **Pass 4 — Competitive contrast.** Pull the same four artefacts from three named competitors. Run a contrast pass: where do the claims overlap, where do they actively contradict, where does this brand claim something a competitor claims more credibly.
 
