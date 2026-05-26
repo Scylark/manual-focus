@@ -119,26 +119,23 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         revealItems.forEach(el => visObs.observe(el));
 
         let pending = false;
-        function paint(items: Iterable<HTMLElement>) {
+        function update() {
           const vh = window.innerHeight;
           // 70% of viewport height is the reveal window: element
           // starts revealing when its top is at vh, fully revealed
           // when its top is at 30% from the top of the viewport.
           const window70 = vh * 0.7;
-          for (const el of items) {
+          nearViewport.forEach(el => {
             const rect = el.getBoundingClientRect();
             const raw = (vh - rect.top) / window70;
             const p = raw < 0 ? 0 : raw > 1 ? 1 : raw;
             const prev = lastP.get(el);
-            if (prev !== undefined && Math.abs(p - prev) < 0.01) continue;
+            if (prev !== undefined && Math.abs(p - prev) < 0.01) return;
             const eased = p * p * (3 - 2 * p);
             el.style.opacity = eased.toFixed(3);
             el.style.transform = `translate3d(0, ${((1 - eased) * 40).toFixed(1)}px, 0)`;
             lastP.set(el, p);
-          }
-        }
-        function update() {
-          paint(nearViewport);
+          });
           pending = false;
         }
         window.addEventListener('scroll', () => {
@@ -147,12 +144,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         window.addEventListener('resize', () => {
           if (!pending) { pending = true; requestAnimationFrame(update); }
         }, { passive: true });
-        // Initial paint: process ALL reveal items so above-the-fold
-        // content reveals at load instead of waiting for the
-        // IntersectionObserver to populate `nearViewport` (which
-        // happens asynchronously and leaves the page blank until
-        // the user scrolls).
-        paint(revealItems);
+        update();
       }
     } else {
       // Reduced motion: snap everything visible immediately, no
