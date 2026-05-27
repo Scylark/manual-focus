@@ -19,8 +19,8 @@ import { url } from '../utils/paths';
   <!-- HERO -->
   <section class="section lens-hero dwell-pin">
     <div class="dwell-pin-stage">
-      <FocusObject size={420} tiltX={62} tiltY={-18} spin={140} scrollSpin={-80} style="top: 4%; right: 4%;" enterFrom="right" />
-      <FocusObject size={300} tiltX={55} tiltY={20} spin={-110} scrollSpin={90} style="bottom: 6%; left: 3%;" enterFrom="left" />
+      <FocusObject size={420} tiltX={62} tiltY={-18} spin={140} scrollSpin={-80} style="top: 4%; right: -6%;" enterFrom="right" />
+      <FocusObject size={260} tiltX={55} tiltY={20} spin={-110} scrollSpin={90} style="bottom: -8%; left: -10%;" enterFrom="left" />
 
       <div class="container lens-hero-inner">
         <div class="eyebrow reveal">000 · THE LENS</div>
@@ -517,6 +517,25 @@ import { url } from '../utils/paths';
      page (1280px from global .container) so the H1 and eyebrow
      align with the section headlines below it instead of sitting
      ~280px further in from the viewport edge. */
+
+  /* Above-the-fold reveal elements need to be visible at load.
+     The scroll-driven reveal JS uses an async IntersectionObserver
+     to populate `nearViewport`, so the very first paint of the
+     page leaves hero reveals at the CSS opacity-0 initial state.
+     Override here for the hero specifically — JS continues to run
+     and writes opacity 1 anyway once the observer fires, so this
+     just guarantees content is visible from frame one. */
+  .lens-hero-inner .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  /* Lift the hero copy above the decorative FocusObject rings so
+     the START HERE / BROWSE THE LIBRARY buttons stay readable when
+     a ring drifts behind them on scroll. */
+  .lens-hero-inner {
+    position: relative;
+    z-index: 3;
+  }
   .lens-headline {
     font-size: clamp(2.5rem, 7vw, 6rem);
     line-height: 1.02;

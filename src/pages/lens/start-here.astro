@@ -557,7 +557,16 @@ import { url } from '../../utils/paths';
   .start-section.section-alt {
     background: var(--color-bg-alt);
   }
-  .start-prose {
+  /* The body sections use the standard .container (1280px, centered)
+     so they align horizontally with the .start-head section above.
+     Reading width is constrained on the text children rather than
+     on the outer wrapper, so paragraphs stay readable but everything
+     left-aligns to the container edge, not centred at 75ch. */
+  .start-prose > h2,
+  .start-prose > h3,
+  .start-prose > p,
+  .start-prose > ul,
+  .start-prose > ol {
     max-width: 75ch;
   }
   .start-prose h2 {
