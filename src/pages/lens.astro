@@ -85,10 +85,10 @@ import { url } from '../utils/paths';
         <h2 class="reveal">A living library, not a course you finish.</h2>
         <p class="lead reveal">
           The Lens is a curated reference for senior marketers. Each entry is
-          a complete AI workflow shipped with the prompts, the evaluation
-          harness, the failure modes and the actual eval results from the
-          pipeline running in production. No ninety-minute video that loses
-          relevance the moment a new model lands.
+          a complete AI workflow with the prompts, the eval gates, the
+          failure modes and a worked example walked through end to end.
+          No ninety-minute video that loses relevance the moment a new
+          model lands.
         </p>
 
         <div class="lens-pillars stagger">
@@ -105,22 +105,24 @@ import { url } from '../utils/paths';
           </article>
           <article class="lens-pillar">
             <div class="pillar-num mono">/B</div>
-            <h3>Full eval harness, not just prompts</h3>
+            <h3>Eval gates and failure modes named</h3>
             <p>
-              The prompts are the easy part. Each entry ships with the eval
-              criteria, the test set, the failure cases and the score thresholds
-              we use to decide a workflow is shippable. Swap the model, re-run
-              the harness, ship.
+              Prompts are the easy part. Each entry ships with the
+              quality checks the workflow should pass before output goes
+              live, the common ways the workflow breaks, and the signals
+              that tell you which is happening. Swap the model, re-run
+              the checks, ship.
             </p>
           </article>
           <article class="lens-pillar">
             <div class="pillar-num mono">/C</div>
             <h3>Refreshed as the models shift</h3>
             <p>
-              When a frontier model lands we re-run the harness across every
-              affected workflow. If it changes the result, the entry gets
-              annotated and the prompts updated. The library stays current
-              instead of going stale.
+              When a frontier model lands, the affected workflows get
+              re-tested and the entries get updated. If a model change
+              breaks a workflow the entry is annotated with what changed
+              and what the new shape looks like. The library stays
+              current instead of going stale.
             </p>
           </article>
           <article class="lens-pillar">
@@ -181,7 +183,7 @@ import { url } from '../utils/paths';
         <a href={url('/lens/start-here')} class="first-card first-card-fallback">
           <div class="first-card-tag mono">OR</div>
           <h3>None of those, show me the full guide</h3>
-          <p>The "Start here" page has the by-situation lookup table, plus the three composition patterns and the install path.</p>
+          <p>The "Start here" page has the by-situation lookup table, plus the four starting paths and the install path.</p>
           <span class="first-card-cue mono">FULL GUIDE →</span>
         </a>
       </div>
@@ -204,9 +206,9 @@ import { url } from '../utils/paths';
             <div class="stack-num mono">STACK · BRAND</div>
             <h3>Brand &amp; positioning</h3>
             <p>
-              Positioning audits, naming sprints, brand-voice extraction
-              (endurance extension), message houses, tagline systems, founder
-              vs institutional voice.
+              Positioning audits, naming sprints, brand-voice extraction,
+              endurance brand voice, message houses, tagline systems,
+              founder vs institutional voice.
             </p>
             <p class="stack-count mono">7 playbooks · growing →</p>
           </a>
@@ -394,21 +396,21 @@ set up the lens</code></pre>
           not selling the dream.
         </h2>
         <p class="lead reveal">
-          The Lens is curated by the Manual Focus partners and a rotating cast
-          from the Foundry collective. Fifty-plus years of senior marketing
-          experience between them, across endurance brands, B2B SaaS, fintech
-          and consumer launches. The playbooks are the methodology that
-          experience produced, the shapes, the prompts, the eval gates, the
-          failure modes the partners have seen go wrong and learned to
-          design around.
+          The Lens is curated by Manual Focus, a senior marketing
+          practice working with endurance brands and AI-native operators,
+          with a rotating cast of contributors from the Foundry
+          collective. The playbooks are the methodology that practice
+          produced. The shapes, the prompts, the eval gates, the
+          failure modes seen go wrong over years of senior marketing
+          work and designed around.
         </p>
         <p class="reveal">
-          As Manual Focus engagements compound, real receipts replace
-          illustrative examples in each entry and the eval results become
-          the actual eval results from those runs. When a workflow gets
-          retired we say so on the entry and explain why. When a model
-          change breaks a workflow we annotate within seventy-two hours
-          of the model release.
+          As engagements run and patterns prove themselves, illustrative
+          examples in each entry are replaced with real ones and the
+          eval shapes with what those runs actually produced. When a
+          workflow gets retired the entry says so and explains why.
+          When a frontier model release changes the result of a
+          workflow, the affected entries get annotated and updated.
         </p>
       </div>
     </div>
@@ -477,11 +479,12 @@ set up the lens</code></pre>
           <details class="lens-faq-item">
             <summary>What if a model change breaks a workflow I'm running?</summary>
             <p>
-              We annotate the affected entries within seventy-two hours of
-              a frontier-model release. The annotation says what changed,
-              which prompts were updated, what the new eval scores look
-              like and whether the workflow still ships. If your version
-              is running fine, you don't need to touch it.
+              When a frontier model lands, the affected entries get
+              re-tested and annotated with what changed, which prompts
+              got updated and whether the workflow still ships in the
+              same shape. If your version is running fine, you don't
+              need to touch it. Subscribers get notified when an entry
+              they would care about has been refreshed.
             </p>
           </details>
           <details class="lens-faq-item">
