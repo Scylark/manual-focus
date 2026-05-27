@@ -376,25 +376,37 @@ set up the lens</code></pre>
               <li>AI-studio news pipeline summary in your inbox weekly (optional)</li>
               <li>No upsell. No drip funnel. Just the library and the updates.</li>
             </ul>
+            {/*
+              Kit (ConvertKit) embedded-form endpoint. Form ID 9490842,
+              UID cf656e168b. The form posts via fetch in no-cors mode
+              below so the user stays on the page instead of being
+              redirected to Kit's hosted success page.
+
+              Switching services later only needs the action URL and
+              field name updated. Kit uses `email_address`, Mailchimp
+              uses `EMAIL`, Buttondown uses `email`.
+            */}
             <form
               class="lens-signup-form"
               data-newsletter-form
-              action="https://manual-focus.us20.list-manage.com/subscribe/post?u=PLACEHOLDER&amp;id=PLACEHOLDER"
+              action="https://app.kit.com/forms/9490842/subscriptions"
               method="POST"
-              target="_blank"
               novalidate
             >
               <label for="lens-email-signup" class="sr-only">Email address</label>
               <input
                 type="email"
                 id="lens-email-signup"
-                name="EMAIL"
+                name="email_address"
                 placeholder="your@email.com"
                 required
                 autocomplete="email"
               />
-              <button type="submit" class="btn-cta">Get free access</button>
+              <button type="submit" class="btn-cta" data-newsletter-submit>
+                <span data-submit-label>Get free access</span>
+              </button>
             </form>
+            <p class="lens-signup-feedback" data-newsletter-feedback role="status" aria-live="polite"></p>
             <p class="price-note">
               We send roughly one email a week. <a href={url('/privacy')}>What we do with your data</a>.
               Or skip the email and read everything directly at <a href={url('/lens/library')}>/lens/library</a>.
@@ -814,6 +826,34 @@ set up the lens</code></pre>
     flex-shrink: 0;
     white-space: nowrap;
   }
+  .lens-signup-form .btn-cta[data-state="loading"] {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
+  /* Newsletter signup feedback (success / error) */
+  .lens-signup-feedback {
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+    min-height: 1.5em;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+  .lens-signup-feedback[data-state="success"] {
+    color: var(--color-text);
+    background: rgba(16, 191, 122, 0.08);
+    border-left: 2px solid #10bf7a;
+    padding: 0.6rem 0.85rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .lens-signup-feedback[data-state="error"] {
+    color: var(--color-text);
+    background: rgba(242, 100, 59, 0.08);
+    border-left: 2px solid #f2643b;
+    padding: 0.6rem 0.85rem;
+    border-radius: 0 4px 4px 0;
+  }
 
   /* CTA close buttons */
   .cta-close-buttons {
@@ -1105,3 +1145,88 @@ set up the lens</code></pre>
     .lens-anatomy li { grid-template-columns: 1.5rem 1fr; padding: var(--space-sm) var(--space-md); }
   }
 </style>
+
+<script>
+  // Newsletter signup wiring for Kit (ConvertKit).
+  //
+  // The form posts via fetch in no-cors mode so the user stays on
+  // the page instead of being redirected to Kit's hosted success
+  // page. no-cors means we can't read Kit's response, so we treat
+  // any non-throwing fetch as a success and show the confirmation
+  // copy inline. A real network failure (offline, DNS, etc.) still
+  // surfaces an error.
+  //
+  // Switching providers later only needs the form action URL and
+  // the field name updated in the markup — this handler keeps
+  // working as long as the new endpoint accepts a standard
+  // form-data POST.
+  const newsletterForm = document.querySelector<HTMLFormElement>('[data-newsletter-form]');
+  if (newsletterForm) {
+    const submitBtn = newsletterForm.querySelector<HTMLButtonElement>('[data-newsletter-submit]');
+    const submitLabel = newsletterForm.querySelector<HTMLSpanElement>('[data-submit-label]');
+    const feedback = document.querySelector<HTMLParagraphElement>('[data-newsletter-feedback]');
+    const emailInput = newsletterForm.querySelector<HTMLInputElement>('input[type="email"]');
+    const originalLabel = submitLabel?.textContent ?? 'Get free access';
+
+    const setFeedback = (state: 'success' | 'error' | 'idle', message = '') => {
+      if (!feedback) return;
+      if (state === 'idle') {
+        feedback.removeAttribute('data-state');
+        feedback.textContent = '';
+      } else {
+        feedback.setAttribute('data-state', state);
+        feedback.textContent = message;
+      }
+    };
+
+    const setLoading = (isLoading: boolean) => {
+      if (!submitBtn) return;
+      if (isLoading) {
+        submitBtn.setAttribute('data-state', 'loading');
+        submitBtn.setAttribute('disabled', 'true');
+        if (submitLabel) submitLabel.textContent = 'Subscribing...';
+      } else {
+        submitBtn.removeAttribute('data-state');
+        submitBtn.removeAttribute('disabled');
+        if (submitLabel) submitLabel.textContent = originalLabel;
+      }
+    };
+
+    newsletterForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      setFeedback('idle');
+
+      const email = emailInput?.value.trim() ?? '';
+      // Basic email validation. Catches obvious typos before sending.
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setFeedback('error', 'That email address does not look right. Try again.');
+        emailInput?.focus();
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const formData = new FormData(newsletterForm);
+        await fetch(newsletterForm.action, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors',
+        });
+        // no-cors gives us an opaque response, so we cannot read
+        // the status code. We treat reaching this point as a
+        // submission accepted by Kit. Kit then sends a
+        // confirmation email; the user must click the link to be
+        // fully subscribed.
+        setFeedback('success', "You're in. Check your inbox to confirm your subscription.");
+        newsletterForm.reset();
+      } catch (err) {
+        // Only reached on actual network failure (offline, DNS,
+        // CORS preflight rejection on an http endpoint, etc.).
+        setFeedback('error', 'Something went wrong. Try again in a moment, or email hello@manual-focus.co.uk.');
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
+</script>
