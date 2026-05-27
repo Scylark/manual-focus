@@ -8,6 +8,47 @@ const year = new Date().getFullYear();
     <h2 class="footer-wordmark">MANUAL FOCUS</h2>
   </div>
 
+  <!-- Subscribe to The Lens. Same Kit endpoint as the /lens/
+       ACCESS section so subscribers land in the same audience
+       wherever they sign up. The handler at the bottom of this
+       component picks up every [data-newsletter-form] on the
+       page, so the lens page form and this one share one
+       implementation. -->
+  <div class="footer-subscribe-wrap">
+    <div class="container footer-subscribe">
+      <div class="footer-subscribe-copy">
+        <p class="footer-heading">Subscribe to The Lens</p>
+        <p class="footer-subscribe-lead">
+          New playbooks, model-change refreshes, the AI-news that
+          actually matters for marketers. Roughly one email a week.
+        </p>
+      </div>
+      <div class="footer-subscribe-form-wrap">
+        <form
+          class="footer-signup-form"
+          data-newsletter-form
+          action="https://app.kit.com/forms/9490842/subscriptions"
+          method="POST"
+          novalidate
+        >
+          <label for="footer-email-signup" class="sr-only">Email address</label>
+          <input
+            type="email"
+            id="footer-email-signup"
+            name="email_address"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          />
+          <button type="submit" class="btn-cta footer-subscribe-btn" data-newsletter-submit>
+            <span data-submit-label>Subscribe</span>
+          </button>
+        </form>
+        <p class="footer-signup-feedback" data-newsletter-feedback role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+
   <div class="container footer-inner">
     <div class="footer-brand">
       <svg viewBox="-10 -50 110 240" xmlns="http://www.w3.org/2000/svg" class="footer-mark" aria-hidden="true">
@@ -166,4 +207,173 @@ const year = new Date().getFullYear();
       align-items: start;
     }
   }
+
+  /* Subscribe block, sits between the wordmark stamp and the
+     sitemap grid. Stacks on narrow viewports, two columns at
+     desktop with copy on the left and form on the right. */
+  .footer-subscribe-wrap {
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    padding-block: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+  .footer-subscribe {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: start;
+  }
+  .footer-subscribe-copy .footer-heading {
+    margin-bottom: 0.6rem;
+    color: var(--color-text);
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+  }
+  .footer-subscribe-lead {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: 1.55;
+    max-width: 50ch;
+    margin: 0;
+  }
+  .footer-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .footer-signup-form input[type="email"] {
+    padding: 0.85rem 1.1rem;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    transition: border-color 0.2s ease;
+    width: 100%;
+  }
+  .footer-signup-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-cta-start);
+  }
+  .footer-signup-form input[type="email"]::placeholder {
+    color: var(--color-text-muted);
+  }
+  .footer-subscribe-btn {
+    white-space: nowrap;
+  }
+  .footer-subscribe-btn[data-state="loading"] {
+    opacity: 0.7;
+    cursor: wait;
+  }
+  .footer-signup-feedback {
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+    min-height: 1.25em;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+  .footer-signup-feedback[data-state="success"] {
+    color: var(--color-text);
+    background: rgba(16, 191, 122, 0.08);
+    border-left: 2px solid #10bf7a;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .footer-signup-feedback[data-state="error"] {
+    color: var(--color-text);
+    background: rgba(242, 100, 59, 0.08);
+    border-left: 2px solid #f2643b;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  @media (min-width: 768px) {
+    .footer-subscribe {
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-xl);
+    }
+    .footer-signup-form {
+      flex-direction: row;
+      align-items: stretch;
+    }
+    .footer-signup-form input[type="email"] {
+      flex: 1 1 auto;
+    }
+  }
 </style>
+
+<script>
+  // Newsletter signup handler. Picks up every [data-newsletter-form]
+  // on the page (the Lens ACCESS form and the footer subscribe
+  // form share one implementation) and posts each one to its
+  // configured Kit endpoint in no-cors mode so the user stays on
+  // the page. Each form gets its own loading state and feedback
+  // message via [data-newsletter-feedback] in the same parent.
+  document.querySelectorAll<HTMLFormElement>('[data-newsletter-form]').forEach(form => {
+    const submitBtn = form.querySelector<HTMLButtonElement>('[data-newsletter-submit]');
+    const submitLabel = form.querySelector<HTMLSpanElement>('[data-submit-label]');
+    const feedback = form.parentElement?.querySelector<HTMLParagraphElement>('[data-newsletter-feedback]') ?? null;
+    const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
+    const originalLabel = submitLabel?.textContent ?? 'Subscribe';
+
+    const setFeedback = (state: 'success' | 'error' | 'idle', message = '') => {
+      if (!feedback) return;
+      if (state === 'idle') {
+        feedback.removeAttribute('data-state');
+        feedback.textContent = '';
+      } else {
+        feedback.setAttribute('data-state', state);
+        feedback.textContent = message;
+      }
+    };
+
+    const setLoading = (isLoading: boolean) => {
+      if (!submitBtn) return;
+      if (isLoading) {
+        submitBtn.setAttribute('data-state', 'loading');
+        submitBtn.setAttribute('disabled', 'true');
+        if (submitLabel) submitLabel.textContent = 'Subscribing...';
+      } else {
+        submitBtn.removeAttribute('data-state');
+        submitBtn.removeAttribute('disabled');
+        if (submitLabel) submitLabel.textContent = originalLabel;
+      }
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      setFeedback('idle');
+
+      const email = emailInput?.value.trim() ?? '';
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setFeedback('error', 'That email address does not look right. Try again.');
+        emailInput?.focus();
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const formData = new FormData(form);
+        await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors',
+        });
+        // no-cors gives us an opaque response, so we cannot read
+        // the status code. We treat reaching this point as a
+        // submission accepted by Kit. Kit then sends a
+        // confirmation email; the user must click the link to be
+        // fully subscribed.
+        setFeedback('success', "You're in. Check your inbox to confirm your subscription.");
+        form.reset();
+      } catch (err) {
+        setFeedback('error', 'Something went wrong. Try again in a moment, or email hello@manual-focus.co.uk.');
+      } finally {
+        setLoading(false);
+      }
+    });
+  });
+</script>

@@ -1146,87 +1146,9 @@ set up the lens</code></pre>
   }
 </style>
 
-<script>
-  // Newsletter signup wiring for Kit (ConvertKit).
-  //
-  // The form posts via fetch in no-cors mode so the user stays on
-  // the page instead of being redirected to Kit's hosted success
-  // page. no-cors means we can't read Kit's response, so we treat
-  // any non-throwing fetch as a success and show the confirmation
-  // copy inline. A real network failure (offline, DNS, etc.) still
-  // surfaces an error.
-  //
-  // Switching providers later only needs the form action URL and
-  // the field name updated in the markup — this handler keeps
-  // working as long as the new endpoint accepts a standard
-  // form-data POST.
-  const newsletterForm = document.querySelector<HTMLFormElement>('[data-newsletter-form]');
-  if (newsletterForm) {
-    const submitBtn = newsletterForm.querySelector<HTMLButtonElement>('[data-newsletter-submit]');
-    const submitLabel = newsletterForm.querySelector<HTMLSpanElement>('[data-submit-label]');
-    const feedback = document.querySelector<HTMLParagraphElement>('[data-newsletter-feedback]');
-    const emailInput = newsletterForm.querySelector<HTMLInputElement>('input[type="email"]');
-    const originalLabel = submitLabel?.textContent ?? 'Get free access';
-
-    const setFeedback = (state: 'success' | 'error' | 'idle', message = '') => {
-      if (!feedback) return;
-      if (state === 'idle') {
-        feedback.removeAttribute('data-state');
-        feedback.textContent = '';
-      } else {
-        feedback.setAttribute('data-state', state);
-        feedback.textContent = message;
-      }
-    };
-
-    const setLoading = (isLoading: boolean) => {
-      if (!submitBtn) return;
-      if (isLoading) {
-        submitBtn.setAttribute('data-state', 'loading');
-        submitBtn.setAttribute('disabled', 'true');
-        if (submitLabel) submitLabel.textContent = 'Subscribing...';
-      } else {
-        submitBtn.removeAttribute('data-state');
-        submitBtn.removeAttribute('disabled');
-        if (submitLabel) submitLabel.textContent = originalLabel;
-      }
-    };
-
-    newsletterForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      setFeedback('idle');
-
-      const email = emailInput?.value.trim() ?? '';
-      // Basic email validation. Catches obvious typos before sending.
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        setFeedback('error', 'That email address does not look right. Try again.');
-        emailInput?.focus();
-        return;
-      }
-
-      setLoading(true);
-
-      try {
-        const formData = new FormData(newsletterForm);
-        await fetch(newsletterForm.action, {
-          method: 'POST',
-          body: formData,
-          mode: 'no-cors',
-        });
-        // no-cors gives us an opaque response, so we cannot read
-        // the status code. We treat reaching this point as a
-        // submission accepted by Kit. Kit then sends a
-        // confirmation email; the user must click the link to be
-        // fully subscribed.
-        setFeedback('success', "You're in. Check your inbox to confirm your subscription.");
-        newsletterForm.reset();
-      } catch (err) {
-        // Only reached on actual network failure (offline, DNS,
-        // CORS preflight rejection on an http endpoint, etc.).
-        setFeedback('error', 'Something went wrong. Try again in a moment, or email hello@manual-focus.co.uk.');
-      } finally {
-        setLoading(false);
-      }
-    });
-  }
-</script>
+{/*
+  Newsletter signup handler lives in Footer.astro now, since the
+  same form pattern is used in this page's ACCESS section AND in
+  the site-wide footer. That handler picks up every
+  [data-newsletter-form] on the page including the one above.
+*/}
