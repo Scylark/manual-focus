@@ -255,12 +255,78 @@ import { url } from '../utils/paths';
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- ACCESS -->
+  <section class="section section-alt dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={300} tiltX={50} tiltY={-18} spin={130} scrollSpin={-100} style="top: 6%; right: -6%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">005 · FREE TO READ, SUBSCRIBE FOR UPDATES</div>
+        <h2 class="reveal">Free to read. <span class="gradient-text">Subscribe</span> for what's new.</h2>
+        <p class="lead reveal">
+          Every playbook, every skill, the capability reference and the
+          AI-news pipeline read free, no signup needed. Subscribe with
+          your email if you want a heads-up when new entries ship and
+          existing ones get refreshed against new frontier models.
+        </p>
+        <div class="lens-price reveal">
+          <div class="lens-price-inner">
+            <div class="price-head">
+              <div class="price-tag mono"><span>FREE TO READ</span><span class="price-flag">EMAIL OPTIONAL</span></div>
+              <div class="price-amount">£0<span class="price-per">/forever</span></div>
+              <p class="price-shape mono">No paywall · No credit card · Unsubscribe anytime</p>
+            </div>
+            <ul class="price-list">
+              <li><strong>Free without signing up.</strong> Read every playbook, every skill, the capability reference and the AI-news pipeline at <a href={url('/lens/library')}>/lens/library</a>. No gate, no overlay.</li>
+              <li><strong>Free to install.</strong> The plugin is MIT-licensed and lives on GitHub. Two commands in Claude Code and you have all 25 skills.</li>
+              <li><strong>Subscribe for the changes.</strong> One email when new playbooks ship, one when existing entries get refreshed against new frontier models, one weekly AI-news summary (optional).</li>
+              <li><strong>No upsell. No drip funnel.</strong> Roughly one email a week. Unsubscribe in one click.</li>
+            </ul>
+            {/*
+              Kit (ConvertKit) embedded-form endpoint. Form ID 9490842,
+              UID cf656e168b. The form posts via fetch in no-cors mode
+              below so the user stays on the page instead of being
+              redirected to Kit's hosted success page.
+
+              Switching services later only needs the action URL and
+              field name updated. Kit uses `email_address`, Mailchimp
+              uses `EMAIL`, Buttondown uses `email`.
+            */}
+            <form
+              class="lens-signup-form"
+              data-newsletter-form
+              action="https://app.kit.com/forms/9490842/subscriptions"
+              method="POST"
+              novalidate
+            >
+              <label for="lens-email-signup" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="lens-email-signup"
+                name="email_address"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+              />
+              <button type="submit" class="btn-cta" data-newsletter-submit>
+                <span data-submit-label>Subscribe for updates</span>
+              </button>
+            </form>
+            <p class="lens-signup-feedback" data-newsletter-feedback role="status" aria-live="polite"></p>
+            <p class="price-note">
+              <a href={url('/privacy')}>What we do with your data</a>. Or skip the email entirely and read the library at <a href={url('/lens/library')}>/lens/library</a> any time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LENS PLUGIN -->
   <section class="section dwell-pin">
     <div class="dwell-pin-stage">
       <FocusObject size={300} tiltX={56} tiltY={-15} spin={140} scrollSpin={-80} style="top: 6%; right: 5%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">005 · THE LENS PLUGIN</div>
+        <div class="eyebrow">006 · THE LENS PLUGIN</div>
         <h2 class="reveal">25 marketing workflows your AI agent runs <span class="gradient-text">inside Claude Code</span>.</h2>
         <p class="lead reveal">
           The playbook on this site explains the work. The skill in the
@@ -290,7 +356,7 @@ set up the lens</code></pre>
     <div class="dwell-pin-stage">
       <FocusObject size={320} tiltX={55} tiltY={20} spin={-160} scrollSpin={80} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">006 · WHO IT'S FOR</div>
+        <div class="eyebrow">007 · WHO IT'S FOR</div>
         <h2 class="reveal">Senior operators only.</h2>
         <div class="lens-fit-grid">
           <div class="lens-fit reveal">
@@ -321,7 +387,7 @@ set up the lens</code></pre>
     <div class="dwell-pin-stage">
       <FocusObject size={400} tiltX={58} tiltY={-18} spin={160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">007 · WHO CURATES IT</div>
+        <div class="eyebrow">008 · WHO CURATES IT</div>
         <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
           Operators<br/>
           <span class="gradient-text">running the work</span>,<br/>
@@ -344,75 +410,6 @@ set up the lens</code></pre>
           change breaks a workflow we annotate within seventy-two hours
           of the model release.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACCESS -->
-  <section class="section section-alt dwell-pin">
-    <div class="dwell-pin-stage">
-      <FocusObject size={300} tiltX={50} tiltY={-18} spin={130} scrollSpin={-100} style="top: 6%; right: 4%;" enterFrom="right" />
-      <div class="container">
-        <div class="eyebrow">008 · THE TERMS</div>
-        <h2 class="reveal">Free. Email required.</h2>
-        <p class="lead reveal">
-          Every playbook, every skill, the capability reference, the
-          AI-news pipeline, all of it free. The only thing we ask
-          for is your email, so we can tell you when new entries
-          ship and when existing ones get updated.
-        </p>
-        <div class="lens-price reveal">
-          <div class="lens-price-inner">
-            <div class="price-head">
-              <div class="price-tag mono"><span>FREE ACCESS</span><span class="price-flag">EMAIL FOR UPDATES</span></div>
-              <div class="price-amount">£0<span class="price-per">/forever</span></div>
-              <p class="price-shape mono">No paywall · No credit card · Unsubscribe anytime</p>
-            </div>
-            <ul class="price-list">
-              <li>Full read access to every stack and every playbook</li>
-              <li>Skill plugin installable in Claude Code (free, open source under MIT)</li>
-              <li>Notified when new playbooks ship</li>
-              <li>Notified when existing entries get refreshed against new frontier models</li>
-              <li>AI-studio news pipeline summary in your inbox weekly (optional)</li>
-              <li>No upsell. No drip funnel. Just the library and the updates.</li>
-            </ul>
-            {/*
-              Kit (ConvertKit) embedded-form endpoint. Form ID 9490842,
-              UID cf656e168b. The form posts via fetch in no-cors mode
-              below so the user stays on the page instead of being
-              redirected to Kit's hosted success page.
-
-              Switching services later only needs the action URL and
-              field name updated. Kit uses `email_address`, Mailchimp
-              uses `EMAIL`, Buttondown uses `email`.
-            */}
-            <form
-              class="lens-signup-form"
-              data-newsletter-form
-              action="https://app.kit.com/forms/9490842/subscriptions"
-              method="POST"
-              novalidate
-            >
-              <label for="lens-email-signup" class="sr-only">Email address</label>
-              <input
-                type="email"
-                id="lens-email-signup"
-                name="email_address"
-                placeholder="your@email.com"
-                required
-                autocomplete="email"
-              />
-              <button type="submit" class="btn-cta" data-newsletter-submit>
-                <span data-submit-label>Get free access</span>
-              </button>
-            </form>
-            <p class="lens-signup-feedback" data-newsletter-feedback role="status" aria-live="polite"></p>
-            <p class="price-note">
-              We send roughly one email a week. <a href={url('/privacy')}>What we do with your data</a>.
-              Or skip the email and read everything directly at <a href={url('/lens/library')}>/lens/library</a>.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
