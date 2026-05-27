@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# HeyGen video renders from the video-script-to-heygen skill.
+# Large binary outputs that should not be in git; they live on
+# LinkedIn / YouTube / cloud storage once published.
+videos/

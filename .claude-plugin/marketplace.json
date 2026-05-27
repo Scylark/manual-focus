@@ -12,7 +12,7 @@
   "plugins": [
     {
       "name": "the-lens",
-      "description": "25 AI marketing skills covering positioning, brand voice, naming, demand-gen, content systems, lifecycle, ops and personal-assistant workflows, plus a setup-the-lens onboarding skill that welcomes new users and recommends a starter playbook. Ask Claude to 'set up The Lens' after install.",
+      "description": "26 AI marketing skills: 24 workflow skills covering positioning, brand voice, naming, demand-gen, content systems, lifecycle, ops and personal-assistant work, a setup-the-lens onboarding orchestrator that welcomes new users and recommends a starter playbook, and a video-script-to-heygen utility that renders playbook explainer videos via the HeyGen API. Ask Claude to 'set up The Lens' after install.",
       "source": "./lens-skills"
     }
   ]

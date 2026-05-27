@@ -16,10 +16,11 @@ If you prefer to read first, start at https://manual-focus.co.uk/lens/start-here
 
 ## What's in here
 
-Twenty-five skills total. One welcome skill plus twenty-four workflow skills, mapping one-to-one with a subset of the forty-six Lens playbooks.
+Twenty-six skills total. One welcome skill, twenty-four workflow skills, and one production utility.
 
 - **1 onboarding skill**, `setup-the-lens`, the welcome and starter-playbook recommendation.
-- **24 workflow skills**, across the five stacks (brand, demand, content, ops, productivity).
+- **24 workflow skills**, across the five stacks (brand, demand, content, ops, productivity), mapping one-to-one with a subset of the forty-six Lens playbooks.
+- **1 production utility**, `video-script-to-heygen`, turns a playbook or topic into a rendered HeyGen avatar video with captions and a LinkedIn post draft, using the HeyGen API.
 
 The other twenty-two playbooks are systems or rituals rather than single agent tasks. They live as playbooks only and are read once, applied repeatedly.
 
@@ -34,7 +35,7 @@ Skills reference each other where one workflow naturally builds on another. `pos
 /plugin install the-lens@manual-focus
 ```
 
-One install command brings in all 25 skills at once. After install, ask Claude to "set up The Lens" and the welcome skill takes over.
+One install command brings in all 26 skills at once. After install, ask Claude to "set up The Lens" and the welcome skill takes over.
 
 To clone and reference locally instead:
 

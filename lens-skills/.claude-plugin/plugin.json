@@ -1,7 +1,7 @@
 {
   "name": "the-lens",
-  "description": "Manual Focus's working library of AI marketing skills covering positioning, brand voice, naming, demand-gen, content systems, lifecycle, ops and personal-assistant workflows. Each skill is the executable companion to a playbook in The Lens. After install, ask Claude to 'set up The Lens' to trigger the welcome skill.",
-  "version": "0.2.0",
+  "description": "Manual Focus's working library of 26 AI marketing skills covering positioning, brand voice, naming, demand-gen, content systems, lifecycle, ops and personal-assistant workflows, plus a setup-the-lens onboarding orchestrator and a video-script-to-heygen renderer. Each workflow skill is the executable companion to a playbook in The Lens. After install, ask Claude to 'set up The Lens' to trigger the welcome skill.",
+  "version": "0.3.0",
   "author": {
     "name": "Manual Focus",
     "url": "https://manual-focus.co.uk"
