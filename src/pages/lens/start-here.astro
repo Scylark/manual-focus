@@ -404,20 +404,40 @@ import { url } from '../../utils/paths';
   <!-- INSTALL -->
   <section class="start-section">
     <div class="container start-prose">
-      <h2>Install the skills</h2>
+      <h2>Install the plugin and set it up</h2>
       <p>
-        The skills run as a Claude Code plugin. Install with two
-        commands in any Claude Code session.
+        <strong>The Lens Plugin in one line.</strong> 25 marketing
+        workflows your AI agent runs inside Claude Code. Each skill
+        pairs with a playbook on this site.
+      </p>
+      <p>
+        <strong>Step 1, install.</strong> Two commands in any
+        Claude Code session install all 25 skills.
       </p>
       <pre class="install-block"><code>/plugin marketplace add Scylark/manual-focus
 /plugin install the-lens@manual-focus</code></pre>
       <p>
-        After install, the agent will recognise relevant tasks and
-        offer the right skill. Asking Claude something like
-        "audit our positioning against the competitive set" surfaces
-        the <code>positioning-audit</code> skill, while pasting a race
-        result URL with "draft the recap" surfaces the
-        <code>race-result-content-engine</code>.
+        <strong>Step 2, run setup.</strong> Ask Claude to set up The
+        Lens. The onboarding skill asks what work is in front of you,
+        recommends the Cowork plugins to install alongside, pulls your
+        existing brand documentation from Notion or Drive or Figma into
+        a structured <code>.lens/</code> workspace, writes a task list
+        for the foundational assets you do not have yet and recommends
+        a starter playbook. Twenty to forty minutes end to end.
+      </p>
+      <pre class="install-block"><code>set up the lens</code></pre>
+      <p>
+        Or run the slash command directly with <code>/setup-the-lens</code>.
+      </p>
+      <p>
+        <strong>Step 3, run the work.</strong> After setup, the agent
+        recognises any prompt that matches a Lens skill. Asking
+        something like "audit our positioning against the competitive
+        set" surfaces the <code>positioning-audit</code> skill, pasting
+        a race result URL with "draft the recap" surfaces the
+        <code>race-result-content-engine</code>. The skill reads
+        <code>.lens/brand.json</code> so you do not re-paste inputs
+        every time.
       </p>
       <p>
         Skills source at <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">github.com/Scylark/manual-focus/tree/main/lens-skills ↗</a>

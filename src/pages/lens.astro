@@ -261,20 +261,26 @@ import { url } from '../utils/paths';
     <div class="dwell-pin-stage">
       <FocusObject size={300} tiltX={56} tiltY={-15} spin={140} scrollSpin={-80} style="top: 6%; right: 5%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">005 · RUNNABLE COMPANIONS</div>
-        <h2 class="reveal">Every playbook ships as a <span class="gradient-text">runnable skill</span>.</h2>
+        <div class="eyebrow">005 · THE LENS PLUGIN</div>
+        <h2 class="reveal">25 marketing workflows your AI agent runs <span class="gradient-text">inside Claude Code</span>.</h2>
         <p class="lead reveal">
-          The playbook explains the work. The skill is the work. Install the
-          Lens skill pack into Claude Code, Cursor, Codex or any agent that
-          honours the Agent Skills spec, and the workflow runs alongside the
-          team.
+          The playbook on this site explains the work. The skill in the
+          plugin is the work. Install it once with two commands, then ask
+          Claude to set up The Lens. The onboarding skill installs the
+          right Cowork plugins alongside, finds your existing brand
+          documentation, writes a structured <code>.lens/</code> workspace
+          and recommends a starter. Twenty to forty minutes to a working
+          setup, then every skill below runs against your actual data.
         </p>
+        <pre class="lens-skills-install reveal"><code>/plugin marketplace add Scylark/manual-focus
+/plugin install the-lens@manual-focus
+set up the lens</code></pre>
         <div class="lens-skills-cta reveal">
           <a href={url('/lens/skills')} class="btn-cta">Browse the skills</a>
-          <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener" class="btn-ghost">View on GitHub ↗</a>
+          <a href={url('/lens/cowork')} class="btn-ghost">Read the Cowork primer</a>
         </div>
         <p class="lens-skills-note reveal">
-          25 skills live · Plugin-installable · Welcome skill recommends a starter playbook on first ask (<a href={url('/lens/capabilities')}>capability reference</a>)
+          25 skills live · 1 onboarding orchestrator · 24 workflow skills · Source on <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">GitHub ↗</a>
         </p>
       </div>
     </div>
@@ -819,7 +825,20 @@ import { url } from '../utils/paths';
     margin-top: var(--space-md);
   }
 
-  /* Skills section CTA */
+  /* Skills section install code block + CTA */
+  .lens-skills-install {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: var(--space-md);
+    margin-top: var(--space-md);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    max-width: 100%;
+  }
   .lens-skills-cta {
     display: flex;
     flex-wrap: wrap;
