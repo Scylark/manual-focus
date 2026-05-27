@@ -117,19 +117,39 @@ import { url } from '../../utils/paths';
       <h3>Install the Lens plugin</h3>
       <p>
         One command installs all 25 Lens skills at once (including the
-        setup-the-lens welcome skill that recommends a starter playbook
-        the moment you ask), so the agent
-        recognises positioning audits, eval-gated drafting, race
-        recap pipelines and the rest the moment you describe a task
-        that fits.
+        setup-the-lens onboarding orchestrator that handles the rest of
+        setup the moment you ask), so the agent recognises positioning
+        audits, eval-gated drafting, race recap pipelines and the rest
+        the moment you describe a task that fits.
       </p>
       <pre class="p101-code"><code>/plugin install the-lens@manual-focus</code></pre>
 
-      <h3>Run the Cowork setup wizard</h3>
+      <h3>Ask Claude to set up The Lens</h3>
       <p>
-        Anthropic ships a guided setup for Cowork. It walks through
-        the recommended plugins by role and helps you connect the MCP
-        servers you'll use most.
+        This is the easy mode. The Lens ships an onboarding skill that
+        walks you through everything else in this section, in order, on
+        your actual data. It asks what work you're doing this week,
+        recommends the Cowork plugins matched to your role, pulls your
+        existing brand documentation in from Notion, Google Drive,
+        Figma or wherever else, writes a structured <code>.lens/</code>
+        directory in your workspace and generates a task list of the
+        foundational assets you still need. Twenty to forty minutes
+        end to end.
+      </p>
+      <pre class="p101-code"><code>set up the lens</code></pre>
+      <p>
+        Or run the slash command directly.
+      </p>
+      <pre class="p101-code"><code>/setup-the-lens</code></pre>
+
+      <h3>Cowork has its own setup wizard too</h3>
+      <p>
+        Anthropic ships a guided setup for Cowork. The Lens setup skill
+        will use it where it can, but you can also run it directly if
+        you want to install Cowork plugins before starting on Lens work.
+        The two wizards play nicely with each other, neither installs
+        the other's plugins automatically but each one knows what the
+        other needs.
       </p>
       <pre class="p101-code"><code>/setup-cowork</code></pre>
       <p>
