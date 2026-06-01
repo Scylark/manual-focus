@@ -553,19 +553,25 @@ const posts = (await getCollection('blog'))
     margin-top: var(--space-sm);
   }
 
+  /* SCROLL hint sits in the bottom-right corner so it never clashes
+     with the left-aligned CTAs. Earlier centred placement put it
+     between the two buttons, reading as a third sibling CTA. */
   .hero-scroll-hint {
     position: absolute;
     bottom: var(--space-md);
-    left: 50%;
-    transform: translateX(-50%);
+    right: var(--space-md);
+    left: auto;
+    transform: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    opacity: 0.75;
+    pointer-events: none;
   }
   .scroll-arrow {
     width: 1px;
@@ -581,6 +587,9 @@ const posts = (await getCollection('blog'))
   /* ============================
      MARQUEE
      ============================ */
+  /* Margin-top opens a breathing gap between the hero CTAs and the
+     ticker. Without it the buttons sit right against the moving
+     band, which read as cramped on the screenshots. */
   .marquee-band {
     background: var(--color-text);
     color: var(--color-bg);
@@ -589,6 +598,7 @@ const posts = (await getCollection('blog'))
     border-block: 1px solid var(--color-text);
     position: relative;
     z-index: 5;
+    margin-top: var(--space-xl);
   }
   .marquee {
     display: flex;
