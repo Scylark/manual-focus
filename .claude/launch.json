@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "astro-dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--", "--host"],
+      "runtimeExecutable": "/Users/jamesvickers/.nvm/versions/node/v22.22.3/bin/npm",
+      "runtimeArgs": ["run", "preview"],
       "port": 4321
     }
   ]

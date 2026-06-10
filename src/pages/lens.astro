@@ -6,13 +6,13 @@ import { url } from '../utils/paths';
 ---
 <Base
   title="The Lens. Your AI marketing team"
-  description="Senior marketing operators distilled into 25 Claude Code skills that read your brand context and ship the work alongside you."
+  description="Senior marketing operators distilled into 26 Claude Code skills that read your brand context and ship the work alongside you."
 >
   <SEOHead
     slot="seo"
     type="service"
     title="The Lens. Your AI marketing team"
-    description="Senior marketing operators distilled into 25 Claude Code skills that read your brand context and ship the work alongside you."
+    description="Senior marketing operators distilled into 26 Claude Code skills that read your brand context and ship the work alongside you."
     breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'The Lens', url: '/lens' }]}
   />
 
@@ -29,7 +29,7 @@ import { url } from '../utils/paths';
           <span class="gradient-text">marketing team</span>.
         </h1>
         <p class="lens-lead reveal">
-          Senior marketing operators distilled into 25 Claude Code skills
+          Senior marketing operators distilled into 26 Claude Code skills
           that read your brand context and ship the work alongside you.
           Forty-six playbooks across brand, demand, content, ops and
           productivity. Free to read, free to install, refreshed as the
@@ -143,12 +143,37 @@ import { url } from '../utils/paths';
   <section class="section lens-first-time">
     <div class="container">
       <div class="eyebrow">003 · PICK YOUR STARTING POINT</div>
-      <h2 class="reveal lens-first-headline">Match your situation, land on the playbook.</h2>
+      <h2 class="reveal lens-first-headline">Two questions. Twenty seconds. Your starter playbook.</h2>
       <p class="lens-first-lead reveal">
         The Lens is 46 playbooks. Most readers don't need 46, they need
-        the right one for the work in front of them. Match your
-        situation below and you'll land on the right starter.
+        the right one for the work in front of them. Answer two
+        questions and the diagnostic lands you on it.
       </p>
+
+      <div class="lens-diagnostic reveal" data-diagnostic>
+        <div class="diag-step" data-diag-step="1">
+          <p class="diag-q">What's the work in front of you this week?</p>
+          <div class="diag-options" data-diag-options="1"></div>
+        </div>
+        <div class="diag-step" data-diag-step="2" hidden>
+          <p class="diag-q" data-diag-q2></p>
+          <div class="diag-options" data-diag-options="2"></div>
+          <button type="button" class="diag-back mono" data-diag-back>← BACK</button>
+        </div>
+        <div class="diag-step diag-result" data-diag-step="3" hidden>
+          <div class="diag-result-tag mono">YOUR STARTER</div>
+          <h3 class="diag-result-title" data-diag-title></h3>
+          <p class="diag-result-why" data-diag-why></p>
+          <p class="diag-result-meta mono" data-diag-meta></p>
+          <div class="diag-result-ctas">
+            <a href="#" class="btn-cta" data-diag-link>Open the playbook</a>
+            <button type="button" class="btn-ghost" data-diag-restart>Start again</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="lens-first-divider mono reveal">OR BROWSE THE COMMON STARTING POINTS</p>
+
       <div class="lens-first-grid stagger">
         <a href={url('/lens/brand/positioning-audit-pipeline')} class="first-card">
           <div class="first-card-tag mono">START WITH</div>
@@ -715,6 +740,113 @@ set up the lens</code></pre>
     max-width: 65ch;
     margin-bottom: var(--space-lg);
   }
+  /* Interactive starter diagnostic */
+  .lens-diagnostic {
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    background: var(--color-bg);
+    padding: var(--space-md);
+    max-width: 760px;
+    position: relative;
+    overflow: hidden;
+  }
+  .lens-diagnostic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+  }
+  .diag-q {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+  }
+  .diag-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  /* :global because the option buttons are created at runtime by
+     the diagnostic script — they don't carry Astro's scope attr. */
+  .lens-diagnostic :global(.diag-option) {
+    text-align: left;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    color: var(--color-text);
+    font-size: var(--font-size-body);
+    font-family: var(--font-family);
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .lens-diagnostic :global(.diag-option:hover) {
+    border-color: var(--color-cta-start);
+    transform: translateX(3px);
+  }
+  .diag-back {
+    margin-top: var(--space-sm);
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    cursor: pointer;
+    padding: 0.25rem 0;
+  }
+  .diag-back:hover { color: var(--color-text); }
+  .diag-result-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--color-cta-start);
+    margin-bottom: var(--space-xs);
+  }
+  .diag-result-title {
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    color: var(--color-text);
+    line-height: 1.15;
+    margin-bottom: var(--space-sm);
+  }
+  .diag-result-why {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    max-width: 58ch;
+    margin-bottom: var(--space-sm);
+  }
+  .diag-result-meta {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+  .diag-result-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .diag-result-ctas .btn-ghost { cursor: pointer; }
+  .lens-first-divider {
+    margin-top: var(--space-lg);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  .lens-first-divider::after {
+    content: '';
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--color-line);
+  }
+
   .lens-first-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1154,3 +1286,239 @@ set up the lens</code></pre>
   the site-wide footer. That handler picks up every
   [data-newsletter-form] on the page including the one above.
 */}
+
+<script>
+  // Starter diagnostic. Two questions, hardcoded decision tree,
+  // mirrors the branching the setup-the-lens skill runs during
+  // onboarding. Self-contained — additive only.
+  type Result = { title: string; why: string; meta: string; url: string };
+  type Q2 = { q: string; options: { label: string; result: Result }[] };
+
+  const TREE: Record<string, { label: string; q2: Q2 }> = {
+    brand: {
+      label: 'Positioning, voice or naming work',
+      q2: {
+        q: 'Which of these sounds most like it?',
+        options: [
+          {
+            label: "I've inherited a brand and need an honest read",
+            result: {
+              title: 'Positioning audit pipeline',
+              why: 'A six-pass audit of where the brand actually sits today, run on its real public surface. Everything else in the brand stack builds on this.',
+              meta: '2-3 WORKING DAYS · BRAND STACK',
+              url: '/lens/brand/positioning-audit-pipeline/',
+            },
+          },
+          {
+            label: 'Our content sounds generic, off-voice, or like AI',
+            result: {
+              title: 'Brand voice extraction',
+              why: 'Extracts a falsifiable voice profile from your best writing, then turns it into a scoring rubric every future draft gets held against.',
+              meta: '1-2 WORKING DAYS · BRAND STACK',
+              url: '/lens/brand/brand-voice-extraction/',
+            },
+          },
+          {
+            label: 'We need a name, a sub-brand or a tagline',
+            result: {
+              title: 'Naming sprint',
+              why: 'Compresses a quarter of naming committee into a working day. 400 candidates, phonetic and trademark filters, eight defensible finalists.',
+              meta: '1 WORKING DAY · BRAND STACK',
+              url: '/lens/brand/naming-sprint/',
+            },
+          },
+        ],
+      },
+    },
+    content: {
+      label: 'Shipping more content without losing the brand',
+      q2: {
+        q: 'Where does content hurt most right now?',
+        options: [
+          {
+            label: 'Drafts need a quality gate before a human sees them',
+            result: {
+              title: 'Eval-gated drafting',
+              why: 'The production line. Drafts pass voice, fact and originality gates before they reach an editor, so review time goes into judgement, not triage.',
+              meta: '1-2 WEEKS TO INSTALL · CONTENT STACK',
+              url: '/lens/content/eval-gated-drafting/',
+            },
+          },
+          {
+            label: 'Social is ad-hoc, cross-posted, channel-blind',
+            result: {
+              title: 'Social content factory',
+              why: 'One weekly story brief becomes channel-native posts for each platform, each gated against your voice profile before it ships.',
+              meta: '1 WORKING WEEK · CONTENT STACK',
+              url: '/lens/content/social-content-factory/',
+            },
+          },
+          {
+            label: 'Organic search is sitting there untapped',
+            result: {
+              title: 'SEO cluster generator',
+              why: 'Builds the cluster map, the intent layer and the production order for owning the searches your buyers actually make.',
+              meta: '2-3 WORKING DAYS · CONTENT STACK',
+              url: '/lens/content/seo-cluster-generator/',
+            },
+          },
+        ],
+      },
+    },
+    demand: {
+      label: 'Channel mix, attribution or growth',
+      q2: {
+        q: 'What decision are you trying to make?',
+        options: [
+          {
+            label: 'I need to defend a budget allocation to the CFO',
+            result: {
+              title: 'Channel-mix simulator',
+              why: 'Twenty allocation scenarios with diminishing-return curves fitted to your last twelve months. Walk in with three options and the maths.',
+              meta: '2-3 WORKING DAYS · DEMAND STACK',
+              url: '/lens/demand/channel-mix-simulator/',
+            },
+          },
+          {
+            label: "Channels claim credit and nobody trusts the numbers",
+            result: {
+              title: 'Attribution tear-down',
+              why: 'Cross-references GA4, the platform pixels and incrementality signals to find which channels are overclaiming and which are quietly working.',
+              meta: '1 WORKING WEEK · DEMAND STACK',
+              url: '/lens/demand/attribution-teardown/',
+            },
+          },
+          {
+            label: 'Our year revolves around races and events',
+            result: {
+              title: 'Race-day demand pipeline',
+              why: 'A twelve-month campaign calendar timed to the events your audience actually races, with briefs and lead times worked backwards from each one.',
+              meta: '1 WORKING WEEK · DEMAND STACK',
+              url: '/lens/demand/race-day-demand-pipeline/',
+            },
+          },
+        ],
+      },
+    },
+    ops: {
+      label: 'The system around the team is chaos',
+      q2: {
+        q: 'Which failure shows up first?',
+        options: [
+          {
+            label: 'Briefs are chats, shipping is vibes',
+            result: {
+              title: 'Brief-to-ship pipeline',
+              why: 'Structured intake, weekly triage, a shipping cadence the whole team can see. Replaces ten tools and three standing meetings.',
+              meta: '1-2 WEEKS TO INSTALL · OPS STACK',
+              url: '/lens/ops/brief-to-ship-pipeline/',
+            },
+          },
+          {
+            label: "There's no objective quality standard, just the editor's gut",
+            result: {
+              title: 'Evaluation frameworks',
+              why: 'Rubrics per output type, deterministic where possible, LLM-as-judge where necessary. The standard becomes something you can point at.',
+              meta: '1 WORKING WEEK · OPS STACK',
+              url: '/lens/ops/evaluation-frameworks/',
+            },
+          },
+          {
+            label: 'Brand rules live in a PDF nobody opens',
+            result: {
+              title: 'Brand guardrails as code',
+              why: 'Turns the guidelines into a programmatic ruleset that runs against every piece before it ships. Drift gets caught before publish, not after.',
+              meta: '1 WORKING WEEK · OPS STACK',
+              url: '/lens/ops/brand-guardrails-as-code/',
+            },
+          },
+        ],
+      },
+    },
+    productivity: {
+      label: 'My own day is the problem',
+      q2: {
+        q: 'Where does the day leak first?',
+        options: [
+          {
+            label: 'Mornings start reactive and stay that way',
+            result: {
+              title: 'Daily briefing pipeline',
+              why: 'Calendar, inbox, Slack and CRM stitched into a five-minute morning brief. The first hour of the day becomes the first five minutes.',
+              meta: '1 DAY TO INSTALL, DAILY AFTER · PRODUCTIVITY STACK',
+              url: '/lens/productivity/daily-briefing-pipeline/',
+            },
+          },
+          {
+            label: 'The inbox owns me',
+            result: {
+              title: 'Email triage and draft',
+              why: 'A hundred unread to a clean inbox in twenty minutes, with replies drafted in your voice and the real work routed into tasks.',
+              meta: '1 DAY TO INSTALL, DAILY AFTER · PRODUCTIVITY STACK',
+              url: '/lens/productivity/email-triage-and-draft/',
+            },
+          },
+          {
+            label: 'Meetings arrive without prep and leave without follow-up',
+            result: {
+              title: 'Meeting prep stack',
+              why: 'A context pack before every meeting and a follow-up loop after it: CRM updated, email drafted, actions filed, no manual write-up.',
+              meta: '1 DAY TO INSTALL, DAILY AFTER · PRODUCTIVITY STACK',
+              url: '/lens/productivity/meeting-prep-stack/',
+            },
+          },
+        ],
+      },
+    },
+  };
+
+  const root = document.querySelector<HTMLElement>('[data-diagnostic]');
+  if (root) {
+    const steps = {
+      1: root.querySelector<HTMLElement>('[data-diag-step="1"]')!,
+      2: root.querySelector<HTMLElement>('[data-diag-step="2"]')!,
+      3: root.querySelector<HTMLElement>('[data-diag-step="3"]')!,
+    };
+    const opts1 = root.querySelector<HTMLElement>('[data-diag-options="1"]')!;
+    const opts2 = root.querySelector<HTMLElement>('[data-diag-options="2"]')!;
+    const q2El = root.querySelector<HTMLElement>('[data-diag-q2]')!;
+
+    const show = (n: 1 | 2 | 3) => {
+      steps[1].hidden = n !== 1;
+      steps[2].hidden = n !== 2;
+      steps[3].hidden = n !== 3;
+    };
+
+    const showResult = (r: { title: string; why: string; meta: string; url: string }) => {
+      root.querySelector<HTMLElement>('[data-diag-title]')!.textContent = r.title;
+      root.querySelector<HTMLElement>('[data-diag-why]')!.textContent = r.why;
+      root.querySelector<HTMLElement>('[data-diag-meta]')!.textContent = r.meta;
+      root.querySelector<HTMLAnchorElement>('[data-diag-link]')!.href = r.url;
+      show(3);
+    };
+
+    Object.values(TREE).forEach((branch) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'diag-option';
+      btn.textContent = branch.label;
+      btn.addEventListener('click', () => {
+        q2El.textContent = branch.q2.q;
+        opts2.innerHTML = '';
+        branch.q2.options.forEach((opt) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'diag-option';
+          b.textContent = opt.label;
+          b.addEventListener('click', () => showResult(opt.result));
+          opts2.appendChild(b);
+        });
+        show(2);
+      });
+      opts1.appendChild(btn);
+    });
+
+    root.querySelector('[data-diag-back]')?.addEventListener('click', () => show(1));
+    root.querySelector('[data-diag-restart]')?.addEventListener('click', () => show(1));
+  }
+</script>

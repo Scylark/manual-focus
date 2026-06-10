@@ -48,6 +48,19 @@ const currentPath = Astro.url.pathname;
         ))}
       </ul>
       <button
+        class="nav-search mono"
+        type="button"
+        aria-label="Search the site"
+        title="Search (Cmd+K)"
+        data-palette-open
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m20 20-3.5-3.5"/>
+        </svg>
+        <span class="nav-search-kbd">⌘K</span>
+      </button>
+      <button
         class="theme-toggle"
         type="button"
         aria-label="Toggle theme"
@@ -219,6 +232,37 @@ const currentPath = Astro.url.pathname;
       flex-direction: column;
       align-items: center;
     }
+  }
+
+  /* Search trigger. Pill with magnifier + the ⌘K affordance, sitting
+     beside the theme toggle. Opens the command palette. */
+  .nav-search {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: transparent;
+    border: 1px solid var(--color-line);
+    color: var(--color-text-secondary);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .nav-search:hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+  }
+  .nav-search svg {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+  .nav-search-kbd {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+  @media (max-width: 900px) {
+    .nav-search-kbd { display: none; }
+    .nav-search { padding: 0.45rem 0.55rem; }
   }
 
   /* Theme toggle button. Shows the sun in day mode (because clicking it goes

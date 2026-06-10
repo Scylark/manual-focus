@@ -48,47 +48,77 @@ Spoken scripts are not written scripts. Different rules apply.
 
 If the user provided `--script-file`, skip generation and load that file.
 
-Otherwise, generate the script using this prompt (you, the agent, run this internally — do not call out to an external LLM):
+Otherwise, generate the script using this prompt (you, the agent, run this internally, do not call out to an external LLM):
 
 ```text
 SYSTEM: You write short marketing videos for a senior-marketer
 audience on LinkedIn. The video features a single talking-head
-avatar of the brand founder. The script is spoken, not read, so
-sentences are short, the rhythm varies, and pauses are implied
-by line breaks. No marketing fluff, no hype words. Confident,
-direct, plain English.
+avatar of the brand founder. The script is spoken, not read,
+which calls for an editorial voice. Think Rapha or Rouleur
+applied to AI marketing. Long sentences that breathe, connected
+by commas and "and" / "but" / "because" / "so". Specific
+sensory or situational detail rather than slogans. Considered,
+reflective, plain English with the occasional short punch line
+landing inside a longer breathing sentence. The reader should
+feel they were taken through one considered thought, not five
+stacked LinkedIn beats.
 
 USER:
 Format: {SHORT_60_TO_90s | LONG_5_TO_8_MIN}
 Topic / source: {TOPIC_OR_PLAYBOOK_CONTENT}
 Brand: Manual Focus, https://manual-focus.co.uk
-Brand voice: practical, grounded, senior-marketer tone.
+Brand voice: practical, grounded, senior-marketer tone. Closer
+to a cycling publication than a software pitch.
 Audience: heads of marketing, fractional CMOs, senior in-house
 operators at endurance brands and AI-native startups.
-The Lens positioning: "Your AI marketing team" — 46 playbooks
-plus 25 installable Claude Code skills, free to read, free to
+The Lens positioning: "Your AI marketing team", 46 playbooks
+plus 26 installable Claude Code skills, free to read, free to
 install, brand context aware, twenty-minute setup.
 
 Return the script as plain text, no stage directions, no
-formatting other than blank lines between beats. Target word
-count: 135 for short, 700 for long.
+formatting other than blank lines between paragraphs. Target
+word count: 140 to 160 for short, 700 to 800 for long. Editorial
+rhythm runs at roughly 130 spoken words a minute, so a 60 to
+90s video lands at the upper end of the short range.
 
-The script must have a five-beat structure:
-1. HOOK (0-5s) — provocative or counterintuitive single line
-2. SETUP (5-15s) — name the problem or context
-3. REVEAL (15-25s) — name the Lens (or the playbook) as the
-   alternative
-4. OFFER (25-55s for short, 25-360s for long) — what the user
-   actually gets, with specifics
-5. CTA (last 15-20s) — the URL and one specific action
+The script flows through five movements but they should blend
+into each other through connecting clauses, not land as separate
+beats:
 
-The CTA must mention "manual focus dot co dot uk slash lens"
-and one of: "subscribe in the footer", "install the plugin",
-"set up the lens" — pick the one that matches the topic.
+1. OPENING — a warm greeting or a grounded reframe that names
+   the situation the reader is in
+2. SETUP — the texture of that situation in concrete detail
+3. REVEAL — name the Lens (or the playbook) as the alternative,
+   ideally connected to the SETUP via "so", "which is why", or
+   similar
+4. OFFER — what the work actually involves, in the same
+   editorial rhythm, not as a bulleted feature list
+5. CLOSE — the practical next step, in plain language
 
-No em dashes. No prose colons or semicolons. No exclamation
-marks. No words like "imagine", "unlock", "discover" or
-"powerful".
+The CTA must reference the URL "manual-focus.co.uk/lens" or
+describe it as "the link in the post". Pick whichever fits the
+delivery best. Do not spell the URL out letter by letter unless
+the speaker can pronounce it cleanly.
+
+Hard bans:
+- No em dashes anywhere.
+- No prose colons or semicolons (code blocks are fine).
+- No "not X, it's Y" binary contrasts.
+- No exclamation marks.
+- No words like "imagine", "unlock", "discover", "powerful",
+  "supercharge", "revolutionise", "transform".
+- No staccato all-short-sentence rhythm. If three sentences in
+  a row are under eight words, rewrite to connect at least one
+  pair.
+- No sentences that open with a bare number ("Forty-six
+  playbooks across..."). That is reportage cadence and reads
+  like a press release. A real speaker introduces a count with
+  a verb or determiner ("We've built forty-six...", "Right now
+  that's forty-six...", "Inside, there's forty-six...",
+  "Currently forty-six..."). Only allow a bare-number opening
+  if the previous sentence ended with explicit reference to the
+  thing being counted, so the listener carries the subject
+  across the break.
 ```
 
 Validate the result:

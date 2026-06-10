@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import CommandPalette from '../components/CommandPalette.astro';
 import { url } from '../utils/paths';
 
 interface Props {
@@ -71,6 +72,40 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   </main>
 
   <Footer />
+
+  <CommandPalette />
+
+  <script>
+    // Copy-to-clipboard on every code block. The library's promise is
+    // copy-paste prompts, so every <pre> gets a COPY button. Additive
+    // DOM only — no interaction with the reveal/animation systems.
+    document.querySelectorAll('pre').forEach((pre) => {
+      // Capture the text BEFORE appending the button so the copied
+      // content never includes the button label.
+      const text = (pre.textContent ?? '').trimEnd();
+      if (text.trim().length < 12) return;
+      pre.classList.add('has-copy');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'copy-btn mono';
+      btn.textContent = 'COPY';
+      btn.setAttribute('aria-label', 'Copy code to clipboard');
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+          btn.textContent = 'COPIED ✓';
+          btn.classList.add('is-copied');
+        } catch {
+          btn.textContent = 'PRESS ⌘C';
+        }
+        setTimeout(() => {
+          btn.textContent = 'COPY';
+          btn.classList.remove('is-copied');
+        }, 1800);
+      });
+      pre.appendChild(btn);
+    });
+  </script>
 
   <script>
     // Scroll progress bar

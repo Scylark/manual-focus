@@ -51,11 +51,34 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
           </a>
         ))}
       </div>
+
+      <div class="library-toolbar">
+        <div class="library-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="m20 20-3.5-3.5"/>
+          </svg>
+          <label for="library-q" class="sr-only">Search the library</label>
+          <input
+            type="search"
+            id="library-q"
+            data-library-search
+            placeholder='Try "attribution", "email", "naming"...'
+            autocomplete="off"
+          />
+        </div>
+        <div class="library-stage-chips" role="group" aria-label="Filter by brand stage">
+          {['pre-launch', 'launch', 'growth', 'scale', 'enterprise'].map(stage => (
+            <button type="button" class="stage-chip mono" data-stage-filter={stage}>{stage.toUpperCase()}</button>
+          ))}
+        </div>
+        <p class="library-result-count mono" data-library-count aria-live="polite"></p>
+      </div>
     </div>
   </section>
 
   {grouped.map(group => group.entries.length > 0 && (
-    <section class="library-stack-section">
+    <section class="library-stack-section" data-library-section>
       <div class="container">
         <div class="library-stack-head">
           <div class="eyebrow">STACK · {group.short.toUpperCase()}</div>
@@ -66,7 +89,13 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
           {group.entries.map(entry => {
             const slug = entry.id.split('/').pop()?.replace(/\.md$/, '') ?? entry.id;
             return (
-              <a href={url(`/lens/${entry.data.stack}/${slug}`)} class="library-card">
+              <a
+                href={url(`/lens/${entry.data.stack}/${slug}`)}
+                class="library-card"
+                data-library-card
+                data-search={`${entry.data.title} ${entry.data.description} ${entry.data.outputs} ${entry.data.channels.join(' ')}`.toLowerCase()}
+                data-stages={entry.data.brandStage.join(',')}
+              >
                 <div class="card-head mono">
                   <span class="card-stack">{group.short.toUpperCase()}</span>
                   {entry.data.status === 'updated' && <span class="card-flag flag-updated">UPDATED</span>}
@@ -291,4 +320,136 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
     padding-top: var(--space-sm);
     border-top: 1px solid var(--color-line);
   }
+
+  /* Search + stage filter toolbar */
+  .library-toolbar {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .library-search {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-alt);
+    transition: border-color 0.2s ease;
+    max-width: 560px;
+  }
+  .library-search:focus-within {
+    border-color: var(--color-cta-start);
+  }
+  .library-search svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+  .library-search input {
+    flex: 1 1 auto;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-text);
+    font-size: 16px;
+    font-family: var(--font-family);
+  }
+  .library-search input::placeholder { color: var(--color-text-muted); }
+  .library-stage-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .stage-chip {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  }
+  .stage-chip:hover { color: var(--color-text); border-color: var(--color-text); }
+  .stage-chip.is-active {
+    color: var(--color-bg);
+    background: var(--color-cta-start);
+    border-color: var(--color-cta-start);
+  }
+  .library-result-count {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    color: var(--color-text-muted);
+    min-height: 1em;
+    margin: 0;
+  }
+
+  /* Filter states. Hidden cards and emptied sections collapse. */
+  .library-card.is-filtered { display: none; }
+  .library-stack-section.is-empty { display: none; }
 </style>
+
+<script>
+  // Library live filter. Pure DOM toggling against the data
+  // attributes baked in at build time — no fetch, instant.
+  const searchInput = document.querySelector<HTMLInputElement>('[data-library-search]');
+  const stageChips = [...document.querySelectorAll<HTMLButtonElement>('[data-stage-filter]')];
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-library-card]')];
+  const sections = [...document.querySelectorAll<HTMLElement>('[data-library-section]')];
+  const countEl = document.querySelector<HTMLElement>('[data-library-count]');
+
+  if (searchInput && cards.length) {
+    const activeStages = new Set<string>();
+
+    const apply = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+      cards.forEach((card) => {
+        const matchesText = !q || (card.dataset.search ?? '').includes(q);
+        const cardStages = (card.dataset.stages ?? '').split(',');
+        const matchesStage = !activeStages.size || cardStages.some((s) => activeStages.has(s));
+        const show = matchesText && matchesStage;
+        card.classList.toggle('is-filtered', !show);
+        if (show) visible++;
+      });
+      sections.forEach((section) => {
+        const any = section.querySelector('[data-library-card]:not(.is-filtered)');
+        section.classList.toggle('is-empty', !any);
+      });
+      if (countEl) {
+        const filtering = q || activeStages.size;
+        countEl.textContent = filtering
+          ? `${visible} PLAYBOOK${visible === 1 ? '' : 'S'} MATCH`
+          : '';
+      }
+    };
+
+    searchInput.addEventListener('input', apply);
+    stageChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const stage = chip.dataset.stageFilter ?? '';
+        if (activeStages.has(stage)) {
+          activeStages.delete(stage);
+          chip.classList.remove('is-active');
+        } else {
+          activeStages.add(stage);
+          chip.classList.add('is-active');
+        }
+        apply();
+      });
+    });
+
+    // Let the rest of the site deep-link into a pre-filtered library
+    // via /lens/library/?q=attribution
+    const params = new URLSearchParams(window.location.search);
+    const preset = params.get('q');
+    if (preset) {
+      searchInput.value = preset;
+      apply();
+    }
+  }
+</script>
