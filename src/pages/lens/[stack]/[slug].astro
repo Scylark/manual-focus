@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+const entries = await getCollection('lens');
 
 // Find the paired skill (if any) by matching the skill's `playbook` URL
 // against this playbook's path. Skills carry the canonical playbook URL in
@@ -32,6 +33,17 @@ const stackName = {
   ops: 'Operating systems',
   productivity: 'Productivity & back office',
 }[d.stack];
+
+// "Read next" — the next playbook in the same stack (alphabetical
+// wrap-around), so the footer hands the reader onward instead of
+// dead-ending. Deterministic at build time.
+const stackEntries = entries
+  .filter(e => e.data.stack === d.stack)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+const selfIdx = stackEntries.findIndex(e => e.id === entry.id);
+const nextEntry = stackEntries[(selfIdx + 1) % stackEntries.length];
+const nextSlug = nextEntry.id.split('/').pop()?.replace(/\.md$/, '') ?? nextEntry.id;
+const nextIsSelf = stackEntries.length < 2;
 const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 <Base title={`${d.title}. The Lens`} description={d.description}>
@@ -125,14 +137,21 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
       </div>
     </section>
 
-    <!-- FOOTER CTA -->
+    <!-- FOOTER CTA — read-next hand-off, not a dead end -->
     <section class="section section-alt playbook-foot">
       <div class="container">
         <div class="playbook-foot-grid">
           <div class="playbook-foot-copy">
             <div class="eyebrow">THE LENS</div>
-            <h2>Sixty-plus playbooks like this one.</h2>
-            <p>Pull this workflow today. Browse the rest of the stack to find what fits your next brief.</p>
+            <h2>Forty-six playbooks like this one.</h2>
+            <p>Pull this workflow today, or keep moving through the stack.</p>
+            {!nextIsSelf && (
+              <a href={url(`/lens/${nextEntry.data.stack}/${nextSlug}`)} class="playbook-next">
+                <span class="playbook-next-label mono">READ NEXT · {stackName.toUpperCase()}</span>
+                <span class="playbook-next-title">{nextEntry.data.title}</span>
+                <span class="playbook-next-desc">{nextEntry.data.description}</span>
+              </a>
+            )}
             <div class="playbook-foot-ctas">
               <a href={url(`/lens/${d.stack}`)} class="btn-ghost">More {stackName}</a>
               <a href={url('/lens')} class="btn-cta">Subscribe to the Lens</a>
@@ -458,5 +477,39 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
+  }
+
+  /* Read-next card */
+  .playbook-next {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-md);
+    margin-block: var(--space-md);
+    text-decoration: none;
+    background: var(--color-bg);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .playbook-next:hover {
+    border-color: var(--color-cta-start);
+    transform: translateY(-2px);
+  }
+  .playbook-next-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--color-cta-start);
+  }
+  .playbook-next-title {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1.2;
+    color: var(--color-text);
+    font-weight: 700;
+  }
+  .playbook-next-desc {
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    font-size: var(--font-size-body);
   }
 </style>
