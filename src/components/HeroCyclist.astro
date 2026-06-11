@@ -185,10 +185,13 @@
     display: flex;
     align-items: center;
     padding-inline: var(--space-md);
-    /* Top padding clears the fixed nav (4.5rem) plus breathing
-       room, so the centred headline block can never slide under
-       it however tall it gets. Bottom keeps the original rhythm. */
-    padding-block: clamp(6.5rem, 14vh, 9rem) clamp(4rem, 9vh, 6.5rem);
+    /* Top padding clears the fixed nav (4.5rem); bottom is
+       trimmed so the TOTAL padding matches the original 8-13rem
+       and the content box doesn't shrink — shrinking it was
+       clipping the CTAs at the stage's overflow:hidden edge on
+       short viewports. Short-viewport fit is handled by the
+       max-height media queries on the headline (see index.astro). */
+    padding-block: clamp(5.5rem, 12vh, 8rem) clamp(2.5rem, 6vh, 4.5rem);
     opacity: 0;
     pointer-events: none;
     will-change: opacity, transform;
@@ -225,7 +228,7 @@
       height: min(100vh, 90vw);
     }
     .hero-content {
-      padding-block: clamp(5.5rem, 12vh, 7rem) clamp(3rem, 8vh, 5rem);
+      padding-block: clamp(5rem, 11vh, 6.5rem) clamp(2.5rem, 6vh, 4rem);
     }
     .hero-content > :global(*) { max-width: 100%; }
   }

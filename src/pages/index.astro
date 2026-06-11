@@ -633,6 +633,29 @@ set up the lens</code></pre>
     50% { transform: translateY(8px); opacity: 1; }
   }
 
+  /* Short-viewport guard. The hero block (5-line headline + sub +
+     CTAs) lives inside a 100svh stage with overflow:hidden. The
+     headline is sized off vw, so a short-but-wide window (laptop
+     with docked browser, external ultrawide) blows the block past
+     the stage edge and clips the CTAs. Below 860px of height the
+     headline keys off vh instead, shrinking the whole block to fit. */
+  @media (max-height: 860px) {
+    .hero-headline {
+      font-size: clamp(1.5rem, 5vh, 3.25rem);
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.3vh, 1.15rem);
+    }
+    .hero-meta {
+      margin-top: var(--space-sm);
+    }
+  }
+  @media (max-height: 700px) {
+    .hero-headline {
+      font-size: clamp(1.35rem, 4.6vh, 2.6rem);
+    }
+  }
+
   /* ============================
      LENS FEATURE
      ============================ */
