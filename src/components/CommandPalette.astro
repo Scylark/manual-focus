@@ -267,8 +267,20 @@ const indexUrl = url('/lens/search-index.json').replace(/\/$/, '');
       if (!matched.length) {
         const empty = document.createElement('div');
         empty.className = 'palette-empty';
-        empty.textContent = `Nothing for "${query}". Try "positioning", "email triage" or "attribution".`;
+        empty.textContent = `Nothing for "${query}" here. `;
+        // Hand the query off to the library's full-text filter,
+        // which also matches outputs and channels.
+        const a = document.createElement('a');
+        a.className = 'palette-item';
+        a.href = `/lens/library/?q=${encodeURIComponent(query)}`;
+        a.innerHTML = `
+          <span class="palette-item-tag">LIBRARY</span>
+          <span class="palette-item-title"></span>`;
+        a.querySelector('.palette-item-title').textContent = `Search the library for "${query}" →`;
         results.appendChild(empty);
+        results.appendChild(a);
+        items.push(a);
+        select(0);
         return;
       }
 

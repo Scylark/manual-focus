@@ -265,13 +265,62 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
+  <!-- THE LENS — the free flagship -->
+  <section class="section lens-feature-section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={320} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 6%; right: -4%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">004 · THE LENS · FREE</div>
+        <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+          Your AI marketing team.<br/>
+          <span class="gradient-text">Yours free.</span>
+        </h2>
+        <div class="lens-feature-grid">
+          <div class="lens-feature-copy reveal">
+            <p class="lead">
+              The Lens is our methodology in the open. Senior marketing
+              operators distilled into 26 Claude Code skills that read
+              your brand context and ship the work alongside you, with
+              46 executable playbooks across brand, demand, content,
+              ops and productivity behind them.
+            </p>
+            <p>
+              Every playbook carries the prompts, the eval gates and the
+              failure modes, walked through end to end on a worked
+              example. Read them free, install the skills free, and if
+              you'd rather we ran the workflows for you, that's the
+              product above.
+            </p>
+            <div class="lens-feature-ctas">
+              <a href={url('/lens')} class="btn-cta">Open The Lens</a>
+              <a href={`${url('/lens')}#diagnostic`} class="btn-ghost">Find your starter in 20 seconds</a>
+            </div>
+          </div>
+          <div class="lens-feature-install reveal">
+            <p class="lens-feature-install-label mono">INSTALL THE TEAM</p>
+            <pre class="lens-feature-code"><code>/plugin marketplace add Scylark/manual-focus
+/plugin install the-lens@manual-focus
+set up the lens</code></pre>
+            <p class="lens-feature-install-note">
+              Two commands in Claude Code, then ask it to set up The
+              Lens. The onboarding skill finds your brand documentation,
+              builds the workspace and recommends where to start.
+              Twenty minutes to a working setup.
+            </p>
+            <p class="lens-feature-counts mono">46 PLAYBOOKS · 26 SKILLS · 5 STACKS · MIT LICENSED</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- STATS -->
   <section class="section stats-section section-alt dwell-pin">
     <div class="dwell-pin-stage">
       <FocusObject size={240} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} style="top: 8%; right: 4%;" enterFrom="left" />
 
       <div class="container">
-        <div class="eyebrow">004 · WHAT IT'S WORTH</div>
+        <div class="eyebrow">005 · WHAT IT'S WORTH</div>
         <h2 class="stats-headline reveal">More marketing output, in a fraction of the time.</h2>
         <div class="stats-grid stagger">
           <div class="stat-card">
@@ -301,7 +350,7 @@ const posts = (await getCollection('blog'))
     <div class="dwell-pin-stage">
       <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">005 · IN THE WILD</div>
+        <div class="eyebrow">006 · IN THE WILD</div>
         <h2 class="reveal logos-headline">Endurance and sports brands we've shipped with.</h2>
         <div class="logo-bar stagger">
           <span class="brand-mark brand-display">Classified</span>
@@ -327,7 +376,7 @@ const posts = (await getCollection('blog'))
       <div class="container">
         <div class="credibility-grid">
           <div class="credibility-copy">
-            <div class="eyebrow">006 · WHO WE ARE</div>
+            <div class="eyebrow">007 · WHO WE ARE</div>
             <h2 class="reveal">
               Operators first.<br/>
               <span class="gradient-text">Marketers always.</span>
@@ -354,7 +403,7 @@ const posts = (await getCollection('blog'))
     <div class="dwell-pin-stage">
       <FocusObject size={320} tiltX={56} tiltY={-15} spin={140} scrollSpin={-120} style="top: 5%; left: 3%;" enterFrom="left" />
       <div class="container">
-        <div class="eyebrow">007 · PERSPECTIVE</div>
+        <div class="eyebrow">008 · PERSPECTIVE</div>
         <h2 class="reveal">Notes from the work.</h2>
         <div class="blog-grid stagger">
           {posts.map(post => (
@@ -582,6 +631,80 @@ const posts = (await getCollection('blog'))
   @keyframes scrollHint {
     0%, 100% { transform: translateY(0); opacity: 0.6; }
     50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  /* ============================
+     LENS FEATURE
+     ============================ */
+  .lens-feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .lens-feature-grid { grid-template-columns: 1.2fr 1fr; gap: var(--space-xl); }
+  }
+  .lens-feature-copy p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+  .lens-feature-copy .lead {
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+  }
+  .lens-feature-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .lens-feature-install {
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    background: var(--color-bg-alt);
+    padding: var(--space-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .lens-feature-install::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+  }
+  .lens-feature-install-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--color-cta-start);
+    margin-bottom: var(--space-sm);
+  }
+  .lens-feature-code {
+    background: var(--color-bg);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+  .lens-feature-install-note {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.55;
+    margin-bottom: var(--space-sm);
+  }
+  .lens-feature-counts {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    color: var(--color-text-muted);
   }
 
   /* ============================

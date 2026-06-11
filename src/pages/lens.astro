@@ -140,7 +140,7 @@ import { url } from '../utils/paths';
   </section>
 
   <!-- PICK YOUR STARTING POINT -->
-  <section class="section lens-first-time">
+  <section class="section lens-first-time" id="diagnostic">
     <div class="container">
       <div class="eyebrow">003 · PICK YOUR STARTING POINT</div>
       <h2 class="reveal lens-first-headline">Two questions. Twenty seconds. Your starter playbook.</h2>
@@ -169,6 +169,9 @@ import { url } from '../utils/paths';
             <a href="#" class="btn-cta" data-diag-link>Open the playbook</a>
             <button type="button" class="btn-ghost" data-diag-restart>Start again</button>
           </div>
+          <p class="diag-result-nudge">
+            Prefer the agent to run it? <a href="#plugin">Install the plugin</a> and ask Claude to set up The Lens.
+          </p>
         </div>
       </div>
 
@@ -349,7 +352,7 @@ import { url } from '../utils/paths';
   </section>
 
   <!-- THE LENS PLUGIN -->
-  <section class="section dwell-pin">
+  <section class="section dwell-pin" id="plugin">
     <div class="dwell-pin-stage">
       <FocusObject size={300} tiltX={56} tiltY={-15} spin={140} scrollSpin={-80} style="top: 6%; right: 5%;" enterFrom="right" />
       <div class="container">
@@ -831,6 +834,17 @@ set up the lens</code></pre>
     gap: var(--space-sm);
   }
   .diag-result-ctas .btn-ghost { cursor: pointer; }
+  .diag-result-nudge {
+    margin-top: var(--space-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+  .diag-result-nudge a {
+    color: var(--color-cta-start);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
   .lens-first-divider {
     margin-top: var(--space-lg);
     font-size: 0.62rem;
