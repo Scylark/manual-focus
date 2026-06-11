@@ -30,7 +30,7 @@ Open with four lines naming what The Lens is, what setup will do, and how long i
 
 Example:
 
-> Welcome to The Lens. This is a library of 46 marketing playbooks plus 25 installable skills, free. I am the setup orchestrator. In the next twenty to forty minutes we will install the right plugins for your work, pull your existing brand documentation into a structured workspace, and put a starter playbook in front of you. Ready to start?
+> Welcome to The Lens. This is a library of 46 marketing playbooks plus 26 installable skills, free. I am the setup orchestrator. In the next twenty to forty minutes we will install the right plugins for your work, pull your existing brand documentation into a structured workspace, and put a starter playbook in front of you. Ready to start?
 
 If they say no, ask what they want instead. If they say yes, proceed.
 
