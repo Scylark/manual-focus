@@ -342,15 +342,21 @@ const currentPath = Astro.url.pathname;
     document.addEventListener('keydown', trapFocus);
   }
 
-  // Show header on scroll (only when hide-until-scroll is set)
+  // Show header on scroll (only when hide-until-scroll is set).
+  // The trigger is the first section of <main> (the hero) leaving the
+  // viewport, not a fixed 50px — with a full-height hero and a
+  // dwell-pin hold, a pixel threshold made the nav park itself on
+  // top of the headline for the whole hero journey. 96px ≈ nav
+  // height, so the nav slides in just as the hero's last edge
+  // passes under where the nav will sit.
   const header = document.querySelector('.nav-header[data-hide-until-scroll]') as HTMLElement;
   if (header) {
+    const hero = document.querySelector('main > :first-child');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('is-visible');
-      } else {
-        header.classList.remove('is-visible');
-      }
+      const show = hero
+        ? hero.getBoundingClientRect().bottom < 96
+        : window.scrollY > 50;
+      header.classList.toggle('is-visible', show);
     }, { passive: true });
   }
 
