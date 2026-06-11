@@ -40,6 +40,13 @@ Ask one question to surface the work in front of them. Use what is visible in th
 
 > What is the work in front of you this week? In one sentence.
 
+The same branching runs as a 20-second diagnostic on the site at
+https://manual-focus.co.uk/lens/#diagnostic. If the user arrives
+already holding a recommendation from it ("the diagnostic said
+positioning-audit-pipeline"), treat that as the candidate starter,
+confirm it still matches what they tell you, and move ahead to
+step 3 rather than re-asking.
+
 Map their answer to a stack:
 
 | Their situation | Primary stack | Likely starter |
