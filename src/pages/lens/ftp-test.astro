@@ -1,0 +1,693 @@
+---
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import { url } from '../../utils/paths';
+---
+<Base
+  title="The Marketing FTP Test"
+  description="Twelve questions. Your marketing functional threshold, measured. Score your operation across positioning, voice, content, demand, ops and AI leverage, and get the training plan."
+>
+  <SEOHead
+    slot="seo"
+    type="article"
+    title="The Marketing FTP Test"
+    description="Twelve questions. Your marketing functional threshold, measured. Score your operation across six dimensions and get the training plan."
+    breadcrumbs={[
+      { name: 'Home', url: '/' },
+      { name: 'The Lens', url: '/lens' },
+      { name: 'FTP Test', url: '/lens/ftp-test' },
+    ]}
+  />
+
+  <section class="ftp-head">
+    <div class="container">
+      <a href={url('/lens')} class="ftp-back mono">← THE LENS</a>
+      <div class="eyebrow">FIELD TEST</div>
+      <h1 class="ftp-title">The Marketing <span class="gradient-text">FTP</span> Test.</h1>
+      <p class="ftp-lead">
+        In cycling, FTP is functional threshold power, the output you can
+        actually sustain, not the number you hit once on a good day.
+        Marketing has a threshold too, and most teams have never measured
+        it. Twelve questions, two minutes, honest answers. You get a zone,
+        a read on where the watts are leaking, and the training plan.
+      </p>
+      <p class="ftp-meta mono">12 QUESTIONS · 2 MINUTES · NO EMAIL REQUIRED</p>
+    </div>
+  </section>
+
+  <section class="ftp-body">
+    <div class="container">
+      <div class="ftp-test" data-ftp>
+
+        <!-- Intro / start -->
+        <div class="ftp-stage" data-ftp-stage="start">
+          <p class="ftp-q-text">Answer for how things actually run this quarter, not how the deck says they run. Nobody sees your answers, they never leave the page.</p>
+          <button type="button" class="btn-cta" data-ftp-start>Start the test</button>
+        </div>
+
+        <!-- Question stage (filled by JS) -->
+        <div class="ftp-stage" data-ftp-stage="question" hidden>
+          <div class="ftp-progress mono">
+            <span data-ftp-counter>QUESTION 1 OF 12</span>
+            <span data-ftp-dimension></span>
+          </div>
+          <div class="ftp-progress-bar"><div class="ftp-progress-fill" data-ftp-fill></div></div>
+          <p class="ftp-q-text" data-ftp-question></p>
+          <div class="ftp-options" data-ftp-options></div>
+          <button type="button" class="ftp-prev mono" data-ftp-prev hidden>← PREVIOUS QUESTION</button>
+        </div>
+
+        <!-- Results stage -->
+        <div class="ftp-stage" data-ftp-stage="result" hidden>
+          <div class="ftp-result-zone mono" data-ftp-zone-label></div>
+          <h2 class="ftp-result-title" data-ftp-zone-name></h2>
+          <p class="ftp-result-score mono" data-ftp-score></p>
+          <p class="ftp-result-read" data-ftp-read></p>
+
+          <div class="ftp-dims" data-ftp-dims></div>
+
+          <div class="ftp-plan">
+            <h3 class="ftp-plan-title">Your training plan</h3>
+            <p class="ftp-plan-lead" data-ftp-plan-lead></p>
+            <div class="ftp-plan-cards" data-ftp-plan></div>
+          </div>
+
+          <div class="ftp-result-ctas">
+            <button type="button" class="btn-ghost" data-ftp-copy>Copy your result</button>
+            <button type="button" class="btn-ghost" data-ftp-restart>Retest</button>
+          </div>
+          <p class="ftp-result-nudge">
+            The full plan runs deeper than three playbooks. Subscribe in the
+            footer and the new ones arrive as they ship, or
+            <a href={url('/lens/start-here')}>start with the orientation guide</a>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  /* All selectors .ftp- prefixed and global because the quiz DOM is
+     created at runtime — JS-created nodes don't carry Astro's scope
+     attribute. */
+  .ftp-head {
+    padding-block: var(--space-xl) var(--space-lg);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .ftp-back {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  .ftp-back:hover { color: var(--color-text); }
+  .ftp-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-block: var(--space-sm);
+  }
+  .ftp-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    max-width: 65ch;
+  }
+  .ftp-meta {
+    margin-top: var(--space-md);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+  }
+
+  .ftp-body { padding-block: var(--space-xl); }
+  .ftp-test {
+    max-width: 760px;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    background: var(--color-bg);
+    padding: var(--space-lg) var(--space-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .ftp-test::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--color-cta-gradient);
+  }
+
+  .ftp-progress {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.6rem;
+  }
+  .ftp-progress [data-ftp-dimension] { color: var(--color-cta-start); }
+  .ftp-progress-bar {
+    height: 3px;
+    background: var(--color-line);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: var(--space-md);
+  }
+  .ftp-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-cta-gradient);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .ftp-q-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    line-height: 1.25;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+  }
+  .ftp-stage[data-ftp-stage="start"] .ftp-q-text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+  .ftp-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .ftp-option {
+    text-align: left;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    color: var(--color-text);
+    font-size: var(--font-size-body);
+    font-family: var(--font-family);
+    line-height: 1.45;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .ftp-option:hover {
+    border-color: var(--color-cta-start);
+    transform: translateX(3px);
+  }
+  .ftp-prev {
+    margin-top: var(--space-md);
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    cursor: pointer;
+    padding: 0.25rem 0;
+  }
+  .ftp-prev:hover { color: var(--color-text); }
+
+  /* Results */
+  .ftp-result-zone {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    color: var(--color-cta-start);
+    margin-bottom: var(--space-xs);
+  }
+  .ftp-result-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+  .ftp-result-score {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+  .ftp-result-read {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 60ch;
+    margin-bottom: var(--space-lg);
+  }
+
+  .ftp-dims {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: var(--space-lg);
+  }
+  .ftp-dim {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr 2.5rem;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .ftp-dim-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: var(--color-text-secondary);
+  }
+  .ftp-dim-track {
+    height: 8px;
+    background: var(--color-line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .ftp-dim-fill {
+    height: 100%;
+    background: var(--color-cta-gradient);
+    border-radius: 999px;
+    transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .ftp-dim.is-weak .ftp-dim-label { color: var(--color-cta-start); }
+  .ftp-dim-score {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--color-text-muted);
+    text-align: right;
+  }
+  @media (max-width: 560px) {
+    .ftp-dim { grid-template-columns: 7rem 1fr 2.2rem; }
+  }
+
+  .ftp-plan-title {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+  .ftp-plan-lead {
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-bottom: var(--space-md);
+    max-width: 60ch;
+  }
+  .ftp-plan-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+  .ftp-plan-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-sm) var(--space-md);
+    text-decoration: none;
+    background: var(--color-bg-alt);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .ftp-plan-card:hover {
+    border-color: var(--color-cta-start);
+    transform: translateY(-2px);
+  }
+  .ftp-plan-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    color: var(--color-cta-start);
+  }
+  .ftp-plan-card-title {
+    color: var(--color-text);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .ftp-plan-card-why {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+
+  .ftp-result-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .ftp-result-ctas .btn-ghost { cursor: pointer; }
+  .ftp-result-nudge {
+    margin-top: var(--space-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    max-width: 60ch;
+  }
+  .ftp-result-nudge a {
+    color: var(--color-cta-start);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+</style>
+
+<script>
+  // The Marketing FTP Test. Twelve questions across six dimensions,
+  // 0-3 points each. Entirely client-side — answers never leave the
+  // page. The zones borrow cycling's power-zone language because the
+  // audience already thinks in it.
+  type Option = { label: string; pts: number };
+  type Question = { dim: string; text: string; options: Option[] };
+
+  const DIMS: Record<string, { label: string; playbooks: { tag: string; title: string; why: string; url: string }[] }> = {
+    positioning: {
+      label: 'POSITIONING',
+      playbooks: [
+        { tag: 'BRAND · 2-3 DAYS', title: 'Positioning audit pipeline', why: 'Six passes over your real public surface. Where the brand actually sits, and the sharpened brief.', url: '/lens/brand/positioning-audit-pipeline/' },
+        { tag: 'BRAND · 1 DAY', title: 'Message house generator', why: 'Turns the sharpened positioning into pillars, proof points and channel lines the whole team ships from.', url: '/lens/brand/message-house-generator/' },
+      ],
+    },
+    voice: {
+      label: 'VOICE',
+      playbooks: [
+        { tag: 'BRAND · 1-2 DAYS', title: 'Brand voice extraction', why: 'A falsifiable voice profile from your best writing, plus the rubric every future draft gets scored against.', url: '/lens/brand/brand-voice-extraction/' },
+        { tag: 'BRAND · 1 DAY', title: 'Endurance brand voice', why: 'The lexicon and credibility tells that separate practitioner-led brands from sports-lifestyle ones.', url: '/lens/brand/endurance-brand-voice/' },
+      ],
+    },
+    content: {
+      label: 'CONTENT ENGINE',
+      playbooks: [
+        { tag: 'CONTENT · 1-2 WEEKS', title: 'Eval-gated drafting', why: 'Drafts pass voice, fact and originality gates before an editor sees them. Review becomes judgement, not triage.', url: '/lens/content/eval-gated-drafting/' },
+        { tag: 'CONTENT · 1 WEEK', title: 'Social content factory', why: 'One weekly brief becomes channel-native posts, each gated against the voice profile.', url: '/lens/content/social-content-factory/' },
+      ],
+    },
+    demand: {
+      label: 'DEMAND & MEASUREMENT',
+      playbooks: [
+        { tag: 'DEMAND · 1 WEEK', title: 'Attribution tear-down', why: 'Cross-references GA4, platform pixels and incrementality to find who is overclaiming and who is quietly working.', url: '/lens/demand/attribution-teardown/' },
+        { tag: 'DEMAND · 2-3 DAYS', title: 'Channel-mix simulator', why: 'Twenty allocation scenarios with the maths, so the budget conversation stops being a feelings conversation.', url: '/lens/demand/channel-mix-simulator/' },
+      ],
+    },
+    ops: {
+      label: 'OPS',
+      playbooks: [
+        { tag: 'OPS · 1-2 WEEKS', title: 'Brief-to-ship pipeline', why: 'Structured intake, weekly triage, a visible shipping cadence. Replaces ten tools and three standing meetings.', url: '/lens/ops/brief-to-ship-pipeline/' },
+        { tag: 'OPS · 1 WEEK', title: 'Brand guardrails as code', why: 'The guidelines become a programmatic ruleset that runs before publish, so drift gets caught early.', url: '/lens/ops/brand-guardrails-as-code/' },
+      ],
+    },
+    ai: {
+      label: 'AI LEVERAGE',
+      playbooks: [
+        { tag: 'SETUP · 20 MIN', title: 'Set up The Lens', why: 'Install the plugin, let the onboarding skill build your brand workspace and pick your first workflow.', url: '/lens/cowork/' },
+        { tag: 'OPS · 1 WEEK', title: 'Evaluation frameworks', why: 'Rubrics per output type so AI work is held to a standard you can point at, not a feeling.', url: '/lens/ops/evaluation-frameworks/' },
+      ],
+    },
+  };
+
+  const QUESTIONS: Question[] = [
+    {
+      dim: 'positioning',
+      text: "If I asked three people on your team for the brand's positioning in one sentence, I'd get...",
+      options: [
+        { label: 'The same sentence, close to word for word', pts: 3 },
+        { label: 'The same idea in different words', pts: 2 },
+        { label: 'Three related but different answers', pts: 1 },
+        { label: 'Three different brands, apparently', pts: 0 },
+      ],
+    },
+    {
+      dim: 'positioning',
+      text: 'The proof points, the reasons anyone should believe the positioning, are...',
+      options: [
+        { label: 'Written down, sourced, refreshed this year', pts: 3 },
+        { label: 'Written down somewhere', pts: 2 },
+        { label: "Living in the founder's head", pts: 1 },
+        { label: 'We lead with adjectives instead', pts: 0 },
+      ],
+    },
+    {
+      dim: 'voice',
+      text: 'A new writer joins tomorrow. How do they learn to sound like the brand?',
+      options: [
+        { label: 'A voice profile with observable rules and exemplar passages', pts: 3 },
+        { label: 'A tone-of-voice PDF with adjectives in it', pts: 2 },
+        { label: 'They read old posts and absorb it', pts: 1 },
+        { label: "They don't, and you can tell", pts: 0 },
+      ],
+    },
+    {
+      dim: 'voice',
+      text: "AI-drafted copy in your brand's voice...",
+      options: [
+        { label: 'Passes a scoring rubric before a human sees it', pts: 3 },
+        { label: 'Gets close, with a good prompt', pts: 2 },
+        { label: "Sounds like everyone else's AI copy", pts: 1 },
+        { label: "We don't let AI near the brand voice", pts: 0 },
+      ],
+    },
+    {
+      dim: 'content',
+      text: 'From brief to published, a standard content piece takes...',
+      options: [
+        { label: 'Days, on a cadence the whole team can see', pts: 3 },
+        { label: 'A week or two, usually', pts: 2 },
+        { label: 'Depends who you ask', pts: 1 },
+        { label: 'There is no standard piece, every one is a project', pts: 0 },
+      ],
+    },
+    {
+      dim: 'content',
+      text: 'Quality control before something ships is...',
+      options: [
+        { label: 'Named gates the draft has to pass', pts: 3 },
+        { label: 'A senior person reads everything', pts: 2 },
+        { label: 'Whoever wrote it re-reads it', pts: 1 },
+        { label: 'Publish and pray', pts: 0 },
+      ],
+    },
+    {
+      dim: 'demand',
+      text: 'Which channel actually earns its budget?',
+      options: [
+        { label: 'We cross-check GA4, platform numbers and incrementality', pts: 3 },
+        { label: 'We trust GA4, mostly', pts: 2 },
+        { label: 'Each platform marks its own homework', pts: 1 },
+        { label: 'Honestly, vibes', pts: 0 },
+      ],
+    },
+    {
+      dim: 'demand',
+      text: "If the CFO cut 20% of the budget tomorrow, you'd know what to drop...",
+      options: [
+        { label: 'Immediately, with the maths', pts: 3 },
+        { label: 'After a day with the data', pts: 2 },
+        { label: "We'd argue about it for a week", pts: 1 },
+        { label: "We'd cut evenly across everything", pts: 0 },
+      ],
+    },
+    {
+      dim: 'ops',
+      text: 'Briefs arrive as...',
+      options: [
+        { label: 'A structured template through one intake', pts: 3 },
+        { label: 'Documents of varying shapes', pts: 2 },
+        { label: 'Slack messages', pts: 1 },
+        { label: 'Drive-by conversations', pts: 0 },
+      ],
+    },
+    {
+      dim: 'ops',
+      text: "Brand rules, the claims you can't make and the words you don't use, are...",
+      options: [
+        { label: 'Checked programmatically before publish', pts: 3 },
+        { label: 'In guidelines people mostly know', pts: 2 },
+        { label: 'In a PDF nobody opens', pts: 1 },
+        { label: 'Enforced by whoever shouts after it ships', pts: 0 },
+      ],
+    },
+    {
+      dim: 'ai',
+      text: 'AI in your marketing workflow today is...',
+      options: [
+        { label: 'Pipelines with eval gates the team runs daily', pts: 3 },
+        { label: 'A few solid prompt workflows', pts: 2 },
+        { label: 'Individuals with ChatGPT tabs open', pts: 1 },
+        { label: 'A webinar someone attended', pts: 0 },
+      ],
+    },
+    {
+      dim: 'ai',
+      text: 'When a new frontier model ships, your team...',
+      options: [
+        { label: 'Re-tests the affected workflows that week', pts: 3 },
+        { label: 'Tries it on a few tasks', pts: 2 },
+        { label: 'Reads about it on LinkedIn', pts: 1 },
+        { label: "Doesn't notice", pts: 0 },
+      ],
+    },
+  ];
+
+  const ZONES = [
+    {
+      min: 0, label: 'ZONE 1', name: 'Recovery ride.',
+      read: "No shame in it, every strong operation started here, but the foundations are missing and AI on top of missing foundations just produces generic output faster. Start with positioning, get the voice written down as rules, and build up from there. The good news is that the early gains come quickest.",
+    },
+    {
+      min: 8, label: 'ZONE 2', name: 'Endurance pace.',
+      read: "There's a base. Some things are written down, some channels half-measured, and the team gets work out the door. What's missing is the system around the work, so everything depends on the people who happen to hold it in their heads. Codify what exists before adding anything new.",
+    },
+    {
+      min: 15, label: 'ZONE 3', name: 'Tempo.',
+      read: "Respectable. The foundations hold and the work ships, but the gap between you and a threshold operation is leverage: quality gates instead of senior review, measured channels instead of trusted ones, AI as pipelines instead of tabs. Pick your weakest dimension below and train it specifically.",
+    },
+    {
+      min: 22, label: 'ZONE 4', name: 'Threshold.',
+      read: "You're running what most teams aspire to: codified foundations, a visible cadence, numbers you'd defend to a CFO. What's left is compounding, getting the system to improve every time a model ships rather than holding steady. The playbooks below are sharpening, not surgery.",
+    },
+    {
+      min: 29, label: 'ZONE 5', name: 'VO2 max.',
+      read: "Rarefied air, and if the answers were honest you already know it. At this level the marginal gains are in refresh discipline and depth per dimension. Keep the eval gates honest, keep re-testing on every model release, and consider which parts of your system deserve to be taught to the rest of the team.",
+    },
+  ];
+
+  const root = document.querySelector<HTMLElement>('[data-ftp]');
+  if (root) {
+    const stages = {
+      start: root.querySelector<HTMLElement>('[data-ftp-stage="start"]')!,
+      question: root.querySelector<HTMLElement>('[data-ftp-stage="question"]')!,
+      result: root.querySelector<HTMLElement>('[data-ftp-stage="result"]')!,
+    };
+    const counterEl = root.querySelector<HTMLElement>('[data-ftp-counter]')!;
+    const dimEl = root.querySelector<HTMLElement>('[data-ftp-dimension]')!;
+    const fillEl = root.querySelector<HTMLElement>('[data-ftp-fill]')!;
+    const qEl = root.querySelector<HTMLElement>('[data-ftp-question]')!;
+    const optsEl = root.querySelector<HTMLElement>('[data-ftp-options]')!;
+    const prevBtn = root.querySelector<HTMLButtonElement>('[data-ftp-prev]')!;
+
+    let answers: number[] = [];
+    let current = 0;
+
+    const show = (name: keyof typeof stages) => {
+      (Object.keys(stages) as (keyof typeof stages)[]).forEach((k) => {
+        stages[k].hidden = k !== name;
+      });
+    };
+
+    const renderQuestion = () => {
+      const q = QUESTIONS[current];
+      counterEl.textContent = `QUESTION ${current + 1} OF ${QUESTIONS.length}`;
+      dimEl.textContent = DIMS[q.dim].label;
+      fillEl.style.width = `${(current / QUESTIONS.length) * 100}%`;
+      qEl.textContent = q.text;
+      prevBtn.hidden = current === 0;
+      optsEl.innerHTML = '';
+      // Shuffle display order so the "right" answer isn't always on top.
+      const order = q.options.map((_, i) => i).sort((a, b) => ((a * 7 + current * 3) % 4) - ((b * 7 + current * 3) % 4));
+      order.forEach((idx) => {
+        const opt = q.options[idx];
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'ftp-option';
+        b.textContent = opt.label;
+        b.addEventListener('click', () => {
+          answers[current] = opt.pts;
+          current++;
+          current < QUESTIONS.length ? renderQuestion() : renderResult();
+        });
+        optsEl.appendChild(b);
+      });
+      show('question');
+    };
+
+    const renderResult = () => {
+      const total = answers.reduce((a, b) => a + b, 0);
+      const max = QUESTIONS.length * 3;
+      const zone = [...ZONES].reverse().find((z) => total >= z.min) ?? ZONES[0];
+
+      root.querySelector('[data-ftp-zone-label]')!.textContent = `${zone.label} · ${total >= 29 ? '29-36' : zone.min === 0 ? '0-7' : `${zone.min}-${zone.min + 6}`} BAND`;
+      root.querySelector('[data-ftp-zone-name]')!.textContent = zone.name;
+      root.querySelector('[data-ftp-score]')!.textContent = `SCORE ${total} / ${max}`;
+      root.querySelector('[data-ftp-read]')!.textContent = zone.read;
+
+      // Per-dimension scores (two questions each, 0-6).
+      const dimScores: Record<string, number> = {};
+      QUESTIONS.forEach((q, i) => {
+        dimScores[q.dim] = (dimScores[q.dim] ?? 0) + (answers[i] ?? 0);
+      });
+      const sorted = Object.entries(dimScores).sort((a, b) => a[1] - b[1]);
+      const weakest = sorted.slice(0, 2).map(([d]) => d);
+
+      const dimsEl = root.querySelector<HTMLElement>('[data-ftp-dims]')!;
+      dimsEl.innerHTML = '';
+      Object.entries(dimScores).forEach(([dim, score]) => {
+        const row = document.createElement('div');
+        row.className = 'ftp-dim' + (weakest.includes(dim) ? ' is-weak' : '');
+        row.innerHTML = `
+          <span class="ftp-dim-label"></span>
+          <span class="ftp-dim-track"><span class="ftp-dim-fill" style="display:block;width:0%"></span></span>
+          <span class="ftp-dim-score"></span>`;
+        row.querySelector('.ftp-dim-label')!.textContent = DIMS[dim].label;
+        row.querySelector('.ftp-dim-score')!.textContent = `${score}/6`;
+        dimsEl.appendChild(row);
+        requestAnimationFrame(() => {
+          (row.querySelector('.ftp-dim-fill') as HTMLElement).style.width = `${(score / 6) * 100}%`;
+        });
+      });
+
+      // Training plan: top playbook from each of the two weakest dims,
+      // plus the second playbook of the weakest.
+      const planEl = root.querySelector<HTMLElement>('[data-ftp-plan]')!;
+      planEl.innerHTML = '';
+      const picks = [
+        DIMS[weakest[0]].playbooks[0],
+        DIMS[weakest[1]].playbooks[0],
+        DIMS[weakest[0]].playbooks[1],
+      ];
+      root.querySelector('[data-ftp-plan-lead]')!.textContent =
+        `Your watts are leaking from ${DIMS[weakest[0]].label.toLowerCase()} and ${DIMS[weakest[1]].label.toLowerCase()}. Three sessions, in order.`;
+      picks.forEach((p) => {
+        const a = document.createElement('a');
+        a.className = 'ftp-plan-card';
+        a.href = p.url;
+        a.innerHTML = `
+          <span class="ftp-plan-card-tag"></span>
+          <span class="ftp-plan-card-title"></span>
+          <span class="ftp-plan-card-why"></span>`;
+        a.querySelector('.ftp-plan-card-tag')!.textContent = p.tag;
+        a.querySelector('.ftp-plan-card-title')!.textContent = p.title;
+        a.querySelector('.ftp-plan-card-why')!.textContent = p.why;
+        planEl.appendChild(a);
+      });
+
+      // Copy-result: a clean text snippet for Slack / LinkedIn.
+      const copyBtn = root.querySelector<HTMLButtonElement>('[data-ftp-copy]')!;
+      copyBtn.onclick = async () => {
+        const text = `Marketing FTP Test: ${zone.label} (${zone.name.replace('.', '')}) — ${total}/${max}.\nWeakest dimensions: ${DIMS[weakest[0]].label.toLowerCase()}, ${DIMS[weakest[1]].label.toLowerCase()}.\nTake it: https://manual-focus.co.uk/lens/ftp-test/`;
+        try {
+          await navigator.clipboard.writeText(text);
+          copyBtn.textContent = 'Copied ✓';
+        } catch {
+          copyBtn.textContent = 'Select + copy manually';
+        }
+        setTimeout(() => { copyBtn.textContent = 'Copy your result'; }, 2000);
+      };
+
+      fillEl.style.width = '100%';
+      show('result');
+    };
+
+    root.querySelector('[data-ftp-start]')?.addEventListener('click', () => {
+      answers = [];
+      current = 0;
+      renderQuestion();
+    });
+    prevBtn.addEventListener('click', () => {
+      if (current > 0) { current--; renderQuestion(); }
+    });
+    root.querySelector('[data-ftp-restart]')?.addEventListener('click', () => {
+      answers = [];
+      current = 0;
+      renderQuestion();
+    });
+  }
+</script>

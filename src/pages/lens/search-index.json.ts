@@ -41,6 +41,7 @@ export const GET: APIRoute = async () => {
   const pageEntries = [
     { title: 'The Lens', desc: 'Your AI marketing team. The hub.', url: '/lens/' },
     { title: 'Start here', desc: 'Orientation. Which playbook to run first.', url: '/lens/start-here/' },
+    { title: 'Marketing FTP Test', desc: 'Twelve questions. Your functional threshold, measured.', url: '/lens/ftp-test/' },
     { title: 'Library', desc: 'All 46 playbooks, searchable.', url: '/lens/library/' },
     { title: 'Skills', desc: 'The 26 installable Claude Code skills.', url: '/lens/skills/' },
     { title: 'Prompting 101', desc: 'What a prompt is, what a skill is, plainly.', url: '/lens/primer/' },
