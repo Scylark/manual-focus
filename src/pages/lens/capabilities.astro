@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import { url } from '../../utils/paths';
 
-const lastUpdated = '2026-06-28';
+const lastUpdated = '2026-06-29';
 const nextReview = 'Q3 2026';
 ---
 <Base
@@ -42,6 +42,30 @@ const nextReview = 'Q3 2026';
 
   <section class="cap-body">
     <div class="container cap-prose">
+
+      <h2>The model landscape this quarter</h2>
+      <p>
+        Four frontier models matter for production marketing work right
+        now. Anthropic's Claude Opus 4.8 (28 May 2026) currently leads the
+        Artificial Analysis Intelligence Index at 61.4, narrowly ahead of
+        OpenAI's GPT-5.5 at 60.2, Google's Gemini 3.1 Pro at 57, and xAI's
+        Grok 4.3 at 53. Gemini 3.5 Pro is shipping this month off the back
+        of I/O, and OpenAI has a GPT-5.6 in the wings. The order changes
+        roughly every quarter and the gaps are narrow, so we build
+        playbooks model-agnostic and let the eval gates decide which model
+        ships the work.
+      </p>
+      <p>
+        June made the case for that discipline. Claude Fable 5 landed on
+        the 9th as the new reasoning leader and was pulled on the 12th
+        under a US export-control order, three days of being the best model
+        available followed by it not being available at all. Any team that
+        had hard-wired a pipeline to a single named model spent that week
+        rebuilding. The Lens playbooks name a model in the frontmatter as a
+        sensible default, not a dependency, and the prompts run on whatever
+        frontier model you have. When a model moves a capability rating
+        below, we annotate the entry with the date and the evidence.
+      </p>
 
       <h2>The grading</h2>
       <p>
