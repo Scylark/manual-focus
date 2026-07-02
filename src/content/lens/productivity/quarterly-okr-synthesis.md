@@ -3,7 +3,7 @@ title: "Quarterly OKR synthesis, team reports to CEO and board summary"
 stack: productivity
 description: "Status reports from five team leads compressed into a CEO-ready quarterly summary and a board narrative. Two hours instead of two days."
 outputs: "Synthesis spec, status report ingestion prompt, scoring rubric, narrative draft, board pack section"
-readMin: 23
+readMin: 17
 shipTime: "1 working day"
 brandStage: ["scale", "enterprise"]
 channels: ["docs", "crm", "tasks"]

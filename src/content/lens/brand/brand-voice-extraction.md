@@ -3,7 +3,7 @@ title: "Brand voice extraction and prompt library"
 stack: brand
 description: "Extract a falsifiable voice profile from your best writing. Build a prompt library and a scoring rubric so new drafts read like the brand, not like AI."
 outputs: "Voice profile, evaluation rubric and reusable prompt library"
-readMin: 22
+readMin: 16
 shipTime: "2 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "brand", "organic-social", "email"]

@@ -3,7 +3,7 @@ title: "Naming sprint, multi-pass with linguistic filtering"
 stack: brand
 description: "Compress a quarter's naming exercise into a working day. 400 candidates, phonetic and trademark filters, eight defensible finalists with rationale."
 outputs: "Shortlist of 8 names with rationale, risks, trademark first-pass, forced-choice review pack"
-readMin: 24
+readMin: 16
 shipTime: "1 working day"
 brandStage: ["pre-launch", "launch", "growth"]
 channels: ["brand", "product-marketing"]

@@ -3,7 +3,7 @@ title: "Hiring shape for AI-native marketing teams"
 stack: ops
 description: "The role taxonomy, the interview signal, the trial-task pack. How to staff a marketing function whose leverage comes from AI without becoming a team of prompt engineers."
 outputs: "Role descriptions, interview rubric, trial-task pack, hiring scorecard"
-readMin: 22
+readMin: 18
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand"]

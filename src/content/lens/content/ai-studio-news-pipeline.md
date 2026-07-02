@@ -3,7 +3,7 @@ title: "AI studio news pipeline to LinkedIn content"
 stack: content
 description: "Monitor frontier AI studio releases, draft LinkedIn posts on what each release means for marketers, plus audio or video demos via ElevenLabs and Higgsfield."
 outputs: "Weekly post pipeline, news ledger, audio and video demo workflow"
-readMin: 22
+readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["organic-social", "content", "brand"]

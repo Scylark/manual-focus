@@ -3,7 +3,7 @@ title: "Retail partner programme, bike shops, run stores, multisport retailers"
 stack: demand
 description: "Run a retail partner programme that sells through specialist shops. Tier menu, sell-in kit, training cadence, sell-through measurement, honest annual review."
 outputs: "Partner tier menu, sell-in kit, training programme, sell-through scorecard, annual review framework"
-readMin: 22
+readMin: 15
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "lifecycle"]

@@ -3,7 +3,7 @@ title: "Attribution tear-down using GA4 and incrementality signals"
 stack: demand
 description: "Untangle channel attribution using GA4, platform pixels and incrementality. Find overclaiming channels and the ones quietly working. Done in a week with the tools you already have."
 outputs: "Master attribution sheet, contradiction report, three concrete bets with test designs"
-readMin: 18
+readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["analytics", "paid-search", "paid-social", "seo"]

@@ -3,7 +3,7 @@ title: "Brand guardrails as code"
 stack: ops
 description: "Turn the brand guidelines from a PDF nobody reads into a programmatic check that runs on every piece of content before it ships. Catches drift before, not after."
 outputs: "Guardrails ruleset, linting script, Slack and CI integration, calibration corpus"
-readMin: 21
+readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content"]

@@ -3,7 +3,7 @@ title: "Video script system, brief to shootable script"
 stack: content
 description: "Convert a marketing brief into a shootable script with beats, b-roll suggestions, captions and a thumbnail brief. Saves a producer a week of prep."
 outputs: "Scripted shoot doc, b-roll list, caption draft, thumbnail brief"
-readMin: 20
+readMin: 16
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["video", "content", "organic-social"]

@@ -3,7 +3,7 @@ title: "Call follow-up loop, transcript to CRM update, email draft and tasks"
 stack: productivity
 description: "Granola or Fireflies transcript into a CRM update, voice-loaded follow-up email and Linear or Asana tasks. Closes the loop opened by meeting prep."
 outputs: "Transcript ingestion prompt, CRM update payload, follow-up email draft, task creation prompt, eval rubric"
-readMin: 21
+readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["meetings", "crm", "inbox", "tasks"]

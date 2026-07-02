@@ -3,7 +3,7 @@ title: "Meeting prep stack, auto-generated context pack per meeting"
 stack: productivity
 description: "A context pack per meeting from LinkedIn, past notes, CRM history and recent emails. Walk in informed, ten minutes of work instead of forty."
 outputs: "Context pack template, attendee enrichment prompt, history aggregation prompt, agenda draft, eval rubric"
-readMin: 22
+readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["meetings", "calendar", "crm", "inbox"]

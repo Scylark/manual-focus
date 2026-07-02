@@ -3,7 +3,7 @@ title: "Tagline system, generate, eval, A/B"
 stack: brand
 description: "Generate 200 tagline candidates, filter to 15 by rule, A/B test to pick a winner against a real metric. The whole sprint runs in three working days."
 outputs: "Tagline shortlist, A/B test design, alternative slot fills, retirement rules"
-readMin: 20
+readMin: 16
 shipTime: "3 working days"
 brandStage: ["launch", "growth", "scale"]
 channels: ["brand"]

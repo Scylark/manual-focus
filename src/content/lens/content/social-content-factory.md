@@ -3,7 +3,7 @@ title: "Social-content factory with channel-native generation"
 stack: content
 description: "A production line for organic social that respects native form on each channel. Generates the week's content from a single brief, gates per channel."
 outputs: "Weekly social content set, channel-native variants, scheduling spec"
-readMin: 21
+readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["organic-social", "content", "video"]

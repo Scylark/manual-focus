@@ -3,7 +3,7 @@ title: "Eval-gated drafting pipeline"
 stack: content
 description: "A drafting pipeline that scores its own output against four objective gates before a human sees it. Triples editorial throughput without dropping the standard."
 outputs: "Drafting pipeline, scoring rubric, queue routing"
-readMin: 21
+readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "seo", "email"]

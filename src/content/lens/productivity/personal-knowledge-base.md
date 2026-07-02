@@ -3,7 +3,7 @@ title: "Personal knowledge base, Notion and Obsidian with Claude as the search l
 stack: productivity
 description: "Notion and Obsidian wired up with Claude as the search and synthesis layer. Your brain at scale, not just your notes."
 outputs: "Knowledge base spec, ingestion pipeline, retrieval prompt set, weekly hygiene routine, eval rubric"
-readMin: 23
+readMin: 15
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["docs", "meetings", "inbox", "tasks"]

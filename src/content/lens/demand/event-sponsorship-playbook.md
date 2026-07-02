@@ -3,7 +3,7 @@ title: "Event sponsorship beyond logo-on-banner"
 stack: demand
 description: "Turn event sponsorship into compounding audience value. Tier menu, on-site activation playbook, content rights that survive the event, post-event scorecard that drives renewal."
 outputs: "Event evaluation scorecard, tier menu, activation plan, content-rights template, post-event scorecard"
-readMin: 22
+readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "pr", "organic-social"]

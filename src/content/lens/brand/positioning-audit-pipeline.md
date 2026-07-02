@@ -3,7 +3,7 @@ title: "Positioning audit pipeline"
 stack: brand
 description: "Run a brand's public surface through a six-pass audit and ship a sharpened positioning brief in a working day. Said-versus-shown gaps, contradictions, defensible ground."
 outputs: "Positioning audit deck, sharpened brief, contradictions ranked by severity"
-readMin: 22
+readMin: 19
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand"]

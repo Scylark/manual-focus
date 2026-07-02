@@ -3,7 +3,7 @@ title: "Segment-specific b-roll, AI-augmented production for endurance"
 stack: content
 description: "Plan and produce b-roll across road, gravel, trail, swim and triathlon. What is worth shooting, what AI can augment, what AI cannot touch."
 outputs: "B-roll production plan, AI augmentation brief, capability boundary memo"
-readMin: 23
+readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["video", "organic-social", "content"]

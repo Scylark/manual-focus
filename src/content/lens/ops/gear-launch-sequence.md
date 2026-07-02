@@ -3,7 +3,7 @@ title: "Gear launch sequence for endurance brands"
 stack: ops
 description: "The 12-month calendar for launching a product in a sport with a season. Build phase, pre-orders, public reveal, race-day proof, sustained sell-through."
 outputs: "Launch calendar, gate definitions, content inventory, sales-channel sequence"
-readMin: 24
+readMin: 16
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "email", "paid-search", "paid-social", "pr"]

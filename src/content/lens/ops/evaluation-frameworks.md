@@ -3,7 +3,7 @@ title: "Evaluation frameworks for marketing AI outputs"
 stack: ops
 description: "How to score AI-generated marketing work objectively. Rubrics, deterministic checks, model-as-judge patterns, calibration ritual."
 outputs: "Eval matrix, scoring scripts, anchor examples, calibration corpus"
-readMin: 22
+readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["analytics", "content", "brand"]

@@ -3,7 +3,7 @@ title: "Category Entry Point research and prioritisation"
 stack: demand
 description: "Surface and rank the buying triggers that drive recall in your category, then map your brand's coverage. Ehrenberg-Bass framework in three days, four discovery streams."
 outputs: "Ranked CEP list, brand coverage map, prioritised content backlog, refresh cadence"
-readMin: 22
+readMin: 16
 shipTime: "3 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "seo"]

@@ -3,7 +3,7 @@ title: "Inbox to task pipeline, emails that need work become tasks automatically
 stack: productivity
 description: "Inbound emails that contain work get parsed into Linear, Asana or Notion tasks with the context attached. Nothing falls through the gap between inbox and project tool."
 outputs: "Detection prompt, task extraction prompt, owner-and-due-date logic, project-tool write integration, eval rubric"
-readMin: 21
+readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["inbox", "tasks", "crm"]

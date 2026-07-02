@@ -3,7 +3,7 @@ title: "Message house generator from positioning brief"
 stack: brand
 description: "Turn a positioning brief into a four-tier message house in one day. Narrative, pillars, proof points, channel-mapped lines, plus a rebuttal sheet for the 12 hardest pushbacks."
 outputs: "Message house, channel-mapped lines, rebuttal sheet, refresh checklist"
-readMin: 20
+readMin: 16
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "product-marketing"]

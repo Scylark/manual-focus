@@ -3,7 +3,7 @@ title: "Earned-media pitch generator with journalist matching"
 stack: content
 description: "Match a story to the journalists who actually cover that beat, draft personalised pitches against their recent work, gate against the patterns editors hate."
 outputs: "Targeted journalist list, drafted pitches, follow-up sequence"
-readMin: 21
+readMin: 18
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["pr", "content"]

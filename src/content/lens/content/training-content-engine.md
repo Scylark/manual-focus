@@ -3,7 +3,7 @@ title: "Training-content engine for endurance brands"
 stack: content
 description: "Build a year-round educational content series from a brand's coaching POV. Training, periodisation, recovery and mental work formatted for endurance audiences."
 outputs: "Editorial calendar, drafting pipeline, expert-review gate"
-readMin: 22
+readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "email", "organic-social"]

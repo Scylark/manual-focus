@@ -3,7 +3,7 @@ title: "Direct-to-coach distribution, the underused endurance channel"
 stack: demand
 description: "Build a programme that sells through coaches, training plans and clubs. Tier menu, sample distribution, attribution, and the language coaches respond to."
 outputs: "Coach roster scored to tiers, sample-distribution model, attribution framework, coach-channel content kit"
-readMin: 22
+readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "lifecycle", "content"]

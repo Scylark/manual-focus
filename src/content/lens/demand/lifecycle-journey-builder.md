@@ -3,7 +3,7 @@ title: "Lifecycle journey builder with eval-gated touchpoints"
 stack: demand
 description: "Map a multi-segment lifecycle journey, draft every touchpoint with voice gating, route by behaviour signal, ship in a working week. Replaces three weeks of agency work."
 outputs: "End-to-end journey graph, drafted touchpoints, voice eval rubric, ESP routing spec"
-readMin: 22
+readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["email", "lifecycle", "paid-social"]

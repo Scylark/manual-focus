@@ -3,7 +3,7 @@ title: "Weekly pipeline rollup, CRM data to stakeholder-ready status"
 stack: productivity
 description: "HubSpot, Close or Salesforce data to a stakeholder-ready weekly rollup. No spreadsheet wrangling. Twenty minutes from export to delivered."
 outputs: "Rollup spec, CRM extraction prompt, narrative synthesis prompt, stakeholder format pack, CSV template"
-readMin: 22
+readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["crm", "docs", "inbox"]

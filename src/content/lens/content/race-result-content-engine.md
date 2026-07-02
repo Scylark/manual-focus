@@ -3,7 +3,7 @@ title: "Race-result content engine, timing data to editorial recap"
 stack: content
 description: "Turn live timing data, lap splits and race officials' results into editorial recap content within 90 minutes of race finish. Fact-checked, voice-gated, ready to ship."
 outputs: "Recap drafter pipeline, fact-check harness, channel-mapped publishing schedule"
-readMin: 22
+readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "email", "organic-social"]

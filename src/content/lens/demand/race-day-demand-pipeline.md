@@ -3,7 +3,7 @@ title: "Race-day demand pipeline, campaigns timed to the calendar"
 stack: demand
 description: "Build a twelve-month campaign calendar timed to spring classics, marathon majors, gran fondos and trail-ultra majors. Pre-event, event-day and post-event lines ready by month."
 outputs: "Annual calendar, per-event campaign briefs, creative inventory plan, production lead-time schedule"
-readMin: 24
+readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["paid-search", "paid-social", "email", "organic-social", "content"]

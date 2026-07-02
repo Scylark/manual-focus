@@ -3,7 +3,7 @@ title: "Endurance brand voice, the language of suffer, craft and quietness"
 stack: brand
 description: "Layer category-specific lexicon, credibility checks and inauthenticity tells onto a base voice profile, so the brand reads like someone who has actually done the work."
 outputs: "Endurance lexicon, credibility-scored voice profile, channel-mapped prompt library"
-readMin: 22
+readMin: 14
 shipTime: "2 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "brand", "organic-social", "email"]

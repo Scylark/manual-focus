@@ -3,7 +3,7 @@ title: "Quarterly planning ritual for AI-leveraged marketing"
 stack: ops
 description: "A repeatable 5-day ritual that converts last quarter's learning into next quarter's bets. Built for marketing functions that ship faster than the calendar."
 outputs: "Quarterly plan, 7 bets, 3 retires, metric story for the board"
-readMin: 21
+readMin: 17
 shipTime: "5 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["analytics", "brand"]

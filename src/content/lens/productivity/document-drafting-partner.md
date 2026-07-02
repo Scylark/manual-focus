@@ -3,7 +3,7 @@ title: "Document drafting partner, outline to Google Doc with brand voice"
 stack: productivity
 description: "Outline becomes a brand-voice-loaded Google Doc or Word draft. Briefs, memos, proposals, board updates. First draft in twenty minutes."
 outputs: "Drafting spec template, outline-to-doc prompt, voice consistency check, revision loop, eval rubric"
-readMin: 22
+readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["docs", "inbox"]

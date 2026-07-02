@@ -3,7 +3,7 @@ title: "Brief-to-ship marketing pipeline"
 stack: ops
 description: "A single operating system for the marketing function. Brief intake, eval-gated production, scheduled ship day, post-mortem feedback. Replaces ten tools and three meetings."
 outputs: "Brief template, triage rules, ship-day ritual, outcome ledger"
-readMin: 22
+readMin: 16
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["analytics", "content", "brand"]

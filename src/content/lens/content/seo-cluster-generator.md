@@ -3,7 +3,7 @@ title: "SEO cluster generator, pillar, spoke, intent map"
 stack: content
 description: "Build a defensible topic cluster from one seed keyword. Intent-mapped, GEO-aware, with the eval criteria for surviving the next algorithm update built in from day one."
 outputs: "Pillar page brief, 20-30 spoke briefs, internal link map, intent matrix"
-readMin: 22
+readMin: 18
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["seo", "content"]

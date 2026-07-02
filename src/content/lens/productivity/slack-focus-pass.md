@@ -3,7 +3,7 @@ title: "Slack focus pass, read what matters and ignore what doesn't"
 stack: productivity
 description: "Strip Slack noise to the threads that actually need you, draft replies in the right voice, and stay out of the channels that drain attention. Twice a day, 15 minutes."
 outputs: "Channel scoring matrix, focus pass prompt, voice-loaded reply prompt, two-pass-a-day routine, eval rubric"
-readMin: 21
+readMin: 12
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["meetings", "inbox", "tasks"]

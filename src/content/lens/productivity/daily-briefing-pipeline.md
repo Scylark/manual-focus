@@ -3,7 +3,7 @@ title: "Daily briefing pipeline, calendar, inbox, Slack and CRM in one read"
 stack: productivity
 description: "Stitch calendar, inbox, Slack and CRM into a 5-minute morning brief. The version of your day a chief-of-staff would write if you had one."
 outputs: "Daily briefing template, agent orchestration script, sample brief with worked example, weekly self-eval"
-readMin: 22
+readMin: 14
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["inbox", "calendar", "crm", "meetings", "tasks"]

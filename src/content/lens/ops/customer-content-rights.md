@@ -3,7 +3,7 @@ title: "Customer content rights pipeline"
 stack: ops
 description: "Get permission to use customer race photos and gear reviews in marketing at scale, without burning the relationship. Consent, attribution, AI augmentation policy."
 outputs: "Consent collection flow, content tagging system, consent log, AI augmentation policy"
-readMin: 22
+readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "organic-social", "lifecycle"]

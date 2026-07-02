@@ -3,7 +3,7 @@ title: "End-of-season inventory and clearance"
 stack: ops
 description: "Manage the end-of-season inventory cycle for seasonal endurance gear. Forecast accuracy, clearance timing, channel sequencing, brand-protective discounting."
 outputs: "Inventory disposition sheet, clearance calendar, channel rules, discount governance"
-readMin: 22
+readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["paid-search", "paid-social", "email", "lifecycle"]

@@ -3,7 +3,7 @@ title: "Email triage and draft, 100+ unread to clean inbox in 20 minutes"
 stack: productivity
 description: "Process a hundred unread emails to a clean inbox in twenty minutes with brand-voice-loaded drafts. The pipeline does the sorting, you do the sign-off."
 outputs: "Triage matrix, classification prompt, voice-loaded draft prompt, daily 20-minute routine, eval rubric"
-readMin: 21
+readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["inbox", "crm", "tasks"]

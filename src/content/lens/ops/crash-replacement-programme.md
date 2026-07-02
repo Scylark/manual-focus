@@ -3,7 +3,7 @@ title: "Crash-replacement and wear-out programme"
 stack: ops
 description: "Build a crash-replacement or wear-out programme that earns customer loyalty instead of draining margin. Tier rules, claim handling, evidence requirements, fraud safeguards."
 outputs: "Programme rules, claim flow, case log template, communications kit"
-readMin: 22
+readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "lifecycle"]

@@ -3,7 +3,7 @@ title: "Ambassador programme, athletes, rights, content cadence"
 stack: demand
 description: "Run an athlete ambassador programme that earns audience credibility. Selection rubric, contract with AI augmentation rights, monthly cadence, quarterly review."
 outputs: "Athlete selection rubric, contract template with AI clauses, content cadence, performance scorecard"
-readMin: 22
+readMin: 17
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "organic-social", "pr"]

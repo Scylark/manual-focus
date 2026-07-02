@@ -3,7 +3,7 @@ title: "Founder voice and institutional voice, the dual-voice approach"
 stack: brand
 description: "Separate the founder's voice from the brand's institutional voice. Map surface ownership, build a credible peer voice, write the contract that lets both work."
 outputs: "Two voice profiles, surface-ownership map, founder-team contract, drift checks"
-readMin: 20
+readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "organic-social", "pr"]

@@ -3,7 +3,7 @@ title: "Paid-search bidding agent with margin-aware optimisation"
 stack: demand
 description: "Install a bidding layer that adjusts paid-search targets by contribution margin rather than revenue. Recovers profitable keywords platform-side smart bidding abandons."
 outputs: "Margin map, query-to-product mapping, bidding agent, weekly review cadence"
-readMin: 22
+readMin: 14
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["paid-search", "analytics"]

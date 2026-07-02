@@ -3,7 +3,7 @@ title: "Channel-mix simulator with reach-curve fitting"
 stack: demand
 description: "Fit diminishing-return curves to each channel from twelve months of weekly data, simulate twenty allocations, walk into the budget meeting with three defensible options."
 outputs: "Curve-fit per channel, 20-scenario simulation, three recommended allocations with rationale"
-readMin: 22
+readMin: 16
 shipTime: "2 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["paid-search", "paid-social", "seo", "analytics"]

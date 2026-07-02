@@ -3,7 +3,7 @@ title: "Subscription and membership programme for endurance brands"
 stack: demand
 description: "Design a subscription or membership tier that earns recurring revenue without diluting the brand. Tier shape, benefit design, cancellation expectations, attribution modelling."
 outputs: "Customer-value hypothesis, tier menu, benefit-design sheet, cancellation flow, attribution framework"
-readMin: 22
+readMin: 15
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["lifecycle", "email", "content"]
