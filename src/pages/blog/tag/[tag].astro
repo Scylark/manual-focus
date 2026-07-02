@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import SEOHead from '../../../components/SEOHead.astro';
 import BlogCard from '../../../components/BlogCard.astro';
 import { url } from '../../../utils/paths';
+import { readingTime } from '../../../utils/blog';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -102,6 +103,7 @@ const meta = tagMeta[tag] ?? {
             description={post.data.description}
             date={post.data.date}
             slug={post.id}
+            minutes={readingTime(post.body ?? '')}
           />
         ))}
       </div>

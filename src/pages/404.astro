@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import { url } from '../utils/paths';
 ---
 <Base title="Page Not Found" description="The page you're looking for doesn't exist.">
+  <meta slot="seo" name="robots" content="noindex" />
   <section class="section not-found">
     <div class="container">
       <h1>You've lost focus.<br />Let's get you back.</h1>

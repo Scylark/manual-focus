@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import { url } from '../../utils/paths';
+import { formatTag, readingTime } from '../../utils/blog';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -21,7 +22,7 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
       <nav class="tag-filter" aria-label="Filter by tag">
         <a href={url('/blog')} class="tag tag-current">All</a>
         {allTags.map(tag => (
-          <a href={url(`/blog/tag/${tag}/`)} class="tag">{tag.replace(/-/g, ' ')}</a>
+          <a href={url(`/blog/tag/${tag}/`)} class="tag">{formatTag(tag)}</a>
         ))}
       </nav>
 
@@ -32,6 +33,7 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
             description={post.data.description}
             date={post.data.date}
             slug={post.id}
+            minutes={readingTime(post.body ?? '')}
           />
         ))}
       </div>
@@ -58,9 +60,8 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
     color: var(--color-text-secondary);
     text-decoration: none;
     padding: 0.25rem 0.75rem;
-    border: 1px solid rgba(29, 29, 27, 0.15);
+    border: 1px solid var(--color-line);
     border-radius: 2px;
-    text-transform: capitalize;
   }
 
   .tag:hover,

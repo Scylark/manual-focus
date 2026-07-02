@@ -14,13 +14,16 @@ interface Props {
 
 const { title, description, ogImage = url('/images/og-default.png'), hideNavUntilScroll = false } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+// Avoid "Manual Focus — ... | Manual Focus" on pages whose title
+// already carries the brand name (e.g. the homepage).
+const fullTitle = title.includes('Manual Focus') ? title : `${title} | Manual Focus`;
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} | Manual Focus</title>
+  <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
 
@@ -42,14 +45,14 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${title} | Manual Focus`} />
+  <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(ogImage, Astro.site)} />
   <meta property="og:url" content={canonicalUrl} />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${title} | Manual Focus`} />
+  <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 

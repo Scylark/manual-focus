@@ -2,9 +2,11 @@
 import Base from './Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
+import { formatTag } from '../utils/blog';
 import { getCollection } from 'astro:content';
 
 interface HowToStep { name: string; text: string }
+interface PostRef { slug: string; title: string }
 
 interface Props {
   title: string;
@@ -15,9 +17,12 @@ interface Props {
   image?: string;
   howToName?: string;
   howToSteps?: HowToStep[];
+  minutes?: number;
+  newerPost?: PostRef | null;
+  olderPost?: PostRef | null;
 }
 
-const { title, description, date, updated, tags, image, howToName, howToSteps } = Astro.props;
+const { title, description, date, updated, tags, image, howToName, howToSteps, minutes, newerPost, olderPost } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
 const breadcrumbs = [
@@ -50,11 +55,14 @@ const related = allPosts
   <article class="section">
     <div class="container prose">
       <header class="post-header">
-        <time datetime={date.toISOString()}>{formattedDate}</time>
+        <p class="post-meta">
+          <time datetime={date.toISOString()}>{formattedDate}</time>
+          {minutes && <span class="post-minutes">· {minutes} min read</span>}
+        </p>
         <h1>{title}</h1>
         <div class="post-tags">
           {tags.map(tag => (
-            <a href={url(`/blog/tag/${tag}/`)} class="tag">{tag.replace(/-/g, ' ')}</a>
+            <a href={url(`/blog/tag/${tag}/`)} class="tag">{formatTag(tag)}</a>
           ))}
         </div>
       </header>
@@ -64,6 +72,22 @@ const related = allPosts
       </div>
 
       <footer class="post-footer">
+        {(newerPost || olderPost) && (
+          <nav class="post-nav" aria-label="Post navigation">
+            {olderPost ? (
+              <a href={url(`/blog/${olderPost.slug}/`)} class="post-nav-link post-nav-prev" rel="prev">
+                <span class="post-nav-label mono">← OLDER</span>
+                <span class="post-nav-title">{olderPost.title}</span>
+              </a>
+            ) : <span />}
+            {newerPost ? (
+              <a href={url(`/blog/${newerPost.slug}/`)} class="post-nav-link post-nav-next" rel="next">
+                <span class="post-nav-label mono">NEWER →</span>
+                <span class="post-nav-title">{newerPost.title}</span>
+              </a>
+            ) : <span />}
+          </nav>
+        )}
         <a href={url('/blog')}>Back to all posts</a>
       </footer>
     </div>
@@ -93,11 +117,16 @@ const related = allPosts
     margin-bottom: var(--space-lg);
   }
 
-  .post-header time {
+  .post-meta {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    margin: 0;
+  }
+
+  .post-minutes {
+    color: var(--color-text-muted);
   }
 
   .post-header h1 {
@@ -116,9 +145,8 @@ const related = allPosts
     color: var(--color-text-secondary);
     text-decoration: none;
     padding: 0.25rem 0.75rem;
-    border: 1px solid rgba(29, 29, 27, 0.15);
+    border: 1px solid var(--color-line);
     border-radius: 2px;
-    text-transform: capitalize;
   }
 
   .tag:hover {
@@ -154,7 +182,46 @@ const related = allPosts
   .post-footer {
     margin-top: var(--space-xl);
     padding-top: var(--space-md);
-    border-top: 1px solid rgba(29, 29, 27, 0.08);
+    border-top: 1px solid var(--color-line);
+  }
+
+  /* Chronological prev/next — keeps readers inside the blog and gives
+     crawlers a link path through the archive. */
+  .post-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  .post-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: var(--space-sm);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.3s ease;
+  }
+  .post-nav-link:hover {
+    border-color: var(--color-text);
+  }
+  .post-nav-next {
+    text-align: right;
+  }
+  .post-nav-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+  }
+  .post-nav-title {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    color: var(--color-text);
+  }
+  @media (min-width: 640px) {
+    .post-nav { grid-template-columns: 1fr 1fr; }
   }
 
   /* Related reading — internal-link block under each post for topical

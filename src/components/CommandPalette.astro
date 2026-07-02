@@ -5,7 +5,12 @@
 // lightweight scorer. Fully self-contained: no dependency on the
 // reveal/animation systems, additive DOM only.
 import { url } from '../utils/paths';
+import { getCollection } from 'astro:content';
 const indexUrl = url('/lens/search-index.json').replace(/\/$/, '');
+// Counted at build time so the footer stays accurate as the
+// library grows — previously hardcoded and guaranteed to drift.
+const playbookCount = (await getCollection('lens')).length;
+const skillCount = (await getCollection('lensSkills')).length;
 ---
 <div class="palette-overlay" data-palette hidden>
   <div class="palette-backdrop" data-palette-close></div>
@@ -31,7 +36,7 @@ const indexUrl = url('/lens/search-index.json').replace(/\/$/, '');
     <div class="palette-foot mono" aria-hidden="true">
       <span>↑↓ NAVIGATE</span>
       <span>↵ OPEN</span>
-      <span>46 PLAYBOOKS · 26 SKILLS</span>
+      <span>{playbookCount} PLAYBOOKS · {skillCount} SKILLS</span>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@ import Spray from '../components/Spray.astro';
 import FocusObject from '../components/FocusObject.astro';
 import HeroCyclist from '../components/HeroCyclist.astro';
 import { url } from '../utils/paths';
+import { readingTime } from '../utils/blog';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -412,6 +413,7 @@ set up the lens</code></pre>
               description={post.data.description}
               date={post.data.date}
               slug={post.id}
+              minutes={readingTime(post.body ?? '')}
             />
           ))}
         </div>

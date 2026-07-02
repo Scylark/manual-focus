@@ -1,17 +1,26 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import { readingTime } from '../../utils/blog';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map(post => ({
+  const posts = (await getCollection('blog'))
+    .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  return posts.map((post, i) => ({
     params: { slug: post.id },
-    props: { post },
+    props: {
+      post,
+      // Posts are sorted newest-first, so the "previous" post
+      // (older) sits after this one in the array.
+      newerPost: i > 0 ? { slug: posts[i - 1].id, title: posts[i - 1].data.title } : null,
+      olderPost: i < posts.length - 1 ? { slug: posts[i + 1].id, title: posts[i + 1].data.title } : null,
+    },
   }));
 }
 
-const { post } = Astro.props;
+const { post, newerPost, olderPost } = Astro.props;
 const { Content } = await render(post);
+const minutes = readingTime(post.body ?? '');
 ---
 <BlogPost
   title={post.data.title}
@@ -22,6 +31,9 @@ const { Content } = await render(post);
   image={post.data.image}
   howToName={post.data.howToName}
   howToSteps={post.data.howToSteps}
+  minutes={minutes}
+  newerPost={newerPost}
+  olderPost={olderPost}
 >
   <Content />
 </BlogPost>

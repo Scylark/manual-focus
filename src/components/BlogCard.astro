@@ -5,12 +5,16 @@ interface Props {
   description: string;
   date: Date;
   slug: string;
+  minutes?: number;
 }
-const { title, description, date, slug } = Astro.props;
+const { title, description, date, slug, minutes } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <article class="blog-card">
-  <time datetime={date.toISOString()}>{formattedDate}</time>
+  <p class="blog-card-meta">
+    <time datetime={date.toISOString()}>{formattedDate}</time>
+    {minutes && <span class="blog-card-minutes">· {minutes} min read</span>}
+  </p>
   <h3><a href={url(`/blog/${slug}/`)}>{title}</a></h3>
   <p>{description}</p>
 </article>
@@ -18,7 +22,7 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
 <style>
   .blog-card {
     padding: var(--space-md);
-    border: 1px solid rgba(29, 29, 27, 0.08);
+    border: 1px solid var(--color-line);
     border-radius: 4px;
     background: var(--color-bg);
     position: relative;
@@ -40,7 +44,7 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
 
   .blog-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(29, 29, 27, 0.08);
+    box-shadow: 0 12px 40px var(--ring-shadow);
     border-color: transparent;
   }
 
@@ -48,11 +52,16 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
     opacity: 1;
   }
 
-  .blog-card time {
+  .blog-card-meta {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    margin: 0;
+  }
+
+  .blog-card-minutes {
+    color: var(--color-text-muted);
   }
 
   .blog-card h3 {
