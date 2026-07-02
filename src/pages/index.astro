@@ -13,8 +13,8 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Manual Focus — Marketing agency for the AI era" description="Marketing agency for ambitious brands. Senior operators using AI as leverage to ship brand, demand and growth, with particular depth in endurance and sports brands. London." hideNavUntilScroll>
-  <SEOHead slot="seo" type="website" title="Manual Focus — Marketing agency for the AI era" description="Marketing agency for ambitious brands. Senior operators using AI as leverage to ship brand, demand and growth, with particular depth in endurance and sports brands." />
+<Base title="Manual Focus — Marketing agency for the AI era" description="Manual Focus is a London marketing agency for ambitious brands, with particular depth in endurance and sports. Senior operators using AI as leverage to build brand, demand and growth in a fraction of the time." hideNavUntilScroll>
+  <SEOHead slot="seo" type="website" title="Manual Focus — Marketing agency for the AI era" description="Manual Focus is a London marketing agency for ambitious brands, with particular depth in endurance and sports. Senior operators using AI as leverage to build brand, demand and growth in a fraction of the time." />
 
   <!-- HERO — depth-displacement cyclist with headline overlay -->
   <HeroCyclist>
@@ -36,9 +36,9 @@ const posts = (await getCollection('blog'))
 
       <div class="hero-meta">
         <p class="hero-sub">
-          Manual Focus is a marketing agency for ambitious brands. Senior operators with
-          AI as the leverage, building brand, demand and growth in a fraction of the time,
-          with particular depth in <strong>endurance and sports brands</strong>.
+          Manual Focus is a marketing agency for ambitious brands, with particular depth
+          in <strong>endurance and sports</strong>. Our senior operators use AI as leverage,
+          building brand, demand and growth in a fraction of the time.
         </p>
         <div class="hero-ctas">
           <a href={url('/enquire')} class="btn-cta">Book a working session</a>
@@ -103,7 +103,7 @@ const posts = (await getCollection('blog'))
           </p>
           <p class="problem-copy reveal">
             We build something that keeps working after launch week ends, with owned, earned
-            and paid wired together through the Forge. The system learns from each campaign
+            and paid wired together through the Forge, our shared AI platform. The system learns from each campaign
             and improves as new AI models arrive, so growth holds steady instead of tailing off.
           </p>
         </div>
@@ -390,8 +390,11 @@ set up the lens</code></pre>
               with deep marketing CVs of their own. We do the hard miles on AI so the marketing
               side gets the upside.
             </p>
-            {/* TODO: replace href with the Foundry website URL once available */}
+            {/* TODO: restore this link with the real Foundry website URL once
+                available — hidden for launch because #foundry-tbd was a dead
+                placeholder that opened a new tab to nowhere.
             <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
+            */}
           </div>
           <div class="credibility-mark" aria-hidden="true"></div>
         </div>
@@ -428,7 +431,7 @@ set up the lens</code></pre>
     <div class="manifesto-stage">
       <p class="manifesto-line is-active" data-i="0"><span class="manifesto-text">Brand, sharpened by AI.</span></p>
       <p class="manifesto-line" data-i="1"><span class="manifesto-text">Demand, faster than the old playbook.</span></p>
-      <p class="manifesto-line" data-i="2"><span class="manifesto-text">Growth, that compounds.</span></p>
+      <p class="manifesto-line" data-i="2"><span class="manifesto-text">Growth that compounds.</span></p>
       <p class="manifesto-line manifesto-line-final" data-i="3"><span class="manifesto-text"><span class="gradient-text">Senior operators.</span> Real conviction. No fluff.</span></p>
     </div>
     <div class="manifesto-spacer"></div>
