@@ -9,6 +9,12 @@ interface HowToStep {
   text: string;
 }
 
+interface Source {
+  title: string;
+  url: string;
+  publisher?: string;
+}
+
 interface Props {
   type: 'website' | 'article' | 'faq' | 'profile' | 'service';
   title: string;
@@ -21,6 +27,9 @@ interface Props {
   breadcrumbs?: BreadcrumbItem[];
   howToName?: string;
   howToSteps?: HowToStep[];
+  // FAQ block on an article (distinct from the site FAQ page's faqItems).
+  articleFaq?: { question: string; answer: string }[];
+  sources?: Source[];
 }
 
 const {
@@ -35,6 +44,8 @@ const {
   breadcrumbs,
   howToName,
   howToSteps,
+  articleFaq,
+  sources,
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
@@ -151,11 +162,21 @@ const articleSchema =
         author: {
           '@type': 'Person',
           name: 'James Vickers',
-          url: `${siteUrl}/about`,
+          url: `${siteUrl}/about/`,
           sameAs: ['https://www.linkedin.com/in/jamesvickers'],
         },
         publisher: { '@id': `${siteUrl}/#organization` },
         keywords: tags?.join(', '),
+        ...(sources?.length
+          ? {
+              citation: sources.map((src) => ({
+                '@type': 'CreativeWork',
+                name: src.title,
+                url: src.url,
+                ...(src.publisher ? { publisher: { '@type': 'Organization', name: src.publisher } } : {}),
+              })),
+            }
+          : {}),
         mainEntityOfPage: {
           '@type': 'WebPage',
           '@id': new URL(Astro.url.pathname, siteUrl).toString(),
@@ -163,12 +184,13 @@ const articleSchema =
       }
     : null;
 
+const faqSource = type === 'faq' ? faqItems : type === 'article' ? articleFaq : undefined;
 const faqSchema =
-  type === 'faq' && faqItems
+  faqSource && faqSource.length
     ? {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: faqItems.map((item) => ({
+        mainEntity: faqSource.map((item) => ({
           '@type': 'Question',
           name: item.question,
           acceptedAnswer: {
