@@ -30,5 +30,37 @@
     "score": 6,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Google launches Gemini 3.8 Flash TTS and Flash-Lite TTS with prompt-designed voices, 30-second consented voice replication and SynthID watermarking",
+    "primary_source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+    "score": 7,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "UN Security Council holds session on AI and international security, with OpenAI and Anthropic attending",
+    "primary_source": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-september-23-2026/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Proofpoint launches Agentic Data and AI Security system for monitoring AI agent behaviour",
+    "primary_source": "https://aiagentstore.ai/ai-agent-news/this-week",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Alphabet Intrinsic open-sources Intrinsic Core robotics stack at ROSCon 2026",
+    "primary_source": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-september-23-2026/",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
