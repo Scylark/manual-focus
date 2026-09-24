@@ -2,7 +2,7 @@
 name: personal-knowledge-base
 description: "When the user wants to search their accumulated notes, ask 'what did we decide about X', recall a decision history, look up what they know about a person, see how a project went, or use Notion and Obsidian as a queryable second brain. Triggers on 'search my notes', 'what did we decide', 'history of [topic]', 'what do I know about [person]', 'how did [project] go', or pasting a knowledge base index."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/personal-knowledge-base
 ---
 
@@ -47,13 +47,13 @@ Priority sources, highest to lowest signal:
 
 Three patterns:
 
-**Notion-as-canonical** — write meeting records, briefs and decisions to a Notion `Knowledge Base` database with consistent properties (Title, Date, Type, People, Projects, Tags, Source).
+**Notion-as-canonical** — write meeting records, briefs and decisions to a Notion `Knowledge Base` database with consistent properties (Title, Date, Type, People, Projects, Tags, Source). People and Projects are Relation properties pointing at the People and Projects databases.
 
 **Obsidian-as-canonical** — write Markdown files to a vault folder structure (`01_meetings`, `02_briefs`, `03_decisions`, `04_people`, `05_projects`) with YAML frontmatter on every file.
 
 **Hybrid** — both surfaces, with a shared index at `.lens/knowledge-base-index.md` listing every entity with source, last-updated date and path.
 
-For the initial backfill, normalise every legacy artefact to the chosen schema. Validate that every Meeting record links to People and Projects.
+For the initial backfill, add frontmatter or Notion properties to every legacy artefact. Propose them from each file's content and have the operator review in batches of 20. Validate that every Meeting record links to People and Projects.
 
 ### Phase 3 — Retrieval
 
@@ -74,7 +74,7 @@ Rules across all four:
 
 ### Phase 4 — Weekly hygiene
 
-10 minutes a week. Run the hygiene prompt to flag:
+10 minutes a week. Run the hygiene prompt, with today's date supplied, to flag:
 - **Orphans** — artefacts without People or Project links
 - **Duplicates** — similar titles or overlapping content
 - **Stale open artefacts** — projects with no update in 60 days

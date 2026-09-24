@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "email", "paid-search", "paid-social", "pr"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-07-09
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -65,7 +66,7 @@ For Cascadia Endurance, this is Beth Lyons, Marcus Hale and Saoirse Burns. Each 
 
 From the race-day-demand-pipeline calendar, pick one or two Tier 1 events where the product will be visibly used in competition. These become the launch's natural proof moments.
 
-Common Tier 1 events for trail-running brands include UTMB Mont-Blanc, Lavaredo, Western States, the Grand Raid, Diagonale des Fous, the UK Trail Championships at Snowdon.
+Common Tier 1 events for trail-running brands include UTMB Mont-Blanc, Lavaredo, Western States, the Grand Raid, Diagonale des Fous.
 
 Document the proof events in the *Launch calendar* page with the event date, the athletes who will race, and the expected coverage.
 
@@ -195,7 +196,7 @@ The launch day timeline (UK time, adjust for your audience):
 - 07:30, email to the full list with the reveal
 - 08:00, Tier 1 reviewer embargoes lift (their pieces go live)
 - 09:00, paid programme starts, calibrated against the demand forecast
-- Across the day, sponsored athletes post their experience pieces (within their contract bands)
+- Across the day, sponsored athletes post their experience pieces (within their contract bands, labelled as ads)
 
 Reveal density matters. Doing everything in 24 hours produces a peak that the audience notices. Doing everything across two weeks produces a sustained presence that converts better. Match the density to the brand's tier.
 
@@ -227,7 +228,7 @@ Athletes talking about the product in race context, training-camp footage, gear 
 
 **Step 5.2, race-day acknowledgement.**
 
-Sponsored athletes racing on the product. Content drawn from practical capture plus AI-augmented social cuts per the segment-broll-production playbook. The hero shoot's b-roll archive is the source.
+Sponsored athletes racing on the product. Content drawn from practical capture plus AI-augmented social cuts per the segment-broll-production playbook. The hero shoot's b-roll archive is the source. Label AI-augmented cuts as AI-edited wherever they could pass as real footage. For EU audiences, Article 50 of the EU AI Act requires this disclosure from 2 August 2026, and the ASA's June 2026 guidance expects it in UK ads where leaving it out would mislead; check the detail with your adviser.
 
 **Step 5.3, race recap.**
 
@@ -265,30 +266,30 @@ You should now have a 12-month engine that converts launch energy into sustained
 
 ## Worked example, end-to-end
 
-Cascadia Endurance, scale-stage. Launching the Vahla Range Storm Shell, a flagship outerwear product. Launch window planned for September (ahead of UTMB and the autumn race calendar).
+Cascadia Endurance, scale-stage. Launching the Vahla Range Storm Shell, a flagship outerwear product. Reveal on 17 August 2026, a week before UTMB week (24 to 30 August) and ahead of the autumn race calendar. T-0 is the end of the three-month race-day proof window, in mid-November.
 
-**Phase 1.** September minus 12 months (October 2025), the product is design-locked. Marcus signs the contract addenda with Beth Lyons (lead athlete for Vahla), Saoirse Burns and Marcus Hale (founder, who is also one of the brand's racing athletes). Tier 1 events identified: UTMB Mont-Blanc 2026 (September) and Lavaredo Ultra Trail (June, before launch, as soft signal). Manufacturing capacity for 8,400 units confirmed.
+**Phase 1.** November 2025 to February 2026 (T-12 to T-9). The product is design-locked in November. Marcus signs the contract addenda with Beth Lyons (lead athlete for Vahla), Saoirse Burns and Marcus Hale (founder, who is also one of the brand's racing athletes). Tier 1 events identified: UTMB Mont-Blanc 2026 (24 to 30 August, a week after reveal) and Lavaredo Ultra Trail (June, before launch, as soft signal). Manufacturing capacity for 8,400 units confirmed.
 
-**Phase 2.** January to March 2026, hero shoot. Studio day in Manchester, location days in the Cairngorms and Snowdonia. Beth's talking head about the design intent runs three minutes long, edits to a 90-second hero film. The b-roll archive captures 300 usable clips for downstream cuts.
+**Phase 2.** February to May 2026, hero shoot. Studio day in Manchester, location days in the Cairngorms and Snowdonia. Beth's talking head about the design intent runs three minutes long, edits to a 90-second hero film. The b-roll archive captures 300 usable clips for downstream cuts.
 
-**Phase 3.** April to June 2026, whisper phase. Tier 1 reviewers (Trail Running Magazine, iRunFar, The Pill Magazine, four others) get product under NDA in April. Saoirse races Lavaredo in the Storm Shell in June. The product is visible in race photos that get picked up by trail-running outlets. Customer email pre-signal goes out in June with a 41% open rate (above the 28% baseline).
+**Phase 3.** May to mid-August 2026, whisper phase. Tier 1 reviewers (Trail Running Magazine, iRunFar, The Pill Magazine, four others) get product under NDA in early June, ten weeks before reveal. Saoirse races Lavaredo in the Storm Shell in June. The product is visible in race photos that get picked up by trail-running outlets. Customer email pre-signal goes out in July with a 41% open rate (above the 28% baseline).
 
-**Phase 4.** September 1, 2026, reveal day. Hero film at 06:00, product page at 07:00, email at 07:30, reviewer embargoes lift at 08:00, paid programme starts at 09:00. The reveal day produces 4,200 pre-orders against an internal target of 3,500.
+**Phase 4.** 17 August 2026, reveal day. Hero film at 06:00, product page at 07:00, email at 07:30, reviewer embargoes lift at 08:00, paid programme starts at 09:00. The reveal day produces 4,200 pre-orders against an internal target of 3,500. The 7 September ship date was locked with manufacturing before pre-orders opened.
 
-**Phase 5.** UTMB week, last week of August 2026 to first week of September. Race-week content (athlete walk-through, training-camp footage from Chamonix). Race-day acknowledgement on August 31. Race recap with Beth finishing 27th overall and Saoirse finishing 14th in the women's field. The Storm Shell is visible in race photos and the brand says "raced at UTMB by Saoirse Burns, top-15 women's finish" rather than over-claiming.
+**Phase 5.** August to November 2026, anchored on UTMB week (24 to 30 August). Race-week content (athlete walk-through, training-camp footage from Chamonix). Race-day acknowledgement on race day. Race recap with Beth finishing 27th overall and Saoirse finishing 14th in the women's field. The Storm Shell is visible in race photos and the brand says "raced at UTMB by Saoirse Burns, top-15 women's finish" rather than over-claiming.
 
-**Phase 6.** September 2026 onward. Customer-content engine activates. Storm Shell becomes the strongest review-generator the brand has shipped, with 280 consented customer reviews in the first quarter. Lifecycle journey for Storm Shell purchasers cross-sells to the Vahla Carbon Pack (released in Phase 6 of an earlier launch cycle). Renewal cycle for Storm Shell v2 starts in May 2027.
+**Phase 6.** Mid-November 2026 onward. Customer-content engine activates. Storm Shell becomes the strongest review-generator the brand has shipped, with 280 consented customer reviews in the first quarter. Lifecycle journey for Storm Shell purchasers cross-sells to the Vahla Carbon Pack (released in Phase 6 of an earlier launch cycle). Renewal cycle for Storm Shell v2 starts in August 2027 (T+9).
 
 **The launch calendar (compressed):**
 
 | Phase | Window | Key deliverable | Owner |
 |---|---|---|---|
-| 1, Foundation | Oct 2025 to Jan 2026 | Athlete commitments, proof events | Marcus |
-| 2, Hero capture | Jan to Mar 2026 | Hero film, b-roll archive | Beth |
-| 3, Whisper | Apr to Jun 2026 | Reviewer NDAs, customer pre-signal | Beth |
-| 4, Reveal | Sep 1, 2026 | Launch day | All |
-| 5, Race-day proof | Aug 31 to Sep 7, 2026 | UTMB coverage | Saoirse |
-| 6, Sustained | Sep 2026 to Sep 2027 | Customer content, lifecycle | Beth |
+| 1, Foundation | Nov 2025 to Feb 2026 | Athlete commitments, proof events | Marcus |
+| 2, Hero capture | Feb to May 2026 | Hero film, b-roll archive | Beth |
+| 3, Whisper | May to Aug 2026 | Reviewer NDAs, customer pre-signal | Beth |
+| 4, Reveal | 17 Aug 2026 | Launch day | All |
+| 5, Race-day proof | Aug to Nov 2026 | UTMB coverage | Saoirse |
+| 6, Sustained | Nov 2026 to Nov 2027 | Customer content, lifecycle | Beth |
 
 Quarterly review shows the launch landing 28% above demand forecast for the first quarter and 12% above forecast over the first year.
 
@@ -349,7 +350,7 @@ The launch sequence orchestrates outputs from other playbooks:
 - **segment-broll-production**, hero shoot plus AI augmentation
 - **race-result-content-engine**, race-day recap automation
 - **lifecycle-journey-builder**, post-purchase onboarding
-- **earned-media-pitch**, Tier 1 reviewer engagement and launch-day press
+- **earned-media-pitch-generator**, Tier 1 reviewer engagement and launch-day press
 - **ambassador-programme**, sponsored athletes for race-day proof
 - **end-of-season-inventory**, where the demand forecast originates and the launch-cycle clearance is sequenced
 - **brief-to-ship-pipeline**, where every shipping touchpoint runs as its own brief inside the launch parent project

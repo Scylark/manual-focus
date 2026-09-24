@@ -2,7 +2,7 @@
 name: quarterly-okr-synthesis
 description: "When the user wants to synthesise quarterly OKRs across teams, write a CEO summary, draft a board pack section, an all-hands quarterly narrative, or normalise team status reports into one view. Triggers on 'quarterly synthesis', 'CEO summary', 'board pack section', 'all-hands narrative', 'wrap up the quarter', 'OKR rollup', or pasting multiple team status reports."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/quarterly-okr-synthesis
 ---
 
@@ -22,7 +22,7 @@ You read team status reports, normalise them against a shared rubric, surface th
 8. **Year-on-year context** — same quarter last year, for the board section
 9. **Last quarter's synthesis** if it exists, for continuity
 
-If team leads have not produced status reports, do not synthesise. Recommend the team-status-report ritual as the prerequisite.
+If team leads have not produced status reports, do not synthesise. Ask each lead for a one-page end-of-quarter report (objectives, key results with target and actual, blockers, asks) as the prerequisite.
 
 ## The pipeline (four phases)
 
@@ -48,10 +48,10 @@ For each team, return JSON with `team`, `lead`, `objectives` (each with `objecti
 Rules:
 - Score conservatively when the report is vague.
 - Anchor every score to a target / actual pair.
-- Flag if `team_average_score` > 0.85 with vague phrases. Score honesty suspect.
+- Set `score_honesty_flag` when the team's own self-assessed scores are 0.3 or more above yours, or when a key result has no actual number.
 - Lessons must be concrete, not abstract.
 
-Then run a consistency audit. Return `loose_scorers`, `strict_scorers`, `overall_consistency_score`, `consistency_recommendation`. If `overall_consistency_score` is under 0.6, pause synthesis and recommend a rubric conversation with team leads.
+Then run a consistency audit. Return `loose_scorers`, `strict_scorers`, `overall_consistency_score`, `consistency_recommendation`. If `overall_consistency_score` is under 0.6, pause synthesis and recommend a rubric conversation with team leads. From 0.6 to 0.69, name the teams whose actuals are missing and re-run the audit once they land.
 
 ### Phase 3 — Cross-team synthesis
 
@@ -61,6 +61,7 @@ Rules:
 - `top_3` lists are capped at 3.
 - Every win or miss has evidence (numbers, named outcome) to qualify.
 - `theme_of_the_quarter` is the single sentence the CEO reads first.
+- `objectives_hit` means objective_score 0.7 or above, `objectives_missed` below 0.4, `objectives_in_progress` 0.4 to 0.69.
 
 ### Phase 4 — Narrative drafts
 
@@ -81,6 +82,7 @@ Rules for all four:
 - Names in wins and thanks. No individual names in misses (team only).
 - Asks are concrete, named, with deadlines.
 - "Nothing this quarter" instead of padding when a section is empty.
+- Use only facts in the synthesis JSON and the context supplied. If a sentence needs a fact from elsewhere, leave it out.
 
 ## Output
 

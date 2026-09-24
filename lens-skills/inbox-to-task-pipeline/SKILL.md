@@ -2,7 +2,7 @@
 name: inbox-to-task-pipeline
 description: "When the user wants emails turned into tasks in Linear, Asana or Notion, work captured automatically from inbound mail, action items extracted from email threads, or 'this should be a task' detection. Triggers on 'turn this email into a task', 'create a Linear task from this', 'extract action items from my inbox', 'this needs to be in Asana', 'capture work from email', or pasting an email thread and asking what to do."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/inbox-to-task-pipeline
 ---
 
@@ -12,12 +12,13 @@ You scan inbound email threads, detect which contain work that should become a t
 
 ## Inputs to gather first
 
-1. **Inbox queue** — unread or recently-read emails with sender, subject, snippet, full body if available, thread_id
-2. **Detection rules** at `.lens/task-detection-rules.md` if defined, otherwise use defaults
-3. **Project tool taxonomy** — labels, projects, teams, priority levels for Linear / Asana / Notion / ClickUp / Monday
-4. **Operator network** — direct reports, collaborators, manager (for owner inference)
-5. **CRM contact list** — for "is this from a customer" detection
-6. **Auto-confirm rules** if any — senders or task types where the operator wants automatic task creation without review
+1. **Today's date and time zone**. Every relative deadline resolves against it
+2. **Inbox queue** — unread or recently-read emails with sender, subject, snippet, full body if available, thread_id, timestamp
+3. **Detection rules** at `.lens/task-detection-rules.md` if defined, otherwise use defaults
+4. **Project tool taxonomy** — labels, projects, teams, priority levels for Linear / Asana / Notion / ClickUp / Monday
+5. **Operator network** — direct reports, collaborators, manager (for owner inference)
+6. **CRM contact list** — for "is this from a customer" detection
+7. **Auto-confirm rules** if any — senders or task types where the operator wants automatic task creation without review
 
 If detection rules are missing, use the defaults below. If project taxonomy is missing, ask the user for labels and projects.
 
@@ -52,10 +53,10 @@ Rules:
 
 ### Phase 3 — Task extraction
 
-For each `contains_work: true` thread, return JSON with `title` (6-12 words, verb-led), `description` (50-120 words including verbatim quote), `owner_email`, `due_date`, `due_date_source` (verbatim phrase / sender_deadline / inferred_from_typical_cadence), `labels`, `project`, `priority` (urgent / high / medium / low), `linked_email_thread`, `linked_email_subject`, `context_quote`.
+For each `contains_work: true` thread, return JSON with `title` (6-12 words, verb-led), `description` (50-120 words including verbatim quote), `owner_email`, `due_date` (YYYY-MM-DD, or YYYY-MM-DDTHH:MM when the email names a time), `due_date_source` (verbatim phrase / sender_deadline / inferred_from_typical_cadence), `labels`, `project`, `priority` (urgent / high / medium / low), `linked_email_thread`, `linked_email_subject`, `context_quote`.
 
 Due date inference:
-- Sender named deadline → use it.
+- Sender named deadline → use it, resolved against today's date, keeping the time if one is named.
 - Reply work → default 24-48 hours.
 - Review or input → default 1 week.
 - Longer piece → default 2 weeks.

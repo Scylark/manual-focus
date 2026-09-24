@@ -66,6 +66,7 @@ const LENS_STACKS = ['brand', 'demand', 'content', 'ops', 'productivity'] as con
 const LENS_MODELS = [
   'gpt-5',
   'gpt-4.1',
+  'claude-5.5-opus',
   'claude-4.5-opus',
   'claude-4.5-sonnet',
   'claude-3.7',

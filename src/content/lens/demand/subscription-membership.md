@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["lifecycle", "email", "content"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-08-20
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -31,7 +32,7 @@ A growth or scale-stage brand with at least 12 months of customer purchase data,
 
 - [ ] 12 months of customer-cohort data with purchase frequency, repeat rate and LTV per cohort from the brand's ecommerce platform (Shopify, Magento, your CRM)
 - [ ] Customer research surfacing the benefits the audience would value continuously (from CEP research, post-purchase surveys, or the message-house-generator's proof points)
-- [ ] Comparable subscription pricing in the brand's space, gathered from public pricing pages of three to five comparable subscriptions (Strava Premium, Rapha Cycling Club, On Wear-as-a-Service, The Pro's Closet membership)
+- [ ] Comparable subscription pricing in the brand's space, gathered from public pricing pages of three to five comparable subscriptions (for example the Strava subscription or Rapha Cycling Club, plus clubs and services in your own category). Check each one is still sold as a subscription. On's Cyclon shoe subscription, a common reference point, was replaced by direct purchase from June 2026.
 - [ ] Unit-economic data per candidate benefit, cost-to-deliver per member per month modelled in advance of launch
 - [ ] An ESP and a billing platform capable of subscription management (Stripe Subscriptions, Recurly, Klaviyo with subscription product set up)
 - [ ] A capacity plan for any capacity-bounded benefits (group rides, in-person events, mechanic priority)
@@ -148,7 +149,8 @@ Return JSON:
 Rules:
 - Pricing must reference the comparable subscriptions list.
 - Underpricing devalues the brand. Overpricing caps addressable
-  market. Anchor inside the comparable range.
+  market. Anchor inside the comparable range, or name the specific
+  benefit that justifies pricing above it.
 - "expected_share_of_members" is realistic, not aspirational.
 ```
 
@@ -195,6 +197,10 @@ Rules:
   to feel continuous.
 - Capacity ceiling scores lower when the benefit breaks above a
   ceiling lower than expected member count.
+- composite is the mean of specificity_score, cadence_density_score
+  and capacity_ceiling_score, minus 2 if cost_to_deliver_assessment
+  is "marginal" or member_sentiment_quality is "weak" (floor 0).
+  Calculate it; do not estimate it.
 - "cut" when composite below 5 or cost_to_deliver_assessment is
   "unsustainable".
 - "redesign" when composite 5 to 7 with one clearly fixable flaw.
@@ -213,6 +219,8 @@ The honest measure of the programme is the cancellation rate. Two design choices
 **Step 4.1, set the cancellation policy.**
 
 The default for endurance audiences is easy cancellation. The audience is value-led, not lock-in-led. Friction-based retention erodes brand permission. The brands that build cancellation moats lose more in audience trust than they gain in short-term retention.
+
+In the UK this is about to become law as well as good practice. The DMCC Act subscription-contract rules are due to go live in January 2027. They require reminder notices before renewals, a 14-day cooling-off period after the first contract and after relevant renewals, and a clearly labelled way to cancel online. Design the flow to them now rather than retrofitting it.
 
 **Step 4.2, design the pause flow.**
 
@@ -329,9 +337,9 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, designing t
 
 **Phase 1 output.** Customer-value hypothesis. Anchor benefit families are access, content and community. Specifically, early access to Vahla launches, a monthly long-form training piece authored by sponsored trail coaches, and four group runs per year in the Lake District, Snowdonia, the South Downs and the Peak District. The brand explicitly rejects "10% off forever" and rejects a fitting service because Cascadia is not set up to deliver it operationally.
 
-**Phase 2 output.** Recommended shape is club-anchored at £180 per year. The reasoning, Cascadia's audience is value-led and premium, the comparable Rapha Cycling Club sits at £150 in the UK, and the brand's positioning supports the price step. Expected share of members starts low (3% to 5% of email list in year one). Unit-economic assumption, cost-to-deliver per member per month at £4.20 (group ride logistics, content production, early-access ops), giving £15 per month margin headroom at the £180 annual price.
+**Phase 2 output.** Recommended shape is club-anchored at £180 per year. The reasoning, Cascadia's audience is value-led and premium, the comparable Rapha Cycling Club is listed at £70 and the Strava subscription at £54.99 a year in the UK, so Cascadia prices above the range and names the reason, the four capacity-capped group runs, which no digital membership offers. Expected share of members starts low (3% to 5% of email list in year one). Unit-economic assumption, cost-to-deliver per member per month at £4.20 (group ride logistics, content production, early-access ops), giving £10.80 per member per month of headroom at the £180 annual price (£15 of revenue less £4.20 of cost).
 
-**Phase 3 output.** Benefit design scored. Early access scores 9 specificity, 8 cadence, 10 capacity, viable cost, strong sentiment, ship. Monthly training piece scores 8 specificity, 8 cadence, 10 capacity, viable cost, strong sentiment, ship. Group runs score 9 specificity, 4 cadence (only four per year), 6 capacity (60-member ceiling per ride), viable cost, strong sentiment, ship. Two other candidate benefits (a quarterly print zine and a member-only Discord) score below 6 on composite and get cut. The Discord gets noted as a potential year-two addition once the team has bandwidth.
+**Phase 3 output.** Benefit design scored. Early access scores 9 specificity, 8 cadence, 10 capacity, viable cost, strong sentiment, ship. Monthly training piece scores 8 specificity, 8 cadence, 10 capacity, viable cost, strong sentiment, ship. Group runs score 9 specificity, 4 cadence (only four per year), 6 capacity (60-member ceiling per ride), viable cost, strong sentiment, composite 6.3, redesign on cadence. Cascadia ships them anyway as the flagship community moment and commits to revisiting cadence at the first quarterly review. Two other candidate benefits (a quarterly print zine and a member-only Discord) score below 5 on composite and get cut. The Discord gets noted as a potential year-two addition once the team has bandwidth.
 
 **Phase 4 output.** Cancellation flow designed. Three steps, "tell us why," "consider a pause for the off-season," "confirm cancellation." The pause is offered at three months by default. No retention discount. Post-cancellation, a confirmation email and one optional 90-day re-engagement touch. The annual renewal note ships a 30-day preview of what is coming in the next year.
 

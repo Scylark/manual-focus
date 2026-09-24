@@ -2,7 +2,7 @@
 name: message-house
 description: "When the user wants to build a message house, convert positioning into a narrative architecture, create messaging pillars, draft proof points, or generate channel-mapped messaging lines. Also triggers on 'we need a message house', 'turn this positioning into messaging', 'build the pillars', 'what's our narrative', or 'we keep saying different things across channels'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/brand/message-house-generator
 ---
 
@@ -43,6 +43,7 @@ For each pillar, surface 3–5 proof points. Each gets:
 - One-sentence summary
 - Source tag (data / customer / partnership / technical / market)
 - Reusability flag (one-time use vs evergreen)
+- Verification status: `verified` (checked against a primary source), `source_supplied` (taken from the brand's own site or deck, not independently checked), `pending`, or `invented_DO_NOT_USE`. Never invent a statistic to fill a gap.
 
 Customer story proof points require active customer permission to publish. Flag any that need re-confirmation.
 
@@ -59,7 +60,9 @@ For each pillar, generate channel-specific lines:
 | Paid ad headline | 30 chars | Benefit-led |
 | Sales talking point | 3 bullets | Pillar + proof + ask |
 
-All lines run through the voice rubric. Lines that fail go back for regeneration.
+Punctuation follows the voice profile, not a house default. Sales talking points keep the qualifiers (exclusions, caps, time windows) the source proof carries.
+
+All lines run through the lexical checks of the voice rubric (banned words, punctuation, contractions). Lines that fail go back for regeneration.
 
 ## Output
 
@@ -69,7 +72,7 @@ Single document with these sections:
 2. **The pillars** — 3–4 named, each with one-sentence definition
 3. **The proof** — proof points per pillar, with sources
 4. **The lines** — channel-mapped messaging per pillar
-5. **The rebuttal sheet** — 8–12 pushback questions buyers / press / internal stakeholders are likely to ask, with answers in pillar language
+5. **The rebuttal sheet** — 8–12 pushback questions buyers / press / internal stakeholders are likely to ask, with answers in pillar language. Cover price, fit and category at minimum. If no verified proof answers a pushback, mark it PROOF GAP rather than stretching another proof to fit
 
 Save to `.lens/message-house.md`. Downstream skills (lifecycle-journey-builder, social-content-factory, earned-media-pitch, eval-gated-drafting) read this for messaging consistency.
 
@@ -79,7 +82,7 @@ Self-check before delivery:
 
 - **Pillar distinctiveness** — pairwise semantic similarity between pillars <0.7. If two pillars are saying the same thing, merge or sharpen.
 - **Proof traceability** — every proof point has a source tag. Unsourced claims don't ship.
-- **Channel-line voice match** — every line scores ≥10/12 on the voice rubric. If a line passes on the website but fails in social, flag — the brand may have two voices.
+- **Channel-line voice match** — every line passes the lexical checks of the voice rubric (banned words, punctuation, contractions). Sentence-length, variance and paragraph checks don't apply to lines under 280 characters. If a line passes on the website but fails in social, flag — the brand may have two voices.
 
 ## Failure modes to watch
 

@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["paid-search", "paid-social", "email", "organic-social", "content"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-06-11
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -262,10 +263,10 @@ Annual paid budget available for event campaigns: {GBP}
 Brand's percent of voice goal during the event window: {PCT}
 Channels active: {LIST}
 
-Endurance-audience targeting tells:
-  Strava clubs: {AVAILABLE_OR_NOT}
-  Garmin Connect IQ usage: {AVAILABLE_OR_NOT}
-  Race-entry data partners: {AVAILABLE_OR_NOT}
+First-party audiences available (race-entry partner lists, email
+segments, opted-in club members): {LIST_OR_NONE}
+Platform automated-audience settings in use: {LIST_OR_NONE}
+Search campaigns running on AI Max: {YES_OR_NO}
 
 Return JSON:
 
@@ -275,7 +276,7 @@ Return JSON:
   "pre_event_window": {
     "spend_gbp": <int>,
     "primary_channels": ["<channels>"],
-    "bid_floors": {"<channel>": <int>},
+    "bid_controls": {"<channel>": "<search brand floor | platform bid or cost cap | none>"},
     "audience_targets": ["<targeting descriptions>"],
     "creative_rotation": "<how creative rotates within the window>"
   },
@@ -292,8 +293,12 @@ Return JSON:
 }
 
 Rules:
-- Bid floors reference the paid-search-bidding-agent's brand-
+- Bid controls reference the paid-search-bidding-agent's brand-
   keyword floors where relevant.
+- If Search campaigns run on AI Max, say which controls still apply
+  (brand inclusions and exclusions carry over into AI Max).
+- If ChatGPT ads are in the channel list (live in the UK since June
+  2026), treat them as pre-event gear-research placements.
 - Audience targets name specific signals, not "people interested
   in trail running."
 - Pre-event spend is typically 40 to 55% of total, event-day 15 to
@@ -320,13 +325,13 @@ You should now have a locked twelve-month calendar with retrospective instrument
 
 Cascadia Endurance, the UK trail-running apparel brand, scale-stage, with the Vahla Range sub-brand launching for the summer ultra season.
 
-**Phase 1 output.** Calendar populated. Tier 1 events for the year, UTMB (28 August), Lavaredo Ultra Trail (25 June), Western States (28 June), Hardrock (10 July), Trail World Championships (October), plus the brand's own Snowdonia trail event in September. Tier 2 has 18 regional ultras across UK and Europe. Tier 3 has eight audience moments, including the base training season start in November and the spring taper window in March.
+**Phase 1 output.** Calendar populated. Tier 1 events for the year, UTMB (28 August), Lavaredo Ultra Trail (25 June), Western States (28 June), Hardrock (10 July), plus the brand's own Snowdonia trail event in September. The World Mountain and Trail Running Championships are not on this year's list because the next edition is in October 2027, in Cape Town. Tier 2 has 18 regional ultras across UK and Europe. Tier 3 has eight audience moments, including the base training season start in November and the spring taper window in March.
 
-**Phase 2 output.** Six Tier 1 briefs written. The UTMB brief lands the hook as "The decision at Courmayeur," anchored to the moment ultra runners make the call to drop or push on. The lead time is 12 weeks because the brief depends on shoot footage Cascadia is capturing in July with sponsored athlete Beth Lyons. The post-event window runs 14 days for the recap, then 8 weeks of long-tail drip.
+**Phase 2 output.** Five Tier 1 briefs written. The UTMB brief lands the hook as "The decision at Courmayeur," anchored to the moment ultra runners make the call to drop or push on. The lead time is 12 weeks because the brief depends on shoot footage Cascadia is capturing in mid-June with sponsored athlete Beth Lyons. The post-event window runs 14 days for the recap, then 8 weeks of long-tail drip.
 
 **Phase 3 output.** UTMB inventory at 22 assets. 9 require real footage (the Beth Lyons shoot covers 7, the remaining 2 are archive footage Cascadia already has). 11 can use AI augmentation (time-of-day variants of the Courmayeur shoot, social cuts in different aspect ratios). 2 are generic AI (editorial illustration for the long-form blog header). The archive-gap list flags one missing asset, a low-light shot of the Vahla shell on a runner's pack at dusk, which gets added to the Beth Lyons shoot brief.
 
-**Phase 4 output.** Production calendar plotted. Beth Lyons shoot dated 8 to 10 July at Chamonix. Backup window 22 to 24 July if weather fails. The Snowdonia event shoot is 28 to 29 July with the contingency of switching to indoor product stills if the weather is unworkable. Lavaredo content uses licensed sponsored-rider footage from the event organiser, secured 10 weeks ahead.
+**Phase 4 output.** Production calendar plotted. Beth Lyons shoot dated 17 to 19 June at Chamonix, clear of her Lavaredo race week. Backup window 1 to 3 July if weather fails, which still leaves six weeks before the pre-event creative goes live on 17 August. The Snowdonia event shoot is 28 to 29 July with the contingency of switching to indoor product stills if the weather is unworkable. Lavaredo content uses licensed sponsored-rider footage from the event organiser, secured 10 weeks ahead.
 
 **Phase 5 output.** Paid programme briefs. UTMB total spend £45k. Pre-event window £22k across paid social Meta and paid search with the Vahla-launch creative running 17 to 27 August. Event day window £8k for reactive creative triggered by Beth Lyons's split times. Post-event window £15k for retargeting and lookalike against the engaged audience.
 

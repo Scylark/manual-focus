@@ -7,8 +7,9 @@ readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["meetings", "crm", "inbox", "tasks"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-08-25
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -79,7 +80,7 @@ Return JSON:
   ],
   "action_items": [
     {
-      "owner": "<name>",
+      "owner": "<name, or 'UNASSIGNED' if no one took it>",
       "action": "<verb-led sentence>",
       "due": "<YYYY-MM-DD or relative ('end of week')>",
       "context": "<one sentence on why this matters>",
@@ -97,6 +98,8 @@ Return JSON:
 Rules:
 - Every decision and action item has a transcript_quote. No
   attribution without quote.
+- If nobody took an action, set owner to "UNASSIGNED" and list it
+  in unresolved_questions. Don't guess an owner.
 - "decided_by" is "jointly" only when the transcript actually
   shows mutual agreement.
 - topics_planned_but_not_discussed and topics_unplanned_but_raised
@@ -226,8 +229,11 @@ Rules:
   proposes next step.
 - "Thanks for the time today" is allowed at the open. Anything
   more grateful than that is over-effusive, cut it.
-- The next-step proposal is concrete (date, time, calendar
-  link), not vague.
+- The next-step proposal is concrete. Use a date and time only if
+  one was agreed on the call. Otherwise propose one in [brackets]
+  for the operator to check against their calendar.
+- Never invent numbers, dates or commitments that are not in the
+  Phase 1 summary.
 ```
 
 **Step 3.2, the send.**
@@ -258,7 +264,7 @@ Meeting context (title, date, transcript link if available):
 Return JSON (array, one entry per action item):
 [
   {
-    "title": "<noun-led, 6-12 words>",
+    "title": "<verb-led, 6-12 words>",
     "description": "<one paragraph, 40-80 words, context plus quote>",
     "owner_email": "<email of the owner>",
     "due_date": "<YYYY-MM-DD>",
@@ -271,7 +277,7 @@ Return JSON (array, one entry per action item):
 ]
 
 Rules:
-- title is concrete and verb-implicit.
+- title is concrete and verb-led, as in inbox-to-task-pipeline.
 - description includes the verbatim transcript quote so the
   owner can read what was actually said.
 - priority defaults to "medium" unless the action item has a
@@ -316,7 +322,7 @@ Saoirse Burns finishes her 16:30 call with James Whitaker from Trail Club. The c
     {
       "owner": "James Whitaker",
       "action": "Share the four flagship events brief with Saoirse.",
-      "due": "2026-09-12",
+      "due": "2026-09-18",
       "context": "Needed before Saoirse can size the commercial.",
       "transcript_quote": "I'll get you the flagship briefs end of next week."
     }
@@ -338,7 +344,7 @@ Saoirse Burns finishes her 16:30 call with James Whitaker from Trail Club. The c
   },
   "amount_update": {
     "previous_amount": null,
-    "new_amount": "TBD, scope landing 22 Sep",
+    "new_amount": "no change",
     "rationale": "Amount not named yet, awaiting partnership scope."
   },
   "close_date_update": {
@@ -378,14 +384,15 @@ I'm owning this from the Cascadia side for 2027. Beth stays in
 the loop but I'm the primary now, so happy to be the direct
 contact going forward.
 
-Looking forward to building this properly.
+Can we hold 30 minutes on Thursday 24 September to go through it
+once you've had it for a couple of days?
 
 Saoirse
 ```
 
 Tone-check passes. Saoirse reads in 12 seconds, clicks send. Email lands in James's inbox at 17:38, 21 minutes after the call ended.
 
-**Phase 4 output, tasks.** Two tasks created in Linear: one for Saoirse (partnership scope, due 22 Sep), one watching for James's brief (Saoirse as owner, due 12 Sep, marked as "awaiting input"). Beth gets cc'd on both as a watcher.
+**Phase 4 output, tasks.** Two tasks created in Linear: one for Saoirse (partnership scope, due 22 Sep), one watching for James's brief (Saoirse as owner, due 18 Sep, marked as "awaiting input"). Beth gets cc'd on both as a watcher.
 
 **Phase 5 output.** A single meeting record lands at `.lens/meetings/2026-09-08-trail-club-james-whitaker.md` with all four outputs combined. Three months later, when Saoirse asks "what did we agree with Trail Club in September?", the answer comes back in two seconds.
 
@@ -409,7 +416,7 @@ Pick a call you have tomorrow. Set a 90-minute timer the moment the call ends. R
 
 **Eval 1, decision capture.** Sample 10 transcripts. Every decision named in the transcript appears in the Phase 1 output. Below 90 percent capture, the ingestion prompt is missing structure cues. Tighten the "decided_by requires evidence" rule.
 
-**Eval 2, action item ownership.** Every action item has a named owner. Owners labelled "the team" or "someone" are pipeline failures. Below 95 percent named ownership, retrain the prompt with explicit owner-naming examples.
+**Eval 2, action item ownership.** Every action item has a named owner, or is marked UNASSIGNED and resolved at the operator review. Owners labelled "the team" or "someone" are pipeline failures. Below 95 percent named ownership, retrain the prompt with explicit owner-naming examples.
 
 **Eval 3, email send latency.** From call end to email sent should sit under 90 minutes for 80 percent of calls. Above 90 minutes the pipeline is not running automatically enough.
 

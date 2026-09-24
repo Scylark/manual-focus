@@ -7,8 +7,9 @@ readMin: 14
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["inbox", "calendar", "crm", "meetings", "tasks"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-08-15
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -32,12 +33,12 @@ If you work in a single tool all day (a designer in Figma, a developer in their 
 
 Get these on a single screen before you wire anything together.
 
-- [ ] Calendar access through a connector (Google Calendar, Outlook, or the Cowork calendar MCP)
+- [ ] Calendar access through a connector (Google Calendar or Outlook, added under Customize in Cowork, or read by your own script)
 - [ ] Inbox access (Gmail or Outlook) with a working API token or OAuth scope
-- [ ] Slack workspace token with `channels:read`, `groups:read` and `users:read`
+- [ ] Slack access that can read message text. Either the Slack connector, or a user token with `channels:history`, `groups:history`, `im:history`, `mpim:history`, `search:read` and `users:read`
 - [ ] CRM access (HubSpot, Salesforce, Close, Attio) with read scope on deals and contacts
 - [ ] A target delivery channel for the brief (Slack DM to self, daily Notion page, or email)
-- [ ] A scheduler. Cowork's `schedule` skill works, as does a simple cron on a server you own
+- [ ] A scheduler. A scheduled task in Cowork (the agent workspace in the Claude desktop app) works, as does a simple cron on a server you own. Check it runs at 06:30 on a morning your laptop is closed before you rely on it
 - [ ] 90 minutes blocked on your calendar for the setup pass, then the system runs itself
 
 If your CRM is not in the list above, the prompts still work, you just need to point them at whatever export your CRM produces. CSV is fine.
@@ -102,9 +103,10 @@ For each event return:
 }
 
 Rules:
-- prep_status is "ready" if there are linked docs OR notes from prior
-  instance. "partial" if one but not both. "not started" if neither.
-- Skip events marked as out-of-office, focus blocks, or tentative.
+- prep_status is "ready" if there are linked docs AND notes from the
+  prior instance. "partial" if one but not both. "not started" if neither.
+- Skip events marked as out-of-office or focus blocks. Keep tentative
+  external meetings and mark them "(tentative)".
 - Times in operator's local zone.
 - Return JSON only.
 ```
@@ -156,8 +158,8 @@ Pull mentions and DMs from the last 18 hours.
 
 ```text
 SYSTEM: You surface Slack threads the operator needs to read or
-reply to today. You skip threads where the operator has already
-posted in the last 24 hours.
+reply to today. You skip threads where the operator's post is the
+last message.
 
 USER:
 Mentions and DMs (channel, thread_ts, last_message_snippet, last_message_user, last_message_time):
@@ -177,7 +179,9 @@ For each of the top five threads, return:
 }
 
 Rules:
-- Skip if operator has posted in the thread in the last 24h.
+- Skip if the operator's post is the last message in the thread.
+  Keep it if someone replied after, or if the operator's post
+  promised a later answer ("looking at it tonight").
 - Skip channel announcements unless the operator was @-mentioned.
 - Rank by combined signal of channel importance and direct mention.
 - Return JSON only.
@@ -196,6 +200,9 @@ USER:
 CRM export, deals with last_activity_at, stage, amount, contact, owner:
 {PASTE_CRM_DEALS}
 
+Today's date:
+{TODAY}
+
 Last briefing timestamp:
 {LAST_BRIEFING_TS}
 
@@ -209,7 +216,8 @@ Return JSON:
 
 Rules:
 - "advanced" only for deals where stage changed forward.
-- "stalled" only if days_idle >= 14 and stage is not closed.
+- "stalled" only if days_idle >= 14 and stage is not closed. Count
+  days_idle from today's date.
 - "new" only for deals created since last_briefing_ts.
 - top_pipeline_signal is the most consequential change, even if it
   is in stalled or new rather than advanced.
@@ -322,12 +330,12 @@ Apply the recommendation to `briefing-spec.md`. Run the next week with the updat
 
 ## Worked example, end-to-end
 
-Cascadia Endurance, scale-stage UK trail-running apparel brand. Saoirse Burns, marketing lead, runs across calendar (Google), inbox (Gmail), Slack, and HubSpot. She wired the pipeline on a Sunday afternoon. Monday morning at 06:32 the brief lands in her Slack DM.
+Cascadia Endurance, scale-stage UK trail-running apparel brand. Saoirse Burns, marketing lead, runs across calendar (Google), inbox (Gmail), Slack, and HubSpot. She wired the pipeline on Monday evening. Tuesday morning at 06:32 the brief lands in her Slack DM.
 
 The brief reads, in part:
 
 ```text
-# 2026-09-08, Monday
+# 2026-09-08, Tuesday
 
 ## First thing
 Confirm the Vahla Storm Shell launch creative with the agency.
@@ -347,11 +355,12 @@ revision behind.
 ## Inbox, reply today
 - Marcus Hale, Vahla launch budget question. He has a finance
   meeting at 11:00, needs the number before then.
-- UTMB press desk, accreditation deadline Thursday. Form attached.
+- Kentmere Trail Weekend press desk, accreditation deadline
+  Thursday. Form attached.
 - Wholesale rep, Aros Outdoors, asking about Spring 2027 pre-book
   dates. Standard reply template, low urgency.
 - Foundry agency, Storm Shell asset list, awaiting your sign-off.
-- Trail Club, James Whitaker, intro thread for tomorrow's 16:30
+- Trail Club, James Whitaker, intro thread for today's 16:30
   meeting.
 
 ## Slack, waiting on you
@@ -372,13 +381,13 @@ into negotiation. The Foundry retainer renewal stalled at 27 days
 idle, Beth has the next step.
 
 ## Tomorrow's opening
-07:30 flight to Chamonix for UTMB pre-event. Boarding pass
-attached in the calendar event.
+08:00 Vahla launch budget review with Marcus. The Storm Shell
+line items need pulling today.
 ```
 
 The brief takes Saoirse three minutes to read. She replies to Marcus's budget question from her phone before she gets out of bed, confirms the Trail Club intro thread, and walks into the 09:30 strategy meeting having already moved three items off the queue.
 
-By Friday the system has surfaced 19 of the 23 things she would have wanted to know across the week. The two miss reasons end up as edits to the spec: Slack's `#cascadia-wholesale` channel was missing from the included-channels list, and the spec's "inbox VIPs" list did not include Cascadia's PR agency.
+By Friday the eval shows 4 of the 5 things that drove her week surfaced. Two fixes go into the spec. Slack's `#cascadia-wholesale` channel was missing from the included-channels list, and the spec's "inbox VIPs" list did not include Cascadia's PR agency.
 
 ## Try it yourself
 
@@ -400,7 +409,7 @@ Take the four snapshots from Exercise 2. Paste them into the Phase 3 prompt. Rea
 
 **Eval 1, time-to-read.** The brief reads in under five minutes. If you cannot get through the brief in five minutes the spec is over-loaded. Cut a section.
 
-**Eval 2, surfacing accuracy.** Friday's eval pass should show at least 18 of 25 things-that-mattered surfaced across the week. Below 15 the source filters are wrong.
+**Eval 2, surfacing accuracy.** Friday's eval pass should show at least 4 of the 5 things that mattered surfaced across the week. At 2 or fewer the source filters are wrong.
 
 **Eval 3, noise ratio.** Items flagged but not acted on should sit under 30 percent of total surfaced items. Above 30 percent the brief is becoming a feed rather than a brief.
 

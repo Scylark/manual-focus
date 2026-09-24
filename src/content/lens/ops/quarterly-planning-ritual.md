@@ -7,8 +7,9 @@ readMin: 17
 shipTime: "5 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["analytics", "brand"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-05-30
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -281,6 +282,9 @@ Rules:
 - "Marketing performed well" is not falsifiable.
 - "Email click rate rose from 4.2 to 8.1 percent" is.
 - Claims with no metric are not falsifiable by definition.
+- Rewrites use only numbers that appear in the draft or the
+  ledger. Where a number is missing, write {PLACEHOLDER}; never
+  estimate one.
 ```
 
 The story rewrites until every claim is falsifiable or marked as opinion explicitly.
@@ -317,9 +321,9 @@ You should now have the next quarter already in motion.
 
 Cascadia Endurance, scale-stage. Q3 planning. Marcus (founder), Beth (brand and content lead, runs the function), Saoirse (channel operator), two production contractors, the new pipeline curator (Candidate B from the hiring-shape playbook, hired in late Q1) at 90 days in.
 
-**Day 1.** Beth exports the Q2 brief ledger. Five completed briefs with metrics logged (rows in the CSV template at the end). The per-pipeline rollup shows race-result-content-engine at hit rate 0.86 (continue), channel-mix-simulator at 0.75 (continue), lifecycle-journey-builder at 0.50 (iterate), crash-replacement-programme at 0.80 (continue), trail-marathon-partnership at 0.20 (retire), linkedin-thought-leadership at 0.15 (retire), direct-mail at 0.10 (retire).
+**Day 1.** Beth exports the Q2 brief ledger. Eighteen completed briefs across five pipeline routes, seventeen with metrics logged (the CSV template shows five of them). The per-pipeline rollup shows race-result-content-engine at 6 of 7 (0.86, continue), channel-mix-simulator at 3 of 4 (0.75, continue), lifecycle-journey-builder at 2 of 4 (0.50, iterate) and crash-replacement-programme at 2 of 2 (needs-more-data). Three practices that ran outside the brief system (the trail-marathon partnership pack, weekly LinkedIn long-form and the monthly print mailer) have no logged win all quarter.
 
-**Day 2.** Beth and the pipeline curator generate 12 candidate bets across continuations (recap engine on UTMB and Lavaredo, channel-mix on autumn budget, crash programme story library), new applications (Vahla launch lifecycle, ambassador 2027), one strategic bet from Marcus (Trail Club regional events), and three carry-overs the curator wants to revisit (attribution rerun, voice extraction v2, seasonal SEO cluster). Each bet runs through the expansion prompt.
+**Day 2.** Beth and the pipeline curator generate 15 candidate bets across continuations (recap engine on UTMB and Lavaredo, channel-mix on autumn budget, crash programme story library), new applications (Vahla launch lifecycle, ambassador 2027, retail partner kit clinics, a coach referral pilot, a membership tier test), one strategic bet from Marcus (Trail Club regional events), and three carry-overs the curator wants to revisit (attribution rerun, voice extraction v2, seasonal SEO cluster). Each bet runs through the expansion prompt.
 
 **Day 3.** 90-minute forced trade-off. Top seven by composite score:
 
@@ -328,8 +332,8 @@ Cascadia Endurance, scale-stage. Q3 planning. Marcus (founder), Beth (brand and 
 3. Channel-mix simulator on autumn budget (continuation, displaces SEO cluster)
 4. Lifecycle journey for Storm Shell (new app, displaces race-day-demand refresh)
 5. Crash programme story library (continuation, displaces paid search agent v2)
-6. Attribution teardown rerun (necessity before autumn budget, displaces voice extraction v2)
-7. Brand voice extraction v2 (18-month refresh, displaces attribution overlap, slotted with overlap to bet 6)
+6. Attribution teardown rerun (necessity before autumn budget, displaces retail partner kit clinics)
+7. Brand voice extraction v2 (18-month refresh, displaces the coach referral pilot, slotted with overlap to bet 6)
 
 Three retires named: trail-marathon-partnership, weekly LinkedIn long-form, monthly print mailer.
 
@@ -339,7 +343,8 @@ Three retires named: trail-marathon-partnership, weekly LinkedIn long-form, mont
 What we shipped this quarter.
 Cascadia's marketing function shipped 18 pieces of work across
 five pipeline routes in Q2. Hit rate against stated metrics
-landed at 80 percent on completed briefs with metrics logged.
+landed at 76 percent (13 of 17) on completed briefs with
+metrics logged.
 
 What worked.
 - Race recap engine on UTMB produced a recap reel that
@@ -351,22 +356,23 @@ What worked.
 
 What did not work.
 - Trail Club retention nudge moved renewal rate to 73 percent
-  against a 75 percent target. Lifecycle pipeline is working
-  but on a different mechanism than we tested.
-- Three pipelines (trail-marathon-partnership, weekly LinkedIn,
-  monthly print) failed to hit any target across the quarter.
+  against a 75 percent target, up from 68. We think send
+  timing, not the offer, drove the lift, and we will test
+  send day in Q3.
+- Three practices outside the brief system (trail-marathon
+  partnership pack, weekly LinkedIn, monthly print) produced
+  no logged win across the quarter.
 
 What we learned.
-The pipelines that produce content around events the audience
-already cares about (UTMB, Lavaredo, race recaps, crash stories)
-moved engagement and conversion 2 to 4x harder than the
-pipelines that produced content on our calendar rather than
-the audience's calendar. The next quarter doubles down on
-audience-calendar bets.
+Briefs built around events the audience already follows hit
+target 6 times out of 7 (race recaps). The three practices
+that ran on our own calendar produced no logged win. Two of
+the seven Q3 bets, the recap series and the Vahla launch, are
+built around audience events.
 
 What we are doing next.
 Seven bets for Q3. Anchor is the Vahla Range Storm Shell launch
-in September, which routes through gear-launch-sequence with
+in August, which routes through gear-launch-sequence with
 race-day proof at UTMB. Three continuations of Q2 winners
 (recap engine, channel-mix simulator, crash story library).
 Two new applications (lifecycle for Storm Shell, attribution
@@ -380,7 +386,7 @@ investment behind them. Thanks to the team who shipped them.
 The energy moves to the seven bets above.
 ```
 
-Falsifiability check passes. Marcus reviews and signs off.
+Beth's first draft had three lines the falsifiability check flagged: the lifecycle line had no mechanism to test, the lesson claimed engagement moved "2 to 4x harder" with no metric behind it, and "doubles down" was a plan dressed as a claim. The version above is the rewrite. Marcus reviews and signs off.
 
 **Day 5.** Seven briefs land in the *Submitted* queue. Retire documentation lands in Notion. The metric story goes to the next board pack (delivered the following Tuesday) and to the all-hands on the same day.
 

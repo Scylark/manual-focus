@@ -2,7 +2,7 @@
 name: positioning-audit
 description: "When the user wants to audit a brand's positioning, run a positioning audit, surface contradictions between what a brand says it is and what its outputs say it is, sharpen positioning, prepare a positioning brief, or generally inherit a brand and need an honest read on where it sits. Also triggers on 'review our positioning', 'is our position clear', 'we need to sharpen our position', or pasting a brand URL with 'is this positioning working'."
 metadata:
-  version: 0.2.0
+  version: 0.3.0
   playbook: https://manual-focus.co.uk/lens/brand/positioning-audit-pipeline
 ---
 
@@ -18,7 +18,7 @@ Ask the user for these before starting. If they have `.lens/brand.json` or equiv
 2. **Brand type** — is this a B2C consumer brand or a B2B service / agency? This affects Pass 3 (see below).
 3. **Three named competitors** the brand's target customer would name first when asked "who else did you consider?"
 4. **Customer voice source** — different per brand type:
-   - **B2C**: review-platform URL (Trustpilot, G2, App Store, etc.)
+   - **B2C**: review-platform URL (Trustpilot, G2, App Store, etc.). If the brand has fewer than ten public reviews, treat Pass 3 as degraded, supplement with the B2B sources below, and say so in the final audit
    - **B2B service / agency**: testimonial / case-study URLs on the brand's site, plus public LinkedIn recommendations URL if available
 5. **Last 90 days of social posts** (URL or paste)
 6. **Three press releases or major announcements** from the last six months
@@ -52,7 +52,7 @@ Sample the last 90 days of social, last six paid creatives, last three press rel
 
 > "What does this assume the audience already believes about [brand] and [category]?"
 
-Aggregate the implicit assumptions across the corpus.
+A long-context model can take all the pieces in one call if each carries an ID; keep the output per piece. Aggregate the implicit assumptions across the corpus.
 
 ### Pass 3 — Customer voice extraction
 
@@ -125,7 +125,7 @@ Deliver as one Markdown document with deck-ready section headers, plus a one-pag
 
 Before delivering, self-check:
 
-- **Verbatim fidelity**: every phrase in Pass 3 outputs appears in the source review (sample 20 to verify)
+- **Verbatim fidelity**: every phrase in Pass 3 outputs appears in the source review (sample 20, or all if fewer). Copy reviews from the source page, not from a summarising fetch or browsing tool
 - **Coverage**: each of the six passes has a non-empty output
 - **Contradiction count**: at least three contradictions surfaced; flag if fewer (probably means the audit is over-smoothing)
 - **Traceability**: every claim in the final brief has a pass tag
@@ -135,6 +135,7 @@ Before delivering, self-check:
 - **Inventing proof points the corpus doesn't contain** — if a claim can't be traced, remove it
 - **Soft competitor set** — if the contradictions all favour the brand, the competitors are too soft; ask for a harder set
 - **Review-data only audit** — review platforms bias toward post-purchase feelings, not buying triggers; flag if the brand needs a purchase-trigger view and suggest supplementing with 8–12 short customer calls
+- **No revenue mix** — ask the founder for a one-sentence summary of where the money comes from. If you're auditing from the public surface only and can't get one, set revenue mix to UNKNOWN and label every audience-level contradiction as unconfirmed
 - **No-public-competitor brands** (common in B2B / early stage) — substitute press coverage, analyst takes, or job descriptions at the same stage
 
 ## Hand-off

@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "organic-social", "pr"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-09-17
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -47,7 +48,7 @@ Identify the two voices that actually exist in the brand's surface.
 
 **Step 1.1, build the founder corpus.**
 
-Create a folder `founder-corpus/`. Pull eight to fifteen pieces of the founder's actual writing, in plain text. Personal blog posts, LinkedIn long-form posts (not one-liners), podcast scripts the founder wrote, op-eds the founder wrote in industry press. Skip anything ghost-written, even if it carries the founder's name.
+Create a folder `founder-corpus/`. Pull eight to fifteen pieces of the founder's actual writing, in plain text. Personal blog posts, LinkedIn long-form posts (not one-liners), podcast scripts the founder wrote, op-eds the founder wrote in industry press. Skip anything ghost-written, even if it carries the founder's name. Published interviews count when the answers are clearly the founder's own words. Label them as spoken, because spoken answers run shorter and blunter than the founder's written prose.
 
 **Step 1.2, build the institutional corpus.**
 
@@ -55,7 +56,7 @@ Create a folder `institutional-corpus/`. Pull eight to fifteen pieces of the bra
 
 **Step 1.3, run the base extraction on each.**
 
-Use the prompt from the brand-voice-extraction playbook. Run it twice, once on each corpus. You should now have two structural voice profiles.
+Use the prompt from the brand-voice-extraction playbook. Run it twice, once on each corpus. Count sentence length and pronoun rates (I, we, you per hundred words) with a short script and overwrite the model's estimates. You should now have two structural voice profiles.
 
 **Step 1.4, run the diff.**
 
@@ -84,7 +85,7 @@ Return JSON shaped like:
       "delta_quality": "<distinct-and-deliberate | blurred | imitation>"
     }
   ],
-  "institutional_voice_diagnosis": "<credible_peer | faded_copy | generic_marketing | undefined>",
+  "institutional_voice_diagnosis": "<credible_peer | faded_copy | generic_marketing | split | undefined>",
   "diagnosis_evidence": ["<verbatim observations supporting the diagnosis>"]
 }
 
@@ -94,6 +95,12 @@ Rules:
   read as weaker versions of the founder's.
 - Diagnose "generic_marketing" when fewer than 2 patterns overlap with
   the founder's.
+- Diagnose "split" when the institutional corpus holds two or more
+  registers (say, literary editorial and hard-sell product copy) that
+  differ from each other more than from the founder. Re-run the diff
+  once per register.
+- Where evidence illustrates a punctuation or length pattern, the
+  quoted evidence must contain that pattern.
 ```
 
 **Expect output like:**
@@ -347,7 +354,7 @@ Three exercises, each takes 20 to 40 minutes.
 
 ### Exercise 1, run the diff on three pieces of each voice
 
-Pull three founder pieces and three institutional pieces. Paste both into Claude with the Phase 1 diff prompt. Read the output. If the diagnosis is `faded_copy` or `generic_marketing`, your institutional voice needs Phase 3. If it is `credible_peer`, you can skip to the surface map.
+Pull three founder pieces and three institutional pieces. Paste both into Claude with the Phase 1 diff prompt. Read the output. If the diagnosis is `faded_copy` or `generic_marketing`, your institutional voice needs Phase 3. If it is `split`, pick which register the institution keeps before you build anything, then run Phase 3 on that one. If it is `credible_peer`, you can skip to the surface map.
 
 ### Exercise 2, map five surfaces
 

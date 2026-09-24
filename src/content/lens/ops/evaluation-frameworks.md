@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["analytics", "content", "brand"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-04-28
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -34,7 +35,7 @@ A growth, scale or enterprise marketing function producing AI-drafted output whe
 - [ ] Brand lead available for 90 minutes per output type to confirm the criteria
 - [ ] Anthropic or OpenAI API key for the LLM-judgement criteria
 - [ ] Python or Node locally for the scoring script
-- [ ] A pinned model version for each LLM-judgement criterion (claude-4.5-sonnet-2025-10-15 or equivalent)
+- [ ] A pinned model version for each LLM-judgement criterion (the provider's exact model ID, e.g. claude-opus-5-5, recorded per criterion)
 - [ ] The brand voice profile (output of brand-voice-extraction)
 - [ ] The brand guardrails ruleset (output of brand-guardrails-as-code) so the eval matrix can reuse the deterministic checks
 
@@ -99,6 +100,8 @@ Rules:
 - Weight 3 is reserved for criteria that show up as the
   primary rejection reason in at least 5 bad examples.
 - Prefer deterministic check types where possible.
+- For each criterion, list the ids of the examples it appears
+  in. Count them; do not estimate.
 ```
 
 **Expect output like:**
@@ -195,13 +198,14 @@ The piece to evaluate:
 Return JSON:
 {
   "criterion": "{CRITERION_NAME}",
-  "score": <1 | 2 | 3 | 4 | 5>,
+  "score": <1 | 2 | 3 | 4 | 5 | null>,
   "justification": "<one sentence under 25 words>",
   "ambiguity_flag": <true | false>
 }
 
 Rules:
-- Score is integer 1 to 5. No half scores.
+- Score is integer 1 to 5, or null only when the criterion does
+  not apply. No half scores.
 - Justification is one sentence under 25 words.
 - If the criterion does not apply to this output type, return
   null with the ambiguity flag true.
@@ -223,6 +227,8 @@ def score(content, output_type, matrix):
     results = []
     for _, crit in criteria.iterrows():
         if crit.Check_Type.startswith("deterministic"):
+            # deterministic checks return 5 (pass), 3 (borderline)
+            # or 1 (fail) so they weigh like judge scores
             r = check_deterministic(content, crit)
         else:
             r = check_llm(content, crit)
@@ -230,7 +236,7 @@ def score(content, output_type, matrix):
     return {
         "output_type": output_type,
         "criteria_scores": results,
-        "weighted_total": sum(r.score * crit.weight for r, crit
+        "weighted_total": sum(r.score * crit.Weight for r, crit
                               in zip(results, criteria.itertuples())),
         "verdict": derive_verdict(results)
     }
@@ -247,6 +253,8 @@ Pipe each corpus piece through the script. Compare the rubric's verdict against 
 | 0.85+ | Rubric reflects the lead's judgement. Ship. |
 | 0.70 to 0.85 | Acceptable but examine the disagreements. |
 | Below 0.70 | Rubric is missing criteria or applying them wrong. Iterate. |
+
+Measure correlation as agreement: the share of corpus pieces where the rubric's pass or not-pass matches the lead's good or bad tag. Phi or Cohen's kappa read lower on the same data (0.76 against 0.87 agreement in our September 2026 retest), so pick one measure and keep it across quarters.
 
 **Step 4.3, iterate on misses.**
 
@@ -302,7 +310,7 @@ The ritual lives in a Notion page called *Eval calibration log*. Each quarter's 
 
 **Step 5.3, the judge-model pinning policy.**
 
-In the eval matrix CSV, every LLM-judgement criterion has a `Judge_Model` column. Pin to specific versions (claude-4.5-sonnet-2025-10-15, gpt-5-2025-11-01). Updates happen at the quarterly calibration only, not silently.
+In the eval matrix CSV, every LLM-judgement criterion has a `Judge_Model` column. Pin to the exact model IDs your provider publishes (for example claude-opus-5-5), never a family alias. Updates happen at the quarterly calibration only, not silently.
 
 You should now have rubrics running in production with a quarterly ritual that catches drift.
 
@@ -392,7 +400,7 @@ The evaluation matrix CSV. One row per criterion per output type. Drop into Goog
 
 [Download evaluation-matrix-template.csv](/lens/templates/evaluation-matrix-template.csv)
 
-The CSV ships with 13 sample Cascadia criteria across headlines, body copy, email subjects and Meta ad copy. Wipe them, keep the headers, fill in your own.
+The CSV ships with 14 sample Cascadia criteria across headlines, body copy, email subjects and Meta ad copy. Wipe them, keep the headers, fill in your own.
 
 **If your output types differ or your check infrastructure is different, ask Claude to build a custom version.**
 

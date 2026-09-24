@@ -7,8 +7,9 @@ readMin: 14
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["paid-search", "analytics"]
-models: ["claude-4.5-sonnet", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-sonnet", "gpt-5"]
 publishedAt: 2026-05-22
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -33,7 +34,7 @@ A growth or scale-stage brand running £30k or more a month on paid search with 
 - [ ] Google Ads account at admin level (Owner or Standard with bid changes permission)
 - [ ] Microsoft Advertising account at admin level if you run Bing
 - [ ] Google Ads API access via the developer token process, or a paid-search platform with API write access (Search Ads 360, Optmyzr, Marin)
-- [ ] GA4 with conversions configured per product and revenue passed through
+- [ ] GA4 with key events (GA4's current name for conversions) configured per product and revenue passed through
 - [ ] A query report covering the last 90 days, exported from Google Ads as CSV
 - [ ] A current Claude, GPT or Gemini model with structured-output mode
 - [ ] A staging account or a 5% spend slice to test the agent against before scaling
@@ -64,6 +65,10 @@ Margins drift as costs change. Set a quarterly refresh, calendar-blocked. Costs 
 
 You should now have a margin sheet you and finance both trust.
 
+**Step 1.4, check whether your campaigns moved to AI Max.**
+
+From 1 September 2026 Google automatically upgrades Search campaigns that use automatically created assets or the campaign-level broad match setting to AI Max. Campaigns without either setting are not converted. In an upgraded campaign, queries can match beyond your keyword list, and the search terms report gains AI Max as its own match type plus a source column. Two consequences for this playbook. Phase 2 must map by search term and landing page, not keyword alone. The unknown-query ceiling carries more weight, because more of the traffic arrives from queries you did not choose.
+
 ### Phase 2, query-to-product mapping
 
 The harder data work. Every active search query maps to the product or category it intends. Mis-mapped queries lead to wrong bids.
@@ -72,7 +77,7 @@ The harder data work. Every active search query maps to the product or category 
 
 1. In Google Ads, open the account. In the left sidebar click **Insights & reports**, then **Search terms**.
 2. Set the date range to the last 90 days.
-3. Click the download icon (top right) and choose CSV. Take queries with at least 50 impressions in the period.
+3. Click the download icon (top right) and choose CSV. Take queries with at least 50 impressions in the period. For campaigns on AI Max, keep the match type, source and landing page columns in the export.
 
 **Step 2.2, cluster and propose mappings.**
 
@@ -111,6 +116,8 @@ Rules:
 - "unmappable_queries" must be reviewed by the operator before the
   agent acts on them.
 - Use verbatim query text. Do not paraphrase.
+- Queries that name a competitor brand go to unmappable_queries with
+  reason "competitor term". Never map them to a product.
 ```
 
 **Step 2.3, validate by hand.**
@@ -131,6 +138,10 @@ For each ad group:
 - Margin-adjusted ROAS = margin-adjusted revenue divided by ad group spend.
 - Target margin-adjusted ROAS = the brand's blended target.
 - Bid adjustment = bounded function of the gap between actual and target, capped at ±15% per cycle.
+
+Because the formula works per pound of revenue, two products with similar margin percentages get similar bids, however different their pounds of margin per unit. A £180 shell at 29% and a £30 tee at 27% look almost identical to it. If margin per unit is what you want to reward, optimise to margin pounds per conversion instead and say so in the prompt.
+
+**Option A, where the platform allows it.** Send margin-adjusted values as the conversion value (conversion value rules, or an offline or server-side value upload) and let the platform's target ROAS bid on margin. The daily agent then only enforces the guardrails in Phase 4. The daily prompt below is Option B, for accounts that cannot send margin as the conversion value.
 
 **Step 3.2, run the daily bid prompt.**
 
@@ -160,15 +171,19 @@ Return JSON:
   "ad_group": "<name>",
   "current_target_roas": <decimal>,
   "recommended_target_roas": <decimal>,
-  "delta_pct": <number, -15 to +15>,
+  "target_roas_delta_pct": <number, -15 to +15. Positive means a
+    higher target ROAS, which lowers bids>,
   "rationale": "<one sentence>",
   "guardrail_triggered": "<none | brand_floor | unknown_query_ceiling | learning_phase>",
   "expected_volume_impact": "<one sentence>"
 }
 
 Rules:
-- Delta capped at ±15% per cycle.
+- target_roas_delta_pct capped at ±15% per cycle.
 - If learning phase is active, max delta is ±5%.
+- Recommended target ROAS is expressed on revenue, the value the
+  platform bids on. Convert: revenue target = margin-adjusted target
+  divided by the mapped product's margin percent.
 - Brand keywords have a hard bid floor. Never recommend below the
   floor.
 - Unknown query patterns have a hard bid ceiling. Never recommend
@@ -196,7 +211,7 @@ The standard set:
 - **No daily change above 15%.** Bigger swings reset the platform's learning. The 15% bound keeps changes inside the platform's tolerance.
 - **Brand-keyword floor.** Never bid below £X on brand keywords. Brand under-bidding lets competitors bid against the brand's name.
 - **Unknown-query ceiling.** Never bid above £Y on queries the agent has classified as unknown pattern. New queries get a probationary bid until they have 30 days of data.
-- **Learning-phase respect.** If a campaign has entered learning (after a creative change, audience swap or budget shift), the agent halves its allowed delta until learning completes.
+- **Learning-phase respect.** If a campaign has entered learning (after a creative change, audience swap or budget shift), the agent caps its delta at ±5% until learning completes.
 - **Weekly human override.** The paid-search lead reviews the week's changes and the changes the agent wanted to make but was blocked from. The lead can override either direction.
 
 **Step 4.2, log every blocked recommendation.**
@@ -258,7 +273,7 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, running £4
 
 **Phase 2 output.** 1,840 active queries mapped. 1,422 land at confidence 0.7 or higher. 318 route to operator review and resolve in a half-day session. 100 are tagged as "exclude from agent" because the intent is ambiguous (mostly broad queries like "trail running gear" that could land at any product).
 
-**Phase 3 output.** Bid loop running daily. The agent moves the non-brand long-tail bid for "Vahla shell review" up 12% because the conversions are mapping to the £52-margin product, while the platform was bidding it lower based on revenue alone. The same loop moves the bid for the higher-revenue but lower-margin "Cascadia tees" group down 9%.
+**Phase 3 output.** Bid loop running daily against a margin-adjusted ROAS target of 0.85, with every non-brand group starting at a 2.5 target ROAS. Converted to revenue targets, race-day shorts (37% margin) need only 2.32, so the agent lowers that target and bids rise, held to 5% because the group is in learning. Tees (27% margin) need 3.19, so the target rises by the full 15% on the first cycle and tees bids fall. The "Vahla shell review" group also rises, towards 2.94, because at 29% the shell's margin per pound of revenue is close to the tee's. The shell's £52 per unit only starts to count once the team switches the objective to margin pounds per conversion, which Cascadia does in week 4.
 
 **Phase 4 output.** Guardrails active. The agent attempts to lower the brand-keyword bid for "Cascadia Endurance" by 14% on day 6 because the margin maths suggested the brand-keyword spend was unnecessary. The brand-keyword floor blocks the change. The weekly review confirms the block was correct, brand-keyword underbidding would have let Inov-8 bid against Cascadia's brand searches.
 

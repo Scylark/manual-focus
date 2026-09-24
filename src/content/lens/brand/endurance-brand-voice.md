@@ -7,8 +7,9 @@ readMin: 14
 shipTime: "2 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "brand", "organic-social", "email"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-06-04
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -52,7 +53,7 @@ If you have already run the base voice-extraction playbook, you have this. The `
 
 **Step 1.2, category context corpus.**
 
-Pull 8 to 12 pieces from publishers the brand's audience reads. For trail running, that might be iRunFar race reports, Sidetracked long-form essays, Trail Runner Magazine training pieces. For cycling, Rouleur features, Escape Collective opinion, race reports from CyclingTips archive. Save these to a separate folder, `category-context/`, named the same way.
+Pull 8 to 12 pieces from publishers the brand's audience reads. For trail running, that might be iRunFar race reports, Sidetracked long-form essays, Trail Runner Magazine training pieces. For cycling, Rouleur features, Escape Collective opinion, race reports from the CyclingTips archive, now part of Velo. Save these to a separate folder, `category-context/`, named the same way.
 
 Two notes. Do not pull from the brand's direct competitors, you want category-shaping writing rather than competitive copy. Do not pull more than two pieces from any single publication, you want canon, not voice imitation.
 
@@ -126,7 +127,9 @@ Extract for the brand:
 
 Calibration:
 - Compare brand corpus phrases against category corpus phrases.
-- "Common" means in 30%+ of brand pieces.
+- "Common" means the pattern appears in 30%+ of brand pieces. Judge
+  the pattern (names a time of day), not the exact phrase, because a
+  verbatim phrase rarely repeats across pieces.
 - "Honest" tone uses the discomfort vocabulary directly. "Euphemistic"
   softens or motivational-isms over it. "Absent" means the brand does
   not reference discomfort at all.
@@ -223,21 +226,22 @@ Rules:
 - 8 to 12 hard_block patterns.
 - 4 to 8 soft_flag patterns.
 - 3 to 5 mis_used technical terms with verbatim corrections.
-- Replacement suggestions must come from Phase 4 lexicon. Do not
-  invent.
+- Replacement suggestions come from the Phase 4 lexicon where one
+  fits. Where none fits, return "none in lexicon, rewrite the
+  sentence". Do not invent.
 ```
 
 **Expect output like:**
 
 | Pattern | Rationale | Replacement |
 |---|---|---|
-| `\bunleash\b` | Hyperbolic, generic sports-lifestyle | "find" or "earn" |
-| `\bcrush\b` | Wrong register, performative | "ride", "run", "work through" |
-| `\byou.?ve got this\b` | Generic motivational closer | "the work compounds" |
-| `\bjourney\b` | Cliché, audience-flagged | "season", "block", "build" |
-| `\bgame.?changer\b` | Sports-lifestyle cliché | concrete claim with the kit name |
-| `\bnext.?level\b` | Generic | name the level |
-| `\bbeast mode\b` | Performative | name the effort, "honest effort", "hour four" |
+| `\bunleash\b` | Hyperbolic, generic sports-lifestyle | none in lexicon, rewrite and name what the kit does |
+| `\bcrush\b` | Wrong register, performative | "honest effort" |
+| `\byou.?ve got this\b` | Generic motivational closer | "the miles no-one sees" |
+| `\bjourney\b` | Cliché, audience-flagged | none in lexicon, rewrite and name the season or block |
+| `\bgame.?changer\b` | Sports-lifestyle cliché | none in lexicon, rewrite with the kit name and a concrete claim |
+| `\bnext.?level\b` | Generic | none in lexicon, rewrite and name the level |
+| `\bbeast mode\b` | Performative | "honest effort", "hour four" |
 
 Plus a few mis-used technical terms, things like "marathon" used about a 5k, "intense" used about an aerobic ride, "PR" used for any time improvement when the audience uses it for parkruns specifically.
 
@@ -247,7 +251,7 @@ Add three checks to the base rubric.
 
 | Check | Type | Rule |
 |---|---|---|
-| Endurance credibility floor | Pattern | Lexicon match in at least 2 of 5 lexicon categories per piece |
+| Endurance credibility floor | Pattern | References at least 2 of the 5 lexicon categories per piece (a terrain, time, distance, discomfort or quietness reference, not necessarily a verbatim lexicon phrase) |
 | Inauthenticity-tells block | Regex | Zero matches against hard_block_patterns |
 | Quietness presence (monthly) | Pattern | At least 20% of pieces in a calendar month contain a quietness signal |
 
@@ -323,9 +327,9 @@ Run the output back through the credibility check. The rewrite should reach 8 or
 
 ## The eval gates
 
-**Eval E1, credibility floor.** New drafts score against the four-check credibility rubric, terrain accuracy, duration plausibility, discomfort tone match, gear-reference accuracy. Drafts below 3 of 4 do not ship.
+**Eval E1, credibility floor.** New drafts score against the four-check credibility rubric, terrain accuracy, duration plausibility, discomfort tone match, gear-reference accuracy. Drafts below 3 of 4 do not ship, and any factual error in a terrain, distance or gear reference blocks the draft whatever the score. In our September 2026 retest a draft scored 3 of 4 while placing mile twenty-two of the London Marathon on the Embankment, which the course does not reach until around mile twenty-four.
 
-**Eval E2, hyperbole regex.** Hard-block patterns return zero matches. Hyperbolic closers, generic motivational phrases and mis-used technical terms get blocked at draft-review. The replacement suggestion from Phase 5 is offered inline.
+**Eval E2, hyperbole regex.** Hard-block patterns return zero matches. Hyperbolic closers, generic motivational phrases and mis-used technical terms get blocked at draft-review. The replacement suggestion from Phase 5 is offered inline. Verbatim athlete or customer quotes are flagged for the editor rather than blocked, an athlete who writes "I crushed the descent" in their own race report is not the brand being performative.
 
 **Eval E3, quietness presence.** Across any calendar month of content, at least 20% of published pieces contain a quietness signal. Endurance brands that only celebrate the win read shallow, because the audience knows the long Sunday alone matters as much as the podium.
 

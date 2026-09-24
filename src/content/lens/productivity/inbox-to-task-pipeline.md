@@ -7,8 +7,9 @@ readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["inbox", "tasks", "crm"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-09-14
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -87,6 +88,9 @@ the detection rules. You return one entry per thread, with the
 detection verdict and a confidence score.
 
 USER:
+Today's date and time zone:
+{TODAY}
+
 Detection rules:
 {PASTE_DETECTION_RULES}
 
@@ -136,6 +140,9 @@ produce title, description, owner, due date, labels, priority
 and links back to the source.
 
 USER:
+Today's date and time zone:
+{TODAY}
+
 Project tool taxonomy:
 {PASTE_TAXONOMY}
 
@@ -153,7 +160,7 @@ Return JSON:
   "title": "<verb-led, 6-12 words>",
   "description": "<one paragraph, 50-120 words, what the task is plus the verbatim ask from the email>",
   "owner_email": "<email of the owner>",
-  "due_date": "<YYYY-MM-DD>",
+  "due_date": "<YYYY-MM-DD, or YYYY-MM-DDTHH:MM when the email names a time>",
   "due_date_source": "<verbatim email phrase | sender_deadline | inferred_from_typical_cadence>",
   "labels": ["<from taxonomy>"],
   "project": "<from taxonomy or null>",
@@ -170,6 +177,7 @@ Rules:
   owner has the original ask in front of them.
 - due_date inference rules:
   - If sender named a deadline ("by Friday", "end of week"), use it.
+    Resolve it against today's date and keep the time if one is named.
   - If the work is a reply, default to 24-48 hours.
   - If the work is a review or input, default to one week.
   - If the work is a longer piece, default to two weeks.
@@ -216,7 +224,7 @@ When the task is marked done in the project tool, the system optionally pings th
 
 ## Worked example, end-to-end
 
-Saoirse Burns has 73 unread emails on Wednesday morning. The email-triage-and-draft pipeline runs first and labels 19 as `reply-now` or `reply-today`. The inbox-to-task pipeline runs alongside.
+Saoirse Burns has 73 unread emails on Wednesday morning, 9 September. The email-triage-and-draft pipeline runs first and labels 19 as `reply-now` or `reply-today`. The inbox-to-task pipeline runs alongside.
 
 **Phase 2 output (excerpt), detection.**
 
@@ -284,7 +292,7 @@ Saoirse Burns has 73 unread emails on Wednesday morning. The email-triage-and-dr
   "title": "Sign off Storm Shell asset list for 22 Sep launch",
   "description": "Tom Vetter at Foundry agency needs sign-off on the Storm Shell launch asset list by Tuesday so the third cut of the launch film can lock. Specifically, he writes: 'I need your sign-off on the asset list by Tuesday end of day so we can lock the third cut and ship to wholesale partners on the Wednesday'. The asset list is in the linked email thread.",
   "owner_email": "saoirse@cascadia-endurance.com",
-  "due_date": "2026-09-16",
+  "due_date": "2026-09-15",
   "due_date_source": "by Tuesday",
   "labels": ["Vahla Storm Shell", "launch", "agency-handoff"],
   "project": "Vahla Storm Shell launch",
@@ -297,13 +305,13 @@ Saoirse Burns has 73 unread emails on Wednesday morning. The email-triage-and-dr
 
 **Phase 4 output.** Five tasks created in Linear (Saoirse's project tool of choice):
 
-1. Sign off Storm Shell asset list (Saoirse, due 16 Sep, high priority)
+1. Sign off Storm Shell asset list (Saoirse, due 15 Sep, high priority)
 2. Send Vahla budget breakdown to Marcus (Saoirse, due today 10:45, urgent)
-3. Send Spring 2027 pre-book schedule to Aros (Joel, due 19 Sep, medium)
+3. Send Spring 2027 pre-book schedule to Aros (Joel, due 18 Sep, medium)
 4. Send partnership scope and commercial to James (Saoirse, due 22 Sep, medium)
-5. Reply to UTMB on press accreditation (Saoirse, due 18 Sep, high)
+5. Reply to the Kentmere Trail Weekend press desk on accreditation (Saoirse, due 18 Sep, high)
 
-Saoirse spends 90 seconds reviewing the five tasks. She confirms four as-is, edits the owner on task 3 (Joel was the right call but the project label was wrong, she fixes it). The fifth (Marcus's budget) she leaves at urgent because she does need to reply before 11:00.
+Saoirse spends 90 seconds reviewing the five tasks. She confirms four as-is and fixes the project label on task 3 (Joel is the right owner). She leaves task 2 (Marcus's budget) at urgent because she does need to reply before 11:00.
 
 By 09:00 the five tasks are in Linear, each linked back to the source email, each with the verbatim quote in the description. The corresponding emails are labelled `→ Tracked` and archived from the active inbox.
 
@@ -337,7 +345,7 @@ Pick three threads the detection flagged. Run the extraction prompt. Read the ta
 
 ## The failure modes
 
-**Task volume explodes.** A pipeline that creates 15 tasks a day from a 100-email inbox is producing noise, not tasks. Tighten the detection rules. Most operators land at 3 to 6 tasks a day from inbox sources.
+**Task volume explodes.** A pipeline that creates 15 tasks a day from a 100-email inbox is producing noise, not tasks. Tighten the detection rules. Most operators land at 3 to 6 tasks a day from inbox sources in a normal week. Launch weeks run higher. Above 10 on an ordinary day, tighten the rules.
 
 **Owners get mis-assigned.** A task that lands with the wrong owner gets ignored. The operator's network input (reports, collaborators, manager) needs maintenance. Add the network refresh to the weekly hygiene routine.
 

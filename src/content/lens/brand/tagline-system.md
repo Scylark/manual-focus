@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "3 working days"
 brandStage: ["launch", "growth", "scale"]
 channels: ["brand"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-06-23
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -31,7 +32,7 @@ A launch or growth-stage brand picking a tagline for the first time, or a scale-
 - [ ] A completed positioning brief (one-sentence position, proof points, audience, what-not-this)
 - [ ] A voice profile from the brand-voice-extraction playbook
 - [ ] A message house if you have one, the pillar claims constrain tagline jobs
-- [ ] Trademark first-pass access (USPTO TESS, EUIPO, your local office)
+- [ ] Trademark first-pass access (USPTO Trademark Search, which replaced TESS in November 2023, EUIPO, your local office)
 - [ ] A channel where you can A/B test, paid social is the most common, paid search is faster but lower-signal
 - [ ] An empowered single decision-maker (founder, head of brand, fractional CMO) who will commit to the test winner
 - [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
@@ -111,8 +112,7 @@ Rules:
 - Stay inside the length range.
 - No banned words.
 - No echoes of competitor taglines.
-- Match the voice profile (no em dashes, no exclamation marks, no
-  semicolons in the tagline itself).
+- Match the voice profile, including its punctuation rules.
 - "rationale" must reference the brief, not be a generic praise note.
 - Number each candidate ("Candidate 1 of 35, ...").
 ```
@@ -121,7 +121,7 @@ Rules:
 
 Command, taglines that direct the reader to do something ("Run the long Sunday"). Double-meaning, taglines with a deliberate second reading ("The miles that count"). Contradiction-frame, taglines that name a tension and resolve it ("Heavier. On purpose."). Verb-phrase, action-led taglines that frame the brand's behaviour ("Built to outlast the season"). Single-noun, taglines that lean on one noun and let the brand mark do the rest ("Mile four.").
 
-Save all six outputs into a CSV, `taglines-raw.csv`, with columns Tagline, Strategy, Word_count, Job_advanced, Rationale.
+Save all six outputs into a CSV, `taglines-raw.csv`, with columns Tagline, Strategy, Word_count, Job_advanced, Rationale. Check word counts and banned words with a script rather than trusting the model's own `word_count` and `uses_banned_word` fields. In our September 2026 retest, 2 of 35 candidates broke the length range.
 
 **You should now have** roughly 200 candidates in a single CSV.
 
@@ -231,7 +231,10 @@ Rules:
 - Minimum detectable lift caps at 20%. Taglines rarely move metrics
   more.
 - Sample size derived from statistical power calculation at 80%
-  power, 5% significance, given the current conv rate.
+  power, 5% significance, given the current conv rate. Do the
+  calculation in code or a calculator and show the inputs.
+- With more than two variants, correct for multiple comparisons
+  (Bonferroni is fine) or cut the test to three variants.
 - If sample size requires more than 8 weeks runtime, return
   downgraded_qual as the primary feasibility.
 - "kill_criteria" must include a stop condition.
@@ -288,9 +291,9 @@ Cascadia Endurance. The brand has been running "Built to outlast" for three year
 
 **Phase 3 output.** Trademark first-pass blocks 11 candidates with exact same-class matches. The multi-filter prompt returns 18 in shortlist, 22 in reserve. The marketing lead cuts the shortlist to 10 finalists by gut. Two finalists feel adjacent to competitor taglines and get dropped before the test.
 
-**Phase 4 output.** Test design is feasible at full A/B. Channel is paid social on Meta. Primary metric is CTR on cold-audience prospecting. Sample size 8,500 per variant. Runtime 14 days. Minimum detectable lift 15%.
+**Phase 4 output.** Test design is feasible at full A/B. Channel is paid social on Meta. Primary metric is CTR on cold-audience prospecting. Sample size 32,000 impressions per variant (minimum detectable lift 20% on a baseline CTR around 2%, Bonferroni-corrected for seven comparisons with the leading variant). Runtime 19 days. Decision rule, fixed before launch, the highest CTR wins if it beats the next variant significantly, and a statistical tie at the top goes to the marketing lead.
 
-The test runs with eight variants, each replacing the homepage hero copy in the destination landing page and the ad headline. Day fourteen, results in.
+The test runs with eight variants, each replacing the homepage hero copy in the destination landing page and the ad headline. Day nineteen, results in.
 
 | Variant | CTR | Conv rate (landing) | Composite |
 |---|---|---|---|
@@ -303,7 +306,7 @@ The test runs with eight variants, each replacing the homepage hero copy in the 
 | Mile four onwards. | 1.55% | 3.4% | dropped |
 | Run the back half. | 1.49% | 3.6% | dropped |
 
-The winner is "Built for the second loop." The runner-up "Kit that survives the season" goes to the alternative-slot sheet as the sub-headline.
+"Built for the second loop." and "Kit that survives the season." finish within noise of each other, the gap between 2.41% and 2.28% is nowhere near significant at this sample size. What the test does settle is the bottom of the table, the last three variants are clearly behind the top two. Per the decision rule written before the test, a statistical tie at the top goes to the named decision-maker. The marketing lead takes "Built for the second loop." as the tagline, and "Kit that survives the season" goes to the alternative-slot sheet as the sub-headline.
 
 Retirement rule pinned. The CTR baseline (2.41% on cold prospecting) is the watch number, sustained drop below 1.90% over 8 weeks triggers a review.
 

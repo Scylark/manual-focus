@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "pr", "organic-social"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-07-23
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -91,8 +92,8 @@ Return JSON:
 }
 
 Rules:
-- "walk_away" if audience_overlap below 4 or activation_feasibility
-  below 4.
+- "walk_away" if audience_overlap or activation_feasibility is 4
+  or below.
 - "headline" only if every score is 8 or above and the visibility
   ceiling is genuinely uncapped.
 - Rationale is sceptic-readable.
@@ -108,10 +109,10 @@ The typical menu for an endurance brand:
 
 | Tier | Typical spend | What the brand gets | What the brand asks |
 |---|---|---|---|
-| Headline or title | £250k+ per year (established events) | Brand identity merged with the event, multi-year | Category exclusivity, content rights, athlete access, event-name use post-event |
-| Category exclusive | £50k to £250k | Only kit or nutrition or bike brand visible on-site, multi-year option | Exclusivity in category, content rights, athlete activation slots |
-| Major partner | £15k to £75k | Logo on key surfaces, athlete access, content rights | Specific activation slot, content rights for the year |
-| Activation only | £5k to £25k | No logo on event surfaces but on-site activation space and content access | Activation space, content capture rights, athlete access where relevant |
+| Headline or title (Tier A) | £250k+ per year (established events) | Brand identity merged with the event, multi-year | Category exclusivity, content rights, athlete access, event-name use post-event |
+| Category exclusive (Tier B) | £50k to £250k | Only kit or nutrition or bike brand visible on-site, multi-year option | Exclusivity in category, content rights, athlete activation slots |
+| Major partner (Tier C) | £15k to £75k | Logo on key surfaces, athlete access, content rights | Specific activation slot, content rights for the year |
+| Activation only (Tier D) | £5k to £25k | No logo on event surfaces but on-site activation space and content access | Activation space, content capture rights, athlete access where relevant |
 
 The Tier D (activation only) tier is often the best ROI for brands without category-exclusive ambitions. Strips the wasted logo spend and concentrates spend on the activation that drives content yield.
 
@@ -325,7 +326,7 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, sponsoring 
 **Phase 1 output.** Six candidate events scored.
 
 - Lavaredo Ultra Trail. Overlap 9, density 9, ceiling 7, activation 8. Tier B (category exclusive), recommended.
-- UTMB. Overlap 9, density 10, ceiling 4 (Salomon owns headline), activation 7. Tier C (major partner), recommended.
+- UTMB. Overlap 9, density 10, ceiling 4 (HOKA holds the naming partnership through 2028), activation 7. Tier C (major partner), recommended.
 - Lakes Sky Ultra. Overlap 8, density 6, ceiling 9, activation 9. Tier D (activation only), recommended.
 - Snowdonia Trail Marathon. Overlap 7, density 5, ceiling 8, activation 8. Tier D, recommended.
 - London Marathon. Overlap 3, density 10, ceiling 5, activation 5. Walk away.
@@ -333,13 +334,13 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, sponsoring 
 
 **Phase 2 output.** Tier menu confirmed. Cascadia walks two events that were on the prior-year list because the new tier discipline says no.
 
-**Phase 3 output.** Activation plans for the four sponsored events. Lavaredo gets a £28k activation budget against a £45k Tier B sponsorship fee. The split lands 25% content production, 25% community moments (a sunset shake-out run with Beth Lyons and 60 audience members), 20% athlete touchpoint, 20% education (a fitting clinic the day before), 10% trial. The over-invest line is content production because the captured footage will anchor Q3 and Q4 content.
+**Phase 3 output.** Activation plans for the four sponsored events. Lavaredo gets a £28k activation budget against a £55k Tier B sponsorship fee. The split lands 25% content production, 25% community moments (a sunset shake-out run with Beth Lyons and 60 audience members), 20% athlete touchpoint, 20% education (a fitting clinic the day before), 10% trial. The over-invest line is content production because the captured footage will anchor Q3 and Q4 content.
 
 **Phase 4 output.** Standard clauses pushed into the Lavaredo contract. The organiser pushes back on the AI augmentation clause initially, then accepts after the brand explains the "augmenting reality" line. The annual break clause is accepted without resistance.
 
-**Phase 5 output.** Sprint plan locked 6 weeks before Lavaredo. 22 pieces planned. The capture mapping during the event identifies one gap, the "athlete experience feature" needed a sit-down interview that the athlete's schedule did not allow. The workaround is a post-event phone interview and edited stills. The remaining 21 pieces ship in the first 90 days.
+**Phase 5 output.** Sprint plan locked 6 weeks before Lavaredo. 22 pieces planned. The capture mapping during the event identifies one gap, the "athlete experience feature" needed a sit-down interview that the athlete's schedule did not allow. The workaround is a post-event phone interview and edited stills. The remaining 21 pieces are confirmed, and the team adds three reactive pieces from race-week footage.
 
-**Phase 6 output.** Lavaredo scorecard, audience reach above target (Cascadia brand search lifted 38% in race week), content yield above target (24 pieces shipped, 21 planned), pipeline impact at target (412 attributable signups), sentiment strong. Renewal recommendation, renew with tier upgrade to Tier A category-exclusive multi-year, with the annual break clause maintained.
+**Phase 6 output.** Lavaredo scorecard, audience reach above target (Cascadia brand search lifted 38% in race week), content yield above target (24 pieces shipped against 22 planned), pipeline impact at target (412 attributable signups), sentiment strong. Renewal recommendation, renew flat at category exclusive, moving to a multi-year deal with the annual break clause maintained. A headline upgrade is off the table because the visibility ceiling scored 7.
 
 ## Try it yourself
 

@@ -7,8 +7,9 @@ readMin: 18
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-05-05
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -32,7 +33,7 @@ A growth, scale or enterprise endurance brand hiring into a marketing function w
 - [ ] Open headcount or planned headcount with budget approved
 - [ ] Function head who can sign off on the role taxonomy (most teams discover the taxonomy reshapes the open headcount)
 - [ ] Greenhouse, Ashby, Lever or your applicant tracking system (ATS) of choice with admin access
-- [ ] Comp benchmarks for your market (Pave, Levels.fyi, or the Marketing Mavens UK salary report if you are in Britain)
+- [ ] Comp benchmarks for your market (Pave, Levels.fyi, or a current UK marketing salary survey from a recruiter you trust if you are in Britain)
 - [ ] Your function's current org chart in a Notion page or a Google Doc
 - [ ] One month of your function's brief log (from brief-to-ship-pipeline) so the work is concrete in interviews
 - [ ] The brand's Lens library access for candidates (or a comparable playbook library)
@@ -158,7 +159,7 @@ Rewrite the JD with:
 - No generic personality adjectives (passionate, driven,
   team-player, results-oriented)
 - Tool requirements replaced with capability requirements
-- Same word count or shorter
+- No longer than 350 words
 
 Return the JD as plain markdown.
 ```
@@ -171,7 +172,7 @@ For each role, the interview is structured around what the role actually does.
 
 **Step 3.1, the four signals per role.**
 
-In a Notion page called *Interview signals*, write the four signals for each role. The signals below are the proven ones.
+In a Notion page called *Interview signals*, write the four signals for each role. The signals below are the ones to start from.
 
 **Strategy operator signals.**
 1. Can articulate a metric-anchored hypothesis from a vague problem.
@@ -196,6 +197,8 @@ In a Notion page called *Interview signals*, write the four signals for each rol
 2. Has built a tracker or dashboard a non-technical reader would use.
 3. Can describe a holdout or incrementality test they have run.
 4. Articulates what they do not measure and why.
+
+Before the loop starts, mark two signals per role as critical. For the pipeline curator, that is signals 2 and 3. Step 5.1 and the synthesis prompt both depend on this, so write the choice into the *Interview signals* page.
 
 **Step 3.2, the anchored question bank.**
 
@@ -341,7 +344,7 @@ The scorecard converges. The decision is made.
 
 **Step 5.1, the post-loop synthesis.**
 
-After every interview, the panel meets for thirty minutes. The scorecard is reviewed signal by signal, not stage by stage. A candidate with two 5s on the critical signals and two 3s on secondary signals is a hire. A candidate with all 4s across the board is often a pass (the average is the average, not strength).
+After every interview, the panel meets for thirty minutes. The scorecard is reviewed signal by signal, not stage by stage. A candidate with two 5s across the critical signals and the trial task, and no score below 3, is a hire. A candidate with all 4s across the board is often a pass (the average is the average, not strength).
 
 **Step 5.2, the synthesis prompt for ambiguous cases.**
 
@@ -379,6 +382,8 @@ Rules:
   reference scorecard evidence.
 ```
 
+Use the prompt as decision support only. A person makes the decision, and CVs, protected characteristics and other personal details never go into it. UK GDPR Article 22 restricts decisions based solely on automated processing, and for candidates in the EU, AI used to evaluate candidates is a high-risk use under Annex III of the EU AI Act. Check the current obligations with your adviser before automating any part of the loop.
+
 You should now have a hire decision that is anchored in the signals, not in vibe.
 
 ## Worked example, end-to-end
@@ -404,7 +409,8 @@ Cascadia hires Candidate B. Within two quarters, Beth's editing time drops from 
 | Phone screen | Pipeline curator S1 | 4 | Read attribution-teardown and identified two breakage points |
 | Hiring manager interview | Pipeline curator S2 | 5 | Cleanly distinguished judge from rubric, gave example |
 | Trial task | All four signals | 5 | Identified all three planted issues, named the missing eval |
-| Final panel | Pipeline curator S3 + S4 | 4 | Honest on confidence calibration; specific failure example |
+| Final panel | Pipeline curator S3 | 4 | Specific, well-diagnosed prompt-failure example |
+| Final panel | Pipeline curator S4 | 3 | Honest on confidence, but overstated certainty twice |
 
 ## Try it yourself
 

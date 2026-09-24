@@ -2,7 +2,7 @@
 name: slack-focus-pass
 description: "When the user wants to focus their Slack, surface the threads that need them, draft replies in the right voice, run a Slack triage, ignore the noise, or process Slack twice a day. Triggers on 'focus pass', 'process my Slack', 'what do I need to reply to', 'Slack triage', 'show me what matters in Slack', or pasting a Slack activity export."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/slack-focus-pass
 ---
 
@@ -17,7 +17,7 @@ If `.lens/slack-channel-scores.md` exists, read it. Otherwise prompt the user to
 1. **Channel scores** — every channel rated critical / high / medium / low / mute
 2. **Operator user id** — to filter out their own messages
 3. **Slack activity** — last 18 hours: channel, thread_ts, user, text, has_operator_mention, has_operator_dm, last_activity_ts
-4. **Operator's outbound messages** — to skip threads where they have already posted in the last 6 hours
+4. **Operator's outbound messages** — channel, thread_ts and ts, to skip threads where they have already posted in the last 6 hours
 5. **Brand voice profile** — note Slack voice is usually looser than email voice
 6. **Operator's recent messages per channel-type** — 5 to 10 from internal, external customer, external partner channels
 
@@ -30,7 +30,7 @@ If channel scores are missing, run the scoring exercise first. The pipeline reli
 Five categories with treatments:
 
 - **Critical** — always surfaces. DMs, leadership channels, customer escalation channels.
-- **High signal** — surfaces if mentioned or DM'd in. Launch channels, sales pipeline, active project channels.
+- **High signal** — surfaces on @mention, DM, or time-pressure language in a thread the operator is in. Launch channels, sales pipeline, active project channels.
 - **Medium signal** — surfaces only on @mention. Cross-team channels, partner Connect channels.
 - **Low signal** — read once a week. Random, celebrations, links.
 - **Mute** — never surfaces. Bot channels, news feeds, anything read elsewhere.
@@ -48,7 +48,7 @@ Also return `low_priority_count`, `noise_filtered_count`, `channels_with_high_vo
 Rules:
 - Skip threads where the operator has posted in the last 6 hours.
 - `urgency_signal` "high" requires explicit time-pressure language or customer escalation.
-- `channels_with_high_volume_but_no_signal` flags channels producing 20+ messages with no focus thread. Re-score candidates.
+- `channels_with_high_volume_but_no_signal` flags channels producing 20+ messages with no focus thread. Re-score candidates. Exclude monitoring and alert feeds (brand mentions, error alerts), which are high volume by design. From those, surface any single item that reports a product fault or a customer complaint.
 
 ### Phase 3 — Voice-loaded reply
 

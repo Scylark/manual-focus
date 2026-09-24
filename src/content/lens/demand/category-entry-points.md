@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "3 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "seo"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-05-12
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -95,7 +96,8 @@ Rules:
 - "cep_candidate" is true only if intent_type is "context_trigger" or
   if the cluster contains a context_noun_phrase.
 - Verbatim sample queries only. Do not paraphrase.
-- Return between 15 and 30 clusters.
+- Return between 15 and 30 clusters. If the input has fewer than 300
+  queries, return roughly one cluster per 20 queries instead.
 ```
 
 You should now have a clustered query map flagging CEP candidates from search.
@@ -106,7 +108,7 @@ Buyers describe their triggering moments in reviews and on forums in language th
 
 **Step 2.1, prepare the corpus.**
 
-Export the brand's reviews to CSV. Scrape the most-upvoted threads from the three to five subreddits and forums in your inputs list. Reddit's old.reddit.com interface gives a cleaner copy-paste. Aim for 100 to 300 reviews and 30 to 60 forum threads.
+Export the brand's reviews to CSV. Copy the most-upvoted threads from the three to five subreddits and forums in your inputs list by hand, from a logged-in browser. Reddit refuses unauthenticated automated fetches, so an agent cannot pull threads for you. Aim for 100 to 300 reviews and 30 to 60 forum threads.
 
 **Step 2.2, run the trigger-moment extraction prompt.**
 
@@ -263,7 +265,8 @@ Now run a 90-minute human pass. The model's cluster labels will be too tidy. Ope
 SYSTEM: You score each Category Entry Point on four dimensions,
 market size, brand fit, competitive headroom and proof-point
 readiness. You return scores 0 to 10 and a single sentence of
-evidence per dimension.
+evidence per dimension. You calculate the composite arithmetically
+from the four scores. You do not estimate it.
 
 USER:
 CEP: {CEP_LABEL}
@@ -316,12 +319,12 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, building it
 
 **Phase 5 output.** Convergence produces 23 candidates. The top six after scoring are:
 
-1. The second loop. Market 8, fit 9, headroom 9, readiness 9. Composite 8.75.
-2. Wet Wednesday training. Market 6, fit 9, headroom 10, readiness 8. Composite 8.05.
-3. First ultra event prep. Market 9, fit 7, headroom 5, readiness 7. Composite 7.10.
-4. Winter base training kit. Market 7, fit 8, headroom 7, readiness 6. Composite 6.95.
-5. Coach-recommended kit moment. Market 5, fit 9, headroom 8, readiness 7. Composite 6.95.
-6. Race-week taper kit selection. Market 6, fit 7, headroom 8, readiness 6. Composite 6.65.
+1. The second loop. Market 8, fit 9, headroom 9, readiness 9. Composite 8.7.
+2. Wet Wednesday training. Market 6, fit 9, headroom 10, readiness 8. Composite 8.2.
+3. Coach-recommended kit moment. Market 5, fit 9, headroom 8, readiness 7. Composite 7.2.
+4. First ultra event prep. Market 9, fit 7, headroom 5, readiness 7. Composite 7.1.
+5. Winter base training kit. Market 7, fit 8, headroom 7, readiness 6. Composite 7.1.
+6. Race-week taper kit selection. Market 6, fit 7, headroom 8, readiness 6. Composite 6.8.
 
 The "second loop" CEP feeds into the Vahla Range narrative for the next quarter. The "wet Wednesday" CEP becomes a four-piece content series in November and February. Cascadia walks away from "first ultra event prep" because competitor coverage is already saturated and the brand fit is weaker.
 

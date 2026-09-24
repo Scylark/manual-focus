@@ -2,7 +2,7 @@
 name: weekly-pipeline-rollup
 description: "When the user wants a weekly pipeline rollup, CRM data into a stakeholder-ready report, a Friday status for the founder or CEO, a board-pack pipeline section, or a sales pacing summary. Triggers on 'weekly rollup', 'pipeline status', 'CRM summary', 'pipeline report for [audience]', 'where are we pacing', 'this week's pipeline', or pasting a CRM deal export."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/weekly-pipeline-rollup
 ---
 
@@ -15,8 +15,10 @@ You turn a CRM deal export into a stakeholder-ready weekly pipeline report. The 
 If `.lens/rollup-spec.md` exists, read it. Otherwise prompt for:
 
 1. **Audience** — founder / CEO / board / sales-leader. Each has a different length and focus.
-2. **CRM export** — open deals plus closed-won and closed-lost from the last 7 days, with `deal_id`, `company_name`, `primary_contact`, `owner`, `amount`, `currency`, `stage`, `stage_changed_at`, `created_at`, `close_date`, `last_activity_at`, `last_activity_type`, `lost_reason`
+2. **CRM export** — open deals, every closed-won deal this quarter, and closed-lost from the last 7 days, with `deal_id`, `company_name`, `primary_contact`, `owner`, `amount`, `currency`, `stage`, `stage_changed_at`, `created_at`, `close_date`, `last_activity_at`, `last_activity_type`, `lost_reason`
 3. **Last rollup timestamp** — for diffing stage changes
+   - **As-of date and quarter end date**. Days idle and weeks remaining count from the as-of date
+   - **Last week's extraction JSON** (optional). Needed for `weekly_net_movement`
 4. **Quarter targets** — commit, best case, current pacing
 5. **Stage taxonomy** — the CRM's pipeline stages in order
 6. **Delivery channel** — Slack thread, email, Notion page
@@ -39,7 +41,7 @@ Every rollup answers four questions: quarter pacing, what moved, what is at risk
 
 Return JSON with:
 
-- `summary_metrics` — open_pipeline_value, open_deals_count, deals_advanced_this_week, deals_stalled, deals_closed_won_this_week, deals_closed_lost_this_week, weekly_net_movement
+- `summary_metrics` — open_pipeline_value, open_deals_count, deals_advanced_this_week, deals_stalled, deals_closed_won_this_week, deals_closed_lost_this_week, weekly_net_movement (open_pipeline_value now minus last week's, or null if last week's extraction is missing)
 - `pacing` — quarter_target, closed_won_quarter_to_date, pacing_percentage, gap_to_target, weeks_remaining_in_quarter
 - `advanced_deals` — deal / from_stage / to_stage / amount / owner
 - `stalled_deals` — deal / days_idle / amount / owner / next_step_needed (days_idle >= 14, not closed)
@@ -47,6 +49,9 @@ Return JSON with:
 - `closed_won` — deal / amount / owner
 - `closed_lost` — deal / amount / lost_reason / owner
 - `top_5_at_risk` — combines stalled at high-value stages, slipping close dates, owners idle 21+ days
+- `data_quality`, one line per excluded or ambiguous row
+
+A deal created since the last rollup goes in `new_deals` only, not also in `advanced_deals`. Leave out rows that are not customer deals (supplier renewals, internal projects) and name them in `data_quality`.
 
 ### Phase 3 — Narrative synthesis
 
@@ -82,9 +87,9 @@ Rules:
 Return JSON with `slack` (header_message under 1500 chars plus threaded_replies), `email` (subject with pacing pct plus body), `notion` (page_title, page_body_markdown, tags including pacing band, callout_summary).
 
 Rules:
-- Slack header has a single emoji indicator based on weekly_net_movement.
+- Slack header has a single emoji indicator based on weekly_net_movement, or on pacing_percentage when movement is null.
 - Email subject is searchable, includes pacing pct.
-- Notion tags include "on-pace", "behind", or "ahead".
+- Notion tags include a pacing band. Compare pacing_percentage with the share of the quarter elapsed. "ahead" if 5 or more points higher, "behind" if 5 or more points lower, otherwise "on-pace".
 
 ### Phase 5 — Delivery
 

@@ -2,7 +2,7 @@
 name: endurance-brand-voice
 description: "When the user is an endurance, cycling, running, swimming, triathlon, mountaineering or other endurance-sport brand wanting to extract their voice. Triggers on 'we're a cycling brand, extract our voice', 'endurance brand voice profile', 'why does our content sound like a generic sports brand', 'how do we sound credible to runners'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/brand/endurance-brand-voice
 ---
 
@@ -82,7 +82,8 @@ Extract for the brand, per sport if multi-discipline:
 
 Calibration:
 - Compare brand corpus phrases against category context phrases.
-- "Common" means in 30%+ of brand pieces.
+- "Common" means the pattern appears in 30%+ of brand pieces. Judge
+  the pattern (names a time of day), not the exact phrase.
 - "Honest" tone uses discomfort vocabulary directly; "euphemistic"
   softens or motivational-isms over it; "absent" means the brand
   doesn't reference discomfort.
@@ -127,11 +128,19 @@ Standard voice rubric plus three endurance-specific gates:
 **Endurance E1 — Credibility floor.** Drafts score against the
 category-credibility rubric (terrain accuracy, duration plausibility,
 discomfort-vocabulary tone match, gear-reference accuracy). Below
-3/4 = doesn't ship.
+3/4 = doesn't ship. Any factual error in a terrain, distance or gear
+reference blocks the draft whatever the score.
 
 **Endurance E2 — Hyperbole regex.** Hard block on the inauthenticity
 phrases list. Auto-suggest a verbatim replacement from the brand's
-actual canon.
+lexicon where one fits; where none does, say "none in lexicon,
+rewrite" rather than inventing one. Verbatim athlete or customer
+quotes are flagged for the editor, not blocked.
+
+**Credibility floor per piece.** A draft references at least 2 of
+the 5 lexicon categories (terrain, time, distance, discomfort,
+quietness). Match the category, not a verbatim lexicon phrase — new
+writing rarely reuses an exact phrase.
 
 **Endurance E3 — Quietness presence.** Across a campaign or month,
 ≥20% of pieces include a quietness signal (training alone, the

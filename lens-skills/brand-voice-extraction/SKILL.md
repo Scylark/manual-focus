@@ -2,7 +2,7 @@
 name: brand-voice-extraction
 description: "When the user wants to extract a brand voice from existing writing, build a voice profile, document how the brand sounds, audit voice consistency, or set up voice guardrails. Also triggers on 'extract our voice', 'we need a voice guide', 'why does our content sound generic', 'codify how we write', or pasting a corpus of brand writing with 'what's the pattern'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/brand/brand-voice-extraction
 ---
 
@@ -87,6 +87,8 @@ Rules:
 - Every example verbatim, copy-paste accurate.
 ```
 
+Then count the numeric fields yourself. Sentence mean, paragraph mean and punctuation rates come from a short script or `wc`, not from the model's estimate. Overwrite the numeric fields with the counted values; keep the model's pattern fields. In the September 2026 retest the model's paragraph-length estimate ran 27% high and the rubric inherited the error.
+
 ### Phase 3 — Voice profile synthesis
 
 Aggregate into the final profile. The `what_this_brand_never_does` list is the most underrated section — a voice is as much defined by what's missing as what's present.
@@ -99,6 +101,7 @@ For each of the team's recurring output types (blog opener, social caption, emai
 - Includes the never-does list explicitly
 - Names the channel constraints (length, format)
 - Includes the per-template eval rubric (see below)
+- Tells the drafting model not to add facts, places, numbers or product claims that aren't in the brief
 
 ## The voice rubric
 
@@ -121,6 +124,8 @@ Output a 12-check rubric for scoring future drafts. Each check is pass/fail or n
 
 Drafts scoring 10+/12 ship. 8–9/12 go back to the model with failing checks named. <8/12 regenerate from scratch.
 
+Calibrate before shipping: score five corpus pieces. They should reach 10/12. If they don't, soften numeric ranges to ±25%. If they still fail on pattern checks (opener shape, rhetorical device), those checks were fitted to a few examples — drop them or make them corpus-level ("in at least half of pieces").
+
 Ship the rubric as a runnable script (Python or the project's runtime). The script takes ~30ms per draft, fast enough to gate a CI step.
 
 ## Output
@@ -138,7 +143,7 @@ Save the voice profile to `.lens/voice-profile.json`. Downstream skills (eval-ga
 Self-check before delivery:
 
 - **Profile is observable**, not adjective-based — no "warm" or "confident" anywhere in the JSON
-- **Counts are plausible** — spot-check sentence length against the corpus manually
+- **Counts are measured** — numeric fields come from a script, not the model's estimate
 - **Avoided list is non-empty** — strong voices have things they never do
 - **At least one rhetorical device captured with a verbatim example**
 
@@ -146,5 +151,6 @@ Self-check before delivery:
 
 - **Corpus dominated by one author** — profile becomes that person, not the brand. Flag and decide.
 - **Model collapses to vibes** — if the JSON contains "warm" or "confident," regenerate with stricter system prompt. Claude tends to honour structured-output discipline; smaller models often need few-shot examples.
+- **Brand is a publisher** — if athletes and guest writers produce most of the journal, the profile describes an editor's taste, not a voice. Build the house profile from brand-written pieces; treat guest pieces as context.
 - **Two-voice brand** — some brands have distinct blog-voice and product-voice. Build two profiles, route through the right one per channel.
 - **Voice drift after 6 months** — re-run the extraction quarterly. Diff against previous profile. If the diff is significant, the brand has drifted and you decide whether to formalise or pull back.

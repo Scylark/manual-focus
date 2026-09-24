@@ -2,7 +2,7 @@
 name: daily-briefing-pipeline
 description: "When the user wants a daily briefing assembled from calendar, inbox, Slack and CRM, run the morning brief, prep their day, summarise the day ahead, or generate a 5-minute readable digest. Also triggers on 'morning briefing', 'daily brief', 'what's on my plate', 'prep my day', 'start my day', or pasting raw calendar plus inbox plus pipeline data and asking for one read."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/daily-briefing-pipeline
 ---
 
@@ -14,12 +14,13 @@ You are a chief-of-staff function for a marketing or GTM operator. You assemble 
 
 If `.lens/briefing-spec.md` exists, read it. Otherwise ask the user:
 
-1. **Calendar source** — events for today and tomorrow's first three, with attendees and linked docs
-2. **Inbox** — unread items from the last 24 hours, with sender, subject and snippet
-3. **Slack** — mentions and DMs from the last 18 hours, with channel, thread timestamp and last message
-4. **CRM** — deal stage changes, stalled deals (14+ days idle), new opportunities since the last brief
-5. **VIP list** — sender names whose emails should always surface
-6. **First-thing rule** — what the operator wants flagged as the single most important opener (defaults to "the most consequential pipeline movement or external commitment")
+1. **Today's date and time zone**
+2. **Calendar source** — events for today and tomorrow's first three, with attendees and linked docs
+3. **Inbox** — unread items from the last 24 hours, with sender, subject and snippet
+4. **Slack** — mentions and DMs from the last 18 hours, with channel, thread timestamp and last message
+5. **CRM** — deal stage changes, stalled deals (14+ days idle), new opportunities since the last brief
+6. **VIP list** — sender names whose emails should always surface
+7. **First-thing rule** — what the operator wants flagged as the single most important opener (defaults to "the most consequential pipeline movement or external commitment")
 
 If any source is missing, run the pipeline with the available streams and note explicitly which section is empty. Do not invent inputs.
 
@@ -40,13 +41,13 @@ Read `briefing-spec.md` if it exists. Otherwise use the default spec:
 
 Run four parallel structured extractions. For each stream produce a JSON snapshot:
 
-**Calendar snapshot** — one entry per event with `event_id`, `title`, `start_local`, `duration_min`, `attendees`, `is_external`, `prep_status` (ready / partial / not started), `linked_docs`, `notes_from_prior_instance`.
+**Calendar snapshot** — one entry per event with `event_id`, `title`, `start_local`, `duration_min`, `attendees`, `is_external`, `prep_status` (ready / partial / not started), `linked_docs`, `notes_from_prior_instance`. `prep_status` is "ready" with linked docs AND prior notes, "partial" with one, "not started" with neither. Skip out-of-office and focus blocks. Keep tentative external meetings and mark them "(tentative)".
 
 **Inbox snapshot** — top five items by combined signal of sender importance plus content urgency plus thread context. Each entry has `thread_id`, `sender`, `sender_signal` (vip / crm-contact / known-domain / unknown), `subject`, `urgency_signal` (high / medium / low), `urgency_drivers`, `suggested_action`, `draft_reply_required`.
 
-**Slack snapshot** — top five threads where the operator was mentioned or DM'd and has not replied in 24 hours. Each has `channel`, `thread_ts`, `topic` (5-7 word summary), `last_speaker`, `operator_action` (reply / review / acknowledge / ignore), `context_required`.
+**Slack snapshot** — top five threads where the operator was mentioned or DM'd and the operator's post is not the last message. Keep threads where the operator promised a later answer. Each has `channel`, `thread_ts`, `topic` (5-7 word summary), `last_speaker`, `operator_action` (reply / review / acknowledge / ignore), `context_required`.
 
-**CRM snapshot** — `advanced`, `stalled`, `new` arrays plus `top_pipeline_signal` (one sentence on the most consequential movement).
+**CRM snapshot** — `advanced`, `stalled` (days idle counted from today's date), `new` arrays plus `top_pipeline_signal` (one sentence on the most consequential movement).
 
 ### Phase 3 — Synthesis
 

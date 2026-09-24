@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["email", "lifecycle", "paid-social"]
-models: ["claude-4.5-sonnet", "gpt-5", "claude-4.5-opus"]
+models: ["claude-5.5-opus", "claude-4.5-sonnet", "gpt-5", "claude-4.5-opus"]
 publishedAt: 2026-04-29
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -20,7 +21,7 @@ By the end of this playbook you will have shipped five artefacts:
 1. A **journey graph** per behavioural segment with trigger entry, touchpoint sequence, exit conditions, win and loss states, expressed as JSON the engineering team can import and the marketing team can read.
 2. A **library of drafted touchpoints** (typically 40 to 120 per journey set) each with subject, preview, body, CTA copy and CTA URL token, all having passed the voice-eval rubric.
 3. A **within-journey repetition report** with pairwise semantic similarity scores so the team can see where the journey is repeating itself.
-4. A **conditional routing spec** in plain English and as a JSON spec the engineering team can import directly into Braze, Klaviyo, Customer.io or HubSpot.
+4. A **conditional routing spec** in plain English and as a JSON build spec the engineering team uses to configure the journey in Braze, Klaviyo, Customer.io or HubSpot. Klaviyo's flow-creation API is still in beta, so treat the spec as a build sheet rather than a one-click import.
 5. A **holdout-cohort instrumentation plan** so the team can measure the journey's actual lift against a no-contact control at 30, 60 and 90 days.
 
 ## Who this is for
@@ -35,7 +36,7 @@ A growth or scale-stage brand with at least one ESP or journey tool already in p
 - [ ] Access to your ESP at admin level (Klaviyo Owner, Braze admin, HubSpot Marketing Hub admin, Customer.io Workspace admin)
 - [ ] A test segment of 200 to 1,000 users you can launch into without exposing the brand to a bad first journey
 - [ ] A current Claude, GPT or Gemini model with structured-output mode
-- [ ] Two hours of engineering time to import the JSON routing spec into the ESP
+- [ ] Two hours of engineering time to build the JSON routing spec in the ESP
 
 If the voice profile, the segment taxonomy or the signal map is missing, build the missing one before this playbook runs. The drafts will not survive without all three.
 
@@ -214,7 +215,9 @@ Every draft runs through the voice-eval rubric before it ships.
 ```text
 SYSTEM: You evaluate a drafted lifecycle touchpoint against a voice
 profile. You return pass, fail or borderline, with the failing checks
-named explicitly.
+named explicitly. You recount sentence lengths, contractions, em
+dashes and exclamation marks from the draft text itself. You ignore
+the draft's voice_self_check, which drifts from the real counts.
 
 USER:
 Voice profile: {VOICE_PROFILE_JSON}
@@ -250,11 +253,15 @@ Drafts that fail the voice eval get regenerated with the failing checks named in
 **Step 4.3, run the repetition check.**
 
 ```text
-SYSTEM: You compute pairwise semantic similarity across all
-touchpoints in a lifecycle journey. You flag pairs above 0.85
-similarity. Identical content across touchpoints is the failure mode.
+SYSTEM: You review pairwise semantic similarity across all
+touchpoints in a lifecycle journey. The scores come from an
+embeddings script, not from you. You flag pairs above 0.85 and
+decide which touchpoint to regenerate. Identical content across
+touchpoints is the failure mode.
 
 USER:
+Embedding model used: {EMBEDDING_MODEL_NAME}
+Pairwise similarity scores: {PASTE_SCORES_JSON}
 Journey touchpoints (in order): {PASTE_ALL_DRAFTS_JSON}
 
 Return JSON:
@@ -276,18 +283,21 @@ Rules:
 - A 12-touchpoint journey should have at least 8 unique CTAs.
 ```
 
+The 0.85 threshold depends on the embedding model. Same-brand, same-topic emails can sit high on some models, so before the first run, score three touchpoints you know are distinct and three near-duplicates, and set the threshold between them.
+
 You should now have a gated draft library and a repetition report.
 
 ### Phase 5, routing and instrumentation
 
-Translate the approved graphs into an ESP-importable spec.
+Translate the approved graphs into an ESP build spec.
 
 **Step 5.1, generate the routing spec.**
 
 ```text
-SYSTEM: You generate ESP-importable routing logic from a lifecycle
-journey graph. You return the routing both in plain English (for the
-team) and as a JSON spec the engineering team can import into the ESP.
+SYSTEM: You generate ESP routing logic from a lifecycle journey
+graph. You return the routing both in plain English (for the team)
+and as a JSON build spec the engineering team uses to configure the
+journey in the ESP.
 
 USER:
 Journey graph: {APPROVED_GRAPH_JSON}
@@ -301,12 +311,14 @@ Return JSON:
     "trigger": {...},
     "branches": [{...}],
     "exits": [{...}],
-    "frequency_cap": {"period_days": 7, "max_touches": <int>}
+    "frequency_cap": {"period_days": 7, "max_touches": <int, default 4>},
+    "quiet_hours": {"start": "22:00", "end": "08:00", "timezone": "user"}
   }
 }
 
 Rules:
-- Recommend a 7-day frequency cap as the default safety.
+- Recommend a 7-day frequency cap of 4 touches as the default safety.
+- No sends between 22:00 and 08:00 in the user's timezone.
 - Routing logic must match the approved graph exactly.
 - Use the ESP's native field names where known (Klaviyo properties,
   Braze custom attributes, HubSpot contact properties).
@@ -314,7 +326,7 @@ Rules:
 
 **Step 5.2, hand the spec to engineering.**
 
-Two hours of engineering time imports the spec into the ESP, configures the test segment, and sets up the holdout cohort.
+Two hours of engineering time builds the spec in the ESP, configures the test segment, and sets up the holdout cohort.
 
 **Step 5.3, define the holdout cohort.**
 
@@ -332,9 +344,9 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, rebuilding 
 
 **Phase 3 output.** 44 touchpoints drafted across the four segments. The drafting prompt produces variations the lifecycle lead can pick from rather than a single take. Sample subject line for the day-14 second-loop touchpoint, "About the second loop." Preview text, "Three things the Vahla audience told us they noticed in week two."
 
-**Phase 4 output.** Voice eval pass rate at 87% on first run. Six drafts fail (mostly sentence-length drift) and regenerate. The repetition check flags two pairs above 0.85, both rewrites of the same milestone prompt at different stages. T09 regenerates with explicit "do not echo T03" instruction and lands at 0.51 similarity on the second pass.
+**Phase 4 output.** Voice eval pass rate at 86% on first run. Six drafts fail (mostly sentence-length drift) and regenerate. The repetition check flags two pairs above 0.85, both rewrites of the same milestone prompt at different stages. T09 regenerates with explicit "do not echo T03" instruction and lands at 0.51 similarity on the second pass.
 
-**Phase 5 output.** Routing spec generated for Klaviyo. The engineering team imports the spec in 90 minutes. The first-purchase journey goes live on a 1,200-user test segment. Holdout cohort of 120 users is excluded. At 60 days, the treated cohort shows a 14% lift in second-purchase rate against the holdout. The journey ships to the full segment.
+**Phase 5 output.** Routing spec generated for Klaviyo. The engineering team builds the spec in Klaviyo in 90 minutes. The first-purchase journey goes live on a 1,200-user test segment. Holdout cohort of 120 users is excluded. At 60 days, the treated cohort shows a 14% lift in second-purchase rate against the holdout. The journey ships to the full segment.
 
 ## Try it yourself
 

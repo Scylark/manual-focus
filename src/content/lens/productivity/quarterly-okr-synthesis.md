@@ -7,8 +7,9 @@ readMin: 17
 shipTime: "1 working day"
 brandStage: ["scale", "enterprise"]
 channels: ["docs", "crm", "tasks"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-09-07
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -38,7 +39,7 @@ If you have one team or no OKR cadence, this is overkill. If you have ten or mor
 - [ ] A target delivery date for the board pack and the all-hands
 - [ ] 4 hours blocked for the pipeline run
 
-If team leads do not produce status reports, the synthesis cannot run. Recommend the team-status-report ritual as the first step.
+If team leads do not produce status reports, the synthesis cannot run. Ask each lead for a one-page end-of-quarter report (objectives, key results with target and actual, blockers, asks) as the first step.
 
 ## The pipeline
 
@@ -108,6 +109,9 @@ Team status report (free-form):
 Optional, last quarter's synthesis entry for this team:
 {PASTE_LAST_QUARTER}
 
+Team's self-assessed scores (if given):
+{PASTE_SELF_SCORES}
+
 Return JSON:
 {
   "team": "<verbatim>",
@@ -133,14 +137,15 @@ Return JSON:
   "asks": ["<one line per ask to the org or to the CEO>"],
   "wins_to_celebrate": ["<one line per concrete win>"],
   "lessons": ["<one line per concrete lesson worth sharing across the org>"],
+  "score_honesty_flag": "<one sentence or null>",
   "team_average_score": <0.0-1.0, average across all objective_scores>
 }
 
 Rules:
 - Score conservatively when the report is vague.
 - Anchor every score to a target / actual pair.
-- A team_average_score above 0.85 with multiple "we made progress"
-  phrases triggers a flag, score honesty is suspect.
+- Set score_honesty_flag when the team's own scores are 0.3 or more
+  above yours, or when a key result has no actual number.
 - Lessons must be concrete (named) not abstract ("communicate
   better" is not a lesson, "Slack threads need a 24h SLA from
   product to design" is).
@@ -184,6 +189,8 @@ Rules:
   show clear progress to a downscoped version.
 - consistency_score under 0.6 means the synthesis should pause
   for a rubric reset with the team leads.
+- consistency_score from 0.6 to 0.69 means name the teams whose
+  actuals are missing and re-run the audit once they land.
 ```
 
 ### Phase 3, cross-team synthesis
@@ -235,6 +242,8 @@ Rules:
   qualify.
 - theme_of_the_quarter is the single sentence the CEO or board
   reads first.
+- objectives_hit means objective_score 0.7 or above,
+  objectives_missed below 0.4, objectives_in_progress 0.4 to 0.69.
 - Return JSON only.
 ```
 
@@ -290,6 +299,8 @@ Rules:
 - The "what I am asking you to do" section is concrete or "no
   ask this quarter".
 - No em dashes.
+- Use only facts in the synthesis JSON and the context supplied
+  here. If a sentence needs a fact from elsewhere, leave it out.
 ```
 
 **Step 4.2, the board pack section prompt.**
@@ -323,7 +334,7 @@ Return Markdown:
 {ONE PARAGRAPH ON COMMIT VS ACHIEVED, NUMBERS NAMED}
 
 ## Year-on-year
-{ONE PARAGRAPH COMPARING TO Q{Q-1} LAST YEAR}
+{ONE PARAGRAPH COMPARING TO Q{Q} LAST YEAR}
 
 ## What worked
 {2-3 BULLETS, NAMED TEAMS AND EVIDENCE}
@@ -338,10 +349,13 @@ Return Markdown:
 {ONE SENTENCE OR 'NONE THIS QUARTER'}
 
 Rules:
-- Length within 10 percent of target.
+- Length within 10 percent of target. If there is no board ask,
+  spend the words on year-on-year and risks, not padding.
 - Formal register.
 - Numbers in every claim.
 - The board ask is one thing. Two means split the ask.
+- Use only facts in the synthesis JSON and the context supplied
+  here. If a sentence needs a fact from elsewhere, leave it out.
 ```
 
 **Step 4.3, the all-hands narrative prompt.**
@@ -388,6 +402,8 @@ Rules:
 - People named by name in wins and thanks.
 - No name-shaming in misses (team named, individuals not).
 - No em dashes. No hype words past honest celebration.
+- Use only facts in the synthesis JSON and the context supplied
+  here. If a sentence needs a fact from elsewhere, leave it out.
 ```
 
 **Step 4.4, the function-leads digest.**
@@ -417,7 +433,7 @@ Cascadia Endurance Q3. Beth Lyons runs the synthesis. Five teams reporting: bran
         }
       ],
       "objective_score": 1.0,
-      "narrative": "The pipeline rollup discipline plus the Aros AW27 deal landing in week 11 carried the quarter past target. The Trail Club Manchester partnership opened as new pipeline that will land in Q4."
+      "narrative": "The pipeline rollup discipline plus two wholesale re-orders in week 11 carried the quarter past target. The Aros AW27 pre-book (£48k, in Negotiation) and the Trail Club Manchester partnership carry into Q4."
     },
     {
       "objective": "Lift paid social ROAS to 3.2.",
@@ -437,7 +453,7 @@ Cascadia Endurance Q3. Beth Lyons runs the synthesis. Five teams reporting: bran
   "blockers": ["Foundry retainer renewal stalled 27 days, slowed creative output mid-quarter."],
   "risks_into_next_quarter": ["Vahla Storm Shell launch concentration risk, single-product reliance."],
   "asks": ["CEO call to Aros wholesale to lock the AW27 deal commercial."],
-  "wins_to_celebrate": ["Aros AW27 deal at £48k, the biggest single wholesale deal of the year."],
+  "wins_to_celebrate": ["Closed-won at £412k, 8 percent over the £380k target."],
   "lessons": ["The channel-mix simulator works at scale, run it twice per quarter instead of once."],
   "team_average_score": 0.93
 }
@@ -448,8 +464,8 @@ Cascadia Endurance Q3. Beth Lyons runs the synthesis. Five teams reporting: bran
 ```json
 {
   "org_average_score": 0.81,
-  "objectives_hit": 8,
-  "objectives_missed": 2,
+  "objectives_hit": 9,
+  "objectives_missed": 1,
   "objectives_in_progress": 3,
   "top_3_wins": [
     {"team": "Demand and channels", "win": "Wholesale revenue exceeded target by 8 percent.", "evidence": "£412k against £380k target."},
@@ -457,11 +473,10 @@ Cascadia Endurance Q3. Beth Lyons runs the synthesis. Five teams reporting: bran
     {"team": "Customer and CX", "win": "Claim-handler CSAT lifted from 3.8 to 4.5.", "evidence": "Quarterly CSAT survey."}
   ],
   "top_3_misses": [
-    {"team": "Product and design", "miss": "Storm Shell launch slipped from 8 September to 22 September.", "lesson": "Lock asset list at brief stage, not at agency review stage."},
-    {"team": "Demand and channels", "miss": "Paid social ROAS landed at 3.1 against 3.2.", "lesson": "Run the channel-mix simulator twice per quarter."}
+    {"team": "Product and design", "miss": "Storm Shell launch slipped from 8 September to 22 September.", "lesson": "Lock asset list at brief stage, not at agency review stage."}
   ],
   "cross_cutting_blockers": [
-    {"blocker": "Foundry retainer renewal stall slowed creative output across two teams.", "teams_affected": ["Brand and content", "Demand and channels"], "recommended_action": "Lock the renewal scope by end of Q3 week 1."}
+    {"blocker": "Foundry retainer renewal stall slowed creative output across two teams.", "teams_affected": ["Brand and content", "Demand and channels"], "recommended_action": "Lock the renewal scope by end of Q4 week 1."}
   ],
   "risks_into_next_quarter": [
     {"risk": "Vahla Storm Shell launch concentration risk.", "owner": "Marcus Hale", "mitigation": "Two-track launch with a smaller secondary product in week 4."}
@@ -473,7 +488,7 @@ Cascadia Endurance Q3. Beth Lyons runs the synthesis. Five teams reporting: bran
 }
 ```
 
-**Phase 4.1 output, the CEO summary.**
+**Phase 4.1 output, the CEO summary (abridged).**
 
 ```text
 # Q3 synthesis, CEO summary
@@ -486,15 +501,15 @@ is product roadmap concentration. The Storm Shell launch slipped two
 weeks and now anchors Q4 by itself.
 
 ## Where the quarter landed
-Org average score landed at 0.81 across 13 objectives. 8 hit, 2 missed,
-3 in progress (these are the Q4 carry-overs). The two misses were the
-Storm Shell launch slip and paid social ROAS landing one tenth shy of
-the 3.2 target.
+Org average score landed at 0.81 across 13 objectives. 9 hit, 1 missed,
+3 in progress (these are the Q4 carry-overs). The miss was the Storm
+Shell launch slip. Paid social ROAS landed one tenth shy of the 3.2
+target, which scores 0.85 and counts as substantially achieved.
 
 ## Top wins
 1. Demand and channels exceeded wholesale target. £412k closed-won
-   against £380k. The Aros AW27 deal at £48k carried the last two
-   weeks.
+   against £380k. Two wholesale re-orders in week 11 carried it over
+   the line.
 2. Brand and content cleared UTMB recap saves target by 47 percent.
    8,800 saves against 6,000 target.
 3. Customer and CX lifted claim-handler CSAT from 3.8 to 4.5.
@@ -503,8 +518,6 @@ the 3.2 target.
 1. Product and design slipped the Storm Shell launch from 8 to 22
    September. Lesson, lock the asset list at brief stage, not at
    agency review.
-2. Demand and channels landed paid social ROAS at 3.1 against 3.2.
-   Lesson, run the channel-mix simulator twice per quarter.
 
 ## Cross-cutting blockers
 1. Foundry retainer renewal stalled 27 days, slowed creative output

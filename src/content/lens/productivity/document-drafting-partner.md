@@ -7,8 +7,9 @@ readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["docs", "inbox"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-08-31
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -146,6 +147,9 @@ Rules:
 - Sections track the outline 1:1. Do not reshape the outline.
 - The closing paragraph names the action or decision the
   document is asking for, not a generic "in conclusion".
+- Never invent numbers, prices, dates or terms. If the argument
+  needs a figure that is not in the spec, the required elements or
+  the corpus, write [FIGURE NEEDED: what] instead.
 ```
 
 **Step 2.2, the read.**
@@ -165,6 +169,9 @@ section. You flag specific lines that drift from voice and you
 recommend a fix for each.
 
 USER:
+Drafting spec (for register and length):
+{PASTE_SPEC}
+
 Voice profile:
 {PASTE_VOICE_PROFILE}
 
@@ -205,8 +212,11 @@ Rules:
 - vocabulary: choice of words consistent with the voice profile.
 - structure: section flow, paragraph length, transitions.
 - specificity: concrete claims vs vague generalities.
-- drift_flags only for lines scoring below 6 on any dimension.
+- drift_flags for any line that pulls its section below 8 on a
+  dimension.
 - recommended_fix is a verbatim rewrite, not a description.
+- List any figure, date or claim not found in the spec or the
+  required elements in global_flags as "unsupported".
 ```
 
 **Step 3.2, the auto-fix.**
@@ -285,15 +295,15 @@ the product. Not a justification deck for the marketing team.
 - Format: Notion page
 
 ## Outline
-- The launch sits at September 22, three weeks before UTMB
+- The launch sits at September 22, three weeks before the Kentmere Trail Weekend
 - Budget at 62k against the 75k brief, two underspends explained
-- The activation plan, UTMB plus paid social plus organic launch film
+- The activation plan, Kentmere plus paid social plus organic launch film
 - The ask, sign-off on date plus budget by Friday
 - The risk, weather affecting the activation, with contingency
 
 ## Required elements
 - Specific budget numbers (62k, 75k, 13k headroom)
-- UTMB activation reference
+- Kentmere Trail Weekend activation reference
 - Foundry agency film referenced as launch asset
 - 22 September date
 
@@ -309,8 +319,9 @@ the product. Not a justification deck for the marketing team.
 # Vahla Storm Shell launch, budget and date sign-off
 
 The Storm Shell launch lands on 22 September, three weeks
-before UTMB. The shape is set. The two open decisions are the
-final budget number and the activation level at UTMB itself.
+before the Kentmere Trail Weekend. The shape is set. The two open
+decisions are the final budget number and the activation level at
+Kentmere itself.
 This memo asks for sign-off on both by end of Friday.
 
 ## Budget shape
@@ -322,7 +333,7 @@ seeding landed £9k under because the ambassador programme picked
 up two of the seeding slots without charge. The headroom is £13k.
 
 My recommendation. £8k into a second paid social flight in the
-launch window, £5k held as contingency for the UTMB activation
+launch window, £5k held as contingency for the Kentmere activation
 if the press list lands above target.
 
 ## Activation plan
@@ -333,7 +344,7 @@ The Foundry launch film ships on 22 September across paid social,
 organic and the wholesale partner channels. The third cut is in
 review now, lock by Tuesday.
 
-UTMB activation runs Thursday through Saturday of race week. We
+The Kentmere activation runs Thursday through Saturday of race week. We
 have three Cascadia athletes in the field plus the partnership
 booth at the village. Saoirse is on the ground from Wednesday.
 Marcus arrives Saturday.
@@ -371,7 +382,7 @@ the spend kicks in.
 }
 ```
 
-Saoirse accepts the one recommended fix. The draft now scores 8.6. She reads through once more, notes that the UTMB section needs a sentence on the weather contingency, and runs the revision prompt with that one note.
+Saoirse accepts the one recommended fix. The draft now scores 8.6. She reads through once more, notes that the Kentmere section needs a sentence on the weather contingency, and runs the revision prompt with that one note.
 
 The revised draft incorporates the contingency. Total time from blank page to ready-to-send: 22 minutes. Marcus signs off Friday morning. Tanya approves the budget by EOD Friday. The launch ships on schedule.
 
@@ -409,7 +420,7 @@ Paste a recent document into the consistency check. Read the section scores. Whe
 
 **The model expands beyond the outline.** A 5-bullet outline becomes a 10-section draft. The "sections track the outline 1:1" rule is load-bearing. Hold it.
 
-**Required elements get paraphrased instead of named.** "We will be at UTMB" instead of "UTMB activation runs Thursday through Saturday". The verbatim-or-close-to-verbatim rule for required elements catches this.
+**Required elements get paraphrased instead of named.** "We will be at Kentmere" instead of "The Kentmere activation runs Thursday through Saturday". The verbatim-or-close-to-verbatim rule for required elements catches this.
 
 **The closing is generic.** "In conclusion, this is an important launch" instead of "I'm asking for sign-off on the budget shape and the launch date by Friday EOD". The "name the action or decision" rule is load-bearing for memos and proposals.
 
