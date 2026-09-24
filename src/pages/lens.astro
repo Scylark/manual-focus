@@ -6,13 +6,13 @@ import { url } from '../utils/paths';
 ---
 <Base
   title="The Lens. Your AI marketing team"
-  description="Senior marketing operators distilled into 26 Claude Code skills that read your brand context and ship the work alongside you."
+  description="Senior marketing operators distilled into 26 skills for Claude Cowork that read your brand context and ship the work alongside you."
 >
   <SEOHead
     slot="seo"
     type="service"
     title="The Lens. Your AI marketing team"
-    description="Senior marketing operators distilled into 26 Claude Code skills that read your brand context and ship the work alongside you."
+    description="Senior marketing operators distilled into 26 skills for Claude Cowork that read your brand context and ship the work alongside you."
     breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'The Lens', url: '/lens' }]}
   />
 
@@ -29,7 +29,7 @@ import { url } from '../utils/paths';
           <span class="gradient-text">marketing team</span>.
         </h1>
         <p class="lens-lead reveal">
-          Senior marketing operators distilled into 26 Claude Code skills
+          Senior marketing operators distilled into 26 skills for Claude Cowork
           that read your brand context and ship the work alongside you.
           Forty-six playbooks across brand, demand, content, ops and
           productivity. Free to read, free to install, refreshed as the
@@ -40,7 +40,7 @@ import { url } from '../utils/paths';
           <a href={url('/lens/library')} class="btn-ghost">Browse the library</a>
         </div>
         <p class="lens-secondary-links reveal">
-          New to AI? Read the <a href={url('/lens/primer')}>prompting 101</a> or the <a href={url('/lens/cowork')}>Cowork setup primer</a>. Or measure where you stand with the <a href={url('/lens/ftp-test')}>Marketing FTP Test</a>.
+          Need a refresher? Read <a href={url('/lens/primer')}>The Lens 101</a> or the <a href={url('/lens/cowork')}>Cowork setup primer</a>. Or measure where you stand with the <a href={url('/lens/ftp-test')}>Marketing FTP Test</a>.
         </p>
         <p class="lens-meta mono reveal">FREE · 46 playbooks · 26 skills · Endurance focus · Updated as the models shift</p>
       </div>
@@ -311,15 +311,15 @@ import { url } from '../utils/paths';
             </div>
             <ul class="price-list">
               <li><strong>Free without signing up.</strong> Read every playbook, every skill, the capability reference and the AI-news pipeline at <a href={url('/lens/library')}>/lens/library</a>. No gate, no overlay.</li>
-              <li><strong>Free to install.</strong> The plugin is MIT-licensed and lives on GitHub. Two commands in Claude Code and you have all 26 skills.</li>
+              <li><strong>Free to install.</strong> The plugin is MIT-licensed and lives on GitHub. Add it in Cowork (or two commands in Claude Code) and you have all 26 skills.</li>
               <li><strong>Subscribe for the changes.</strong> One email when new playbooks ship, one when existing entries get refreshed against new frontier models, one weekly AI-news summary (optional).</li>
               <li><strong>No upsell. No drip funnel.</strong> Roughly one email a week. Unsubscribe in one click.</li>
             </ul>
             {/*
               Kit (ConvertKit) embedded-form endpoint. Form ID 9490842,
-              UID cf656e168b. The form posts via fetch in no-cors mode
-              below so the user stays on the page instead of being
-              redirected to Kit's hosted success page.
+              UID cf656e168b. The form posts via fetch (handler in
+              Footer.astro) and reads Kit's JSON status, so the user
+              stays on the page and only sees success if Kit accepted it.
 
               Switching services later only needs the action URL and
               field name updated. Kit uses `email_address`, Mailchimp
@@ -361,19 +361,22 @@ import { url } from '../utils/paths';
       <FocusObject size={300} tiltX={56} tiltY={-15} spin={140} scrollSpin={-80} style="top: 6%; right: 5%;" enterFrom="right" />
       <div class="container">
         <div class="eyebrow">006 · THE LENS PLUGIN</div>
-        <h2 class="reveal">26 marketing skills your AI agent runs <span class="gradient-text">inside Claude Code</span>.</h2>
+        <h2 class="reveal">26 marketing skills your AI agent runs <span class="gradient-text">inside Cowork</span>.</h2>
         <p class="lead reveal">
           The playbook on this site explains the work. The skill in the
-          plugin is the work. Install it once with two commands, then ask
-          Claude to set up The Lens. The onboarding skill installs the
+          plugin is the work. Add it once from Cowork's plugin menu, then
+          ask Claude to set up The Lens. The onboarding skill installs the
           right Cowork plugins alongside, finds your existing brand
           documentation, writes a structured <code>.lens/</code> workspace
           and recommends a starter. Twenty to forty minutes to a working
           setup, then every skill below runs against your actual data.
         </p>
-        <pre class="lens-skills-install reveal"><code>/plugin marketplace add Scylark/manual-focus
-/plugin install the-lens@manual-focus
+        <pre class="lens-skills-install reveal"><code>Customize → Plugins → Add marketplace
+Scylark/manual-focus → install the-lens
 set up the lens</code></pre>
+        <p class="lens-skills-note reveal">
+          In Claude Code: <code>/plugin marketplace add Scylark/manual-focus</code>, then <code>/plugin install the-lens@manual-focus</code>.
+        </p>
         <div class="lens-skills-cta reveal">
           <a href={url('/lens/skills')} class="btn-cta">Browse the skills</a>
           <a href={url('/lens/cowork')} class="btn-ghost">Read the Cowork primer</a>
@@ -396,7 +399,7 @@ set up the lens</code></pre>
           <div class="lens-fit reveal">
             <h3>Built for</h3>
             <ul>
-              <li>Heads of marketing and CMOs at $5M–$200M brands</li>
+              <li>Heads of marketing and CMOs at ambitious £5M–£150M brands</li>
               <li>Fractional CMOs running two to four portfolio clients</li>
               <li>Senior in-house operators owning brand, demand or growth</li>
               <li>Marketing leaders at AI-native startups who need depth, not hot takes</li>
@@ -429,7 +432,8 @@ set up the lens</code></pre>
         </h2>
         <p class="lead reveal">
           The Lens is curated by Manual Focus, a senior marketing
-          practice working with endurance brands and AI-native operators,
+          practice working with ambitious brands, with particular depth
+          in endurance and sports,
           with a rotating cast of contributors from the Foundry
           collective. The playbooks are the methodology that practice
           produced. The shapes, the prompts, the eval gates, the
@@ -493,7 +497,7 @@ set up the lens</code></pre>
             <p>
               46 live across the five stacks of Brand, Demand, Content,
               Ops and Productivity, plus 26 runnable skills installable
-              as a Claude Code plugin (24 workflow skills, the
+              as a Cowork and Claude Code plugin (24 workflow skills, the
               setup-the-lens onboarding orchestrator, and a
               video-script-to-heygen utility for turning playbooks into
               avatar videos via the HeyGen API). The capability reference
@@ -506,7 +510,7 @@ set up the lens</code></pre>
             <summary>Can I share with my team?</summary>
             <p>
               Yes. Pass the URLs around. Install the plugin on every
-              team member's Claude Code. The library is meant to be
+              team member's Cowork. The library is meant to be
               used by working teams, not gate-kept.
             </p>
           </details>

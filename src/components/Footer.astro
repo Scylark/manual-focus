@@ -357,18 +357,27 @@ const year = new Date().getFullYear();
 
       try {
         const formData = new FormData(form);
-        await fetch(form.action, {
+        // Kit's form endpoint allows cross-origin requests and answers
+        // in JSON when asked, so we can read whether the signup was
+        // actually accepted rather than assuming it was.
+        const res = await fetch(form.action, {
           method: 'POST',
           body: formData,
-          mode: 'no-cors',
+          headers: { Accept: 'application/json' },
         });
-        // no-cors gives us an opaque response, so we cannot read
-        // the status code. We treat reaching this point as a
-        // submission accepted by Kit. Kit then sends a
-        // confirmation email; the user must click the link to be
-        // fully subscribed.
-        setFeedback('success', "You're in. Check your inbox to confirm your subscription.");
-        form.reset();
+        const data = await res.json().catch(() => null);
+        if (data?.status === 'success') {
+          // Kit then sends a confirmation email; the user must click
+          // the link to be fully subscribed.
+          setFeedback('success', "You're in. Check your inbox to confirm your subscription.");
+          form.reset();
+        } else {
+          const reason = data?.errors?.messages?.[0];
+          console.warn('Kit signup rejected', data);
+          setFeedback('error', reason && /email/i.test(reason)
+            ? 'That email address does not look right. Try again.'
+            : 'Something went wrong. Try again in a moment, or email hello@manual-focus.co.uk.');
+        }
       } catch (err) {
         setFeedback('error', 'Something went wrong. Try again in a moment, or email hello@manual-focus.co.uk.');
       } finally {

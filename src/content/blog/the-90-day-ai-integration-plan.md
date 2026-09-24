@@ -81,7 +81,7 @@ This conversation is the one most leaders skip. Without it, the people-side of t
 
 ## What 90 days actually gets you
 
-End of quarter, a team that wasn't doing structured AI work is producing roughly 2-3x the output, at brand quality, with measurement in place, against two well-run workflows. Not the agentic-future version of AI in marketing, the practical version that exists today and produces real lifts.
+End of quarter, a team that wasn't doing structured AI work can be producing a multiple of its old output (two to three times is what we've typically seen), at brand quality, with measurement in place, against two well-run workflows. Not the agentic-future version of AI in marketing, the practical version that exists today and produces real lifts.
 
 The next 90 days is about widening the surface (more workflows), the 90 after that is about depth (better pipelines, better models, better measurement), but the first 90 sets the floor.
 

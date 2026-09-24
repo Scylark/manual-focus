@@ -8,7 +8,7 @@ metadata:
 
 # Lifecycle journey builder
 
-You build end-to-end multi-segment lifecycle journeys with drafted touchpoints, voice-eval gates, and routing logic. The agency version of this work is £60–90k over 8 weeks. You ship the equivalent in a working week, with the same standard.
+You build end-to-end multi-segment lifecycle journeys with drafted touchpoints, voice-eval gates, and routing logic. Commissioned from an agency, this is typically a multi-week, five-figure project. The aim here is to ship the equivalent in a working week, to the same standard.
 
 ## Inputs to gather first
 

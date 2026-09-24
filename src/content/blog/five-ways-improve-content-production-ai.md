@@ -15,7 +15,7 @@ The slowest part of most content production is the research at the front. Readin
 
 AI is genuinely good at this layer. Tools like Claude, Gemini, ChatGPT and the deeper-research variants will read 50 sources in five minutes and surface the relevant claims, contradictions and gaps. What they're not good at is deciding what the piece is actually about, which is the synthesis layer, the editorial judgement that turns a pile of research into a point of view.
 
-So the move is, the model does the research and the human does the angle. You'll cut the front of every piece by a factor of three to five, and the quality of the angle gets better because the human is starting from a richer pile of inputs.
+So the move is, the model does the research and the human does the angle. In our experience that cuts the front of every piece substantially, often to a fraction of the time, and the quality of the angle gets better because the human is starting from a richer pile of inputs.
 
 What this looks like in practice. Set up a research template you reuse (brief, sources, competitive context, contradicting opinions). Have the model pull all of that before you sit down to write or brief. Spend the time you saved on the harder editorial calls, the actual argument, the pull-quote, the headline.
 
@@ -37,7 +37,7 @@ Most teams use AI to draft a piece, then edit. The better order is to use AI to 
 
 A good AI-generated brief includes the angle, the structure, the must-include points, the audience, the calls to action, the success metric, the related links and the SEO/AEO frame. That brief is then drafted from, by whoever, human or model, but the drafting is constrained by a real brief rather than a vibe.
 
-This change alone often cuts editing time by 50%, because the draft is being produced against something specific instead of "write me a blog post about X". It also makes parallel production work, because multiple drafters can work from the same brief at the same time without going in different directions.
+In the teams we've worked with, this change alone has cut editing time sharply, because the draft is being produced against something specific instead of "write me a blog post about X". It also makes parallel production work, because multiple drafters can work from the same brief at the same time without going in different directions.
 
 Your senior people should be writing briefs more than they're editing drafts, because the marginal value of their time is higher there.
 
@@ -67,7 +67,7 @@ This loop, run weekly, is what separates teams that compound from teams that jus
 
 ## What changes if you do all five
 
-A team that ships these five changes ends the quarter producing roughly three to five times more content than they did at the start, at higher brand quality, with better attribution, in less time per piece. We've watched this play out and it isn't a thought experiment. (For the wider system this production workflow sits inside, see [building content engines that compound](/blog/building-content-engines-that-compound/) — the engine is what turns higher production into compounding return.)
+A team that ships these five changes can end the quarter producing several times more content than they did at the start, at the same or better brand quality, with better attribution and less time per piece. That's what we've seen in our own engagements; your mileage will depend on where you start. (For the wider system this production workflow sits inside, see [building content engines that compound](/blog/building-content-engines-that-compound/) — the engine is what turns higher production into compounding return.)
 
 The trap most teams fall into is doing one of these and calling it AI adoption. The compounding effect is in the combination. The research speeds up, the briefs sharpen, the drafts come in cleaner, the repurposing multiplies the surface area and the feedback loop steers the whole engine towards what's working.
 

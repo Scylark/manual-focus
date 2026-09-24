@@ -5,13 +5,13 @@ import { url } from '../../utils/paths';
 ---
 <Base
   title="The Lens 101. Prompting and skills, plainly"
-  description="A primer for readers new to prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
+  description="A refresher on prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
 >
   <SEOHead
     slot="seo"
     type="article"
     title="The Lens 101. Prompting and skills, plainly"
-    description="A primer for readers new to prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
+    description="A refresher on prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
     breadcrumbs={[
       { name: 'Home', url: '/' },
       { name: 'The Lens', url: '/lens' },
@@ -236,7 +236,9 @@ You are a brand strategist running a six-pass positioning audit...
     <div class="container p101-prose">
       <h2>5 · Installing The Lens skills</h2>
       <p>
-        Two commands in any Claude Code session.
+        In Cowork, open Customize → Plugins → Add marketplace, enter
+        <code>Scylark/manual-focus</code> and install
+        <strong>the-lens</strong>. In Claude Code, it's two commands.
       </p>
       <pre class="p101-code"><code>/plugin marketplace add Scylark/manual-focus
 /plugin install the-lens@manual-focus</code></pre>
