@@ -7,6 +7,8 @@ import { getCollection } from 'astro:content';
 
 interface HowToStep { name: string; text: string }
 interface PostRef { slug: string; title: string }
+interface FaqItem { question: string; answer: string }
+interface Source { title: string; url: string; publisher?: string }
 
 interface Props {
   title: string;
@@ -17,12 +19,14 @@ interface Props {
   image?: string;
   howToName?: string;
   howToSteps?: HowToStep[];
+  faq?: FaqItem[];
+  sources?: Source[];
   minutes?: number;
   newerPost?: PostRef | null;
   olderPost?: PostRef | null;
 }
 
-const { title, description, date, updated, tags, image, howToName, howToSteps, minutes, newerPost, olderPost } = Astro.props;
+const { title, description, date, updated, tags, image, howToName, howToSteps, faq, sources, minutes, newerPost, olderPost } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
 const breadcrumbs = [
@@ -50,7 +54,7 @@ const related = allPosts
   .map(x => x.post);
 ---
 <Base title={title} description={description} ogImage={image}>
-  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} />
+  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} articleFaq={faq} sources={sources} />
 
   <article class="section">
     <div class="container prose">
@@ -69,6 +73,33 @@ const related = allPosts
 
       <div class="post-content">
         <slot />
+
+        {/* Rendered from frontmatter with plain h2/h3/p/ul so they pick up
+            the same .post-content styles as the markdown above. */}
+        {faq && faq.length > 0 && (
+          <section aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Frequently asked questions</h2>
+            {faq.map(item => (
+              <>
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </>
+            ))}
+          </section>
+        )}
+
+        {sources && sources.length > 0 && (
+          <section aria-labelledby="sources-heading">
+            <h2 id="sources-heading">Sources</h2>
+            <ul>
+              {sources.map(src => (
+                <li>
+                  <a href={src.url} rel="noopener">{src.title}</a>{src.publisher && `, ${src.publisher}`}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
 
       <footer class="post-footer">

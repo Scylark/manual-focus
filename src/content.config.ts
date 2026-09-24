@@ -3,6 +3,7 @@ import { glob } from 'astro/loaders';
 
 const ALLOWED_TAGS = [
   'ai',
+  'ai-briefing',
   'marketing-strategy',
   'fractional-cmo',
   'digital-transformation',
@@ -30,6 +31,20 @@ const blog = defineCollection({
     howToSteps: z.array(z.object({
       name: z.string(),
       text: z.string(),
+    })).optional(),
+    // Answer-engine support. `faq` renders as a visible Q&A section at
+    // the foot of the post AND as FAQPage structured data, from one
+    // source so the two can't drift. `sources` renders as the post's
+    // source list and as BlogPosting `citation` — AI briefing posts must
+    // cite the primary announcement for every factual claim.
+    faq: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
+    sources: z.array(z.object({
+      title: z.string(),
+      url: z.string().url(),
+      publisher: z.string().optional(),
     })).optional(),
   }),
 });
