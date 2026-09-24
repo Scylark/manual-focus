@@ -55,6 +55,7 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-foc
 // person rather than three namesakes.
 const JAMES_LINKEDIN = 'https://www.linkedin.com/in/james-vickers-bke/';
 const jamesId = `${siteUrl}/about/#james-vickers`;
+const jamesImage = `${siteUrl}/images/james-vickers.jpg`;
 const fullImage = image
   ? (image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? '' : '/'}${image}`)
   : `${siteUrl}/images/og-default.png`;
@@ -104,6 +105,7 @@ const organizationSchema = {
     '@id': jamesId,
     name: 'James Vickers',
     jobTitle: 'Founder, Manual Focus',
+    image: jamesImage,
     sameAs: [JAMES_LINKEDIN],
   },
 };
@@ -139,6 +141,7 @@ const profileSchema =
           '@id': jamesId,
           name: 'James Vickers',
           jobTitle: 'Founder, Manual Focus',
+          image: jamesImage,
           description:
             'Senior marketing leader with 15+ years running brand, demand, product and growth across AI, fintech, sports tech, hardware and digital assets. Co-founded RGT Cycling (acquired by Wahoo Fitness). Now running Manual Focus.',
           worksFor: { '@id': `${siteUrl}/#organization` },

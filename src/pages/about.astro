@@ -36,6 +36,15 @@ import { url } from '../utils/paths';
       <div class="about-grid-side">
         <div class="eyebrow">002 · THE COLLECTIVE</div>
         <h2 style="font-size: clamp(2rem, 4vw, 3.75rem); line-height: 0.98; margin-top: var(--space-xs);">Who's<br/>behind&nbsp;it.</h2>
+        <img
+          class="about-portrait"
+          src={url('/images/james-vickers.jpg')}
+          alt="James Vickers leading a line of riders up a gravel road"
+          width="1200"
+          height="800"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div class="about-grid-body">
         <p>
@@ -189,6 +198,15 @@ import { url } from '../utils/paths';
     font-size: clamp(2rem, 4vw, 3.75rem);
     line-height: 0.98;
     margin-top: var(--space-xs);
+  }
+
+  .about-portrait {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
   }
 
   .about-grid-body {
