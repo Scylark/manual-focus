@@ -2,7 +2,7 @@
 name: message-house
 description: "When the user wants to build a message house, convert positioning into a narrative architecture, create messaging pillars, draft proof points, or generate channel-mapped messaging lines. Also triggers on 'we need a message house', 'turn this positioning into messaging', 'build the pillars', 'what's our narrative', or 'we keep saying different things across channels'."
 metadata:
-  version: 0.2.0
+  version: 0.2.1
   playbook: https://manual-focus.co.uk/lens/brand/message-house-generator
 ---
 
@@ -30,7 +30,7 @@ If any test fails, send the brief back. Vague positioning produces a vague messa
 
 ### Phase 2 — Narrative drafting
 
-Generate the **one-sentence brand narrative** that subsumes the positioning. Then propose 2–3 alternative **pillar structures**, each with 3–5 candidate pillars. Pillars must be claim-shaped:
+Generate the **one-sentence brand narrative** that subsumes the positioning. Then propose 2–3 alternative **pillar structures**, each with 3–4 candidate pillars. Pillars must be claim-shaped:
 
 - Bad pillar: "Product" (category, not claim)
 - Good pillar: "The work compounds because we own the full pipeline" (claim, falsifiable, defensible)
