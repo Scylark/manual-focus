@@ -30,5 +30,101 @@
     "score": 6,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Google launches Gemini 3.8 Flash TTS and Flash-Lite TTS with prompt-designed voices, 30-second consented voice replication and SynthID watermarking",
+    "primary_source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+    "score": 7,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "UN Security Council holds session on AI and international security, with OpenAI and Anthropic attending",
+    "primary_source": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-september-23-2026/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Proofpoint launches Agentic Data and AI Security system for monitoring AI agent behaviour",
+    "primary_source": "https://aiagentstore.ai/ai-agent-news/this-week",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Alphabet Intrinsic open-sources Intrinsic Core robotics stack at ROSCon 2026",
+    "primary_source": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-september-23-2026/",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "OpenAI opens the ChatGPT Ads app for Shopify to merchants outside the US from 23 September; UK has self-serve access; ChatGPT Ads now in 60+ countries at a $1bn run rate",
+    "primary_source": "https://openai.com/index/reimagining-advertising-with-ai/",
+    "score": 8,
+    "decision": "published",
+    "slug": "chatgpt-ads-shopify-uk-ecommerce"
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Second run 2026-09-24: Salesforce AIforce (Claudeforce, Slackforce, Agentforce Coworker) from Dreamforce, announced 15 September so outside the 48-hour window",
+    "primary_source": "https://www.salesforce.com/blog/dreamforce-2026-top-it-announcements/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Second run 2026-09-24: Google Ads auto-upgrades automatically created assets and broad match to AI Max for Search from September 2026, a previously announced change with no new development in the window",
+    "primary_source": "https://support.google.com/google-ads/announcements/9048695?hl=en",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Second run 2026-09-24: Alibaba unveils enterprise AgentCore platform and agentic cloud roadmap",
+    "primary_source": "https://aiagentstore.ai/ai-agent-news/this-week",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Third run 2026-09-24: Google switches on native checkout in AI Mode and Gemini by default for eligible Shopify stores (rollout from 18 September, merchant emails 22 September); US-based stores selling to US customers only, so UK stores are ineligible, and the rollout dates are reported only from merchant emails",
+    "primary_source": "https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/google",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Third run 2026-09-24: Google Ads expands the AI Brief closed beta for AI Max to seven more languages and previews unified search term, asset and landing page reporting with no availability date",
+    "primary_source": "https://blog.google/products/ads-commerce/ai-max-language-reporting-features/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Third run 2026-09-24: Peec AI data shared on X says external links now appear in over 25% of Google AI Overviews, up from near 0%, with no published methodology",
+    "primary_source": "https://www.seroundtable.com/google-ai-overviews-more-external-links-42135.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Third run 2026-09-24: Snorkel AI raises $350M at a $3.5B valuation",
+    "primary_source": "https://blog.buildfastwithai.com/ai-news-today-september-23-2026",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
