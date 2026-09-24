@@ -628,7 +628,8 @@ set up the lens</code></pre>
   .lens-meta {
     font-size: 0.7rem;
     letter-spacing: 0.18em;
-    color: var(--color-text-muted);
+    /* secondary, not muted: muted fails contrast at this size */
+    color: var(--color-text-secondary);
     margin-top: var(--space-md);
   }
 
