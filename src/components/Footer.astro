@@ -376,10 +376,10 @@ const year = new Date().getFullYear();
           console.warn('Kit signup rejected', data);
           setFeedback('error', reason && /email/i.test(reason)
             ? 'That email address does not look right. Try again.'
-            : 'Something went wrong. Try again in a moment, or email hello@manual-focus.co.uk.');
+            : 'Something went wrong. Try again in a moment, or email James@manual-focus.co.uk.');
         }
       } catch (err) {
-        setFeedback('error', 'Something went wrong. Try again in a moment, or email hello@manual-focus.co.uk.');
+        setFeedback('error', 'Something went wrong. Try again in a moment, or email James@manual-focus.co.uk.');
       } finally {
         setLoading(false);
       }
