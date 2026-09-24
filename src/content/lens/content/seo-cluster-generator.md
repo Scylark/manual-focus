@@ -34,7 +34,7 @@ A growth or scale-stage brand whose SEO programme is mature enough to think in c
 - [ ] CMS access (Webflow, Shopify, WordPress) so you can see the brand's existing content and check overlap
 - [ ] A voice profile, extracted via the brand-voice-extraction playbook
 - [ ] A list of three to five named competitors who already rank for the seed
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spreadsheet for the cluster map, Google Sheets or Excel
 
 If you are missing the voice profile, the briefs will still ship but the drafters downstream will work harder. If you cannot pull search volume, the prioritisation collapses to gut feel.

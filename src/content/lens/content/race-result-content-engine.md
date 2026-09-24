@@ -36,7 +36,7 @@ A growth or scale-stage endurance brand whose audience races a recognisable cale
 - [ ] Social scheduler (Buffer, Hootsuite, Later) with race-day post containers ready
 - [ ] Voice profile from the brand-voice-extraction playbook
 - [ ] Endurance-specific voice extension if you cover multiple sports
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spreadsheet for the result data feed and the event log
 - [ ] Sponsored athletes' Strava and Garmin Connect handles for context, where available
 

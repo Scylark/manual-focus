@@ -32,7 +32,7 @@ Get these on a single screen before you begin.
 
 - [ ] Access to the brand's CMS, blog, newsletter archive and social archive
 - [ ] A folder or Notion page to dump the corpus into
-- [ ] Claude (Opus 4.5 or Sonnet 4.5) or GPT-5 with structured-output mode enabled
+- [ ] A current Claude, GPT or Gemini model with structured-output mode enabled
 - [ ] A text editor that can word-count and find-replace
 - [ ] Optional but useful, a Python environment if you want to automate the scoring rubric
 
@@ -70,7 +70,7 @@ In your text editor or with a short script, assemble the corpus into a JSON list
 
 **Step 2.2, run the extraction prompt.**
 
-Paste the corpus JSON into the prompt below and run it. Use Opus 4.5 or GPT-5 in structured-output mode. Sonnet drifts on the larger corpora.
+Paste the corpus JSON into the prompt below and run it. Use a frontier model (Claude Opus, GPT or Gemini Pro tier) in structured-output mode. Mid-tier models drift on the larger corpora.
 
 ```text
 SYSTEM: You are a stylometrician analysing a brand's writing. Your
@@ -386,7 +386,7 @@ Run the output back through the rubric. If it scores ten plus, the rubric works.
 
 **The corpus contains a single dominant author.** If twelve of the fifteen pieces are by one person, the profile is that person's voice. Either declare them as the canonical voice (and rename it "founder voice profile" or similar) or require at least three distinct authors with no author over forty percent of word count.
 
-**The model collapses the profile to vibes.** Some models return adjectives even when prompted for counts. Watch for "warm" or "confident" appearing anywhere in the JSON. They should not be there. Regenerate with a different model. Claude Opus tends to honour the structured-output discipline, GPT-5 needs the rules tighter, smaller models often need few-shot examples.
+**The model collapses the profile to vibes.** Some models return adjectives even when prompted for counts. Watch for "warm" or "confident" appearing anywhere in the JSON. They should not be there. Regenerate with a different model. In our runs Claude Opus-tier models honoured the structured-output discipline most reliably, GPT models needed the rules tighter, smaller models often need few-shot examples.
 
 **The rubric is too strict.** A twelve-of-twelve hit rate is unreachable in practice. Most brand voices have a sentence-length variance that the strictest numeric check will fail. Set ship threshold at ten and use the gap analysis as the edit guide.
 

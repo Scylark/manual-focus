@@ -35,7 +35,7 @@ A growth or scale-stage endurance brand whose product is recommended at the coac
 - [ ] Sample fulfilment infrastructure with the ability to ship to named athletes at no charge to the coach
 - [ ] An optional but valuable Strava integration if the brand wants to track athlete training patterns
 - [ ] A coach-channel budget of at least 2% of total marketing spend, sized against the LTV uplift you expect
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 The sample budget is the programme. Without it, the rest is theatre. Get the budget signed off before you scope the tiers.
 

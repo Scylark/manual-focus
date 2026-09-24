@@ -35,7 +35,7 @@ A growth or scale-stage endurance brand spending more than £25k a year on event
 - [ ] A draft sponsorship contract from a previous deal or a template from your sports-marketing solicitor
 - [ ] A production crew (photographer plus videographer) available for the event windows, or budget to hire one
 - [ ] An on-site activation budget separate from the sponsorship fee (typically 30 to 60% of the sponsorship spend)
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 The activation budget is the unlock. Brands that under-budget activation end up with logo-on-banner sponsorships that score badly on every meaningful metric.
 

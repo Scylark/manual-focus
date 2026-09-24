@@ -34,7 +34,7 @@ A growth or scale-stage endurance brand running, or about to run, an athlete-amb
 - [ ] An Instagram and Strava follower count for each candidate, plus a sample of their last 20 posts copied into a shared doc
 - [ ] A draft contract from your sports-marketing solicitor that you can layer AI clauses onto, or budget for one
 - [ ] A signed-off shoot budget plus a content lead who has run a multi-day shoot before
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode and a CSV-paste workflow
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode and a CSV-paste workflow
 - [ ] (Optional but useful) past partnership outcomes from at least three previous athlete signings, used to backtest the rubric
 
 If the list of candidates is missing or vague, stop and build it. The rubric does not invent athletes. It scores the ones you already have on the page.

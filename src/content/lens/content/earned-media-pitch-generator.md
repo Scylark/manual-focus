@@ -35,7 +35,7 @@ A growth or scale-stage brand with a real story (not a routine product launch dr
 - [ ] CMS or a project tool (Notion, Linear, Asana) to host the brief and the pitch ledger
 - [ ] An email sender that supports per-recipient personalisation (Mailshake, Lemlist, native Gmail with merge if the volume is small)
 - [ ] Voice profile from the brand-voice-extraction playbook, plus a "founder voice" sub-profile if the spokesperson is the founder
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spokesperson available for at least one interview slot per pitch
 
 If the brand has no Muck Rack equivalent, the manual route via Google News and the journalist's outlet bio is workable for lists of under 40. Above that, the data quality drops below the pipeline's bar.

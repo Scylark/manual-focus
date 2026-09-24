@@ -34,7 +34,7 @@ A growth or scale-stage brand that already knows its category and audience, with
 - [ ] List of three to five category-relevant subreddits and forums, plus an account that can read full thread histories
 - [ ] Eight to twelve recent buyers (purchased in the last 90 days) willing to take a 30-minute call
 - [ ] A semi-structured interview script, the brand's positioning brief, and the named competitors list
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spreadsheet or Notion database to hold the converged CEP list
 
 Eight interviews is the minimum that gives signal beyond the search and review streams. Below that the qualitative voice gets thin.

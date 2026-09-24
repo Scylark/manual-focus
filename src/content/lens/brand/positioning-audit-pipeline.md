@@ -35,7 +35,7 @@ A fractional CMO who has just stepped in, a board member running a marketing rev
 - [ ] The last ten long-form blog posts
 - [ ] Customer voice data, either three reviews per star tier from a review platform (B2C) or 6 to 10 customer testimonials, case study quotes, or LinkedIn recommendations (B2B)
 - [ ] Three named competitors, picked as the ones the brand's target customer would name first
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A scratch folder for the source materials
 
 If any of the inputs are missing, the audit will be partial. The contradictions you cannot see are the ones that bite.

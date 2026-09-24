@@ -36,7 +36,7 @@ A growth or scale-stage endurance brand whose audience can pattern-match cycling
 - [ ] Higgsfield or Runway account for AI augmentation, plus a model that supports image-to-image and image-to-video augmentation
 - [ ] Reference image library from prior shoots, organised by segment and condition
 - [ ] Voice profile and brand-visual-system reference so the augmented assets stay on brand
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] Knowledgeable reviewer who can spot limb physics or gear correctness errors in AI augmentations
 
 If the brand has no sponsored-athlete rights or no production capacity, the playbook reduces to a shoot plan only, with no AI augmentation layer. That is honest and still valuable.

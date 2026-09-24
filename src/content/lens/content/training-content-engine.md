@@ -36,7 +36,7 @@ A growth or scale-stage endurance brand that wants the audience to return for pr
 - [ ] CMS access (Webflow, Shopify, WordPress)
 - [ ] Email platform (Klaviyo, HubSpot, Mailchimp) with at least one segmented audience
 - [ ] Reference library of credible coaching sources (Seiler, Stoeggl, Mujika, Lydiard, Friel as the standard floor)
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spreadsheet for the editorial calendar
 
 If you skip the coaching voice agreement, the playbook produces generic training content the audience will not return to.

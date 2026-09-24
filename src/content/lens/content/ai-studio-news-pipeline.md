@@ -31,7 +31,7 @@ A growth or scale-stage brand whose audience reads LinkedIn for marketing or tec
 
 - [ ] LinkedIn company-page admin access plus access to the team's personal accounts where founders or spokespeople post
 - [ ] A feed reader or serverless job that polls RSS, Atom and scraped pages (Zapier, Make, n8n or custom)
-- [ ] Claude Opus 4.5 or GPT-5 for drafting, plus Claude Sonnet 4.5 for the triage layer
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) for drafting, plus a faster mid-tier model for the triage layer
 - [ ] ElevenLabs account with a licensed synthetic voice if audio demos are in scope
 - [ ] Higgsfield or Runway account if video demos are in scope
 - [ ] Voice profile from the brand-voice-extraction playbook

@@ -35,7 +35,7 @@ A growth or scale-stage endurance brand selling through 20 or more retail partne
 - [ ] A partner-facing portal capable of hosting documents and recorded training (Notion, SharePoint, the brand's own platform)
 - [ ] A sales lead and a brand lead committed to running the training cadence
 - [ ] Marketing co-fund budget sized against the partner programme (typically 2 to 5% of partner revenue)
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 The annual review is the most important part of the programme. If the team is not willing to demote underperforming partners, the rest of the playbook will not change much.
 

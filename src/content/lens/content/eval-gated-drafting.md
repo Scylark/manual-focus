@@ -33,7 +33,7 @@ A growth or scale-stage brand publishing two-to-ten pieces a week with an editor
 - [ ] A brief template the team can populate (target query, intent, must-include facts with sources, differentiation hook, voice profile reference, length target)
 - [ ] CMS access (Webflow, Shopify, WordPress) so drafts route into the publishing flow
 - [ ] An embeddings API (OpenAI, Voyage, or Cohere) for the originality check
-- [ ] Claude Opus 4.5 or GPT-5 for the heavy lifting, Sonnet 4.5 for the scoring gates
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) for the heavy lifting, a faster mid-tier model (Claude Sonnet, GPT mini or Gemini Flash tier) for the scoring gates
 - [ ] A project tool (Notion, Linear, Asana) to host the briefs and the repair-cycle history
 - [ ] An editor with the authority to reject the pipeline output and trigger repair
 

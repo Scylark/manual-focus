@@ -35,7 +35,7 @@ A growth or scale-stage brand running £30k or more a month on paid search with 
 - [ ] Google Ads API access via the developer token process, or a paid-search platform with API write access (Search Ads 360, Optmyzr, Marin)
 - [ ] GA4 with conversions configured per product and revenue passed through
 - [ ] A query report covering the last 90 days, exported from Google Ads as CSV
-- [ ] Claude Opus 4.5, GPT-5 or Claude Sonnet 4.5 with structured-output mode
+- [ ] A current Claude, GPT or Gemini model with structured-output mode
 - [ ] A staging account or a 5% spend slice to test the agent against before scaling
 
 Without margin data the agent has nothing to optimise against. Get the finance partner aligned before you scope the rest.

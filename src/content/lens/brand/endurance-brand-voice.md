@@ -33,7 +33,7 @@ If the brand sells endurance kit but has no real practitioners involved in writi
 - [ ] A completed base voice profile from the brand-voice-extraction playbook
 - [ ] 12 to 18 pieces of the brand's proudest endurance writing in `voice-corpus/`
 - [ ] 8 to 12 pieces of canonical category writing in `category-context/`, race reports from credible publications, training journals from respected athletes, kit essays from credible publishers
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A scratch document for the lexicon outputs
 
 If the brand sells across more than one discipline (cycling and running, say), build separate corpora per sport. Cycling vocabulary has poor overlap with running vocabulary. A multi-sport brand needs sub-profiles, not a merged profile.

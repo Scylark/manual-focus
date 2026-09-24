@@ -34,7 +34,7 @@ A launch or growth-stage brand picking a tagline for the first time, or a scale-
 - [ ] Trademark first-pass access (USPTO TESS, EUIPO, your local office)
 - [ ] A channel where you can A/B test, paid social is the most common, paid search is faster but lower-signal
 - [ ] An empowered single decision-maker (founder, head of brand, fractional CMO) who will commit to the test winner
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 If you cannot run a real A/B test, the playbook downgrades gracefully to a "show ten customer-facing people, watch the reaction" pattern. The downgrade is acknowledged as weaker signal but better than committee voting.
 

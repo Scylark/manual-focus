@@ -30,7 +30,7 @@ A pre-launch or growth-stage brand naming a new company, sub-brand, product line
 
 - [ ] A one-page brief covering category, audience, three named competitors, desired connotations, must-avoid connotations
 - [ ] A short voice profile (from brand-voice-extraction), used to constrain tone of candidates
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A trademark API or manual search access to USPTO TESS, EUIPO eSearch+, and your local trademark office (UK IPO for endurance brands operating in Britain)
 - [ ] An hour blocked in three calendars for the forced-choice review session
 - [ ] Optional, a phonetic library (the `epitran` Python library does the job) for IPA verification
@@ -177,7 +177,7 @@ The surviving candidates need to land in clear category space, not adjacent to c
 
 **Step 4.1, run the distinctiveness prompt.**
 
-This pass works best with a model that exposes embeddings (GPT-5 or Claude Opus with the embeddings API). If you do not have embedding access, the prompt below approximates the calculation through semantic comparison instead.
+This pass works best with a model that exposes embeddings (an embeddings API from OpenAI, Voyage or Cohere alongside your drafting model). If you do not have embedding access, the prompt below approximates the calculation through semantic comparison instead.
 
 ```text
 SYSTEM: You score brand name candidates on category distinctiveness.

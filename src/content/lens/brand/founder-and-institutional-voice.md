@@ -33,7 +33,7 @@ A scale-stage or enterprise endurance brand where the founder still writes meani
 - [ ] Access to the brand's institutional content output for the same period
 - [ ] A one-hour calendar slot with the founder for the contract conversation
 - [ ] A one-hour slot with the marketing lead for the same conversation
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 If the founder has not written publicly in twelve months and the marketing team has been writing institutional copy "in the founder's voice" all year, the audit will surface that the institutional voice is a faded founder copy. That is the most common starting state.
 

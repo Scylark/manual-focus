@@ -35,7 +35,7 @@ A growth or scale-stage brand with at least 12 months of customer purchase data,
 - [ ] Unit-economic data per candidate benefit, cost-to-deliver per member per month modelled in advance of launch
 - [ ] An ESP and a billing platform capable of subscription management (Stripe Subscriptions, Recurly, Klaviyo with subscription product set up)
 - [ ] A capacity plan for any capacity-bounded benefits (group rides, in-person events, mechanic priority)
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 If the customer research is thin, run a few interviews before this playbook. A subscription designed without buyer voice produces tier menus that nobody buys.
 

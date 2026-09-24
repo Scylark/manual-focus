@@ -35,7 +35,7 @@ A growth or scale-stage brand shooting marketing video on a regular cadence (wee
 - [ ] Voice profile from the brand-voice-extraction playbook, plus a spokesperson sub-profile if the talent is a named person
 - [ ] CMS access (Webflow, Shopify, YouTube) for the post-publish caption and metadata
 - [ ] Captioning tool (Descript, Rev, the platform's auto-captions) for the published video
-- [ ] Claude Sonnet 4.5 for the high-volume drafting, Opus 4.5 or GPT-5 for the higher-stakes hero scripts
+- [ ] A mid-tier model (Claude Sonnet, GPT mini or Gemini Flash tier) for the high-volume drafting, a frontier model for the higher-stakes hero scripts
 - [ ] A teleprompter or cue cards on the shoot day
 
 If the talent will not read a script, the playbook produces a beat sheet that talent improvises around, which is a different shape with looser timing.

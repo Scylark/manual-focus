@@ -35,7 +35,7 @@ A growth or scale-stage brand running three or more paid channels plus at least 
 - [ ] Weekly sessions and conversions from your email platform (Klaviyo, HubSpot, Iterable) tied to UTM-tagged sends
 - [ ] Margin and contribution data per channel if you want margin-weighted output (optional, but useful)
 - [ ] Python with scipy installed, or Google Sheets with the SOLVER add-on, for the curve fitting
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode for the recommendation rationale
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode for the recommendation rationale
 - [ ] One hour of the CFO's time, booked, before the simulator runs
 
 If three or more channels are missing data for the full twelve months, fit on what you have and explicitly flag the channels with sparse data as "extrapolation territory" in the output.

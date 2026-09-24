@@ -33,7 +33,7 @@ A growth or scale-stage brand with a positioning brief that is one sentence shar
 - [ ] An audience definition with specifics (sport, level, life-stage, buying context)
 - [ ] A "what-not-this" list, the categories the brand is explicitly not in
 - [ ] A voice profile from the brand-voice-extraction playbook (used in Phase 4 to constrain the channel lines)
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 If you do not have all six, the message house will collapse to vibes. Either go get them, or accept that the output is a draft for review rather than a shippable artefact.
 

@@ -34,7 +34,7 @@ A growth or scale-stage brand with at least one ESP or journey tool already in p
 - [ ] A behaviour-signal map identifying which events the ESP captures (purchase, browse, abandon, open, click, race entry, training-platform sync)
 - [ ] Access to your ESP at admin level (Klaviyo Owner, Braze admin, HubSpot Marketing Hub admin, Customer.io Workspace admin)
 - [ ] A test segment of 200 to 1,000 users you can launch into without exposing the brand to a bad first journey
-- [ ] Claude Opus 4.5, GPT-5 or Claude Sonnet 4.5 with structured-output mode
+- [ ] A current Claude, GPT or Gemini model with structured-output mode
 - [ ] Two hours of engineering time to import the JSON routing spec into the ESP
 
 If the voice profile, the segment taxonomy or the signal map is missing, build the missing one before this playbook runs. The drafts will not survive without all three.
@@ -201,7 +201,7 @@ Rules:
 
 **Step 3.2, run the prompt across all touchpoints in batch.**
 
-Most teams batch the drafts through Claude or GPT-5 with parallel calls. Save each draft to a structured JSON file or to a Notion database row.
+Most teams batch the drafts through Claude, GPT or Gemini with parallel calls. Save each draft to a structured JSON file or to a Notion database row.
 
 You should now have a draft per touchpoint, ready for the voice gate.
 

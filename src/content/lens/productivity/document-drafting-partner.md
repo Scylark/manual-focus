@@ -33,7 +33,7 @@ If you write one document a quarter, the manual approach is fine. If you write d
 - [ ] A brand voice profile (from brand-voice-extraction). 2 to 3 paragraphs is the minimum
 - [ ] Voice reference corpus, 5 to 10 of your recent documents at the right register
 - [ ] Google Docs, Word or Notion access. The output format depends on where the document lands
-- [ ] A model with structured output (Claude Opus 4.5 or GPT-5 default)
+- [ ] A model with structured output (a frontier Claude Opus, GPT or Gemini Pro tier model by default)
 - [ ] 45 minutes blocked for setup
 
 If you do not have a voice profile, run brand-voice-extraction first. A document drafted without a loaded voice is the generic-AI-voice output everyone immediately recognises and corrects by hand.

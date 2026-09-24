@@ -35,7 +35,7 @@ A growth or scale-stage endurance brand whose audience plans their year around a
 - [ ] Sponsored athletes with content rights that allow event-window capture and AI augmentation (see ambassador-programme for the contract template)
 - [ ] An archive structure for captured footage with tagging by athlete, event, weather and product
 - [ ] Paid-media budget split across the calendar with the brand's share of voice goals per event window
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A project tool (Notion, Asana, Linear) to host the briefs and the production schedule
 
 The calendar is the source of truth. If you cannot block 12 months of audience events, start with 6 and build out.

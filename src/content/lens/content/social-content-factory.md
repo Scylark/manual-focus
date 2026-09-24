@@ -34,7 +34,7 @@ A growth or scale-stage brand running organic on three or more social channels w
 - [ ] Voice profile from the brand-voice-extraction playbook, plus sub-profiles for named spokespeople
 - [ ] Scheduler (Buffer, Hootsuite, Later, Sprout Social) connected to all channels
 - [ ] Asset library tagged via the segment-broll-production pipeline (or a working DAM equivalent)
-- [ ] Claude Sonnet 4.5 for high-volume drafting, Claude Opus 4.5 or GPT-5 for the higher-stakes hero posts
+- [ ] A mid-tier model (Claude Sonnet, GPT mini or Gemini Flash tier) for high-volume drafting, a frontier model for the higher-stakes hero posts
 - [ ] A brief template the team populates each Monday
 - [ ] Banned phrase list per channel and brand-wide
 
