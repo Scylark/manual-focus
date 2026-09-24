@@ -62,5 +62,13 @@
     "score": 2,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "OpenAI opens the ChatGPT Ads app for Shopify to merchants outside the US from 23 September; UK has self-serve access; ChatGPT Ads now in 60+ countries at a $1bn run rate",
+    "primary_source": "https://openai.com/index/reimagining-advertising-with-ai/",
+    "score": 8,
+    "decision": "published",
+    "slug": "chatgpt-ads-shopify-uk-ecommerce"
   }
 ]
