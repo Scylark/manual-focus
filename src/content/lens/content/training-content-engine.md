@@ -7,8 +7,9 @@ readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "email", "organic-social"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-07-16
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -35,7 +36,7 @@ A growth or scale-stage endurance brand that wants the audience to return for pr
 - [ ] Endurance-specific voice extension if multiple disciplines are covered
 - [ ] CMS access (Webflow, Shopify, WordPress)
 - [ ] Email platform (Klaviyo, HubSpot, Mailchimp) with at least one segmented audience
-- [ ] Reference library of credible coaching sources (Seiler, Stoeggl, Mujika, Lydiard, Friel as the standard floor)
+- [ ] Reference library of credible coaching sources (Seiler, Stoeggl, Mujika, Lydiard, Friel as the standard floor), with each source's key finding written down: who was studied, the intensity split or protocol, and the effect found
 - [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spreadsheet for the editorial calendar
 
@@ -92,7 +93,9 @@ Rules:
 - Plain language. The coach's voice, not a textbook.
 - Cite the established work (Seiler, Stoeggl, Mujika, Lydiard, Friel,
   Maffetone) where the coach references it.
-- No hedging. The POV is sharper than the average coaching content.
+- No hedging on positions. The POV is sharper than the average coaching
+  content. State prescriptions as rules of thumb ("in most weeks"), not
+  absolutes ("always", "must").
 - No marketing voice. This document is for the editorial team's spine.
 ```
 
@@ -157,6 +160,8 @@ Rules:
   to the POV get cut.
 - Practical_application is the concrete "try this" line, not the
   topic restated.
+- No two topics share the same POV_anchor and audience_tier. Cover
+  the breadth before doubling up.
 ```
 
 **Step 2.2, the coach reviews the taxonomy.**
@@ -230,7 +235,9 @@ Draft: {DRAFT_TEXT}
 POV document: {POV_DOC}
 Practical-application requirement: every piece includes at least
 one concrete "if you are [audience tier], try this" prescription.
-Approved citation sources: {APPROVED_SOURCES_LIST}
+Approved citation sources, each with its key finding (population
+studied, intensity split or protocol, effect found):
+{APPROVED_SOURCES_WITH_FINDINGS}
 
 Return JSON:
 
@@ -252,6 +259,7 @@ Return JSON:
       {
         "claim": "<verbatim>",
         "citation": "<approved source | NONE>",
+        "source_finding": "<the supplied finding for that source | NOT SUPPLIED>",
         "supported": <true | false>
       }
     ]
@@ -264,7 +272,15 @@ Rules:
 - practical_application_gate fails if no prescription exists for the
   audience tier the piece targets.
 - credibility_reference_gate fails if any training-physiology claim
-  has no citation or cites a source not in the approved list.
+  has no citation, cites a source not in the approved list, or
+  overstates or misstates what the source found. Check each claim
+  against the supplied finding: population (elite, well-trained,
+  recreational), the unit measured (sessions or time), the intensity
+  split and the effect. A claim that changes any of these is
+  supported: false.
+- Being on the approved list is not support. If no finding is
+  supplied for a cited source, set supported: false and
+  source_finding: "NOT SUPPLIED" so a human checks the source.
 ```
 
 **Step 4.3, repair the failing drafts.**
@@ -311,7 +327,7 @@ Channels active: {LIST_CHANNELS}
 Return JSON:
 
 {
-  "long_form_blog": "<published as-is, the source>",
+  "long_form_blog_url": "<URL of the published source piece>",
   "email_mid_form": {
     "subject": "<under 50 chars>",
     "preview": "<under 90 chars>",
@@ -328,12 +344,12 @@ Return JSON:
     {"slide": 4, "text": "<the citation>"},
     {"slide": 5, "text": "<the next step CTA>"}
   ],
-  "twitter_thread": [
-    {"tweet": 1, "text": "<hook>"},
-    {"tweet": 2, "text": "<problem>"},
-    {"tweet": 3, "text": "<prescription>"},
-    {"tweet": 4, "text": "<example>"},
-    {"tweet": 5, "text": "<citation and link out>"}
+  "x_thread": [
+    {"post": 1, "text": "<hook>"},
+    {"post": 2, "text": "<problem>"},
+    {"post": 3, "text": "<prescription>"},
+    {"post": 4, "text": "<example>"},
+    {"post": 5, "text": "<citation and link out>"}
   ],
   "podcast_audio_brief": {
     "runtime_minutes": <int>,

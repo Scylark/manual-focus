@@ -17,6 +17,7 @@ Writes title.png and outro.png into <output-folder>.
 """
 from __future__ import annotations
 import argparse
+from itertools import combinations
 import sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
@@ -49,6 +50,59 @@ def measure(draw: ImageDraw.ImageDraw, text: str, fnt: ImageFont.FreeTypeFont) -
     return bbox[2] - bbox[0], bbox[3] - bbox[1]
 
 
+def split_lines(text: str, n: int) -> list[list[str]]:
+    # Every way of breaking the words into n consecutive lines.
+    words = text.split()
+    if n == 1 or len(words) < n:
+        return [[text]] if n == 1 else []
+    splits = []
+    for cuts in combinations(range(1, len(words)), n - 1):
+        bounds = (0, *cuts, len(words))
+        splits.append([" ".join(words[a:b]) for a, b in zip(bounds, bounds[1:])])
+    return splits
+
+
+def fit_title(
+    text: str,
+    max_size: int,
+    min_size: int,
+    max_width: int,
+    max_height: int,
+    max_lines: int = 3,
+) -> tuple[ImageFont.FreeTypeFont, list[str]]:
+    # Find the largest size at which the title fits the card, trying one
+    # line first and wrapping onto up to max_lines lines if that lets the
+    # type stay bigger. Long titles shrink or wrap instead of clipping at
+    # the card edges.
+    draw = ImageDraw.Draw(Image.new("RGB", (1, 1)))
+    best: tuple[int, ImageFont.FreeTypeFont, list[str]] | None = None
+    for n in range(1, max_lines + 1):
+        for size in range(max_size, min_size - 1, -10):
+            if best and size <= best[0]:
+                break
+            fnt = font(DISPLAY_FONT, size)
+            # A single line keeps the original layout. Wrapped titles must
+            # also clear the accent line below.
+            if n > 1 and sum(fnt.getmetrics()) * n > max_height:
+                continue
+            fitted = [
+                lines for lines in split_lines(text, n)
+                if all(measure(draw, line, fnt)[0] <= max_width for line in lines)
+            ]
+            if fitted:
+                best = (size, fnt, fitted[0])
+                break
+    if best is None:
+        # One unbreakable word that is still too wide: keep shrinking.
+        size = min_size
+        fnt = font(DISPLAY_FONT, size)
+        while size > 20 and measure(draw, text, fnt)[0] > max_width:
+            size -= 5
+            fnt = font(DISPLAY_FONT, size)
+        return fnt, [text]
+    return best[1], best[2]
+
+
 def draw_centred(
     img: Image.Image,
     text: str,
@@ -65,7 +119,15 @@ def draw_centred(
 def make_title(out_path: Path, title: str, subtitle: str) -> None:
     img = Image.new("RGB", (W, H), BG)
 
-    title_fnt = font(DISPLAY_FONT, 220)
+    title_top = int(H * 0.36)
+    line_y = int(H * 0.51)
+    title_fnt, title_lines = fit_title(
+        title.upper(),
+        max_size=220,
+        min_size=60,
+        max_width=W - 120,
+        max_height=line_y - 40 - title_top,
+    )
     subtitle_fnt = font(BODY_FONT, 70)
     eyebrow_fnt = font(BODY_FONT, 36)
 
@@ -73,14 +135,14 @@ def make_title(out_path: Path, title: str, subtitle: str) -> None:
     eyebrow_text = "000 · THE LENS"
     draw_centred(img, eyebrow_text, eyebrow_fnt, MUTED, y=int(H * 0.18))
 
-    # Big display title, slightly above centre.
-    title_text = title.upper()
-    draw_centred(img, title_text, title_fnt, WHITE, y=int(H * 0.36))
+    # Big display title, slightly above centre, sized to fit the card.
+    line_h = sum(title_fnt.getmetrics())
+    for i, line in enumerate(title_lines):
+        draw_centred(img, line, title_fnt, WHITE, y=title_top + i * line_h)
 
     # Accent line below the title for the brand colour cue.
     draw = ImageDraw.Draw(img)
     line_w = 200
-    line_y = int(H * 0.51)
     draw.rectangle(
         [(W - line_w) // 2, line_y, (W + line_w) // 2, line_y + 6],
         fill=ACCENT,
@@ -202,7 +264,7 @@ def main() -> None:
     make_urlbar(out / "urlbar.png", args.urlbar_text)
     make_badge(out / "badge.png", args.badge_text)
 
-    print(f"✅ Wrote title.png, outro.png, urlbar.png, badge.png to {out}/")
+    print(f"Wrote title.png, outro.png, urlbar.png, badge.png to {out}/")
 
 
 if __name__ == "__main__":

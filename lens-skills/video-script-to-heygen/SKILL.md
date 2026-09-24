@@ -2,7 +2,7 @@
 name: video-script-to-heygen
 description: "When the user wants to turn a Lens playbook, a topic, or a pasted script into a rendered HeyGen video with their custom avatar. Triggers on 'make a video about [X]', 'render a heygen video', 'video for [playbook]', 'turn this into a video', 'create a short video', 'lens intro video', 'video from playbook', or any prompt that asks for a HeyGen render of marketing content. Also triggers on /video-script-to-heygen. Returns a rendered MP4, captions, and a LinkedIn post draft in a local videos/ folder."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens
 ---
 
@@ -17,8 +17,8 @@ You do this end to end so the user does not copy and paste anything. Take the in
 Before doing anything, confirm the user has the four required pieces. If any are missing, stop and ask.
 
 1. **`HEYGEN_API_KEY`** environment variable. Verify by running `echo "${HEYGEN_API_KEY:-MISSING}"` and checking the output is not `MISSING`. If missing, tell the user to get it from https://app.heygen.com → Settings → API and add `export HEYGEN_API_KEY=...` to their shell rc file or a `.env` they source.
-2. **`HEYGEN_AVATAR_ID`** environment variable. The ID of their trained custom avatar. Verify the same way. If missing, tell the user to run `curl -s -H "X-Api-Key: $HEYGEN_API_KEY" https://api.heygen.com/v2/avatars | jq '.data.avatars[] | {avatar_id, avatar_name}'` to find theirs.
-3. **`HEYGEN_VOICE_ID`** environment variable. The voice to speak with. If missing, the user can pick from `curl -s -H "X-Api-Key: $HEYGEN_API_KEY" https://api.heygen.com/v2/voices | jq '.data.voices[] | {voice_id, name, language}'`. Suggest a clean English male or female voice if the user does not have a cloned voice yet.
+2. **`HEYGEN_AVATAR_ID`** environment variable. The look ID of their trained custom avatar (in HeyGen's v3 API the look `id` is what you pass as `avatar_id`). Verify the same way. If missing, tell the user to run `curl -s -H "x-api-key: $HEYGEN_API_KEY" "https://api.heygen.com/v3/avatars/looks?ownership=private" | jq '.data[] | {id, name, avatar_type, default_voice_id}'` to find theirs.
+3. **`HEYGEN_VOICE_ID`** environment variable. The voice to speak with. If missing, the user can pick from `curl -s -H "x-api-key: $HEYGEN_API_KEY" "https://api.heygen.com/v3/voices?limit=100" | jq '.data[] | {voice_id, name, language, gender}'` (results are paginated, so pass `token=<next_token>` to see more). Suggest a clean English male or female voice if the user does not have a cloned voice yet.
 4. **`jq`** installed. Run `command -v jq` to check. If missing, tell the user to `brew install jq` (macOS) or `apt-get install jq` (Linux).
 
 The user input itself is one of:
@@ -26,11 +26,11 @@ The user input itself is one of:
 - `--topic "free text describing what the video should cover"` — open form
 - `--playbook <slug>` — read `src/content/lens/<stack>/<slug>.md` and base the script on it
 - `--script-file <path>` — use a pre-written script, skip generation
-- `--length short` (60-90s, ~135 words, default) or `--length long` (5-8min, ~700 words)
+- `--length short` (60-90s, 140 to 160 words, default) or `--length long` (5-8min, ~700 words)
 
 ## The pipeline
 
-Five phases. Run them in order. Output goes in `videos/<slug>/` in the project root, where `<slug>` is either the playbook slug or a kebab-case version of the topic.
+Six phases. Run them in order. Output goes in `videos/<slug>/` in the project root, where `<slug>` is either the playbook slug or a kebab-case version of the topic.
 
 ### Phase 1, prepare the workspace
 
@@ -44,7 +44,7 @@ If the folder already exists and has `script.txt` in it, ask the user before ove
 
 ### Phase 2, generate the spoken script
 
-Spoken scripts are not written scripts. Different rules apply.
+Spoken scripts are not written scripts. Different rules apply. This skill writes for a TTS avatar at about 130 wpm with long breathing sentences, which deliberately departs from the video-script-system playbook's under-30-word sentence rule for human talent.
 
 If the user provided `--script-file`, skip generation and load that file.
 
@@ -122,7 +122,7 @@ Hard bans:
 ```
 
 Validate the result:
-- Word count within 10% of the target (135 for short, 700 for long)
+- Word count inside the prompt's target range (140 to 160 for short, 700 to 800 for long)
 - All five beats present
 - CTA matches the URL pattern
 - No banned words
@@ -133,7 +133,9 @@ Save the script to `videos/<slug>/script.txt`.
 
 ### Phase 3, call HeyGen API to start the render
 
-POST to HeyGen's video generation endpoint. Use this curl pattern (substitute the actual values).
+> **API version.** HeyGen retires its v1 and v2 endpoints (including `POST /v2/video/generate` and `GET /v1/video_status.get`) after 31 October 2026. The calls below use the v3 API. If you are running an older copy of this skill, update it before then. HeyGen's migration checklist is at https://developers.heygen.com/endpoint-version-comparison and the changelog at https://developers.heygen.com/changelog.
+
+POST to HeyGen's v3 video creation endpoint. Use this curl pattern (substitute the actual values).
 
 ```bash
 SCRIPT=$(cat videos/<slug>/script.txt)
@@ -142,65 +144,61 @@ JSON_PAYLOAD=$(jq -n \
   --arg avatar_id "$HEYGEN_AVATAR_ID" \
   --arg voice_id "$HEYGEN_VOICE_ID" \
   '{
-    video_inputs: [{
-      character: {
-        type: "avatar",
-        avatar_id: $avatar_id,
-        avatar_style: "normal"
-      },
-      voice: {
-        type: "text",
-        input_text: $script,
-        voice_id: $voice_id,
-        speed: 1.0
-      },
-      background: {
-        type: "color",
-        value: "#0A0A0A"
-      }
-    }],
-    dimension: {
-      width: 1080,
-      height: 1920
-    },
+    type: "avatar",
+    avatar_id: $avatar_id,
+    script: $script,
+    voice_id: $voice_id,
+    voice_settings: { speed: 1.0 },
+    background: { type: "color", value: "#0A0A0A" },
     aspect_ratio: "9:16",
-    caption: true
+    resolution: "1080p",
+    caption: { file_format: "srt" }
   }')
 
 RESPONSE=$(curl -s -X POST \
-  -H "X-Api-Key: $HEYGEN_API_KEY" \
+  -H "x-api-key: $HEYGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d "$JSON_PAYLOAD" \
-  https://api.heygen.com/v2/video/generate)
+  https://api.heygen.com/v3/videos)
 
-VIDEO_ID=$(echo "$RESPONSE" | jq -r '.data.video_id')
+VIDEO_ID=$(echo "$RESPONSE" | jq -r '.data.video_id // empty')
+if [ -z "$VIDEO_ID" ]; then
+  echo "Render request failed:"
+  echo "$RESPONSE" | jq .
+  exit 1
+fi
 echo "Render started, video_id: $VIDEO_ID"
 echo "$VIDEO_ID" > videos/<slug>/video_id.txt
 ```
 
-For the short format, the background is the dark Manual Focus colour `#0A0A0A`. For long format, ask the user if they want a different background. HeyGen supports image and video backgrounds via additional fields.
+For the short format, the background is the dark Manual Focus colour `#0A0A0A`. For long format, ask the user if they want a different background. The v3 `background` object also accepts `type: "image"` with a `url` or `asset_id`.
 
-If the user wants 1:1 square instead of 9:16 vertical, set `width: 1080, height: 1080` and `aspect_ratio: "1:1"`. Default to 9:16 unless told otherwise.
+If the user wants 1:1 square instead of 9:16 vertical, set `aspect_ratio: "1:1"`. Default to 9:16 unless told otherwise.
+
+The `caption` object asks for a sidecar SRT file, which comes back as `subtitle_url`. Adding `style: "default"` inside `caption` also produces a copy with the captions burned in, returned as `captioned_video_url`. Leave it out unless the user asks for burned-in captions.
 
 ### Phase 4, poll for completion
 
-HeyGen renders take 2-5 minutes for a short video, 8-15 minutes for long. Poll every 30 seconds.
+HeyGen renders take 2-5 minutes for a short video, 8-15 minutes for long. Poll every 30 seconds. The v3 status values are `pending`, `processing`, `completed` and `failed`.
 
 ```bash
 VIDEO_ID=$(cat videos/<slug>/video_id.txt)
 
 while true; do
-  STATUS_RESPONSE=$(curl -s -H "X-Api-Key: $HEYGEN_API_KEY" \
-    "https://api.heygen.com/v1/video_status.get?video_id=$VIDEO_ID")
+  STATUS_RESPONSE=$(curl -s -H "x-api-key: $HEYGEN_API_KEY" \
+    "https://api.heygen.com/v3/videos/$VIDEO_ID")
   STATUS=$(echo "$STATUS_RESPONSE" | jq -r '.data.status')
   echo "Status: $STATUS"
   if [ "$STATUS" = "completed" ]; then
-    VIDEO_URL=$(echo "$STATUS_RESPONSE" | jq -r '.data.video_url')
-    CAPTION_URL=$(echo "$STATUS_RESPONSE" | jq -r '.data.caption_url // empty')
-    echo "$VIDEO_URL" > videos/<slug>/video_url.txt
+    echo "$STATUS_RESPONSE" | jq -r '.data.video_url' > videos/<slug>/video_url.txt
+    echo "$STATUS_RESPONSE" | jq -r '.data.subtitle_url // empty' > videos/<slug>/subtitle_url.txt
     break
   elif [ "$STATUS" = "failed" ]; then
     echo "Render failed:"
+    echo "$STATUS_RESPONSE" | jq '.data | {failure_code, failure_message}'
+    exit 1
+  elif [ "$STATUS" = "null" ]; then
+    echo "Unexpected response:"
     echo "$STATUS_RESPONSE" | jq .
     exit 1
   fi
@@ -212,18 +210,15 @@ While polling, give the user feedback every 60 seconds so they know it is still 
 
 ### Phase 5, download and save outputs
 
-Once the render is complete, download the MP4 and the SRT.
+Once the render is complete, download the MP4 and the SRT. Both URLs come from the Phase 4 status response.
 
 ```bash
 VIDEO_URL=$(cat videos/<slug>/video_url.txt)
 curl -L -o videos/<slug>/video.mp4 "$VIDEO_URL"
 
-# Captions: HeyGen exposes them via a separate endpoint.
-CAPTIONS=$(curl -s -H "X-Api-Key: $HEYGEN_API_KEY" \
-  "https://api.heygen.com/v1/video/captions?video_id=$VIDEO_ID" | \
-  jq -r '.data.caption_url')
-if [ -n "$CAPTIONS" ] && [ "$CAPTIONS" != "null" ]; then
-  curl -L -o videos/<slug>/captions.srt "$CAPTIONS"
+SUBTITLE_URL=$(cat videos/<slug>/subtitle_url.txt)
+if [ -n "$SUBTITLE_URL" ]; then
+  curl -L -o videos/<slug>/captions.srt "$SUBTITLE_URL"
 fi
 ```
 
@@ -250,12 +245,12 @@ Print a summary to the user:
 ```
 Video rendered.
 
-📁  videos/<slug>/
+videos/<slug>/
     ├── script.txt           the spoken script
     ├── video.mp4            the rendered video
     ├── captions.srt         caption track for accessibility
     ├── linkedin-post.md     post copy ready to paste
-    └── video_url.txt        HeyGen-hosted URL (24h validity)
+    └── video_url.txt        HeyGen presigned download URL
 
 Next step:
 1. Watch video.mp4 to QA pacing, pronunciation and the URL frame
@@ -266,15 +261,13 @@ Next step:
 
 ## Rate limits and cost awareness
 
-HeyGen API has rate limits and credit consumption. Before doing batch jobs, warn the user:
+HeyGen API usage costs money. Before doing batch jobs, warn the user:
 
-- Free / Starter plans do not include API access. Confirm they are on Creator or above.
-- Each minute of rendered video burns 1 minute of monthly credit allocation.
-- Creator: 15 min/month. Team: 30 min. Enterprise: more.
-- API rate limit is roughly 100 requests per hour.
-- A short video uses ~1 credit-minute. A long video uses 5-8.
+- API access is a separate pay-as-you-go credit balance billed in US dollars, based on the type and length of what you generate. No HeyGen web plan (Creator, Pro or Business) is required, and the credits expire after 12 months.
+- Prices vary by avatar engine and feature. Check HeyGen's current API pricing before quoting a cost: https://help.heygen.com/en/articles/10060327-heygen-api-pricing-explained
+- The API processes up to 10 videos concurrently, so queue larger batches.
 
-If the user asks to batch-produce 46 playbook videos in one go, do the credit math first. 46 short videos = 46 credit-minutes, which exceeds Creator and Team plans. Suggest spreading over weeks or upgrading.
+If the user asks to batch-produce 46 playbook videos in one go, do the maths first. Multiply the expected runtime of each video by the current per-minute rate for their avatar engine from the pricing page, show the total in US dollars, and confirm before rendering. Suggest spreading the batch over weeks if the total is more than they expected.
 
 ## Voice rules
 

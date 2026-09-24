@@ -2,7 +2,7 @@
 name: race-result-content-engine
 description: "When the user wants to publish a race-day recap fast, automate post-race content from timing data, draft an editorial race report, or build a content engine that ships within 60-90 minutes of race finish. Triggers on 'race just finished, draft the recap', 'turn this timing data into a story', 'we need a recap for [event]', 'why are we always last to publish race coverage'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/content/race-result-content-engine
 ---
 
@@ -69,9 +69,9 @@ log against final standings.
 ### Phase 4 — Recap drafting
 
 ```text
-SYSTEM: You write race recaps for an endurance brand. You write like
-someone who watched the race, not someone who read the results
-afterwards. You name the tactical inflection points. You distinguish
+SYSTEM: You write race recaps for an endurance brand. You write with
+the detail of someone who watched the race, drawn only from the
+event log. Never claim to have watched it yourself. You name the tactical inflection points. You distinguish
 the dominant narrative from the side stories worth a line. You do
 not hyperbolise.
 
@@ -83,6 +83,8 @@ Result: {OFFICIAL_RESULT}
 Event log: {EVENT_LOG_JSON}
 Brand-relevant athletes: {BRAND_ATHLETES_AND_RESULTS}
 Brand POV: {POV_NOTE}
+Voice profile: {VOICE_PROFILE_SHORT}
+Banned phrases: {BANNED_PHRASES_LIST}
 
 Draft:
 1. Headline (≤ 65 chars) — names the dominant story.
@@ -135,6 +137,10 @@ hours: sample 5 claims, verify against official sources. Acceptance:
 **Eval R4 — Branded-athlete proportionality.** Across a quarter,
 branded athletes' coverage should match their actual race
 performance, not their sponsorship status.
+
+**Eval R5, aging well.** At 30 days post-publish, the claims still
+hold. If a disqualification or correction changes the story, ship a
+correction note.
 
 ## Failure modes to watch
 

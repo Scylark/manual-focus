@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "seo", "email"]
-models: ["claude-4.5-sonnet", "claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-sonnet", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-05-19
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -120,7 +121,7 @@ Draft the piece. Return JSON:
   "headline": "<piece headline>",
   "lede": "<one sentence opener>",
   "body_markdown": "<the full body in markdown>",
-  "word_count": <int>,
+  "word_count": <int, recomputed by script before Stage 3>,
   "internal_links_out": ["<page slug>", "..."],
   "claims_list": [
     {"claim": "<verbatim from draft>", "source_in_brief": "<source ID or null>"}
@@ -149,35 +150,68 @@ Four gates run on the draft.
 
 **Gate 1, voice match.** The 12-check voice rubric from brand-voice-extraction. Score 10 of 12 or higher to pass. Deterministic script, around 30 ms per draft.
 
-**Gate 2, fact grounded.** Every factual claim traces to a brief source or is explicitly flagged as needing human verification.
+**Gate 2, fact grounded.** Every factual claim in the draft traces to a brief source that says the same thing, or is flagged for the editor. A misquoted figure or a statistic with no source fails the gate.
 
 ```text
-SYSTEM: You verify claims in a draft against the approved sources
-in the brief. For each factual claim, you cite the source that
-supports it. If no source supports it, you flag.
+SYSTEM: You verify the factual claims in a draft against the approved
+sources in the brief. You read the whole draft, not only the
+drafter's claims list. For each factual claim, you cite the source
+that supports it and check the draft states it the way the source
+does. If no source supports it, you flag it.
+
+A factual claim is anything asserting numbers, dates, names, quotes,
+causal relationships or product capabilities. Opinion, advice and
+stylistic phrasing are not claims. A figure worked out from a source
+(a division, a total) counts as supported by that source if the
+arithmetic holds. A clearly hypothetical example ("a shoe that wears
+out at 500 km") is not a claim.
 
 USER:
 Brief sources: {SOURCES_JSON}
-Draft claims list: {CLAIMS_LIST_JSON}
+Draft: """{DRAFT_MARKDOWN}"""
+Drafter's claims list (cross-check only, not the scope): {CLAIMS_LIST_JSON}
 
-Return JSON array, one element per claim:
+Extract claims from the draft itself, sentence by sentence. Use the
+claims list only to spot claims the drafter tagged differently from
+what you find.
 
-[
-  {
-    "claim": "<verbatim>",
-    "source_id": "<source ID or null>",
-    "supported": <true | false>,
-    "needs_human_verify": <true | false>
-  }
-]
+Return JSON:
 
-Pass criterion: 95% or more of claims have a source_id or are
-explicitly flagged needs_human_verify: true. No silent assertions.
+{
+  "claims": [
+    {
+      "claim": "<verbatim from the draft>",
+      "source_id": "<source ID or null>",
+      "supported": <true | false>,
+      "numeric": <true | false>,
+      "needs_human_verify": <true | false>,
+      "note": "<one sentence, required when supported is false>"
+    }
+  ],
+  "verdict": "<pass | fail>",
+  "fail_reasons": ["<claim and reason>"]
+}
+
+Rules:
+- supported: true only if the cited source states the claim with the
+  same figures, names and quote wording. A changed number is a
+  misquote, not a paraphrase.
+- numeric: true if the claim states a specific number, percentage,
+  count, date or statistic as fact. Vague quantities ("most",
+  "many") are not numeric, so flag them instead.
+- needs_human_verify: true for every claim with supported: false.
+
+Pass criterion: fail if any claim carries a source_id but
+supported: false (a misquote), or if any numeric claim has
+source_id: null (an unsourced statistic). Every other claim must be
+supported by its source_id or flagged needs_human_verify: true.
+Flagged claims do not fail the gate, but the editor must confirm or
+cut each one before approving. No silent assertions.
 ```
 
-**Gate 3, originality.** Embedding similarity check against the top 20 pages currently ranking for the target query. Compute cosine similarity between the draft and each ranking page. Pass if the maximum similarity is below 0.75. Above 0.75 means the draft is restating, not contributing.
+**Gate 3, originality.** Embedding similarity check against the top 20 pages currently ranking for the target query. Compute cosine similarity between the draft and each ranking page. Pass if the maximum similarity is below 0.75. Above 0.75 means the draft is restating, not contributing. This measures originality against Google only. AI answer engines cite a largely different set of pages, so don't treat a pass here as a GEO signal.
 
-**Gate 4, structural.** Deterministic checks. At least one H2 every 250 words. At least one original example or piece of data per 400 words. No paragraph exceeds 75 words. Intro paragraph contains the primary keyword within the first 100 words. Around 10 ms per draft.
+**Gate 4, structural.** Mostly deterministic checks (the original-example check needs a quick model or editor call). At least one H2 every 250 words. At least one original example or piece of data per 400 words. No paragraph exceeds 75 words. Intro paragraph contains the primary keyword within the first 100 words. Around 10 ms per draft.
 
 You should now have four gate scores per draft.
 
@@ -227,7 +261,7 @@ The editor opens the draft with the scoring report attached.
 
 **Step 5.1, the editor reviews against the report.**
 
-The report tells the editor what the gates checked and what passed. The editor's job is the things the gates cannot measure, judgement calls, narrative arc, the paragraph that is smart but too clever. The 12 voice checks are already done. The structural checks are already done. The fact grounding is already done.
+The report tells the editor what the gates checked and what passed. The editor's job is the things the gates cannot measure, judgement calls, narrative arc, the paragraph that is smart but too clever. The 12 voice checks are already done. The structural checks are already done. The fact grounding is already done, except the claims flagged needs_human_verify, which the editor must confirm or cut before approving.
 
 **Step 5.2, the editor enforces the 15-minute floor.**
 
@@ -270,13 +304,13 @@ Cascadia Endurance installed the pipeline ahead of the Vahla Range autumn launch
 
 **Stage 1 output.** Brief for the piece "How to choose trail running shoes" passed the validator. Hook is the decision tree from coach Marcus Hale anchored against Cascadia's wear panel data (n=80 over 18 months). Length target 1,800 words. Voice profile Cascadia v2.4. Banned phrases include "epic", "incredible", "unstoppable" and "level up."
 
-**Stage 2 output.** First-pass draft came in at 1,840 words. Headline "A trail-running shoe decision tree from the Cascadia wear panel." 22 factual claims, 19 with sources in the brief, three flagged as needs-human-verify (those were a stat on UK trail-runner injury rates that did not appear in the brief, and two referenced studies).
+**Stage 2 output.** First-pass draft came in at 1,840 words. Headline "A trail-running shoe decision tree from the Cascadia wear panel." 22 factual claims, 19 with sources in the brief. The other three had none: a stat on UK trail-runner injury rates that did not appear in the brief, and two referenced studies.
 
-**Stage 3 output.** Gate scores. Voice rubric 11 of 12 (pass). Fact grounded 19 of 22 with sources plus three explicitly flagged (pass). Originality maximum similarity 0.61 against the top 20 ranking pages (pass). Structural pass on all four sub-checks. All four gates green.
+**Stage 3 output.** Gate scores. Voice rubric 11 of 12 (pass). Fact grounded fail, because the injury-rate stat was a number with no source. Originality maximum similarity 0.61 against the top 20 ranking pages (pass). Structural pass on all four sub-checks.
 
-**Stage 4 output.** Promoted directly to review, no repair cycle needed.
+**Stage 4 output.** One repair cycle. The repair prompt cut the injury-rate stat and the gates re-ran. Fact grounded then passed with 19 of 21 claims supported by their brief source and the two study references flagged for the editor. All four gates green.
 
-**Stage 5 output.** Editor Maya reviewed for 21 minutes. She tightened two paragraphs where the prose drifted into a slightly academic register, sharpened the H2s, and re-routed two internal links to better-fitting sibling spokes. Approved.
+**Stage 5 output.** Editor Maya reviewed for 21 minutes. She dealt with the two flagged study references first, keeping the one she could trace to its published paper and cutting the other. She tightened two paragraphs where the prose drifted into a slightly academic register, sharpened the H2s, and re-routed two internal links to better-fitting sibling spokes. Approved.
 
 **Stage 6 output.** Published Thursday morning. The piece ranked at position 14 within two weeks, position 8 within six weeks, position 3 within three months. Time on page averaged 4 minutes 12 seconds, well above the Cascadia content baseline of 2 minutes 18.
 
@@ -310,11 +344,11 @@ Take a draft that did not ship (a piece killed at review or a piece you abandone
 
 **Eval 1, voice rubric.** Score 10 of 12 or higher to pass. Sample passing drafts monthly and have the editor independently score. Mean below 4.0 of 5 means the rubric has drifted.
 
-**Eval 2, fact grounded.** 95% or more of factual claims trace to a brief source or are explicitly flagged. Zero silent assertions. Audit weekly.
+**Eval 2, fact grounded.** Every factual claim traces to a brief source it matches, or is explicitly flagged for the editor. Zero misquotes, zero unsourced statistics, zero silent assertions. Audit weekly.
 
 **Eval 3, originality.** Maximum cosine similarity against the top 20 ranking pages below 0.75. Above means the draft restates rather than contributes. Track over time, rising similarity scores mean the SERP has consolidated and the brand needs sharper hooks.
 
-**Eval 4, structural.** Deterministic. H2 every 250 words, original example or data per 400 words, no paragraph over 75 words, primary keyword in the first 100 words. Hard gate.
+**Eval 4, structural.** Mostly deterministic. H2 every 250 words, original example or data per 400 words, no paragraph over 75 words, primary keyword in the first 100 words. Hard gate.
 
 **Eval 5, pipeline-level calibration drift.** Monthly sample of 30 passing drafts, editor scores 1 to 5, mean stays above 4.0.
 
@@ -330,7 +364,7 @@ Take a draft that did not ship (a piece killed at review or a piece you abandone
 
 **Gate 2 false positives.** Some grounding checks fail on phrasing ambiguity. "Research shows X" gets flagged when the brief contains the research but the draft did not attribute. Fix in the drafter prompt, every claim must carry the attribution ("the brand's 2026 wear panel showed X"). Cleaner writing and passes the gate.
 
-**Model provider updates break the gates.** When a provider ships a new default model version, voice rubric pass rate can swing. Pin model versions in the drafter call and only update after re-running the eval suite against the previous month's drafts. Teams using "claude-4.5" without pinning a sub-version eat the drift.
+**Model provider updates break the gates.** When a provider ships a new default model version, voice rubric pass rate can swing. Pin model versions in the drafter call and only update after re-running the eval suite against the previous month's drafts. Teams calling a floating model alias instead of a pinned model ID eat the drift.
 
 **Gate 4 turns into a rule book.** Once teams see the structural gate, they over-correct. Every page becomes "intro, then four H2s, then a conclusion." Treat gate thresholds as floors rather than patterns. The drafter prompt emphasises structure serves the argument, not the gate.
 

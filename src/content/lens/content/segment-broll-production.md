@@ -7,8 +7,9 @@ readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["video", "organic-social", "content"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-06-25
+updatedAt: 2026-09-24
 status: live
 preview: true
 ---
@@ -33,7 +34,7 @@ A growth or scale-stage endurance brand whose audience can pattern-match cycling
 - [ ] Sponsored athletes with content rights agreements that explicitly cover AI augmentation (see ambassador-programme for the contract template)
 - [ ] Production crew with capacity for two-to-four shoot days a year, or budget to contract one
 - [ ] DAM access (Frame.io, Bynder, Brandfolder, Air, or a shared drive with consistent tagging)
-- [ ] Higgsfield or Runway account for AI augmentation, plus a model that supports image-to-image and image-to-video augmentation
+- [ ] An AI video account (Runway, Kling or Gemini Omni, or Higgsfield as a multi-model front end) plus an image editor for stills (Nano Banana 2 or GPT Image 2). Sora's API shut down on 24 September 2026, so keep the provider a swappable step
 - [ ] Reference image library from prior shoots, organised by segment and condition
 - [ ] Voice profile and brand-visual-system reference so the augmented assets stay on brand
 - [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
@@ -107,7 +108,7 @@ content stream, return JSON:
     "sub_segment": "<sub-segment>",
     "condition": "<condition>",
     "time_of_day": "<dawn | golden | midday | blue | night>",
-    "subject_visible": "<runner-wide | runner-mid | runner-feet | no-subject>",
+    "subject_visible": "<athlete-wide | athlete-mid | athlete-detail | no-subject>",
     "product_visible": "<product-name or no-product>",
     "athlete_named": "<name or none>",
     "asset_type": "<hero | mid | cut | environmental>",
@@ -163,6 +164,7 @@ USER:
 Inventory: {INVENTORY_JSON}
 Brand's product list: {PRODUCTS}
 Brand's sponsored athletes: {ATHLETES}
+Existing archive (shots already captured): {ARCHIVE_LIST}
 
 For each shot, return JSON:
 
@@ -263,7 +265,7 @@ Return JSON:
 {
   "shot_id": "<new ID>",
   "source_shot_id": "<verbatim>",
-  "augmentation_prompt": "<the prompt to feed Higgsfield or Runway>",
+  "augmentation_prompt": "<the prompt to feed your chosen image or video model>",
   "negative_prompt": "<what the model must not generate>",
   "aspect_ratios_to_produce": ["<list>"],
   "human_review_checklist": [
@@ -277,8 +279,11 @@ Return JSON:
 
 Rules:
 - Augmentation prompt never names the athlete or the product.
-- Negative prompt explicitly excludes generation of named athletes,
-  branded products, logos and faces that drift from the source.
+- Negative prompt explicitly excludes new people, invented or altered
+  logos and products, and faces that drift from the source. Anything
+  already in the source stays untouched.
+- If the variant cannot be made without changing the subject or
+  product, return a re-shoot recommendation instead of a prompt.
 - The human review checklist is mandatory before the augmented asset
   enters the library.
 ```
@@ -315,7 +320,7 @@ Cascadia Endurance runs the playbook for the Vahla Range autumn launch. The bran
 
 **Phase 2 output.** Inventory of need produced 48 shots. 22 are hero or mid, 18 are cut, 8 are environmental. Three athletes feature on the named-athlete shots, Beth Lyons (lead athlete for the launch), Saoirse Burns and Marcus Hale.
 
-**Phase 3 output.** Capability tagging produced 28 `real_footage_required`, 16 `ai_augmentation`, 3 `generic_ai`, 1 `not_applicable` (a coastal road shot outside the brand's segment that crept in during the inventory phase). The 16 augmentation shots all have a source-shot ID referencing one of the 28 real-footage shots. Archive-gap flag is true on 19 of the 28 real-footage shots, those are the shoot brief.
+**Phase 3 output.** Capability tagging produced 28 `real_footage_required`, 16 `ai_augmentation`, 3 `generic_ai`, 1 `not_applicable` (a coastal road shot outside the brand's segment that crept in during the inventory phase). The 16 augmentation shots are environment plates and re-cuts of captured footage, and all have a source-shot ID referencing one of the 28 real-footage shots. Archive-gap flag is true on 19 of the 28 real-footage shots, those are the shoot brief.
 
 **Phase 4 output.** Two shoot days planned. Chamonix 8 to 10 July with Beth Lyons covers 18 of the 19 archive gaps. Snowdonia 28 to 29 July with Saoirse Burns and Marcus Hale covers the remaining gaps plus the wet-weather and ridge-line shots that Chamonix in July cannot reliably provide. Contingency windows are 22 to 24 July for Chamonix and 11 to 12 August for Snowdonia.
 
@@ -326,13 +331,13 @@ Cascadia Endurance runs the playbook for the Vahla Range autumn launch. The bran
 | S004 | S003, Chamonix ridge line dry blue hour | Fog dawn variant | Social cut for the UTMB launch teaser |
 | S006 | S010, Chamonix forest midday | Atmospheric backdrop | Blog header for "Why we shoot Chamonix" |
 | S008 | S007, Snowdonia exposed alpine wind | Snow blue hour | Winter campaign teaser scheduled for November |
-| S012 | S001, Chamonix single-track dry golden hour | Rain overcast variant | Social cut for the wet-weather product page |
+| S012 | S001, Chamonix single-track dry golden hour | Rain overcast environment plate, no subject | Backdrop for the wet-weather product page |
 
 Reviewer pass caught two augmented assets with limb physics errors (a runner with mismatched gait, a pack strap that disappeared mid-frame). Both were regenerated with sharper source-fidelity constraints in the prompt.
 
-**Phase 6 output.** Library populated. The social-content-factory pipeline queried the library 184 times during the UTMB campaign and fulfilled 169 (92%). The lifecycle-journey-builder picked up the Vahla shell hero shot for the launch email and the rain variant for the wet-weather story. The quarterly audit at the end of the season flagged three uncovered cells in winter conditions, which fed the next shoot brief.
+**Phase 6 output.** Library populated. The social-content-factory pipeline queried the library 184 times during the UTMB campaign and fulfilled 169 (92%). The lifecycle-journey-builder picked up the Vahla shell hero shot for the launch email and the rain environment plate for the wet-weather story. The quarterly audit at the end of the season flagged three uncovered cells in winter conditions, which fed the next shoot brief.
 
-A year into the engine, Cascadia has a tagged library of more than 200 assets across the two segments. The augmentation share has held at around 30% of the inventory, with practical capture carrying every named-athlete and every product-visible shot. The audience has not flagged any AI-detectable content because the augmentations stay on environmental b-roll, never on hero moments.
+A year into the engine, Cascadia has a tagged library of more than 200 assets across the two segments. The augmentation share has held at around 30% of the inventory, with practical capture carrying every named-athlete and every product-visible shot. The audience has not flagged any AI-detectable content because the augmentations stay on environment plates and re-cuts of real footage, never on hero moments and never changing a subject or product.
 
 ## Try it yourself
 
@@ -368,7 +373,7 @@ Pick one shoot day. Use the call sheet template (location, date, contingency, at
 
 **Over-augmenting individual assets.** A single shot turned into 14 augmented variants. Audience sees the same composition four times in a month. Variety is the goal, not augmentation count. Cap variants per source shot at 3-to-4.
 
-**Disclosure debt.** Brand ships AI-augmented work without acknowledging it. Audience finds out through forensic frame analysis or pattern matching. Trust drops. Cleaner path is to disclose where the audience would reasonably believe practical capture. Honesty becomes part of the brand's positioning.
+**Disclosure debt.** Brand ships AI-augmented work without acknowledging it. Audience finds out through forensic frame analysis or pattern matching. Trust drops. Cleaner path is to disclose where the audience would reasonably believe practical capture. Honesty becomes part of the brand's positioning. If you sell into the EU, the AI Act's Article 50 transparency rules (applicable since 2 August 2026) require clear labels on realistic AI-generated or manipulated images and video that could pass as real, so disclosure there is a legal duty, not just a trust choice.
 
 **Limb or gear physics errors slip through.** Generated cyclist with 3.5 pedals per crank rotation, runner with mismatched gait, swimmer with a stroke that does not propel. The eval gate catches these only if a knowledgeable reviewer is on the team. Do not outsource the plausibility check to a generalist.
 

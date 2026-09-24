@@ -137,4 +137,4 @@ V_FPS=$(ffprobe -v error -select_streams v:0 -show_entries stream=r_frame_rate -
 printf "final.mp4: %ss · %s · video %s · audio %sHz\n" "$DURATION" "$SIZE" "$V_FPS" "$A_SR"
 
 echo ""
-echo "✅ Done. Final video: $FOLDER/final.mp4"
+echo "Done. Final video: $FOLDER/final.mp4"
