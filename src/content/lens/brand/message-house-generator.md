@@ -18,7 +18,7 @@ preview: false
 
 By the end of this playbook you will have shipped four artefacts.
 
-1. A **message house**, the four-tier document with one narrative sentence at the top, three to five pillars beneath, three to five proof points per pillar, and channel-mapped lines per pillar.
+1. A **message house**, the four-tier document with one narrative sentence at the top, three or four pillars beneath, three to five proof points per pillar, and channel-mapped lines per pillar.
 2. A **channel-mapped lines sheet**, twelve to twenty short copy artefacts (landing-page H1, email subject, social caption, sales talking points) per pillar, ready to drop into briefs.
 3. A **rebuttal sheet**, the eight to twelve hardest pushback questions a sceptic will ask, each with a one-paragraph response grounded in the proof points.
 4. A **quarterly refresh checklist**, the rule for what to refresh (channel lines) and what to leave alone (narrative, pillars), so the message house stays a living document.
@@ -109,7 +109,7 @@ If the verdict is `conditional`, fill the gaps and re-run. If `fail`, stop and r
 
 ### Phase 2, narrative and pillar drafting
 
-The narrative is the one sentence the brand wants in the head of every reader. The pillars are the three to five arguments that make the narrative true.
+The narrative is the one sentence the brand wants in the head of every reader. The pillars are the three or four arguments that make the narrative true. Four is the ceiling. If the brand needs a fifth, the positioning isn't focused yet, so go back to the brief.
 
 **Step 2.1, run the pillar prompt.**
 
@@ -148,7 +148,7 @@ Return JSON shaped like:
 
 Rules:
 - 3 alternative structures.
-- 3 to 5 pillars per structure.
+- 3 or 4 pillars per structure. Never 5 or more.
 - Pillars must be claims, not nouns. "The work compounds because we
   own the full pipeline" is a pillar. "Pipeline" is not.
 - Every pillar anchored to at least one supplied proof point.
