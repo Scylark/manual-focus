@@ -1,0 +1,34 @@
+[
+  {
+    "run_date": "2026-09-23",
+    "story": "CMA proposes AI assistants on Google's UK Android and Chrome search choice screens, with annual prompts and an attribution requirement",
+    "primary_source": "https://www.gov.uk/government/news/cma-strengthens-proposals-allowing-people-choice-over-their-search-service",
+    "score": 9,
+    "decision": "published",
+    "slug": "cma-google-choice-screen-ai-assistants"
+  },
+  {
+    "run_date": "2026-09-23",
+    "story": "OpenAI launches GPT-6 Sol and Luna at half the GPT-5.6 API price",
+    "primary_source": "https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/",
+    "score": 8,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-23",
+    "story": "Anthropic launches Claude Opus 5.5, 40% cheaper to run than Opus 5",
+    "primary_source": "https://releasebot.io/updates/anthropic",
+    "score": 7,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-23",
+    "story": "Mistral acquires Paris adtech startup Pimento; team joins Vibe (formerly Le Chat)",
+    "primary_source": "https://sifted.eu/articles/exclusive-mistral-pimento-acquisition",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  }
+]
