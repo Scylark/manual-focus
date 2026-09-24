@@ -569,13 +569,11 @@ set up the lens</code></pre>
     to { opacity: 1; transform: translateY(0) rotateX(0); }
   }
 
+  /* No gradient here: each .char carries its own. A second
+     background-clip:text on this wrapper made Chrome paint a ghost
+     shape over the first letter ("E" of "everyone"). */
   .hero-italic {
     font-style: italic;
-    background: var(--color-cta-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
   }
   /* Wrap each italic word in an inline-block so the per-char inline-blocks
      inside can never break across lines — the whole word wraps as a unit. */
