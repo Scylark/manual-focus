@@ -32,7 +32,7 @@ import { url } from '../../utils/paths';
         what's happening in your week and can act on your behalf with
         permission.
       </p>
-      <p class="p101-meta mono">Read time 8 minutes</p>
+      <p class="p101-meta mono">Read time 10 minutes</p>
     </div>
   </section>
 
@@ -41,8 +41,9 @@ import { url } from '../../utils/paths';
     <div class="container p101-prose">
       <h2>1 · What Cowork is</h2>
       <p>
-        Cowork is Claude Code's mode for running with your real
-        workplace tools loaded as context. Instead of a chat window
+        Cowork is the agent workspace in the Claude desktop app,
+        built for running with your real workplace tools loaded as
+        context. Instead of a chat window
         with no memory of your week, the agent reads from your Gmail,
         Slack, Notion, Linear, HubSpot, Granola transcripts, Google
         Calendar, Figma files and GitHub repos. It sees the actual
@@ -65,8 +66,9 @@ import { url } from '../../utils/paths';
       </p>
       <ul>
         <li>
-          <strong>The agent</strong>, Claude in its Code form, which
-          can reason across the loaded context and call tools to act.
+          <strong>The agent</strong>, Claude with access to your files
+          and tools, which can reason across the loaded context and
+          call tools to act.
         </li>
         <li>
           <strong>The MCP connectors</strong>, one per tool, that the
@@ -93,28 +95,28 @@ import { url } from '../../utils/paths';
     <div class="container p101-prose">
       <h2>2 · Install Cowork and set it up</h2>
       <p>
-        Five steps end to end. The whole sequence takes about thirty
-        minutes if you're connecting accounts as you go.
+        Five steps end to end. Allow twenty to forty minutes if you're
+        connecting accounts as you go.
       </p>
 
-      <h3>Install Claude Code</h3>
+      <h3>Install the Claude desktop app</h3>
       <p>
-        Claude Code is the desktop client that hosts Cowork. Download
-        and install from <a href="https://claude.com/code" target="_blank" rel="noopener">claude.com/code</a>.
-        Sign in with the same account you use for claude.ai. On first
-        launch it walks you through giving filesystem access and a
-        working folder.
+        Cowork runs in the Claude desktop app on a paid plan. Download
+        it from <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>,
+        sign in with the same account you use for claude.ai and open
+        Cowork. On first run it asks for a working folder.
       </p>
 
       <h3>Add the Manual Focus plugin marketplace</h3>
       <p>
-        In Claude Code, run the marketplace command to point the
-        plugin manager at the Lens skills and any other Manual Focus
-        plugins we publish.
+        In Cowork, open <strong>Customize → Plugins → Add marketplace</strong>
+        and enter <code>Scylark/manual-focus</code>. That points the
+        plugin manager at The Lens skills and any other Manual Focus
+        plugins we publish. In Claude Code, it's one command.
       </p>
       <pre class="p101-code"><code>/plugin marketplace add Scylark/manual-focus</code></pre>
 
-      <h3>Install the Lens plugin</h3>
+      <h3>Install The Lens plugin</h3>
       <p>
         One command installs all 26 Lens skills at once (including the
         setup-the-lens onboarding orchestrator that handles the rest of
@@ -122,6 +124,8 @@ import { url } from '../../utils/paths';
         for rendering playbook explainers on demand), so the agent
         recognises positioning audits, eval-gated drafting, race recap
         pipelines and the rest the moment you describe a task that fits.
+        In Cowork, find <strong>the-lens</strong> under Browse plugins
+        and click Install. In Claude Code:
       </p>
       <pre class="p101-code"><code>/plugin install the-lens@manual-focus</code></pre>
 
@@ -143,23 +147,13 @@ import { url } from '../../utils/paths';
       </p>
       <pre class="p101-code"><code>/setup-the-lens</code></pre>
 
-      <h3>Cowork has its own setup wizard too</h3>
+      <h3>Connectors authenticate in your browser</h3>
       <p>
-        Anthropic ships a guided setup for Cowork. The Lens setup skill
-        will use it where it can, but you can also run it directly if
-        you want to install Cowork plugins before starting on Lens work.
-        The two wizards play nicely with each other, neither installs
-        the other's plugins automatically but each one knows what the
-        other needs.
-      </p>
-      <pre class="p101-code"><code>/setup-cowork</code></pre>
-      <p>
-        The wizard asks what kind of work you do, suggests a starter
-        plugin set, and then opens the connector flow for each tool
-        it recommends. Each connector takes you through an OAuth
-        prompt in your browser, the same way you'd authorise any
-        SaaS integration, and the credentials live in Claude Code's
-        secure store rather than in your prompts.
+        When the setup skill recommends a connector, or you add one
+        yourself from the Customize menu, you go through an OAuth
+        prompt in your browser, the same way you'd authorise any SaaS
+        integration. The credentials stay with the connector, not in
+        your prompts.
       </p>
 
       <h3>Connect the MCP servers you need first</h3>
@@ -179,7 +173,7 @@ import { url } from '../../utils/paths';
       <h2>3 · The plugins that matter most</h2>
       <p>
         Cowork plugins are packaged collections of skills, the same
-        shape as the Lens skills but built for different jobs. The
+        shape as The Lens skills but built for different jobs. The
         right starter set depends on the role you're playing. Three
         common shapes.
       </p>
@@ -221,21 +215,25 @@ import { url } from '../../utils/paths';
       <ul>
         <li>Everything above, plus</li>
         <li><code>design</code>, design critique, accessibility review, UX copy, design-system audits, research synthesis.</li>
-        <li><code>brand-voice-enforcement</code> as a standalone skill, applied to client content drafts as a gate before delivery.</li>
+        <li>A separate <code>brand-voice</code> guideline set per client, so the voice gate runs against the right brand before delivery.</li>
       </ul>
 
       <p>
-        Each plugin installs the same way the Lens does.
+        In Cowork these sit in Anthropic's default marketplace under
+        <strong>Customize → Plugins → Browse plugins</strong>, so each
+        one is a single click. In Claude Code, add Anthropic's
+        knowledge-work marketplace first, then install by name.
       </p>
-      <pre class="p101-code"><code>/plugin install brand-voice
-/plugin install marketing
-/plugin install productivity
-/plugin install sales</code></pre>
+      <pre class="p101-code"><code>/plugin marketplace add anthropics/knowledge-work-plugins
+/plugin install marketing@knowledge-work-plugins
+/plugin install productivity@knowledge-work-plugins
+/plugin install sales@knowledge-work-plugins</code></pre>
 
       <p>
         Once installed, every plugin can be customised to your
         organisation's vocabulary, tools and workflows. The
-        <code>/cowork-plugin-customizer</code> command walks through
+        customiser in Anthropic's <code>cowork-plugin-management</code>
+        plugin walks through
         which connectors you have wired up, which skills inside the
         plugin make sense for your role and which to disable. The
         plugin you end up running is yours, not a generic install.
@@ -317,7 +315,7 @@ import { url } from '../../utils/paths';
 
       <h3>Monday morning, the briefing</h3>
       <p>
-        Saoirse opens Claude Code with her coffee and asks "what's
+        Saoirse opens Cowork with her coffee and asks "what's
         on my plate today?" The agent reads her calendar, scans the
         last 24 hours of unread mail, checks the Slack channels she
         watches and surfaces the three things that need attention
@@ -457,18 +455,18 @@ import { url } from '../../utils/paths';
       </p>
       <ol>
         <li>
-          <strong>Install Claude Code today.</strong>
-          Download from <a href="https://claude.com/code" target="_blank" rel="noopener">claude.com/code</a>,
-          sign in, give it a working folder.
+          <strong>Install the Claude desktop app today.</strong>
+          Download from <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>,
+          sign in, open Cowork, give it a working folder.
         </li>
         <li>
-          <strong>Install the Lens plugin.</strong>
-          Two commands. <code>/plugin marketplace add Scylark/manual-focus</code>, then <code>/plugin install the-lens@manual-focus</code>. All 26 Lens skills are now available. Ask Claude <strong>"set up The Lens"</strong> and the welcome skill walks you through picking a starter playbook.
+          <strong>Install The Lens plugin.</strong>
+          In Cowork, add the <code>Scylark/manual-focus</code> marketplace under Customize → Plugins and install <code>the-lens</code>. In Claude Code, <code>/plugin marketplace add Scylark/manual-focus</code>, then <code>/plugin install the-lens@manual-focus</code>. All 26 Lens skills are now available. Ask Claude <strong>"set up The Lens"</strong> and the welcome skill walks you through picking a starter playbook.
         </li>
         <li>
-          <strong>Run /setup-cowork and connect three things.</strong>
+          <strong>Connect three things.</strong>
           Gmail (or Outlook), Google Calendar (or Outlook) and your
-          CRM. The wizard walks through OAuth for each. Skip the
+          CRM. Each one is a browser OAuth prompt. Skip the
           rest for now.
         </li>
         <li>

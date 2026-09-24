@@ -35,7 +35,7 @@ if (d.metadata.playbook) {
 }
 
 // Build the raw markdown URL on GitHub for the "View on GitHub" link
-const githubRaw = `https://github.com/Scylark/manual-focus/blob/main/lens-skills/${d.name}/SKILL.md`;
+const githubRaw = `https://github.com/Scylark/manual-focus/blob/master/lens-skills/${d.name}/SKILL.md`;
 ---
 <Base title={`${d.name}. The Lens Skills`} description={d.description.slice(0, 160)}>
   <SEOHead
@@ -73,7 +73,8 @@ const githubRaw = `https://github.com/Scylark/manual-focus/blob/main/lens-skills
           </div>
           <div class="skill-meta-block">
             <span class="meta-label mono">INSTALL</span>
-            <pre class="meta-install"><code>/plugin install https://github.com/Scylark/manual-focus</code></pre>
+            <pre class="meta-install"><code>/plugin marketplace add Scylark/manual-focus
+/plugin install the-lens@manual-focus</code></pre>
           </div>
           <div class="skill-meta-block">
             <span class="meta-label mono">SOURCE</span>
@@ -97,7 +98,7 @@ const githubRaw = `https://github.com/Scylark/manual-focus/blob/main/lens-skills
       <div class="container">
         <div class="skill-foot-grid">
           <div class="eyebrow">THE LENS</div>
-          <h2>Ten skills, twenty playbooks, growing.</h2>
+          <h2>Twenty-six skills, forty-six playbooks, growing.</h2>
           <p>Browse the rest of the skill set or read the paired playbook for the strategic context.</p>
           <div class="skill-foot-ctas">
             <a href={url('/lens/skills')} class="btn-ghost">All skills</a>

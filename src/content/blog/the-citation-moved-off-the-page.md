@@ -1,17 +1,18 @@
 ---
 title: "The citation moved off the page"
 date: 2026-06-29
+updated: 2026-09-24
 tags: ["ai", "marketing-strategy", "go-to-market"]
 description: "The overlap between top Google links and AI-cited sources has fallen from 70% to under 20%. Your rankings stopped predicting who gets quoted."
 ---
 
 For twenty years the job was to rank. You earned a top-three position on Google and you earned the click, and the whole apparatus of SEO existed to move you up that list. The position was the prize because the position was the visibility.
 
-That link between rank and visibility is breaking, and the numbers are stark. Research from the GEO firm Brandlight this year found that the overlap between the top organic Google links and the sources actually cited inside AI-generated answers has dropped from around 70% to below 20%. The page that ranks first is no longer the page the model quotes. Two different games are now running on the same query, and most brands are only playing one of them.
+That link between rank and visibility is breaking, and the numbers are stark. Brandlight analysis published by 5W in May 2026 found that the overlap between the top organic Google links and the sources actually cited inside AI-generated answers [dropped from around 70% in early 2024 to below 20% by April 2026](https://www.prnewswire.com/news-releases/new-5w-research-overlap-between-top-google-rankings-and-ai-cited-sources-has-collapsed-from-70-to-under-20-302760132.html). The page that ranks first is no longer the page the model quotes. Two different games are now running on the same query, and most brands are only playing one of them.
 
 ## Why this is happening now
 
-Roughly a third of the US population will use generative AI search in 2026, on EMARKETER's forecast. People ask ChatGPT, they read Google's AI Overviews without scrolling to the blue links, they let Perplexity assemble the answer. In each case a model decides which sources to pull into its response, and that decision is made on different signals than the ones that move a page up a ranked list.
+Close to four in ten people in the US will use generative AI in 2026, on [EMARKETER's forecast](https://www.emarketer.com/forecasts/649b469caa512b7a6f7294b7/649b3143536e5af67adc96fb/), and a growing share of them use it to search. People ask ChatGPT, they read Google's AI Overviews without scrolling to the blue links, they let Perplexity assemble the answer. In each case a model decides which sources to pull into its response, and that decision is made on different signals than the ones that move a page up a ranked list.
 
 A ranked result rewards authority, backlinks, freshness and on-page relevance to the query. A cited source rewards something narrower. The model wants a passage it can lift cleanly, a claim it can stand behind, a number it can attribute. A page can rank beautifully and still never get quoted because nothing on it is shaped like an answer the model can use.
 
@@ -29,8 +30,8 @@ The tactics are not exotic, they are just different from the ones a 2020 content
 
 ## The opening, and the trap
 
-Here is the part worth acting on. By early 2026 most enterprise marketing teams have a GEO initiative running. Most smaller teams have not started, which is a genuine first-mover window in a discipline where the moves are cheap and the incumbents have not locked it down.
+Here is the part worth acting on. Across the enterprise teams we talk to, GEO work is already under way. Most smaller teams have not started, which is a genuine first-mover window in a discipline where the moves are cheap and the incumbents have not locked it down.
 
 The trap is treating this as a new channel to bolt on. It is not a channel, it is a change in how every channel gets discovered. The fix is structural. Shape the content so a model can parse and quote it, build the original data that makes you the only available source, and earn the third-party references that tell the model you are credible. The [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/) covers the technical and content moves in detail, and the [SEO cluster generator](/lens/content/seo-cluster-generator/) in The Lens turns the topic map and the answer-shaped structure into something you can actually run this week.
 
-None of this means rankings stopped mattering. A third of search is generative, which means two thirds is not, and the blue links still drive real traffic. It means the scoreboard you have been watching now tells you about two thirds of the game, and the other third is keeping its own score somewhere you have not been looking. Start looking. We wrote more on the broader shift in [why most marketing advice is noise](/blog/why-most-marketing-advice-is-noise/), and on the discipline of not over-trusting any of it in [evaluating AI tools without falling for the demo](/blog/evaluating-ai-tools-without-falling-for-the-demo/).
+None of this means rankings stopped mattering. The blue links still drive real traffic. It means the scoreboard you have been watching now covers only part of the game, and the growing generative share is keeping its own score somewhere you have not been looking. Start looking. We wrote more on the broader shift in [why most marketing advice is noise](/blog/why-most-marketing-advice-is-noise/), and on the discipline of not over-trusting any of it in [evaluating AI tools without falling for the demo](/blog/evaluating-ai-tools-without-falling-for-the-demo/).

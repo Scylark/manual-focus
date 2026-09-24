@@ -2,7 +2,7 @@
 name: setup-the-lens
 description: "When the user has just installed The Lens plugin or is asking about The Lens for the first time. Trigger on 'set up the lens', 'setup the lens', 'I just installed the lens', 'what is the lens', 'tell me about the lens', 'where do I start with the lens', 'get started with the lens', 'lens onboarding', 'first time using the lens', 'onboard me to the lens', 'manual focus lens', or any prompt that suggests the user has the plugin but does not yet know how to use it. Also triggers when the user invokes /setup-the-lens. This is the welcome and orchestration skill. Prefer it over the specific workflow skills when the user has not yet picked a starting point. Do not invoke this skill if the user already has a `.lens/` directory in their workspace with `brand.json`, `links.json` and `todo.md` populated, because that means setup has already run."
 metadata:
-  version: 0.3.0
+  version: "0.3.1"
   playbook: https://manual-focus.co.uk/lens/start-here
 ---
 
@@ -83,10 +83,12 @@ State which plugins they should add and offer the install commands. Format:
 > Based on your situation, you'll want these Cowork plugins alongside The Lens:
 >
 > ```text
-> /plugin marketplace add anthropics/cowork
-> /plugin install brand-voice@cowork
-> /plugin install productivity@cowork
+> /plugin marketplace add anthropics/knowledge-work-plugins
+> /plugin install brand-voice@knowledge-work-plugins
+> /plugin install productivity@knowledge-work-plugins
 > ```
+>
+> (Running in Cowork? They are one click each under Customize → Plugins → Browse plugins.)
 >
 > Want me to run these now, or do you want to install them later?
 
