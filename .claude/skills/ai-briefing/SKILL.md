@@ -41,9 +41,10 @@ the analysis is the product, and the news is the hook.
 - `.claude/skills/ai-briefing/ledger.json`: every story already
   covered or rejected. Don't repeat one unless there's a material new
   development, and then link the earlier post.
-- `src/content/blog/`: existing posts. Read the titles and skim two
-  or three for voice. `the-citation-moved-off-the-page.md` is the
-  benchmark for tone and density.
+- `src/content/blog/`: existing posts. Read the titles, and read the
+  last three posts tagged `ai-briefing` in full so you can vary the shape
+  (step 5). `the-citation-moved-off-the-page.md` is the benchmark for
+  tone and density.
 - `src/content.config.ts`: the frontmatter schema and allowed tags.
 
 ## Step 2. Scan (last 48 hours)
@@ -115,21 +116,25 @@ with no date in it (e.g. `gpt-6-launch-what-it-means-for-marketers`).
 
 ```yaml
 ---
-title: "<Entity + what changed + for whom, ≤ 65 chars>"
+title: "<Entity + what changed + who it matters to, 65 chars max, NO colon>"
 date: YYYY-MM-DD
 tags: ["ai-briefing", "ai", "<one more allowed tag if it fits>"]
-description: "<≤ 160 chars. The direct answer: what happened and the one-line implication.>"
+description: "<160 chars max. The direct answer, what happened and the one-line implication, no colon.>"
 faq:
   - question: "<Phrased the way someone asks ChatGPT>"
-    answer: "<40–80 words. Self-contained, names the entity, no 'as above'.>"
-  # 3–5 items in total
+    answer: "<40 to 80 words. Self-contained, names the entity, no colon.>"
+  # 3 to 5 items in total
 sources:
   - title: "<Headline of the primary announcement>"
     url: "<primary source URL>"
     publisher: "<OpenAI / Google / Reuters ...>"
-  # primary source first, then 1–3 corroborating sources
+  # primary source first, then 1 to 3 corroborating sources
 ---
 ```
+
+Write the title as one plain line in sentence case, for example "What
+GPT-6's price cut means for content teams" or "What the CMA's AI choice
+screen plan means for UK marketers".
 
 The layout renders `faq` and `sources` as visible sections at the end
 of the post and emits FAQPage and `citation` structured data from
@@ -137,58 +142,121 @@ them. **Do not repeat them in the body.**
 
 ### Body
 
-1. **Opening paragraph (40–60 words), no heading.** It must stand on its
-   own as the answer if a model lifts only this paragraph. Name the
+Every post needs these five things, in roughly this order. The
+headings are yours to write for the story, so they differ from post to
+post (see "Vary the shape" below).
+
+1. **Opening paragraph (40 to 60 words), no heading.** It must stand on
+   its own as the answer if a model lifts only this paragraph. Name the
    company and product, give the date as "on 23 September 2026", the
    single most important number, and the implication for marketers.
-2. `## What happened`: the facts, dated and specific, with the primary
-   source linked inline. Short paragraphs.
-3. `## What it means for marketing teams`: the core of the post and the
-   reason it exists. Be concrete about channels, budgets, workflows and
-   team shape. Include one sentence of the form "Our view at Manual
-   Focus is ..." with a clear, defensible position.
-4. `## What to do this week`: 3–5 numbered actions a marketing leader
-   can actually take. Specific enough to act on.
-5. `## What we don't know yet`: the honest caveats, open questions,
-   and what would change the advice.
-6. **Links:** 1–2 inline links to related Manual Focus posts or Lens
-   playbooks, with trailing slashes (`/blog/slug/`, `/lens/content/slug/`),
-   placed where they genuinely help. End with one plain sentence
-   pointing to `/services/` or `/enquire/` for readers who want help
-   applying it. No hard sell.
+2. **The facts.** What changed, dated and specific, with the primary
+   source linked inline.
+3. **What it means for marketing teams.** The core of the post and the
+   reason it exists. Concrete about channels, budgets, workflows and
+   team shape. Include one sentence that starts "Our view at Manual
+   Focus is" with a clear, defensible position.
+4. **What to do.** 3 to 5 numbered actions a marketing leader can take
+   this week or before a named deadline. Specific enough to act on.
+5. **What we don't know yet.** The honest caveats and open questions.
 
-Target 600–900 words of body. Use questions as H2s only where they
-read naturally; the four sections above are the default.
+Headings are sentence case, specific to the story, and never contain a
+colon. "What the CMA proposed" beats "What happened". "What to do before
+the 9 October deadline" beats "What to do this week". A question works as
+a heading when it is the question a reader would type into ChatGPT.
 
-### Voice
+**Links.** 1 or 2 inline links to related Manual Focus posts or Lens
+playbooks, with trailing slashes (`/blog/slug/`, `/lens/content/slug/`),
+where they genuinely help. End with one plain sentence pointing to
+`/services/` or `/enquire/` for readers who want help. No hard sell.
 
-- British English (optimise, programme, organisation, "in the UK").
-- Senior, calm, specific. The reader is a CMO, not a hobbyist.
-- Answer first, build-up never.
-- Numbers over adjectives. "Priced at $X per million tokens", never
-  "incredibly affordable".
-- **Banned:** em dashes (use commas, full stops or brackets);
-  "game-changer", "revolutionary", "unlock", "unleash", "supercharge",
-  "delve", "landscape", "navigate the", "in today's fast-paced",
-  "it's worth noting", "at the end of the day"; the "It's not X, it's Y"
-  construction; triplets of adjectives; rhetorical questions as
-  paragraph openers; closing with "Let's dive in" or "The future is
-  here"; emoji.
+Target 650 to 900 words of body.
+
+### Vary the shape across the series
+
+Read the last three `ai-briefing` posts before you write. Don't reuse
+their headings, their opening construction, where they put the numbers,
+or their closing line. A series where every post is the same template
+refilled reads as machine-made even when every sentence is clean.
+
+### Writing rules (the no-slop standard, applies to every word)
+
+These apply to the title, description, headings, FAQ questions and
+answers, source titles, list items and body alike. No format is exempt.
+
+**Absolute bans.** No em dashes, no colons, no semicolons, anywhere. Use
+a comma or a full stop instead. (Times like 10:30 are fine.) No emoji.
+
+**Banned words.** delve, foster, leverage, utilise, facilitate, empower,
+streamline, robust, cutting-edge, paradigm shift, game changer,
+tapestry, realm, beacon, multifaceted, meticulous, intricate, paramount,
+transformative, elevate, embark, supercharge, harness, ever-evolving,
+unlock, unleash, revolutionary, landscape, pivotal. Cut empty adverbs
+(just, literally, simply, actually, truly, fundamentally, crucially)
+unless they carry real meaning. Cut throat-clearing: "it's worth
+noting", "when it comes to", "at its core", "in today's", "the reality
+is", "going forward", "ultimately", "in conclusion".
+
+**Structures to rewrite on sight.**
+- "Not X, it's Y" and "It's not about X, it's about Y". State Y.
+- Setup-punchline pairs ("Don't expect a stampede. The research shows
+  ..."). Fold into one sentence where one clause carries the other.
+- Two short balanced clauses welded with "and" or "but" that are really
+  a claim and its payoff. Subordinate one of them.
+- Colon reveals and faux-insight setups ("The detail that matters most
+  is ...", "Here's what nobody tells you"). Just make the point.
+- Interpretive asides that tell the reader what to notice ("This
+  matters because", "The key point is", "As you can see"). Delete.
+- Importance puffery ("marks a pivotal moment", "a testament to",
+  "underscores"). State the plain fact.
+- Trailing "-ing" clauses that pretend to explain ("highlighting",
+  "reflecting", "showcasing"). Give the actual consequence.
+- Inanimate things doing human verbs ("the proposal re-opens", "data
+  decides"). Make a person or organisation the subject.
+- Results or abstractions as sentence subjects. People and organisations
+  do things, in time, for reasons ("so", "then", "because").
+- A paragraph that splits into bullets at its full stops without
+  rewriting is a disguised list. Write honest bullets or real
+  connected sentences.
+- Weasel attribution ("experts agree", "studies show"). Name the source
+  or cut the claim.
+- Fake-profound closing lines, aphorisms and summary recaps. End on the
+  last concrete point.
+
+**Rhythm.** Write like a senior operator talking to a CMO. Connect
+related ideas with commas, "and", "but", "so", "because" rather than
+chopping every idea into its own sentence, but don't let two
+consecutive sentences share the same skeleton. Let one sentence be
+short when it earns it. Two examples usually beat three.
+
+**Specifics.** Numbers, names, dates and mechanisms over adjectives.
+Run the portability test: if a sentence would still be true about a
+different company or announcement, cut it or make it specific.
+
+**Voice.** British English (optimise, programme, organisation). Calm,
+direct, answer first. Use "you" for the reader where it fits.
 
 ## Step 6. Quality gates (all must pass)
 
-- [ ] Every number, date, price, name and quote appears on a page in `sources`.
-- [ ] The primary source is the company's own page, and it's first in `sources`.
-- [ ] No claimed first-hand experience, clients or results (rule 4).
-- [ ] The opening paragraph answers the question on its own.
-- [ ] `description` ≤ 160 characters, `title` ≤ 65.
-- [ ] 3–5 FAQ items, each 40–80 words and self-contained.
-- [ ] Every internal link resolves to a real file in `src/content`.
-- [ ] No banned words or em dashes (`grep -n "—" <file>` returns nothing).
-- [ ] `npm run build` passes.
+1. `npm run build` passes.
+2. `node .claude/skills/ai-briefing/check.mjs src/content/blog/<slug>.md`
+   prints PASS. It checks lengths, the FAQ and source counts, the opening
+   paragraph, the "Our view at Manual Focus" sentence, the absolute bans,
+   banned words, invented experience and internal links. Fix and re-run
+   until it passes.
+3. **No-slop self-audit.** Re-read the whole post against the writing
+   rules above and score it 1 to 10 on each of directness, rhythm, story,
+   trust, authenticity and density (total out of 60). Rewrite until it
+   scores 51 or more, making the minimum edit that fixes each pattern and
+   never adding claims that weren't there. Put the score in the PR body.
+4. **Fact check.** Every number, date, price, name and quote appears on
+   a page listed in `sources`, and the primary source (the company's own
+   page) is first.
+5. **No claimed experience.** Nothing implies we tested, used or saw
+   something first-hand (rule 4).
 
-Fix and re-check until they all pass. If a gate can't pass (e.g. you
-can't verify the key fact), don't publish. Log it as a skip.
+If a gate can't pass (e.g. you can't verify the key fact), don't
+publish. Log it as a skip.
 
 ## Step 7. Update the ledger
 
@@ -209,12 +277,12 @@ Append one entry per shortlisted story to
 ## Step 8. Hand off for review
 
 - Branch: `briefing/YYYY-MM-DD`. Commit the post and ledger.
-- Open a pull request against `master` titled `AI briefing: <post title>`.
-  In the body include: the story and why it cleared the bar (score),
-  the primary source, anything you were unsure of, and the other
-  candidates you rejected, with their scores.
+- Open a pull request against `master` titled `AI briefing | <post title>`.
+  In the body include the story and why it cleared the bar (score), the
+  primary source, the no-slop self-audit score out of 60, anything you
+  were unsure of, and the other candidates you rejected with their scores.
 - On a no-post day, commit just the ledger update to the branch and open
-  a PR titled `AI briefing: no post (YYYY-MM-DD)` listing the candidates and
-  why none cleared the bar.
+  a PR titled `AI briefing | no post (YYYY-MM-DD)` listing the candidates
+  and why none cleared the bar.
 
 Merging the PR publishes the post (GitHub Pages deploys from `master`).
