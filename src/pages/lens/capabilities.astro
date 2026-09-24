@@ -3,8 +3,8 @@ import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import { url } from '../../utils/paths';
 
-const lastUpdated = '2026-06-29';
-const nextReview = 'Q3 2026';
+const lastUpdated = '2026-09-24';
+const nextReview = 'Q4 2026';
 ---
 <Base
   title="What's actually possible. The Lens capability reference"
@@ -45,26 +45,85 @@ const nextReview = 'Q3 2026';
 
       <h2>The model landscape this quarter</h2>
       <p>
-        Four frontier models matter for production marketing work right
-        now. Anthropic's Claude Opus 4.8 (28 May 2026) currently leads the
-        Artificial Analysis Intelligence Index at 61.4, narrowly ahead of
-        OpenAI's GPT-5.5 at 60.2, Google's Gemini 3.1 Pro at 57, and xAI's
-        Grok 4.3 at 53. Gemini 3.5 Pro is shipping this month off the back
-        of I/O, and OpenAI has a GPT-5.6 in the wings. The order changes
-        roughly every quarter and the gaps are narrow, so we build
-        playbooks model-agnostic and let the eval gates decide which model
-        ships the work.
+        September was the busiest month of the year for frontier releases.
+        OpenAI shipped
+        <a href="https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html" target="_blank" rel="noopener">GPT-6 Astra</a>
+        on 3 September, and Anthropic followed with
+        <a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener">Claude Opus 5.5</a>
+        on the 22nd. Anthropic says Opus 5.5 performs at the level of
+        Claude Fable 5.1 on most work, and it costs $4/$20 per million
+        tokens. Opus 5.5 now tops the
+        <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis Intelligence Index</a>
+        at 58, ahead of Fable 5.1 and GPT-6 Astra on 53. The index has
+        been rescaled since June, so don't compare today's numbers with
+        last quarter's. Google's Gemini 3.5 Pro, promised at I/O for June,
+        still hasn't shipped.
       </p>
       <p>
-        June made the case for that discipline. Claude Fable 5 landed on
-        the 9th as the new reasoning leader and was pulled on the 12th
-        under a US export-control order, three days of being the best model
-        available followed by it not being available at all. Any team that
-        had hard-wired a pipeline to a single named model spent that week
-        rebuilding. The Lens playbooks name a model in the frontmatter as a
-        sensible default, not a dependency, and the prompts run on whatever
-        frontier model you have. When a model moves a capability rating
-        below, we annotate the entry with the date and the evidence.
+        The practical point for marketing teams is cost, not the
+        leaderboard. Frontier-level output is getting cheaper by the
+        quarter, and the mid-tier models (Claude Sonnet, GPT mini, Gemini
+        Flash) now handle most drafting and every scoring gate in The Lens.
+        Keep the expensive model for the jobs where judgement matters,
+        such as positioning, synthesis and hero copy, and put the volume
+        through the cheaper tier.
+      </p>
+      <p>
+        June made the case for staying model-agnostic. Anthropic's Fable 5
+        launched on the 9th, was
+        <a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank" rel="noopener">suspended three days later</a>
+        under a US export-control order, and came back on 1 July once the
+        order was withdrawn. Any team that had wired a pipeline to one
+        named model spent that fortnight rebuilding. The Lens playbooks
+        now describe models by tier (frontier or mid-tier) rather than by
+        version, and list the models each workflow was tested on. The
+        eval gates decide which model ships the work. In September we
+        re-ran every prompt in every playbook on Claude Opus 5.5
+        against each playbook's own gates, fixed what broke, and
+        published the
+        <a href="https://github.com/Scylark/manual-focus/tree/master/lens-skills/_test-runs" target="_blank" rel="noopener">test logs</a>.
+        GPT and Gemini weren't part of that run.
+      </p>
+
+      <h2>What changed for marketers since June</h2>
+      <ul>
+        <li><strong>ChatGPT is now a UK ad channel.</strong> Ads
+        <a href="https://ppc.land/chatgpt-ads-go-live-in-the-uk-as-openai-expands-pilot-beyond-us/" target="_blank" rel="noopener">went live in the UK on 6 June</a>,
+        the first European market, shown to Free and Go users underneath
+        answers, and UK advertisers now have an Ads Manager beta. Google's
+        ads in AI Overviews still aren't running in the UK.</li>
+        <li><strong>Being cited in AI answers is its own game.</strong>
+        The overlap between Google's top ten and the sources AI answers
+        cite has fallen below 20%. That shift is in
+        <a href={url('/blog/the-citation-moved-off-the-page/')}>The citation moved off the page</a>,
+        and the seo-cluster-generator playbook is built for it.</li>
+        <li><strong>Sora is gone.</strong> OpenAI closed the app in April
+        and
+        <a href="https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation" target="_blank" rel="noopener">switches off the API today, 24 September</a>.
+        Any video pipeline still calling it needs a new provider. Treat
+        that as the argument for keeping generation behind a swappable
+        step.</li>
+        <li><strong>Agents are moving into the apps you already use.</strong>
+        OpenAI folded its Atlas browser into ChatGPT, and Claude in
+        Chrome now runs as part of Cowork. Browser agents are becoming a
+        feature of the main assistants rather than a separate product,
+        which is how The Lens productivity stack assumes you'll use
+        them.</li>
+        <li><strong>EU transparency rules now apply.</strong> The AI Act's
+        Article 50 obligations took effect on 2 August 2026. AI
+        providers must mark what their models generate. Brands using
+        them must tell people when they're talking to an AI, and label
+        realistic AI-generated or manipulated images, audio and video
+        that could pass as real. If you market into the EU, your chat
+        assistants, synthetic voice and deepfake-adjacent creative are
+        in scope. In the UK, the ASA's position is technology-neutral: say
+        you used AI where leaving it out would mislead.</li>
+      </ul>
+      <p>
+        The ratings below are the ones set in June. The quarter's releases
+        could move two of them, generic video and branded-product
+        imagery, and we've said below what we're watching. A rating only
+        changes once a model has passed the relevant eval on live work.
       </p>
 
       <h2>The grading</h2>
@@ -153,6 +212,14 @@ const nextReview = 'Q3 2026';
         against the source.
       </p>
 
+      <p>
+        Watch this quarter. The newer image-editing models (Google's Nano
+        Banana 2, OpenAI's GPT Image 2) are sold on keeping the source
+        image consistent through an edit, which is exactly what the
+        workaround above needs. Until one clears the pixel-diff gate on
+        live product work, the rating stays where it is.
+      </p>
+
       <h2>Video generation, generic subjects</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for short clips (typically 4 to 10 seconds) of generic subjects in named environments.</p>
       <p>
@@ -163,6 +230,14 @@ const nextReview = 'Q3 2026';
         products aren't required. Eval gate is human review for limb
         physics, water dynamics, and the recurring "wrong number of pedal
         rotations per crank stroke" issue.
+      </p>
+
+      <p>
+        Watch this quarter. With Sora retired, the realistic options are
+        Google's Gemini Omni (which replaced Veo in the Gemini app and
+        added edit-by-conversation), Kling and Runway. Build the video
+        step so the provider can be swapped without rewriting the
+        pipeline around it.
       </p>
 
       <h2>Video generation, branded product or named athlete</h2>

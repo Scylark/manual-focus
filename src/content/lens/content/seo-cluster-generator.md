@@ -2,13 +2,14 @@
 title: "SEO cluster generator, pillar, spoke, intent map"
 stack: content
 description: "Build a defensible topic cluster from one seed keyword. Intent-mapped, GEO-aware, with the eval criteria for surviving the next algorithm update built in from day one."
-outputs: "Pillar page brief, 20-30 spoke briefs, internal link map, intent matrix"
+outputs: "Pillar page brief, 15-25 spoke briefs, internal link map, intent matrix"
 readMin: 18
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["seo", "content"]
-models: ["claude-4.5-opus", "gpt-5", "gemini-2.5-pro"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "gemini-2.5-pro"]
 publishedAt: 2026-05-08
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -19,13 +20,13 @@ By the end of this playbook you will have shipped five artefacts.
 
 1. A **populated cluster-map CSV** with one row per page, every page tagged for intent, buyer stage, search volume, differentiation hook and build status.
 2. A **pillar-page brief** of 800 to 1,200 words covering the anchor query, the SERP shape, the brand's hook, the section outline and the internal links the pillar must carry.
-3. **Twenty to thirty spoke briefs**, each with target query, intent, length target, must-include facts with sources, voice profile reference and the two-to-four spokes it links to.
+3. **Fifteen to twenty-five spoke briefs**, each with target query, intent, length target, must-include facts with sources, voice profile reference and the two-to-four spokes it links to.
 4. An **internal-link graph** showing the pillar at the top and every spoke connected by two-to-four sibling links so no page sits orphaned.
 5. An **intent matrix** that maps each page to the buyer stage and query type it serves, so the content team can prioritise commercial-intent spokes against informational ones.
 
 ## Who this is for
 
-A growth or scale-stage brand whose SEO programme is mature enough to think in clusters, with an SEO lead who can pull keyword data from ahrefs or semrush and an editor who can hand briefs to drafters. If you are still ranking for less than ten queries total, run a topical-authority audit before clustering. If your content team is a single founder, the spoke count drops to ten and you still get value.
+A growth or scale-stage brand whose SEO programme is mature enough to think in clusters, with an SEO lead who can pull keyword data from ahrefs or semrush and an editor who can hand briefs to drafters. If you are still ranking for less than ten queries total, run a topical-authority audit before clustering. If your content team is a single founder, you build only the ten strongest spokes and still get value.
 
 ## Before you start
 
@@ -34,7 +35,7 @@ A growth or scale-stage brand whose SEO programme is mature enough to think in c
 - [ ] CMS access (Webflow, Shopify, WordPress) so you can see the brand's existing content and check overlap
 - [ ] A voice profile, extracted via the brand-voice-extraction playbook
 - [ ] A list of three to five named competitors who already rank for the seed
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spreadsheet for the cluster map, Google Sheets or Excel
 
 If you are missing the voice profile, the briefs will still ship but the drafters downstream will work harder. If you cannot pull search volume, the prioritisation collapses to gut feel.
@@ -49,7 +50,7 @@ Pull the universe of related queries and trim to what the brand can plausibly se
 
 **Step 1.1, export the keyword universe.**
 
-In ahrefs, open Site Explorer and paste the seed. Open **Matching terms** in the left sidebar. Set the country to the brand's target locale. Set a volume floor of 50 monthly searches. Export the top 500 queries as CSV.
+In ahrefs, open Keywords Explorer and paste the seed. Open **Matching terms** in the left sidebar. Set the country to the brand's target locale. Set a volume floor of 50 monthly searches. Export the top 500 queries as CSV.
 
 In semrush, open Keyword Magic Tool and paste the seed. Set the database to the brand's locale. Apply a volume filter at 50 monthly minimum. Export the top 500.
 
@@ -77,10 +78,12 @@ rating. You do not invent middle-ground categories.
 
 When in doubt:
 - "best X" without a brand qualifier, commercial / evaluating
-- "X vs Y", commercial / evaluating
+- "[product] vs [product]", commercial / evaluating
+- "[category] vs [category]" (e.g. trail vs road), informational / solution-aware
 - "how to X", informational / problem-aware or solution-aware
 - "X near me", transactional / decided
-- "[brand] X", navigational / decided
+- "[own brand] X", navigational / decided
+- "[competitor brand] X review", commercial / evaluating
 - "what is X", informational / problem-aware
 
 USER:
@@ -136,7 +139,7 @@ Return JSON:
     "topic": "<short topic phrase>",
     "anchor_query": "<the head query>",
     "supporting_queries": ["<query>", "..."],
-    "estimated_volume": <int>
+    "summed_volume_from_input": <int, sum of supplied volumes only, never estimated>
   },
   "spoke_topics": [
     {
@@ -145,7 +148,7 @@ Return JSON:
       "supporting_queries": ["<long-tail queries grouped here>"],
       "intent": "<from classification>",
       "stage": "<from classification>",
-      "estimated_volume": <int>
+      "summed_volume_from_input": <int, sum of supplied volumes only, never estimated>
     }
   ],
   "orphans": [
@@ -155,7 +158,8 @@ Return JSON:
 
 Rules:
 - One pillar candidate. The pillar subsumes the spokes in scope.
-- 18 to 30 spoke topics. If fewer, the cluster is too thin to ship.
+- 18 to 30 spoke topics. If fewer than 12, flag the cluster as thin
+  and say so. Do not pad with near-duplicate spokes.
 - Each spoke groups two-to-eight queries with shared intent.
 - Orphans are queries that belong in a different cluster, not in
   this one. They are signals, not failures.
@@ -163,9 +167,9 @@ Rules:
 
 **Step 3.2, sanity check the shape.**
 
-The pillar should be the broadest commercial or informational query the brand can credibly own. If the pillar candidate is narrower than two of its spokes, the cluster is upside down, swap them. If the cluster has fewer than 18 spokes, the seed is too narrow, broaden it.
+The pillar should be the broadest commercial or informational query the brand can credibly own. If the pillar candidate is narrower than two of its spokes, the cluster is upside down, swap them. If the cluster has fewer than 12 spokes, the seed is too narrow, broaden it.
 
-**You should now have** a pillar, 18 to 30 spokes and an orphans list.
+**You should now have** a pillar, 18 to 30 spokes (or a thin-cluster flag if you have fewer than 12) and an orphans list.
 
 ### Phase 4, SERP analysis and differentiation
 
@@ -175,7 +179,7 @@ What is ranking, and how does the brand do better.
 
 For each of the nine queries (pillar plus top eight spokes by volume), open ahrefs or semrush. Run **SERP analysis** on the query. Note the format (article, guide, tool, video, listicle), median length, who is ranking (publishers, brand sites, aggregators) and what evidence the top results lean on (data, expert quote, original research, customer story).
 
-Capture this in a SERP analysis sheet, nine rows, one per query.
+Capture this in a SERP analysis sheet, nine rows, one per query. Then run the same nine queries in Google AI Mode, ChatGPT search and Perplexity and log the sources each answer cites. Brandlight analysis published by 5W in May 2026 found that the overlap between the top organic Google links and the sources cited in AI-generated answers had fallen below 20% by April 2026, so a page can rank and still not be quoted. Record both columns.
 
 **Step 4.2, run the differentiation hook prompt.**
 
@@ -212,7 +216,8 @@ For each page (pillar plus spokes), return JSON:
 Rules:
 - 2 to 3 hooks per page minimum.
 - "credible_for_serp" is false if the hook is already present in 3+
-  of the top 10 ranking results. That is table stakes, not a hook.
+  of the top 10 ranking results or in the sources cited by the AI
+  answers logged in Step 4.1. That is table stakes, not a hook.
 - "verdict" defaults to "weak_hook" if all hooks read as table stakes.
 - "verdict" defaults to "competitive_uncertain" if the SERP is
   dominated by major publishers and the brand has no first-party
@@ -319,7 +324,7 @@ A sample of the spoke brief for "trail running shoes for ultras."
 > **Target query.** trail running shoes for ultras
 > **Supporting queries.** best ultra running shoes, UTMB shoe choice, 100k trail shoes
 > **Intent.** commercial / evaluating
-> **Hook.** Vahla Range fit log from Lavaredo entrants, 28 finishers wearing the Vahla shell over 120 km. Plus Beth Lyons's published race notes from her 2025 UTMB finish.
+> **Hook.** Vahla Range fit log from Lavaredo entrants, 28 finishers logging fit and blister notes in the pre-production Vahla Range shoe over 120 km. Plus Beth Lyons's published race notes from her 2025 UTMB finish.
 > **Length.** 1,400 words
 > **Internal links out.** pillar (best trail running shoes), "how to choose trail running shoes", "UTMB shoe choice 2026"
 > **Must-include facts.** Vahla Range fit panel data (source, internal QA log), Beth Lyons UTMB notes (source, athlete blog), Lavaredo finisher survey (source, Cascadia Trail Club).
@@ -340,7 +345,7 @@ Take 50 queries from your seed expansion. Classify by intent and stage by hand, 
 
 Pick three spokes from your cluster. For each, ask Claude in a follow-up.
 
-> "Here is the spoke topic, the SERP analysis, and the brand's available assets. Surface one credible differentiation hook that none of the top 10 ranking results already use. Be honest if you cannot find one."
+> "Here is the spoke topic, the SERP analysis, and the brand's available assets. Surface one credible differentiation hook that none of the top 10 ranking results or AI-cited sources already use. Be honest if you cannot find one."
 
 If the model returns "no credible hook found" for two of three spokes, the cluster is in a category the brand cannot currently win. That is useful information, refocus the seed or invest in first-party research before drafting.
 
@@ -354,7 +359,7 @@ Pick the spoke with the strongest hook. Write the brief by hand, no model. Inclu
 
 **Eval 2, cluster coherence.** For each spoke, compute mean pairwise embedding similarity across its grouped queries. Above 0.6 is coherent. Below 0.4 means the spoke is multiple sub-topics squashed together, split it.
 
-**Eval 3, hook credibility.** For each P0 and P1 page, the hook must not appear in three or more of the top ten ranking results. If it does, it is table stakes and the page needs a real hook before drafting.
+**Eval 3, hook credibility.** For each P0 and P1 page, the hook must not appear in three or more of the top ten ranking results, or in the sources the AI answers cite for the same query. If it does, it is table stakes and the page needs a real hook before drafting.
 
 **Eval 4, link graph density.** No spoke has fewer than two incoming links from siblings or the pillar. The pillar links to every spoke. Orphan spokes do not accumulate authority and rarely rank.
 
@@ -370,7 +375,7 @@ Pick the spoke with the strongest hook. Write the brief by hand, no model. Inclu
 
 **Cluster cannibalisation.** Two spokes serving the same intent with different long-tail queries will compete in the SERP and dilute each other. The clustering step should detect this. Sibling spokes with 70% or more intent overlap get merged into one page with section anchors.
 
-**Helpful Content Update vulnerability.** Pages built primarily from generated content with no first-party data, expert input or original reporting are at material risk in the next algo cycle. The differentiation-hooks phase exists to gate against this. If a spoke cannot articulate why it deserves to be indexed beyond what is already in the SERP, it does not ship.
+**Core update vulnerability.** Pages built primarily from generated content with no first-party data, expert input or original reporting are at material risk in the next core update. The differentiation-hooks phase exists to gate against this. If a spoke cannot articulate why it deserves to be indexed beyond what is already in the SERP, it does not ship.
 
 **Pillar-spoke length mismatch.** Pillars work when they are meaningfully more comprehensive than spokes. Plan the pillar at 3,000 to 5,000 words and spokes at 800 to 1,500. If those numbers are flipped, the pillar is misnamed.
 
@@ -382,12 +387,11 @@ Illustrative scenarios that show common shapes a cluster build takes. Specifics 
 
 **D2C, scale-stage, the niche claim.** A brand trying to claim a niche category. The pipeline runs on a moderate-volume seed and surfaces a coherent cluster. Differentiation hooks come from the brand's own customer-survey data, something competitors do not have. The cluster ships in a couple of months and drives a substantial fraction of new-customer organic acquisition within two quarters. Original data per page is the unlock.
 
-**Publishing, the Helpful-Content-Update failure.** A common failure mode is a brand executing a strong cluster with a heavy LLM-drafting workflow that does not include original data or expert review. Pages rank initially, then drop in the next Helpful Content Update. This is why the pipeline hard-flags any spoke whose hook depends on synthesis alone with no first-party input.
+**Publishing, the core-update failure.** A common failure mode is a brand executing a strong cluster with a heavy LLM-drafting workflow that does not include original data or expert review. Pages rank initially, then drop in the next core update. This is why the pipeline hard-flags any spoke whose hook depends on synthesis alone with no first-party input.
 
 ## Hand-off
 
 The cluster artefacts feed:
 - **eval-gated-drafting**, the briefs feed the drafting pipeline page by page
-- **training-content-engine** if the cluster overlaps with the brand's training content programme
 - **seo-cluster-generator** itself, re-run quarterly on the orphans list to find the next cluster
 - **earned-media-pitch-generator**, original-data hooks often become pitchable story angles

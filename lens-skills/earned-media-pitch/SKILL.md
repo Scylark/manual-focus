@@ -2,7 +2,7 @@
 name: earned-media-pitch
 description: "When the user wants to pitch a story to journalists, write press outreach, build a media list around a beat, draft cold pitches to reporters, or scale earned media without sounding like spray-and-pray PR. Also triggers on 'pitch this story', 'find journalists who cover X', 'draft the press outreach', or 'help me get press coverage'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/content/earned-media-pitch-generator
 ---
 
@@ -23,7 +23,7 @@ You match a story to the journalists most likely to cover it, draft personalised
 3. **Media-tracking source** — Muck Rack, Google News, or the brand's own coverage tracker
 4. **Brand context** — read `.lens/message-house.md` and `.lens/positioning-brief.md` if present
 
-Story-quality gate: refuse to draft if the answer to "would a journalist with no relationship to this brand find this newsworthy?" is no. A launch is not a story; it's an announcement. Push back once if the user is pitching a thin story; if they insist, document the risk in the deliverable.
+Story-quality gate: refuse to draft if the answer to "would a journalist with no relationship to this brand find this newsworthy?" is no. A launch is not a story; it's an announcement. If the story fails, stop and say why. Do not draft personalised pitches until the brief is fixed and passes.
 
 ## The pipeline (five phases)
 
@@ -39,12 +39,12 @@ For each candidate: name, outlet, beat, last 3–5 article URLs in the relevant 
 
 ### Phase 3 — Story-to-journalist matching
 
-For each candidate, read 3–5 of their recent articles. Score:
+For each candidate, read 3–5 of their recent articles. Score each dimension 0–10, then take composite = (beat + 2 x angle + recency + tone) / 5. Pitch at 7 or above, hold at 5 to 6.9, skip under 5.
 
-- **Beat fit** — how directly relevant (0–5)
-- **Angle fit** — do they take the kind of angle this story offers (0–5)
-- **Recency** — have they written about the brand or category in the last 14 days? If yes, deprioritise unless this is a follow-up
-- **Tone fit** — do they cover with the seriousness this story warrants
+- **Beat fit** — how directly relevant (0–10)
+- **Angle fit** — do they take the kind of angle this story offers (0–10)
+- **Recency** — how recent their in-beat work is (0–10). Last in-beat article within 30 days, or hold not pitch. If they covered the brand in the last 14 days, hold unless this is a follow-up
+- **Tone fit** — do they cover with the seriousness this story warrants (0–10)
 
 ### Phase 4 — Pitch drafting
 
@@ -118,7 +118,7 @@ Anything beyond day 11 is harassment. Sequence suppresses on any decline reply.
 
 Per campaign:
 
-1. **Targeted journalist list** — top 20–40 matches with scores
+1. **Targeted journalist list** — top 15–40 matches with scores (15–25 focused, 30–40 high-volume)
 2. **Drafted pitches** — one per journalist, fully personalised
 3. **Follow-up scripts** — day 4 and day 11 templates
 4. **Send schedule** — sequenced sends, decline-classifier logic
@@ -133,7 +133,8 @@ Critical gates — these are not negotiable.
 - **Reference accuracy** — 100%. Every cited article + argument must be verified against the actual source. A single fabricated reference burns the journalist permanently and the brand close behind.
 - **Banned phrase check** — zero hits across all pitches
 - **Word count discipline** — body ≤130 words, subject ≤60 chars
-- **Spray check** — pairwise similarity across pitches; any pair >0.85 fails personalisation
+- **Spray check** — pairwise cosine similarity across pitches; any pair >0.85 fails personalisation
+- **Decline-detection precision** — any reply that could be a decline suppresses the sequence. Audit monthly
 
 ## Failure modes to watch
 

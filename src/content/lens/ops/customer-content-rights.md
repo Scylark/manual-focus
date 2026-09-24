@@ -7,8 +7,9 @@ readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "organic-social", "lifecycle"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-07-30
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -50,7 +51,7 @@ Four channels, each with its own ask.
 
 **Step 1.1, the Instagram DM flow for brand-hashtag posts.**
 
-In Instagram, monitor your brand hashtag and @-mentions. When a customer posts a strong piece of content tagging the brand, the operator (or a Zapier automation) sends a DM within 48 hours.
+In Instagram, monitor your brand hashtag and @-mentions. When a customer posts a strong piece of content tagging the brand, the operator sends a DM within 48 hours. Check your platform's messaging rules before automating first-contact DMs; sending them by hand is the safe default.
 
 The DM template (paste into the operator's Slack channel as a snippet):
 
@@ -68,6 +69,9 @@ Reply with 'yes share' if that works. Reply 'yes plus AI variants'
 if you're also okay with us using the photo as a base for our
 environmental b-roll work (no changes to you, just the
 background). Reply 'no thanks' and we'll keep it as is.
+
+You can change your mind any time. Reply 'remove' and we'll
+take it down.
 
 Either way, congrats on the {EVENT}.
 ```
@@ -182,7 +186,7 @@ Return JSON:
   "paid_use_granted": <true | false>,
   "ai_augmentation_granted": <true | false>,
   "consent_window_months": <int>,
-  "attribution_format": "<@handle | first_name_last_initial | full_name>",
+  "attribution_format": "<@handle | @handle_first_name | first_name_only | first_name_last_initial | full_name | full_name_handle | none>",
   "ambiguity_flags": ["<anything the operator should double-check>"]
 }
 
@@ -229,7 +233,16 @@ is not a new piece of content with new attribution.
 Rule 4, the original consent scope still applies. If the
 customer granted Instagram only, the augmented variant runs
 on Instagram only.
+
+Rule 5, label the edit. Every augmented variant carries a
+visible "AI-edited background" label and keeps its provenance
+data (C2PA or the platform's AI label) where the platform
+supports it. Never change weather or terrain in a way that
+implies the product performed in conditions it was not shown
+in.
 ```
+
+Rule 5 is where regulation now bites. For EU audiences, Article 50 of the EU AI Act requires deployers to disclose AI-generated or manipulated images that resemble real people or places and could pass as authentic, from 2 August 2026, and the ASA's June 2026 guidance expects UK ads to disclose AI use where leaving it out would mislead. Check how both apply to your campaigns with your legal adviser.
 
 **Step 3.2, the no-AI default for older consents.**
 
@@ -296,13 +309,14 @@ Return JSON:
     "within_window": <true | false>
   },
   "reason_if_stop": "<one sentence>",
-  "remediation": "<refresh consent | downgrade to organic | change attribution | use as-is, no augmentation>"
+  "remediation": "<none | refresh consent | downgrade to organic | change attribution | use as-is, no augmentation>"
 }
 
 Rules:
 - "stop" if any scope_match field is false.
 - "stop" if consent is within 60 days of expiry (flag for refresh).
 - Remediation is concrete, not abstract.
+- Remediation is "none" when the verdict is go.
 ```
 
 You should now have a publish-time gate that catches scope violations before they happen.
@@ -351,7 +365,7 @@ Cascadia Endurance, scale-stage. Beth Lyons (brand and content lead) runs the co
 - CC-2026-0006, Lila Okafor, Storm Shell crash story from the crash-replacement programme. Granted Instagram, email, site and blog. The consented story becomes the strongest social proof of the quarter, out-engaging the brand's hero campaign 3x.
 - CC-2026-0008, Jordan Pierce, brand-hashtag post. DM sent, no reply after 14 days. Asset stays in the library tagged "do not use" and never ships.
 
-**Phase 3.** AI augmentation policy posted in operations Notion. The Vahla Storm Shell hero campaign uses two augmented variants of CC-2026-0001 (with Beth's explicit grant) for terrain-variant social ads.
+**Phase 3.** AI augmentation policy posted in operations Notion. The Vahla Storm Shell hero campaign uses two augmented variants of CC-2026-0003, whose ambassador grant covers paid use and AI, for terrain-variant social ads, each labelled under Rule 5. CC-2026-0001 stays as shot, because Beth Allen granted Instagram and email only.
 
 **Phase 4.** Publish-time prompt catches a near-miss. Saoirse plans to use CC-2026-0002 (Mark Tyler's gear review) in a paid Meta ad. The prompt stops the ship: `paid_use_granted` is false. Saoirse swaps to CC-2026-0003 (Saoirse's own ambassador content with paid grant) and the campaign ships clean.
 

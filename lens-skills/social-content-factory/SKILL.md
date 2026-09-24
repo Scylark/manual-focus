@@ -2,7 +2,7 @@
 name: social-content-factory
 description: "When the user wants to produce channel-native social content, generate week-of-content from a single story brief, stop cross-posting blog excerpts, or draft LinkedIn / TikTok / Twitter / Instagram posts that work on each platform. Also triggers on 'social content for the week', 'channel-native LinkedIn post', 'we keep cross-posting and it doesn't work', or 'turn this story into social'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/content/social-content-factory
 ---
 
@@ -44,12 +44,14 @@ LinkedIn-specific rules:
 - Closing line is a single thought, not a question.
 - ≤ 3 hashtags, bottom block.
 - No "Hot take:" "Unpopular opinion:" — inheritance from X / Twitter.
+- No exclamation marks. No em dashes. No semicolons in prose.
 
 USER:
 Brand: {BRAND_CONTEXT}
 Story: {STORY_BRIEF}
 Proof: {PROOF_POINT}
 Spokesperson (whose voice): {SPOKESPERSON}
+Voice profile: {VOICE_PROFILE_SHORT}
 Length: 100–200 words.
 
 Draft. Return JSON:
@@ -72,7 +74,7 @@ Draft. Return JSON:
 ```text
 USER:
 Length: 30–90 seconds spoken (~75–225 words).
-Format: hook + setup + proof + payoff + CTA.
+Format: hook + setup + proof + payoff. No follow CTA.
 Hook: first 3 seconds. Specific, not teased.
 Caption track: large, readable, key beats only.
 B-roll: name 2–3 cuts that pair with the script.
@@ -83,7 +85,6 @@ Return JSON:
   "setup": "<sentences in spoken form>",
   "proof": "<sentences>",
   "payoff": "<sentences>",
-  "cta": "<single ask>",
   "broll_cuts": ["...", "...", "..."],
   "caption_track": ["<keywords by beat>"],
   "total_estimated_seconds": <number>
@@ -96,7 +97,7 @@ Return JSON:
 USER:
 Length: 5–9 tweets. Tweet 1 ≤ 240 chars (room for retweet attribution).
 Tweet 1: the entire argument in one tweet. The rest is evidence.
-Final tweet: a one-line synthesis + a single ask (no calls to follow).
+Final tweet: a one-line synthesis. Not a question, not a CTA.
 
 Return JSON:
 {
@@ -117,12 +118,14 @@ Return JSON:
 USER:
 Caption ≤ 200 words. First line ≤ 125 chars (before "more" cut).
 One specific image brief; do not produce carousels by default.
+Maximum 5 hashtags in total across caption and first comment
+(Instagram's hard cap since December 2025).
 
 Return JSON:
 {
   "first_line": "<≤ 125 chars, hook>",
   "caption_body": "<rest>",
-  "hashtags_first_comment": ["...", "..."],  // up to 5
+  "hashtags_first_comment": ["...", "..."],  // counts toward the 5 in total
   "image_brief": "<single image description>",
   "alt_text": "<for accessibility>"
 }

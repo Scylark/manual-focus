@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["analytics", "content", "brand"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-04-15
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -143,7 +144,7 @@ Available pipelines:
 - attribution-teardown
 - channel-mix-simulator
 - paid-search-bidding-agent
-- seo-keyword-research
+- seo-cluster-generator
 - (full list pasted from library index)
 
 Return JSON:
@@ -254,8 +255,8 @@ For each pipeline route, return JSON:
   "briefs_completed": <int>,
   "briefs_hit_target": <int>,
   "hit_rate": <float, 0 to 1>,
-  "median_cycle_time_days": <int>,
-  "verdict": "<keep | retire | needs-more-data>",
+  "median_cycle_time_days": <number, one decimal>,
+  "verdict": "<keep | iterate | retire | needs-more-data>",
   "rationale": "<one sentence>"
 }
 
@@ -264,11 +265,13 @@ Rules:
   under 0.3.
 - "keep" requires at least 4 completed briefs and a hit rate
   over 0.5.
-- "needs-more-data" otherwise.
+- "iterate" requires at least 4 completed briefs and a hit rate
+  from 0.3 to 0.5.
+- "needs-more-data" for fewer than 4 completed briefs.
 - Briefs without a logged metric do not count toward hit rate.
 ```
 
-The review produces the input to next quarter's planning. Pipelines marked *retire* feed into the retire list. The quarterly-planning-ritual playbook picks it up from there.
+The review produces the input to next quarter's planning. Pipelines marked *retire* feed into the retire list, and pipelines marked *iterate* get a named change before they are briefed again. The quarterly-planning-ritual playbook picks it up from there.
 
 ## Worked example, end-to-end
 
@@ -316,7 +319,7 @@ Pick a brief currently in your team's queue that is missing fields. Use the reje
 
 ### Exercise 3, run the triage prompt on five recent briefs
 
-Pull the last five accepted briefs. Paste each into the Step 2.2 prompt. Compare the model's routing to what the team actually did. Where the model picks a different route, the model is usually right (it has read the full Lens library and the team probably has not). Where the model says *no clean fit*, the brief is either ahead of the library or fuzzy.
+Pull the last five accepted briefs. Paste each into the Step 2.2 prompt. Compare the model's routing to what the team actually did. Where the model picks a different route, read its reason against the playbook itself. The model only sees the pipeline names you paste, not the playbooks behind them. Where the model says *no clean fit*, the brief is either ahead of the library or fuzzy.
 
 ## The eval gates
 
@@ -366,7 +369,7 @@ specific marketing function's workflow. The CSV captures every
 brief from intake through outcome logging.
 
 USER:
-My project tool: {NOTION | LINEAR | ASANA | COD A | AIRTABLE}
+My project tool: {NOTION | LINEAR | ASANA | CODA | AIRTABLE}
 My status states: {LIST_THE_STATUSES}
 Extra fields I need: {LIST_EXTRA_FIELDS}
 My pipeline routes: {LIST_THE_LENS_PIPELINES_YOU_USE}

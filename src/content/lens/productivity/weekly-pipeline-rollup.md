@@ -7,8 +7,9 @@ readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["crm", "docs", "inbox"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-09-03
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -92,7 +93,7 @@ The export should include, for every open deal:
 - `last_activity_type`
 - `lost_reason` (if closed-lost)
 
-Plus closed-won deals from the last 7 days. Save the export as `crm-export-{date}.csv`.
+Plus every closed-won deal this quarter, so closed-won to date comes from the same export. Save the export as `crm-export-{date}.csv`.
 
 **Step 2.2, the extraction prompt.**
 
@@ -106,8 +107,14 @@ USER:
 CRM export (CSV format):
 {PASTE_EXPORT}
 
+As-of date and quarter end date:
+{AS_OF_DATE}, {QUARTER_END_DATE}
+
 Last rollup timestamp:
 {LAST_ROLLUP_TIMESTAMP}
+
+Last week's extraction JSON (optional, for weekly_net_movement):
+{PASTE_LAST_EXTRACTION}
 
 Quarter targets (commit, best case, current pacing):
 {PASTE_TARGETS}
@@ -125,7 +132,7 @@ Return JSON:
     "deals_stalled": <int>,
     "deals_closed_won_this_week": <int>,
     "deals_closed_lost_this_week": <int>,
-    "weekly_net_movement": <number, signed>
+    "weekly_net_movement": <number, signed, open_pipeline_value now minus last week's, or null>
   },
   "pacing": {
     "quarter_target": <number>,
@@ -151,13 +158,20 @@ Return JSON:
   ],
   "top_5_at_risk": [
     {"deal": "<name>", "stage": "<x>", "amount": <number>, "risk_signal": "<one sentence>"}
-  ]
+  ],
+  "data_quality": ["<one line per excluded or ambiguous row>"]
 }
 
 Rules:
 - "stalled" is days_idle >= 14 AND stage is not closed.
 - "advanced" only if stage_changed_at > last_rollup_timestamp.
-- "new" only if created_at > last_rollup_timestamp.
+- "new" only if created_at > last_rollup_timestamp. A deal created
+  since the last rollup goes in "new" only, not also in "advanced".
+- days_idle and weeks_remaining_in_quarter count from the as-of date.
+- weekly_net_movement is null if last week's extraction is not
+  supplied.
+- Leave out rows that are not customer deals (supplier renewals,
+  internal projects) and name them in data_quality.
 - "top_5_at_risk" combines deals stalled at high-value stages,
   deals slipping close dates, and deals whose owners have not
   logged activity in 21+ days.
@@ -287,9 +301,13 @@ Return JSON:
 
 Rules:
 - Slack header includes a single emoji indicator (📈, 📊, or 📉)
-  based on weekly_net_movement.
+  based on weekly_net_movement, or on pacing_percentage when
+  movement is null.
 - Email subject is searchable, includes percent of target.
-- Notion tags include a pacing band ("on-pace", "behind", "ahead").
+- Notion tags include a pacing band. Compare pacing_percentage
+  with the share of the quarter elapsed. "ahead" if it is 5 or more
+  points higher, "behind" if 5 or more points lower, otherwise
+  "on-pace".
 ```
 
 ### Phase 5, the delivery
@@ -306,9 +324,9 @@ Every rollup gets archived to `.lens/rollups/{date}.md` with the underlying JSON
 
 ## Worked example, end-to-end
 
-Saoirse Burns runs the weekly pipeline rollup for Cascadia Endurance's wholesale and partnerships pipeline. Audience: Marcus Hale (founder) and Tanya Okafor (CFO). Length target: 350 words. Delivery: email Friday 16:30.
+Saoirse Burns runs the weekly pipeline rollup for Cascadia Endurance's wholesale and partnerships pipeline. Audience: Marcus Hale (founder) and Tanya Okafor (CFO). Length target: 225 words. Delivery: email Friday 16:30.
 
-**Phase 2 output, extraction.**
+**Phase 2 output, extraction (excerpt).**
 
 ```json
 {
@@ -320,25 +338,32 @@ Saoirse Burns runs the weekly pipeline rollup for Cascadia Endurance's wholesale
     "deals_stalled": 5,
     "deals_closed_won_this_week": 2,
     "deals_closed_lost_this_week": 1,
-    "weekly_net_movement": 71000
+    "weekly_net_movement": 34000
   },
   "pacing": {
     "quarter_target": 380000,
     "closed_won_quarter_to_date": 268000,
     "pacing_percentage": 70.5,
     "gap_to_target": -112000,
-    "weeks_remaining_in_quarter": 4
+    "weeks_remaining_in_quarter": 3
   },
   "advanced_deals": [
-    {"deal": "Aros Outdoors AW27 pre-book", "from_stage": "Discovery", "to_stage": "Negotiation", "amount": 48000, "owner": "Beth Lyons"},
-    {"deal": "Trail Club Manchester partnership", "from_stage": "Cold", "to_stage": "Discovery", "amount": 25000, "owner": "Saoirse Burns"}
+    {"deal": "Aros Outdoors AW27 pre-book", "from_stage": "Discovery", "to_stage": "Negotiation", "amount": 48000, "owner": "Beth Lyons"}
   ],
   "stalled_deals": [
     {"deal": "Foundry retainer renewal", "days_idle": 27, "amount": 36000, "owner": "Beth Lyons", "next_step_needed": "Beth to ping Tom Vetter with the renewal scope."},
     {"deal": "BMC sponsorship 2027", "days_idle": 21, "amount": 18000, "owner": "Saoirse Burns", "next_step_needed": "Awaiting BMC committee minutes from 4 September."}
   ],
+  "new_deals": [
+    {"deal": "Trail Club Manchester partnership", "amount": null, "owner": "Saoirse Burns", "source": "Partner intro, amount follows the 22 September scope"},
+    {"deal": "UTMB press list wholesale lead", "amount": 8000, "owner": "Beth Lyons", "source": "UTMB press list"}
+  ],
+  "closed_won": [
+    {"deal": "Kendal Trail Store re-order", "amount": 41000, "owner": "Beth Lyons"},
+    {"deal": "Peak Running Co re-order", "amount": 30000, "owner": "Beth Lyons"}
+  ],
   "top_5_at_risk": [
-    {"deal": "Lavaredo activation kit deal", "stage": "Proposal", "amount": 22000, "risk_signal": "Close date slipped twice, owner reports buyer is shopping competitors."}
+    {"deal": "Lavaredo activation kit deal", "stage": "Proposal", "amount": 22000, "risk_signal": "Close date slipped twice, owner reports buyer is shopping competitors. Beth has a call booked Monday."}
   ]
 }
 ```
@@ -346,21 +371,19 @@ Saoirse Burns runs the weekly pipeline rollup for Cascadia Endurance's wholesale
 **Phase 3 output, the rollup.**
 
 ```text
-# Pipeline rollup, week of 12 September
+# Pipeline rollup, week ending 11 September
 
 ## Quarter pacing
 Closed-won at £268k against the £380k quarter target, 71 percent
-of target with four weeks remaining. The gap is £112k, which is
-covered by the open pipeline at £482k if we close the typical
-40 percent of open deals in the quarter. Pacing is on track to
-hit target, slightly behind the best-case scenario.
+of target with three weeks remaining. The gap is £112k against
+£482k of open pipeline, so roughly one pound in four of open
+pipeline needs to close this quarter.
 
 ## What moved this week
 Aros Outdoors AW27 pre-book advanced from Discovery to Negotiation
-on the £48k deal, Beth is running the commercial. Trail Club
-Manchester moved from Cold to Discovery on a £25k partnership,
-Saoirse owns. Two closed-won this week, total £71k, both wholesale
-re-orders from existing accounts.
+on the £48k deal, Beth is running the commercial. Two closed-won
+this week, total £71k, both wholesale re-orders from existing
+accounts.
 
 ## What is at risk
 Lavaredo activation kit deal at £22k is at proposal stage and has
@@ -371,9 +394,10 @@ ping Tom Vetter with the renewal scope. BMC sponsorship 2027 at
 21 days idle pending their 4 September committee minutes.
 
 ## What is new
-Trail Club Manchester (£25k) opened as a new partnership
-opportunity. One smaller wholesale lead opened from the UTMB
-press list, £8k, Beth to qualify next week.
+Trail Club Manchester opened as a new partnership opportunity,
+with the amount to follow once Saoirse's scope lands on 22
+September. One smaller wholesale lead opened from the UTMB press
+list, £8k, Beth to qualify next week.
 
 ## The one ask
 Marcus, would you call Aros Outdoors directly on the AW27 deal

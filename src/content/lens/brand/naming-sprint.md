@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working day"
 brandStage: ["pre-launch", "launch", "growth"]
 channels: ["brand", "product-marketing"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-05-03
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -30,10 +31,10 @@ A pre-launch or growth-stage brand naming a new company, sub-brand, product line
 
 - [ ] A one-page brief covering category, audience, three named competitors, desired connotations, must-avoid connotations
 - [ ] A short voice profile (from brand-voice-extraction), used to constrain tone of candidates
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
-- [ ] A trademark API or manual search access to USPTO TESS, EUIPO eSearch+, and your local trademark office (UK IPO for endurance brands operating in Britain)
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
+- [ ] A trademark API or manual search access to USPTO Trademark Search (tmsearch.uspto.gov, which replaced TESS in November 2023), EUIPO eSearch+, and your local trademark office (UK IPO for endurance brands operating in Britain)
 - [ ] An hour blocked in three calendars for the forced-choice review session
-- [ ] Optional, a phonetic library (the `epitran` Python library does the job) for IPA verification
+- [ ] Optional, a phonetic library (the `epitran` Python library does the job, its English mode needs Flite's `lex_lookup` installed) for IPA verification
 
 You do not need a trademark attorney for the first-pass. You absolutely need one before final pick. Build that into the schedule.
 
@@ -177,7 +178,7 @@ The surviving candidates need to land in clear category space, not adjacent to c
 
 **Step 4.1, run the distinctiveness prompt.**
 
-This pass works best with a model that exposes embeddings (GPT-5 or Claude Opus with the embeddings API). If you do not have embedding access, the prompt below approximates the calculation through semantic comparison instead.
+This pass works best with a model that exposes embeddings (an embeddings API from OpenAI, Voyage or Cohere alongside your drafting model). If you do not have embedding access, the prompt below approximates the calculation through semantic comparison instead.
 
 ```text
 SYSTEM: You score brand name candidates on category distinctiveness.
@@ -226,7 +227,7 @@ For trail-running apparel, that is typically classes 25 (clothing), 18 (bags), 2
 
 **Step 5.2, run the trademark search.**
 
-If you have API access, batch the surviving candidates through USPTO TESS, EUIPO eSearch+ and your local office. If you do not have API access, the manual route is to query each name in each office's web interface. Faster to script, but workable manually for 60 to 80 candidates.
+If you have API access, batch the surviving candidates through USPTO Trademark Search, EUIPO eSearch+ and your local office. If you do not have API access, the manual route is to query each name in each office's web interface. Faster to script, but workable manually for 60 to 80 candidates.
 
 The pattern is to search each name plus a fuzzy variant (one letter different) in each relevant class. Record exact and near matches.
 
@@ -318,7 +319,7 @@ Cascadia Endurance, the UK trail-running apparel brand. Naming a new sub-brand f
 | Lumora | invented-compound | "lumen" + "mora" (delay) | /luˈmoː.rə/ | 3 |
 | Korrik | modified-real-word | "rock" modified | /ˈkɒ.rɪk/ | 2 |
 
-**Pass 3 output.** Phonetic screening blocks 41 candidates, flags 32, passes 224. The blocks include `Brakke` (consonant cluster awkward in English), `Senka` (offensive in Russian), `Niche` (real English word, missed by Pass 2's filter).
+**Pass 3 output.** Phonetic screening blocks 41 candidates, flags 32, passes 224. The blocks include `Niche` (real English word, missed by Pass 2's filter) and candidates that embed a registered brand name. `Brakke` is flagged rather than blocked, the consonant cluster is awkward in English but carries no offensive meaning.
 
 **Pass 4 output.** Distinctiveness scoring drops 78 too-close candidates (mostly competitor-adjacent shapes). 146 candidates survive.
 
@@ -352,9 +353,9 @@ Pick four names from any naming exercise you have already run. Write a 60-to-90-
 
 ## The eval gates
 
-**Eval 1, generation diversity.** Six strategies, 300 candidates. Vocabulary diversity score (unique 3-grams over total 3-grams) above 0.75. Below that, the model is repeating itself, bump temperature, switch model, rotate seed.
+**Eval 1, generation diversity.** Six strategies, 300 candidates. Character-trigram diversity (unique 3-grams over total 3-grams) above 0.75, computed per 50-name batch rather than across the whole list, because the ratio falls as the list grows. In our September 2026 retest one batch of 50 scored 0.78 and the same names plus 50 more scored 0.71 with no extra repetition. Below 0.75 in a single batch, the model is repeating itself, bump temperature, switch model, rotate seed.
 
-**Eval 2, phonetic accuracy.** Sample 20 candidates and verify the IPA against a reference (the `epitran` library does the job, or a phonetician on retainer). Accuracy target 90%. Below 85% means the model is hallucinating phonetics, fall back to a dedicated phonetic library.
+**Eval 2, phonetic accuracy.** Sample 20 candidates and verify the IPA against a reference (the `epitran` library, whose English mode needs Flite's `lex_lookup` installed, or a phonetician on retainer). Accuracy target 90%. Below 85% means the model is hallucinating phonetics, fall back to a dedicated phonetic library.
 
 **Eval 3, trademark recall.** Salt the candidate list with five names known to be registered. Pass 5 should catch all five. Catching four of five is acceptable. Three of five means the API integration is dropping classes, check the class mapping in the request.
 
@@ -364,7 +365,7 @@ Pick four names from any naming exercise you have already run. Write a 60-to-90-
 
 **The model under-produces.** Some models stop at 30 candidates even when asked for 50, especially on long-running batches. Watch the count. If short, regenerate with explicit numbering ("Candidate 1 of 50, ...").
 
-**The trademark first-pass gives false comfort.** Hitting USPTO TESS for exact matches catches the obvious problems. It does not catch (a) common-law marks, (b) confusingly-similar marks (the attorney's domain), or (c) brands that exist outside trademark systems. The output explicitly labels this as first-pass. Anyone shipping a name without a trademark attorney is shipping legal risk.
+**The trademark first-pass gives false comfort.** Hitting USPTO Trademark Search for exact matches catches the obvious problems. It does not catch (a) common-law marks, (b) confusingly-similar marks (the attorney's domain), or (c) brands that exist outside trademark systems. The output explicitly labels this as first-pass. Anyone shipping a name without a trademark attorney is shipping legal risk.
 
 **Cultural sanity needs native speakers.** The 12-language reference check catches the well-known bombs. It does not catch subtle connotations. If the brand will operate in a market, get a native speaker on the candidate before final pick. The pipeline flags candidates with high cultural-risk scores so legal and strategy know where to spend the budget.
 

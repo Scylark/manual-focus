@@ -15,7 +15,7 @@ Meetings,4,Prep_Status,ready,Background note attached in CRM
 Inbox,1,Sender,Marcus Hale,Founder
 Inbox,1,Subject,Vahla launch budget question,Reply before 11:00
 Inbox,1,Urgency,high,Finance meeting at 11:00
-Inbox,2,Sender,UTMB press desk,Accreditation
+Inbox,2,Sender,Kentmere Trail Weekend press desk,Accreditation
 Inbox,2,Subject,Accreditation deadline Thursday,Form attached
 Inbox,2,Urgency,high,Hard deadline
 Inbox,3,Sender,Aros Outdoors wholesale,Standard template
@@ -25,7 +25,7 @@ Inbox,4,Sender,Foundry agency,Awaiting sign-off
 Inbox,4,Subject,Storm Shell asset list,Linked to 14:00 meeting
 Inbox,4,Urgency,medium,Today action
 Inbox,5,Sender,Trail Club James Whitaker,Intro thread
-Inbox,5,Subject,Intro for tomorrow's 16:30,Low urgency
+Inbox,5,Subject,Intro for today's 16:30,Low urgency
 Inbox,5,Urgency,low,Acknowledge only
 Slack,1,Channel,#marketing-launches,Beth tagged Friday
 Slack,1,Topic,Vahla press list,Approve or amend
@@ -48,6 +48,6 @@ Pipeline,2,Type,Advanced,Two wholesale deals,Into negotiation
 Pipeline,2,Detail,Aros Outdoors and Trail Co,Beth owns
 Pipeline,3,Type,Stalled,Foundry retainer renewal,27 days idle
 Pipeline,3,Detail,Next step required,Beth has the action
-Tomorrow,1,Time,07:30,Tomorrow
-Tomorrow,1,Item,Flight to Chamonix for UTMB pre-event,Boarding pass attached
-Tomorrow,1,Prep_Today,yes,Pack tonight
+Tomorrow,1,Time,08:00,Tomorrow
+Tomorrow,1,Item,Vahla launch budget review with Marcus,Storm Shell line items
+Tomorrow,1,Prep_Today,yes,Pull the line items today

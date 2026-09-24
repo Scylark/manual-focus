@@ -114,7 +114,7 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
             </div>
           )}
           <div class="playbook-meta-block">
-            <span class="meta-label mono">MODELS</span>
+            <span class="meta-label mono">TESTED ON</span>
             <span class="meta-value">{d.models.join(', ')}</span>
           </div>
           <div class="playbook-meta-block">
@@ -179,7 +179,7 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
         <div class="playbook-foot-grid">
           <div class="playbook-foot-copy">
             <div class="eyebrow">THE LENS</div>
-            <h2>Forty-six playbooks like this one.</h2>
+            <h2>Forty-five playbooks like this one.</h2>
             <p>Pull this workflow today, or keep moving through the stack.</p>
             {!nextIsSelf && (
               <a href={url(`/lens/${nextEntry.data.stack}/${nextSlug}`)} class="playbook-next">
@@ -190,7 +190,7 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
             )}
             <div class="playbook-foot-ctas">
               <a href={url(`/lens/${d.stack}`)} class="btn-ghost">More {stackName}</a>
-              <a href={url('/lens')} class="btn-cta">Subscribe to the Lens</a>
+              <a href={url('/lens#subscribe')} class="btn-cta">Subscribe to The Lens</a>
             </div>
           </div>
         </div>

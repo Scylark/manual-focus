@@ -7,8 +7,9 @@ readMin: 13
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["meetings", "calendar", "crm", "inbox"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-08-21
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -17,7 +18,7 @@ preview: false
 
 By the end of this playbook you will have shipped four artefacts.
 
-1. A **context pack template** that lands in your calendar event as a Google Doc, Notion page or email body 30 minutes before the meeting starts. One page, scannable in three minutes.
+1. A **context pack template** that lands as a private Google Doc, Notion page or email to you 30 minutes before the meeting starts. One page, scannable in three minutes.
 2. An **attendee enrichment prompt** that pulls LinkedIn, recent press, mutual connections and prior interactions for every external attendee.
 3. A **history aggregation prompt** that surfaces the last three exchanges (email, Slack, CRM activity, prior meeting notes) with each attendee.
 4. An **agenda draft** the operator can edit in 90 seconds and circulate before the meeting starts.
@@ -32,10 +33,10 @@ If your meetings are all internal recurring stand-ups, the pipeline is overkill.
 
 - [ ] Calendar connector (Google Calendar or Outlook) with read access to today and tomorrow
 - [ ] CRM read access (HubSpot, Salesforce, Close, Attio)
-- [ ] LinkedIn access (the official MCP, a research-tool MCP, or manual paste)
+- [ ] LinkedIn profile text (manual paste, or a research tool you're licensed to use; LinkedIn publishes no official MCP server, so check LinkedIn's terms before automating)
 - [ ] Inbox connector with read access to threads with the attendees in the last 90 days
 - [ ] Notes tool with API or export (Granola, Fireflies, Notion, Obsidian)
-- [ ] A target delivery channel for the context pack (calendar event description, a daily Notion page, or email)
+- [ ] A target delivery channel for the context pack (a private Google Doc or Notion page, or an email to yourself)
 - [ ] 30 minutes blocked for the setup pass
 
 If you do not have a notes tool wired in, the pipeline still works, you just lose the "prior meeting notes" section. The other three sections (attendee bio, CRM history, recent emails) carry the load.
@@ -75,7 +76,7 @@ Attendee name: {ATTENDEE_NAME}
 Attendee email: {ATTENDEE_EMAIL}
 Attendee company: {ATTENDEE_COMPANY}
 
-LinkedIn profile (paste or MCP output):
+LinkedIn profile (paste or research-tool output):
 {PASTE_LINKEDIN}
 
 Recent press mentions (last 6 months):
@@ -244,6 +245,9 @@ Rules:
   minutes (buffer).
 - the_one_thing is sharp, not "be prepared". It is a specific
   fact, decision, or risk.
+- One agenda item or the open question covers decision authority:
+  who on their side can say yes, and by when.
+- Return JSON only.
 ```
 
 ### Phase 5, pack assembly and delivery
@@ -282,7 +286,7 @@ RELATED DEALS IF ANY}
 
 **Step 5.2, the delivery.**
 
-The pack lands as the description of the calendar event 30 minutes before start. Alternatively as a Google Doc linked in the event, or as a Notion page, or as an email body in the operator's inbox at the same time.
+The pack lands as a private Google Doc or Notion page, or as an email to you, 30 minutes before start. Only use the calendar event description when you are the only person on the event. Every attendee on a shared event can read it.
 
 For back-to-back meetings, the operator gets the pack three meetings ahead in a single morning email at 06:30 (which pairs with the daily-briefing-pipeline).
 
@@ -312,7 +316,7 @@ properly with" rather than badge-swap. Mutual connection through
 Beth Lyons (Beth worked with James at BMC in 2018-2019).
 
 ## What you have talked about
-- 2026-08-29, email. James reached out cold, asked for a 30-min
+- 2026-08-29, email. James reached out, asked for a 30-min
   intro. Beth Lyons cc'd as the warm intro reference.
 - 2026-09-01, email. You confirmed the meeting time, James
   attached the 2027 events calendar.
@@ -348,7 +352,7 @@ Three exercises, each under 30 minutes.
 
 ### Exercise 1, run the enrichment prompt on a real attendee
 
-Pick a real external attendee from a meeting in the next week. Paste their LinkedIn URL into the enrichment prompt (or run the LinkedIn MCP if you have one). Read the output. Compare to what you would have known walking in cold. The gap is the value.
+Pick a real external attendee from a meeting in the next week. Paste their LinkedIn URL into the enrichment prompt (or pull it through a research tool you're licensed to use). Read the output. Compare to what you would have known walking in cold. The gap is the value.
 
 ### Exercise 2, run the history aggregation on a known thread
 
@@ -372,13 +376,13 @@ Pick tomorrow's first external meeting. Run all five phases. Read the assembled 
 
 **The model invents a biography.** When LinkedIn is thin or missing, the model fills in plausible-sounding facts. The "no invented biography" rule and the `uncertain_facts` array make this visible. The operator's discipline is to read flagged facts skeptically.
 
-**The pack ignores power dynamics.** A pack that says "James has done 47 events with Trail Club" misses the question of whether James can sign the deal or has to escalate. Build the question of decision authority into the agenda prompt.
+**The pack ignores power dynamics.** A pack that says "James has done 47 events with Trail Club" misses the question of whether James can sign the deal or has to escalate. The agenda prompt's decision-authority rule is the guardrail. Hold it.
 
 **Internal attendees get over-enriched.** A pack with a one-paragraph bio for the operator's own CFO is noise. Internal attendees should be one line, role only.
 
 **Old interactions feel current.** The history aggregation pulls 90 days. An interaction from week 11 is old enough that the relationship may have shifted. The pack should date every interaction so the operator can see what is recent.
 
-**Privacy by accident.** The pack contains attendee names, deal stages, and sometimes salary or compensation signals. Default delivery is the operator's own calendar event description, never a shared invite description.
+**Privacy by accident.** The pack contains attendee names, deal stages, and sometimes salary or compensation signals. Default delivery is a private doc or an email to yourself. A calendar description is only safe on an event no one else is invited to.
 
 ## The pattern in practice
 

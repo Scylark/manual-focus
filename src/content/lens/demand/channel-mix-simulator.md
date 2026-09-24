@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "2 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["paid-search", "paid-social", "seo", "analytics"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-04-05
+updatedAt: 2026-09-24
 status: live
 preview: true
 ---
@@ -35,7 +36,7 @@ A growth or scale-stage brand running three or more paid channels plus at least 
 - [ ] Weekly sessions and conversions from your email platform (Klaviyo, HubSpot, Iterable) tied to UTM-tagged sends
 - [ ] Margin and contribution data per channel if you want margin-weighted output (optional, but useful)
 - [ ] Python with scipy installed, or Google Sheets with the SOLVER add-on, for the curve fitting
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode for the recommendation rationale
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode for the recommendation rationale
 - [ ] One hour of the CFO's time, booked, before the simulator runs
 
 If three or more channels are missing data for the full twelve months, fit on what you have and explicitly flag the channels with sparse data as "extrapolation territory" in the output.
@@ -58,9 +59,9 @@ The exports you need:
 
 1. **Google Ads.** Reports, then Predefined reports, then Time, then Weekly. Choose campaign group, spend and conversions. Set the date range to the last 53 weeks. Export CSV.
 2. **Meta Ads Manager.** Set the date range to the last 53 weeks. Reports, then Export table data, with breakdown by week. Pick spend and conversion events.
-3. **GSC.** Performance, then Search results, dimension Date with weekly grouping. Export CSV for clicks and conversions (if you have GSC conversions linked from GA4).
+3. **GSC.** Performance, then Search results, dimension Date. Export CSV for clicks and sum to weeks. GSC does not report conversions, so take organic conversions from GA4 (step 5).
 4. **Klaviyo or HubSpot.** Find the campaign performance report by audience segment, with weekly aggregation. Export.
-5. **GA4.** Reports, then Acquisition, then User acquisition, with primary dimension Default channel group, secondary dimension Week of year, and conversions as the metric.
+5. **GA4.** Reports, then Acquisition, then User acquisition, with primary dimension Default channel group, secondary dimension Week of year, and key events (GA4's current name for conversions) as the metric.
 
 Paste each channel's weekly data into the right rows of the template. The shape stays one row per channel per week.
 
@@ -99,7 +100,36 @@ Hill functions are the standard fit for diminishing-return curves in performance
 
 **Step 2.1, run the curve-fit code.**
 
-The Python snippet uses scipy.optimize.curve_fit. The Hill function shape is `output = max_output * (spend^n) / (k^n + spend^n)`, where k is the half-saturation point and n is the steepness. Defaults for n start at 1.5 and the fit refines from there.
+The snippet below uses scipy.optimize.curve_fit. The Hill function shape is `output = max_output * (spend^n) / (k^n + spend^n)`, where k is the half-saturation point and n is the steepness. Defaults for n start at 1.5 and the fit refines from there. It reads the Phase 1 template, excludes weeks more than 2.5 standard deviations from the mean (see the Black Friday failure mode), and prints the three parameters, R-squared and the current operating point per channel.
+
+```python
+import csv
+from collections import defaultdict
+import numpy as np
+from scipy.optimize import curve_fit
+
+def hill(spend, max_output, k, n):
+    return max_output * spend**n / (k**n + spend**n)
+
+rows = defaultdict(list)
+with open("channel-mix-allocation.csv") as f:
+    for r in csv.DictReader(f):
+        if r["Spend_GBP"] and r["Conversions"]:
+            rows[r["Channel"]].append((float(r["Spend_GBP"]), float(r["Conversions"])))
+
+for channel, pts in rows.items():
+    spend, conv = map(np.array, zip(*pts))
+    keep = np.abs(conv - conv.mean()) <= 2.5 * conv.std()   # flag outlier weeks
+    (m, k, n), _ = curve_fit(hill, spend[keep], conv[keep],
+                             p0=[conv.max() * 1.5, np.median(spend), 1.5],
+                             bounds=([0, 1, 0.3], [1e6, 1e7, 5]), maxfev=20000)
+    pred = hill(spend[keep], m, k, n)
+    r2 = 1 - ((conv[keep] - pred)**2).sum() / ((conv[keep] - conv[keep].mean())**2).sum()
+    print(f"{channel}: max_output={m:.0f} k={k:.0f} n={n:.2f} R2={r2:.2f} "
+          f"current={np.median(spend[-8:]):.0f} outliers={int((~keep).sum())}")
+```
+
+If k runs to the upper bound, the channel has never been spent into its ceiling. Treat it as "headroom unknown" rather than as a real half-saturation point.
 
 In Sheets, the same fit runs with SOLVER. Set up the curve as a formula in a column, set the objective as minimise the sum-of-squared-residuals against your conversions column, let it solve for max_output, k and n.
 
@@ -121,7 +151,7 @@ Channels do not operate independently. Paid social drives branded search. Displa
 
 Default starter multipliers from MMM literature:
 
-- Paid social to branded search lift, 8 to 15% of paid social spend bleeds into branded search demand at lag 1 to 2 weeks
+- Paid social to branded search lift, paid social's attributed conversions are topped up by a further 8 to 15% arriving as branded-search conversions at lag 1 to 2 weeks
 - Display to direct, 5 to 10% of display spend creates direct traffic at lag 1 week
 - Paid social to email signup, 3 to 7% of paid social impressions yield email signups within 30 days
 - SEO to brand recall, lagged effect at 6 to 12 months, untracked at the weekly level
@@ -142,13 +172,15 @@ The standard twenty:
 
 | Scenario set | Count | Description |
 |---|---|---|
-| Anchored to current | 5 | Current, plus or minus 10% and 20% on the two biggest channels |
+| Anchored to current | 5 | Current, plus or minus 10% and 20% on the two biggest channels, budget-neutral (the money moves between those two channels) |
 | Stress tests | 10 | All-in on each channel one at a time, equal split, founder's gut split, kill smallest channel, double largest |
 | Pipeline-optimal | 5 | Max output, min CAC, max output with floors, max margin (if margin data), max output capped at current total spend |
 
 **Step 4.2, simulate each allocation.**
 
 For each scenario, apply the budget split to each channel's curve, compute the projected output, then apply the cross-channel multipliers. Repeat with both ends of the multiplier band to produce a confidence range.
+
+For the pipeline-optimal scenarios, use a constrained solver (scipy `minimize` with SLSQP, total spend as an equality constraint, floors as bounds) starting from the current allocation. Do not use a greedy allocator that starts from zero. Fitted curves with n above 1 are S-shaped, the first pounds into any channel look worthless, and a greedy search from zero can land below the current allocation.
 
 **Step 4.3, flag the fragile scenarios.**
 
@@ -234,7 +266,7 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, spending ar
 
 **Phase 3 output.** Default multipliers applied. Cascadia has no MMM, so both ends of the multiplier band run.
 
-**Phase 4 output.** Twenty scenarios simulated. The "best mathematical" scenario pulls £8k weekly from Paid social Meta and adds £4k to Paid search non-brand and £4k to SEO. Projected delta is plus 65 conversions per week at the central estimate, with a 90 percentile band of plus 30 to plus 110. The "best with strategic floors" scenario respects an SEO floor at the current spend and shifts £6k weekly from Paid social to Paid search non-brand. Projected delta plus 40, band plus 15 to plus 70. The "current plus or minus 15" scenario lifts Meta by 15% and tests whether the brand can find more headroom there before reallocating, projected delta plus 10, band minus 20 to plus 40.
+**Phase 4 output.** Twenty scenarios simulated. The "best mathematical" scenario pulls £8k weekly from Paid social Meta and adds £4k to Paid search non-brand and £4k to SEO. Projected delta is plus 65 conversions per week at the central estimate, with a 90 percentile band of plus 30 to plus 110. The "best with strategic floors" scenario keeps SEO at its current spend (above its 60% floor, by choice) and shifts £6k weekly from Paid social to Paid search non-brand. Projected delta plus 40, band plus 15 to plus 70. The "current plus or minus 15" scenario lifts Meta by 15% and tests whether the brand can find more headroom there before reallocating, projected delta plus 10, band minus 20 to plus 40.
 
 **Phase 5 output.** Three CFO briefings. Sample of the best mathematical briefing's first paragraph:
 
@@ -266,7 +298,7 @@ For your top scenario, identify the assumption that swings the output most. Vary
 
 **Eval 3, assumption sensitivity.** For each of the three recommended scenarios, vary each assumption by plus or minus 25% and re-run. If any single assumption swings the projected output by more than 20%, that assumption is fragile and gets flagged in the rationale.
 
-**Eval 4, recommendation realism.** The pipeline-suggested optimal allocation often wants to zero out small channels. A floor forces this, no channel can be cut below 60% of its 12-month average in a single quarter without explicit override. This saves the simulator from suggesting "kill SEO" allocations that ignore the multi-quarter lag.
+**Eval 4, recommendation realism.** The pipeline-suggested optimal allocation often wants to zero out small channels. A floor forces this, no channel can be cut below 60% of its 12-month average in a single quarter without explicit override. This saves the simulator from suggesting "kill SEO" allocations that ignore the multi-quarter lag. For lumpy channels (events, sponsorship) apply the floor to the quarterly total rather than to weekly spend, or the current allocation will read as a breach.
 
 **Eval 5, CFO read.** The CFO actually reads the briefing. If the briefing is four paragraphs and the CFO is asking questions answered in paragraph two, the briefing structure is right. If the CFO is asking questions the briefing did not anticipate, add those to the rationale prompt for next quarter.
 

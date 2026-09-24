@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["docs", "meetings", "inbox", "tasks"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-09-10
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -99,8 +100,8 @@ Properties on every page:
 | Title | Title | Verbatim |
 | Date | Date | When the artefact was created |
 | Type | Select | Meeting / Brief / Memo / Decision / Project / Person |
-| People | Multi-select | Linked to the People database |
-| Projects | Multi-select | Linked to the Projects database |
+| People | Relation | Relation to the People database |
+| Projects | Relation | Relation to the Projects database |
 | Tags | Multi-select | Free-form |
 | Source | URL | Link to original (Granola, Google Doc, Slack thread) |
 
@@ -145,7 +146,7 @@ Claude reads the index first for routing, then fetches the source. Slower but wo
 The first ingestion is the slowest part. Two to four hours depending on corpus size. Three sub-steps:
 
 1. Export everything from the legacy surfaces.
-2. Run the normalisation prompt on every artefact to add YAML frontmatter or Notion properties.
+2. Add YAML frontmatter or Notion properties to every artefact. Ask Claude to propose them from each file's content, then review in batches of 20.
 3. Validate the entity links (every Meeting record links to People and Projects).
 
 Schedule the backfill for a Saturday afternoon. Set a 4-hour timer. If the corpus is bigger than fits in 4 hours, ingest the last 12 months first, the rest in a second pass.
@@ -329,6 +330,9 @@ You flag orphans (artefacts without entity links), duplicates
 60 days where the artefact is open-state).
 
 USER:
+Today's date:
+{TODAY}
+
 Corpus index:
 {PASTE_INDEX}
 
@@ -346,7 +350,7 @@ Saoirse Burns has been at Cascadia for three years. The corpus runs to roughly 1
 
 She sets up the hybrid pattern. The index lands at `.lens/knowledge-base-index.md` and points at Notion and Obsidian sources.
 
-Three months later, Saoirse asks: "What did we decide about Trail Club?"
+Two weeks later, Saoirse asks: "What did we decide about Trail Club?"
 
 **Decision history retrieval output.**
 

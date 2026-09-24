@@ -2,7 +2,7 @@
 name: category-entry-points
 description: "When the user wants to research category entry points (CEPs), find buying-trigger moments, run an Ehrenberg-Bass style CEP study, identify mental availability cues, or map which moments the brand owns vs which competitors own. Also triggers on 'why don't people think of us', 'we need to be remembered at the right moment', 'find the buying triggers', or 'map our category entry points'."
 metadata:
-  version: 0.1.0
+  version: 0.1.1
   playbook: https://manual-focus.co.uk/lens/demand/category-entry-points
 ---
 
@@ -61,7 +61,7 @@ Return JSON array, one element per distinct trigger:
       "emotional_state": "<frustration|excitement|obligation|curiosity|other-explicit>"
     },
     "category_relevance": <0-10>,
-    "uniqueness": <0-10>  // specific vs generic
+    "uniqueness": <0-10>
   }
 ]
 
@@ -69,6 +69,7 @@ Rules:
 - Verbatim only for `verbatim`. Paraphrase only in context_signals.
 - `null` for unaddressed fields. Do not invent.
 - If no trigger described, return [].
+- Uniqueness 0 means generic, 10 means highly specific.
 ```
 
 ### Stream C — Interview synthesis
@@ -88,7 +89,7 @@ Cross-reference. A CEP surfacing in 3 of 4 streams is a strong candidate. Score 
 - **Competitive headroom** (is anyone owning it) — 0–10
 - **Proof-point readiness** (does the brand already have the assets to claim it) — 0–10
 
-Rank by composite score.
+Composite = 30% market size + 25% brand fit + 25% competitive headroom + 20% proof-point readiness, calculated arithmetically and rounded to one decimal place. Rank by composite score.
 
 Cluster the verbatim triggers using semantic similarity. **Do not full-automate the cluster labelling** — a 90-minute human pass on the clusters produces a meaningfully better CEP list than any fully-automated version we've tested.
 

@@ -2,7 +2,7 @@
 name: naming-sprint
 description: "When the user wants to name a brand, name a product, name a feature, run a naming exercise, generate a shortlist of names, check name distinctiveness, or test names for trademark risk. Also triggers on 'we need a name', 'help me name our product', 'shortlist some names', 'what should we call this', or 'is X a good brand name'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/brand/naming-sprint
 ---
 
@@ -98,7 +98,7 @@ For each survivor, compare to competitor and category embeddings. Score 0–10 o
 
 ### Pass 5 — Trademark first-pass
 
-Query USPTO TESS, EUIPO and IPO for exact and near matches in the supplied trademark classes. Mark each candidate:
+Query USPTO Trademark Search (tmsearch.uspto.gov, which replaced TESS in November 2023), EUIPO and IPO for exact and near matches in the supplied trademark classes. Mark each candidate:
 
 - **Clear** — no exact or near match in the class
 - **Flagged** — near match in same class, needs attorney review
@@ -125,8 +125,8 @@ Save to `.lens/naming-shortlist.md` and `.lens/naming-trademark.csv`.
 
 Before delivery:
 
-- **Generation diversity** — vocabulary diversity score (unique 3-grams / total 3-grams) >0.75 across the 300 candidates
-- **Phonetic accuracy** — sample 20 IPA transcriptions; verify against a phonetic library
+- **Generation diversity** — character-trigram diversity (unique 3-grams / total 3-grams) >0.75 per 50-name batch. Don't compute it across all 300: the ratio falls as the list grows
+- **Phonetic accuracy** — sample 20 IPA transcriptions; verify against a phonetic library (epitran's English mode needs Flite's `lex_lookup` installed)
 - **Trademark recall** — salt the candidate list with 5 known-registered names; Pass 5 should catch all 5
 
 ## Failure modes to watch

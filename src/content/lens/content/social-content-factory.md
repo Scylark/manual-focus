@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["organic-social", "content", "video"]
-models: ["claude-4.5-sonnet", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-sonnet", "gpt-5"]
 publishedAt: 2026-06-09
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -21,7 +22,7 @@ By the end of this playbook you will have shipped five artefacts.
 2. **Channel-native drafts** for every active channel (LinkedIn, Instagram, X, TikTok, YouTube Shorts where applicable) generated from a single brief.
 3. A **per-channel gating layer** that hard-blocks any draft that fails the channel's deterministic rules (hook length, hashtag count, line break shape, character limits).
 4. A **scheduling spec** with publish slot per channel based on the brand's audience timezone activity, ready to push into Buffer, Hootsuite or the platform-native scheduler.
-5. A **performance ledger** logging 7-day and 30-day engagement per post per channel, feeding the quarterly tune-up that keeps the channel prompts current.
+5. A **performance ledger** logging 7-day and 30-day engagement per post per channel, feeding the monthly retro that keeps the channel prompts current.
 
 ## Who this is for
 
@@ -34,7 +35,7 @@ A growth or scale-stage brand running organic on three or more social channels w
 - [ ] Voice profile from the brand-voice-extraction playbook, plus sub-profiles for named spokespeople
 - [ ] Scheduler (Buffer, Hootsuite, Later, Sprout Social) connected to all channels
 - [ ] Asset library tagged via the segment-broll-production pipeline (or a working DAM equivalent)
-- [ ] Claude Sonnet 4.5 for high-volume drafting, Claude Opus 4.5 or GPT-5 for the higher-stakes hero posts
+- [ ] A mid-tier model (Claude Sonnet, GPT mini or Gemini Flash tier) for high-volume drafting, a frontier model for the higher-stakes hero posts
 - [ ] A brief template the team populates each Monday
 - [ ] Banned phrase list per channel and brand-wide
 
@@ -92,6 +93,8 @@ LinkedIn-specific rules:
 - No "Hot take:" or "Unpopular opinion:" or other X-inherited
   conventions.
 - No exclamation marks. No em dashes. No semicolons in prose.
+- Only claim what the proof point supports. Do not extend a study's
+  findings.
 
 USER:
 Brand context: {BRAND_CONTEXT}
@@ -128,10 +131,12 @@ supports. Captions are short, the first sentence sits above the
 Instagram-specific rules:
 - First sentence under 125 characters. Anchored to the image.
 - Body paragraphs of 1 to 3 sentences, line breaks between them.
-- Maximum 5 hashtags. Half in the caption bottom block, half in
-  the first comment.
+- Maximum 5 hashtags in total across caption and first comment
+  (Instagram's hard cap since December 2025).
 - One specific number or named example.
 - No "comment below if you agree" or other engagement-bait closes.
+- Only claim what the proof point supports. Do not extend a study's
+  findings.
 
 USER:
 Brand context: {BRAND_CONTEXT}
@@ -164,12 +169,14 @@ tweet is the hook, the last tweet is the payoff, the middle tweets
 do the work.
 
 X-specific rules:
-- Tweet 1 under 240 characters (leaves room for the thread emoji).
+- Tweet 1 under 240 characters (leaves room for quote-post commentary).
 - Tweet 1 states the claim, does not tease.
 - Each tweet under 280 characters.
 - No "Thread (1/n)" preamble.
 - One specific number in the first three tweets.
 - Last tweet is the payoff, not a question or a CTA to follow.
+- Only claim what the proof point supports. Do not extend a study's
+  findings.
 
 USER:
 Brand context: {BRAND_CONTEXT}
@@ -202,10 +209,12 @@ delivery, not written prose.
 
 TikTok-specific rules:
 - First 3 seconds carry an on-screen text hook plus a visual change.
-- Spoken script under 90 seconds (around 220 to 240 words).
+- Spoken script under 90 seconds (no more than 220 words).
 - One specific number or named example.
 - On-screen text in caps, key phrases only, not running subtitles.
 - Last 3 seconds carry the payoff, not a "follow for more" CTA.
+- Only claim what the proof point supports. Do not extend a study's
+  findings.
 
 USER:
 Brand context: {BRAND_CONTEXT}
@@ -247,11 +256,11 @@ For each channel.
 - X, tweet 1 under 240 chars, every tweet under 280 chars, no "Thread (1/n)"
 - TikTok, spoken word count maps to under 90 seconds at 150 to 160 wpm, on-screen text in caps, hook visual within 3 seconds
 
-Drafts that fail any deterministic gate regenerate.
+Drafts that fail any deterministic gate regenerate. The `checks` block each prompt returns is advisory only. Models misreport their own word counts, so the deterministic gates are authoritative.
 
 **Step 3.2, run the cross-channel similarity check.**
 
-Compute pairwise textual similarity across the week's outputs. The story should produce variants with high topical similarity (0.6 to 0.8) and low textual similarity (below 0.4). High textual similarity means the pipeline cross-posted with cosmetic changes. Regenerate the failing channel.
+Compute pairwise textual similarity across the week's outputs as word 3-gram Jaccard overlap (embedding or TF-IDF cosine also scores shared topic words, so use it only for the topical range). The story should produce variants with high topical similarity (0.6 to 0.8) and low textual similarity (below 0.4). High textual similarity means the pipeline cross-posted with cosmetic changes. Regenerate the failing channel.
 
 **Step 3.3, run the voice gate.**
 
@@ -311,9 +320,11 @@ Cascadia Endurance runs the factory across LinkedIn, Instagram, X and TikTok. Th
 
 LinkedIn (Marcus's account):
 
-> Vertical metres are the dose for the next four weeks of the build, not the kilometres.
+> Count vertical metres, not kilometres, for the next four weeks.
 >
-> Beth Lyons logged 8,400 metres of vertical in the 28 days before Lavaredo, off 320 kilometres of running. That ratio of climb to flat distance is the gradient stress that matters for an ultra build. The trail audience over-indexes on kilometres because Strava reports them in the first line.
+> Beth Lyons logged 8,400 metres of vertical in the 28 days before Lavaredo, off 320 kilometres of running.
+>
+> That ratio of climb to flat distance is the gradient stress that matters for an ultra build. The trail audience over-indexes on kilometres because Strava reports them in the first line.
 >
 > The week's structure for a mid-pack racer in the build phase is two climbing sessions of 600 to 900 metres each, one with sustained gradient over a single climb, one with shorter repeats. The easy days stay easy on flat terrain.
 >
@@ -329,7 +340,7 @@ Instagram caption (paired with S007 image):
 >
 > Two climbing sessions a week. One sustained, one repeats. Everything else stays flat and easy.
 >
-> Photo by Cascadia at Snowdonia, July 2026.
+> Photo by Cascadia at Snowdonia, May 2026.
 
 X thread (7 tweets):
 
@@ -367,7 +378,7 @@ Pick LinkedIn or Instagram. Run the channel prompt with your real brief and voic
 
 ### Exercise 3, run the cross-channel similarity check on your last week's posts
 
-Take last week's posts across channels. Compute pairwise similarity (ChatGPT or Claude can do this for short text). If pairs score above 0.7, you have been cross-posting with cosmetic changes. The check is the diagnostic.
+Take last week's posts across channels. Compute pairwise similarity (ChatGPT or Claude can do this for short text). If pairs score above 0.4, you have been cross-posting with cosmetic changes. The check is the diagnostic.
 
 ## The eval gates
 
@@ -389,7 +400,7 @@ Take last week's posts across channels. Compute pairwise similarity (ChatGPT or 
 
 **Spokesperson voice drift.** Posts attributed to a named person sound like that person. Build a sub-profile per named spokesperson and route through it. Generic "the brand says" voice on a named-person post breaks the trust.
 
-**Hashtag spam.** Old-school playbooks recommend 10+ hashtags per Instagram post. Modern algorithms penalise this. The pipeline caps at the platform's tolerance and validates against current best practice quarterly.
+**Hashtag spam.** Old-school playbooks recommend 10+ hashtags per Instagram post. Instagram has hard-capped posts at five hashtags since December 2025. The pipeline caps at the platform's tolerance and validates against current best practice quarterly.
 
 **Asset library cannot keep up.** The pipeline asks for assets the DAM does not have. The downstream cost is either skipping the post or shipping with a wrong asset. Fix at the segment-broll-production level, not by lowering the channel rubric.
 
@@ -408,5 +419,4 @@ Illustrative scenarios that show common shapes channel-native social work takes.
 The factory feeds:
 - **ai-studio-news-pipeline**, news posts route through the LinkedIn prompt with the news-specific overrides
 - **race-result-content-engine**, race recaps route through the social factory for channel cuts
-- **training-content-engine**, long-form training pieces produce channel-native cuts through the factory
 - **video-script-system**, TikTok scripts route through the script system for the shoot-ready format

@@ -2,13 +2,13 @@
 name: lifecycle-journey-builder
 description: "When the user wants to build a lifecycle marketing journey, design email or SMS sequences, map a customer journey with behaviour triggers, write win-back / onboarding / nurture flows, or replace agency-built journeys with AI-drafted ones. Also triggers on 'we need an onboarding flow', 'build a win-back sequence', 'map the lifecycle', 'draft the nurture journey'."
 metadata:
-  version: 0.1.0
+  version: 0.1.1
   playbook: https://manual-focus.co.uk/lens/demand/lifecycle-journey-builder
 ---
 
 # Lifecycle journey builder
 
-You build end-to-end multi-segment lifecycle journeys with drafted touchpoints, voice-eval gates, and routing logic. The agency version of this work is £60–90k over 8 weeks. You ship the equivalent in a working week, with the same standard.
+You build end-to-end multi-segment lifecycle journeys with drafted touchpoints, voice-eval gates, and routing logic. Commissioned from an agency, this is typically a multi-week, five-figure project. The aim here is to ship the equivalent in a working week, to the same standard.
 
 ## Inputs to gather first
 
@@ -104,16 +104,16 @@ Rules:
 
 ### Phase 4 — Voice and quality gating
 
-Every draft runs through the voice rubric (from `.lens/voice-profile.json` or run brand-voice-extraction first). Drafts scoring <10/12 regenerate with failing checks named.
+Every draft runs through the voice rubric (from `.lens/voice-profile.json` or run brand-voice-extraction first). The rubric has six checks: sentence length within band, contraction rate within band, no banned words, opener matches profile, no em dashes or exclamation marks unless permitted, one specific CTA. Any failed check regenerates the draft with that check named. Recount the numbers from the draft text; do not trust the draft's own `voice_self_check`.
 
 Two additional eval gates at the journey level:
 
-- **Within-journey repetition** — pairwise semantic similarity across drafts in a journey; any pair >0.85 forces regeneration of the later draft
+- **Within-journey repetition** — pairwise similarity computed with an embeddings script (not estimated by the model); any pair >0.85 forces regeneration of the later draft. Calibrate the threshold on the embedding model you use.
 - **CTA distinctness** — a 12-touchpoint journey needs ≥8 unique CTAs
 
 ### Phase 5 — Routing and instrumentation
 
-Generate the conditional routing logic for the ESP. Output in plain English AND as a JSON spec the engineering team can import. Include:
+Generate the conditional routing logic for the ESP. Output in plain English AND as a JSON build spec the engineering team uses to configure the journey (Klaviyo's flow-creation API is beta; treat the spec as a build sheet). Include:
 
 - **Frequency cap** — recommended max touchpoints per user per week (default 4)
 - **Quiet hours** — respect user timezone, no sends 22:00–08:00
@@ -125,7 +125,7 @@ Per segment:
 
 1. **Journey tree** (JSON) — entry triggers, sequence, exit conditions
 2. **Drafted touchpoints** (Markdown) — every touchpoint as a ready-to-import block
-3. **Routing spec** (JSON) — conditional logic for the ESP
+3. **Routing spec** (JSON build spec) — conditional logic for the ESP
 4. **Instrumentation plan** — what events to log, where to log them, success metric per touchpoint
 
 Save to `.lens/lifecycle/{segment-name}/`.

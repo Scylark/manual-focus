@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["paid-search", "paid-social", "email", "lifecycle"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-09-03
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -125,10 +126,11 @@ Same export as Step 1.1, set to the current season. Pivot by SKU.
 
 **Step 2.2, compute the health flag per SKU.**
 
-In the disposition spreadsheet, add a column called *Health_status*. The formula compares the current sell-through against the forecast.
+In the disposition spreadsheet, add a column called *Health_status*. The formula compares units sold to date against the forecast pro-rated to today: each quantile multiplied by the share of the season's expected sales that should have happened by now (take the share from last season's weekly curve). Comparing against the full-season forecast six weeks out flags almost every SKU. In the template CSV, the Forecast columns hold the forecast to date.
 
-- Above P50 forecast: `healthy` (standard end-of-season handling)
-- Between P25 and P50 forecast: `at risk` (monitor, possible soft-launch intervention)
+- Under 2% of units left on hand: `sold_through` (replenish if lead time allows)
+- At or above P50 forecast: `healthy` (standard end-of-season handling)
+- Between P25 and P50 forecast: `at_risk` (monitor, possible soft-launch intervention)
 - Below P25 forecast: `below_p25` (early intervention needed)
 - Far below P25 (less than 50% of P25): `critical_below_p25` (significant clearance required)
 
@@ -156,7 +158,7 @@ Channels available: {MEMBER_PROGRAMME | EMAIL_LIST | RETAIL_PARTNERS | OUTLET}
 
 Return:
 {
-  "disposition_phase": "<hold | soft_launch | member_first | email_clearance | public_clearance | final_clearance>",
+  "disposition_phase": "<hold | replenish | soft_launch | member_first | email_clearance | public_clearance | final_clearance>",
   "discount_pct": <int, 0 to 50>,
   "channel_sequence": ["<channel>"],
   "bundle_plan": "<bundle description or 'none'>",
@@ -167,6 +169,8 @@ Return:
 Rules:
 - "hold" if health is healthy or above; the SKU does not need
   clearance.
+- "replenish" if health is sold_through and a re-order can land
+  before the season ends.
 - discount_pct ceiling 35 for mid-clearance, 50 only for
   final_clearance or outlet, never above 50 on brand surface.
 - channel_sequence runs in the order specified.
@@ -265,7 +269,7 @@ Channels available: {LIST}
 Return:
 {
   "ordered_channels": ["<channel>"],
-  "skip_channels": ["<channel>", "<reason>"],
+  "skip_channels": [{"channel": "<channel>", "reason": "<reason>"}],
   "brand_surface_visible": <true | false>,
   "rationale": "<one sentence>"
 }
@@ -312,6 +316,13 @@ Rule 5, no "spring sale" calendar creep. The clearance cycle
 runs once per season, not as a recurring "spring sale, summer
 sale" pattern. The audience must not learn that the brand
 discounts on a calendar they can wait for.
+
+Rule 6, honest reference prices. Any "was" price must be one
+the SKU genuinely sold at for a meaningful period before the
+reduction. UK pricing rules under the Digital Markets,
+Competition and Consumers Act 2024 treat misleading reference
+prices as unfair, so check your clearance pricing with your
+adviser.
 ```
 
 **Step 5.2, the governance prompt.**
@@ -331,6 +342,8 @@ Proposed promotion:
 - Audience: {SEGMENT}
 - Window: {DATES}
 - Bundled or value-add element: {DESCRIPTION_OR_NONE}
+- Brand position: {HERITAGE | FLAGSHIP | STANDARD | NEW}
+- Promotions already run this season: {LIST_OR_NONE}
 
 Governance rules:
 {PASTE_RULES_FROM_STEP_5.1}
@@ -372,10 +385,10 @@ Cascadia Endurance, scale-stage. Winter season runs October to February. Ops lea
 
 - CAS-WS-CHR-L (Charcoal Winter Shell, large): 99% sell-through, replenishment ordered
 - CAS-WS-RED-M (Red Winter Shell, medium): 75% sell-through, below P25, soft launch
-- CAS-WT-GRN-M (Green Winter Tights, medium): 16% sell-through, critical, member-first with steepest discount
+- CAS-WT-GRN-M (Green Winter Tights, medium): 16% sell-through, below P25, member-first with steepest discount
 - VAH-WG-GRY-L (Vahla Winter Gloves, large): 44% sell-through, below P25, member-first then outlet
 
-**Phase 3.** Calendar locked. Member-first phase fires six weeks pre-end, with the winter tights and Vahla gloves in scope. Email-list clearance fires four weeks pre-end. Public clearance fires two weeks pre-end with only the Red Winter Shell M and the base layers in scope. The Cascadia Trail Runner (spring footwear) holds at full price across all phases because spring is its peak window.
+**Phase 3.** Calendar locked. Member-first phase fires six weeks pre-end, with the winter tights and Vahla gloves in scope. Email-list clearance fires four weeks pre-end. Public clearance fires two weeks pre-end with only the Base Layer Black M in scope, the one SKU the disposition sheet marks public-eligible. The Cascadia Trail Runner (spring footwear) holds at full price across all phases because spring is its peak window.
 
 **Phase 4.** Channel rules quoted in the Tuesday pre-ship review when a junior operator proposes a homepage takeover sale. The rule sheet blocks it. The team runs the public clearance from a clearance collection accessible from the footer and from email, not from the homepage hero.
 
@@ -389,7 +402,7 @@ Cascadia Endurance, scale-stage. Winter season runs October to February. Ops lea
 | CAS-WS-CHR-L | sold_through | replenish | 0% | full_price |
 | CAS-BL-BLK-S | below_p25 | member_first | 25% | member_only_then_email |
 | VAH-WG-GRY-L | below_p25 | member_first | 30% | member_then_outlet |
-| CAS-WT-GRN-M | critical_below_p25 | member_first | 35% | member_then_outlet |
+| CAS-WT-GRN-M | below_p25 | member_first | 35% | member_then_outlet |
 
 End-of-season sell-through across the range lands at 82%. Margin erosion lower than the prior winter. First-time-buyer share at full price holds.
 

@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["analytics", "paid-search", "paid-social", "seo"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-06-02
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -50,22 +51,22 @@ Pull conversion data from at least three sources and normalise it into a single 
 
 **Step 1.1, export GA4 data-driven attribution.**
 
-1. Open GA4. In the left sidebar click **Reports**.
-2. Go to **Advertising** then **Attribution settings**. Set **Reporting attribution model** to *Data-driven*. Save.
-3. Go to **Advertising** then **Model comparison**.
+1. Open GA4. In the left sidebar click **Admin**.
+2. Open **Attribution settings**. Set **Reporting attribution model** to *Data-driven*. Save.
+3. Go to **Advertising**, then **Attribution**, then **Model comparison**.
 4. Set the date range to the last 90 days (top right).
 5. Under the report, set Model 1 to *Data-driven* and Model 2 to *Last click*.
 6. Set the dimension to *Default channel group*.
 7. Click **Share this report** in the top right, then **Download file**, then *CSV*.
 
-You should now have a CSV with one row per channel and columns for *Default channel group*, *Conversions (data-driven)*, *Conversions (last click)*, *Conversion value (data-driven)*, *Conversion value (last click)*.
+You should now have a CSV with one row per channel and columns for *Default channel group*, *Key events (data-driven)*, *Key events (last click)* and the matching value columns. GA4 now calls conversions *key events*; the rest of this playbook uses "conversions" for the business outcome.
 
 **Step 1.2, export Meta Ads Manager attribution.**
 
 1. Open Meta Ads Manager and pick the ad account.
 2. Set the date range to the last 90 days.
 3. Under **Columns** click *Customize columns*. Tick *Impressions, Link clicks, Amount spent, Purchases* (or your conversion event) and *Purchase conversion value*.
-4. Click **Attribution setting** (top right of the table) and set to *7-day click + 1-day view*. This is Meta's standard.
+4. Click **Attribution setting** (top right of the table) and set to *7-day click + 1-day view*. This is Meta's standard. Meta removed the 7-day and 28-day view windows on 12 January 2026, so any comparison with older exports that used those windows will show a drop that is a reporting change, not a performance change.
 5. Make sure the view is set to **Campaigns**.
 6. Click **Reports** then **Export table data** and download as CSV.
 
@@ -74,7 +75,7 @@ Sum campaign-level purchases into a single "Paid social, Meta" row at the channe
 **Step 1.3, export Google Ads conversions.**
 
 1. Open Google Ads.
-2. Go to **Reports** then **Predefined reports** then **Conversions** then **Conversions by attribution model**.
+2. Go to **Goals**, then **Attribution**, then the **Model comparison** tab.
 3. Set the date range to the last 90 days.
 4. Click the download icon top right and choose CSV.
 
@@ -129,8 +130,9 @@ You have the data. Now you need to find the channels where the sources disagree 
 **Step 2.1, paste the master sheet into the prompt below and run it in Claude.**
 
 ```text
-SYSTEM: You are an attribution analyst. You compute the coefficient
-of variation (CV) across attribution sources for each channel,
+SYSTEM: You are an attribution analyst. You compute, in code and not
+in your head, the coefficient of variation (CV) across attribution
+sources for each channel, using the population standard deviation,
 identify contested channels (CV > 0.5), and rank them by absolute
 conversion volume so the biggest contested channels surface first.
 
@@ -171,6 +173,10 @@ Rules:
 - Skip channels with only one source (cannot compute CV).
 - Round CV to 2 decimal places.
 - Order contested channels by rank, biggest volume first.
+- Also flag any channel where Platform divided by GA4_DDA is above
+  1.4 as "platform_overclaim": true, whatever its CV. Three sources
+  that disagree in a straight line (platform high, last-click low)
+  can land in "noisy" while still overclaiming heavily.
 ```
 
 **Step 2.2, read the output.**
@@ -183,12 +189,12 @@ The contested channels list is your shortlist. Pick the top 2-3 by volume, those
 {
   "contested_channels": [
     {
-      "channel": "Paid social",
-      "cv": 0.58,
-      "platform_reading": 196,
-      "ga4_dda": 142,
-      "ga4_lc": 98,
-      "absolute_volume": 145.3,
+      "channel": "Display",
+      "cv": 0.91,
+      "platform_reading": 380,
+      "ga4_dda": 110,
+      "ga4_lc": 18,
+      "absolute_volume": 169.3,
       "rank": 1
     }
   ]
@@ -292,7 +298,7 @@ For each contested channel return JSON:
       "recommended_action": "<what to do to resolve>"
     }
   ],
-  "most_plausible_source": "<GA4_DDA | GA4_LC | Platform | none — needs test>"
+  "most_plausible_source": "<GA4_DDA | GA4_LC | Platform | none, needs test>"
 }
 
 Rules:
@@ -321,6 +327,10 @@ Contested channels and hypotheses:
 
 Brand-search signal:
 {PASTE_PHASE_3_OUTPUT}
+
+Noisy channels and any platform_overclaim flags (candidates for
+cut_or_test):
+{PASTE_NOISY_CHANNELS_FROM_PHASE_2}
 
 Stable channels (for context, no action needed):
 {PASTE_STABLE_CHANNELS_FROM_PHASE_2}
@@ -352,9 +362,13 @@ Return JSON:
 }
 
 Rules:
-- Each test design must pass a basic statistical-power check.
-  A test needing more than 12 weeks to detect a 10% lift is
-  flagged as "not feasible" and you propose an alternative.
+- Each test design must pass a basic statistical-power check,
+  computed in code. The lift is a lift in the tested channel's own
+  incremental conversions, not in total conversions. State the
+  baseline weekly conversions and the week-to-week noise you
+  assumed. A test needing more than 12 weeks to detect a 10% lift
+  on that basis is flagged as "not feasible" and you propose an
+  alternative.
 - The cut_or_test recommendation defaults to "test, then cut"
   unless evidence is very strong.
 ```
@@ -369,19 +383,23 @@ Cascadia Endurance, a fictional UK trail-running apparel brand, scale-stage, spe
 
 **Phase 1 output.** Three sources pulled across 12 weeks. Master sheet has 6 channels (Paid social, Paid search, Display, SEO, Email, Direct).
 
-**Phase 2 output.** Three contested channels.
+**Phase 2 output.** One contested channel, one noisy channel carrying the overclaim flag.
 
 ```json
 {
+  "stable_channels": [
+    {"channel": "Paid search", "cv": 0.07, "volume": 2857}
+  ],
+  "noisy_channels": [
+    {"channel": "Paid social", "cv": 0.31, "volume": 3003, "platform_overclaim": true}
+  ],
   "contested_channels": [
-    {"channel": "Paid social", "cv": 0.62, "platform_reading": 4180, "ga4_dda": 2890, "ga4_lc": 1940, "absolute_volume": 3003, "rank": 1},
-    {"channel": "Display", "cv": 0.84, "platform_reading": 380, "ga4_dda": 110, "ga4_lc": 18, "absolute_volume": 169, "rank": 2},
-    {"channel": "Paid search", "cv": 0.21, "platform_reading": 2840, "ga4_dda": 2610, "ga4_lc": 3120, "absolute_volume": 2857, "rank": 3}
+    {"channel": "Display", "cv": 0.91, "platform_reading": 380, "ga4_dda": 110, "ga4_lc": 18, "absolute_volume": 169, "rank": 1}
   ]
 }
 ```
 
-Paid search is only just noisy, ignore. Paid social and Display are the action items.
+Paid search is stable, ignore. Paid social only reads as noisy on CV, but Meta reports 1.45 times GA4 data-driven and 2.15 times last-click, so the overclaim flag carries it forward. Paid social and Display are the action items.
 
 **Phase 3 output.** Display correlates 0.62 with branded search, peak lag of 1 week. Strong signal. Display is driving branded search that gets credited to "Direct".
 
@@ -399,7 +417,7 @@ Paid search is only just noisy, ignore. Paid social and Display are the action i
   },
   "cut_or_test": {
     "channel": "Paid social",
-    "why": "CV of 0.62, platform self-credit at ~45% of acquisitions, GA4 last-click at ~22%. Run a geo-holdout to resolve before committing more budget.",
+    "why": "Meta reports 4,180 purchases against 2,890 in GA4 data-driven and 1,940 in last-click, 1.45 times and 2.15 times respectively. Run a geo-holdout to resolve before committing more budget.",
     "magnitude": "large",
     "test_design": { "method": "geo-holdout", "duration_weeks": 8, "estimated_cost": "~£40k revenue at risk", "minimum_detectable_lift": "12%" }
   },

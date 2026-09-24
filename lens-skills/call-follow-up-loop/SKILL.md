@@ -2,7 +2,7 @@
 name: call-follow-up-loop
 description: "When the user has a meeting transcript and wants a CRM update, follow-up email, action-item tasks, or all three. Triggers on 'process this call', 'turn this transcript into', 'follow up on the meeting', 'CRM update from the call', 'send the follow-up', 'create tasks from the meeting', or pasting a Granola/Fireflies/Otter/Zoom transcript."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/call-follow-up-loop
 ---
 
@@ -33,6 +33,7 @@ Return JSON with `summary` (80-150 words), `decisions` (each with `decision`, `d
 Rules:
 - Every decision and action item has a `transcript_quote`. No attribution without quote.
 - `decided_by` is "jointly" only when transcript shows mutual agreement.
+- If nobody took an action, set `owner` to "UNASSIGNED" and list it in `unresolved_questions`. Do not guess an owner.
 - `topics_planned_but_not_discussed` and `topics_unplanned_but_raised` are populated only when a prep pack was provided.
 
 Pause for the operator's 60-second review before writing to downstream systems.
@@ -57,13 +58,14 @@ Rules:
 - No em dashes. No exclamation marks unless voice profile allows.
 - "Thanks for the time today" at the open is allowed. More than that is over-effusive, cut.
 - Confirms decisions, names action items with owners, proposes next step.
-- Next-step proposal is concrete (date, time, calendar link), not vague.
+- Next-step proposal is concrete. Use a date and time only if one was agreed on the call. Otherwise propose one in [brackets] for the operator to check.
+- Never invent numbers, dates or commitments that are not in the Phase 1 summary.
 
 Land in the operator's drafts folder. Operator reviews and sends.
 
 ### Phase 4 — Task creation
 
-Return JSON array, one entry per action item, with `title` (6-12 words, verb-implicit), `description` (40-80 words including transcript quote), `owner_email`, `due_date`, `labels`, `project`, `priority`, `linked_meeting`, `linked_transcript`.
+Return JSON array, one entry per action item, with `title` (6-12 words, verb-led, as in inbox-to-task-pipeline), `description` (40-80 words including transcript quote), `owner_email`, `due_date`, `labels`, `project`, `priority`, `linked_meeting`, `linked_transcript`.
 
 Rules:
 - `description` includes the verbatim transcript quote.
@@ -89,7 +91,7 @@ Five things, in order:
 Before delivering:
 
 - **Decision capture** — every decision in the transcript surfaces in Phase 1.
-- **Action item ownership** — every action item has a named owner. No "the team" or "someone".
+- **Action item ownership** — every action item has a named owner, or is marked UNASSIGNED for the operator to resolve. No "the team" or "someone".
 - **Email send latency** — total pipeline runtime under 30 minutes so the operator has time to review and send within 90 minutes of call end.
 - **CRM stage discipline** — "no change" is the default unless an explicit decision moved the deal.
 - **Quote requirement** — every decision and action item has a verbatim transcript quote. No quote, no entry.

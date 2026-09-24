@@ -5,13 +5,13 @@ import { url } from '../../utils/paths';
 ---
 <Base
   title="Start here. How to use The Lens"
-  description="Where to begin with The Lens. Pick your starting point by situation, follow the natural sequence of playbooks, install the skills into Claude Code."
+  description="Where to begin with The Lens. Pick your starting point by situation, follow the natural sequence of playbooks, install the skills into Cowork."
 >
   <SEOHead
     slot="seo"
     type="article"
     title="Start here. How to use The Lens"
-    description="Where to begin with The Lens. Pick your starting point by situation, follow the natural sequence of playbooks, install the skills into Claude Code."
+    description="Where to begin with The Lens. Pick your starting point by situation, follow the natural sequence of playbooks, install the skills into Cowork."
     breadcrumbs={[
       { name: 'Home', url: '/' },
       { name: 'The Lens', url: '/lens' },
@@ -25,8 +25,8 @@ import { url } from '../../utils/paths';
       <div class="eyebrow">START HERE</div>
       <h1 class="start-title">Where to begin.</h1>
       <p class="start-lead">
-        The Lens is 46 playbooks across five stacks. Most readers don't
-        need to read 46 things. They need to know which three to start
+        The Lens is 45 playbooks across five stacks. Most readers don't
+        need to read 45 things. They need to know which three to start
         with. This page is that map.
       </p>
       <p class="start-stack-note">
@@ -61,20 +61,20 @@ import { url } from '../../utils/paths';
         <li>
           <strong>Skills</strong>, runnable agent companions to 24 of
           the playbooks. SKILL.md files in the Anthropic Agent Skills
-          spec, installable as a Claude Code plugin. The playbook
+          spec, installable as a Cowork or Claude Code plugin. The playbook
           explains the work, the skill <em>is</em> the work. <a href={url('/lens/skills')}>Browse the skills →</a>
         </li>
       </ul>
 
       <p>
-        <strong>New to prompting or AI skills?</strong> <a href={url('/lens/primer')}>Read The Lens 101</a>, a seven-minute primer on what a prompt is, what
+        <strong>Need a refresher on prompting or AI skills?</strong> <a href={url('/lens/primer')}>Read The Lens 101</a>, a seven-minute primer on what a prompt is, what
         makes one good, what an agent skill is, and how to install
         and use them. Worth reading before the first playbook.
       </p>
 
       <p>
-        <strong>New to Cowork?</strong> <a href={url('/lens/cowork')}>Read the Cowork primer</a>, the eight-minute setup guide for running Claude Code with your real
-        tools loaded (email, calendar, CRM, transcripts) so the Lens
+        <strong>New to Cowork?</strong> <a href={url('/lens/cowork')}>Read the Cowork primer</a>, the ten-minute guide to running Claude with your real
+        tools loaded (email, calendar, CRM, transcripts) so The Lens
         playbooks act on the work you already do instead of generic
         examples.
       </p>
@@ -96,7 +96,7 @@ import { url } from '../../utils/paths';
         </a>
         <a href={url('/lens/content')} class="stack-quick">
           <div class="stack-quick-name mono">CONTENT</div>
-          <p>SEO clusters, eval-gated drafting, social, video, race-result automation, AI-news pipelines. <strong>9 playbooks.</strong></p>
+          <p>SEO clusters, eval-gated drafting, social, video, race-result automation, AI-news pipelines. <strong>8 playbooks.</strong></p>
         </a>
         <a href={url('/lens/ops')} class="stack-quick">
           <div class="stack-quick-name mono">OPS</div>
@@ -208,7 +208,7 @@ import { url } from '../../utils/paths';
         <ol class="path-list">
           <li>
             <strong><a href={url('/lens/cowork')}>Cowork primer</a></strong>,
-            the setup guide. Install the Lens skills, connect your inbox, calendar, Slack, CRM and meeting transcript tool. Twenty to forty minutes one-off.
+            the setup guide. Install The Lens skills, connect your inbox, calendar, Slack, CRM and meeting transcript tool. Twenty to forty minutes one-off.
           </li>
           <li>
             <strong><a href={url('/lens/productivity/daily-briefing-pipeline')}>Daily briefing pipeline</a></strong>,
@@ -312,10 +312,6 @@ import { url } from '../../utils/paths';
             <td><a href={url('/lens/content/race-result-content-engine')}>Race-result content engine</a></td>
           </tr>
           <tr>
-            <td>Planning a year of training-content for endurance audiences</td>
-            <td><a href={url('/lens/content/training-content-engine')}>Training content engine</a></td>
-          </tr>
-          <tr>
             <td>Setting up b-roll production for an endurance brand</td>
             <td><a href={url('/lens/content/segment-broll-production')}>Segment b-roll production</a></td>
           </tr>
@@ -357,7 +353,7 @@ import { url } from '../../utils/paths';
     <div class="container start-prose">
       <h2>How the skills compose</h2>
       <p>
-        24 of the playbooks ship as runnable skills for Claude Code, plus a setup-the-lens onboarding orchestrator and a video-script-to-heygen utility that renders avatar videos from playbook content,
+        24 of the playbooks ship as runnable skills for Cowork and Claude Code, plus a setup-the-lens onboarding orchestrator and a video-script-to-heygen utility that renders avatar videos from playbook content,
         Cursor, Codex, Windsurf or any agent that honours the
         <a href="https://agentskills.io" target="_blank" rel="noopener">Agent Skills spec</a>. Skills reference each other, with the output of one becoming
         the input of the next, so they compose into a real working
@@ -415,13 +411,15 @@ import { url } from '../../utils/paths';
     <div class="container start-prose">
       <h2>Install the plugin and set it up</h2>
       <p>
-        <strong>The Lens Plugin in one line.</strong> 25 marketing
-        workflows your AI agent runs inside Claude Code. Each skill
+        <strong>The Lens Plugin in one line.</strong> 26 marketing
+        skills your AI agent runs inside Cowork. Each workflow skill
         pairs with a playbook on this site.
       </p>
       <p>
-        <strong>Step 1, install.</strong> Two commands in any
-        Claude Code session install all 26 skills.
+        <strong>Step 1, install.</strong> In Cowork, open
+        Customize → Plugins → Add marketplace, enter
+        <code>Scylark/manual-focus</code> and install
+        <strong>the-lens</strong>. In Claude Code it's two commands.
       </p>
       <pre class="install-block"><code>/plugin marketplace add Scylark/manual-focus
 /plugin install the-lens@manual-focus</code></pre>
@@ -449,7 +447,7 @@ import { url } from '../../utils/paths';
         every time.
       </p>
       <p>
-        Skills source at <a href="https://github.com/Scylark/manual-focus/tree/main/lens-skills" target="_blank" rel="noopener">github.com/Scylark/manual-focus/tree/main/lens-skills ↗</a>
+        Skills source at <a href="https://github.com/Scylark/manual-focus/tree/master/lens-skills" target="_blank" rel="noopener">github.com/Scylark/manual-focus/tree/master/lens-skills ↗</a>
       </p>
     </div>
   </section>

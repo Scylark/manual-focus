@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "2 working days"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "brand", "organic-social", "email"]
-models: ["claude-4.5-sonnet", "gpt-5", "claude-4.5-opus"]
+models: ["claude-5.5-opus", "claude-4.5-sonnet", "gpt-5", "claude-4.5-opus"]
 publishedAt: 2026-04-22
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -32,7 +33,7 @@ Get these on a single screen before you begin.
 
 - [ ] Access to the brand's CMS, blog, newsletter archive and social archive
 - [ ] A folder or Notion page to dump the corpus into
-- [ ] Claude (Opus 4.5 or Sonnet 4.5) or GPT-5 with structured-output mode enabled
+- [ ] A current Claude, GPT or Gemini model with structured-output mode enabled
 - [ ] A text editor that can word-count and find-replace
 - [ ] Optional but useful, a Python environment if you want to automate the scoring rubric
 
@@ -70,7 +71,9 @@ In your text editor or with a short script, assemble the corpus into a JSON list
 
 **Step 2.2, run the extraction prompt.**
 
-Paste the corpus JSON into the prompt below and run it. Use Opus 4.5 or GPT-5 in structured-output mode. Sonnet drifts on the larger corpora.
+Paste the corpus JSON into the prompt below and run it. Use a frontier model (Claude Opus, GPT or Gemini Pro tier) in structured-output mode. Mid-tier models drift on the larger corpora.
+
+Then compute the numbers yourself. Sentence mean, paragraph mean and punctuation rates take a ten-line script or `wc`. Overwrite the model's numeric fields with the counted ones and keep the model's pattern fields. In our September 2026 retest the model's mean sentence length landed within 11% of the counted figure, but its paragraph length came in 27% high, and the rubric built on it inherited the error.
 
 ```text
 SYSTEM: You are a stylometrician analysing a brand's writing. Your
@@ -282,6 +285,8 @@ Rules for you:
 - Banned words must be in a Rules block, verbatim.
 - Voice constraints stated as observable patterns, not adjectives.
 - Include one negative example showing what the brand does NOT do.
+- The template must tell the drafting model not to add facts, places,
+  numbers or product claims that are not in the brief.
 ```
 
 **Expect output like:**
@@ -306,6 +311,8 @@ Rules:
 - No words from the banned list: unleash, crush, ignite, supercharge,
   game-changer, journey.
 - One contraction minimum.
+- Do not add facts, places, numbers or product claims that are not
+  in the brief.
 
 Negative example, do NOT write like this:
 "Are you ready to unleash your trail-running potential? In this
@@ -378,7 +385,7 @@ Run the output back through the rubric. If it scores ten plus, the rubric works.
 
 **Eval 2, profile falsifiability.** Every claim in the profile must be checkable by a script or a careful reader. "Warm" or "confident" appearing anywhere in the JSON means the model drifted, regenerate.
 
-**Eval 3, rubric calibration.** Run the rubric against five pieces from the corpus. They should score ten of twelve or higher. If corpus pieces fail the rubric the rubric is too strict, soften the numeric ranges to ±25% and re-score.
+**Eval 3, rubric calibration.** Run the rubric against five pieces from the corpus. They should score ten of twelve or higher. If corpus pieces fail the rubric the rubric is too strict, soften the numeric ranges to ±25% and re-score. If pieces still fail on pattern checks (opener shape, rhetorical device) rather than numeric ones, those checks were fitted to a handful of examples. Drop them, or make them corpus-level, "in at least half of pieces".
 
 **Eval 4, drift watch.** Re-run extraction quarterly on the latest 90 days of "proud" output. Diff against the previous profile. If a numeric drifts by more than fifteen percent or a never-does enters or leaves the list, flag it and decide whether to formalise the new state or pull production back to the previous one.
 
@@ -386,11 +393,13 @@ Run the output back through the rubric. If it scores ten plus, the rubric works.
 
 **The corpus contains a single dominant author.** If twelve of the fifteen pieces are by one person, the profile is that person's voice. Either declare them as the canonical voice (and rename it "founder voice profile" or similar) or require at least three distinct authors with no author over forty percent of word count.
 
-**The model collapses the profile to vibes.** Some models return adjectives even when prompted for counts. Watch for "warm" or "confident" appearing anywhere in the JSON. They should not be there. Regenerate with a different model. Claude Opus tends to honour the structured-output discipline, GPT-5 needs the rules tighter, smaller models often need few-shot examples.
+**The model collapses the profile to vibes.** Some models return adjectives even when prompted for counts. Watch for "warm" or "confident" appearing anywhere in the JSON. They should not be there. Regenerate with a different model. In our runs Claude Opus-tier models honoured the structured-output discipline most reliably, GPT models needed the rules tighter, smaller models often need few-shot examples.
 
 **The rubric is too strict.** A twelve-of-twelve hit rate is unreachable in practice. Most brand voices have a sentence-length variance that the strictest numeric check will fail. Set ship threshold at ten and use the gap analysis as the edit guide.
 
 **The brand voice is actually two voices.** Some brands write differently on the blog than they do in the product. That is a real pattern, not a bug. Build two profiles, blog-voice and product-voice, route through the right one per channel. The prompt library should know which voice owns each output type.
+
+**The brand is a publisher.** If athletes, guest writers and photographers produce most of the journal, no single author breaches forty percent and Eval 1 passes, but the profile describes an editor's taste rather than a writer's voice. Build the house profile from the pieces the brand wrote itself and treat guest pieces as category context.
 
 **Voice drift after six months.** Model providers update, the team's best writer leaves, the founder stops writing. Re-run quarterly. If the diff is significant, voice is drifting in production. Decide whether to formalise the new state or pull it back.
 

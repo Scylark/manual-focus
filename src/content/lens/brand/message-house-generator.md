@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "product-marketing"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-05-15
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -33,7 +34,7 @@ A growth or scale-stage brand with a positioning brief that is one sentence shar
 - [ ] An audience definition with specifics (sport, level, life-stage, buying context)
 - [ ] A "what-not-this" list, the categories the brand is explicitly not in
 - [ ] A voice profile from the brand-voice-extraction playbook (used in Phase 4 to constrain the channel lines)
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 If you do not have all six, the message house will collapse to vibes. Either go get them, or accept that the output is a draft for review rather than a shippable artefact.
 
@@ -215,7 +216,7 @@ Return JSON shaped like:
           "type": "<data | customer_story | partnership | technical>",
           "summary": "<one-sentence summary>",
           "source": "<where the proof comes from>",
-          "verification_status": "<verified | pending | invented_DO_NOT_USE>"
+          "verification_status": "<verified | source_supplied | pending | invented_DO_NOT_USE>"
         }
       ]
     }
@@ -228,6 +229,9 @@ Rules:
   brand has none.
 - "verification_status" defaults to "pending" if the source is not
   in the inputs.
+- "verified" only when the proof has been checked against a primary
+  source (lab data, contract, the customer's own words). A claim
+  copied from the brand's own website is "source_supplied".
 - Never mark a proof point as "verified" if the source was not
   supplied. No invented stats. If you cannot anchor a proof, mark
   it "invented_DO_NOT_USE" and the team will discard it.
@@ -244,7 +248,7 @@ Rules:
 
 **Step 3.2, retire the unverified.**
 
-Any proof point with status `pending` gets handed to the team for source verification, or pulled from the message house. Any marked `invented_DO_NOT_USE` gets deleted. Never ship a proof point that does not trace to a source.
+Any proof point with status `source_supplied` or `pending` gets handed to the team for source verification, or pulled from the message house. Any marked `invented_DO_NOT_USE` gets deleted. Never ship a proof point that does not trace to a source.
 
 **You should now have** every pillar populated with three to five verified proof points.
 
@@ -287,9 +291,11 @@ Return JSON shaped like:
 Rules:
 - Every line respects the character limit.
 - No banned words.
-- No exclamation marks, no em dashes, no semicolons.
+- Follow the punctuation rules in the voice profile.
 - Each line carries the pillar's claim in some form.
 - Sales talking points are three distinct angles, not three rewordings.
+- Sales talking points keep the qualifiers (exclusions, caps, time
+  windows) the source proof carries.
 ```
 
 Run the prompt once per pillar. You will end up with ten lines per pillar, thirty to fifty lines for a three-to-five-pillar message house.
@@ -326,7 +332,9 @@ Rules:
 - 8 to 12 rebuttals.
 - Cover price objections, quality scepticism, audience mismatch,
   category contrast, and credibility-of-claims pushbacks.
-- Every rebuttal cites at least 1 verified proof point.
+- Every rebuttal cites at least 1 verified proof point. If no verified
+  proof answers a pushback, say so and mark the rebuttal PROOF GAP.
+  Do not stretch another proof to fit.
 - "fallback_if_pushed" is an honest concession, not a deflection.
 - Do not invent proof points.
 ```
@@ -404,11 +412,11 @@ If the rebuttal reads weak, the proof points are not yet strong enough. The rebu
 
 **Eval 1, pillar distinctiveness.** Pillars should be mutually distinct. Compute pairwise semantic similarity, or have the team rate it by hand. If two pillars score above 0.7 similarity, they are saying the same thing twice, merge or sharpen.
 
-**Eval 2, proof-point traceability.** Every proof point traces to a source. Any proof point flagged `pending` for more than two weeks is either verified or retired. Anything marked `invented_DO_NOT_USE` is deleted on sight.
+**Eval 2, proof-point traceability.** Every proof point traces to a source. Any proof point flagged `pending` or `source_supplied` for more than two weeks is either verified or retired. Anything marked `invented_DO_NOT_USE` is deleted on sight.
 
-**Eval 3, channel-line voice consistency.** Run every channel line through the voice-eval rubric from the brand-voice-extraction playbook. All lines score above the ship threshold. Lines that pass on the website but fail on social mean the brand has two voices and the team has not acknowledged it, see the founder-and-institutional-voice playbook.
+**Eval 3, channel-line voice consistency.** Run every channel line through the lexical checks of the voice-eval rubric from the brand-voice-extraction playbook, banned words, punctuation and contractions. The sentence-length, variance and paragraph checks do not apply to lines under 280 characters, in our September 2026 retest only one of ten channel lines cleared the full prose rubric, because a 35-character H1 cannot have a paragraph mean. Lines that pass the lexical checks on the website but fail them on social mean the brand has two voices and the team has not acknowledged it, see the founder-and-institutional-voice playbook.
 
-**Eval 4, rebuttal coverage.** The rebuttal sheet covers at least one pushback per pillar plus the three most common audience-level objections (price, fit, category). If a sales call surfaces a pushback the sheet does not cover, add it within a week.
+**Eval 4, rebuttal coverage.** The rebuttal sheet covers at least one pushback per pillar plus the three most common audience-level objections (price, fit, category). Any rebuttal marked PROOF GAP is a to-do for the proof-point list, not a finished answer. If a sales call surfaces a pushback the sheet does not cover, add it within a week.
 
 ## The failure modes
 

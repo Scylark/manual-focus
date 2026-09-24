@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["organic-social", "content", "brand"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-08-06
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -31,7 +32,7 @@ A growth or scale-stage brand whose audience reads LinkedIn for marketing or tec
 
 - [ ] LinkedIn company-page admin access plus access to the team's personal accounts where founders or spokespeople post
 - [ ] A feed reader or serverless job that polls RSS, Atom and scraped pages (Zapier, Make, n8n or custom)
-- [ ] Claude Opus 4.5 or GPT-5 for drafting, plus Claude Sonnet 4.5 for the triage layer
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) for drafting, plus a faster mid-tier model for the triage layer
 - [ ] ElevenLabs account with a licensed synthetic voice if audio demos are in scope
 - [ ] Higgsfield or Runway account if video demos are in scope
 - [ ] Voice profile from the brand-voice-extraction playbook
@@ -52,9 +53,9 @@ Two layers monitor the studios the brand cares about.
 
 For each studio with a public release feed, add the feed URL to the feed reader.
 
-- OpenAI, https://openai.com/news (Atom)
-- Anthropic, https://www.anthropic.com/news (RSS)
-- Google DeepMind, https://deepmind.google/discover (manual scrape or a serverless job)
+- OpenAI, https://openai.com/news/rss.xml (RSS)
+- Anthropic, https://www.anthropic.com/news (no official RSS feed, watch the page with a page-change monitor or a serverless scrape)
+- Google DeepMind, https://deepmind.google/blog/rss.xml (RSS)
 - ElevenLabs, changelog page plus blog
 - Higgsfield, blog plus changelog
 - Midjourney, announcements channel via a Discord webhook
@@ -184,13 +185,15 @@ Draft. Return JSON:
 
 **Step 3.2, run the claim check.**
 
-Every claim in the post traces to a linked source. Claims with no source either get sourced (the team adds the link) or get removed. Posts with unsourced claims do not publish.
+Every claim in the post traces to a linked source. Claims with no source either get sourced (the team adds the link) or get removed. Then re-read the marketer paragraph, because a corrected fact can change the implication. Posts with unsourced claims do not publish.
 
 **Expect output like:**
 
 > **Post body.**
 >
-> Anthropic shipped Claude Opus 4.7 today with a 1M context window and a 38% reduction in hallucination on the long-context eval set.
+> Claude Opus 4.7 is out with a 1M context window.
+>
+> Anthropic reports a 38% reduction in hallucination on its long-context eval set.
 >
 > For marketers, the long-context behaviour is the change that matters. A campaign post-mortem can now fit a year of weekly Meta exports, your brand voice profile and your top performing creatives in one prompt, with the model maintaining grounding across the full window. Last generation, you had to chunk this work or accept that the model would drift.
 >
@@ -200,7 +203,7 @@ Every claim in the post traces to a linked source. Claims with no source either 
 >
 > #ai #marketing #claude
 >
-> **Claim check.** Three claims, all referenced to the Anthropic release notes.
+> **Claim check.** Four claims, all referenced to the Anthropic release notes.
 
 **Step 3.3, identify the demo candidates.**
 
@@ -257,6 +260,7 @@ Each post runs through gates before publish.
 - Claim check, every claim has a source link
 - Audience-specific check, the "what this means for marketers in [category]" paragraph is concrete and category-specific, not generic
 - Honest-limitation check, the post names at least one caveat
+- Brevity check, 200 words or fewer
 
 **Step 5.2, publish at the audience's slot.**
 

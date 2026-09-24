@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "lifecycle", "content"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-08-27
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -30,12 +31,12 @@ A growth or scale-stage endurance brand whose product is recommended at the coac
 ## Before you start
 
 - [ ] List of three to five target disciplines and three to five geographies the brand wants to penetrate
-- [ ] Access to TrainingPeaks coach directory (free read access), Final Surge coach lookup, the British Triathlon coach register, UK Athletics CoachHub, USA Track and Field coach search, or your discipline's equivalent
+- [ ] Access to the TrainingPeaks coach directory (free read access), the Final Surge training-plan marketplace, British Triathlon's Coach Finder, the UK Athletics Find a Coach search, USA Track and Field coach search, or your discipline's equivalent
 - [ ] A CRM with coach segmentation capacity (HubSpot, Salesforce, Pipedrive) and an email tool with custom audience support (Klaviyo, Mailchimp)
 - [ ] Sample fulfilment infrastructure with the ability to ship to named athletes at no charge to the coach
 - [ ] An optional but valuable Strava integration if the brand wants to track athlete training patterns
 - [ ] A coach-channel budget of at least 2% of total marketing spend, sized against the LTV uplift you expect
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 The sample budget is the programme. Without it, the rest is theatre. Get the budget signed off before you scope the tiers.
 
@@ -49,7 +50,7 @@ The first move is the database. Most brands underestimate how many named coaches
 
 **Step 1.1, pull the coach directories.**
 
-In TrainingPeaks, the coach directory is at trainingpeaks.com/coach-search. Filter by sport and location. The free read returns up to 100 results per query, scroll through. In Final Surge, the equivalent is finalsurge.com/Coach.cshtml. For UK Athletics coaches, the register sits at uka.org.uk and lists qualified coaches by region. For British Triathlon, similar at britishtriathlon.org. USA Triathlon and USA Track and Field publish similar national lists.
+In TrainingPeaks, the coach directory is at trainingpeaks.com/find-a-coach. Filter by sport and location, and scroll through the results. Final Surge no longer has a separate coach lookup. Its training-plan marketplace at finalsurge.com/trainingplans lists the coach behind each plan, which is a usable proxy. For UK Athletics coaches, the Find a Coach search at find-a-coach.myathletics.uk filters by county, club, event group and discipline (including endurance) and can show licensed coaches only. For British Triathlon, use the Coach Finder at britishtriathlon.org. USA Triathlon and USA Track and Field publish similar national lists.
 
 Copy each coach's name, discipline, platform, country, and any publicly listed roster size or athlete count into the coach-tier-roster template.
 
@@ -122,8 +123,8 @@ The standard menu:
 
 | Tier | Coach receives | Coach gives |
 |---|---|---|
-| A (partner) | Full personal kit annually, 2 to 5 athlete samples per quarter on request, on-site training, fitting clinics, athlete-feedback channel | Active recommendation when fit, honest product feedback, attendance at quarterly partner calls |
-| B (network) | Annual product info, periodic outreach, sample programme access on application (1 personal kit, 3 athlete samples per quarter) | Receipt of brand newsletter, optional engagement |
+| A (partner) | Personal kit annually (up to 3 kits for coaching collectives), athlete samples on request against a quarterly allowance set per coach (typically 12 to 16), on-site training, fitting clinics, athlete-feedback channel | Active recommendation when fit, honest product feedback, attendance at quarterly partner calls |
+| B (network) | Annual product info, periodic outreach, sample programme access on application (1 personal kit, 3 to 4 athlete samples per quarter) | Receipt of brand newsletter, optional engagement |
 | C (database) | Brand newsletter, opt-in product announcements | Implicit, on the list as future Tier B candidate |
 
 The Tier A coach gets a named relationship manager. Tier B gets a shared inbox. Tier C gets the newsletter.
@@ -155,6 +156,7 @@ verdict and a reason.
 USER:
 Coach: {COACH_NAME}
 Coach tier: {TIER}
+Coach public presence (profile URL, or NONE): {PROFILE_URL}
 Athletes seeded YTD: {COUNT}
 Annual allowance: {ALLOWANCE}
 Verified purchases attributed to this coach YTD: {PURCHASES}
@@ -173,8 +175,8 @@ Rules:
   request reads as athlete-specific.
 - "hold for review" if pace of requests is high relative to
   verified attribution.
-- "block" if coach is over annual allowance or request lacks
-  athlete-specific reasoning.
+- "block" if coach is over annual allowance, request lacks
+  athlete-specific reasoning, or public presence is NONE.
 - Reason must be specific.
 ```
 
@@ -235,9 +237,9 @@ Coaches do not carry discount codes and their recommendations do not tag. Three 
 
 **Step 5.1, instrument the three layers.**
 
-- **Direct attribution.** For sample-fulfilment requests, the brand knows which coach requested which athlete. When that athlete subsequently purchases, the brand can credit the coach. Set up a custom field in the CRM mapping athlete email to requesting coach.
+- **Direct attribution.** For sample-fulfilment requests, the brand knows which coach requested which athlete. When that athlete subsequently purchases, the brand can credit the coach. Set up a custom field in the CRM mapping athlete email to requesting coach. The athlete's details reach you through a third party, so tell the athlete when the sample ships that their details came from their coach, and record your lawful basis for holding them (UK GDPR).
 - **Survey attribution.** At checkout, an optional "who recommended us?" question with a coach-name autocomplete. Most customers will skip, but the ones who answer surface coaches who are quietly driving demand the direct attribution misses.
-- **Cohort attribution.** Track concentration of a coach's known athletes (from their public TrainingPeaks roster) purchasing the same SKU in a window. The concentration above baseline is a signal the coach is recommending.
+- **Cohort attribution.** Track concentration of a coach's known athletes (the athletes the coach has named to you through sample requests or clinics, with their consent) purchasing the same SKU in a window. Coaching-platform rosters are private, so this list is built from your own records. The concentration above baseline is a signal the coach is recommending.
 
 **Step 5.2, accept the limit.**
 
@@ -288,13 +290,13 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, building a 
 
 **Phase 1 output.** 312 named coaches across UK and Ireland in trail running, ultra and adjacent disciplines. Pulled from TrainingPeaks (174), British Triathlon's trail-aligned coach register (38), independent coach websites (62) and Final Surge (38). Initial tier split, 22 Tier A candidates, 110 Tier B, 180 Tier C.
 
-**Phase 2 output.** Tier menu drafted and shared with the team. The Tier A allowance is 3 personal kits per year plus 12 athlete samples per quarter. Cascadia's CFO signs off at 1.8% of marketing budget for the sample line.
+**Phase 2 output.** Tier menu drafted and shared with the team. The Tier A allowance is 3 personal kits per year plus 12 athlete samples per quarter. Cascadia's CFO signs off at 2.0% of marketing budget for the sample line.
 
-**Phase 3 output.** Sample request form built in HubSpot. The abuse-detection rule runs on every submission. In month one, two requests are held for review and one is blocked (the "coach" has no public coaching presence).
+**Phase 3 output.** Sample request form built in HubSpot. The abuse-detection rule runs on every submission. In month one, two requests are held for review and one is blocked (the "coach" has no public coaching presence, so the public-presence field comes back NONE).
 
 **Phase 4 output.** Quarterly coach content lined up. Q3 fit guide for the Vahla shell, including the membrane spec comparison against Salomon S/LAB and Inov-8. Training research piece on multi-day recovery for ultra coaches. Launch brief for the Vahla shorts going to Tier A two weeks ahead. In-person clinic in the Lake District in October for 18 Tier A coaches.
 
-**Phase 5 output.** Attribution framework live. Month one, direct attribution captures 24 purchases from 38 athletes seeded. Survey attribution captures another 9 purchases citing a Cascadia partner coach. Cohort attribution flags an unusual concentration of TrainingPeaks athletes coached by Phil Owusu buying the Vahla shorts in the two weeks after the launch brief landed.
+**Phase 5 output.** Attribution framework live. Month one, direct attribution captures 24 purchases from 38 athletes seeded. Survey attribution captures another 9 purchases citing a Cascadia partner coach. Cohort attribution flags an unusual concentration of athletes Phil Owusu has named through sample requests buying the Vahla shorts in the two weeks after the launch brief landed.
 
 **Phase 6.** End of year. Saoirse Burns, the independent trail coach, gets a "renew with expand" lean. Her 22 athletes seeded year-to-date yielded 7 verified purchases plus a measurable cohort signal. Cascadia expands her sample allowance and invites her to host a clinic. Aleks Vrana in Czech Republic gets "renew flat" because attribution is steady but the engagement signals are middling. Mara Kjeldsen, a Tier C from Norway who has engaged consistently with the newsletter and submitted three sample requests through her network coach, gets promoted to Tier B. North Cotswold Tri Squad, a Tier B with 80 athletes but only 1 verified purchase year-to-date, gets demoted to Tier C with a transparent conversation about why.
 

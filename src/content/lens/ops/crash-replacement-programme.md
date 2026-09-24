@@ -7,8 +7,9 @@ readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "lifecycle"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-09-10
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -67,6 +68,8 @@ For each programme type, three tier levels. The customer's tier is determined by
 - **Tier 1, discounted replacement.** Customer pays 50 to 70% of retail for a replacement. Used for clean crash-replacement cases on high-value items within the brand's stated crash window (typically three years for helmets and frames, two years for outerwear).
 - **Tier 2, subsidised replacement.** Customer pays 30 to 50%. Used for warranty-edge cases or wear-out claims where the product failed earlier than expected but technically within standard wear.
 - **Tier 3, free replacement.** Customer pays nothing. Reserved for clear product defects, ambassador-programme issues and repeat-customer goodwill (five plus prior orders, claim within window, clean evidence).
+
+Check the tiers against customers' statutory rights before you publish them. In the UK, goods that are faulty or wear out unreasonably early may already be covered by the Consumer Rights Act 2015 at no cost to the customer, and the Digital Markets, Competition and Consumers Act 2024 lists presenting legal rights as a distinctive feature of your offer as a banned practice. The safe shape is to keep defects and premature failure on the statutory route and position the paid tiers as going beyond it. Check the wear-out tier in particular with your legal adviser.
 
 **Step 1.3, publish the rules on the product pages.**
 
@@ -203,7 +206,7 @@ Edge cases route to a senior reviewer who replies within five working days.
 
 **Step 3.4, the fulfilment.**
 
-For approved cases, the operator creates a Shopify draft order for the replacement SKU. The customer pays the tier amount through a standard Stripe link. The replacement ships through the same channel as a regular order, not slower because it is a claim. Cycle target: five working days from submission to shipped replacement for clean cases.
+For approved cases, the operator creates a Shopify draft order for the replacement SKU. The customer pays the tier amount through the draft order's invoice link. The replacement ships through the same channel as a regular order, not slower because it is a claim. Cycle target: five working days from submission to shipped replacement for clean cases.
 
 You should now have a claim flow that runs end-to-end in under a week per case.
 
@@ -216,7 +219,7 @@ The system needs safeguards without insulting honest customers.
 Once a week, the operator runs a pattern-check on the case log. Pull these queries from the spreadsheet:
 
 - Customers with three or more claims in the last twelve months
-- Shipping addresses with two or more claims from different customer names
+- Shipping postcodes with two or more claims from different customer names
 - Claims submitted within thirty days of a public sale or coupon-code event
 - Products with sudden claim-rate spikes (above three times the baseline)
 
@@ -292,7 +295,7 @@ Crashes happen. Gear wears out. Here's what we do.
 
 If you crash this {PRODUCT_TYPE} within {N} years of buying it,
 we'll get you a replacement at {TIER_1_PRICE} of retail. Photos
-of the damage and your order ID is all we need. Most claims
+of the damage and your order ID are all we need. Most claims
 ship within five working days.
 
 If it wears out faster than it should, we'll subsidise the
@@ -313,23 +316,24 @@ You should now have a programme that is discoverable, fair, fast and brand-build
 
 ## Worked example, end-to-end
 
-Cascadia Endurance, scale-stage. Beth Lyons (brand and lifecycle lead) and a customer service operator named Anya. The programme covers crash-replacement on outerwear and packs, wear-out on shoes.
+Cascadia Endurance, scale-stage. Beth Lyons (brand and lifecycle lead) and a customer service operator named Anya. The programme covers crash-replacement on outerwear and packs, wear-out on shoes and bib shorts.
 
-**Phase 1.** Beth maps the catalogue. Vahla Range Storm Shell, Vahla Carbon Pack, Cascadia Race Vest are in crash-replacement. Cascadia Trail Shoe v3 is in wear-out. T-shirts and accessories are not in the programme.
+**Phase 1.** Beth maps the catalogue. Vahla Range Storm Shell, Vahla Carbon Pack, Cascadia Race Vest are in crash-replacement. Cascadia Trail Shoe v3 and Cascadia Bib Shorts are in wear-out. T-shirts and accessories are not in the programme.
 
 **Phase 2.** Tally form lives at `cascadia-endurance.com/crash-and-wear`. The form question copy is reviewed against the brand voice gates and ships clean.
 
 **Phase 3.** The first month after launch produces eight cases (rows in the CSV template at the end of this playbook).
 
-- CR-2026-0001, Beth Allen, Storm Shell crashed at UTMB Mont-Blanc. Returning customer with four prior orders. Within 3-year crash window. Tier 1, customer pays £130. Approved in 6 hours. Shipped in 5 days.
+- CR-2026-0001, Beth Allen, Storm Shell crashed at UTMB Mont-Blanc 2025. Returning customer with four prior orders. Within the two-year outerwear crash window. Tier 1, customer pays £130. Approved in 6 hours. Shipped in 5 days.
 - CR-2026-0002, Mark Riley, Trail Shoe wore out at 7 months with photos showing midsole compression. First-time customer. Tier 2, customer pays £42. Approved in 5 hours. Shipped in 5 days.
 - CR-2026-0003, Jordan Pierce, similar wear-out claim, photos unclear. Routed to human review. Operator asks for re-photos with the neutral language template.
 - CR-2026-0004, Saoirse Burns (sponsored athlete), Carbon Pack defect at Lavaredo training camp. Tier 3, customer pays £0. Replacement next-day shipped.
+- CR-2026-0006, Tom Vaughn, Trail Shoe wear at 2 months with photos that suggest road use. Road use is not an exclusion in the rules, so the case goes to human review rather than a decline.
 - CR-2026-0008, Yusuf Kahn, bib shorts wear-out at 23 months. Edge-case wear claim. Tier 2, customer pays £34. Approved in 12 hours.
 
 **Phase 4.** Week-four pattern check surfaces no fraud signals. The case log is small but already useful for spotting that Trail Shoe v3 wear-out claims are clustered around the 6-to-9-month mark, which Beth flags to product.
 
-**Phase 5.** CR-2026-0007, Lila Okafor, Storm Shell crash at Ultra Trail Cape Town with five prior orders and excellent photos. Anya asks for permission to share. Lila says yes. Through the customer-content-rights playbook, the story becomes a permission-led social post that out-engages the brand's hero campaign by 3x.
+**Phase 5.** CR-2026-0007, Lila Okafor, Storm Shell crash at Ultra Trail Cape Town with five prior orders and excellent photos. At 30 months the claim is outside the two-year outerwear window, so it lands at the top of the Tier 2 band rather than Tier 1 or Tier 3. Anya asks for permission to share. Lila says yes. Through the customer-content-rights playbook, the story becomes a permission-led social post that out-engages the brand's hero campaign by 3x.
 
 **The case log after month one (extract):**
 
@@ -339,7 +343,7 @@ Cascadia Endurance, scale-stage. Beth Lyons (brand and lifecycle lead) and a cus
 | CR-2026-0002 | Trail Shoe v3 | 7 | Tier 2 | £42 | 5 |
 | CR-2026-0004 | Carbon Pack | 4 | Tier 3 | £0 | 1 |
 | CR-2026-0005 | Race Vest | 26 | Tier 2 | £90 | 5 |
-| CR-2026-0007 | Storm Shell | 30 | Tier 1 | £90 | 5 |
+| CR-2026-0007 | Storm Shell | 30 | Tier 2 | £90 | 5 |
 
 Cycle-time average four days. Claim-rate as percentage of units sold sits under 1.5%. Customer-content output from consented stories starts compounding by month three.
 
@@ -414,7 +418,7 @@ My customer service tool: {HELP_SCOUT | ZENDESK | FRONT | INTERCOM}
 Extra fields I need: {LIST_EXTRA_FIELDS}
 
 Generate a CSV with one row per case and columns for:
-- Case_ID, Submitted_Date, Customer_Name, Customer_Email, Order_ID
+- Case_ID, Submitted_Date, Customer_Name, Customer_Email, Order_ID, Shipping_Postcode
 - Product, Product_Category, Purchase_Date, Months_Since_Purchase
 - Damage_Type, Photos_Attached, Race_Or_Event
 - Customer_Tier, Lifetime_Orders, Lifetime_Spend_GBP

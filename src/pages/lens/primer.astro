@@ -5,13 +5,13 @@ import { url } from '../../utils/paths';
 ---
 <Base
   title="The Lens 101. Prompting and skills, plainly"
-  description="A primer for readers new to prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
+  description="A refresher on prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
 >
   <SEOHead
     slot="seo"
     type="article"
     title="The Lens 101. Prompting and skills, plainly"
-    description="A primer for readers new to prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
+    description="A refresher on prompting and AI agent skills. What a prompt is, what makes one good, what a skill is, and how to use them."
     breadcrumbs={[
       { name: 'Home', url: '/' },
       { name: 'The Lens', url: '/lens' },
@@ -192,8 +192,9 @@ Return JSON in this exact shape:
       <p>
         Skills follow the <a href="https://agentskills.io" target="_blank" rel="noopener">Anthropic Agent Skills spec</a>. They work with
         Claude Code, Cursor, Codex, Windsurf and any agent that loads
-        skills. The Lens ships 14 of them, paired with the playbooks
-        whose workflows fit cleanly as single agent tasks.
+        skills. The Lens ships 26 of them: 24 paired with the playbooks
+        whose workflows fit cleanly as single agent tasks, plus an
+        onboarding skill and a video-render utility.
       </p>
       <p>
         A minimal SKILL.md looks like this.
@@ -233,9 +234,11 @@ You are a brand strategist running a six-pass positioning audit...
   <!-- INSTALL -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>5 · Installing the Lens skills</h2>
+      <h2>5 · Installing The Lens skills</h2>
       <p>
-        Two commands in any Claude Code session.
+        In Cowork, open Customize → Plugins → Add marketplace, enter
+        <code>Scylark/manual-focus</code> and install
+        <strong>the-lens</strong>. In Claude Code, it's two commands.
       </p>
       <pre class="p101-code"><code>/plugin marketplace add Scylark/manual-focus
 /plugin install the-lens@manual-focus</code></pre>
@@ -264,8 +267,8 @@ You are a brand strategist running a six-pass positioning audit...
         examples and a paired skill. <code>positioning-audit</code>,
         <code>brand-voice-extraction</code>, <code>seo-cluster-generator</code>,
         <code>eval-gated-drafting</code>, <code>earned-media-pitch</code>,
-        <code>race-result-content-engine</code>, <code>ai-studio-news-pipeline</code>
-        and others. Sixteen of the thirty-six playbooks sit here.
+        <code>race-result-content-engine</code>, <code>ai-studio-news-watch</code>
+        and the rest of the paired set.
       </p>
       <h3>Hybrid playbooks</h3>
       <p>

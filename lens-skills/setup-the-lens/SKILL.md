@@ -2,7 +2,7 @@
 name: setup-the-lens
 description: "When the user has just installed The Lens plugin or is asking about The Lens for the first time. Trigger on 'set up the lens', 'setup the lens', 'I just installed the lens', 'what is the lens', 'tell me about the lens', 'where do I start with the lens', 'get started with the lens', 'lens onboarding', 'first time using the lens', 'onboard me to the lens', 'manual focus lens', or any prompt that suggests the user has the plugin but does not yet know how to use it. Also triggers when the user invokes /setup-the-lens. This is the welcome and orchestration skill. Prefer it over the specific workflow skills when the user has not yet picked a starting point. Do not invoke this skill if the user already has a `.lens/` directory in their workspace with `brand.json`, `links.json` and `todo.md` populated, because that means setup has already run."
 metadata:
-  version: 0.3.0
+  version: "0.3.1"
   playbook: https://manual-focus.co.uk/lens/start-here
 ---
 
@@ -30,7 +30,7 @@ Open with four lines naming what The Lens is, what setup will do, and how long i
 
 Example:
 
-> Welcome to The Lens. This is a library of 46 marketing playbooks plus 26 installable skills, free. I am the setup orchestrator. In the next twenty to forty minutes we will install the right plugins for your work, pull your existing brand documentation into a structured workspace, and put a starter playbook in front of you. Ready to start?
+> Welcome to The Lens. This is a library of 45 marketing playbooks plus 26 installable skills, free. I am the setup orchestrator. In the next twenty to forty minutes we will install the right plugins for your work, pull your existing brand documentation into a structured workspace, and put a starter playbook in front of you. Ready to start?
 
 If they say no, ask what they want instead. If they say yes, proceed.
 
@@ -83,10 +83,12 @@ State which plugins they should add and offer the install commands. Format:
 > Based on your situation, you'll want these Cowork plugins alongside The Lens:
 >
 > ```text
-> /plugin marketplace add anthropics/cowork
-> /plugin install brand-voice@cowork
-> /plugin install productivity@cowork
+> /plugin marketplace add anthropics/knowledge-work-plugins
+> /plugin install brand-voice@knowledge-work-plugins
+> /plugin install productivity@knowledge-work-plugins
 > ```
+>
+> (Running in Cowork? They are one click each under Customize → Plugins → Browse plugins.)
 >
 > Want me to run these now, or do you want to install them later?
 
@@ -274,7 +276,7 @@ When you recommend a starter, pick from these. Each slug links to /lens/<stack>/
 
 **Demand (11):** attribution-teardown, channel-mix-simulator, category-entry-points, ambassador-programme, direct-to-coach, event-sponsorship-playbook, lifecycle-journey-builder, paid-search-bidding-agent, race-day-demand-pipeline, retail-partner-programme, subscription-membership.
 
-**Content (9):** ai-studio-news-pipeline, earned-media-pitch-generator, eval-gated-drafting, race-result-content-engine, segment-broll-production, seo-cluster-generator, social-content-factory, training-content-engine, video-script-system.
+**Content (8):** ai-studio-news-pipeline, earned-media-pitch-generator, eval-gated-drafting, race-result-content-engine, segment-broll-production, seo-cluster-generator, social-content-factory, video-script-system.
 
 **Ops (9):** brand-guardrails-as-code, brief-to-ship-pipeline, crash-replacement-programme, customer-content-rights, end-of-season-inventory, evaluation-frameworks, gear-launch-sequence, hiring-shape-for-ai-native-teams, quarterly-planning-ritual.
 

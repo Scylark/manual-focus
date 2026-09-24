@@ -2,7 +2,7 @@
 name: ai-studio-news-watch
 description: "When the user wants to monitor AI studio releases (OpenAI, Anthropic, Google DeepMind, Midjourney, ElevenLabs, Higgsfield, Runway etc.), draft LinkedIn posts about new model launches, build a news pipeline, or stay current on what frontier studios have shipped. Triggers on 'what shipped this week in AI', 'draft a LinkedIn post about [release]', 'build me an AI news pipeline', 'we need to be sharper on frontier model news'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/content/ai-studio-news-pipeline
 ---
 
@@ -40,9 +40,10 @@ demos. You name the limitations every time.
 
 Pull recent releases from the watchlist studios. For each studio:
 
-- **OpenAI** — fetch RSS or scrape news page
-- **Anthropic** — fetch RSS or scrape news page
-- **Google DeepMind** — scrape `discover` page
+- **OpenAI** — fetch `https://openai.com/news/rss.xml`
+- **Anthropic** — no official RSS feed. Watch `https://www.anthropic.com/news`
+  with a page-change monitor or a serverless scrape
+- **Google DeepMind** — fetch `https://deepmind.google/blog/rss.xml`
 - **ElevenLabs** — fetch changelog + blog
 - **Higgsfield** — fetch changelog + blog
 - **Other studios** — appropriate per the source's structure
@@ -55,16 +56,16 @@ For each unprocessed release, classify:
 
 ```text
 SYSTEM: You triage AI studio releases by significance for a marketing
-audience. You return one of four labels: headline | worth-a-beat |
-industry-signal | noise. You do not editorialise.
+audience. You return one of four labels: headline | worth_a_beat |
+industry_signal | noise. You do not editorialise.
 
 Definitions:
 - headline: new frontier model, major capability jump, pricing change,
   deprecation of a widely-used model. Post-worthy this week.
-- worth-a-beat: feature additions, eval results, model variants, API
+- worth_a_beat: feature additions, eval results, model variants, API
   changes affecting marketers' workflows. Post-worthy when paired with
   others or as a digest.
-- industry-signal: fundraising, leadership changes, partnerships.
+- industry_signal: fundraising, leadership changes, partnerships.
   Mention only if post-worthy angle is obvious.
 - noise: minor SDK updates, internal-tool releases, blog posts about
   company culture.
@@ -76,7 +77,7 @@ Date: {DATE}
 
 Return JSON:
 {
-  "label": "<headline|worth-a-beat|industry-signal|noise>",
+  "label": "<headline|worth_a_beat|industry_signal|noise>",
   "reasoning": "<one sentence>",
   "marketing_relevance": <0-10>,
   "category_relevance": <0-10>,  // for this brand's category
@@ -85,7 +86,7 @@ Return JSON:
 ```
 
 Output: triaged ledger. Surface `headline` releases as immediate;
-batch `worth-a-beat` releases for the weekly digest.
+batch `worth_a_beat` releases for the weekly digest.
 
 ### Phase 3 — POV drafting
 
@@ -114,6 +115,7 @@ Rules:
   comment.
 - ≤ 200 words. Brevity is part of credibility.
 - Do not over-claim. If you haven't tested, say so.
+- No exclamation marks. No em dashes. No semicolons in prose.
 
 USER:
 Release: {RELEASE_DETAILS}
@@ -131,7 +133,7 @@ Draft. Return JSON:
   "needs_audio_demo": <true|false>,
   "needs_video_demo": <true|false>,
   "claim_check": [
-    {"claim": "<verbatim from post>", "source": "<URL or 'tested-by-us'>"}
+    {"claim": "<verbatim from post>", "source": "<URL from sources>"}
   ],
   "limitation_named": "<the limitation called out in the post>"
 }
@@ -144,8 +146,8 @@ the audio:
 
 ```text
 # Pseudocode for the audio production call
-audio_text = strip_hashtags(post_body) + " — Manual Focus, synthetic
-voice for accessibility"
+audio_text = strip_hashtags(post_body) + ". Read by {BRAND}'s synthetic
+voice for accessibility."
 
 response = elevenlabs.text_to_speech(
   voice_id = brand.preferred_voice_id,

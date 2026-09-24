@@ -2,7 +2,7 @@
 name: meeting-prep-stack
 description: "When the user wants a meeting prep pack, context for an upcoming meeting, attendee research, a briefing on who they are meeting with, prep for a call with a prospect or partner, or auto-generated meeting context. Triggers on 'prep me for my meeting with [name]', 'I have a call with [company] tomorrow', 'context pack', 'background on [attendee]', or pasting a calendar invite and asking for prep."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/meeting-prep-stack
 ---
 
@@ -17,7 +17,7 @@ You produce a one-page context pack for a marketing or GTM operator's external m
 3. **Operator's CRM access** — for deal stage, related deals, last activity
 4. **Inbox history** — last 90 days of threads with the attendees or company
 5. **Notes tool** — Granola, Fireflies, Notion or Obsidian export with any prior meeting notes
-6. **LinkedIn source** — official LinkedIn MCP, research-tool MCP, or manual paste
+6. **LinkedIn source** — manual paste, or a research tool the operator is licensed to use. LinkedIn publishes no official MCP server
 7. **Operator's relationship owner** — who at their company owns the attendee or company relationship
 
 If a source is missing, run the pipeline with what is available and explicitly mark the corresponding section as "not available". Do not invent.
@@ -61,6 +61,7 @@ Draft agenda: 3-5 `agenda` items each with `item` (5-10 word noun phrase), `rati
 Rules:
 - Sum of `estimated_minutes` equals meeting duration minus 10 minutes (buffer).
 - `the_one_thing` is sharp. Not "be prepared". A specific fact, decision, or risk.
+- One agenda item or `open_question_to_raise` covers decision authority: who on their side can say yes, and by when.
 
 ### Phase 5 — Pack assembly
 
@@ -93,9 +94,8 @@ Assemble into the template:
 ## Output
 
 Deliver as:
-- Calendar event description, 30 minutes before start (default)
-- Linked Google Doc or Notion page in the event
-- Email to the operator at the same time
+- Private Google Doc or Notion page, or an email to the operator, 30 minutes before start (default)
+- Calendar event description only when the operator is the sole attendee. Every attendee on a shared event can read it
 - Morning email at 06:30 if the operator has back-to-back meetings
 
 Save to `.lens/prep/{date}-{meeting-slug}.md`. Downstream skills read it.
@@ -115,7 +115,7 @@ Before delivering:
 - **Invented biography** — when LinkedIn is thin, the model fills in plausible-sounding facts. Hold the "no invented biography" rule. Use the `uncertain_facts` array to flag.
 - **Power dynamics missed** — flag in `open_question_to_raise` whether the attendee can sign the deal or has to escalate.
 - **Old interactions feel current** — every interaction is dated. Operator sees what is recent.
-- **Privacy by accident** — the pack contains deal stages and sometimes compensation signals. Default delivery is the operator's own event description, never a shared invite description.
+- **Privacy by accident** — the pack contains deal stages and sometimes compensation signals. Default delivery is a private doc or an email to the operator, never a shared event description.
 
 ## Hand-off
 

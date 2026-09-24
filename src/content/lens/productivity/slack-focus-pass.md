@@ -7,8 +7,9 @@ readMin: 12
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["meetings", "inbox", "tasks"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-08-28
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -30,7 +31,7 @@ If you are in fewer than 10 channels, the manual approach is faster. If you are 
 
 ## Before you start
 
-- [ ] Slack workspace token with `channels:read`, `groups:read`, `users:read`, `chat:write`, `im:read`
+- [ ] Slack access that can read message text. Either the Slack connector, or a user token with `channels:history`, `groups:history`, `im:history`, `mpim:history`, `search:read` and `users:read`. Add `chat:write` only if the pipeline posts the focus list to your DM
 - [ ] A brand voice profile (from brand-voice-extraction). Note that Slack voice is usually looser than email voice
 - [ ] Sample messages from your own Slack history, 10 to 20 of your recent sent messages per channel type
 - [ ] A target delivery channel for the focus pass output (Slack DM to self by default)
@@ -54,7 +55,7 @@ Five categories, each with a treatment rule.
 | Score | Treatment | Examples |
 |---|---|---|
 | Critical | Always surfaces, no delay | DMs, #leadership, customer escalation channels |
-| High signal | Surfaces if mentioned or DM'd within | #marketing-launches, #sales-pipeline, project channels |
+| High signal | Surfaces on @mention, DM, or time-pressure language in a thread you're in | #marketing-launches, #sales-pipeline, project channels |
 | Medium signal | Surfaces only on @mention | #engineering, #operations, partner Connect channels |
 | Low signal | Read once a week, never surfaces | #random, #team-celebrations, #links |
 | Mute | Never surfaces, optionally leave | #announcements (read elsewhere), #help-desk-bot, #marketing-news-feed |
@@ -95,7 +96,7 @@ Slack activity in the last 18 hours (channel, thread_ts, user,
 text snippet, has_operator_mention, has_operator_dm, last_activity_ts):
 {PASTE_SLACK_ACTIVITY}
 
-Operator's outbound messages in this window (channel, thread_ts):
+Operator's outbound messages in this window (channel, thread_ts, ts):
 {PASTE_OPERATOR_OUTBOUND}
 
 Return JSON:
@@ -125,7 +126,10 @@ Rules:
   ("today", "before end of day", "ASAP") or customer escalation.
 - channels_with_high_volume_but_no_signal flags channels that
   produced 20+ messages in the window without surfacing a focus
-  thread. These are candidates for re-scoring to "low".
+  thread. These are candidates for re-scoring to "low". Exclude
+  monitoring and alert feeds (brand mentions, error alerts), which
+  are high volume by design. From those, surface any single item
+  that reports a product fault or a customer complaint.
 - Return JSON only.
 ```
 

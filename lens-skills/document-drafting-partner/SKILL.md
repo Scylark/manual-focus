@@ -2,7 +2,7 @@
 name: document-drafting-partner
 description: "When the user wants to draft a document from an outline, write a brief, memo, proposal, board update or internal explainer in their voice, turn bullets into prose, or run a voice-loaded first draft. Triggers on 'draft this memo', 'turn this outline into a doc', 'write this brief in our voice', 'draft a board update', 'help me write the launch memo', or pasting an outline and asking for a draft."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/productivity/document-drafting-partner
 ---
 
@@ -61,13 +61,15 @@ Rules:
 - No forbidden element appears.
 - Sections track the outline 1:1.
 - Closing paragraph names the action or decision, not a generic conclusion.
+- Never invent numbers, prices, dates or terms. If the argument needs a figure that is not in the spec, required elements or corpus, write [FIGURE NEEDED: what].
 
 ### Phase 3 — Voice consistency check
 
-Return JSON with `overall_voice_score` (0-10), `section_scores` per section across five dimensions (register, rhythm, vocabulary, structure, specificity), `drift_flags` (verbatim line / issue / recommended_fix) for lines scoring below 6, and `global_flags`.
+Return JSON with `overall_voice_score` (0-10), `section_scores` per section across five dimensions (register, rhythm, vocabulary, structure, specificity), `drift_flags` (verbatim line / issue / recommended_fix) for lines that pull their section below 8, and `global_flags`. Read the drafting spec alongside the voice profile so register and length are judged against it.
 
 Rules:
-- `drift_flags` only for lines scoring below 6 on any dimension.
+- `drift_flags` for any line that pulls its section below 8 on a dimension.
+- List any figure, date or claim not found in the spec or required elements in `global_flags` as "unsupported".
 - `recommended_fix` is a verbatim rewrite, not a description.
 
 ### Phase 4 — Revision loop

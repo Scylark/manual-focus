@@ -7,8 +7,9 @@ readMin: 17
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["content", "email", "organic-social"]
-models: ["claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5", "claude-4.5-sonnet"]
 publishedAt: 2026-07-02
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -25,7 +26,7 @@ By the end of this playbook you will have shipped five artefacts.
 
 ## Who this is for
 
-A growth or scale-stage endurance brand whose audience races a recognisable calendar and whose content team can hold a 60-minute publish window on race day. If the brand has fewer than four Tier 1 events on the calendar in a year, the pipeline runs but the volume does not justify the build. If sponsored athletes are central to the brand and finish outside the top 30 most of the time, expect the proportionality eval to bite.
+A growth or scale-stage endurance brand whose audience races a recognisable calendar and whose content team can hold a 60-minute publish window on race day. If the brand has fewer than four Tier 1 events on the calendar in a year, the pipeline runs but the volume does not justify the build. If sponsored athletes are central to the brand and finish outside the top 20 most of the time, expect the proportionality eval to bite.
 
 ## Before you start
 
@@ -36,7 +37,7 @@ A growth or scale-stage endurance brand whose audience races a recognisable cale
 - [ ] Social scheduler (Buffer, Hootsuite, Later) with race-day post containers ready
 - [ ] Voice profile from the brand-voice-extraction playbook
 - [ ] Endurance-specific voice extension if you cover multiple sports
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spreadsheet for the result data feed and the event log
 - [ ] Sponsored athletes' Strava and Garmin Connect handles for context, where available
 
@@ -52,7 +53,7 @@ Stand up the result data feed before the race so the pipeline reads from a known
 
 **Step 1.1, choose your template path.**
 
-**Option A, download the data feed template.** Grab [race-result-data-feed-template.csv](/lens/templates/race-result-data-feed-template.csv). It has columns for event ID, name, date, discipline, course distance, conditions, final result rank, athlete name, team, country, finish time, gap to winner, brand-relevance flag, event-log reference, source URL and notes. Open in Sheets or Excel, populate the brand's Tier 1 events from the calendar.
+**Option A, download the data feed template.** Grab [race-result-data-feed-template.csv](/lens/templates/race-result-data-feed-template.csv). It has columns for event ID, name, date, discipline, course distance, conditions, final result rank, athlete name, team, country, finish time, gap to winner, brand-relevance flag, event-log reference, source URL, second source URL, row ID and notes. The sample rows use fictional athletes and placeholder URLs, so replace them with your own events. Open in Sheets or Excel, populate the brand's Tier 1 events from the calendar.
 
 **Option B, build a custom feed for non-standard events.** If the brand covers an event format the standard schema does not fit (multi-stage races, relay formats, time-trial series), ask Claude to generate a tailored feed.
 
@@ -72,10 +73,12 @@ Generate a CSV template with columns appropriate to the discipline.
 At minimum include:
 Event_id, Event_name, Date, Discipline, Course_km, Conditions,
 Final_result_rank, Athlete_name, Athlete_team, Country, Finish_time,
-Gap_to_winner, Brand_relevant, Event_log_ref, Source_url, Notes
+Gap_to_winner, Brand_relevant, Event_log_ref, Source_url, Source_url_2,
+Row_id, Notes
 
 Add discipline-specific columns where appropriate (stage_rank for
-multi-stage, leg_split for relays, swim_bike_run_splits for tri).
+multi-stage, leg_split for relays, swim_bike_run_splits for tri,
+time_check_splits for time trials).
 
 Return the CSV directly, no commentary.
 ```
@@ -115,8 +118,8 @@ Each event has a timestamp, an event type, the athletes involved, a one-line des
 ```json
 [
   {"t": "10:14:22", "type": "margin", "athletes": ["Beth Lyons"], "description": "Lyons closes 2:30 gap to the lead pack on the Trinciedi descent", "source": "UTMB Live + watcher"},
-  {"t": "11:02:11", "type": "drama", "athletes": ["Namberger", "Lyons"], "description": "Lead changes three times in 6km on the Cibiana climb", "source": "UTMB Live"},
-  {"t": "11:38:55", "type": "tactical", "athletes": ["Namberger"], "description": "Namberger surges on the final descent, opens 4 minutes in 8km", "source": "UTMB Live + watcher"}
+  {"t": "11:02:11", "type": "drama", "athletes": ["Varrin", "Lyons"], "description": "Lead changes three times in 6km on the Cibiana climb", "source": "UTMB Live"},
+  {"t": "11:38:55", "type": "tactical", "athletes": ["Varrin"], "description": "Varrin surges on the final descent, opens 4 minutes in 8km", "source": "UTMB Live + watcher"}
 ]
 ```
 
@@ -129,6 +132,8 @@ When the official result posts, the pipeline finalises and the drafter runs.
 **Step 3.1, pull the final result.**
 
 Wait for the official result, not the provisional. Provisional results sometimes change (disqualifications, time penalties). Late by ten minutes is fine, wrong is not.
+
+Populate the feed from the official results page. If you must use press or aggregator results, every row you will cite needs two independent sources that agree, with both URLs logged in `Source_url` and `Source_url_2`. The fact-check gate checks the draft against the feed, not the feed against reality.
 
 Update the data feed CSV with the final rankings, finish times and gaps. Flag any brand-relevant athletes with `Brand_relevant: true`.
 
@@ -145,9 +150,9 @@ The drafter takes the result, the event log, the voice profile and the brand's P
 **Step 4.1, run the recap drafter prompt.**
 
 ```text
-SYSTEM: You write race recaps for an endurance brand. You write like
-someone who watched the race, not someone who read the results
-afterwards. You name the tactical inflection points. You distinguish
+SYSTEM: You write race recaps for an endurance brand. You write with
+the detail of someone who watched the race, drawn only from the
+event log. Never claim to have watched it yourself. You name the tactical inflection points. You distinguish
 the dominant narrative from the side stories worth a line. You do
 not hyperbolise. Endurance audiences distrust hyperbole.
 
@@ -169,8 +174,9 @@ Draft.
 3. Body, 350 to 500 words across four paragraphs:
    - Para 1, what happened up to the decisive moment
    - Para 2, the decisive moment itself with the timing data
-   - Para 3, the side stories worth knowing, one brand-relevant
-     athlete maximum, proportional to their actual finish
+   - Para 3, the side stories worth knowing, at most one
+     brand-relevant athlete covered in depth, any others one line
+     each, all proportional to their actual finish
    - Para 4, what it means for the season ahead
 
 Return JSON:
@@ -187,7 +193,9 @@ Return JSON:
 }
 
 Rules:
-- Only cite numbers that appear in the result or event log.
+- Only cite numbers that appear in the result or event log, or that
+  you derive arithmetically from them (gaps, speeds). List each
+  derived number in fact_claims with its calculation.
 - Brand-relevant athlete coverage proportional to their actual race
   performance, not their sponsorship status. A 47th-place finish does
   not carry the recap.
@@ -197,19 +205,19 @@ Rules:
 - Endurance audiences read closely. Be precise.
 ```
 
-**Expect output like:**
+**Expect output like** (fictional athletes and results, taken from the worked example below):
 
-> **Headline.** Namberger holds Lyons off in Cortina sprint
+> **Headline.** Varrin breaks Lyons on the final descent
 >
-> **Lede.** Hannes Namberger took Lavaredo by six minutes over Beth Lyons after three lead changes in the closing 8 km on Cibiana.
+> **Lede.** Matteo Varrin took Lavaredo by six minutes over Beth Lyons after three lead changes on the Cibiana climb.
 >
-> **Para 1.** The first half of the race ran to script. A four-rider pack held together through the early climbs and through Auronzo, with Mathieu Blanchard, Namberger and Lyons trading the front in turns. Conditions were clear at 14 C with a tail wind on the long descents, which is the weather Cascadia Endurance has historically called "fast Lavaredo" in its pre-race notes.
+> **Para 1.** The first half of the race ran to script. A four-rider pack held together through the early climbs and through Auronzo, with Luc Aubertin, Varrin and Lyons trading the front in turns. Conditions were clear at 14 C with a tail wind on the long descents, which is the weather Cascadia Endurance has historically called "fast Lavaredo" in its pre-race notes.
 >
-> **Para 2.** The race turned on Cibiana. Lyons closed a 2 minute 30 gap to Namberger on the Trinciedi descent, sat on his shoulder through the final aid, and watched him counter on the climb. The two traded the lead three times in 6 km. Namberger broke clear on the final descent and put 4 minutes into the field across the last 8 km to the line.
+> **Para 2.** The race turned on Cibiana. Lyons closed a 2 minute 30 gap to Varrin on the Trinciedi descent, sat on his shoulder through the final aid, and watched him counter on the climb. The two traded the lead three times in 6 km. Varrin broke clear on the final descent and put 4 minutes into the field across the last 8 km to the line.
 >
-> **Para 3.** Beth Lyons's second place is her best result over 100 km. The Vahla Range shell she field-tested through the storm-prone middle section came off intact, which matters for the brand's launch plans for the autumn. Saoirse Burns finished eighth in 12:14, her first 100 km of the season.
+> **Para 3.** Luc Aubertin took third, 10:51 down. Beth Lyons's second place came 6:14 behind Varrin. Saoirse Burns finished eighth in 12:14, her first 100 km of the season.
 >
-> **Para 4.** The Lavaredo result sets up the UTMB build. Namberger is now the favourite at Chamonix, Lyons becomes the credible top-five contender, and the Cascadia roster goes into August with the right kind of race in the legs.
+> **Para 4.** The Lavaredo result sets up the UTMB build. Varrin is now the favourite at Chamonix, Lyons becomes the credible top-five contender, and the Cascadia roster goes into August with the right kind of race in the legs.
 
 **Step 4.2, run the voice gate.**
 
@@ -283,19 +291,19 @@ You should now have the recap pipeline running and a retrospective cadence that 
 
 ## Worked example, end-to-end
 
-Cascadia Endurance covers the Lavaredo Ultra Trail in late June. Three sponsored athletes entered, Beth Lyons, Saoirse Burns and Marcus Hale (the brand's coaching voice).
+Illustrative example. Cascadia Endurance, its athletes and every other athlete named here are fictional, and the results are invented, not real race results. Cascadia Endurance covers the Lavaredo Ultra Trail in late June. Three sponsored athletes entered, Beth Lyons, Saoirse Burns and Marcus Hale (the brand's coaching voice).
 
 **Phase 1 output.** Data feed populated with the event, the start list and the timing-source URL (UTMB Live). Format tested 24 hours before the race, confirmed parseable.
 
-**Phase 2 output.** Race watch ran from 04:00 BST through to the final finisher. Event log captured 23 significant events including the four lead changes on Cibiana, Beth Lyons closing the gap on Trinciedi, and Saoirse Burns moving from 14th to 8th in the final 20 km.
+**Phase 2 output.** Race watch ran from 04:00 BST through to the final finisher. Event log captured 23 significant events including the three lead changes on Cibiana, Beth Lyons closing the gap on Trinciedi, and Saoirse Burns moving from 14th to 8th in the final 20 km.
 
-**Phase 3 output.** Final result posted at 16:42 BST. Namberger first in 11:42:18. Lyons second at +6:14. Burns eighth at +32:37. Hale did not start (DNS, illness). The DNS was logged and removed from the recap's athlete coverage scope.
+**Phase 3 output.** Final result posted at 16:42 BST. Varrin first in 11:42:18. Lyons second at +6:14. Burns eighth at +32:37. Hale did not start (DNS, illness). The DNS was logged and removed from the recap's athlete coverage scope.
 
-**Phase 4 output.** The recap drafter produced the headline "Namberger holds Lyons off in Cortina sprint" with the lede and four paragraphs as shown in the Expect Output block above. Voice rubric scored 11 of 12, ship.
+**Phase 4 output.** The recap drafter produced the headline "Varrin breaks Lyons on the final descent" with the lede and four paragraphs as shown in the Expect Output block above. Voice rubric scored 11 of 12, ship.
 
 **Phase 5 output.** Fact-check ran. Sixteen factual claims, all sourced. One claim about Lyons "closing a 2 minute 30 gap" was sourced to both the timing feed and the human watcher. Proportionality check passed, Burns received one mention in paragraph 3 proportional to her eighth-place finish, Lyons received two mentions in paragraphs 2 and 3 proportional to her second.
 
-**Phase 6 output.** Time-to-publish from final result was 47 minutes. Email sent at 17:29 BST to 8,200 subscribers on the trail-ultra segment with the subject "Lyons second at Lavaredo, the Vahla shell tested." Social cuts published on Instagram, X and LinkedIn within the next 20 minutes. The CMS recap went live with internal links to the Vahla Range product page and to Lyons's athlete profile.
+**Phase 6 output.** Time-to-publish from final result was 47 minutes. Email sent at 17:29 BST to 8,200 subscribers on the trail-ultra segment with the subject "Lyons second at Lavaredo, 6:14 off the win." Social cuts published on Instagram, X and LinkedIn within the next 20 minutes. The CMS recap went live with internal links to the Vahla Range product page and to Lyons's athlete profile.
 
 The audit ledger logged 7-day engagement at 41% email open rate (against a Cascadia baseline of 28% on race-day sends) and 380 social engagements on the Instagram cut (against a baseline of 220). The 30-day aging note recorded no change to the result, the story aged cleanly.
 
@@ -315,7 +323,7 @@ Take the result of a recent race in your brand's discipline. Pull the official r
 
 ### Exercise 3, run the proportionality check on a year of your own recaps
 
-Take a year of your brand's race recaps. For each, log the lead athlete's actual finish position and the paragraph share they received in the recap. Compute the average paragraph share per finish-position decile. If your sponsored athletes finishing outside the top 30 carry 30% or more of paragraph share, the proportionality gate would have caught the drift.
+Take a year of your brand's race recaps. For each, log the lead athlete's actual finish position and the paragraph share they received in the recap. Compute the average paragraph share per finish-position decile. If your sponsored athletes finishing outside the top 20 carry 30% or more of paragraph share, the proportionality gate would have caught the drift.
 
 ## The eval gates
 
@@ -359,4 +367,3 @@ The recap engine feeds:
 - **lifecycle-journey-builder**, race-day email touchpoints draw from the recap as content
 - **social-content-factory**, channel-native cuts of the recap
 - **earned-media-pitch-generator**, if the recap surfaces a story angle worth pitching
-- **training-content-engine**, race-day learnings sometimes feed training pieces in the following weeks

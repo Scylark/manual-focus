@@ -2,7 +2,7 @@
 name: segment-broll-production
 description: "When the user wants to plan or produce b-roll for endurance segments (road, gravel, trail, swim, triathlon), augment shoot footage with AI variants, build a multi-environment asset library, or figure out what AI image/video can and cannot do for endurance content. Triggers on 'plan our shoot b-roll', 'we need cuts for [segment]', 'can AI generate riders / runners / swimmers', 'augment our shoot output'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/content/segment-broll-production
 ---
 
@@ -43,8 +43,9 @@ Six phases.
 
 Plot the brand's segments against typical conditions (terrain, time-
 of-day, weather, season). Each cell in the matrix is a potential
-shot need. Most brands have 30–60 distinct cells; this is the
-canvas the asset library has to fill.
+shot need. The full matrix runs 60–200 cells; prioritise the 30–100
+that map to live campaigns. This is the canvas the asset library has
+to fill.
 
 ### Phase 2 — Inventory of need
 
@@ -108,7 +109,8 @@ Rules:
   the subject or product, refuse and recommend a practical re-shoot.
 
 Output:
-- Augmented image / video clip
+- The augmentation prompt and negative prompt to run in your image or
+  video model (the render happens there)
 - A "modification map" showing which regions changed and which were
   preserved
 - A confidence score (0-10) on whether the augmentation is shippable
@@ -136,7 +138,7 @@ delegate to a generalist.
 Final inventory tagged with segment, condition, time-of-day, named-
 athlete-or-not, product-visible-or-not, practical-or-AI-augmented.
 Downstream skills (social-content-factory, lifecycle-journey-builder,
-earned-media-pitch) filter the library by these tags.
+earned-media-pitch-generator) filter the library by these tags.
 
 ## Capability boundary
 
@@ -180,6 +182,10 @@ is detecting the AI; pull back.
 
 **Eval B4 — Asset-to-touchpoint mapping.** Downstream skills find
 the right asset >85% of the time without needing new capture.
+
+**Eval B5: capability-tag compliance.** Audit a sample of shipped
+assets. Every named-athlete or product-visible asset traces to a
+real-footage source. Zero exceptions.
 
 ## Failure modes to watch
 

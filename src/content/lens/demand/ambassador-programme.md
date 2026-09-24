@@ -7,8 +7,9 @@ readMin: 17
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "organic-social", "pr"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-06-18
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -17,8 +18,8 @@ preview: false
 
 By the end of this playbook you will have shipped five artefacts:
 
-1. A **scored selection roster** of 30 to 80 candidate athletes against a six-dimension rubric, with composite scores, tier recommendations and the audience-scrape evidence behind each score.
-2. A **contract template** with the standard ambassador clauses plus the 2025-onwards AI augmentation, likeness, disclosure and sunset language built in.
+1. A **scored selection roster** of 30 to 80 candidate athletes against a six-dimension rubric, with composite scores, tier recommendations and the audience evidence behind each score.
+2. A **contract template** with the standard ambassador clauses plus the AI augmentation, likeness, disclosure and sunset language built in.
 3. An **onboarding shoot plan** scoped for the first sixty days after signing, with the asset list, the location and weather windows, and the archive structure the AI augmentation pipeline will draw from.
 4. A **monthly content cadence** mapped per athlete with one major piece per quarter, one mid-piece per month and two lightweight pieces per month, plus the briefs that produce them.
 5. A **quarterly performance scorecard** instrumented across audience growth, engagement delta, pipeline-qualified action and athlete sentiment, with a documented renewal decision for each athlete at term end.
@@ -29,12 +30,12 @@ A growth or scale-stage endurance brand running, or about to run, an athlete-amb
 
 ## Before you start
 
-- [ ] A list of 30 to 80 candidate athletes with public profiles you can scrape (Strava, Instagram, race-result archives, federation rosters)
+- [ ] A list of 30 to 80 candidate athletes with public profiles you can review by hand or that the athlete shares with you (Instagram, race-result archives, federation rosters). Do not scrape Strava. Its API agreement bars using Strava data in AI models, so ask the athlete for their Strava stats instead.
 - [ ] Public race-result data from the relevant federation or platform (UTMB Index, Power of 10 for UK athletics, Triathlon Australia, USA Cycling)
-- [ ] An Instagram and Strava follower count for each candidate, plus a sample of their last 20 posts copied into a shared doc
+- [ ] An Instagram follower count for each candidate (and a Strava follower count if the athlete shares it), plus a sample of their last 20 posts copied into a shared doc
 - [ ] A draft contract from your sports-marketing solicitor that you can layer AI clauses onto, or budget for one
 - [ ] A signed-off shoot budget plus a content lead who has run a multi-day shoot before
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode and a CSV-paste workflow
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode and a CSV-paste workflow
 - [ ] (Optional but useful) past partnership outcomes from at least three previous athlete signings, used to backtest the rubric
 
 If the list of candidates is missing or vague, stop and build it. The rubric does not invent athletes. It scores the ones you already have on the page.
@@ -45,13 +46,13 @@ Six phases. Roughly a working week for selection and contracting, then a second 
 
 ### Phase 1, selection rubric and scoring
 
-Six dimensions, scored 0 to 10 except where binary. The model does the audience scrape and the content-credibility pass. Humans hold the final qualitative dimensions.
+Six dimensions, scored 0 to 10 except where binary. The model does the audience analysis and the content-credibility pass. Humans hold the final qualitative dimensions.
 
 **Step 1.1, download the scorecard template.**
 
 Grab [ambassador-selection-scorecard.csv](/lens/templates/ambassador-selection-scorecard.csv). It has columns for every dimension, plus example rows showing what good and bad scores look like. Open in Sheets or Excel.
 
-**Step 1.2, run the audience-scrape prompt for each candidate.**
+**Step 1.2, run the audience-analysis prompt for each candidate.**
 
 ```text
 SYSTEM: You analyse the public social and race-result data of a
@@ -66,7 +67,7 @@ Sport and discipline: {DISCIPLINE}
 Public race results (last 24 months): {PASTE_RESULTS_DATA}
 Last 20 social posts (copied verbatim): {PASTE_POSTS}
 Follower count Instagram: {FOLLOWERS_IG}
-Follower count Strava: {FOLLOWERS_STRAVA}
+Follower count Strava (athlete-supplied, or NONE): {FOLLOWERS_STRAVA}
 
 For this athlete return:
 
@@ -96,21 +97,21 @@ The model produces draft scores on audience, content and schedule. Visual rights
 
 **Step 1.4, compute the composite.**
 
-Composite is the weighted sum, result credibility 20%, audience alignment 25%, content credibility 20%, personal alignment 15%, schedule realism 10%, visual rights cleanliness as a binary gate. Composite scores above 7.5 with a pass on visual rights become Tier A candidates. 6.0 to 7.5 are Tier B. Below 6.0 fall off.
+Composite is the weighted sum, result credibility 20%, audience alignment 25%, content credibility 20%, personal alignment 15%, schedule realism 10%, divided by 0.9 so it lands on a 0 to 10 scale. Visual rights cleanliness carries no weight because it is a binary gate. Composite scores above 7.5 with a pass on visual rights become Tier A candidates. 6.0 to 7.5 are Tier B. Below 6.0 fall off. Any candidate scoring below 5 on audience alignment is declined whatever the composite, because audience fit is the dimension the rest of the programme depends on.
 
 **Expect output like:**
 
 | Athlete | Result | Audience | Content | Personal | Schedule | Visual rights | Composite | Tier |
 |---|---|---|---|---|---|---|---|---|
-| Beth Lyons | 8 | 9 | 8 | 9 | 7 | pass | 8.1 | A |
-| Marcus Hale | 9 | 4 | 6 | 8 | 8 | pass | 6.6 | Decline |
-| Saoirse Burns | 5 | 9 | 9 | 9 | 9 | pass | 8.2 | A |
+| Beth Lyons | 8 | 9 | 8 | 9 | 7 | pass | 8.3 | A |
+| Marcus Hale | 9 | 4 | 6 | 8 | 8 | pass | 6.7 | Decline (audience below 5) |
+| Saoirse Burns | 5 | 9 | 9 | 9 | 9 | pass | 8.1 | A |
 
 You should now have a ranked roster with composites, tier recommendations and the evidence that produced them.
 
 ### Phase 2, contract template with AI clauses
 
-The standard ambassador contract handles exclusivity, payment, deliverables and termination. The 2025-onwards layer is what most templates miss.
+The standard ambassador contract handles exclusivity, payment, deliverables and termination. The AI layer is what most templates miss.
 
 **Step 2.1, draft the AI-augmentation clauses with this prompt.**
 
@@ -150,6 +151,10 @@ Rules:
 - Voice cloning and face-or-body substitution require explicit
   separate written consent. No exceptions baked in.
 - Disclosure clause references a "reasonable viewer" test.
+- Where content will be shown to audiences in the EU, the disclosure
+  clause also names Article 50(4) of the EU AI Act, which from
+  2 August 2026 requires deployers to disclose AI-generated or
+  manipulated likenesses.
 ```
 
 **Step 2.2, integrate with the standard contract.**
@@ -330,7 +335,7 @@ The decision categories are renew with expanded scope, renew flat, taper to a lo
 
 Cascadia Endurance, a UK trail-running apparel brand, scale-stage, building out its ambassador roster ahead of the Vahla Range sub-brand launch in spring.
 
-**Phase 1 output.** 64 candidates scraped from UTMB Index, Strava and the UK ultra scene. 12 candidates score above 7.5, including Beth Lyons (top-30 at UTMB 2024, audience-alignment 9 because her followers are recreational ultra runners rather than fast-time elite) and Saoirse Burns, an independent trail coach with 8.4k followers who scores 9 on content credibility because her posts read like a coach's notebook rather than a brand feed. Marcus Hale, a sub-2:30 marathoner with 180k followers, scores 6.6 and falls below the threshold because his audience is fast-time elite and the brand's audience is mid-pack trail.
+**Phase 1 output.** 64 candidates compiled from the UTMB Index, athlete-shared Strava and Instagram stats, and the UK ultra scene. 12 candidates score above 7.5, including Beth Lyons (top-30 at UTMB 2024, audience-alignment 9 because her followers are recreational ultra runners rather than fast-time elite) and Saoirse Burns, an independent trail coach with 8.4k followers who scores 9 on content credibility because her posts read like a coach's notebook rather than a brand feed. Marcus Hale, a sub-2:30 marathoner with 180k followers, composites at 6.7 but is declined on audience alignment (4) because his audience is fast-time elite and the brand's audience is mid-pack trail.
 
 **Phase 2 output.** Contract template ships with six AI clauses bolted in. The augmentation clause is the load-bearing one. Cascadia retains rights to time-of-day, weather and environmental augmentation of captured footage. Voice cloning is prohibited. Face or body substitution into other contexts requires separate written consent. Sunset is 18 months after contract end. The brand's solicitor edits the language for UK jurisdiction and approves the structure.
 
@@ -348,7 +353,7 @@ Three exercises, each takes 30 to 60 minutes.
 
 ### Exercise 1, score five candidates yourself
 
-Pick five candidates from your own list. Paste the audience-scrape prompt with your inputs into Claude. Read the JSON output. Now score the same five candidates by hand. Compare. If the model's scores correlate with yours at above 0.7, the rubric is calibrated. If not, the brand's audience-segment definitions need sharpening before you scale.
+Pick five candidates from your own list. Paste the audience-analysis prompt with your inputs into Claude. Read the JSON output. Now score the same five candidates by hand. Compare. If the model's scores correlate with yours at above 0.7, the rubric is calibrated. If not, the brand's audience-segment definitions need sharpening before you scale.
 
 ### Exercise 2, draft AI clauses for one signing
 

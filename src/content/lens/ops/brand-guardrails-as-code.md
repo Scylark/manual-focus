@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content"]
-models: ["claude-4.5-sonnet", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-sonnet", "gpt-5"]
 publishedAt: 2026-04-20
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -154,11 +155,13 @@ rules:
     fix_suggestion: "Replace with 'Cascadia Endurance' (both capitalised)."
 
   - id: vahla_range_naming
-    type: regex
+    type: structural
     severity: block
-    description: "Sub-brand is 'Vahla Range', not 'Vahla' alone or 'the Vahla range'."
-    pattern: "(?i)\\bvahla\\b(?!\\s+Range)"
-    fix_suggestion: "First mention must be 'Vahla Range'. Subsequent may be 'Vahla'."
+    description: "First mention of the sub-brand is 'Vahla Range'. Later mentions may be 'Vahla'."
+    check: "first_mention_is"
+    term: "Vahla"
+    required_first_form: "Vahla Range"
+    fix_suggestion: "Make the first mention 'Vahla Range'. Subsequent may be 'Vahla'."
 
   - id: banned_buzzwords
     type: regex
@@ -176,7 +179,7 @@ rules:
     type: llm_judgement
     severity: block
     description: "Performance claims must have a cited source or be hedged."
-    model: claude-4.5-sonnet
+    model: claude-opus-5-5  # pin the exact model ID you calibrated against
     prompt_template: claim_audit.txt
     pass_criterion: "no_unsourced_performance_claims"
 
@@ -199,6 +202,9 @@ rules:
     type: regex
     severity: warn
     description: "Use the Oxford comma in lists of three or more."
+    # Heuristic. Misses multi-word items ("wind, heavy rain and snow")
+    # and fires on introductory clauses ("In the Cairngorms, Beth and
+    # Saoirse ran"). Keep it at warn.
     pattern: "(?<=\\w),\\s\\w+\\s+and\\s"
     fix_suggestion: "Add a comma before 'and' in lists of three or more items."
 
@@ -207,10 +213,10 @@ rules:
     severity: warn
     description: "British spellings (colour, organise, behaviour)."
     patterns:
-      - "(?i)\\bcolor\\b"
-      - "(?i)\\borganize\\b"
-      - "(?i)\\bbehavior\\b"
-      - "(?i)\\bcenter\\b"
+      - "(?i)\\bcolors?\\b"
+      - "(?i)\\borganiz(e|es|ed|ing)\\b"
+      - "(?i)\\bbehaviors?\\b"
+      - "(?i)\\bcenters?\\b"
     fix_suggestion: "Use British spelling (colour, organise, behaviour, centre)."
 ```
 
@@ -291,6 +297,11 @@ Rules:
   not performance claims.
 - A claim is "hedged" if it explicitly attributes to the brand's
   own testing or specific customer testimony.
+- A race result that names the event, year and position (e.g.
+  "27th overall at UTMB 2026") counts as sourced. Check it
+  against the published results separately.
+- Opinion clearly framed as the brand's view is not a
+  performance claim.
 - Verdict block if has_source_or_hedge is false.
 ```
 
@@ -333,7 +344,7 @@ The linter has to run where the team actually writes.
 
 **Step 4.1, the Slack workflow.**
 
-In Slack, open *Workflow Builder*. Create a new workflow called *Brand check*. Trigger on the shortcut `/brandcheck`. Add a *Send a webhook* step that POSTs the message text to your linter endpoint. Add a *Send a message* step that posts the linter response back to the user as a threaded reply.
+In Slack, open *Workflow Builder*. Create a new workflow called *Brand check* and start it from a link or shortcut trigger. Workflow Builder's documented triggers are links, schedules and events such as emoji reactions, so if you want a literal `/brandcheck` command, build a small Slack app instead. Add a step that sends the message text to your linter endpoint (a custom step or a connector, depending on your plan). Add a *Send a message* step that posts the linter response back to the user as a threaded reply.
 
 The team's workflow becomes: paste the draft into Slack, type `/brandcheck`, get the report inline. No context switch. Most ad-hoc copy lives in Slack so this is where most of the value comes from.
 
@@ -357,6 +368,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -365,7 +378,9 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          for file in $(git diff --name-only origin/main...HEAD); do
+          set -euo pipefail
+          changed=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")
+          for file in $changed; do
             if [[ "$file" =~ \.(md|txt|yaml)$ ]]; then
               cat "$file" | python guardrails/lint.py > "$file.lint.json"
               blocks=$(jq '.blocks | length' "$file.lint.json")
@@ -378,7 +393,9 @@ jobs:
           done
 ```
 
-Block-severity findings fail the action. Warn-severity findings show as PR comments but do not block.
+Block-severity findings fail the action. Warn-severity findings print in the job log but do not block. To post them as PR comments, add a step that calls `gh pr comment`.
+
+The `fetch-depth: 0` and `set -euo pipefail` lines matter. Without full history the base branch is missing from the runner, `git diff` fails inside the loop, the loop runs zero times and the job passes every PR without checking anything.
 
 **Step 4.3, the CMS webhook.**
 

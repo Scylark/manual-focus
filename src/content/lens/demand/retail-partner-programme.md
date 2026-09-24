@@ -7,8 +7,9 @@ readMin: 15
 shipTime: "2 working weeks"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand", "content", "lifecycle"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-08-13
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -30,12 +31,12 @@ A growth or scale-stage endurance brand selling through 20 or more retail partne
 ## Before you start
 
 - [ ] Current partner list with each account's sell-in data for the last 12 months (units shipped, revenue, returns) from your accounts receivable or wholesale platform (NuOrder, Joor, Brandwise, or your ERP)
-- [ ] Sell-through data per partner where available (shops on Lightspeed, Shopify POS or Vend often share this; ask)
+- [ ] Sell-through data per partner where available (shops on Lightspeed Retail, including the X-Series that used to be Vend, or Shopify POS often share this; ask)
 - [ ] Margin terms documented per tier, agreed with finance
 - [ ] A partner-facing portal capable of hosting documents and recorded training (Notion, SharePoint, the brand's own platform)
 - [ ] A sales lead and a brand lead committed to running the training cadence
 - [ ] Marketing co-fund budget sized against the partner programme (typically 2 to 5% of partner revenue)
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 
 The annual review is the most important part of the programme. If the team is not willing to demote underperforming partners, the rest of the playbook will not change much.
 
@@ -209,7 +210,7 @@ What the brand actually tracks per partner per quarter.
 
 **Step 4.1, instrument the five metrics.**
 
-- **Sell-through ratio.** Units sold from shop floor divided by units shipped to shop. Healthy is 70% or above within the season. Most shops on Lightspeed, Shopify POS or Vend can share this when asked.
+- **Sell-through ratio.** Units sold from shop floor divided by units shipped to shop. Healthy is 70% or above within the season. Most shops on Lightspeed Retail or Shopify POS can share this when asked.
 - **Range coverage.** Which SKUs the partner actually carries and sells. Partners stocking only the discount lines are not representing the brand.
 - **Customer reviews mentioning the partner.** Proxy for whether the partner is selling the brand well or just transactionally. Search Trustpilot and Google Reviews for the partner's name in the brand's reviews.
 - **Training engagement.** Staff hours invested in brand training.
@@ -325,7 +326,7 @@ Cascadia Endurance, the UK trail-running apparel brand, scale-stage, with 84 ret
 
 **Phase 4 output.** Quarterly scorecards generated for all 62 Tier A and B accounts. 8 partners flag for concern. The format is shared with each partner ahead of the conversation. One partner asks for the scorecard format to be added to their internal review, which Cascadia agrees to.
 
-**Phase 5 output.** Annual review. 4 partners promoted (3 from B to A, 1 from C to B). 8 maintained. 6 demoted (5 from B to C, 1 from A to B). 3 ended. The end conversations are difficult but each lands cleanly with the data leading. Total wholesale revenue holds within 4% of prior year. Cost-to-serve drops 18% as the Tier C support tier scales back. Average sell-through across the remaining Tier A and B base lifts to 78% from 71%.
+**Phase 5 output.** Annual review. 4 partners promoted (3 from B to A, 1 from C to B). 71 maintained. 6 demoted (5 from B to C, 1 from A to B). 3 ended. The end conversations are difficult but each lands cleanly with the data leading. Total wholesale revenue holds within 4% of prior year. Cost-to-serve drops 18% as the Tier C support tier scales back. Average sell-through across the remaining Tier A and B base lifts to 78% from 71%.
 
 **Phase 6.** Cascadia opens a small brand-owned pop-up in Manchester during October trail-running festival season. The pop-up drives 1,400 walk-ins and Cascadia routes online buyers in the region to the nearest partner. The two largest Manchester partners report stronger Q4 sales than the prior year and credit the brand-level pop-up.
 
@@ -349,7 +350,7 @@ Identify a partner you should demote but have been avoiding the conversation wit
 
 **Eval 1, sell-through health.** 70% or above within-season sell-through ratio across Tier A and B partners. Below that, the channel is leaking inventory that becomes off-season clearance pressure.
 
-**Eval 2, training engagement.** 80% or above of Tier A and B partners attend at least one training session per quarter. Below that, the brand is being sold by uninformed staff.
+**Eval 2, training engagement.** 80% or above of Tier A and B partners meet their tier's training expectation (every session for Tier A, two a year for Tier B). Below that, the brand is being sold by uninformed staff.
 
 **Eval 3, tier honesty.** Tier moves at annual review follow the data rather than the relationship comfort. If no partners moved tiers in a year, the review was not a real review.
 

@@ -7,8 +7,9 @@ readMin: 19
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["brand"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-04-12
+updatedAt: 2026-09-24
 status: live
 preview: true
 ---
@@ -35,7 +36,7 @@ A fractional CMO who has just stepped in, a board member running a marketing rev
 - [ ] The last ten long-form blog posts
 - [ ] Customer voice data, either three reviews per star tier from a review platform (B2C) or 6 to 10 customer testimonials, case study quotes, or LinkedIn recommendations (B2B)
 - [ ] Three named competitors, picked as the ones the brand's target customer would name first
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A scratch folder for the source materials
 
 If any of the inputs are missing, the audit will be partial. The contradictions you cannot see are the ones that bite.
@@ -146,7 +147,7 @@ Rules:
 - 1 to 4 entries per array.
 ```
 
-Run this across every piece. Save into `outputs-assumptions.json`. The aggregation across 90 days of social plus 10 blog posts plus 6 ads gives you the brand's real implicit positioning, the one operating across actual outputs rather than the homepage.
+Run this across every piece. A current long-context model can take all the pieces in one call if each carries an ID, keep the output per piece. Save into `outputs-assumptions.json`. The aggregation across 90 days of social plus 10 blog posts plus 6 ads gives you the brand's real implicit positioning, the one operating across actual outputs rather than the homepage.
 
 **Step 2.3, aggregate the assumptions.**
 
@@ -188,7 +189,7 @@ The customers say a third thing. The audit's central artefact is the gap between
 
 **Step 3.1, gather the customer voice.**
 
-For a B2C brand with a review platform, pull three reviews from each star tier (1 to 5). Fifteen reviews total. For a B2B brand or agency, pull 6 to 10 customer testimonials, case study quotes and LinkedIn recommendations. Label each as brand-curated (the brand picked the testimonial) or customer-led (the customer wrote without prompting), because brand-curated sources are lower signal.
+For a B2C brand with a review platform, pull three reviews from each star tier (1 to 5). Fifteen reviews total. For a B2B brand or agency, pull 6 to 10 customer testimonials, case study quotes and LinkedIn recommendations. Label each as brand-curated (the brand picked the testimonial) or customer-led (the customer wrote without prompting), because brand-curated sources are lower signal. If a B2C brand has fewer than ten public reviews, treat this pass as degraded, supplement it with the B2B sources above, and say so in the brief. Copy reviews from the source page itself, not from a summarising fetch or browsing tool.
 
 **Step 3.2, run the customer-voice prompt.**
 
@@ -496,7 +497,7 @@ If the answer is at position or category level, you have a real positioning prob
 
 ## The eval gates
 
-**Eval 1, verbatim fidelity.** Sample 20 review outputs from Pass 3. Manually verify that every phrase in `thanked_for` actually appears in the source review. Acceptance threshold 95% verbatim accuracy. Below 90% means the model is paraphrasing, switch to a model with stronger instruction-following or tighten the system prompt.
+**Eval 1, verbatim fidelity.** Sample 20 review outputs from Pass 3 (all of them if there are fewer). Manually verify that every phrase in `thanked_for` actually appears in the source review. Acceptance threshold 95% verbatim accuracy. Below 90% means the model is paraphrasing, switch to a model with stronger instruction-following or tighten the system prompt.
 
 **Eval 2, coverage.** For each pass, sample five inputs and check the output covers all schema sections. Empty arrays are fine when the source genuinely lacks the field. Empty arrays in 30%+ of cases mean the prompt is too restrictive, soften "verbatim only" to "verbatim where possible, summarised in [brackets] otherwise."
 
@@ -514,7 +515,7 @@ If the answer is at position or category level, you have a real positioning prob
 
 **The brand has no competitors with public output.** Common in B2B and early-stage. Substitute press coverage of the category, third-party analyst takes, or job descriptions from the same company stage. The pipeline handles JSON input from any source.
 
-**The revenue-mix sub-pass gets skipped.** A failure mode common in audits run by external reviewers without finance access. Without revenue mix the pipeline can miss the contradiction between marketed audience (consumers) and book of business (B2B contracts). Insist on at least a one-sentence revenue-mix summary from the founder before running Pass 4.
+**The revenue-mix sub-pass gets skipped.** A failure mode common in audits run by external reviewers without finance access. Without revenue mix the pipeline can miss the contradiction between marketed audience (consumers) and book of business (B2B contracts). Insist on at least a one-sentence revenue-mix summary from the founder before running Pass 4. If you are auditing from the public surface only and cannot get one, run Pass 5 with revenue mix set to UNKNOWN and label every audience-level contradiction as unconfirmed.
 
 ## The pattern in practice
 

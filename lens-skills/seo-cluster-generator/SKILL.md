@@ -2,20 +2,20 @@
 name: seo-cluster-generator
 description: "When the user wants to build an SEO topic cluster, plan a pillar and spokes, generate a content cluster around a seed keyword, map search intent, or build a defensible SEO content strategy. Also triggers on 'build us an SEO cluster', 'pillar page plan', 'topic cluster around X', 'we need a content strategy', or 'what should we rank for'."
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   playbook: https://manual-focus.co.uk/lens/content/seo-cluster-generator
 ---
 
 # SEO cluster generator
 
-You build a defensible topic cluster from one seed keyword in a working day. Pillar page brief + 20–30 spoke briefs + internal link map + intent matrix. You do not draft the pages (that's the eval-gated-drafting skill). You produce the planning artefact every page in the cluster references.
+You build a defensible topic cluster from one seed keyword in a working day. Pillar page brief + 15–25 spoke briefs + internal link map + intent matrix. You do not draft the pages (that's the eval-gated-drafting skill). You produce the planning artefact every page in the cluster references.
 
 ## Inputs to gather first
 
 1. **Seed keyword** the cluster should be built around
 2. **Target locale and language** (e.g. en-GB, en-US)
-3. **Search Console data** for the brand (last 90 days) — or Ahrefs / Semrush data if GSC isn't connected
-4. **Three named competitors** for SERP analysis
+3. **Search Console data** for the brand (last 16 months) — or Ahrefs / Semrush data if GSC isn't connected
+4. **Three to five named competitors** for SERP analysis
 5. **Brand differentiation** — what original data, customer stories, expert access, or tools does the brand have that competitors don't? Read `.lens/positioning-brief.md` and `.lens/message-house.md` if present.
 6. **Min volume threshold** — default 50 monthly searches for spokes, 500+ for pillar candidates
 
@@ -40,10 +40,12 @@ middle-ground categories.
 
 Heuristics:
 - "best X" without brand qualifier → commercial / evaluating
-- "X vs Y" → commercial / evaluating
+- "[product] vs [product]" → commercial / evaluating
+- "[category] vs [category]" (e.g. trail vs road) → informational / solution-aware
 - "how to X" → informational / problem-aware or solution-aware
 - "X near me" → transactional / decided
-- "[brand] X" → navigational / decided
+- "[own brand] X" → navigational / decided
+- "[competitor brand] X review" → commercial / evaluating
 - "what is X" → informational / problem-aware
 
 USER:
@@ -77,7 +79,7 @@ Group queries by topic. Identify:
 
 ### Phase 4 — SERP analysis
 
-For the pillar candidate and the top 5 spokes by volume, pull top 10 SERP results. Extract:
+For the pillar candidate and the top 8 spokes by volume, pull top 10 SERP results, and log the sources cited in Google AI Mode, ChatGPT search and Perplexity answers for the same queries. Brandlight analysis published by 5W in May 2026 found the overlap between top Google links and AI-cited sources had fallen below 20% by April 2026, so ranking and being quoted are separate checks. From the SERP, extract:
 
 - Format (article / guide / tool / video)
 - Length range
@@ -112,7 +114,7 @@ Single document:
 1. **Cluster map** — pillar + spokes diagram with internal links
 2. **Intent matrix** — every page mapped to intent + stage
 3. **Pillar brief** — full
-4. **Spoke briefs** — all 20–30
+4. **Spoke briefs** — all surviving spokes (typically 15–25 after the hook kill)
 5. **Build order** — recommended sequence (high-volume + clear differentiation first)
 
 Save to `.lens/seo-clusters/{seed-keyword}/`.
@@ -123,7 +125,7 @@ Self-check before delivery:
 
 - **Intent classification accuracy** — hand-classify 50 queries from the brand's data; pipeline accuracy ≥85%
 - **Cluster coherence** — pairwise embedding similarity within each spoke ≥0.6
-- **SERP differentiation reality** — for top 5 spokes, manually check that proposed hooks aren't already table-stakes in the current top 10
+- **SERP differentiation reality** — for the top 8 spokes, manually check that proposed hooks aren't already table-stakes in the current top 10 or in the sources AI answers cite
 - **Link graph density** — no spoke has fewer than 2 incoming links
 
 ## Failure modes to watch
@@ -132,7 +134,7 @@ Self-check before delivery:
 - **SERP analysis sees yesterday's SERP** — differentiation hooks should be sturdy enough to survive minor SERP movement.
 - **Model invents search volumes** — always feed actual data. If volume is missing, pause and request — never let the model estimate.
 - **Cluster cannibalisation** — sibling spokes with overlapping primary queries dilute each other. Flag for merge if 70%+ overlap in intent + audience.
-- **Helpful Content Update vulnerability** — spokes that can't articulate a hook beyond synthesis shouldn't ship.
+- **Core update vulnerability** — spokes that can't articulate a hook beyond synthesis shouldn't ship.
 - **Pillar-spoke length mismatch** — pillars 3–5x longer than spokes. If your pillar is 1,200 words and spokes are 1,000, it's not a pillar.
 
 ## Hand-off

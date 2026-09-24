@@ -7,8 +7,9 @@ readMin: 18
 shipTime: "1 working week"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["pr", "content"]
-models: ["claude-4.5-opus", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-opus", "gpt-5"]
 publishedAt: 2026-05-26
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -35,7 +36,7 @@ A growth or scale-stage brand with a real story (not a routine product launch dr
 - [ ] CMS or a project tool (Notion, Linear, Asana) to host the brief and the pitch ledger
 - [ ] An email sender that supports per-recipient personalisation (Mailshake, Lemlist, native Gmail with merge if the volume is small)
 - [ ] Voice profile from the brand-voice-extraction playbook, plus a "founder voice" sub-profile if the spokesperson is the founder
-- [ ] Claude Opus 4.5 or GPT-5 with structured-output mode
+- [ ] A frontier model (Claude Opus, GPT or Gemini Pro tier) with structured-output mode
 - [ ] A spokesperson available for at least one interview slot per pitch
 
 If the brand has no Muck Rack equivalent, the manual route via Google News and the journalist's outlet bio is workable for lists of under 40. Above that, the data quality drops below the pipeline's bar.
@@ -87,7 +88,8 @@ Return JSON:
 Rules:
 - "fail" if C1 or C3 fails. Routine product launches with no theme
   connection do not proceed.
-- "conditional" if 3 of 4 pass. Fix the gap and re-run.
+- "conditional" if C1 and C3 pass but C2 or C4 fails. Fix the gap
+  and re-run.
 - "pass" requires all four checks.
 ```
 
@@ -173,7 +175,7 @@ For each candidate, return JSON:
     "angle_fit_score": <0-10>,
     "recency_score": <0-10>,
     "tone_fit_score": <0-10>,
-    "composite_fit_score": <0-10>,
+    "composite_fit_score": <0-10, (beat + 2 x angle + recency + tone) / 5>,
     "reference_article": {
       "title": "<which article to reference in the pitch>",
       "key_argument": "<the specific argument the pitch should reference>",
@@ -189,7 +191,8 @@ Rules:
 - "angle_fit_score" reflects whether they take the kind of angle the
   story offers (analytical, narrative, contrarian, advocacy).
 - "recency_score" rewards recent activity in the beat. Deprioritise
-  beats older than 30 days.
+  beats older than 30 days. If the last in-beat article is over 30
+  days old, verdict cannot be "pitch".
 - "tone_fit_score" rewards journalists who cover with the seriousness
   the story warrants.
 - "verdict": "pitch" if composite >= 7, "hold" if 5 to 6.9, "skip"
@@ -200,7 +203,7 @@ Rules:
 
 **Step 3.3, prune to the pitch list.**
 
-Keep `pitch` verdicts. Sort by composite score. Cap at 30 to 40 for a high-volume story, 15 to 25 for a focused pitch. Above 40 the personalisation quality drops.
+Keep `pitch` verdicts. Sort by composite score. Cap at 30 to 40 for a high-volume story, 15 to 25 for a focused pitch. Above 40 the personalisation quality drops. If the embargo flag is set and the list exceeds 10, drop the embargo framing or cut the list (see Embargo abuse).
 
 You should now have the targeted pitch list.
 
@@ -275,7 +278,7 @@ the body. Return JSON:
 >
 > **Body.**
 >
-> Your piece on the regional-ultra boom last week landed the point most of the coverage misses, that the growth is in 50 to 80 km events with under 500 entrants, not in the marquee races. That is the gap our data fills.
+> Your piece on the regional-ultra boom last week landed the point most of the coverage misses, that the growth is in 50 to 80 km events with under 500 entrants, not in the marquee races.
 >
 > Cascadia Endurance ran a 412-runner Trail Club onboarding survey across 2025 and 2026. 64% of new ultra entrants picked a regional race for their first 50k or longer. The breakdown by region, by age and by previous distance experience runs about 1,800 rows and we are happy to share it under embargo.
 >
@@ -288,7 +291,7 @@ the body. Return JSON:
 
 **Step 4.2, run the spray check.**
 
-Across all drafted pitches, compute pairwise textual similarity. Any pair scoring above 0.85 fails the personalisation test. The pipeline forces regeneration with sharper journalist-specific framing on the failing pair.
+Across all drafted pitches, compute pairwise cosine similarity (TF-IDF or embeddings, not a character diff, which under-scores cosmetic personalisation). Any pair scoring above 0.85 fails the personalisation test. The pipeline forces regeneration with sharper journalist-specific framing on the failing pair.
 
 **Step 4.3, run the reference-accuracy check.**
 
@@ -402,7 +405,7 @@ Cascadia Endurance ran the pipeline for a story on the regional-ultra boom in th
 | Dimitri Brennan | Outside | endurance lifestyle | 8.6 | "The post-UTMB ultra year" |
 | Aoife Sheridan | The Irish Times | health and outdoor | 8.1 | "Why the marathon is not the goal any more" |
 
-**Phase 4 output.** 26 pitches drafted. Spray check passed (maximum pairwise similarity 0.62). Reference-accuracy check passed on all 26. Sample for Jenny Holloway shown in Phase 4's Expect Output block.
+**Phase 4 output.** 26 pitches drafted. Spray check passed (maximum pairwise similarity 0.62). Reference-accuracy check passed on all 26. The embargo offer went to the top 10 only, and the other 16 pitches offered the dataset without an embargo. Sample for Jenny Holloway shown in Phase 4's Expect Output block.
 
 **Phase 5 output.** Wave one sent Tuesday morning across UK and IE timezones. By Friday, four journalists had requested the dataset, two had booked the Marcus interview slot, one had filed a decline ("not my beat right now"), and 19 had not yet responded. Day-4 follow-ups went to the 19. Three more journalists responded after the follow-up. Day-11 different-angle touch went to the remaining 16. Two more responded.
 
@@ -434,7 +437,7 @@ Take a story your brand has. Pick one journalist who has written in your beat. F
 
 **Eval 3, word count discipline.** Body under 130 words. Subject under 60 characters. Hard gate.
 
-**Eval 4, spray check.** Across all pitches in a campaign, pairwise textual similarity stays below 0.85 on every pair. Higher means the personalisation is cosmetic.
+**Eval 4, spray check.** Across all pitches in a campaign, pairwise cosine similarity stays below 0.85 on every pair. Higher means the personalisation is cosmetic.
 
 **Eval 5, decline-detection precision.** False positives on decline-detection (suppressing a sequence when the journalist had not declined) are acceptable. False positives on "keep emailing them" are not. Audit monthly.
 

@@ -7,8 +7,9 @@ readMin: 16
 shipTime: "1 working day"
 brandStage: ["growth", "scale", "enterprise"]
 channels: ["video", "content", "organic-social"]
-models: ["claude-4.5-sonnet", "gpt-5"]
+models: ["claude-5.5-opus", "claude-4.5-sonnet", "gpt-5"]
 publishedAt: 2026-06-16
+updatedAt: 2026-09-24
 status: live
 preview: false
 ---
@@ -35,7 +36,7 @@ A growth or scale-stage brand shooting marketing video on a regular cadence (wee
 - [ ] Voice profile from the brand-voice-extraction playbook, plus a spokesperson sub-profile if the talent is a named person
 - [ ] CMS access (Webflow, Shopify, YouTube) for the post-publish caption and metadata
 - [ ] Captioning tool (Descript, Rev, the platform's auto-captions) for the published video
-- [ ] Claude Sonnet 4.5 for the high-volume drafting, Opus 4.5 or GPT-5 for the higher-stakes hero scripts
+- [ ] A mid-tier model (Claude Sonnet, GPT mini or Gemini Flash tier) for the high-volume drafting, a frontier model for the higher-stakes hero scripts
 - [ ] A teleprompter or cue cards on the shoot day
 
 If the talent will not read a script, the playbook produces a beat sheet that talent improvises around, which is a different shape with looser timing.
@@ -144,7 +145,7 @@ Rules:
 | Beat | Timecode | On-screen action | VO | B-roll | On-screen text |
 |---|---|---|---|---|---|
 | 1 | 00:00-00:08 | Marcus on a Snowdonia ridge, wind audible | "Most trail buyers count the grams. The wrong metric." | S007 | GRAMS ARE NOT THE METRIC |
-| 2 | 00:08-00:20 | Marcus continues | "We tested 80 runners across 18 months. The shell that survives the season weighs forty grams more than the lightweight category average." | S001, S003 | 48 MONTHS OF WEAR DATA |
+| 2 | 00:08-00:20 | Marcus continues | "We tested 80 runners across 48 months. The shell that survives the season weighs forty grams more than the lightweight category average." | S001, S003 | 48 MONTHS OF WEAR DATA |
 | 3 | 00:20-00:35 | Beth Lyons at Lavaredo, mid-storm | "Beth ran Lavaredo in this shell. Twelve hours, three weather systems, intact at the finish." | S015, S004 | LAVAREDO 2026, INTACT |
 | 4 | 00:35-00:48 | Marcus, talking head | "The forty grams is the membrane. The lightweight category does not have it. That is the trade-off." | S007 | FORTY GRAMS = MEMBRANE |
 | 5 | 00:48-00:58 | Vahla shell static, ambient | "Vahla shell, autumn launch. Trail Club gets first access." | S005 | VAHLA SHELL, OCTOBER |
@@ -182,7 +183,7 @@ Return JSON:
         "specificity": <0-10>,
         "contradiction": <0-10>,
         "pattern_break": <0-10>,
-        "composite": <0-10>
+        "composite": <0-10, weighted 0.4 specificity, 0.4 contradiction, 0.2 pattern_break>
       },
       "swipe_assessment": "<no_swipe | likely_swipe | uncertain>"
     },
@@ -361,7 +362,7 @@ Cascadia Endurance ran the system for the Vahla shell launch video, a 60-second 
 
 > **Beat 2, 00:08 to 00:20.**
 >
-> Talent (Marcus): We tested 80 runners across 18 months. [pause] The shell that survives the season weighs forty grams more than the lightweight category average.
+> Talent (Marcus): We tested 80 runners across 48 months. [pause] The shell that survives the season weighs forty grams more than the lightweight category average.
 >
 > [B-roll: S001 Beth single-track golden hour, S003 Beth ridge line blue hour. Cut between the two on the word "average."]
 >
@@ -397,7 +398,7 @@ Pick one beat from a script you have written. Read the talent line aloud in a si
 
 ## The eval gates
 
-**Eval 1, length adherence.** Spoken-word count maps to runtime at 150 to 160 wpm. Scripts more than 15% over target fail and trim.
+**Eval 1, length adherence.** Spoken-word count maps to runtime at 150 to 160 wpm. Scripts more than 15% over target fail and trim. Scripts more than 15% under target get flagged so the producer can tighten timecodes or add a beat.
 
 **Eval 2, hook quality.** At least one of three hook options scores "no swipe" on the swipe assessment. If none do, regenerate with sharper inputs in the brief.
 
