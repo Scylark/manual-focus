@@ -70,5 +70,29 @@
     "score": 8,
     "decision": "published",
     "slug": "chatgpt-ads-shopify-uk-ecommerce"
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Second run 2026-09-24: Salesforce AIforce (Claudeforce, Slackforce, Agentforce Coworker) from Dreamforce, announced 15 September so outside the 48-hour window",
+    "primary_source": "https://www.salesforce.com/blog/dreamforce-2026-top-it-announcements/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Second run 2026-09-24: Google Ads auto-upgrades automatically created assets and broad match to AI Max for Search from September 2026, a previously announced change with no new development in the window",
+    "primary_source": "https://support.google.com/google-ads/announcements/9048695?hl=en",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Second run 2026-09-24: Alibaba unveils enterprise AgentCore platform and agentic cloud roadmap",
+    "primary_source": "https://aiagentstore.ai/ai-agent-news/this-week",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
