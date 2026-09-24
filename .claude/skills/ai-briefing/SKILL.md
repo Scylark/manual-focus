@@ -19,7 +19,8 @@ the analysis is the product, and the news is the hook.
 
 1. **No post beats a weak post.** Publish only when a story clears the
    bar in step 3. Most days one will; some days none will. On a
-   no-post day, record the decision in the ledger and stop. Never pad.
+   no-post day, change nothing in the repo: no branch, no commit, no PR.
+   Report the decision in your final summary (step 8) and stop. Never pad.
 2. **At most one post per run.** Two only if two separate stories both
    score 9+ (a major frontier model launch on the same day as a Google
    search change, say).
@@ -87,9 +88,11 @@ should do in the next 90 days?
 - **≤6:** funding rounds, exec moves, benchmarks with no workflow
   consequence, rumours, minor SDK updates. **Don't post.**
 
-Post the top story only if it scores **7 or more** and isn't in the
-ledger. Record every shortlisted story in the ledger with its score
-and decision.
+Post the top story only if it scores **7 or more** and isn't already
+published (check the ledger for `"decision": "published"` entries and the
+existing posts). Keep a note of every shortlisted story with its score and
+decision. It goes in the ledger on a post day and in your final summary
+either way.
 
 ## Step 4. Find the angle
 
@@ -256,12 +259,17 @@ direct, answer first. Use "you" for the reader where it fits.
    something first-hand (rule 4).
 
 If a gate can't pass (e.g. you can't verify the key fact), don't
-publish. Log it as a skip.
+publish. Try the next candidate that scored 7 or more, and if there
+isn't one, treat it as a no-post day (step 8).
 
-## Step 7. Update the ledger
+## Step 7. Update the ledger (post days only)
 
-Append one entry per shortlisted story to
-`.claude/skills/ai-briefing/ledger.json`:
+Only when you are publishing a post. Append one entry per shortlisted
+story from this run, the published one and the ones you rejected, to
+`.claude/skills/ai-briefing/ledger.json`. On a no-post day leave the
+ledger alone. A story rejected on a quiet day can come up again the next
+day, and that is fine: score it again, and if it still doesn't clear the
+bar it costs nothing.
 
 ```json
 {
@@ -276,13 +284,16 @@ Append one entry per shortlisted story to
 
 ## Step 8. Hand off for review
 
-- Branch: `briefing/YYYY-MM-DD`. Commit the post and ledger.
+**Post day.**
+- Branch: `briefing/YYYY-MM-DD`. Commit the post and the ledger.
 - Open a pull request against `master` titled `AI briefing | <post title>`.
   In the body include the story and why it cleared the bar (score), the
   primary source, the no-slop self-audit score out of 60, anything you
   were unsure of, and the other candidates you rejected with their scores.
-- On a no-post day, commit just the ledger update to the branch and open
-  a PR titled `AI briefing | no post (YYYY-MM-DD)` listing the candidates
-  and why none cleared the bar.
+
+**No-post day.** Don't create a branch, commit or PR. James only wants a
+PR when there is a post to review. End the run with a short summary that
+lists each candidate, its score and why it didn't clear the bar. That
+summary is the day's record.
 
 Merging the PR publishes the post (GitHub Pages deploys from `master`).
