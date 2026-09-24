@@ -94,5 +94,37 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Third run 2026-09-24: Google switches on native checkout in AI Mode and Gemini by default for eligible Shopify stores (rollout from 18 September, merchant emails 22 September); US-based stores selling to US customers only, so UK stores are ineligible, and the rollout dates are reported only from merchant emails",
+    "primary_source": "https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/google",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Third run 2026-09-24: Google Ads expands the AI Brief closed beta for AI Max to seven more languages and previews unified search term, asset and landing page reporting with no availability date",
+    "primary_source": "https://blog.google/products/ads-commerce/ai-max-language-reporting-features/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Third run 2026-09-24: Peec AI data shared on X says external links now appear in over 25% of Google AI Overviews, up from near 0%, with no published methodology",
+    "primary_source": "https://www.seroundtable.com/google-ai-overviews-more-external-links-42135.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Third run 2026-09-24: Snorkel AI raises $350M at a $3.5B valuation",
+    "primary_source": "https://blog.buildfastwithai.com/ai-news-today-september-23-2026",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
