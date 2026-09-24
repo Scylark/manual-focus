@@ -1,5 +1,7 @@
 # Content stack retest, Claude Opus 5.5, 24 September 2026
 
+> Note, 24 Sept 2026: training-content-engine was retired from The Lens after this retest. Its section is kept for the record.
+
 A retest of the nine content playbooks in `src/content/lens/content/`
 (and their paired skills in `lens-skills/`) against Claude Opus 5.5
 (`claude-opus-5-5`). Each playbook's copy-paste prompts were run in order

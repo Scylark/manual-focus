@@ -382,7 +382,6 @@ Illustrative scenarios that show common shapes eval-gated drafting takes. Specif
 
 The drafting pipeline feeds:
 - **seo-cluster-generator**, the cluster briefs feed the drafting pipeline page by page
-- **training-content-engine**, training pieces route through the standard pipeline plus the three coaching gates
 - **race-result-content-engine**, race recaps route through a shortened pipeline because the brief is the result feed
 - **social-content-factory**, channel-native cuts repurpose the long-form output
 - **lifecycle-journey-builder**, email touchpoints draw from published pieces

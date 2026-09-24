@@ -419,5 +419,4 @@ Illustrative scenarios that show common shapes channel-native social work takes.
 The factory feeds:
 - **ai-studio-news-pipeline**, news posts route through the LinkedIn prompt with the news-specific overrides
 - **race-result-content-engine**, race recaps route through the social factory for channel cuts
-- **training-content-engine**, long-form training pieces produce channel-native cuts through the factory
 - **video-script-system**, TikTok scripts route through the script system for the shoot-ready format

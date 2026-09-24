@@ -19,7 +19,7 @@ If you prefer to read first, start at https://manual-focus.co.uk/lens/start-here
 Twenty-six skills total. One welcome skill, twenty-four workflow skills, and one production utility.
 
 - **1 onboarding skill**, `setup-the-lens`, the welcome and starter-playbook recommendation.
-- **24 workflow skills**, across the five stacks (brand, demand, content, ops, productivity), mapping one-to-one with a subset of the forty-six Lens playbooks.
+- **24 workflow skills**, across the five stacks (brand, demand, content, ops, productivity), mapping one-to-one with a subset of the forty-five Lens playbooks.
 - **1 production utility**, `video-script-to-heygen`, turns a playbook or topic into a rendered HeyGen avatar video with captions and a LinkedIn post draft, using the HeyGen API.
 
 The other twenty-two playbooks are systems or rituals rather than single agent tasks. They live as playbooks only and are read once, applied repeatedly.

@@ -393,6 +393,5 @@ Illustrative scenarios that show common shapes a cluster build takes. Specifics 
 
 The cluster artefacts feed:
 - **eval-gated-drafting**, the briefs feed the drafting pipeline page by page
-- **training-content-engine** if the cluster overlaps with the brand's training content programme
 - **seo-cluster-generator** itself, re-run quarterly on the orphans list to find the next cluster
 - **earned-media-pitch-generator**, original-data hooks often become pitchable story angles

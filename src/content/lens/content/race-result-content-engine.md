@@ -367,4 +367,3 @@ The recap engine feeds:
 - **lifecycle-journey-builder**, race-day email touchpoints draw from the recap as content
 - **social-content-factory**, channel-native cuts of the recap
 - **earned-media-pitch-generator**, if the recap surfaces a story angle worth pitching
-- **training-content-engine**, race-day learnings sometimes feed training pieces in the following weeks

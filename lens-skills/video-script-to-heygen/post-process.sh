@@ -38,7 +38,7 @@ OUTRO_URL="${LENS_VIDEO_URL:-manual-focus.co.uk/lens}"
 OUTRO_TAGLINE="${LENS_VIDEO_TAGLINE:-Free to read.  Free to install.}"
 OUTRO_CTA="${LENS_VIDEO_CTA:-Subscribe in the post.}"
 URLBAR_TEXT="${LENS_VIDEO_URLBAR:-manual-focus.co.uk/lens}"
-BADGE_TEXT="${LENS_VIDEO_BADGE:-46 playbooks · 26 skills · free}"
+BADGE_TEXT="${LENS_VIDEO_BADGE:-45 playbooks · 26 skills · free}"
 
 BADGE_START="${LENS_VIDEO_BADGE_START:-21}"
 BADGE_END="${LENS_VIDEO_BADGE_END:-32}"
