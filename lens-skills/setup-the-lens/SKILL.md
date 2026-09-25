@@ -30,7 +30,7 @@ Open with four lines naming what The Lens is, what setup will do, and how long i
 
 Example:
 
-> Welcome to The Lens. This is a library of 45 marketing playbooks plus 26 installable skills, free. I am the setup orchestrator. In the next twenty to forty minutes we will install the right plugins for your work, pull your existing brand documentation into a structured workspace, and put a starter playbook in front of you. Ready to start?
+> Welcome to The Lens. This is a library of 46 marketing playbooks plus 27 installable skills, free. I am the setup orchestrator. In the next twenty to forty minutes we will install the right plugins for your work, pull your existing brand documentation into a structured workspace, and put a starter playbook in front of you. Ready to start?
 
 If they say no, ask what they want instead. If they say yes, proceed.
 
@@ -278,7 +278,7 @@ When you recommend a starter, pick from these. Each slug links to /lens/<stack>/
 
 **Content (8):** ai-studio-news-pipeline, earned-media-pitch-generator, eval-gated-drafting, race-result-content-engine, segment-broll-production, seo-cluster-generator, social-content-factory, video-script-system.
 
-**Ops (9):** brand-guardrails-as-code, brief-to-ship-pipeline, crash-replacement-programme, customer-content-rights, end-of-season-inventory, evaluation-frameworks, gear-launch-sequence, hiring-shape-for-ai-native-teams, quarterly-planning-ritual.
+**Ops (10):** brand-guardrails-as-code, brief-to-ship-pipeline, crash-replacement-programme, customer-content-rights, end-of-season-inventory, evaluation-frameworks, gear-launch-sequence, hiring-shape-for-ai-native-teams, quarterly-planning-ritual, site-audit-and-refresh.
 
 **Productivity (10):** daily-briefing-pipeline, email-triage-and-draft, meeting-prep-stack, call-follow-up-loop, slack-focus-pass, document-drafting-partner, weekly-pipeline-rollup, quarterly-okr-synthesis, personal-knowledge-base, inbox-to-task-pipeline.
 
