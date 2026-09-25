@@ -1,8 +1,8 @@
 ---
 name: daily-briefing-pipeline
-description: "When the user wants a daily briefing assembled from calendar, inbox, Slack and CRM, run the morning brief, prep their day, summarise the day ahead, or generate a 5-minute readable digest. Also triggers on 'morning briefing', 'daily brief', 'what's on my plate', 'prep my day', 'start my day', or pasting raw calendar plus inbox plus pipeline data and asking for one read."
+description: "When the user wants a daily briefing assembled from calendar, inbox, Slack and CRM, run the morning brief, prep their day, summarise the day ahead, or generate a 5-minute readable digest. Also triggers on 'morning briefing', 'daily brief', 'what's on my plate', 'prep my day', 'start my day', or pasting raw calendar plus inbox plus pipeline data and asking for one read. This is the operator's private morning brief, not blog content. For daily news posts on a brand's blog, use news-desk."
 metadata:
-  version: 0.2.0
+  version: 0.2.1
   playbook: https://manual-focus.co.uk/lens/productivity/daily-briefing-pipeline
 ---
 

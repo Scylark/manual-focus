@@ -30,7 +30,7 @@ Open with four lines naming what The Lens is, what setup will do, and how long i
 
 Example:
 
-> Welcome to The Lens. This is a library of 46 marketing playbooks plus 27 installable skills, free. I am the setup orchestrator. In the next twenty to forty minutes we will install the right plugins for your work, pull your existing brand documentation into a structured workspace, and put a starter playbook in front of you. Ready to start?
+> Welcome to The Lens. This is a library of 47 marketing playbooks plus 28 installable skills, free. I am the setup orchestrator. In the next twenty to forty minutes we will install the right plugins for your work, pull your existing brand documentation into a structured workspace, and put a starter playbook in front of you. Ready to start?
 
 If they say no, ask what they want instead. If they say yes, proceed.
 
@@ -276,7 +276,7 @@ When you recommend a starter, pick from these. Each slug links to /lens/<stack>/
 
 **Demand (11):** attribution-teardown, channel-mix-simulator, category-entry-points, ambassador-programme, direct-to-coach, event-sponsorship-playbook, lifecycle-journey-builder, paid-search-bidding-agent, race-day-demand-pipeline, retail-partner-programme, subscription-membership.
 
-**Content (8):** ai-studio-news-pipeline, earned-media-pitch-generator, eval-gated-drafting, race-result-content-engine, segment-broll-production, seo-cluster-generator, social-content-factory, video-script-system.
+**Content (9):** ai-studio-news-pipeline, earned-media-pitch-generator, eval-gated-drafting, news-desk, race-result-content-engine, segment-broll-production, seo-cluster-generator, social-content-factory, video-script-system.
 
 **Ops (10):** brand-guardrails-as-code, brief-to-ship-pipeline, crash-replacement-programme, customer-content-rights, end-of-season-inventory, evaluation-frameworks, gear-launch-sequence, hiring-shape-for-ai-native-teams, quarterly-planning-ritual, site-audit-and-refresh.
 
