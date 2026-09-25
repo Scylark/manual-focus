@@ -71,8 +71,8 @@ Brand voice: practical, grounded, senior-marketer tone. Closer
 to a cycling publication than a software pitch.
 Audience: heads of marketing, fractional CMOs, senior in-house
 operators at endurance brands and AI-native startups.
-The Lens positioning: "Your AI marketing team", 45 playbooks
-plus 26 installable Claude Code skills, free to read, free to
+The Lens positioning: "Your AI marketing team", 46 playbooks
+plus 27 installable Claude Code skills, free to read, free to
 install, brand context aware, twenty-minute setup.
 
 Return the script as plain text, no stage directions, no
@@ -110,12 +110,12 @@ Hard bans:
 - No staccato all-short-sentence rhythm. If three sentences in
   a row are under eight words, rewrite to connect at least one
   pair.
-- No sentences that open with a bare number ("Forty-five
+- No sentences that open with a bare number ("Forty-six
   playbooks across..."). That is reportage cadence and reads
   like a press release. A real speaker introduces a count with
-  a verb or determiner ("We've built forty-five...", "Right now
-  that's forty-five...", "Inside, there's forty-five...",
-  "Currently forty-five..."). Only allow a bare-number opening
+  a verb or determiner ("We've built forty-six...", "Right now
+  that's forty-six...", "Inside, there's forty-six...",
+  "Currently forty-six..."). Only allow a bare-number opening
   if the previous sentence ended with explicit reference to the
   thing being counted, so the listener carries the subject
   across the break.
@@ -267,7 +267,7 @@ HeyGen API usage costs money. Before doing batch jobs, warn the user:
 - Prices vary by avatar engine and feature. Check HeyGen's current API pricing before quoting a cost: https://help.heygen.com/en/articles/10060327-heygen-api-pricing-explained
 - The API processes up to 10 videos concurrently, so queue larger batches.
 
-If the user asks to batch-produce 45 playbook videos in one go, do the maths first. Multiply the expected runtime of each video by the current per-minute rate for their avatar engine from the pricing page, show the total in US dollars, and confirm before rendering. Suggest spreading the batch over weeks if the total is more than they expected.
+If the user asks to batch-produce 46 playbook videos in one go, do the maths first. Multiply the expected runtime of each video by the current per-minute rate for their avatar engine from the pricing page, show the total in US dollars, and confirm before rendering. Suggest spreading the batch over weeks if the total is more than they expected.
 
 ## Voice rules
 
