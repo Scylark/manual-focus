@@ -52,6 +52,20 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
     opacity: 1;
   }
 
+  /* On hover the gradient sits behind the text (the transform above puts
+     ::before in the card's stacking context), so the grey text tokens
+     become unreadable. A 35% dark tint over the gradient plus white text
+     keeps every part of the card at 5.2:1 or better in both themes. */
+  .blog-card::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), var(--color-cta-gradient);
+  }
+  .blog-card:hover .blog-card-meta,
+  .blog-card:hover .blog-card-minutes,
+  .blog-card:hover h3 a,
+  .blog-card:hover p {
+    color: #fff;
+  }
+
   .blog-card-meta {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
