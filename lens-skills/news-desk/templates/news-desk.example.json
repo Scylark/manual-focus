@@ -1,0 +1,91 @@
+{
+  "brand": "Manual Focus",
+  "site_url": "https://manual-focus.co.uk",
+  "what_we_sell": "Fractional CMO, strategic advice and AI marketing builds for ambitious brands",
+  "audience": "UK marketing leaders and CMOs at ambitious brands, scaleups and established businesses",
+  "beat": {
+    "cover": [
+      "new frontier AI models and major capability jumps",
+      "changes to how Google, ChatGPT or Perplexity find and show brands",
+      "ad platforms shipping AI buying or creative",
+      "regulation with a date attached (EU AI Act, UK ICO, CMA, ASA)"
+    ],
+    "skip": [
+      "funding rounds and executive moves",
+      "benchmarks with no workflow consequence",
+      "rumours and minor SDK updates"
+    ]
+  },
+  "why_us": "Senior operators who use AI daily across brand, demand and growth, so we can say what a change means for a marketing team's next 90 days",
+  "sources": {
+    "primary": [
+      "https://openai.com/news/",
+      "https://www.anthropic.com/news",
+      "https://blog.google/",
+      "https://developers.google.com/search/blog",
+      "https://ads.google.com/intl/en_uk/home/resources/",
+      "https://about.fb.com/news/",
+      "https://www.gov.uk/government/organisations/competition-and-markets-authority",
+      "https://ico.org.uk/about-the-ico/media-centre/"
+    ],
+    "discovery": [
+      "https://techcrunch.com/",
+      "https://searchengineland.com/",
+      "https://www.seroundtable.com/",
+      "https://www.marketingweek.com/"
+    ]
+  },
+  "scoring": {
+    "bar": 7,
+    "rubric": {
+      "9-10": "a new frontier model or major capability jump, a change to how search or AI assistants show brands, an ad platform shipping AI buying or creative, regulation with a date",
+      "7-8": "a meaningful feature marketers will use (agents, video, voice, shopping, pricing), large research on AI search behaviour",
+      "0-6": "funding, exec moves, benchmarks with no workflow consequence, rumours, minor SDK updates"
+    }
+  },
+  "voice": {
+    "spelling": "en-GB",
+    "opinion_opener": "Our view at Manual Focus is",
+    "absolute_bans": ["em-dash", "semicolon", "colon", "emoji"],
+    "banned_words": [
+      "delve", "foster", "leverage", "utilise", "facilitate", "empower", "streamline", "robust",
+      "cutting-edge", "game changer", "tapestry", "realm", "beacon", "multifaceted", "meticulous",
+      "intricate", "paramount", "transformative", "elevate", "embark", "supercharge", "harness",
+      "ever-evolving", "unlock", "unleash", "revolutionary", "landscape", "pivotal",
+      "it's worth noting", "when it comes to", "at its core", "in today's", "the reality is",
+      "going forward", "ultimately", "in conclusion", "experts agree", "studies show"
+    ],
+    "claimed_experience": ["we tested", "we've tested", "our clients", "in our client work", "we've seen", "our testing"]
+  },
+  "post": {
+    "dir": "src/content/blog",
+    "filename": "{slug}.md",
+    "news_tag": "ai-briefing",
+    "article_tags_exclude_news_tag": true,
+    "layout_renders_faq_and_sources": true,
+    "title_max": 65,
+    "description_max": 160,
+    "opening_words": [40, 60],
+    "body_words": { "news": [600, 950], "article": [800, 1600] },
+    "faq_items": [3, 5],
+    "faq_answer_words": [40, 80],
+    "min_sources": 2,
+    "internal_link_trailing_slash": true
+  },
+  "languages": {
+    "default": "en",
+    "translations": [],
+    "translation_path": null
+  },
+  "build": { "command": "npm run build", "output_dir": "dist" },
+  "ledger": ".lens/news-desk/ledger.json",
+  "check_script": ".lens/news-desk/check.mjs",
+  "handoff": {
+    "default_branch": "master",
+    "branch_prefix": "briefing/",
+    "article_branch_prefix": "article/",
+    "pr_title": "AI briefing | {title}",
+    "article_pr_title": "Article | {title}"
+  },
+  "schedule": { "time": "07:00", "timezone": "Europe/London" }
+}

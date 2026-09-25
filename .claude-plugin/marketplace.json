@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "The Lens, Manual Focus's working library of AI marketing skills for ambitious brands, with particular depth in endurance and sports. Companion to the playbooks at manual-focus.co.uk/lens.",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "repository": "https://github.com/Scylark/manual-focus"
   },
   "plugins": [
     {
       "name": "the-lens",
-      "description": "27 AI marketing skills: 25 workflow skills covering positioning, brand voice, naming, demand-gen, content systems, site audits, lifecycle, ops and personal-assistant work, a setup-the-lens onboarding orchestrator that welcomes new users and recommends a starter playbook, and a video-script-to-heygen utility that renders playbook explainer videos via the HeyGen API. Ask Claude to 'set up The Lens' after install.",
+      "description": "28 AI marketing skills: 26 workflow skills covering positioning, brand voice, naming, demand-gen, content systems, news desks, news desks, site audits, lifecycle, ops and personal-assistant work, a setup-the-lens onboarding orchestrator that welcomes new users and recommends a starter playbook, and a video-script-to-heygen utility that renders playbook explainer videos via the HeyGen API. Ask Claude to 'set up The Lens' after install.",
       "source": "./lens-skills"
     }
   ]
