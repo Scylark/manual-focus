@@ -126,5 +126,53 @@
     "score": 2,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-09-25",
+    "story": "Google adds a multimodal search type filter to Search Console performance and generative AI features reports, covering Lens, Circle to Search, image uploads and Chrome Search this image, rolling out globally from 24 September",
+    "primary_source": "https://developers.google.com/search/blog/2026/09/web-multimodal-in-sc",
+    "score": 7,
+    "decision": "published",
+    "slug": "search-console-multimodal-lens-reporting"
+  },
+  {
+    "run_date": "2026-09-25",
+    "story": "Amazon launches a Seller Assistant plugin for Anthropic's Claude (US beta) and Amazon Quick, plus 24/7 Seller Assistant workflows, announced 23 September",
+    "primary_source": "https://www.aboutamazon.com/news/innovation-at-amazon/seller-assistant-plugin-amazon-quick-claude",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-25",
+    "story": "Google tests Gemini making phone calls to businesses for US Pixel 11 owners",
+    "primary_source": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-september-24-2026/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-25",
+    "story": "Google Ads Recommended Investment Strategy adds Holistic and Growth budget modes",
+    "primary_source": "https://support.google.com/google-ads/answer/16604266",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-25",
+    "story": "Google DeepMind's Koray Kavukcuoglu says Gemini 4 may ship well before year end",
+    "primary_source": "https://aiweekly.co/ai-news-today/edition/2026-09-24",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-25",
+    "story": "Reports that OpenAI will preview GPT-6 Cyber, possibly at Dev Day on 29 September",
+    "primary_source": "https://gizmodo.com/openai-may-announce-new-security-model-gpt-6-cyber-within-days-2000817143",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
