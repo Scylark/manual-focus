@@ -7,8 +7,12 @@
 import { readFileSync, existsSync } from 'node:fs';
 import yaml from 'js-yaml';
 
-const file = process.argv[2];
-if (!file) { console.error('usage: node check.mjs <post.md>'); process.exit(2); }
+// --article checks an on-demand article (topic chosen by James, evergreen)
+// instead of a daily briefing: no ai-briefing tag, longer body allowed.
+const args = process.argv.slice(2);
+const article = args.includes('--article');
+const file = args.find((a) => !a.startsWith('--'));
+if (!file) { console.error('usage: node check.mjs [--article] <post.md>'); process.exit(2); }
 const src = readFileSync(file, 'utf8');
 const m = src.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
 if (!m) { console.error('FAIL no frontmatter'); process.exit(1); }
@@ -20,7 +24,8 @@ const words = (t) => t.trim().split(/\s+/).filter(Boolean).length;
 // Structure and lengths
 if (!fm.title || fm.title.length > 65) fails.push(`title must be 1-65 chars (is ${fm.title?.length})`);
 if (!fm.description || fm.description.length > 160) fails.push(`description must be 1-160 chars (is ${fm.description?.length})`);
-if (!fm.tags?.includes('ai-briefing')) fails.push('tags must include ai-briefing');
+if (!article && !fm.tags?.includes('ai-briefing')) fails.push('tags must include ai-briefing (use --article for an on-demand article)');
+if (article && fm.tags?.includes('ai-briefing')) fails.push('on-demand articles must not carry the ai-briefing tag');
 const faq = fm.faq ?? [];
 if (faq.length < 3 || faq.length > 5) fails.push(`faq needs 3-5 items (has ${faq.length})`);
 faq.forEach((f, i) => {
@@ -34,7 +39,8 @@ if (opening.startsWith('#')) fails.push('post must open with a paragraph, not a 
 const openN = words(opening);
 if (openN < 40 || openN > 60) fails.push(`opening paragraph must be 40-60 words (is ${openN})`);
 const bodyN = words(body.replace(/\]\([^)]*\)/g, ']'));
-if (bodyN < 600 || bodyN > 950) fails.push(`body should be 600-950 words (is ${bodyN})`);
+const [minBody, maxBody] = article ? [800, 1600] : [600, 950];
+if (bodyN < minBody || bodyN > maxBody) fails.push(`body should be ${minBody}-${maxBody} words (is ${bodyN})`);
 if (!/Our view at Manual Focus/.test(body)) fails.push('body needs one "Our view at Manual Focus is ..." sentence');
 
 // Text the reader sees, with link targets, URLs, emails and code stripped
