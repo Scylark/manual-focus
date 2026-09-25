@@ -1,6 +1,6 @@
 ---
 name: ai-briefing
-description: Daily AI news briefing for the Manual Focus blog. Scans for significant AI developments from the last 48 hours, picks at most one that matters to marketing leaders, and writes an answer-engine-optimised post that positions Manual Focus as the authority on what it means. Use when asked to "run the AI briefing", "write today's AI post", or on the scheduled daily run.
+description: Daily AI news briefing for the Manual Focus blog. Scans for significant AI developments from the last 48 hours, picks at most one that matters to marketing leaders, and writes an answer-engine-optimised post that positions Manual Focus as the authority on what it means. Use when asked to "run the AI briefing", "write today's AI post", or on the scheduled daily run. Also use for on-demand articles on a topic James names, such as "write a search-optimised article on X", "we need a post about Y" or "do an SEO article comparing A and B" (see "On-demand article mode").
 ---
 
 # AI briefing
@@ -297,3 +297,57 @@ lists each candidate, its score and why it didn't clear the bar. That
 summary is the day's record.
 
 Merging the PR publishes the post (GitHub Pages deploys from `master`).
+
+## On-demand article mode
+
+Use this when James names the topic ("we need a search-optimised article on
+Grok Bot and Hermes") instead of asking for the daily briefing. The article is
+evergreen and aimed at search and AI answers, not at today's news. Every rule
+in "The rules that override everything else" still applies, except rules 1
+and 2, since James has already decided there will be a post.
+
+What changes from the daily steps:
+
+1. **Load context (step 1)** as normal. Also check the ledger and existing
+   posts for the topic, and link to any earlier coverage.
+2. **Replace the scan and triage (steps 2 and 3) with disambiguation and
+   research.**
+   - Work out what people actually mean by the terms James used, as of today.
+     Names collide (a product vs a fashion house, a bot vs a crawler, a model
+     vs an agent). Search the terms, read the top results and the comparison
+     pieces, and pick the meaning most searchers want. Say which meanings you
+     set aside and why.
+   - Gather facts at primary sources (the company's own announcement, docs,
+     repository or regulator page). A research subagent is fine for breadth,
+     but open every source you'll cite yourself. Research summaries get
+     details wrong. In the first on-demand article, the vendor's own page
+     corrected who a beta was open to.
+   - List what you couldn't verify and leave it out of the post (crawler
+     names, unconfirmed ads, regional availability and the like).
+   - Collect the questions people type into search and AI assistants about
+     the topic. They become headings and FAQ items.
+   - You can't see search volumes without an authorised Ahrefs or Semrush
+     connector. Say so in the PR and suggest the keywords to check.
+3. **Find the angle (step 4)** as normal. The question to answer for the
+   reader is "which should I use, or what should I do, and why".
+4. **Write (step 5)** with these differences:
+   - The title leads with the main search query ("Grok Bot vs Hermes Agent,
+     a guide for UK marketing teams"), 65 characters max, no colon.
+   - Tags leave out `ai-briefing`. Use `ai` plus one or two allowed tags.
+   - Open with a 40 to 60 word paragraph that states only verifiable facts.
+     Don't claim what "everyone is comparing" unless you can source it.
+   - Body of 800 to 1,600 words, with 4 or 5 FAQ items phrased the way
+     people ask.
+   - Link 1 or 2 relevant Lens playbooks or posts.
+5. **Quality gates (step 6)**: run
+   `node .claude/skills/ai-briefing/check.mjs --article src/content/blog/<slug>.md`.
+   It must print PASS, alongside the build, the no-slop self-audit (51 or
+   more out of 60), the fact check and the no-claimed-experience check.
+6. **Ledger (step 7)**: add one entry with `"decision": "published-on-demand"`
+   and a score of `null`, so the daily run won't repeat the topic.
+7. **Hand off (step 8)**: branch `article/<slug>`, PR titled
+   `Article | <post title>`. In the body put the search terms targeted, what
+   you verified and where, what you left out as unverified, and the
+   self-audit score. Never push to `master`. James merges, and the merge
+   publishes the post.
+

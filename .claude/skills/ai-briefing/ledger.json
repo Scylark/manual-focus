@@ -126,5 +126,13 @@
     "score": 2,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-09-24",
+    "story": "Grok Bot (SpaceXAI, beta 11 Aug 2026) vs Hermes Agent (Nous Research): guide for UK marketing teams",
+    "primary_source": "https://x.ai/news/introducing-grok-bot",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "grok-bot-vs-hermes-agent-for-marketing-teams"
   }
 ]
