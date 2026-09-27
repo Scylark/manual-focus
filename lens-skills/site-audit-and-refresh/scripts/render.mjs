@@ -5,6 +5,8 @@
 // Env:   PRE=<js expression>   runs before capture (e.g. inject a CSS override)
 //        SCROLL=<js expression> runs after load to scroll into position
 //        CHROME=<path>          Chrome binary (defaults to the macOS install)
+//        HOVER=1                moves the mouse over the element first, so :hover styles render
+//        THEME=light|dark       sets <html data-theme> before capture (for sites with a theme toggle)
 //
 // The clip uses page coordinates, so scrolled elements are captured correctly.
 import { spawn } from 'node:child_process';
@@ -49,6 +51,14 @@ await send('Page.enable');
 await send('Page.navigate', { url });
 await sleep(3000);
 if (process.env.SCROLL) { await evaluate(process.env.SCROLL); await sleep(2500); }
+if (process.env.THEME) { await evaluate(`document.documentElement.dataset.theme = ${JSON.stringify(process.env.THEME)}`); await sleep(300); }
+if (process.env.HOVER) {
+  await evaluate(`document.querySelector(${JSON.stringify(selector)})?.scrollIntoView({ block: 'center' })`);
+  await sleep(400);
+  const c = await evaluate(`(() => { const r = document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; })()`);
+  await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: c[0], y: c[1] });
+  await sleep(700);
+}
 if (process.env.PRE) { console.log('PRE ->', JSON.stringify(await evaluate(process.env.PRE))); await sleep(800); }
 const box = await evaluate(`(() => { const el = document.querySelector(${JSON.stringify(selector)}); if (!el) return null; const r = el.getBoundingClientRect(); return [r.left, r.top + scrollY, r.width, r.height]; })()`);
 if (!box) { ws.close(); proc.kill(); throw new Error(`selector not found: ${selector}`); }
