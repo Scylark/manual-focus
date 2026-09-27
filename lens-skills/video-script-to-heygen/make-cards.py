@@ -248,7 +248,7 @@ def main() -> None:
     p.add_argument("--outro-tagline", default="Free to read.  Free to install.")
     p.add_argument("--outro-cta", default="Subscribe in the post.")
     p.add_argument("--urlbar-text", default="manual-focus.co.uk/lens")
-    p.add_argument("--badge-text", default="46 playbooks · 27 skills · free")
+    p.add_argument("--badge-text", default="47 playbooks · 28 skills · free")
     args = p.parse_args()
 
     out = Path(args.output_folder)
