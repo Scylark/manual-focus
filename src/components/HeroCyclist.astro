@@ -75,12 +75,11 @@
   .hero-scroll {
     position: relative;
     width: 100%;
-    /* 800vh = ~700vh of pinned scroll runway. Each phase gets
-       genuine dwell time — rings present long enough to register,
-       wordmark hold long enough to read, post-exit pause long
-       enough to anticipate, hero copy read time long enough to
-       actually read before the sticky releases. */
-    height: 800vh;
+    /* 600vh = ~500vh of pinned scroll runway (was 800vh). Every phase
+       keeps its share of the scroll, so the choreography is unchanged:
+       the wordmark still holds for ~1.5 screens, and the headline and
+       CTAs now arrive after ~4 screens instead of ~6. */
+    height: 600vh;
     background: var(--color-bg);
     isolation: isolate;
     overflow: clip;
@@ -340,7 +339,8 @@
       }
 
       // ── Wordmark ──────────────────────────────────────────────
-      // Choreography (with 800vh section ≈ 700vh of useful scroll):
+      // Choreography (with 600vh section ≈ 500vh of useful scroll;
+      // durations below are for the original 800vh, scale by 5/7):
       //   0.35 → 0.45  fade in (~70vh of scroll)
       //   0.45 → 0.75  HOLD at full size (~210vh of pure dwell —
       //                3 viewport-heights of scrolling on the
