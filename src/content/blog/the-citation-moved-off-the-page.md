@@ -1,7 +1,7 @@
 ---
 title: "The citation moved off the page"
 date: 2026-06-29
-updated: 2026-09-24
+updated: 2026-09-27
 tags: ["ai", "marketing-strategy", "go-to-market"]
 description: "The overlap between top Google links and AI-cited sources has fallen from 70% to under 20%. Your rankings stopped predicting who gets quoted."
 ---
@@ -20,7 +20,7 @@ A ranked result rewards authority, backlinks, freshness and on-page relevance to
 
 The tactics are not exotic, they are just different from the ones a 2020 content calendar optimises for.
 
-**Answer first, build-up never.** The first 200 words of any piece should fully answer the primary question, not warm up to it. Models extract from the top of the document, so a page that opens with three paragraphs of context before the payoff hands the citation to whoever got to the point faster.
+**Answer first, build-up never.** The first 200 words of any piece should fully answer the primary question, not warm up to it. A model looking for a quotable passage finds one sooner on a page that answers up front, so a page that opens with three paragraphs of context before the payoff risks handing the citation to whoever got to the point faster.
 
 **Original data the model cannot get elsewhere.** A proprietary stat, a survey you ran, a benchmark you measured. If your page is the only place a number lives, the model has to cite you to use it. Restating what everyone already knows makes you interchangeable, and interchangeable sources do not get named.
 
@@ -30,8 +30,8 @@ The tactics are not exotic, they are just different from the ones a 2020 content
 
 ## The opening, and the trap
 
-Here is the part worth acting on. Across the enterprise teams we talk to, GEO work is already under way. Most smaller teams have not started, which is a genuine first-mover window in a discipline where the moves are cheap and the incumbents have not locked it down.
+Our view at Manual Focus is that smaller teams still have a first-mover window here, because the moves are cheap and in most categories nobody has locked GEO down yet.
 
-The trap is treating this as a new channel to bolt on. It is not a channel, it is a change in how every channel gets discovered. The fix is structural. Shape the content so a model can parse and quote it, build the original data that makes you the only available source, and earn the third-party references that tell the model you are credible. The [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/) covers the technical and content moves in detail, and the [SEO cluster generator](/lens/content/seo-cluster-generator/) in The Lens turns the topic map and the answer-shaped structure into something you can actually run this week.
+The trap is treating this as a new channel to bolt on, when it changes how every channel gets discovered. The fix is structural. Shape the content so a model can parse and quote it, build the original data that makes you the only available source, and earn the third-party references that tell the model you are credible. The [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/) covers the technical and content moves in detail, and the [SEO cluster generator](/lens/content/seo-cluster-generator/) in The Lens turns the topic map and the answer-shaped structure into something you can actually run this week.
 
-None of this means rankings stopped mattering. The blue links still drive real traffic. It means the scoreboard you have been watching now covers only part of the game, and the growing generative share is keeping its own score somewhere you have not been looking. Start looking. We wrote more on the broader shift in [why most marketing advice is noise](/blog/why-most-marketing-advice-is-noise/), and on the discipline of not over-trusting any of it in [evaluating AI tools without falling for the demo](/blog/evaluating-ai-tools-without-falling-for-the-demo/).
+None of this means rankings stopped mattering. The blue links still drive real traffic. It means the scoreboard you have been watching now covers only part of the game, and the growing generative share is keeping its own score somewhere you have not been looking. We wrote more on the broader shift in [why most marketing advice is noise](/blog/why-most-marketing-advice-is-noise/), and on the discipline of not over-trusting any of it in [evaluating AI tools without falling for the demo](/blog/evaluating-ai-tools-without-falling-for-the-demo/).

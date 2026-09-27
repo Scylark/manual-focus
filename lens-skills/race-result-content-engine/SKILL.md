@@ -171,7 +171,7 @@ What this skill does NOT do:
   doesn't know. Stick to what the data and the post-race interviews
   say.
 
-See [What's actually possible](https://manual-focus.co.uk/lens/capabilities).
+See [What's actually possible](https://manual-focus.co.uk/lens/capabilities/).
 
 ## Hand-off
 

@@ -252,7 +252,7 @@ Format:
 
 > Start with **[playbook slug]**.
 > Why this one: [one sentence anchored in what the audit found].
-> Link: https://manual-focus.co.uk/lens/[stack]/[slug]
+> Link: `https://manual-focus.co.uk/lens/<stack>/<slug>/`
 > Time: [ship time from frontmatter]
 > Output: [what they walk away with]
 

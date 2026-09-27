@@ -1,8 +1,9 @@
 ---
 title: "The 90-day AI integration plan for marketing leaders"
 date: 2026-05-28
+updated: 2026-09-27
 tags: ["ai", "fractional-cmo", "leadership"]
-description: "A concrete week-by-week plan for marketing leaders to integrate AI without breaking the team or the brand. No hype, no agentic theatre."
+description: "A 90-day plan to integrate AI into a marketing team, audit usage, build a voice prompt, rebuild two workflows, measure weekly and talk to the team."
 howToName: "Integrate AI into a marketing function in 90 days"
 howToSteps:
   - name: "Weeks 1–2: audit current AI usage and the brand voice doc"
@@ -12,11 +13,11 @@ howToSteps:
   - name: "Weeks 5–6: rebuild one workflow end-to-end"
     text: "Take the biggest drag (usually content production) and rebuild it with AI in the loop properly. The brief is AI-generated and human-edited, the draft is AI-produced against brief and voice, the edit is human, repurposing is AI from the long-form."
   - name: "Weeks 7–8: roll the workflow pattern to a second function"
-    text: "Apply the same defined-inputs, AI-production, human-decisions, defined-outputs pattern to a second workflow — reporting, campaign briefs, ad creative or social repurposing."
+    text: "Apply the same defined-inputs, AI-production, human-decisions, defined-outputs pattern to a second workflow, such as reporting, campaign briefs, ad creative or social repurposing."
   - name: "Weeks 9–10: build the weekly measurement loop"
     text: "One dashboard, one source of truth, weekly cadence. Each piece tagged by workflow, topic and format. The model summarises what's working, the senior person makes the call on what to adjust."
   - name: "Weeks 11–12: hold the team conversation"
-    text: "Run a one-hour session — not a strategy presentation, a conversation. What's working, what's not, where the team is nervous. Be explicit that AI magnifies the senior marketing problem, it doesn't reduce it."
+    text: "Run a one-hour conversation with the team rather than a strategy presentation. What's working, what's not, where the team is nervous. Be explicit that AI magnifies the senior marketing problem, it doesn't reduce it."
 ---
 
 If you're a CMO or marketing leader and your team is using ChatGPT inconsistently, you don't have an AI strategy, you have AI usage. Those are different things, and the gap between them is where most marketing functions are quietly losing ground right now.
@@ -37,17 +38,17 @@ By end of week two you should have a one-page picture of current AI usage by tea
 
 The single highest-leverage thing you can do in the first month is get the brand voice prompt right, because it propagates through every other workflow you'll set up later.
 
-Three positive examples (paragraphs of strong on-brand work). Three negative examples (off-brand or close-but-not-quite drafts, annotated). Specific bans. Specific structural patterns. Get a senior writer or editor to own it. Iterate it until pasting it into a draft request produces something close to ship-ready.
+Three positive examples (paragraphs of strong on-brand work). Three negative examples (off-brand or close-but-not-quite drafts, annotated). Specific bans. Specific structural patterns. Get a senior writer or editor to own it. Iterate it until pasting it into a draft request produces something close to ship-ready. The [brand voice extraction](/lens/brand/brand-voice-extraction/) playbook in The Lens walks through building it.
 
-While that's happening, settle the tool stack. Pick one chat model (Claude, ChatGPT, Gemini, defendable choices, pick one), one research tool, one media-production tool. Three subscriptions, all paid for centrally. Kill the unsanctioned shadow stack. (For the practical rule for picking, see [how to evaluate AI tools without falling for the demo](/blog/evaluating-ai-tools-without-falling-for-the-demo/) — the four-week pilot rule saves a lot of budget.)
+While that's happening, settle the tool stack. Pick one chat model (Claude, ChatGPT, Gemini, defendable choices, pick one), one research tool, one media-production tool. Three subscriptions, all paid for centrally. Kill the unsanctioned shadow stack. (For a practical way to pick, see [how to evaluate AI tools without falling for the demo](/blog/evaluating-ai-tools-without-falling-for-the-demo/), where the four-week pilot rule saves a lot of budget.)
 
 The goal at the end of month one is that every team member has access to the same tools, the same voice prompt and the same baseline expectation of what AI is for.
 
 ## Weeks 5–6: rewrite one workflow end-to-end
 
-Pick the workflow that's the biggest drag on the team. Usually it's content production, briefs to drafts to publication. Sometimes it's reporting. Sometimes it's campaign creative production. (We've broken down [five workflow changes that lift content production specifically](/blog/five-ways-improve-content-production-ai/) — start there if content is your biggest drag.)
+Pick the workflow that's the biggest drag on the team. Usually it's content production, briefs to drafts to publication. Sometimes it's reporting. Sometimes it's campaign creative production. (We've broken down [five workflow changes that lift content production specifically](/blog/five-ways-improve-content-production-ai/), so start there if content is your biggest drag.)
 
-Whichever it is, rebuild it with AI in the loop properly. Not "the team uses ChatGPT during the workflow", rebuilt. The brief is AI-generated and human-edited. The draft is AI-produced against the brief, the voice prompt and the research. The edit is human. The repurposing into other formats is AI-produced from the long-form. The whole workflow ships.
+Whichever it is, rebuild it with AI in the loop properly. Not "the team uses ChatGPT during the workflow", rebuilt. The brief is AI-generated and human-edited. The draft is AI-produced against the brief, the voice prompt and the research. The edit is human. The repurposing into other formats is AI-produced from the long-form. The whole workflow ships. (The [brief-to-ship pipeline](/lens/ops/brief-to-ship-pipeline/) playbook is one worked version of this rebuild.)
 
 Document it, run it on three real pieces, and measure the time and quality vs the old workflow.
 
@@ -63,7 +64,7 @@ By the end of week eight you should have two workflows running cleanly, each doc
 
 ## Weeks 9–10: build the measurement loop
 
-Most AI rollouts fail here. The team produces more, but nobody tracks whether the extra output is actually working, and six months in there's no honest answer to "is this paying off".
+A lot of AI rollouts stall here. The team produces more, but nobody tracks whether the extra output is actually working, and six months in there's no honest answer to "is this paying off".
 
 Set up the loop. One dashboard, one source of truth, weekly cadence. Each piece of work tagged by workflow (which AI process produced it), by topic, by format. The model summarises what's working weekly, and the senior person reads it and makes the call on what to adjust.
 
@@ -81,8 +82,8 @@ This conversation is the one most leaders skip. Without it, the people-side of t
 
 ## What 90 days actually gets you
 
-End of quarter, a team that wasn't doing structured AI work can be producing a multiple of its old output (two to three times is what we've typically seen), at brand quality, with measurement in place, against two well-run workflows. Not the agentic-future version of AI in marketing, the practical version that exists today and produces real lifts.
+End of quarter, a team that wasn't doing structured AI work can be producing substantially more, at brand quality, with measurement in place, against two well-run workflows. Not the agentic-future version of AI in marketing, the practical version that exists today and produces real lifts.
 
 The next 90 days is about widening the surface (more workflows), the 90 after that is about depth (better pipelines, better models, better measurement), but the first 90 sets the floor.
 
-The teams that don't do this work will spend the next year being out-shipped by teams that did. AI is not the differentiator, the disciplined integration is, and that's a leadership job rather than a tools job.
+The teams that don't do this work will spend the next year being out-shipped by teams that did. The differentiator is disciplined integration, and that's a leadership job rather than a tools job.

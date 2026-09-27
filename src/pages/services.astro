@@ -3,14 +3,14 @@ import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
 ---
-<Base title="Services — Fractional CMO, Strategic Advisor, Build and Hand Over" description="Three ways to engage Manual Focus — Strategic Advisor, Fractional CMO, Build and Hand Over — plus Manual Focus AI, our product for done-for-you AI marketing workflows.">
-  <SEOHead slot="seo" type="service" title="Services — Fractional CMO and AI marketing workflows" description="Three ways to engage Manual Focus — Strategic Advisor, Fractional CMO, Build and Hand Over — plus Manual Focus AI for done-for-you AI workflows." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services' }]} />
+<Base title="Fractional CMO and AI marketing services" description="Four ways to work with Manual Focus. Strategic Advisor, Fractional CMO, Build & Hand Over, and Manual Focus AI, where we run the AI workflows for you.">
+  <SEOHead slot="seo" type="service" title="Fractional CMO and AI marketing services" description="Four ways to work with Manual Focus. Strategic Advisor, Fractional CMO, Build & Hand Over, and Manual Focus AI, where we run the AI workflows for you." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Services', url: '/services/' }]} />
 
   <section class="section">
     <div class="container reveal">
       <div class="eyebrow">SERVICES</div>
       <h1>How we work together</h1>
-      <p class="lead">Three ways to engage with the team, all of them threading AI and emerging tech into the workflows you already run. Plus one product where Manual Focus owns and runs the AI workflows on your behalf.</p>
+      <p class="lead">Three ways to work with us, each building AI into the workflows your team already runs. And one product, Manual Focus AI, where we run the workflows and deliver the output. Every engagement starts with a free 30-minute working session.</p>
     </div>
   </section>
 
@@ -37,7 +37,8 @@ import { url } from '../utils/paths';
         <p>We won't run your team for you, ship the work on your behalf, or sit in every meeting. This is senior input on a part-time cadence, not embedded leadership.</p>
 
         <p class="service-shape mono">Shape · 1–2 days a month. Day rate or monthly retainer.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Book a session</a>
+        <p class="service-proof">James currently advises AI-powered wealth managers in this shape.</p>
+        <a href={`${url('/enquire/')}?offer=strategic-advisor`} class="btn-cta" style="margin-top: var(--space-md);">Book a free working session</a>
       </div>
     </div>
   </section>
@@ -63,10 +64,11 @@ import { url } from '../utils/paths';
         </ul>
 
         <h3>What this is not</h3>
-        <p>This isn't a generalist consultant who hands you a deck. It's senior marketing leadership that ships work. And it's not unlimited time. The seat is part-time by design, so the cadence has to be set up to make the most of it.</p>
+        <p>A deck without the work to deliver it. You get a senior marketer who ships as well as plans. It isn't unlimited time either. The seat is part-time by design, so the cadence is set up to make the most of it.</p>
 
         <p class="service-shape mono">Shape · 1–2 days a week. Three-month minimum.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Book a session</a>
+        <p class="service-proof">James has led marketing from the inside at RGT Cycling, which he co-founded and grew from 19k to 350k users before Wahoo acquired it, and for a $200M privacy-focused digital asset.</p>
+        <a href={`${url('/enquire/')}?offer=fractional-cmo`} class="btn-cta" style="margin-top: var(--space-md);">Book a free working session</a>
       </div>
     </div>
   </section>
@@ -83,8 +85,8 @@ import { url } from '../utils/paths';
         <h3>What this looks like</h3>
         <ul>
           <li>Product or feature launches, with positioning, narrative and assets</li>
-          <li>Commerce rebuilds on Shopify, BigCommerce or WooCommerce/WordPress — full-stack or headless, shipped fast</li>
-          <li>Headless web architectures — composable stacks built for speed, SEO and a clean handover</li>
+          <li>Commerce rebuilds on Shopify, BigCommerce or WooCommerce/WordPress, full-stack or headless, shipped fast</li>
+          <li>Headless web architectures: composable stacks built for speed, SEO and a clean handover</li>
           <li>Landing systems and conversion infrastructure (Next, Astro, Webflow where it fits)</li>
           <li>SEO and answer-engine optimisation programmes, including content engines</li>
           <li>Brand refreshes with messaging architecture and visual direction</li>
@@ -96,7 +98,8 @@ import { url } from '../utils/paths';
         <p>It's not a retainer dressed up as a project. The scope is fixed up front, the price is fixed up front, and the handover is real. After it's shipped, your team owns it.</p>
 
         <p class="service-shape mono">Shape · Fixed scope, fixed timeline, fixed price. Typical builds 4–12 weeks.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Book a session</a>
+        <p class="service-proof">See the method on our own site: the <a href={url('/lens/ops/site-audit-and-refresh/')}>September 2026 audit and refresh</a>, with the retest logs published.</p>
+        <a href={`${url('/enquire/')}?offer=build-and-hand-over`} class="btn-cta" style="margin-top: var(--space-md);">Book a free working session</a>
       </div>
     </div>
   </section>
@@ -112,19 +115,20 @@ import { url } from '../utils/paths';
 
         <h3>What this looks like</h3>
         <ul>
-          <li>Content planning pipelines — calendars, briefs, drafts, fact-checks</li>
-          <li>Wireframing and creative production — landing pages, ad units, social packs</li>
-          <li>Research and synthesis — competitor moves, SERP shifts, model launches, distilled weekly</li>
+          <li>Content planning pipelines: calendars, briefs, drafts, fact-checks</li>
+          <li>Wireframing and creative production: landing pages, ad units, social packs</li>
+          <li>Research and synthesis: competitor moves, SERP shifts, model launches, distilled weekly</li>
           <li>Pipelines maintained and re-tooled as new models and capabilities ship</li>
           <li>Output delivered in your brand and your stack, ready to use, not just ready to edit</li>
           <li>No internal training, no tool sprawl, no learning curve for your team</li>
         </ul>
 
         <h3>What this is not</h3>
-        <p>It's not headcount you have to manage. It's not a tool you have to learn. It's not a generic SaaS subscription. The workflows are owned and operated by Manual Focus, tuned to your brand and your priorities, and the output shows up on cadence.</p>
+        <p>There's nobody to manage and no tool to learn. Manual Focus owns and runs the workflows, tuned to your brand and priorities, and the output arrives on cadence.</p>
 
         <p class="service-shape mono">Shape · Monthly retainer. Output on agreed cadence. Three-month minimum.</p>
-        <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Book a working session</a>
+        <p class="service-proof">See it running: the <a href={url('/lens/content/news-desk/')}>news desk</a> behind our own AI briefing shortlists the day's stories and publishes only the ones that clear the bar.</p>
+        <a href={`${url('/enquire/')}?offer=manual-focus-ai`} class="btn-cta" style="margin-top: var(--space-md);">Book a free working session</a>
       </div>
     </div>
   </section>
@@ -134,7 +138,19 @@ import { url } from '../utils/paths';
     <div class="container reveal">
       <div class="eyebrow">VERTICAL DEPTH</div>
       <h2 class="vertical-headline">Endurance and sports brands<br/>are where we've shipped the most.</h2>
-      <p class="vertical-copy">If you're building in endurance, sports or the broader fitness category, you're getting a team that has run marketing in your category at scale. Our founder, James Vickers, co-founded RGT Cycling and took it from 19k to 350k users before Wahoo Fitness acquired it. Beyond that, we've led marketing across AI, fintech, hardware and digital assets, so the playbook travels.</p>
+      <p class="vertical-copy">If you're building in endurance, sports or the broader fitness category, you're getting a team that has run marketing in your category at scale. Our founder, James Vickers, co-founded RGT Cycling and took it from 19k to 350k users before Wahoo Fitness acquired it. Beyond that, we've led marketing across AI, fintech, hardware and digital assets, so the playbook travels. For the search side, read the <a href={url('/blog/seo-playbook-premium-endurance-brands/')}>SEO playbook for premium endurance brands</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container reveal">
+      <div class="eyebrow">WHAT HAPPENS NEXT</div>
+      <ol class="next-steps-list">
+        <li><strong>A free 30-minute working session.</strong> You bring the problem, we bring questions and a first view on it.</li>
+        <li><strong>A written scope, if it's a fit.</strong> The shape of the engagement and the cost. Builds get a fixed price up front.</li>
+        <li><strong>We start.</strong> Fractional CMO engagements set the thesis and a 90-day plan inside the first month.</li>
+      </ol>
+      <a href={url('/enquire/')} class="btn-cta" style="margin-top: var(--space-md);">Book a free working session</a>
     </div>
   </section>
 </Base>
@@ -225,6 +241,28 @@ import { url } from '../utils/paths';
     margin-top: var(--space-xs);
     line-height: 1.5;
   }
+
+  .service-proof {
+    margin-top: var(--space-sm);
+    color: var(--color-text-secondary);
+    max-width: 760px;
+    font-size: var(--font-size-sm);
+    line-height: 1.55;
+  }
+  .service-proof a,
+  .vertical-copy a { color: var(--color-text); text-decoration: underline; text-underline-offset: 0.2em; }
+
+  .next-steps-list {
+    margin-top: var(--space-md);
+    padding-left: 1.25rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .next-steps-list strong { color: var(--color-text); }
 
   .service-shape {
     margin-top: var(--space-lg);

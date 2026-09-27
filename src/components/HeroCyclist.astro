@@ -68,6 +68,10 @@
     <div class="hero-content" data-content>
       <slot />
     </div>
+
+    <!-- Scroll hint lives outside the fading content so it shows from the
+         first frame (it's also what browsers can measure as first paint). -->
+    <slot name="hint" />
   </div>
 </section>
 
@@ -75,12 +79,11 @@
   .hero-scroll {
     position: relative;
     width: 100%;
-    /* 800vh = ~700vh of pinned scroll runway. Each phase gets
-       genuine dwell time — rings present long enough to register,
-       wordmark hold long enough to read, post-exit pause long
-       enough to anticipate, hero copy read time long enough to
-       actually read before the sticky releases. */
-    height: 800vh;
+    /* 600vh = ~500vh of pinned scroll runway (was 800vh). Every phase
+       keeps its share of the scroll, so the choreography is unchanged:
+       the wordmark still holds for ~1.5 screens, and the headline and
+       CTAs now arrive after ~4 screens instead of ~6. */
+    height: 600vh;
     background: var(--color-bg);
     isolation: isolate;
     overflow: clip;
@@ -173,6 +176,14 @@
     color: transparent;
     will-change: transform, filter;
     transform-origin: 50% 50%;
+  }
+
+  /* Keyboard users tabbing into the hero before it has faded in still
+     see what's focused. */
+  .hero-content:focus-within {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
   }
 
   .hero-content {
@@ -278,9 +289,18 @@
     window.addEventListener('resize', updateScroll, { passive: true });
     updateScroll();
 
+    // The frame loop only runs while the hero is on screen, so the rest of
+    // the page isn't paying for it.
     let inView = true;
+    let running = false;
+    const start = () => {
+      if (running) return;
+      running = true;
+      requestAnimationFrame(frame);
+    };
     new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting;
+      if (inView) start();
     }, { threshold: 0 }).observe(section);
 
     /** Linear interpolation between a..b across t in [0, 1]. */
@@ -303,8 +323,8 @@
     let lastContentT = -1;
 
     function frame(now: number) {
+      if (!inView) { running = false; return; }
       requestAnimationFrame(frame);
-      if (!inView) return;
 
       const p = scrollProgress;
       const t = (now - startTime) / 1000;
@@ -322,7 +342,9 @@
       // skips the redundant transform/style writes that would
       // otherwise trigger style recalc every frame on a tab that
       // hasn't actually scrolled.
-      if (Math.abs(ringScale - lastRingScale) > 0.001 || Math.abs(ringRotation - lastRingRot) > 0.05) {
+      // Once the rings have faded out there's nothing to rotate.
+      const ringsHidden = ringOpacity <= 0 && lastRingOpacity <= 0;
+      if (!ringsHidden && (Math.abs(ringScale - lastRingScale) > 0.001 || Math.abs(ringRotation - lastRingRot) > 0.05)) {
         rings.style.transform = `translateZ(0) scale(${ringScale.toFixed(3)}) rotate(${ringRotation.toFixed(2)}deg)`;
         lastRingScale = ringScale;
         lastRingRot = ringRotation;
@@ -340,7 +362,8 @@
       }
 
       // ── Wordmark ──────────────────────────────────────────────
-      // Choreography (with 800vh section ≈ 700vh of useful scroll):
+      // Choreography (with 600vh section ≈ 500vh of useful scroll;
+      // durations below are for the original 800vh, scale by 5/7):
       //   0.35 → 0.45  fade in (~70vh of scroll)
       //   0.45 → 0.75  HOLD at full size (~210vh of pure dwell —
       //                3 viewport-heights of scrolling on the
@@ -399,7 +422,7 @@
         lastContentT = contentT;
       }
     }
-    requestAnimationFrame(frame);
+    start();
   }
 
   if (document.readyState === 'loading') {

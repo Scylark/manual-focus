@@ -177,7 +177,7 @@ corpus is the anchor. Don't run this skill without it.
 The pipeline does not give the brand credibility it hasn't earned.
 A founder who hasn't trained will eventually be exposed regardless of
 how voice-correct the copy is. See the
-[capabilities reference](https://manual-focus.co.uk/lens/capabilities)
+[capabilities reference](https://manual-focus.co.uk/lens/capabilities/)
 for the wider context.
 
 ## Hand-off

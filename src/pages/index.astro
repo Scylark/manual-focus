@@ -13,8 +13,8 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 ---
-<Base title="Manual Focus — Marketing agency for the AI era" description="Manual Focus is a London marketing agency for ambitious brands, with particular depth in endurance and sports. Senior operators using AI as leverage to build brand, demand and growth in a fraction of the time." hideNavUntilScroll>
-  <SEOHead slot="seo" type="website" title="Manual Focus — Marketing agency for the AI era" description="Manual Focus is a London marketing agency for ambitious brands, with particular depth in endurance and sports. Senior operators using AI as leverage to build brand, demand and growth in a fraction of the time." />
+<Base title="Manual Focus, marketing agency for ambitious brands" description="Manual Focus is a London marketing agency for ambitious brands, with particular depth in endurance and sports. Senior operators using AI as leverage to build brand, demand and growth in a fraction of the time." hideNavUntilScroll>
+  <SEOHead slot="seo" type="website" title="Manual Focus, marketing agency for ambitious brands" description="Manual Focus is a London marketing agency for ambitious brands, with particular depth in endurance and sports. Senior operators using AI as leverage to build brand, demand and growth in a fraction of the time." />
 
   <!-- HERO — depth-displacement cyclist with headline overlay -->
   <HeroCyclist>
@@ -41,15 +41,16 @@ const posts = (await getCollection('blog'))
           building brand, demand and growth in a fraction of the time.
         </p>
         <div class="hero-ctas">
-          <a href={url('/enquire')} class="btn-cta">Book a working session</a>
+          <a href={url('/enquire/')} class="btn-cta">Book a free working session</a>
           <a href={url('/services')} class="btn-ghost">How we work together</a>
         </div>
       </div>
 
-      <div class="hero-scroll-hint" aria-hidden="true">
-        <span class="mono">SCROLL</span>
-        <span class="scroll-arrow"></span>
-      </div>
+    </div>
+
+    <div slot="hint" class="hero-scroll-hint" aria-hidden="true">
+      <span class="mono">SCROLL</span>
+      <span class="scroll-arrow"></span>
     </div>
   </HeroCyclist>
 
@@ -91,22 +92,77 @@ const posts = (await getCollection('blog'))
       <div class="container">
         <div class="eyebrow">001 · THE PROBLEM</div>
         <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-          Flat campaigns result in<br/>
-          <span class="gradient-text">diminishing returns.</span>
+          Most campaigns stop working<br/>
+          <span class="gradient-text">when launch week ends.</span>
         </h2>
         <div class="problem-grid">
           <p class="problem-copy reveal">
             Most marketing still launches the same way it has for a decade, with a six-week
-            campaign, a content flurry, a paid push and the hope something sticks. A flat
-            campaign produces flat results regardless of brief quality, budget size or how
-            shiny the launch deck looks.
+            campaign, a content flurry, a paid push and the hope something sticks. A better
+            brief or a bigger budget doesn't change that.
           </p>
           <p class="problem-copy reveal">
             We build something that keeps working after launch week ends, with owned, earned
-            and paid wired together through the Forge, our shared AI platform. The system learns from each campaign
-            and improves as new AI models arrive, so growth holds steady instead of tailing off.
+            and paid wired together through the Forge, our shared AI platform. Each campaign
+            feeds the next, and the tooling improves as new AI models arrive.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY -->
+  <section class="section credibility-section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={360} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 8%; right: 4%;" enterFrom="right" />
+
+      <div class="container">
+        <div class="credibility-grid">
+          <div class="credibility-copy">
+            <div class="eyebrow">002 · WHO WE ARE</div>
+            <h2 class="reveal">
+              Operators first.<br/>
+              <span class="gradient-text">Marketers always.</span>
+            </h2>
+            <p class="reveal">
+              Manual Focus is a marketing agency led by James Vickers, with 15+ years running
+              brand, demand, product and growth across AI, fintech, sports tech, hardware and
+              digital assets. James co-founded RGT Cycling and took it from 19k to 350k users
+              before Wahoo Fitness acquired it. Around him, the Foundry brings senior operators
+              with deep marketing CVs of their own. We keep up with AI so your team can get on
+              with the marketing.
+            </p>
+            {/* TODO: restore this link with the real Foundry website URL once
+                available — hidden for launch because #foundry-tbd was a dead
+                placeholder that opened a new tab to nowhere.
+            <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
+            */}
+          </div>
+          <div class="credibility-mark" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND LOGOS -->
+  <section class="section section-alt logos-section dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">003 · IN THE WILD</div>
+        <h2 class="reveal logos-headline">Endurance and sports brands we've shipped with.</h2>
+        <div class="logo-bar stagger">
+          <span class="brand-mark brand-display">Classified</span>
+          <span class="brand-mark brand-serif">Wahoo</span>
+          <span class="brand-mark brand-display">Wattbike</span>
+          <span class="brand-mark brand-mono">Ribble</span>
+          <span class="brand-mark brand-display">RGT</span>
+          <span class="brand-mark brand-serif">motif <em>AI</em></span>
+          <span class="brand-mark brand-mono">Muuvr</span>
+          <span class="brand-mark brand-display">Planet X</span>
+          <span class="brand-mark brand-serif">Pelotan</span>
+        </div>
+        <p class="logos-note reveal">And further afield in AI, fintech, sports tech, hardware and digital assets.</p>
       </div>
     </div>
   </section>
@@ -121,7 +177,7 @@ const posts = (await getCollection('blog'))
     <div class="dwell-pin ways-headline-pin">
       <div class="dwell-pin-stage">
         <div class="container">
-          <div class="eyebrow">002 · HOW WE WORK TOGETHER</div>
+          <div class="eyebrow">004 · HOW WE WORK TOGETHER</div>
           <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
             Engage by the problem,<br/>
             not the <span class="gradient-text">job title</span>.
@@ -148,7 +204,7 @@ const posts = (await getCollection('blog'))
                 <li>Hiring and team-shape calls made with someone who has made them before</li>
               </ul>
               <p class="way-shape mono">1–2 days a month. Day rate or monthly retainer.</p>
-              <a href={url('/enquire')} class="btn-ghost way-cta">Bring us into the room</a>
+              <a href={`${url('/enquire/')}?offer=strategic-advisor`} class="btn-ghost way-cta">Book a free working session</a>
             </article>
 
             <article class="way-card way-card-featured">
@@ -162,7 +218,7 @@ const posts = (await getCollection('blog'))
                 <li>The key pieces of the plan shipped with that leverage in place</li>
               </ul>
               <p class="way-shape mono">1–2 days a week. Three-month minimum.</p>
-              <a href={url('/enquire')} class="btn-ghost way-cta">Start the conversation</a>
+              <a href={`${url('/enquire/')}?offer=fractional-cmo`} class="btn-cta way-cta">Book a free working session</a>
             </article>
 
             <article class="way-card">
@@ -176,7 +232,7 @@ const posts = (await getCollection('blog'))
                 <li>Handed back with docs and training. Fixed scope, fixed timeline, fixed price</li>
               </ul>
               <p class="way-shape mono">Project-based. Typical builds: 4–12 weeks.</p>
-              <a href={url('/enquire')} class="btn-ghost way-cta">Scope the build</a>
+              <a href={`${url('/enquire/')}?offer=build-and-hand-over`} class="btn-ghost way-cta">Book a free working session</a>
             </article>
           </div>
         </div>
@@ -203,8 +259,8 @@ const posts = (await getCollection('blog'))
                   <li>No internal training, no tool sprawl, no learning curve</li>
                 </ul>
                 <div class="way-product-foot">
-                  <p class="way-shape mono">Monthly retainer. Output on cadence.</p>
-                  <a href={url('/enquire')} class="btn-cta way-product-cta">Book a working session</a>
+                  <p class="way-shape mono">Monthly retainer. Output on agreed cadence. Three-month minimum.</p>
+                  <a href={`${url('/enquire/')}?offer=manual-focus-ai`} class="btn-ghost way-product-cta">Book a free working session</a>
                 </div>
               </div>
             </div>
@@ -240,13 +296,13 @@ const posts = (await getCollection('blog'))
     <div class="dwell-pin-stage">
       <FocusObject size={300} tiltX={62} tiltY={-22} spin={150} scrollSpin={-80} style="top: 8%; left: 4%;" enterFrom="left" />
       <div class="container">
-        <div class="eyebrow">003 · WHY THE AI STAYS SHARP</div>
+        <div class="eyebrow">005 · WHY THE AI STAYS SHARP</div>
         <h3 class="forge-headline">The <span class="gradient-text">Forge</span> keeps us current.</h3>
         <p class="forge-copy">
           We're part of a collective of senior operators called the Foundry. The Foundry shares
-          AI tooling through a platform called the Forge. That's why we ship at machine speed,
-          and why our capability keeps getting sharper as new AI models arrive. The shared part
-          is tooling and pipelines, not strategy or content.
+          AI tooling through a platform called the Forge, which is how new models reach client
+          work soon after they ship. The shared part is tooling and pipelines, never strategy
+          or content.
         </p>
         <div class="forge-stats">
           <div class="forge-stat">
@@ -271,7 +327,7 @@ const posts = (await getCollection('blog'))
     <div class="dwell-pin-stage">
       <FocusObject size={320} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 6%; right: -4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">004 · THE LENS · FREE</div>
+        <div class="eyebrow">006 · THE LENS · FREE</div>
         <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
           Your AI marketing team.<br/>
           <span class="gradient-text">Yours free.</span>
@@ -322,7 +378,7 @@ set up the lens</code></pre>
       <FocusObject size={240} tiltX={55} tiltY={-20} spin={120} scrollSpin={140} style="top: 8%; right: 4%;" enterFrom="left" />
 
       <div class="container">
-        <div class="eyebrow">005 · WHAT IT'S WORTH</div>
+        <div class="eyebrow">007 · WHAT IT'S WORTH</div>
         <h2 class="stats-headline reveal">More marketing output, in a fraction of the time.</h2>
         <div class="stats-grid stagger">
           <div class="stat-card">
@@ -330,8 +386,8 @@ set up the lens</code></pre>
             <div class="stat-label">faster brief-to-live, at best</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" data-counter="3" data-counter-prefix="">0</div>
-            <div class="stat-label">channels covered (owned, earned and paid) from day one</div>
+            <div class="stat-value" data-counter="47" data-counter-prefix="">0</div>
+            <div class="stat-label">free AI marketing playbooks in The Lens</div>
           </div>
           <div class="stat-card">
             <div class="stat-value" data-counter="60%" data-counter-prefix="">0%</div>
@@ -343,62 +399,6 @@ set up the lens</code></pre>
           </div>
         </div>
         <p class="stats-disclaimer mono">* Upper end of what we've seen across recent engagements, not an independent study. Results depend on the strategy being right to begin with.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BRAND LOGOS -->
-  <section class="section section-alt logos-section dwell-pin">
-    <div class="dwell-pin-stage">
-      <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
-      <div class="container">
-        <div class="eyebrow">006 · IN THE WILD</div>
-        <h2 class="reveal logos-headline">Endurance and sports brands we've shipped with.</h2>
-        <div class="logo-bar stagger">
-          <span class="brand-mark brand-display">Classified</span>
-          <span class="brand-mark brand-serif">Wahoo</span>
-          <span class="brand-mark brand-display">Wattbike</span>
-          <span class="brand-mark brand-mono">Ribble</span>
-          <span class="brand-mark brand-display">RGT</span>
-          <span class="brand-mark brand-serif">motif <em>AI</em></span>
-          <span class="brand-mark brand-mono">Muuvr</span>
-          <span class="brand-mark brand-display">Planet X</span>
-          <span class="brand-mark brand-serif">Pelotan</span>
-        </div>
-        <p class="logos-note reveal">And further afield in AI, fintech, sports tech, hardware and digital assets.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREDIBILITY -->
-  <section class="section credibility-section dwell-pin">
-    <div class="dwell-pin-stage">
-      <FocusObject size={360} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 8%; right: 4%;" enterFrom="right" />
-
-      <div class="container">
-        <div class="credibility-grid">
-          <div class="credibility-copy">
-            <div class="eyebrow">007 · WHO WE ARE</div>
-            <h2 class="reveal">
-              Operators first.<br/>
-              <span class="gradient-text">Marketers always.</span>
-            </h2>
-            <p class="reveal">
-              Manual Focus is a marketing agency led by James Vickers, with 15+ years running
-              brand, demand, product and growth across AI, fintech, sports tech, hardware and
-              digital assets. James co-founded RGT Cycling and took it from 19k to 350k users
-              before Wahoo Fitness acquired it. Around him, the Foundry brings senior operators
-              with deep marketing CVs of their own. We do the hard miles on AI so the marketing
-              side gets the upside.
-            </p>
-            {/* TODO: restore this link with the real Foundry website URL once
-                available — hidden for launch because #foundry-tbd was a dead
-                placeholder that opened a new tab to nowhere.
-            <a href="#foundry-tbd" target="_blank" rel="noopener noreferrer" class="btn-ghost reveal">Meet the Foundry ↗</a>
-            */}
-          </div>
-          <div class="credibility-mark" aria-hidden="true"></div>
-        </div>
       </div>
     </div>
   </section>
@@ -453,7 +453,7 @@ set up the lens</code></pre>
           or a <span class="gradient-text">vague feeling</span> something's off?
         </h2>
         <p class="cta-sub reveal">Bring it. We'll figure out the shape of the work together. 30-minute working session, free.</p>
-        <a href={url('/enquire')} class="btn-cta reveal">Book a working session</a>
+        <a href={url('/enquire/')} class="btn-cta reveal">Book a free working session</a>
       </div>
     </div>
   </section>
@@ -611,6 +611,7 @@ set up the lens</code></pre>
      between the two buttons, reading as a third sibling CTA. */
   .hero-scroll-hint {
     position: absolute;
+    z-index: 3;
     bottom: var(--space-md);
     right: var(--space-md);
     left: auto;
@@ -1016,6 +1017,9 @@ set up the lens</code></pre>
     .fchar { opacity: 1; transform: none; transition: none; }
     .hero-line { opacity: 1; transform: none; animation: none; }
     .char { opacity: 1; transform: none; animation: none; }
+    .marquee-track,
+    .hero-eyebrow .dot,
+    .scroll-arrow { animation: none; }
   }
 
   /* ============================
@@ -1831,6 +1835,9 @@ set up the lens</code></pre>
   const manifestoLines = document.querySelectorAll<HTMLElement>('.manifesto-line');
   if (manifestoSection && manifestoLines.length) {
     const total = manifestoLines.length;
+    // Reduced motion: lines still cross-fade on scroll, without the blur,
+    // depth and skew.
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let manifestoPending = false;
     const updateManifesto = () => {
       const rect = manifestoSection.getBoundingClientRect();
@@ -1873,6 +1880,7 @@ set up the lens</code></pre>
         const blur = absPhase * 16;
 
         line.style.opacity = opacity.toFixed(3);
+        if (calm) return;
         line.style.transform =
           `translate3d(${x.toFixed(1)}px, 0, ${z.toFixed(1)}px)` +
           ` rotateX(${rotX.toFixed(2)}deg) skewX(${skew.toFixed(2)}deg)`;

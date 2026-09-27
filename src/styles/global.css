@@ -14,7 +14,7 @@
   --color-surface: #FFFFFF;
   --color-text: #1A1612;
   --color-text-secondary: #5F574A;
-  --color-text-muted: #72695A;
+  --color-text-muted: #655D4F;
   --color-line: rgba(26, 22, 18, 0.10);
   --color-cta-start: #C45A2C;
   --color-cta-mid: #D89B3F;
@@ -74,7 +74,7 @@
   --color-surface: #16161B;
   --color-text: #F2EDE6;
   --color-text-secondary: #8C8780;
-  --color-text-muted: #7F7A73;
+  --color-text-muted: #86817A;
   --color-line: rgba(242, 237, 230, 0.08);
   --color-cta-start: #FF2D78;
   --color-cta-mid: #C026D3;
@@ -477,4 +477,34 @@ body::after {
   .scroll-progress { display: none; }
   body::after { display: none; }
   body::before { display: none; }
+  html { scroll-behavior: auto; }
 }
+
+/* Keyboard focus: a clear ring for keyboard users only. */
+:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Skip link: hidden until focused, then a visible pill top-left. */
+.skip-link:focus-visible {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.6rem 1rem;
+  clip: auto;
+  overflow: visible;
+  white-space: nowrap;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  border-radius: 999px;
+  z-index: 1002;
+}
+
+/* Anchor targets (Jump to rows, On this page lists) land clear of the
+   fixed nav. */
+h2[id] { scroll-margin-top: 90px; }

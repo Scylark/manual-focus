@@ -10,7 +10,7 @@ import { url } from '../utils/paths';
 >
   <SEOHead
     slot="seo"
-    type="service"
+    type="website"
     title="The Lens. Your AI marketing team"
     description="Senior marketing operators distilled into 28 skills for Claude Cowork that read your brand context and ship the work alongside you."
     breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'The Lens', url: '/lens' }]}
@@ -477,8 +477,9 @@ set up the lens</code></pre>
             <p>
               The Lens is the brand. Senior marketers who use the playbooks
               sometimes find that work emerges that fits a Manual Focus
-              engagement, whether Fractional CMO, Strategic Advisor, Build
-              and Hand Over, or the AI product. A free, opinionated,
+              engagement, whether <a href={url('/services/')}>Fractional CMO,
+              Strategic Advisor, Build and Hand Over, or Manual Focus AI</a>.
+              A free, opinionated,
               regularly updated library is how we earn the right to that
               conversation. If you never need us, that's also fine.
             </p>
@@ -531,8 +532,9 @@ set up the lens</code></pre>
             <p>
               For teams that can run the playbooks themselves, yes, this
               is the leverage without the cost of a Fractional CMO. For
-              others it sits alongside one of the services as a way to
-              keep the in-house team sharp between engagements.
+              others it sits alongside one of <a href={url('/services/')}>the
+              services</a> as a way to keep the in-house team sharp between
+              engagements.
             </p>
           </details>
         </div>
@@ -986,7 +988,8 @@ set up the lens</code></pre>
     transition: border-color 0.2s ease;
   }
   .lens-signup-form input[type="email"]:focus {
-    outline: none;
+    outline: 2px solid var(--color-cta-start);
+    outline-offset: 2px;
     border-color: var(--color-cta-start);
   }
   .lens-signup-form input[type="email"]::placeholder {
@@ -1285,6 +1288,11 @@ set up the lens</code></pre>
   .lens-faq-item[open] summary::after {
     transform: translateY(-50%) rotate(45deg);
   }
+  .lens-faq-item p a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
   .lens-faq-item p {
     color: var(--color-text-secondary);
     line-height: 1.55;
@@ -1314,6 +1322,11 @@ set up the lens</code></pre>
     .lens-price-inner { padding: var(--space-md); }
     .lens-anatomy li { grid-template-columns: 1.5rem 1fr; padding: var(--space-sm) var(--space-md); }
   }
+
+  /* Decorative rings sit partly outside their sections; on phones that
+     widened the page and pushed the menu button off-screen. clip (not
+     hidden) keeps sticky positioning working. */
+  .section { overflow-x: clip; }
 </style>
 
 {/*

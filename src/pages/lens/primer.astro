@@ -2,6 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import { url } from '../../utils/paths';
+import JumpNav from '../../components/JumpNav.astro';
+
+const jumpItems = [{"id": "what-a-prompt-is", "label": "What a prompt is"}, {"id": "what-makes-a-prompt-good", "label": "What makes a prompt good"}, {"id": "anatomy-of-a-lens-prompt", "label": "Anatomy of a Lens prompt"}, {"id": "what-an-agent-skill-is", "label": "What an agent skill is"}, {"id": "installing-the-lens-skills", "label": "Installing The Lens skills"}, {"id": "three-kinds-of-playbook", "label": "Three kinds of playbook"}, {"id": "prompt-or-skill-or-pipeline", "label": "Prompt or skill or pipeline?"}, {"id": "common-stumbles", "label": "Common stumbles"}];
 ---
 <Base
   title="The Lens 101. Prompting and skills, plainly"
@@ -35,10 +38,12 @@ import { url } from '../../utils/paths';
     </div>
   </section>
 
+  <JumpNav items={jumpItems} />
+
   <!-- WHAT IS A PROMPT -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>1 · What a prompt is</h2>
+      <h2 id="what-a-prompt-is">1 · What a prompt is</h2>
       <p>
         A prompt is the instruction you give a language model, the same
         way you'd brief a junior on a task. The model reads the prompt,
@@ -86,7 +91,7 @@ Return JSON in this exact shape:
   <!-- WHAT MAKES A GOOD PROMPT -->
   <section class="p101-section section-alt">
     <div class="container p101-prose">
-      <h2>2 · What makes a prompt good</h2>
+      <h2 id="what-makes-a-prompt-good">2 · What makes a prompt good</h2>
       <p>
         Six properties separate prompts that ship from prompts that
         produce slop.
@@ -145,7 +150,7 @@ Return JSON in this exact shape:
   <!-- ANATOMY -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>3 · Anatomy of a Lens prompt</h2>
+      <h2 id="anatomy-of-a-lens-prompt">3 · Anatomy of a Lens prompt</h2>
       <p>
         Open any playbook with a prompt and the structure repeats.
       </p>
@@ -182,7 +187,7 @@ Return JSON in this exact shape:
   <!-- WHAT IS A SKILL -->
   <section class="p101-section section-alt">
     <div class="container p101-prose">
-      <h2>4 · What an agent skill is</h2>
+      <h2 id="what-an-agent-skill-is">4 · What an agent skill is</h2>
       <p>
         A skill is a prompt wearing a uniform. More precisely, a
         directory containing a <code>SKILL.md</code> file with a structured
@@ -234,7 +239,7 @@ You are a brand strategist running a six-pass positioning audit...
   <!-- INSTALL -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>5 · Installing The Lens skills</h2>
+      <h2 id="installing-the-lens-skills">5 · Installing The Lens skills</h2>
       <p>
         In Cowork, open Customize → Plugins → Add marketplace, enter
         <code>Scylark/manual-focus</code> and install
@@ -255,7 +260,7 @@ You are a brand strategist running a six-pass positioning audit...
   <!-- THREE TYPES OF PLAYBOOK -->
   <section class="p101-section section-alt">
     <div class="container p101-prose">
-      <h2>6 · Three kinds of playbook</h2>
+      <h2 id="three-kinds-of-playbook">6 · Three kinds of playbook</h2>
       <p>
         Not every playbook is a prompt. The Lens has three flavours,
         worth knowing about so you don't expect a SYSTEM block where
@@ -301,7 +306,7 @@ You are a brand strategist running a six-pass positioning audit...
   <!-- WHEN TO USE WHAT -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>7 · Prompt or skill or pipeline?</h2>
+      <h2 id="prompt-or-skill-or-pipeline">7 · Prompt or skill or pipeline?</h2>
       <p>
         A practical rule for your own work.
       </p>
@@ -335,7 +340,7 @@ You are a brand strategist running a six-pass positioning audit...
   <!-- COMMON STUMBLES -->
   <section class="p101-section section-alt">
     <div class="container p101-prose">
-      <h2>8 · Common stumbles</h2>
+      <h2 id="common-stumbles">8 · Common stumbles</h2>
       <h3>The model invents things</h3>
       <p>
         It will, unless you tell it not to. Every prompt that touches

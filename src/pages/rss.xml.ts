@@ -10,8 +10,9 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: 'Manual Focus | Blog',
-    description: 'Perspectives on marketing, AI, and digital transformation from Manual Focus.',
+    description: 'Daily briefings on the AI news that matters to UK marketing leaders, plus longer guides on search, content and AI adoption, from Manual Focus.',
     site: context.site!.toString(),
+    customData: '<language>en-gb</language>',
     items: sortedPosts.map(post => ({
       title: post.data.title,
       pubDate: post.data.date,

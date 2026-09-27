@@ -21,6 +21,21 @@ const blogLastmod = new Map(
     .filter(([, date]) => date),
 );
 
+// lastmod for Lens playbooks (updatedAt ?? publishedAt), keyed by URL.
+const lensLastmod = new Map(
+  readdirSync('./src/content/lens')
+    .flatMap((stack) =>
+      readdirSync(`./src/content/lens/${stack}`)
+        .filter((f) => f.endsWith('.md'))
+        .map((f) => {
+          const src = readFileSync(`./src/content/lens/${stack}/${f}`, 'utf8');
+          const pick = (key) => src.match(new RegExp(`^${key}:\\s*["']?([0-9-]+)`, 'm'))?.[1];
+          return [`${SITE}/lens/${stack}/${f.replace(/\.md$/, '')}/`, pick('updatedAt') ?? pick('publishedAt')];
+        }),
+    )
+    .filter(([, date]) => date),
+);
+
 export default defineConfig({
   site: SITE,
   // GitHub Pages serves dir/index.html and 301-redirects /path to /path/.
@@ -34,7 +49,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       serialize(item) {
-        const date = blogLastmod.get(item.url);
+        const date = blogLastmod.get(item.url) ?? lensLastmod.get(item.url);
         if (date) item.lastmod = new Date(date).toISOString();
         return item;
       },

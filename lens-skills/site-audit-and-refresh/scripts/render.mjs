@@ -64,7 +64,7 @@ const box = await evaluate(`(() => { const el = document.querySelector(${JSON.st
 if (!box) { ws.close(); proc.kill(); throw new Error(`selector not found: ${selector}`); }
 const [x, y, bw, bh] = box;
 const shot = await send('Page.captureScreenshot', {
-  format: 'png',
+  format: 'png', captureBeyondViewport: true,
   clip: { x: Math.max(0, x - 20), y: Math.max(0, y - 20), width: Math.min(bw + 40, +w), height: Math.min(bh + 40, 4000), scale: 1 },
 });
 writeFileSync(out, Buffer.from(shot.result.data, 'base64'));

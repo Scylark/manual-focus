@@ -2,13 +2,18 @@
 import Base from '../layouts/Base.astro';
 import { url } from '../utils/paths';
 ---
-<Base title="Page Not Found" description="The page you're looking for doesn't exist.">
-  <meta slot="seo" name="robots" content="noindex" />
+<Base title="Page not found" description="The page you're looking for doesn't exist. Head back to the homepage, the blog or The Lens library." noindex>
   <section class="section not-found">
     <div class="container">
       <h1>You've lost focus.<br />Let's get you back.</h1>
-      <p>The page you're looking for doesn't exist.</p>
+      <p>The page you're looking for doesn't exist, or it has moved.</p>
       <a href={url('/')} class="btn-cta" style="margin-top: var(--space-md);">Back to home</a>
+      <ul class="not-found-links">
+        <li><a href={url('/lens/library/')}>Browse The Lens library</a></li>
+        <li><a href={url('/blog/')}>Read the blog</a></li>
+        <li><a href={url('/services/')}>See how we work</a></li>
+        <li><a href={url('/enquire/')}>Book a working session</a></li>
+      </ul>
     </div>
   </section>
 </Base>
@@ -24,4 +29,20 @@ import { url } from '../utils/paths';
     font-size: var(--font-size-lg);
     margin-top: var(--space-sm);
   }
+
+  .not-found-links {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-md);
+  }
+  .not-found-links a {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .not-found-links a:hover { color: var(--color-text); }
 </style>

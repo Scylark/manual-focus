@@ -30,7 +30,11 @@ interface Props {
   // FAQ block on an article (distinct from the site FAQ page's faqItems).
   articleFaq?: { question: string; answer: string }[];
   sources?: Source[];
+  /** Article flavour: BlogPosting for posts, TechArticle for playbooks. */
+  schemaType?: 'BlogPosting' | 'TechArticle' | 'Article';
 }
+
+const siteUrlRaw = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
 
 const {
   type,
@@ -46,9 +50,16 @@ const {
   howToSteps,
   articleFaq,
   sources,
+  schemaType = 'BlogPosting',
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
+// Canonical URLs on this site end in a slash; anything else is a redirect.
+const canonical = (u: string) => {
+  const abs = u.startsWith('http') ? u : `${siteUrlRaw}${u.startsWith('/') ? '' : '/'}${u}`;
+  return abs.endsWith('/') || /\.\w+$/.test(abs) || abs.includes('#') ? abs : `${abs}/`;
+};
+
+const siteUrl = siteUrlRaw;
 
 // One identity for James across every schema block (founder, profile page,
 // article author), joined by @id so answer engines resolve them to a single
@@ -110,8 +121,8 @@ const organizationSchema = {
   },
 };
 
-// WebSite schema — enables sitelinks search-box treatment in Google once
-// authority grows, and gives crawlers a clean root reference.
+// WebSite schema gives crawlers a clean root reference. No SearchAction:
+// the site has no search results page and Google retired the sitelinks box.
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -121,14 +132,6 @@ const websiteSchema = {
   description: 'Marketing agency for ambitious brands. Senior operators using AI as leverage.',
   inLanguage: 'en-GB',
   publisher: { '@id': `${siteUrl}/#organization` },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${siteUrl}/blog?q={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
 };
 
 const profileSchema =
@@ -162,7 +165,7 @@ const articleSchema =
   type === 'article' && publishDate
     ? {
         '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
+        '@type': schemaType,
         '@id': `${siteUrl}${Astro.url.pathname}#article`,
         headline: title,
         description,
@@ -227,7 +230,7 @@ const serviceSchemas =
           description:
             'Part-time senior marketing input for teams without a CMO. 1–2 days a month on day rate or monthly retainer.',
           areaServed: 'Worldwide',
-          url: `${siteUrl}/services`,
+          url: `${siteUrl}/services/`,
         },
         {
           '@context': 'https://schema.org',
@@ -238,7 +241,7 @@ const serviceSchemas =
           description:
             'Embedded senior marketing leadership without a full-time hire. 1–2 days a week, three-month minimum.',
           areaServed: 'Worldwide',
-          url: `${siteUrl}/services`,
+          url: `${siteUrl}/services/`,
         },
         {
           '@context': 'https://schema.org',
@@ -249,7 +252,7 @@ const serviceSchemas =
           description:
             'Project-based marketing builds — launches, SEO programmes, headless web on Shopify, BigCommerce, WooCommerce or WordPress, brand refreshes. Fixed scope, fixed timeline, fixed price. Typical builds 4–12 weeks.',
           areaServed: 'Worldwide',
-          url: `${siteUrl}/services`,
+          url: `${siteUrl}/services/`,
         },
         {
           '@context': 'https://schema.org',
@@ -260,7 +263,7 @@ const serviceSchemas =
           description:
             'Product where Manual Focus owns and runs the AI workflows on behalf of the client. Content planning, wireframing and production delivered on cadence. Monthly retainer.',
           areaServed: 'Worldwide',
-          url: `${siteUrl}/services`,
+          url: `${siteUrl}/services/`,
         },
       ]
     : null;
@@ -274,7 +277,7 @@ const breadcrumbSchema =
           '@type': 'ListItem',
           position: i + 1,
           name: b.name,
-          item: b.url.startsWith('http') ? b.url : `${siteUrl}${b.url}`,
+          item: canonical(b.url),
         })),
       }
     : null;

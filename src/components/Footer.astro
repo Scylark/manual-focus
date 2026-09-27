@@ -253,7 +253,8 @@ const year = new Date().getFullYear();
     width: 100%;
   }
   .footer-signup-form input[type="email"]:focus {
-    outline: none;
+    outline: 2px solid var(--color-cta-start);
+    outline-offset: 2px;
     border-color: var(--color-cta-start);
   }
   .footer-signup-form input[type="email"]::placeholder {

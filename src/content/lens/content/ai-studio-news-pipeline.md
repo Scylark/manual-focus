@@ -363,4 +363,4 @@ The news pipeline feeds:
 - **lifecycle-journey-builder**, best-of-month news posts feed a monthly newsletter section
 - **eval-gated-drafting**, long-form blog versions of the strongest takes
 
-The news ledger also feeds back into the [capabilities reference](/lens/capabilities). Releases that move a capability rating drive the quarterly re-grading of that page.
+The news ledger also feeds back into the [capabilities reference](/lens/capabilities/). Releases that move a capability rating drive the quarterly re-grading of that page.

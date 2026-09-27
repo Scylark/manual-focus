@@ -1,8 +1,9 @@
 ---
 title: "When not to use AI in marketing"
 date: 2026-05-07
+updated: 2026-09-27
 tags: ["ai", "leadership", "marketing-strategy"]
-description: "AI helps with most things. Not everything. Five places where reaching for the model is the wrong move, and what to do instead."
+description: "Keep AI off your brand-defining line, senior people's social posts, unhappy-customer support, pricing and trust pages, and strategic pivots. Here's why."
 ---
 
 Most of the AI-marketing advice on the internet is sales for AI-marketing tools, but this isn't. There are specific places in the marketing function where reaching for the model is the wrong move, and using AI there actively hurts the brand. Here are five.
@@ -17,19 +18,19 @@ The opening line is the one piece of writing that has to feel like a specific hu
 
 If your CEO, CMO or founder has a real perspective worth distributing, do not have AI write their LinkedIn for them. The bandwidth gain is small and the downside is huge.
 
-People can spot AI-drafted senior commentary inside a sentence. The cadence is off, the opinions are slightly too balanced, the hedge is in the wrong place. And once a senior voice loses its authenticity, you can't get it back without a long, public reset.
+Readers often spot AI-drafted senior commentary within a sentence or two. The cadence is off, the opinions are slightly too balanced, the hedge is in the wrong place. And once a senior voice loses its authenticity, you can't get it back without a long, public reset.
 
-AI can help with research, drafting outlines, or producing the surrounding repurposed content from a strong post. The original take stays in the senior person's voice and their words.
+AI can help with research, drafting outlines, or producing the surrounding repurposed content from a strong post. The original take stays in the senior person's voice and their words. (The [founder and institutional voice](/lens/brand/founder-and-institutional-voice/) playbook in The Lens maps which surfaces belong to which voice.)
 
 ## 3. Customer support tone in real moments
 
 Automated support is fine for routine cases. The moment a customer is unhappy, the AI exit ramp is essential. Not because AI can't be polite, it can, but because the moment a customer realises they've been bot-handled in a real distress moment, the loyalty cost dwarfs the labour saving.
 
-The rule we use, AI handles category one (routine) and category two (informational) freely. Category three (unhappy, complex, edge case) gets a human in under two minutes or the brand pays for it later in churn and word-of-mouth.
+A workable rule is that AI handles category one (routine) and category two (informational) freely. Category three (unhappy, complex, edge case) gets a human in under two minutes or the brand pays for it later in churn and word-of-mouth.
 
 ## 4. Pricing pages and high-trust commercial copy
 
-This one surprises people. AI is great at high-volume, mid-trust content but it's distinctly worse at low-volume, high-trust copy, the pricing page, the security page, the legal-adjacent commercial claims.
+AI is great at high-volume, mid-trust content but it's distinctly worse at low-volume, high-trust copy, the pricing page, the security page, the legal-adjacent commercial claims.
 
 The reason is that those pages have to be exact. Every word is examined, and the model's tendency to add a softening clause, a slightly imprecise claim or a verbose explanation kills the credibility you're trying to build.
 
@@ -39,10 +40,10 @@ Write those pages by hand. The volume is small and the stakes are high, so the A
 
 When the brand or the strategy is changing (repositioning, new product line, new market) do not lean on AI to figure out the new direction by drafting the materials. The model will produce on-brand copy for the current brand because that's what its context contains. It's a regression machine, biased toward what's already there.
 
-The pivot has to be designed by humans with conviction. Once the new position is set, AI can produce the work to ship it everywhere, but the pivot itself is not an AI task, it's a thinking task.
+The pivot has to be designed by humans with conviction. Once the new position is set, AI can produce the work to ship it everywhere, but the pivot itself is a thinking task for people.
 
 ## What this means in practice
 
-The teams getting AI right have a clear taxonomy of where the model belongs and where it doesn't. The lazy version is "AI everywhere we can" and the right version is "AI on the production layer, humans on the brand-defining layer". (We've written separately about [the hidden cost of AI adoption nobody talks about](/blog/the-hidden-cost-of-ai-adoption/) — the failure mode is rarely the tool, it's the layer above.)
+The teams getting AI right have a clear taxonomy of where the model belongs and where it doesn't. The lazy version is "AI everywhere we can" and the right version is "AI on the production layer, humans on the brand-defining layer". (We've written separately about [the hidden cost of AI adoption nobody talks about](/blog/the-hidden-cost-of-ai-adoption/), where the failure is rarely the tool itself.)
 
-If you can't name the five things in your function that AI shouldn't touch, you don't have a strategy, you have a tool stack.
+If you can't name the five things in your function that AI shouldn't touch, you have a tool stack rather than a strategy.

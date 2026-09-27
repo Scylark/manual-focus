@@ -11,17 +11,17 @@ const posts = (await getCollection('blog'))
 
 const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
 ---
-<Base title="Marketing blog — AI, content engines and senior-operator perspective" description="The Manual Focus blog. Senior marketing operators writing on AI in marketing, content engines, owned/earned/paid channels, and what actually works in the AI era.">
-  <SEOHead slot="seo" type="website" title="Marketing blog — AI, content engines and senior-operator perspective" description="The Manual Focus blog. Senior marketing operators writing on AI in marketing, content engines, owned/earned/paid channels, and what actually works in the AI era." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }]} />
+<Base title="AI marketing briefings and guides for UK marketing leaders" description="Daily AI briefings for UK marketing leaders, checked against the original source, plus longer guides on search, content engines and AI adoption.">
+  <SEOHead slot="seo" type="website" title="AI marketing briefings and guides for UK marketing leaders" description="Daily AI briefings for UK marketing leaders, checked against the original source, plus longer guides on search, content engines and AI adoption." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }]} />
 
   <section class="section">
     <div class="container">
       <h1>Perspective</h1>
-      <p class="lead">Opinions, insights, and the occasional provocation.</p>
+      <p class="lead">Short briefings on the AI news that matters to UK marketing leaders, each checked against the original source, plus longer guides on search, content and AI adoption.</p>
 
       <nav class="tag-filter" aria-label="Filter by tag">
         <a href={url('/blog')} class="tag tag-current">All</a>
-        {allTags.map(tag => (
+        {allTags.filter(tag => tag !== 'ai' && tag !== 'marketing-strategy').map(tag => (
           <a href={url(`/blog/tag/${tag}/`)} class="tag">{formatTag(tag)}</a>
         ))}
       </nav>
