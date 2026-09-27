@@ -32,7 +32,7 @@ shoot for the subjects and products that need to be real.
 3. **Inventory of need** — what cuts does the brand need across a
    typical 12-month content year? Hero, mid, cut, environmental.
 4. **Capability awareness** — confirm the user has read the
-   [capabilities reference](https://manual-focus.co.uk/lens/capabilities).
+   [capabilities reference](https://manual-focus.co.uk/lens/capabilities/).
    If not, pause and share it. The realism boundary is non-negotiable.
 
 ## The pipeline
@@ -143,7 +143,7 @@ earned-media-pitch-generator) filter the library by these tags.
 ## Capability boundary
 
 This is the most realism-sensitive skill in the Lens. Read the
-[capabilities reference](https://manual-focus.co.uk/lens/capabilities)
+[capabilities reference](https://manual-focus.co.uk/lens/capabilities/)
 before running.
 
 **Reliably works:**

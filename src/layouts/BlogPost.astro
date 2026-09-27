@@ -28,6 +28,9 @@ interface Props {
 
 const { title, description, date, updated, tags, image, howToName, howToSteps, faq, sources, minutes, newerPost, olderPost } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const formattedUpdated = updated && updated.getTime() !== date.getTime()
+  ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  : null;
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
@@ -53,7 +56,7 @@ const related = allPosts
   .slice(0, 3)
   .map(x => x.post);
 ---
-<Base title={title} description={description} ogImage={image}>
+<Base title={title} description={description} ogImage={image} ogType="article" publishedTime={date} modifiedTime={updated ?? date}>
   <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} articleFaq={faq} sources={sources} />
 
   <article class="section">
@@ -62,8 +65,10 @@ const related = allPosts
         <p class="post-meta">
           <time datetime={date.toISOString()}>{formattedDate}</time>
           {minutes && <span class="post-minutes">· {minutes} min read</span>}
+          {formattedUpdated && updated && <span class="post-minutes">· Updated <time datetime={updated.toISOString()}>{formattedUpdated}</time></span>}
         </p>
         <h1>{title}</h1>
+        <p class="post-byline">By <a href={url('/about/')} rel="author">James Vickers</a>, Manual Focus</p>
         <div class="post-tags">
           {tags.map(tag => (
             <a href={url(`/blog/tag/${tag}/`)} class="tag">{formatTag(tag)}</a>
@@ -119,7 +124,10 @@ const related = allPosts
             ) : <span />}
           </nav>
         )}
-        <a href={url('/blog')}>Back to all posts</a>
+        <p class="post-next-step">
+          Want this applied to your own team? <a href={url('/enquire/')}>Book a free working session</a>, or run the workflows yourself with <a href={url('/lens/')}>The Lens</a>.
+        </p>
+        <a href={url('/blog/')}>Back to all posts</a>
       </footer>
     </div>
   </article>
@@ -158,6 +166,18 @@ const related = allPosts
 
   .post-minutes {
     color: var(--color-text-muted);
+  }
+
+  .post-byline {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-xs);
+  }
+  .post-byline a { color: var(--color-text); }
+
+  .post-next-step {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
   }
 
   .post-header h1 {

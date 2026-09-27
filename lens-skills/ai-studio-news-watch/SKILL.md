@@ -209,7 +209,7 @@ What this skill does NOT do:
 - Replace the human triage pass (always a person reviews before
   publish on the first 30 posts; can taper to spot-check after that)
 
-Read [What's actually possible](https://manual-focus.co.uk/lens/capabilities)
+Read [What's actually possible](https://manual-focus.co.uk/lens/capabilities/)
 for the broader capability map.
 
 ## Failure modes to watch

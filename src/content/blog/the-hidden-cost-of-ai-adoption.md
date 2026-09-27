@@ -1,23 +1,24 @@
 ---
 title: "The hidden cost of AI adoption nobody talks about"
 date: 2026-03-26
+updated: 2026-09-27
 tags: ["ai", "leadership", "marketing-strategy"]
-description: "Most AI adoption failures aren't about the tools. They're about the people, the workflows and the second-order effects everyone underestimates."
+description: "AI adoption in marketing usually stalls on people and process, a squeezed junior layer, quality drift, old workflows and the time it takes to keep up."
 ---
 
-Every pitch for AI in marketing promises faster outputs, fewer headcount and more leverage, but the reality is messier and the cost shows up in places nobody planned for.
+Every pitch for AI in marketing promises faster outputs, smaller headcount and more output per person, but in practice it's messier and the cost shows up in places nobody planned for.
 
 We've sat inside enough marketing teams during AI rollouts to spot the pattern. The tooling works, the first wins are real, and then something stalls.
 
 ## What actually breaks
 
-**The mid-level squeeze.** AI compresses what used to be the work of an executor, so the layer below the senior people loses its training ground. Juniors used to learn by drafting, briefing and iterating, but now the model does the first draft and the senior person edits, so the senior gets faster while the junior gets stuck.
+**The mid-level squeeze.** AI compresses what used to be the work of an executor, so the layer below the senior people loses its training ground. Juniors used to learn by drafting, briefing and iterating, but now the model does the first draft and the senior person edits, so the senior gets faster while the junior gets stuck. (The [hiring shape for AI-native teams](/lens/ops/hiring-shape-for-ai-native-teams/) playbook in The Lens covers how to staff around this.)
 
 **Quality drift.** The first month feels brilliant because the team is still applying critical taste to AI output, but six months in the baseline shifts, mediocre AI output becomes "good enough" and the brand starts sounding like everyone else's brand.
 
 **Workflow theatre.** Teams adopt the tools but keep the old approval chains, the old briefing templates and the old timelines, so the tools work at machine speed while the workflow around them still runs at six-week cycles, and the compounding gain never lands.
 
-**The bandwidth tax.** Staying current with AI tooling is itself a full-time job. New models ship weekly, new patterns emerge monthly, and most teams underestimate how much time it takes to evaluate, integrate and maintain the stack, because it isn't a one-off project, it's a permanent operating overhead.
+**The bandwidth tax.** Staying current with AI tooling is itself a full-time job. New models ship weekly, new patterns emerge monthly, and most teams underestimate how much time it takes to evaluate, integrate and maintain the stack, so treat it as a permanent operating overhead rather than a one-off project.
 
 ## What works
 
@@ -27,10 +28,8 @@ One, somebody owns the AI side end-to-end, not as a side-project from a senior p
 
 Two, the workflow gets rebuilt rather than retrofitted, because if the brief still takes three days to approve, AI doesn't help, and the whole shape of how work moves has to change.
 
-Three, the team protects the taste layer, which means junior people get hands-on time with the strategy and the editorial calls, not just the production. The model handles draft one and humans handle judgement. (And there are [specific places where AI shouldn't touch the work at all](/blog/when-not-to-use-ai-in-marketing/) — worth being clear about those before you scale anything.)
+Three, the team protects the taste layer, which means junior people get hands-on time with the strategy and the editorial calls, not just the production. The model handles draft one and humans handle judgement. (Be clear about the [specific places where AI shouldn't touch the work at all](/blog/when-not-to-use-ai-in-marketing/) before you scale anything.)
 
 ## The honest framing
 
 AI doesn't reduce the senior marketing problem, it magnifies it. With the right senior input, a small team using AI moves like a much larger one, and without that input the team produces more output, faster, with less of a point.
-
-That's where most adoption stalls quietly, not at the tool but at the layer above it.

@@ -27,6 +27,11 @@ const displayTag = tag.replace(/-/g, ' ');
 // Tag-specific titles + descriptions so each tag landing has its own
 // keyword-targeted meta, not a generic "posts tagged X" placeholder.
 const tagMeta: Record<string, { title: string; description: string; headline: string }> = {
+  'ai-briefing': {
+    title: 'AI briefing for UK marketing leaders',
+    description: 'Daily briefings on the AI news that changes what UK marketing leaders should do next, each checked against the primary source. Posted only when a story matters.',
+    headline: 'AI briefing',
+  },
   'ai': {
     title: 'AI in marketing — Manual Focus blog',
     description: 'Senior-marketer perspective on AI in marketing — adoption, workflows, tooling, the failures nobody talks about, and what actually compounds.',

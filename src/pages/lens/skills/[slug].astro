@@ -13,12 +13,15 @@ export async function getStaticPaths() {
 }
 
 const { skill } = Astro.props;
-const { Content } = await render(skill);
+const { Content, headings } = await render(skill);
 const d = skill.data;
+// Human title from the SKILL.md's own H1 ("Positioning audit"), which the
+// rendered body carries as the page's single h1.
+const skillTitle = headings.find(h => h.depth === 1)?.text ?? d.name;
 
 // Find the paired playbook
 const playbooks = await getCollection('lens');
-let pairedPlaybook: { stack: string; slug: string; title: string } | null = null;
+let pairedPlaybook: { stack: string; slug: string; title: string; description: string } | null = null;
 if (d.metadata.playbook) {
   const match = d.metadata.playbook.match(/\/lens\/([^/]+)\/([^/]+)/);
   if (match) {
@@ -29,20 +32,33 @@ if (d.metadata.playbook) {
         stack,
         slug,
         title: found.data.title,
+        description: found.data.description,
       };
     }
   }
 }
 
+// Search snippet: what the skill does, in plain words. Falls back to the
+// skill's own trigger description for skills without a playbook.
+// Skills without a playbook get a plain summary (their own description is
+// written for the agent, not for search results).
+const standalone: Record<string, string> = {
+  'setup-the-lens': 'Onboarding for The Lens plugin. Finds your brand documentation, builds a .lens workspace, suggests the right plugins and recommends a starter playbook.',
+  'video-script-to-heygen': 'Turn a playbook or brief into a short avatar video script and render it through the HeyGen API, with title cards and captions.',
+};
+const base = pairedPlaybook ? pairedPlaybook.description : (standalone[d.name] ?? d.description);
+const tail = ' Free Claude skill from The Lens.';
+const summary = base.length + tail.length <= 160 ? base + tail : base;
+
 // Build the raw markdown URL on GitHub for the "View on GitHub" link
 const githubRaw = `https://github.com/Scylark/manual-focus/blob/master/lens-skills/${d.name}/SKILL.md`;
 ---
-<Base title={`${d.name}. The Lens Skills`} description={d.description.slice(0, 160)}>
+<Base title={`${skillTitle} skill | The Lens`} description={summary}>
   <SEOHead
     slot="seo"
-    type="article"
-    title={`${d.name}. The Lens Skills`}
-    description={d.description.slice(0, 160)}
+    type="website"
+    title={`${skillTitle} skill`}
+    description={summary}
     breadcrumbs={[
       { name: 'Home', url: '/' },
       { name: 'The Lens', url: '/lens' },
@@ -64,7 +80,7 @@ const githubRaw = `https://github.com/Scylark/manual-focus/blob/master/lens-skil
             </a>
           )}
         </div>
-        <h1 class="skill-name-title">{d.name}</h1>
+        <p class="skill-name-title">{d.name}</p>
 
         <div class="skill-meta">
           <div class="skill-meta-block">
@@ -157,7 +173,11 @@ const githubRaw = `https://github.com/Scylark/manual-focus/blob/master/lens-skil
   }
 
   .skill-name-title {
+    /* Was the h1; keeps the heading look now the SKILL.md's own H1 is
+       the page's single h1. */
     font-family: var(--font-mono);
+    font-weight: var(--font-weight-regular);
+    text-transform: uppercase;
     font-size: clamp(1.75rem, 4vw, 3rem);
     line-height: 1.05;
     letter-spacing: -0.01em;
