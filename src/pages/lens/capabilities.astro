@@ -2,6 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import { url } from '../../utils/paths';
+import JumpNav from '../../components/JumpNav.astro';
+
+const jumpItems = [{"id": "the-model-landscape-this-quarter", "label": "The model landscape this quarter"}, {"id": "what-changed-for-marketers-since-june", "label": "What changed for marketers since June"}, {"id": "the-grading", "label": "The grading"}, {"id": "text-generation-and-structured-analysis", "label": "Text generation and structured analysis"}, {"id": "voice-and-tone-matching", "label": "Voice and tone matching"}, {"id": "original-research-and-fact-finding", "label": "Original research and fact-finding"}, {"id": "image-generation-generic-subjects", "label": "Image generation, generic subjects"}, {"id": "image-generation-branded-product", "label": "Image generation, branded product"}, {"id": "video-generation-generic-subjects", "label": "Video generation, generic subjects"}, {"id": "video-generation-branded-product-or-named-athlete", "label": "Video generation, branded product or named athlete"}, {"id": "audio-generation-synthetic-voice", "label": "Audio generation, synthetic voice"}, {"id": "audio-generation-music", "label": "Audio generation, music"}, {"id": "browser-automation-and-research", "label": "Browser automation and research"}, {"id": "data-analysis-and-visualisation", "label": "Data analysis and visualisation"}, {"id": "the-honest-summary-for-endurance-brands", "label": "The honest summary for endurance brands"}, {"id": "how-this-page-evolves", "label": "How this page evolves"}];
 
 const lastUpdated = '2026-09-24';
 const nextReview = 'Q4 2026';
@@ -40,10 +43,12 @@ const nextReview = 'Q4 2026';
     </div>
   </section>
 
+  <JumpNav items={jumpItems} />
+
   <section class="cap-body">
     <div class="container cap-prose">
 
-      <h2>The model landscape this quarter</h2>
+      <h2 id="the-model-landscape-this-quarter">The model landscape this quarter</h2>
       <p>
         September was the busiest month of the year for frontier releases.
         OpenAI shipped
@@ -85,7 +90,7 @@ const nextReview = 'Q4 2026';
         GPT and Gemini weren't part of that run.
       </p>
 
-      <h2>What changed for marketers since June</h2>
+      <h2 id="what-changed-for-marketers-since-june">What changed for marketers since June</h2>
       <ul>
         <li><strong>ChatGPT is now a UK ad channel.</strong> Ads
         <a href="https://ppc.land/chatgpt-ads-go-live-in-the-uk-as-openai-expands-pilot-beyond-us/" target="_blank" rel="noopener">went live in the UK on 6 June</a>,
@@ -126,7 +131,7 @@ const nextReview = 'Q4 2026';
         changes once a model has passed the relevant eval on live work.
       </p>
 
-      <h2>The grading</h2>
+      <h2 id="the-grading">The grading</h2>
       <p>
         Each capability gets one of four ratings.
       </p>
@@ -145,7 +150,7 @@ const nextReview = 'Q4 2026';
         Don't promise it to a client.</li>
       </ul>
 
-      <h2>Text generation and structured analysis</h2>
+      <h2 id="text-generation-and-structured-analysis">Text generation and structured analysis</h2>
       <p class="rating-line"><strong class="rating green">Production-ready</strong> for drafting, restructuring, summarising, classifying, extracting structured data, and cross-referencing corpora.</p>
       <p>
         This is where AI compounds time hardest. Drafting a long-form piece
@@ -162,7 +167,7 @@ const nextReview = 'Q4 2026';
         eval gate that verifies claims against approved sources.
       </p>
 
-      <h2>Voice and tone matching</h2>
+      <h2 id="voice-and-tone-matching">Voice and tone matching</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong>. Reliable only if the voice profile is observable (sentence patterns, punctuation counts, lexical choices) rather than adjective-based ("warm, confident").</p>
       <p>
         A draft scored against a 12-check voice rubric ships. A draft based
@@ -171,7 +176,7 @@ const nextReview = 'Q4 2026';
         observable profile, and everything downstream relies on it.
       </p>
 
-      <h2>Original research and fact-finding</h2>
+      <h2 id="original-research-and-fact-finding">Original research and fact-finding</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> when paired with web search and explicit source citation. Never trust the model's "knowledge" for anything date-sensitive or industry-specific.</p>
       <p>
         Race results, athlete bios, sponsorship deal terms, regulatory
@@ -181,7 +186,7 @@ const nextReview = 'Q4 2026';
         a hallucinated journalist quote burns relationships permanently.
       </p>
 
-      <h2>Image generation, generic subjects</h2>
+      <h2 id="image-generation-generic-subjects">Image generation, generic subjects</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for context shots, mood imagery, hero backdrops, and lifestyle scenes with generic subjects.</p>
       <p>
         Generating a wide shot of a road cyclist at dawn on a coastal
@@ -192,7 +197,7 @@ const nextReview = 'Q4 2026';
         bike geometry, and gear plausibility.
       </p>
 
-      <h2>Image generation, branded product</h2>
+      <h2 id="image-generation-branded-product">Image generation, branded product</h2>
       <p class="rating-line"><strong class="rating red">Not yet</strong> for product imagery where logo legibility, colourway accuracy, geometry, or model-specific details matter.</p>
       <p>
         We've tested every frontier model on this every quarter for two
@@ -220,7 +225,7 @@ const nextReview = 'Q4 2026';
         live product work, the rating stays where it is.
       </p>
 
-      <h2>Video generation, generic subjects</h2>
+      <h2 id="video-generation-generic-subjects">Video generation, generic subjects</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for short clips (typically 4 to 10 seconds) of generic subjects in named environments.</p>
       <p>
         A wide of a cyclist on a Tuscany hill at golden hour, a runner
@@ -240,7 +245,7 @@ const nextReview = 'Q4 2026';
         pipeline around it.
       </p>
 
-      <h2>Video generation, branded product or named athlete</h2>
+      <h2 id="video-generation-branded-product-or-named-athlete">Video generation, branded product or named athlete</h2>
       <p class="rating-line"><strong class="rating red">Not yet</strong>. Same constraints as branded image generation, compounded across frames.</p>
       <p>
         Generating video of <em>your specific bike</em> being ridden through
@@ -258,7 +263,7 @@ const nextReview = 'Q4 2026';
         campaign.
       </p>
 
-      <h2>Audio generation, synthetic voice</h2>
+      <h2 id="audio-generation-synthetic-voice">Audio generation, synthetic voice</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for podcast pre-rolls, ad voiceover, internal training material. Disclose AI use where the audience expectation is human delivery.</p>
       <p>
         Quality is good enough for production in most contexts. The
@@ -268,7 +273,7 @@ const nextReview = 'Q4 2026';
         winning trust, and the brands that don't are losing it when found out.
       </p>
 
-      <h2>Audio generation, music</h2>
+      <h2 id="audio-generation-music">Audio generation, music</h2>
       <p class="rating-line"><strong class="rating amber">Production-with-guardrails</strong> for short pieces. Track length and structural complexity push the limits fast.</p>
       <p>
         15 to 60 second pieces for social cuts and reels work. Full-length
@@ -278,7 +283,7 @@ const nextReview = 'Q4 2026';
         few months, and we re-check this section every quarter.
       </p>
 
-      <h2>Browser automation and research</h2>
+      <h2 id="browser-automation-and-research">Browser automation and research</h2>
       <p class="rating-line"><strong class="rating green">Production-ready</strong> for research, scraping, structured data extraction, and pipeline orchestration.</p>
       <p>
         Pulling a journalist's last five articles, scraping a competitor's
@@ -288,7 +293,7 @@ const nextReview = 'Q4 2026';
         in most Lens playbooks.
       </p>
 
-      <h2>Data analysis and visualisation</h2>
+      <h2 id="data-analysis-and-visualisation">Data analysis and visualisation</h2>
       <p class="rating-line"><strong class="rating green">Production-ready</strong> for analytical reasoning over structured data. Generated charts need a human eye for axis sanity and label legibility.</p>
       <p>
         Channel-mix simulators, attribution tear-downs, retention cohort
@@ -299,7 +304,7 @@ const nextReview = 'Q4 2026';
         description.
       </p>
 
-      <h2>The honest summary for endurance brands</h2>
+      <h2 id="the-honest-summary-for-endurance-brands">The honest summary for endurance brands</h2>
       <p>
         Most of the leverage is in <strong>analysis, drafting and
         orchestration</strong>. The model compounds time across positioning,
@@ -323,7 +328,7 @@ const nextReview = 'Q4 2026';
         the family silver until the eval gate proves they should be.
       </p>
 
-      <h2>How this page evolves</h2>
+      <h2 id="how-this-page-evolves">How this page evolves</h2>
       <p>
         We re-grade every capability quarterly. When a model lands that
         moves a rating, we annotate the entry with the date and the

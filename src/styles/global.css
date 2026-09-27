@@ -478,3 +478,7 @@ body::after {
   body::after { display: none; }
   body::before { display: none; }
 }
+
+/* Anchor targets (Jump to rows, On this page lists) land clear of the
+   fixed nav. */
+h2[id] { scroll-margin-top: 90px; }

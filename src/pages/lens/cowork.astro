@@ -2,6 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import { url } from '../../utils/paths';
+import JumpNav from '../../components/JumpNav.astro';
+
+const jumpItems = [{"id": "what-cowork-is", "label": "What Cowork is"}, {"id": "install-cowork-and-set-it-up", "label": "Install Cowork and set it up"}, {"id": "the-plugins-that-matter-most", "label": "The plugins that matter most"}, {"id": "mcp-connectors-to-wire-up-first", "label": "MCP connectors to wire up first"}, {"id": "three-ways-cowork-shows-up-day-to-day", "label": "Three ways Cowork shows up day to day"}, {"id": "the-productivity-stack-of-the-lens", "label": "The Productivity stack of The Lens"}, {"id": "what-cowork-is-not", "label": "What Cowork is not"}, {"id": "where-to-start", "label": "Where to start"}];
 ---
 <Base
   title="Cowork primer. Claude with your tools loaded"
@@ -36,10 +39,12 @@ import { url } from '../../utils/paths';
     </div>
   </section>
 
+  <JumpNav items={jumpItems} />
+
   <!-- WHAT COWORK IS -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>1 · What Cowork is</h2>
+      <h2 id="what-cowork-is">1 · What Cowork is</h2>
       <p>
         Cowork is the agent workspace in the Claude desktop app,
         built for running with your real workplace tools loaded as
@@ -93,7 +98,7 @@ import { url } from '../../utils/paths';
   <!-- INSTALL AND SET UP -->
   <section class="p101-section section-alt">
     <div class="container p101-prose">
-      <h2>2 · Install Cowork and set it up</h2>
+      <h2 id="install-cowork-and-set-it-up">2 · Install Cowork and set it up</h2>
       <p>
         Five steps end to end. Allow twenty to forty minutes if you're
         connecting accounts as you go.
@@ -170,7 +175,7 @@ import { url } from '../../utils/paths';
   <!-- PLUGINS THAT MATTER MOST -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>3 · The plugins that matter most</h2>
+      <h2 id="the-plugins-that-matter-most">3 · The plugins that matter most</h2>
       <p>
         Cowork plugins are packaged collections of skills, the same
         shape as The Lens skills but built for different jobs. The
@@ -244,7 +249,7 @@ import { url } from '../../utils/paths';
   <!-- MCP CONNECTORS -->
   <section class="p101-section section-alt">
     <div class="container p101-prose">
-      <h2>4 · MCP connectors to wire up first</h2>
+      <h2 id="mcp-connectors-to-wire-up-first">4 · MCP connectors to wire up first</h2>
       <p>
         Connectors are where Cowork stops being a fancy chatbot and
         starts being a real working surface. Each one opens a tool to
@@ -307,7 +312,7 @@ import { url } from '../../utils/paths';
   <!-- THREE WAYS COWORK SHOWS UP -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>5 · Three ways Cowork shows up day to day</h2>
+      <h2 id="three-ways-cowork-shows-up-day-to-day">5 · Three ways Cowork shows up day to day</h2>
       <p>
         Three illustrative shapes, all running on the same Cowork
         stack at Cascadia Endurance.
@@ -366,7 +371,7 @@ import { url } from '../../utils/paths';
   <!-- THE PRODUCTIVITY STACK -->
   <section class="p101-section section-alt">
     <div class="container p101-prose">
-      <h2>6 · The Productivity stack of The Lens</h2>
+      <h2 id="the-productivity-stack-of-the-lens">6 · The Productivity stack of The Lens</h2>
       <p>
         The 10 playbooks in the Productivity stack are written
         specifically for Cowork operators. Each one is a workflow
@@ -400,7 +405,7 @@ import { url } from '../../utils/paths';
   <!-- WHAT COWORK IS NOT -->
   <section class="p101-section">
     <div class="container p101-prose">
-      <h2>7 · What Cowork is not</h2>
+      <h2 id="what-cowork-is-not">7 · What Cowork is not</h2>
       <p>
         Four boundaries worth stating up front, so the install pays
         back without overshooting.
@@ -449,7 +454,7 @@ import { url } from '../../utils/paths';
   <!-- WHERE TO START -->
   <section class="p101-section section-alt">
     <div class="container p101-prose">
-      <h2>8 · Where to start</h2>
+      <h2 id="where-to-start">8 · Where to start</h2>
       <p>
         The five-step install plan most readers should follow.
       </p>
