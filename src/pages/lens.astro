@@ -988,7 +988,8 @@ set up the lens</code></pre>
     transition: border-color 0.2s ease;
   }
   .lens-signup-form input[type="email"]:focus {
-    outline: none;
+    outline: 2px solid var(--color-cta-start);
+    outline-offset: 2px;
     border-color: var(--color-cta-start);
   }
   .lens-signup-form input[type="email"]::placeholder {
@@ -1321,6 +1322,11 @@ set up the lens</code></pre>
     .lens-price-inner { padding: var(--space-md); }
     .lens-anatomy li { grid-template-columns: 1.5rem 1fr; padding: var(--space-sm) var(--space-md); }
   }
+
+  /* Decorative rings sit partly outside their sections; on phones that
+     widened the page and pushed the menu button off-screen. clip (not
+     hidden) keeps sticky positioning working. */
+  .section { overflow-x: clip; }
 </style>
 
 {/*

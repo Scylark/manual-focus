@@ -87,7 +87,7 @@ const fullTitle = brandTitle(title);
 </head>
 <body class:list={[{ 'has-fixed-nav': !hideNavUntilScroll }]}>
   <div class="scroll-progress" aria-hidden="true"></div>
-  <a href="#main-content" class="sr-only">Skip to content</a>
+  <a href="#main-content" class="sr-only skip-link">Skip to content</a>
 
   <Nav hideUntilScroll={hideNavUntilScroll} />
 
@@ -220,7 +220,7 @@ const fullTitle = brandTitle(title);
           if (el.hasAttribute('data-scroll-scale')) return;
           const rect = el.getBoundingClientRect();
           // Clearly within initial viewport — snap to revealed state.
-          if (rect.top < vhInit * 0.85 && rect.bottom > 0) {
+          if (rect.top < vhInit && rect.bottom > 0) {
             el.style.opacity = '1';
             el.style.transform = 'none';
             lastP.set(el, 1);
@@ -228,6 +228,18 @@ const fullTitle = brandTitle(title);
           }
         });
         update();
+
+        // Keyboard focus reveals whatever it lands on, so focus never
+        // sits on something still faded out.
+        document.addEventListener('focusin', (e) => {
+          const target = e.target as HTMLElement | null;
+          const el = target?.closest<HTMLElement>('.reveal, .stagger > *');
+          if (el) {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            lastP.set(el, 1);
+          }
+        });
       }
     } else {
       // Reduced motion: snap everything visible immediately, no

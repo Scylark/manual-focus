@@ -108,7 +108,8 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  .nav-header.is-visible {
+  .nav-header.is-visible,
+  .nav-header:focus-within {
     transform: translateY(0);
   }
 
@@ -231,6 +232,12 @@ const currentPath = Astro.url.pathname;
     .nav-links {
       flex-direction: column;
       align-items: center;
+    }
+
+    /* Full-width tap targets in the mobile menu (were ~13px tall). */
+    .nav-links .nav-link {
+      display: block;
+      padding: 0.9rem 1.5rem;
     }
   }
 

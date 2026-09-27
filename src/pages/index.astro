@@ -46,10 +46,11 @@ const posts = (await getCollection('blog'))
         </div>
       </div>
 
-      <div class="hero-scroll-hint" aria-hidden="true">
-        <span class="mono">SCROLL</span>
-        <span class="scroll-arrow"></span>
-      </div>
+    </div>
+
+    <div slot="hint" class="hero-scroll-hint" aria-hidden="true">
+      <span class="mono">SCROLL</span>
+      <span class="scroll-arrow"></span>
     </div>
   </HeroCyclist>
 
@@ -610,6 +611,7 @@ set up the lens</code></pre>
      between the two buttons, reading as a third sibling CTA. */
   .hero-scroll-hint {
     position: absolute;
+    z-index: 3;
     bottom: var(--space-md);
     right: var(--space-md);
     left: auto;
@@ -1015,6 +1017,9 @@ set up the lens</code></pre>
     .fchar { opacity: 1; transform: none; transition: none; }
     .hero-line { opacity: 1; transform: none; animation: none; }
     .char { opacity: 1; transform: none; animation: none; }
+    .marquee-track,
+    .hero-eyebrow .dot,
+    .scroll-arrow { animation: none; }
   }
 
   /* ============================
@@ -1830,6 +1835,9 @@ set up the lens</code></pre>
   const manifestoLines = document.querySelectorAll<HTMLElement>('.manifesto-line');
   if (manifestoSection && manifestoLines.length) {
     const total = manifestoLines.length;
+    // Reduced motion: lines still cross-fade on scroll, without the blur,
+    // depth and skew.
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let manifestoPending = false;
     const updateManifesto = () => {
       const rect = manifestoSection.getBoundingClientRect();
@@ -1872,6 +1880,7 @@ set up the lens</code></pre>
         const blur = absPhase * 16;
 
         line.style.opacity = opacity.toFixed(3);
+        if (calm) return;
         line.style.transform =
           `translate3d(${x.toFixed(1)}px, 0, ${z.toFixed(1)}px)` +
           ` rotateX(${rotX.toFixed(2)}deg) skewX(${skew.toFixed(2)}deg)`;

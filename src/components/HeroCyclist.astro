@@ -68,6 +68,10 @@
     <div class="hero-content" data-content>
       <slot />
     </div>
+
+    <!-- Scroll hint lives outside the fading content so it shows from the
+         first frame (it's also what browsers can measure as first paint). -->
+    <slot name="hint" />
   </div>
 </section>
 
@@ -174,6 +178,14 @@
     transform-origin: 50% 50%;
   }
 
+  /* Keyboard users tabbing into the hero before it has faded in still
+     see what's focused. */
+  .hero-content:focus-within {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
   .hero-content {
     position: absolute;
     inset: 0;
@@ -277,9 +289,18 @@
     window.addEventListener('resize', updateScroll, { passive: true });
     updateScroll();
 
+    // The frame loop only runs while the hero is on screen, so the rest of
+    // the page isn't paying for it.
     let inView = true;
+    let running = false;
+    const start = () => {
+      if (running) return;
+      running = true;
+      requestAnimationFrame(frame);
+    };
     new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting;
+      if (inView) start();
     }, { threshold: 0 }).observe(section);
 
     /** Linear interpolation between a..b across t in [0, 1]. */
@@ -302,8 +323,8 @@
     let lastContentT = -1;
 
     function frame(now: number) {
+      if (!inView) { running = false; return; }
       requestAnimationFrame(frame);
-      if (!inView) return;
 
       const p = scrollProgress;
       const t = (now - startTime) / 1000;
@@ -321,7 +342,9 @@
       // skips the redundant transform/style writes that would
       // otherwise trigger style recalc every frame on a tab that
       // hasn't actually scrolled.
-      if (Math.abs(ringScale - lastRingScale) > 0.001 || Math.abs(ringRotation - lastRingRot) > 0.05) {
+      // Once the rings have faded out there's nothing to rotate.
+      const ringsHidden = ringOpacity <= 0 && lastRingOpacity <= 0;
+      if (!ringsHidden && (Math.abs(ringScale - lastRingScale) > 0.001 || Math.abs(ringRotation - lastRingRot) > 0.05)) {
         rings.style.transform = `translateZ(0) scale(${ringScale.toFixed(3)}) rotate(${ringRotation.toFixed(2)}deg)`;
         lastRingScale = ringScale;
         lastRingRot = ringRotation;
@@ -399,7 +422,7 @@
         lastContentT = contentT;
       }
     }
-    requestAnimationFrame(frame);
+    start();
   }
 
   if (document.readyState === 'loading') {

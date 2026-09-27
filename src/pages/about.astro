@@ -36,6 +36,12 @@ import { url } from '../utils/paths';
       <div class="about-grid-side">
         <div class="eyebrow">002 · THE COLLECTIVE</div>
         <h2 style="font-size: clamp(2rem, 4vw, 3.75rem); line-height: 0.98; margin-top: var(--space-xs);">Who's<br/>behind&nbsp;it.</h2>
+        <picture>
+          <source
+            type="image/webp"
+            srcset={`${url('/images/james-vickers-600.webp')} 600w, ${url('/images/james-vickers-900.webp')} 900w`}
+            sizes="(min-width: 1024px) 440px, 100vw"
+          />
         <img
           class="about-portrait"
           src={url('/images/james-vickers.jpg')}
@@ -45,6 +51,7 @@ import { url } from '../utils/paths';
           loading="lazy"
           decoding="async"
         />
+        </picture>
       </div>
       <div class="about-grid-body">
         <p>

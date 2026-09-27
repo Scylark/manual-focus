@@ -552,6 +552,9 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
   .playbook-prose :global(pre code) {
     background: transparent;
     padding: 0;
+    /* Take the code block's own colour, not the page text colour, so
+       plain-text blocks stay readable on the dark block in light mode. */
+    color: inherit;
   }
   .playbook-prose :global(blockquote) {
     border-left: 2px solid var(--color-cta-start);

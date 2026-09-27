@@ -655,7 +655,7 @@ const jumpItems = [{"id": "whats-in-the-lens", "label": "What's in The Lens"}, {
   }
   .start-prose li { margin-bottom: var(--space-sm); }
   .start-prose strong { color: var(--color-text); }
-  .start-prose a { color: var(--color-cta-start); text-decoration: underline; }
+  .start-prose a:not(.btn-cta):not(.btn-ghost) { color: var(--color-cta-start); text-decoration: underline; }
   .start-prose code {
     font-family: var(--font-mono);
     font-size: 0.85em;
