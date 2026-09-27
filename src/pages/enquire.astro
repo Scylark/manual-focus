@@ -2,15 +2,30 @@
 import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
+import { url } from '../utils/paths';
+
+const title = 'Book a free 30-minute working session';
+const description = "Tell us what's going on and we'll set up a free 30-minute working session with Manual Focus to talk through where you are and which way of working fits.";
 ---
-<Base title="Enquire — Book a free 30-minute working session" description="Book a free 30-minute working session with Manual Focus. We'll talk through where you are, what you need, and which engagement tier makes sense.">
-  <SEOHead slot="seo" type="website" title="Enquire — Book a free 30-minute working session" description="Book a free 30-minute working session with Manual Focus. We'll talk through where you are, what you need, and which engagement tier makes sense." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Enquire', url: '/enquire' }]} />
+<Base title={title} description={description}>
+  <SEOHead slot="seo" type="website" title={title} description={description} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Enquire', url: '/enquire/' }]} />
 
   <section class="section">
-    <div class="container">
-      <h1>Let's talk</h1>
-      <p class="lead">Book a 30-minute working session. We'll talk through where you are, what you need, and which engagement tier makes sense. If we click, we scope the work and start.</p>
-      <EnquiryForm />
+    <div class="container enquire-grid">
+      <div>
+        <h1>Let's talk</h1>
+        <p class="lead">Tell us what's going on and we'll set up a free 30-minute working session. We'll talk through where you are and which way of working fits. If it's a fit, we scope the work before anything starts.</p>
+        <EnquiryForm />
+      </div>
+      <aside class="next-steps" aria-labelledby="next-steps-heading">
+        <h2 id="next-steps-heading" class="next-steps-title mono">WHAT HAPPENS NEXT</h2>
+        <ol>
+          <li><strong>A free 30-minute working session.</strong> You bring the problem. James brings questions and a first view on it.</li>
+          <li><strong>A written scope, if it's a fit.</strong> What we'd do, the shape of the engagement and the cost. Build &amp; Hand Over work gets a fixed price up front.</li>
+          <li><strong>We start.</strong> Fractional CMO engagements set the marketing thesis and a 90-day plan inside the first month.</li>
+        </ol>
+        <p class="next-steps-alt">Not ready to talk? <a href={url('/lens/')}>The Lens</a> has 47 free playbooks you can run yourself.</p>
+      </aside>
     </div>
   </section>
 </Base>
@@ -21,5 +36,47 @@ import EnquiryForm from '../components/EnquiryForm.astro';
     font-size: var(--font-size-lg);
     margin-bottom: var(--space-lg);
     max-width: var(--max-width-prose);
+  }
+  .enquire-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+  }
+  .next-steps {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    align-self: start;
+  }
+  .next-steps-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-transform: none;
+    margin-bottom: var(--space-sm);
+  }
+  .next-steps ol {
+    padding-left: 1.2rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .next-steps strong { color: var(--color-text); }
+  .next-steps-alt {
+    margin-top: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+  }
+  .next-steps-alt a { color: var(--color-text); }
+  @media (min-width: 1024px) {
+    .enquire-grid {
+      grid-template-columns: minmax(0, 1fr) 340px;
+    }
+    .next-steps {
+      margin-top: 7rem;
+    }
   }
 </style>

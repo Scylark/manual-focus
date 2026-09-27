@@ -4,8 +4,8 @@ import SEOHead from '../components/SEOHead.astro';
 import FocusObject from '../components/FocusObject.astro';
 import { url } from '../utils/paths';
 ---
-<Base title="About — Manual Focus, led by James Vickers" description="Marketing agency led by James Vickers. 15+ years senior marketing across endurance and sports brands, AI, fintech and digital assets. Co-founded RGT Cycling (acquired by Wahoo).">
-  <SEOHead slot="seo" type="profile" title="About — Manual Focus, led by James Vickers" description="Marketing agency led by James Vickers. 15+ years senior marketing across endurance and sports brands, AI, fintech and digital assets. Co-founded RGT Cycling (acquired by Wahoo)." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about' }]} />
+<Base title="About James Vickers and Manual Focus" description="Marketing agency led by James Vickers. 15+ years senior marketing across endurance and sports brands, AI, fintech and digital assets. Co-founded RGT Cycling (acquired by Wahoo).">
+  <SEOHead slot="seo" type="profile" title="About James Vickers and Manual Focus" description="Marketing agency led by James Vickers. 15+ years senior marketing across endurance and sports brands, AI, fintech and digital assets. Co-founded RGT Cycling (acquired by Wahoo)." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about/' }]} />
 
   <!-- HERO -->
   <section class="about-hero">
@@ -21,8 +21,7 @@ import { url } from '../utils/paths';
       <p class="about-lead">
         The Manual Focus mark shows two circles drifting into alignment, marking the point
         where emerging technology meets the markets it changes. AI is changing how people
-        find products, digital assets are altering how trust works, and new platforms keep
-        creating new rules. The <strong>Foundry</strong>, our collective, and the
+        find products, and digital assets are changing how trust works. The <strong>Foundry</strong>, our collective, and the
         <strong>Forge</strong>, the AI toolkit it built, meet at the same overlap. We
         bring that to ambitious brands, with particular depth in endurance and sports.
       </p>
@@ -50,17 +49,19 @@ import { url } from '../utils/paths';
       <div class="about-grid-body">
         <p>
           Manual Focus is led by <strong>James Vickers</strong>, who has spent 15+ years
-          running sales, marketing and growth across emerging tech sectors. He co-founded a
-          virtual cycling platform that grew to 350,000 users before being acquired by Wahoo
-          Fitness, led marketing for a $200M privacy-focused digital asset, and now advises
+          running sales, marketing and growth across emerging tech sectors. He co-founded
+          RGT Cycling, a virtual cycling platform that grew to 350,000 users before Wahoo
+          Fitness acquired it, led marketing for a $200M privacy-focused digital asset, and now advises
           AI-powered wealth managers. He has a habit of arriving in these markets before
           mainstream adoption does.
         </p>
+        <p class="about-links">
+          <a href="https://www.linkedin.com/in/james-vickers-bke/" target="_blank" rel="noopener me">James on LinkedIn ↗</a>
+        </p>
         <p>
           Around him, the Foundry brings operators who've led B2B and B2C teams across AI,
-          digital assets, fintech and hardware. We ship products, run campaigns and drive
-          measurable results from inside the organisations doing the work, not from the
-          sidelines. The Forge, our shared AI toolkit, keeps the cycle short.
+          digital assets, fintech and hardware, each from inside the company rather than
+          advising from outside. The Forge, our shared AI toolkit, keeps the cycle short.
         </p>
       </div>
     </div>
@@ -116,11 +117,11 @@ import { url } from '../utils/paths';
           chase everything, and neither approach works.
         </p>
         <p>
-          Manual Focus exists because the hard problem isn't access to tools, it's knowing
-          which ones matter, when to use them, and how to wire them into your owned, earned
-          and paid channels so they actually produce results. We use these tools daily, we
-          test the models and we know what's signal and what's noise. We bring marketing
-          craft executed at platform speed, without the overhead of a full-time hire.
+          Getting the tools is easy. Knowing which ones matter, when to use them, and how to
+          wire them into your owned, earned and paid channels so they produce results is the
+          hard part, and it's why Manual Focus exists. We use these tools daily and test the
+          models as they ship, so you get a senior marketer who knows the tools without a
+          full-time hire.
         </p>
       </div>
     </div>
@@ -132,7 +133,7 @@ import { url } from '../utils/paths';
       <h2 class="about-cta-headline" style="font-size: clamp(1.75rem, 5vw, 4rem); line-height: 1; max-width: 900px;">
         Marketing that should<br/>be <span class="gradient-text">working harder</span>?
       </h2>
-      <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-md);">Start a conversation</a>
+      <a href={url('/enquire/')} class="btn-cta" style="margin-top: var(--space-md);">Book a free working session</a>
     </div>
   </section>
 </Base>
@@ -287,6 +288,12 @@ import { url } from '../utils/paths';
     background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
+  }
+
+  .about-links a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
 
   .number-label {

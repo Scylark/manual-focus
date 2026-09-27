@@ -19,8 +19,8 @@ const faqSchemaItems = faqItems.map(item => ({
   answer: item.answer,
 }));
 ---
-<Base title="FAQ — Manual Focus" description="Frequently asked questions about working with Manual Focus — engagement shapes, AI workflows, endurance brand specialism, pricing and timelines.">
-  <SEOHead slot="seo" type="faq" title="FAQ — Manual Focus" description="Frequently asked questions about working with Manual Focus — engagement shapes, AI workflows, endurance brand specialism, pricing and timelines." faqItems={faqSchemaItems} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'FAQ', url: '/faq' }]} />
+<Base title="FAQ, working with Manual Focus" description="Straight answers on working with Manual Focus: engagement shapes, cost, minimum terms, who does the work, confidentiality and The Lens.">
+  <SEOHead slot="seo" type="faq" title="FAQ, working with Manual Focus" description="Straight answers on working with Manual Focus: engagement shapes, cost, minimum terms, who does the work, confidentiality and The Lens." faqItems={faqSchemaItems} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'FAQ', url: '/faq/' }]} />
 
   <section class="section">
     <div class="container">
@@ -33,7 +33,7 @@ const faqSchemaItems = faqItems.map(item => ({
   <section class="section">
     <div class="container">
       <h2>Still have questions?</h2>
-      <a href={url('/enquire')} class="btn-cta" style="margin-top: var(--space-sm);">Get in touch</a>
+      <a href={url('/enquire/')} class="btn-cta" style="margin-top: var(--space-sm);">Book a free working session</a>
     </div>
   </section>
 </Base>

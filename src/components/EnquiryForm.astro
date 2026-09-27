@@ -21,6 +21,17 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
   </div>
 
   <div class="form-field">
+    <label for="offer">Which way of working?</label>
+    <select id="offer" name="offer">
+      <option value="">Not sure yet</option>
+      <option value="strategic-advisor">Strategic Advisor</option>
+      <option value="fractional-cmo">Fractional CMO</option>
+      <option value="build-and-hand-over">Build &amp; Hand Over</option>
+      <option value="manual-focus-ai">Manual Focus AI</option>
+    </select>
+  </div>
+
+  <div class="form-field">
     <label for="challenge">What's the challenge? <span aria-hidden="true">*</span></label>
     <textarea id="challenge" name="challenge" rows="5" required></textarea>
   </div>
@@ -38,11 +49,17 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
     </select>
   </div>
 
-  <button type="submit" class="btn-cta">Send enquiry</button>
+  <p class="form-note">
+    This opens a pre-filled email in your mail app. Nothing is sent until
+    you press send. Prefer to write directly? Email
+    <a href={`mailto:${ENQUIRY_EMAIL}`}>{ENQUIRY_EMAIL}</a>.
+  </p>
+
+  <button type="submit" class="btn-cta">Open my email draft</button>
 
   <div class="form-message form-success" role="status" hidden>
-    Your email app should now be open with your enquiry drafted — just
-    hit send. If nothing opened, email us at
+    Your email app should now be open with your enquiry drafted. Press send
+    when you're ready. If nothing opened, email
     <a href={`mailto:${ENQUIRY_EMAIL}`}>{ENQUIRY_EMAIL}</a>.
   </div>
 </form>
@@ -91,6 +108,14 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
     resize: vertical;
   }
 
+  .form-note {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .form-note a { color: var(--color-text); }
+
   .form-message {
     padding: var(--space-sm);
     border-radius: 0 4px 4px 0;
@@ -112,6 +137,13 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
   const form = document.querySelector('.enquiry-form') as HTMLFormElement;
   const successMsg = form?.querySelector('.form-success') as HTMLElement;
 
+  // Offer cards link here with ?offer=<slug>; pre-select it.
+  const offerSelect = form?.querySelector<HTMLSelectElement>('#offer');
+  const offerParam = new URLSearchParams(window.location.search).get('offer');
+  if (offerSelect && offerParam && [...offerSelect.options].some(o => o.value === offerParam)) {
+    offerSelect.value = offerParam;
+  }
+
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -121,12 +153,14 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
     const company = get('company');
     const email = get('email');
     const source = get('source');
+    const offerLabel = offerSelect?.selectedOptions[0]?.value ? offerSelect.selectedOptions[0].text : '';
 
-    const subject = `Enquiry from ${name} — ${company}`;
+    const subject = `Enquiry from ${name}, ${company}`;
     const body = [
       `Name: ${name}`,
       `Company: ${company}`,
       `Email: ${email}`,
+      offerLabel ? `Interested in: ${offerLabel}` : null,
       source ? `Found us via: ${source}` : null,
       '',
       get('challenge'),
