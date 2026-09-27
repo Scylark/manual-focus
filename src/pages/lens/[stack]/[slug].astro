@@ -13,7 +13,9 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
+// Section list for the "On this page" navigation (h2s only).
+const sections = headings.filter(h => h.depth === 2);
 const d = entry.data;
 const entries = await getCollection('lens');
 
@@ -77,7 +79,7 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
     ]}
   />
 
-  <article class="playbook-page">
+  <article class="playbook-page" id="top">
     <!-- HEADER -->
     <header class="playbook-header">
       <div class="container">
@@ -152,9 +154,9 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
               <div class="eyebrow">RUN AS A SKILL</div>
               <h2>This playbook ships as <code>{pairedSkill.data.name}</code></h2>
               <p>
-                Installable as a Claude Code plugin or readable as a standalone
-                SKILL.md. Pair it with your Claude / Codex / Cursor / Windsurf
-                setup and the agent runs the workflow described below.
+                Install The Lens plugin in Cowork or Claude Code, or read the
+                standalone SKILL.md, and the agent runs the workflow described
+                below against your own material.
               </p>
               <div class="skill-callout-ctas">
                 <a href={url(`/lens/skills/${pairedSkill.data.name}`)} class="btn-cta">Open the skill</a>
@@ -168,8 +170,23 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
 
     <!-- BODY -->
     <section class="playbook-body">
-      <div class="container playbook-prose">
-        <Content />
+      <div class="container playbook-layout">
+        {sections.length > 2 && (
+          <nav class="playbook-toc" aria-label="On this page">
+            <details class="toc-details" open>
+              <summary class="toc-title mono">ON THIS PAGE · {sections.length} SECTIONS</summary>
+              <ol class="toc-list">
+                {sections.map(h => (
+                  <li><a href={`#${h.slug}`} data-toc-link={h.slug}>{h.text}</a></li>
+                ))}
+              </ol>
+              <a href="#top" class="toc-top mono">↑ BACK TO TOP</a>
+            </details>
+          </nav>
+        )}
+        <div class="playbook-prose">
+          <Content />
+        </div>
       </div>
     </section>
 
@@ -198,6 +215,30 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
     </section>
   </article>
 </Base>
+
+<script>
+  // Highlight the section being read in the "On this page" list.
+  const links = new Map<string, HTMLAnchorElement>();
+  document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]').forEach(a => links.set(a.dataset.tocLink!, a));
+  if (links.size) {
+    const headings = [...links.keys()].map(id => document.getElementById(id)).filter((h): h is HTMLElement => !!h);
+    const setActive = (id: string) => links.forEach((a, key) => a.setAttribute('aria-current', String(key === id)));
+    const onScroll = () => {
+      const y = window.innerHeight * 0.3;
+      let current = headings[0]?.id;
+      for (const h of headings) if (h.getBoundingClientRect().top <= y) current = h.id;
+      if (current) setActive(current);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    // On narrow screens the list is a collapsible block. Start it closed
+    // there so it doesn't push the content down, and close it after a jump.
+    const details = document.querySelector<HTMLDetailsElement>('.toc-details');
+    const narrow = window.matchMedia('(max-width: 1199px)');
+    if (details && narrow.matches) details.open = false;
+    links.forEach(a => a.addEventListener('click', () => { if (details && narrow.matches) details.open = false; }));
+  }
+</script>
 
 <style>
   .playbook-page {
@@ -302,6 +343,84 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
   .playbook-body {
     padding-block: var(--space-xl);
   }
+
+  /* On this page. Collapsible block above the body on narrow screens,
+     sticky sidebar on wide ones with the current section highlighted. */
+  .playbook-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+  .playbook-toc {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    background: var(--color-bg-alt);
+    padding: var(--space-sm) var(--space-md);
+    align-self: start;
+  }
+  .toc-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    list-style: none;
+    padding-block: 0.35rem;
+  }
+  .toc-title::-webkit-details-marker { display: none; }
+  .toc-title::after { content: ' +'; }
+  .toc-details[open] .toc-title::after { content: ' −'; }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-xs) 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .toc-list a {
+    display: block;
+    padding: 0.4rem 0 0.4rem 0.75rem;
+    border-left: 2px solid var(--color-line);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    line-height: 1.35;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .toc-list a:hover,
+  .toc-list a[aria-current="true"] {
+    color: var(--color-text);
+    border-left-color: var(--color-cta-start);
+  }
+  .toc-top {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+  .toc-top:hover { color: var(--color-text); }
+  @media (min-width: 1200px) {
+    .playbook-layout {
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: var(--space-xl);
+    }
+    .playbook-prose { grid-column: 1; grid-row: 1; }
+    .playbook-toc {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: 100px;
+      max-height: calc(100vh - 130px);
+      overflow-y: auto;
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+    .toc-title { cursor: default; pointer-events: none; }
+    .toc-title::after,
+    .toc-details[open] .toc-title::after { content: ''; }
+  }
   /* The body uses the standard .container (1280px, centered) so it
      aligns horizontally with .playbook-header above. Reading width
      is constrained on the text children rather than on the outer
@@ -324,6 +443,9 @@ const steps = [...pipelineBody.matchAll(/^### (.+)$/gm)].map(match => {
     margin-top: var(--space-xl);
     margin-bottom: var(--space-sm);
     color: var(--color-text);
+  }
+  .playbook-prose :global(h2) {
+    scroll-margin-top: 90px;
   }
   .playbook-prose :global(h2:first-child) {
     margin-top: 0;
