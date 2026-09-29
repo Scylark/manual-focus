@@ -2,7 +2,7 @@
 name: news-desk
 description: "When a brand wants its own daily news workflow: a desk that scans its industry for news each day, picks at most one story that matters to its audience, verifies it at primary sources and drafts a search- and AI-answer-optimised blog post as a pull request. Also writes on-demand articles on a topic the user names. Triggers on 'set up a news desk', 'daily news posts for our blog', 'build our own news workflow', 'write today's news post', 'run the news desk', 'daily industry briefing post', 'write a search-optimised article on X', or 'schedule a daily post'. Not the morning inbox brief (that's daily-briefing-pipeline)."
 metadata:
-  version: 0.1.0
+  version: 0.1.1
   playbook: https://manual-focus.co.uk/lens/content/news-desk
 ---
 
@@ -133,10 +133,31 @@ Append one entry per shortlisted story (the published one and the rejects) to th
 
 On a no-post day, leave the ledger alone and report the shortlist in the summary instead.
 
-## Phase 8, hand off
+## Phase 8, hand off for approval
 
-- **Post day**: create a branch with the configured prefix and date, and commit the post, its translations and the ledger. Open a pull request with the configured title. In its body put the story and its score, the primary source, the self-audit score, anything you were unsure of, and the rejected candidates with their scores.
-- **No-post day**: no branch, commit or pull request. End with a summary listing each candidate, its score and why it didn't clear the bar.
+The owner approves each post from wherever they read the run's result
+(usually the Claude app). Make that one message they can act on without
+opening anything else.
+
+- **Post day**:
+  - Create a branch with the configured prefix and date, and commit the post, its translations and the ledger.
+  - Open a pull request with the configured title, **ready for review, never a draft**, so the Merge button works straight away.
+  - Start the PR body with the full article as it will read, then a `## Review notes` section: the story and its score, the primary source, the self-audit score, anything you were unsure of, and the rejected candidates with their scores.
+  - End the run with this reply:
+
+  ```markdown
+  ## Approve today's post: <post title>
+
+  <the full article, as it will read on the site>
+
+  ---
+  **To publish:** open <PR URL> and tap **Merge**, then <the site's
+  publish step, if merging doesn't deploy by itself>.
+  **To change something:** reply here with what to change.
+
+  Why this story: <one sentence with the score>.
+  ```
+- **No-post day**: no branch, commit or pull request. End with `## No post today`, one sentence on the closest story and its score, and a table of each candidate, its score and why it didn't clear the bar.
 
 ## On-demand article mode
 
