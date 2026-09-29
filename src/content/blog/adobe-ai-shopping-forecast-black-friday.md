@@ -7,7 +7,7 @@ faq:
   - question: "How much will AI shopping traffic grow this holiday season?"
     answer: "Adobe forecast on 28 September 2026 that traffic from AI services to US retail sites will rise 130% year on year over November and December, measured by shoppers clicking a link. It expects the biggest jump on Thanksgiving, up 159%, followed by Black Friday at 95% and Cyber Monday at 88%. The forecast covers the US only."
   - question: "Do shoppers trust AI assistants for buying decisions?"
-    answer: "In an Adobe survey of 5,000 US consumers fielded in July 2026, 77% of people who had used AI for online shopping said it made them more confident in their purchase, and 69% said they were less likely to return an item. The survey is self-reported and covers people who already shop with AI, not all shoppers."
+    answer: "In an Adobe survey of 5,000 consumers fielded in July 2026, 77% of people who had used AI for online shopping said it made them more confident in their purchase, and 69% said they were less likely to return an item. The survey is self-reported and covers people who already shop with AI, not all shoppers."
   - question: "Does Adobe's AI traffic forecast apply to UK retailers?"
     answer: "Not directly. Adobe's 2026 holiday forecast uses US data only, drawn from more than 1 trillion visits to US retail sites. UK brands should read it as a signal of where shopper behaviour is heading and check their own analytics for AI referrals, rather than applying the 130% figure to a UK plan or budget."
   - question: "How do I track ChatGPT and Perplexity traffic to my ecommerce site?"
