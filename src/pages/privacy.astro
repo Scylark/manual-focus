@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Privacy Policy" description="Manual Focus privacy policy. How we handle your data.">
+<Base title="Privacy Policy" description="Manual Focus privacy policy. How we handle your data, which analytics we use and how to opt out.">
   <section class="section">
     <div class="container prose">
       <h1>Privacy Policy</h1>
@@ -11,7 +11,15 @@ import Base from '../layouts/Base.astro';
       <p>Manual Focus is a marketing agency run by James Vickers. Our website address is https://manual-focus.co.uk.</p>
 
       <h2>Analytics</h2>
-      <p>This website does not currently run any analytics or tracking scripts. If we add analytics, we will use a privacy-respecting tool that does not set cookies or collect personal data, and we will update this page first.</p>
+      <p>We use Google Analytics 4 to count visits and see which pages people read, where they came from (for example a search engine, LinkedIn or an AI assistant) and whether they send an enquiry or subscribe to The Lens. We use this only to understand and improve the website.</p>
+      <p>We have set Google Analytics up for statistics only. Google signals and advertising personalisation are switched off, the data isn't linked to any advertising account, and we don't send Google names, email addresses or anything you type into our forms. Google Analytics records approximate location (town or city), device and browser type, and processes your IP address to do so without storing it. We keep the detailed data for 14 months.</p>
+      <p>Google processes this data for us under its data processing terms. Google's privacy policy: https://policies.google.com/privacy</p>
+
+      <h3 id="analytics-opt-out">Opting out</h3>
+      <p>You can switch Google Analytics off for this website in this browser. The setting is saved in your browser, so it applies until you clear your browser data.</p>
+      <p data-optout-status>Analytics is <strong data-optout-state>on</strong> in this browser.</p>
+      <p><button type="button" class="btn-ghost" data-optout-toggle>Turn analytics off</button></p>
+      <p>You can also block it across every website with Google's browser add-on: https://tools.google.com/dlpage/gaoptout</p>
 
       <h2>Enquiry form</h2>
       <p>The enquiry form does not send data anywhere by itself. It opens your own email app with your enquiry drafted, and nothing is sent until you press send. We use the email you send us solely to respond to your enquiry and do not share it with any other parties.</p>
@@ -21,7 +29,7 @@ import Base from '../layouts/Base.astro';
       <p>Kit's privacy policy: https://kit.com/privacy</p>
 
       <h2>Cookies</h2>
-      <p>This website does not set any cookies.</p>
+      <p>The only cookies this website sets are the Google Analytics cookies described above: <code>_ga</code>, which tells visits from the same browser apart, and <code>_ga_C0WR5X8ZPT</code>, which keeps track of the current visit. Both expire after two years. They're used only for statistics about how the site is used, which UK law allows without asking for consent as long as you can opt out, as described above. If you opt out, Google Analytics doesn't load and these cookies aren't set.</p>
 
       <h2>Your rights</h2>
       <p>You have the right to request access to, correction of, or deletion of any personal data we hold about you. Contact us at James@manual-focus.co.uk.</p>
@@ -31,3 +39,34 @@ import Base from '../layouts/Base.astro';
     </div>
   </section>
 </Base>
+
+<script>
+  // Analytics opt-out. Base.astro reads the same localStorage key before
+  // loading Google Analytics, and sets window['ga-disable-…'] so an
+  // already-loaded tag stops sending too.
+  const KEY = 'mf-analytics-optout';
+  const GA_ID = 'G-C0WR5X8ZPT';
+  const btn = document.querySelector<HTMLButtonElement>('[data-optout-toggle]');
+  const state = document.querySelector<HTMLElement>('[data-optout-state]');
+  const read = () => {
+    try { return localStorage.getItem(KEY) === '1'; } catch { return false; }
+  };
+  const render = () => {
+    const off = read();
+    if (state) state.textContent = off ? 'off' : 'on';
+    if (btn) btn.textContent = off ? 'Turn analytics back on' : 'Turn analytics off';
+  };
+  btn?.addEventListener('click', () => {
+    const off = !read();
+    try {
+      if (off) localStorage.setItem(KEY, '1');
+      else localStorage.removeItem(KEY);
+    } catch {
+      if (state) state.textContent = 'unchanged, because this browser is blocking site storage';
+      return;
+    }
+    (window as any)['ga-disable-' + GA_ID] = off;
+    render();
+  });
+  render();
+</script>

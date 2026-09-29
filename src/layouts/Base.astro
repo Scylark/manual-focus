@@ -80,8 +80,37 @@ const fullTitle = brandTitle(title);
   <!-- RSS autodiscovery -->
   <link rel="alternate" type="application/rss+xml" title="Manual Focus Blog" href={url('/rss.xml')} />
 
-  <!-- Plausible Analytics (uncomment when account is set up) -->
-  <!-- <script defer data-domain="manual-focus.co.uk" src="https://plausible.io/js/script.js"></script> -->
+  {/* Google Analytics 4 (property "manual-focus.co.uk", account "Manual
+      Focus"). Configured for statistics only so it falls under the UK
+      PECR exemption for analytics cookies (in force from 5 Feb 2026):
+      Google signals and ad personalisation are off here and in the GA
+      property, and visitors can opt out from the privacy page, which
+      sets `mf-analytics-optout` in localStorage. Loads on the live
+      domain only, so local builds and previews don't pollute the data.
+      Other scripts send events through window.mfTrack(name, params). */}
+  <script is:inline>
+    (function () {
+      var GA_ID = 'G-C0WR5X8ZPT';
+      var optedOut = false;
+      try { optedOut = localStorage.getItem('mf-analytics-optout') === '1'; } catch (e) {}
+      window['ga-disable-' + GA_ID] = optedOut;
+      window.mfTrack = function () {};
+      if (optedOut || location.hostname !== 'manual-focus.co.uk') return;
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', GA_ID, {
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+      });
+      window.mfTrack = function (name, params) { gtag('event', name, params || {}); };
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+    })();
+  </script>
 
   <slot name="seo" />
 </head>
