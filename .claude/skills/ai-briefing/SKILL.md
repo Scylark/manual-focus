@@ -282,19 +282,53 @@ bar it costs nothing.
 }
 ```
 
-## Step 8. Hand off for review
+## Step 8. Hand off for approval
+
+James approves each post from the Claude app. He should be able to read the
+whole article and publish it without opening anything else, so the hand-off
+has one shape every day.
 
 **Post day.**
 - Branch: `briefing/YYYY-MM-DD`. Commit the post and the ledger.
-- Open a pull request against `master` titled `AI briefing | <post title>`.
-  In the body include the story and why it cleared the bar (score), the
-  primary source, the no-slop self-audit score out of 60, anything you
-  were unsure of, and the other candidates you rejected with their scores.
+- Open a pull request against `master` titled `AI briefing | <post title>`,
+  **ready for review, never a draft** (pass `draft: false`), so the Merge
+  button works straight away.
+- The PR body starts with the article itself, then the review notes:
+  1. `## <post title>`, then the full post as it will read on the site: the
+     opening paragraph, every section, the FAQ and the sources.
+  2. `---` then `## Review notes`: the story and why it cleared the bar
+     (score), the primary source, the no-slop self-audit score out of 60,
+     anything you were unsure of, and the rejected candidates with scores.
+- End the run with the approval message below as your final reply, exactly
+  in this shape. It's what James sees in the Claude app.
 
-**No-post day.** Don't create a branch, commit or PR. James only wants a
-PR when there is a post to review. End the run with a short summary that
-lists each candidate, its score and why it didn't clear the bar. That
-summary is the day's record.
+  ```markdown
+  ## Approve today's post: <post title>
+
+  <the full article, as it will read on the site>
+
+  ---
+  **To publish:** open <PR URL> and tap **Merge**. The site updates itself
+  within about two minutes.
+  **To change something:** reply here with what to change.
+
+  Why this story: <one sentence with the score>. Also considered: <story
+  (score)>, <story (score)>.
+  ```
+
+**No-post day.** Don't create a branch, commit or PR. End the run with this
+as your final reply:
+
+```markdown
+## No post today
+
+Nothing cleared the 7/10 bar. The closest was <story> at <score>/10:
+<one sentence on why>.
+
+| Story | Score | Why not |
+|---|---|---|
+| ... | ... | ... |
+```
 
 Merging the PR publishes the post (GitHub Pages deploys from `master`).
 
@@ -346,8 +380,9 @@ What changes from the daily steps:
 6. **Ledger (step 7)**: add one entry with `"decision": "published-on-demand"`
    and a score of `null`, so the daily run won't repeat the topic.
 7. **Hand off (step 8)**: branch `article/<slug>`, PR titled
-   `Article | <post title>`. In the body put the search terms targeted, what
-   you verified and where, what you left out as unverified, and the
-   self-audit score. Never push to `master`. James merges, and the merge
-   publishes the post.
+   `Article | <post title>`, ready for review, with the article first in the
+   body as in step 8. Then the search terms targeted, what you verified and
+   where, what you left out as unverified, and the self-audit score. End
+   with the step 8 approval message. Never push to `master`. James merges,
+   and the merge publishes the post.
 
