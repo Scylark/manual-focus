@@ -182,5 +182,53 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "grok-bot-vs-hermes-agent-for-marketing-teams"
+  },
+  {
+    "run_date": "2026-09-29",
+    "story": "Adobe forecasts AI referrals to US retail sites up 130% YoY this holiday season (Thanksgiving +159%, Black Friday +95%, Cyber Monday +88%); 77% of AI shoppers more confident",
+    "primary_source": "https://news.adobe.com/news/2026/09/adobe-us-holiday-shopping-season-to-hit-record",
+    "score": 7,
+    "decision": "published",
+    "slug": "adobe-ai-shopping-forecast-black-friday"
+  },
+  {
+    "run_date": "2026-09-29",
+    "story": "Anthropic launches Claude Sonnet 5.5, 30%+ faster and up to 30% cheaper per task at $2/$10 per million tokens",
+    "primary_source": "https://www.anthropic.com/claude-sonnet-5-5",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-29",
+    "story": "Meta launches Meta Enterprise Platform (Muse, Meta Business Agent, Muse API) led by CJ Desai; no ads, pricing or availability detail",
+    "primary_source": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-29",
+    "story": "Google replacing Gemini Gems with stackable Skills from 17 November 2026 (in-app notice, no official docs yet)",
+    "primary_source": "https://9to5google.com/2026/09/27/gemini-gems-skills/",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-29",
+    "story": "OpenAI DevDay 2026 (29 September, keynote 10:00 PT) teased with 20+ launches; not yet happened at run time",
+    "primary_source": "https://devday.openai.com/",
+    "score": null,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-29",
+    "story": "Georgetown/UW study finds misleading AI summaries cut correct recall from 83.6% to 44.8%",
+    "primary_source": "https://arxiv.org/abs/2609.28820",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
