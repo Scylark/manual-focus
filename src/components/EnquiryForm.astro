@@ -170,9 +170,12 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
     // if the browser blocks the external-protocol handoff (or the user
     // has no mail client), the direct address is already on screen.
     successMsg.hidden = false;
-    if (typeof (window as any).plausible === 'function') {
-      (window as any).plausible('Enquiry Submitted');
-    }
+    // GA4 recommended lead event, marked as a key event in Analytics.
+    (window as any).mfTrack?.('generate_lead', {
+      form: 'enquiry',
+      offer: offerLabel || '(none)',
+      source: source || '(none)',
+    });
 
     const to = form.dataset.enquiryEmail ?? '';
     try {

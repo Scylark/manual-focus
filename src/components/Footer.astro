@@ -371,6 +371,10 @@ const year = new Date().getFullYear();
           // Kit then sends a confirmation email; the user must click
           // the link to be fully subscribed.
           setFeedback('success', "You're in. Check your inbox to confirm your subscription.");
+          (window as any).mfTrack?.('sign_up', {
+            method: 'newsletter',
+            form: form.classList.contains('lens-signup-form') ? 'lens' : 'footer',
+          });
           form.reset();
         } else {
           const reason = data?.errors?.messages?.[0];
