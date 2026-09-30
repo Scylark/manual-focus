@@ -40,9 +40,9 @@ The first is plugin extensions. Plugins could already answer inside a ChatGPT co
 
 The second is dots. OpenAI's [dots announcement](https://openai.com/index/introducing-dots/) describes an agent powered by GPT-6 Astra, with its own cloud computer and browser, that connects to more than 4,000 apps and can be messaged in ChatGPT, Slack or Teams. Two of OpenAI's own examples are marketing jobs, a dot that revises launch materials when a product's scope changes and one that turns an interview transcript into clips, show notes and social drafts for approval. Dots are rolling out to Pro and Business Premium plans in eligible markets, the first dot comes at no extra cost on those plans, and Enterprise admins can switch on a beta that is off by default.
 
-## A plugin is now a brand surface
+## Plugins become a bigger brand surface
 
-Until now a brand showed up in ChatGPT in two ways, as a source the model cited or as an ad. A plugin adds a third, where the product itself runs inside the conversation. When someone asks ChatGPT to plan a training block, compare insurance quotes or draft a floor plan, the plugin that ChatGPT recommends gets to do the work, and the brand behind it stays in the thread.
+A brand could already appear in ChatGPT as a source the model cited, as an ad or as a plugin that answered in the chat. At DevDay OpenAI gave plugins a sidebar home, panels and file viewers, plus ranking that puts them in front of people mid-conversation. When someone asks ChatGPT to plan a training block, compare insurance quotes or draft a floor plan, the plugin that ChatGPT recommends gets to do the work, and the brand behind it stays in the thread.
 
 OpenAI's guide to [optimising plugin metadata](https://developers.openai.com/plugins/guides/optimize-metadata) says ChatGPT decides when to call a plugin's tools from the names, descriptions and parameter notes the developer writes, and tells teams to treat that metadata like product copy. It asks developers to test against three sets of prompts, ones that name the product, ones that describe the outcome without naming it, and ones where another tool should answer. That is keyword research with a new name, and the marketing team should own it alongside engineering.
 
