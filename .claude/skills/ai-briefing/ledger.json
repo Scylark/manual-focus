@@ -230,5 +230,53 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-01",
+    "story": "Lightspeed/Vaer AI study: ChatGPT, AI Mode and AI Overviews picked national chains over smaller retailers 90-94% of the time head-to-head; 'independent' in prompt cut chain share from ~44% to 9%",
+    "primary_source": "https://www.lightspeedhq.com/news/ai-favors-big-retailers-over-local-stores-9-out-of-10-times-new-study-finds/",
+    "score": 7,
+    "decision": "published",
+    "slug": "ai-shopping-assistants-favour-big-retailers"
+  },
+  {
+    "run_date": "2026-10-01",
+    "story": "Google releases Gemini 4 Argon ($2/$10 per M tokens intro, 1M output) to Fairwind cyber partners only; wider access later",
+    "primary_source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-01",
+    "story": "Google rolls AI Mode info monitoring (price drops, back in stock via Shopping Graph) out to all users globally, announced by Robby Stein on X on 28 September",
+    "primary_source": "https://www.searchenginejournal.com/google-ai-mode-info-monitoring-global-rollout/591312/",
+    "score": 6,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-01",
+    "story": "OpenAI ChatGPT Ads adds bulk product feed campaign creation, product review status and carousel card reporting",
+    "primary_source": "https://www.seroundtable.com/openai-chatgpt-ads-updates-42194.html",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-01",
+    "story": "Google AI contribution pilot pays ~100 publishers about 0.1% of their ad revenue for content used in AI Overviews, AI Mode and Gemini",
+    "primary_source": "https://www.seroundtable.com/google-ai-contribution-pilot-01-percent-42188.html",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-01",
+    "story": "FTC opens broad AI safety probe into OpenAI and Anthropic over agent incidents (Washington Post)",
+    "primary_source": "https://www.washingtonpost.com/technology/2026/09/30/ftc-launches-broad-investigation-into-anthropic-openai/",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
