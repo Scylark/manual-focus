@@ -232,6 +232,46 @@
     "slug": null
   },
   {
+    "run_date": "2026-09-30",
+    "story": "OpenAI DevDay (29 September): plugin extensions and in-conversation plugin ranking open ChatGPT (1.2B weekly users) to native brand plugins, and dots always-on agents roll out to Pro and Business Premium in eligible markets",
+    "primary_source": "https://openai.com/index/devday-2026-recap/",
+    "score": 8,
+    "decision": "published",
+    "slug": "openai-dots-chatgpt-plugins-marketing-teams"
+  },
+  {
+    "run_date": "2026-09-30",
+    "story": "OpenAI GPT-6.1 Sol, near-Astra performance at a fifth of Astra's API token prices (DevDay, 29 September)",
+    "primary_source": "https://openai.com/index/introducing-gpt-6-1-sol",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-30",
+    "story": "Somantra launches AEO Metrics Suite (Brand Mindshare, Consideration, Engagement scores across ChatGPT, AI Overviews, Claude, Gemini, Perplexity)",
+    "primary_source": "https://www.globenewswire.com/news-release/2026/09/29/3370401/0/en/new-ai-search-visibility-metrics-for-chatgpt-google-ai-overviews-claude-gemini-and-perplexity-launched-somantra-sets-industry-standard-for-aeo-and-geo-metrics-suite-with-brand-mind.html",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-30",
+    "story": "Multiply launches Ad Spend Recovery Agent for Google Ads, claiming 30% of budgets lost to off-intent traffic (vendor data, no methodology)",
+    "primary_source": "https://agilebrandguide.com/yesterdays-martech-ai-cx-news-september-29-2026/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-09-30",
+    "story": "US government launches America.gov AI front door to federal services powered by Gemini and Grok",
+    "primary_source": "https://www.position.digital/blog/ai-seo-news/",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
     "run_date": "2026-10-01",
     "story": "Lightspeed/Vaer AI study: ChatGPT, AI Mode and AI Overviews picked national chains over smaller retailers 90-94% of the time head-to-head; 'independent' in prompt cut chain share from ~44% to 9%",
     "primary_source": "https://www.lightspeedhq.com/news/ai-favors-big-retailers-over-local-stores-9-out-of-10-times-new-study-finds/",
