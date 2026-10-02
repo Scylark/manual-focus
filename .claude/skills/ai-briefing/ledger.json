@@ -318,5 +318,53 @@
     "score": 4,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-02",
+    "story": "DemandSphere data (published 1 October) shows AI Overviews on 82% of tracked branded queries by 29 September, up from about 26% in early September; Chris Long finds them for 93% of brands tested; no Google announcement",
+    "primary_source": "https://www.demandsphere.com/blog/branded-ai-overviews-september-2026/",
+    "score": 8,
+    "decision": "published",
+    "slug": "google-ai-overviews-brand-searches"
+  },
+  {
+    "run_date": "2026-10-02",
+    "story": "OpenAI launches ChatGPT virtual Try On for clothing and a Favorites library globally on 1 October, powered by ChatGPT Images 2.5",
+    "primary_source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "score": 7,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-02",
+    "story": "Google updates its generative AI content guidance on 1 October to say all AI content, including titles, meta descriptions, structured data and alt text, must be manually fact-checked; no new penalty",
+    "primary_source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-02",
+    "story": "Judge Amit Mehta dismisses Penske Media and Chegg antitrust suits over Google AI Overviews (30 September)",
+    "primary_source": "https://pressgazette.co.uk/news/penske-ai-overviews-lawsuit-dismissed-because-no-formal-bargain-struck-with-google/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-02",
+    "story": "LiveRamp extends RampID to build custom audience segments for ChatGPT ads (1 October)",
+    "primary_source": "https://agilebrandguide.com/yesterdays-martech-ai-cx-news-october-1-2026/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-02",
+    "story": "OpenAI cancels GPT-6.1 Astra release over safety test failures (reported 28 September, outside the 48-hour window)",
+    "primary_source": "https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
