@@ -1,5 +1,5 @@
 ---
-title: "Google AI Overviews now appear on most brand searches"
+title: "AI Overviews hit 82% of tracked brand searches in September"
 date: 2026-10-02
 tags: ["ai-briefing", "ai", "brand"]
 description: "DemandSphere data published 1 October 2026 shows AI Overviews on over 80% of tracked brand searches, up from 26%. Check what Google says about your brand."
@@ -11,7 +11,7 @@ faq:
   - question: "Will AI Overviews on brand searches reduce traffic to my website?"
     answer: "Nobody has published click data on it yet. DemandSphere's report measures how often an AI Overview appears, not what searchers click. Brands should compare branded click-through rate in Google Search Console for the weeks before and after 26 September 2026, and watch the generative AI features report for impressions on branded pages."
   - question: "How do I change what Google's AI Overview says about my company?"
-    answer: "Google does not let brands edit an AI Overview directly. The summary draws on pages across the web, so the practical route is to correct the sources it cites. Check your own about and product pages, Google Business Profile, Wikipedia entry and review site profiles, fix anything out of date, and recheck the AI Overview a week later."
+    answer: "Google does not let brands edit an AI Overview directly. The summary draws on pages across the web, so the practical route is to correct the sources it cites. Fix anything out of date on your own about and product pages and Google Business Profile, then ask review sites and directories to correct theirs. For Wikipedia, disclose your connection and request changes on the talk page. Recheck the AI Overview a week later."
 sources:
   - title: "AI Overviews on branded queries tripled in September"
     url: "https://www.demandsphere.com/blog/branded-ai-overviews-september-2026/"
@@ -21,7 +21,7 @@ sources:
     publisher: "Search Engine Roundtable"
 ---
 
-Google now shows an AI Overview on most searches for a brand's own name, according to data DemandSphere published on 1 October 2026. The share of its tracked branded keywords returning one rose from about 26% in early September to 82.06% on 29 September, so the summary Google writes about your company now sits on your most valuable results page.
+Google showed an AI Overview on most of the brand-name searches DemandSphere tracks, according to data it published on 1 October 2026. The share of its tracked branded keywords returning one rose from about 26% in early September to 82.06% on 29 September, so the summary Google writes about your company now sits on your most valuable results page.
 
 ## The September numbers
 
@@ -43,7 +43,7 @@ For now Google mostly places the summary below your homepage listing, where it i
 
 1. **Search your own brand terms.** Run your company name, your main product names and "[brand] reviews", "[brand] pricing" and "[brand] vs [competitor]" in a private window on mobile and desktop. Screenshot every AI Overview.
 2. **Read each summary for errors.** Mark anything out of date, wrong or unflattering, and list the sources Google links beside it.
-3. **Fix the sources you control.** Update your about page, product pages, Google Business Profile and any Wikipedia or directory entries the summary leans on, and ask PR to approach third-party pages that carry wrong facts.
+3. **Fix the sources you control.** Update your about page, product pages and Google Business Profile. Ask PR to approach review sites, directories and other third-party pages that carry wrong facts, and request Wikipedia corrections on the article's talk page with your connection disclosed rather than editing it yourself.
 4. **Set a branded click baseline.** In Search Console, filter for branded queries and compare click-through rate before and after 26 September. The generative AI features report, which we covered in [our post on Lens data in Search Console](/blog/search-console-multimodal-lens-reporting/), shows impressions for pages appearing in AI Overviews.
 5. **Repeat every fortnight.** Keep the same query list and screenshots so you can see whether Google's summary, its sources and its position move.
 
