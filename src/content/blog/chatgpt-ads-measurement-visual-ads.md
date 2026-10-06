@@ -2,7 +2,7 @@
 title: "What ChatGPT's new ad measurement tools mean for paid teams"
 date: 2026-10-06
 tags: ["ai-briefing", "ai", "go-to-market"]
-description: "OpenAI added attribution partners, geo-lift tests and a visual ad format to ChatGPT Ads on 5 October 2026. Judge it on incrementality before you scale."
+description: "OpenAI added ten attribution partners and a visual ad format test to ChatGPT Ads on 5 October 2026. Its geo-lift work is early, so test incrementality yourself."
 faq:
   - question: "Which measurement partners work with ChatGPT Ads?"
     answer: "OpenAI said on 5 October 2026 that ChatGPT Ads supports ten attribution partners, AppsFlyer, Triple Whale, Adjust, DV Rockerbox, Northbeam, Branch, Singular, Kochava, Airbridge and Tenjin. Fospha, Measured and INCRMNTAL cover full-funnel measurement, Hightouch, Tealium and LiveRamp send conversion data in, and Haus, Measured and WorkMagic are working with OpenAI on geo-based incrementality experiments."
@@ -24,7 +24,7 @@ sources:
     publisher: "Securities.io"
 ---
 
-OpenAI gave advertisers ten attribution partners, geo-lift incrementality tests and a new visual ad format in ChatGPT Ads on 5 October 2026. The visual format reaches US advertisers in a test later this month, but the measurement changes matter more now, because paid teams can finally judge ChatGPT spend with the tools they already use for Google and Meta.
+OpenAI gave ChatGPT Ads ten attribution partners and three conversion data integrations on 5 October 2026, and said it is exploring geo-lift tests with Haus, Measured and WorkMagic. A visual ad format reaches US advertisers in a test later this month, but the measurement changes matter more now, because paid teams can judge ChatGPT spend with tools they already use.
 
 ## Three changes in one announcement
 
