@@ -366,5 +366,53 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-06",
+    "story": "OpenAI expands ChatGPT Ads measurement (ten attribution partners, Hightouch/Tealium/LiveRamp, geo-lift with Haus/Measured/WorkMagic, one-day view-through reporting, Negative Phrases, DV/IAS pilots) and announces a visual ad format tested in US image generation later in October (5 October)",
+    "primary_source": "https://openai.com/index/new-chatgpt-ads-format-and-measurement/",
+    "score": 7,
+    "decision": "published",
+    "slug": "chatgpt-ads-measurement-visual-ads"
+  },
+  {
+    "run_date": "2026-10-06",
+    "story": "OpenAI text watermarking under the EU AI Act, invisible watermark on eligible ChatGPT and Codex text in the EU over the coming weeks, opt-in for API, detector limited to researchers (5 October)",
+    "primary_source": "https://openai.com/index/eu-text-provenance/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-06",
+    "story": "Google Ads to auto-extract promotions from websites into Search and PMax campaigns with location assets from 12 October, on by default (advertiser email reported by SER, 5 October)",
+    "primary_source": "https://www.seroundtable.com/google-ads-automated-promotions-october-12-42223.html",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-06",
+    "story": "Google Ads AI campaign localisation tool (beta) translates Search campaigns, keywords, images and landing pages into eight languages",
+    "primary_source": "https://support.google.com/google-ads/answer/17218209",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-06",
+    "story": "Google says its spam updates use AI to find AI spam (SER, 5 October)",
+    "primary_source": "https://www.seroundtable.com/google-search-spam-updates-ai-42226.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-06",
+    "story": "Anthropic, OpenAI, Google and Meta executives testify at NYC Council hearing on AI risks (5 October)",
+    "primary_source": "https://www.cnbc.com/2026/10/05/anthropic-openai-google-meta-execs-testify-nyc-council-ai-hearing.html",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
