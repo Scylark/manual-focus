@@ -3,7 +3,7 @@ name: seo-cluster-generator
 description: "When the user wants to build an SEO topic cluster, plan a pillar and spokes, generate a content cluster around a seed keyword, map search intent, or build a defensible SEO content strategy. Also triggers on 'build us an SEO cluster', 'pillar page plan', 'topic cluster around X', 'we need a content strategy', or 'what should we rank for'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/content/seo-cluster-generator
+  playbook: https://manual-focus.co.uk/lens/content/seo-cluster-generator/
 ---
 
 # SEO cluster generator

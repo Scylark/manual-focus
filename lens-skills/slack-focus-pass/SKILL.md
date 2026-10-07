@@ -3,7 +3,7 @@ name: slack-focus-pass
 description: "When the user wants to focus their Slack, surface the threads that need them, draft replies in the right voice, run a Slack triage, ignore the noise, or process Slack twice a day. Triggers on 'focus pass', 'process my Slack', 'what do I need to reply to', 'Slack triage', 'show me what matters in Slack', or pasting a Slack activity export."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/slack-focus-pass
+  playbook: https://manual-focus.co.uk/lens/productivity/slack-focus-pass/
 ---
 
 # Slack focus pass

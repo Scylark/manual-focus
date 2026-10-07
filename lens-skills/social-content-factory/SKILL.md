@@ -3,7 +3,7 @@ name: social-content-factory
 description: "When the user wants to produce channel-native social content, generate week-of-content from a single story brief, stop cross-posting blog excerpts, or draft LinkedIn / TikTok / Twitter / Instagram posts that work on each platform. Also triggers on 'social content for the week', 'channel-native LinkedIn post', 'we keep cross-posting and it doesn't work', or 'turn this story into social'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/content/social-content-factory
+  playbook: https://manual-focus.co.uk/lens/content/social-content-factory/
 ---
 
 # Social content factory

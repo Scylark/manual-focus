@@ -3,7 +3,7 @@ name: message-house
 description: "When the user wants to build a message house, convert positioning into a narrative architecture, create messaging pillars, draft proof points, or generate channel-mapped messaging lines. Also triggers on 'we need a message house', 'turn this positioning into messaging', 'build the pillars', 'what's our narrative', or 'we keep saying different things across channels'."
 metadata:
   version: 0.2.1
-  playbook: https://manual-focus.co.uk/lens/brand/message-house-generator
+  playbook: https://manual-focus.co.uk/lens/brand/message-house-generator/
 ---
 
 # Message house

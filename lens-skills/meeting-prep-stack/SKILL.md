@@ -3,7 +3,7 @@ name: meeting-prep-stack
 description: "When the user wants a meeting prep pack, context for an upcoming meeting, attendee research, a briefing on who they are meeting with, prep for a call with a prospect or partner, or auto-generated meeting context. Triggers on 'prep me for my meeting with [name]', 'I have a call with [company] tomorrow', 'context pack', 'background on [attendee]', or pasting a calendar invite and asking for prep."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/meeting-prep-stack
+  playbook: https://manual-focus.co.uk/lens/productivity/meeting-prep-stack/
 ---
 
 # Meeting prep stack

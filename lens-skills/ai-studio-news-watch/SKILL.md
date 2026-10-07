@@ -3,7 +3,7 @@ name: ai-studio-news-watch
 description: "When the user wants to monitor AI studio releases (OpenAI, Anthropic, Google DeepMind, Midjourney, ElevenLabs, Higgsfield, Runway etc.), draft LinkedIn posts about new model launches, build a news pipeline, or stay current on what frontier studios have shipped. Triggers on 'what shipped this week in AI', 'draft a LinkedIn post about [release]', 'build me an AI news pipeline', 'we need to be sharper on frontier model news'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/content/ai-studio-news-pipeline
+  playbook: https://manual-focus.co.uk/lens/content/ai-studio-news-pipeline/
 ---
 
 # AI studio news watch

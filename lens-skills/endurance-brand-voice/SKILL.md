@@ -3,7 +3,7 @@ name: endurance-brand-voice
 description: "When the user is an endurance, cycling, running, swimming, triathlon, mountaineering or other endurance-sport brand wanting to extract their voice. Triggers on 'we're a cycling brand, extract our voice', 'endurance brand voice profile', 'why does our content sound like a generic sports brand', 'how do we sound credible to runners'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/brand/endurance-brand-voice
+  playbook: https://manual-focus.co.uk/lens/brand/endurance-brand-voice/
 ---
 
 # Endurance brand voice

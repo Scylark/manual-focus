@@ -3,7 +3,7 @@ name: video-script-to-heygen
 description: "When the user wants to turn a Lens playbook, a topic, or a pasted script into a rendered HeyGen video with their custom avatar. Triggers on 'make a video about [X]', 'render a heygen video', 'video for [playbook]', 'turn this into a video', 'create a short video', 'lens intro video', 'video from playbook', or any prompt that asks for a HeyGen render of marketing content. Also triggers on /video-script-to-heygen. Returns a rendered MP4, captions, and a LinkedIn post draft in a local videos/ folder."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens
+  playbook: https://manual-focus.co.uk/lens/
 ---
 
 # Video script to HeyGen

@@ -3,7 +3,7 @@ name: site-audit-and-refresh
 description: "When the user wants to audit a marketing website end to end for consistency and messaging, bring its AI or industry content up to date, retest the prompts or playbooks it publishes, and ship the fixes. Triggers on 'audit the site', 'check the site for consistency', 'review our messaging', 'make the content more up to date', 'refresh the site for recent trends', 'retest the playbooks', 'is anything on the site stale or broken', or 'audit and deploy'. Works on any static or framework site in a git repo (Astro, Next, Hugo, Eleventy, WordPress export)."
 metadata:
   version: 0.1.0
-  playbook: https://manual-focus.co.uk/lens/ops/site-audit-and-refresh
+  playbook: https://manual-focus.co.uk/lens/ops/site-audit-and-refresh/
 ---
 
 # Site audit and refresh
