@@ -3,12 +3,12 @@ name: setup-the-lens
 description: "When the user has just installed The Lens plugin or is asking about The Lens for the first time. Trigger on 'set up the lens', 'setup the lens', 'I just installed the lens', 'what is the lens', 'tell me about the lens', 'where do I start with the lens', 'get started with the lens', 'lens onboarding', 'first time using the lens', 'onboard me to the lens', 'manual focus lens', or any prompt that suggests the user has the plugin but does not yet know how to use it. Also triggers when the user invokes /setup-the-lens. This is the welcome and orchestration skill. Prefer it over the specific workflow skills when the user has not yet picked a starting point. Do not invoke this skill if the user already has a `.lens/` directory in their workspace with `brand.json`, `links.json` and `todo.md` populated, because that means setup has already run."
 metadata:
   version: "0.3.1"
-  playbook: https://manual-focus.co.uk/lens/start-here
+  playbook: https://manual-focus.co.uk/lens/start-here/
 ---
 
 # Setup The Lens
 
-You are the onboarding orchestrator for The Lens, the free AI marketing playbook library from Manual Focus at https://manual-focus.co.uk/lens. Your job is not just to welcome the user. Your job is to get them set up properly so that every other Lens skill has the inputs it needs to run well. That means installing the right adjacent plugins, finding their existing brand documentation, organising it into a structured workspace, and surfacing a clear task list for the assets they are missing.
+You are the onboarding orchestrator for The Lens, the free AI marketing playbook library from Manual Focus at https://manual-focus.co.uk/lens/. Your job is not just to welcome the user. Your job is to get them set up properly so that every other Lens skill has the inputs it needs to run well. That means installing the right adjacent plugins, finding their existing brand documentation, organising it into a structured workspace, and surfacing a clear task list for the assets they are missing.
 
 A reader who completes setup-the-lens should walk away with:
 
@@ -215,20 +215,20 @@ Each links to the Lens playbook that builds it. Run them in this order.
 
 ## Critical (run before other playbooks depend on them)
 
-- [ ] **Positioning brief** — your audience, category, benefit, and what-not-this in one sharpened sentence. Run: https://manual-focus.co.uk/lens/brand/positioning-audit-pipeline
-- [ ] **Voice profile** — observable voice patterns the brand writes in, extracted from real samples. Run: https://manual-focus.co.uk/lens/brand/brand-voice-extraction
+- [ ] **Positioning brief** — your audience, category, benefit, and what-not-this in one sharpened sentence. Run: https://manual-focus.co.uk/lens/brand/positioning-audit-pipeline/
+- [ ] **Voice profile** — observable voice patterns the brand writes in, extracted from real samples. Run: https://manual-focus.co.uk/lens/brand/brand-voice-extraction/
 - [ ] **Audience definition** — three or more specifiers (sport, level, life-stage, buying context). Without this, every playbook recommends generically.
 
 ## Important (unlock the next tier of playbooks)
 
-- [ ] **Message house** — narrative, pillars, proof points, channel-mapped lines. Run: https://manual-focus.co.uk/lens/brand/message-house-generator
+- [ ] **Message house** — narrative, pillars, proof points, channel-mapped lines. Run: https://manual-focus.co.uk/lens/brand/message-house-generator/
 - [ ] **Visual identity system** — typography, colour, photography. Build in Figma. The Lens does not generate this, but most playbooks reference it.
 - [ ] **Three named competitors** — who would your target customer name first when asked "who else did you consider?" Add to brand.json.
 
 ## Useful (compounds over time)
 
 - [ ] **Copy playbook** — channel-mapped lines, FAQ rebuttals, the rebuttal sheet. Lives in `.lens/copy-playbook.md`.
-- [ ] **Endurance voice extension** (if endurance-sport brand) — discipline-specific lexicon and credibility tells. Run: https://manual-focus.co.uk/lens/brand/endurance-brand-voice
+- [ ] **Endurance voice extension** (if endurance-sport brand) — discipline-specific lexicon and credibility tells. Run: https://manual-focus.co.uk/lens/brand/endurance-brand-voice/
 - [ ] **Operating system** — brief-to-ship pipeline, evaluation framework, brand guardrails as code. Run the Ops stack when ready.
 ```
 
@@ -305,7 +305,7 @@ When the user picks a path, hand off to:
 
 - The matching playbook skill (e.g. `positioning-audit`, `eval-gated-drafting`, `daily-briefing-pipeline`). The skill will read `.lens/brand.json` as input.
 - Or, if they want to read first, https://manual-focus.co.uk/lens/<stack>/<slug>.
-- Or, if they want to understand prompting and skills before any work, https://manual-focus.co.uk/lens/primer.
-- Or, if they want to wire up Cowork tools first, https://manual-focus.co.uk/lens/cowork.
+- Or, if they want to understand prompting and skills before any work, https://manual-focus.co.uk/lens/primer/.
+- Or, if they want to wire up Cowork tools first, https://manual-focus.co.uk/lens/cowork/.
 
 End with a single line confirming what happens next, and a reminder that they can re-run `/setup-the-lens` any time to refresh the workspace.

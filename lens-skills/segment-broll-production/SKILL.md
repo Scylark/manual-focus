@@ -3,7 +3,7 @@ name: segment-broll-production
 description: "When the user wants to plan or produce b-roll for endurance segments (road, gravel, trail, swim, triathlon), augment shoot footage with AI variants, build a multi-environment asset library, or figure out what AI image/video can and cannot do for endurance content. Triggers on 'plan our shoot b-roll', 'we need cuts for [segment]', 'can AI generate riders / runners / swimmers', 'augment our shoot output'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/content/segment-broll-production
+  playbook: https://manual-focus.co.uk/lens/content/segment-broll-production/
 ---
 
 # Segment-specific b-roll production

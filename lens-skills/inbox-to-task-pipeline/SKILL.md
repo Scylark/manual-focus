@@ -3,7 +3,7 @@ name: inbox-to-task-pipeline
 description: "When the user wants emails turned into tasks in Linear, Asana or Notion, work captured automatically from inbound mail, action items extracted from email threads, or 'this should be a task' detection. Triggers on 'turn this email into a task', 'create a Linear task from this', 'extract action items from my inbox', 'this needs to be in Asana', 'capture work from email', or pasting an email thread and asking what to do."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/inbox-to-task-pipeline
+  playbook: https://manual-focus.co.uk/lens/productivity/inbox-to-task-pipeline/
 ---
 
 # Inbox to task pipeline

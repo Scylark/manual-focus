@@ -3,7 +3,7 @@ name: email-triage-and-draft
 description: "When the user wants to process a backlog of unread emails, triage their inbox, classify what needs a reply, draft replies in their voice, hit inbox zero, or run a 20-minute daily email routine. Also triggers on 'triage my inbox', 'help me draft replies', 'process my unread', 'inbox zero', 'go through my email', or pasting an inbox export."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/email-triage-and-draft
+  playbook: https://manual-focus.co.uk/lens/productivity/email-triage-and-draft/
 ---
 
 # Email triage and draft

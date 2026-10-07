@@ -1,6 +1,6 @@
 # The Lens, Skills
 
-The executable companion to [The Lens](https://manual-focus.co.uk/lens), Manual Focus's working library of AI marketing playbooks. Every workflow skill in this directory pairs with a playbook on The Lens site. The playbook explains the workflow, the skill is the workflow you can run.
+The executable companion to [The Lens](https://manual-focus.co.uk/lens/), Manual Focus's working library of AI marketing playbooks. Every workflow skill in this directory pairs with a playbook on The Lens site. The playbook explains the workflow, the skill is the workflow you can run.
 
 Each skill follows the Anthropic Agent Skills spec and works with Claude Code, Codex, Cursor, Windsurf, and any agent that supports skill loading.
 
@@ -12,7 +12,7 @@ The fastest path after install is to ask Claude:
 
 That triggers the `setup-the-lens` skill, which welcomes you, reads your situation, checks which tools you have connected, and recommends a starter playbook based on the work in front of you. Allow twenty to forty minutes for the full setup.
 
-If you prefer to read first, start at https://manual-focus.co.uk/lens/start-here.
+If you prefer to read first, start at https://manual-focus.co.uk/lens/start-here/.
 
 ## What's in here
 

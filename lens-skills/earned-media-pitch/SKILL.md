@@ -3,7 +3,7 @@ name: earned-media-pitch
 description: "When the user wants to pitch a story to journalists, write press outreach, build a media list around a beat, draft cold pitches to reporters, or scale earned media without sounding like spray-and-pray PR. Also triggers on 'pitch this story', 'find journalists who cover X', 'draft the press outreach', or 'help me get press coverage'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/content/earned-media-pitch-generator
+  playbook: https://manual-focus.co.uk/lens/content/earned-media-pitch-generator/
 ---
 
 # Earned-media pitch generator

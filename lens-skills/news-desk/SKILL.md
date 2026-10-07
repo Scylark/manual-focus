@@ -3,7 +3,7 @@ name: news-desk
 description: "When a brand wants its own daily news workflow: a desk that scans its industry for news each day, picks at most one story that matters to its audience, verifies it at primary sources and drafts a search- and AI-answer-optimised blog post as a pull request. Also writes on-demand articles on a topic the user names. Triggers on 'set up a news desk', 'daily news posts for our blog', 'build our own news workflow', 'write today's news post', 'run the news desk', 'daily industry briefing post', 'write a search-optimised article on X', or 'schedule a daily post'. Not the morning inbox brief (that's daily-briefing-pipeline)."
 metadata:
   version: 0.1.1
-  playbook: https://manual-focus.co.uk/lens/content/news-desk
+  playbook: https://manual-focus.co.uk/lens/content/news-desk/
 ---
 
 # News desk

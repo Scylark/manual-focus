@@ -3,7 +3,7 @@ name: race-result-content-engine
 description: "When the user wants to publish a race-day recap fast, automate post-race content from timing data, draft an editorial race report, or build a content engine that ships within 60-90 minutes of race finish. Triggers on 'race just finished, draft the recap', 'turn this timing data into a story', 'we need a recap for [event]', 'why are we always last to publish race coverage'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/content/race-result-content-engine
+  playbook: https://manual-focus.co.uk/lens/content/race-result-content-engine/
 ---
 
 # Race-result content engine

@@ -3,7 +3,7 @@ name: weekly-pipeline-rollup
 description: "When the user wants a weekly pipeline rollup, CRM data into a stakeholder-ready report, a Friday status for the founder or CEO, a board-pack pipeline section, or a sales pacing summary. Triggers on 'weekly rollup', 'pipeline status', 'CRM summary', 'pipeline report for [audience]', 'where are we pacing', 'this week's pipeline', or pasting a CRM deal export."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/weekly-pipeline-rollup
+  playbook: https://manual-focus.co.uk/lens/productivity/weekly-pipeline-rollup/
 ---
 
 # Weekly pipeline rollup

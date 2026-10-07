@@ -3,7 +3,7 @@ name: eval-gated-drafting
 description: "When the user wants to draft marketing content that passes objective quality gates before a human editor sees it, install an eval-gated content pipeline, score AI drafts against rubrics, or stop the endless cycle of AI drafts that need heavy editing. Also triggers on 'draft this blog post', 'write the landing page copy', 'we need this content but it has to be good', or 'edit this against our voice rubric'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/content/eval-gated-drafting
+  playbook: https://manual-focus.co.uk/lens/content/eval-gated-drafting/
 ---
 
 # Eval-gated drafting

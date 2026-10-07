@@ -3,7 +3,7 @@ name: brand-voice-extraction
 description: "When the user wants to extract a brand voice from existing writing, build a voice profile, document how the brand sounds, audit voice consistency, or set up voice guardrails. Also triggers on 'extract our voice', 'we need a voice guide', 'why does our content sound generic', 'codify how we write', or pasting a corpus of brand writing with 'what's the pattern'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/brand/brand-voice-extraction
+  playbook: https://manual-focus.co.uk/lens/brand/brand-voice-extraction/
 ---
 
 # Brand voice extraction

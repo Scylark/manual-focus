@@ -3,7 +3,7 @@ name: quarterly-okr-synthesis
 description: "When the user wants to synthesise quarterly OKRs across teams, write a CEO summary, draft a board pack section, an all-hands quarterly narrative, or normalise team status reports into one view. Triggers on 'quarterly synthesis', 'CEO summary', 'board pack section', 'all-hands narrative', 'wrap up the quarter', 'OKR rollup', or pasting multiple team status reports."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/quarterly-okr-synthesis
+  playbook: https://manual-focus.co.uk/lens/productivity/quarterly-okr-synthesis/
 ---
 
 # Quarterly OKR synthesis

@@ -3,7 +3,7 @@ name: positioning-audit
 description: "When the user wants to audit a brand's positioning, run a positioning audit, surface contradictions between what a brand says it is and what its outputs say it is, sharpen positioning, prepare a positioning brief, or generally inherit a brand and need an honest read on where it sits. Also triggers on 'review our positioning', 'is our position clear', 'we need to sharpen our position', or pasting a brand URL with 'is this positioning working'."
 metadata:
   version: 0.3.0
-  playbook: https://manual-focus.co.uk/lens/brand/positioning-audit-pipeline
+  playbook: https://manual-focus.co.uk/lens/brand/positioning-audit-pipeline/
 ---
 
 # Positioning audit

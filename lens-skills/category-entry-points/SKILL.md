@@ -3,7 +3,7 @@ name: category-entry-points
 description: "When the user wants to research category entry points (CEPs), find buying-trigger moments, run an Ehrenberg-Bass style CEP study, identify mental availability cues, or map which moments the brand owns vs which competitors own. Also triggers on 'why don't people think of us', 'we need to be remembered at the right moment', 'find the buying triggers', or 'map our category entry points'."
 metadata:
   version: 0.1.1
-  playbook: https://manual-focus.co.uk/lens/demand/category-entry-points
+  playbook: https://manual-focus.co.uk/lens/demand/category-entry-points/
 ---
 
 # Category entry points (CEP) research

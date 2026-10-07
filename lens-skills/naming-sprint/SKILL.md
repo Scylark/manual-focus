@@ -3,7 +3,7 @@ name: naming-sprint
 description: "When the user wants to name a brand, name a product, name a feature, run a naming exercise, generate a shortlist of names, check name distinctiveness, or test names for trademark risk. Also triggers on 'we need a name', 'help me name our product', 'shortlist some names', 'what should we call this', or 'is X a good brand name'."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/brand/naming-sprint
+  playbook: https://manual-focus.co.uk/lens/brand/naming-sprint/
 ---
 
 # Naming sprint

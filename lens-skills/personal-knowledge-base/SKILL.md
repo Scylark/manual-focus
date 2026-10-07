@@ -3,7 +3,7 @@ name: personal-knowledge-base
 description: "When the user wants to search their accumulated notes, ask 'what did we decide about X', recall a decision history, look up what they know about a person, see how a project went, or use Notion and Obsidian as a queryable second brain. Triggers on 'search my notes', 'what did we decide', 'history of [topic]', 'what do I know about [person]', 'how did [project] go', or pasting a knowledge base index."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/personal-knowledge-base
+  playbook: https://manual-focus.co.uk/lens/productivity/personal-knowledge-base/
 ---
 
 # Personal knowledge base

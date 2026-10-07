@@ -3,7 +3,7 @@ name: lifecycle-journey-builder
 description: "When the user wants to build a lifecycle marketing journey, design email or SMS sequences, map a customer journey with behaviour triggers, write win-back / onboarding / nurture flows, or replace agency-built journeys with AI-drafted ones. Also triggers on 'we need an onboarding flow', 'build a win-back sequence', 'map the lifecycle', 'draft the nurture journey'."
 metadata:
   version: 0.1.1
-  playbook: https://manual-focus.co.uk/lens/demand/lifecycle-journey-builder
+  playbook: https://manual-focus.co.uk/lens/demand/lifecycle-journey-builder/
 ---
 
 # Lifecycle journey builder

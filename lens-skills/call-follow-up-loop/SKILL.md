@@ -3,7 +3,7 @@ name: call-follow-up-loop
 description: "When the user has a meeting transcript and wants a CRM update, follow-up email, action-item tasks, or all three. Triggers on 'process this call', 'turn this transcript into', 'follow up on the meeting', 'CRM update from the call', 'send the follow-up', 'create tasks from the meeting', or pasting a Granola/Fireflies/Otter/Zoom transcript."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/call-follow-up-loop
+  playbook: https://manual-focus.co.uk/lens/productivity/call-follow-up-loop/
 ---
 
 # Call follow-up loop

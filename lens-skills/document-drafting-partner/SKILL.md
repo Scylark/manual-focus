@@ -3,7 +3,7 @@ name: document-drafting-partner
 description: "When the user wants to draft a document from an outline, write a brief, memo, proposal, board update or internal explainer in their voice, turn bullets into prose, or run a voice-loaded first draft. Triggers on 'draft this memo', 'turn this outline into a doc', 'write this brief in our voice', 'draft a board update', 'help me write the launch memo', or pasting an outline and asking for a draft."
 metadata:
   version: 0.2.0
-  playbook: https://manual-focus.co.uk/lens/productivity/document-drafting-partner
+  playbook: https://manual-focus.co.uk/lens/productivity/document-drafting-partner/
 ---
 
 # Document drafting partner
