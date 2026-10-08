@@ -24,7 +24,7 @@ sources:
     publisher: "OpenAI"
 ---
 
-ChatGPT answers stopped being only text on 7 October 2026, when OpenAI began rolling out GPT-6 with Intelligent UI to the more than 1.2 billion people who use ChatGPT each week. Answers can now arrive as side-by-side comparisons, maps, charts and small tools built on request, so the page where buyers meet your brand has changed shape.
+OpenAI began rolling out GPT-6 with Intelligent UI on 7 October 2026 to the more than 1.2 billion people who use ChatGPT each week. The model can now compose an answer as an interactive interface, with side-by-side comparisons, maps, forms and small tools built on request, so the page where buyers meet your brand has changed shape.
 
 ## GPT-6 reaches every ChatGPT tier
 
@@ -49,7 +49,7 @@ Content teams have a smaller adjustment to make. An answer that starts while Cha
 1. **Re-run your category prompts on both tiers.** Once GPT-6 reaches your account, test your 20 most important buyer questions on a Free account (Luna) and a Plus account (Sol). Screenshot the format of each answer and note whether you appear in any comparison.
 2. **Audit your interactive tools.** List every calculator, quiz, guide and comparison table on your site with its traffic and leads, then ask ChatGPT to build the same thing. Where its version is as good as yours, plan what you will add that only you can supply.
 3. **Put comparison facts in plain text.** Make price, key specs, dimensions and delivery terms readable on each product page in the same format, rather than in images or downloads.
-4. **Set a new referral baseline.** Mark 8 October in your analytics and compare ChatGPT referral sessions, and conversions on tool pages, for the four weeks either side.
+4. **Set a new referral baseline.** Mark 8 October in your analytics now, then after 5 November compare ChatGPT referral sessions, and conversions on tool pages, for the four weeks either side.
 5. **Test your plugin, if you have one.** Check whether ChatGPT still surfaces it for the prompts it should win now that answers can carry their own maps and forms.
 
 ## Gaps in what OpenAI published
