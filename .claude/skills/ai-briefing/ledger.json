@@ -414,5 +414,53 @@
     "score": 2,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-08",
+    "story": "OpenAI rolls GPT-6 with Intelligent UI (interactive comparisons, maps, model-built tools) out to all ChatGPT tiers from 7 October, Free and Go from 8 October; web-search answers start 44% sooner",
+    "primary_source": "https://openai.com/index/gpt-6-for-everyone/",
+    "score": 8,
+    "decision": "published",
+    "slug": "chatgpt-gpt-6-intelligent-ui-marketing-teams"
+  },
+  {
+    "run_date": "2026-10-08",
+    "story": "Google opens SynthID Detector to everyone globally in English (7 October), checks images, video and audio from Google, OpenAI, NVIDIA, Kakao and soon Apple",
+    "primary_source": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-08",
+    "story": "Radisson ChatGPT plugin case study, visit-to-booking conversion about 1.5x organic search (July-August 2026), plus ChatGPT ads with over half of bookings via view-through",
+    "primary_source": "https://openai.com/index/radisson/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-08",
+    "story": "Anthropic launches Claude Haiku 5.5, its fastest and cheapest small model, for high-volume work (7 October)",
+    "primary_source": "https://www.anthropic.com/news",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-08",
+    "story": "Google Merchant Center adds a UCP integration hub (Search Engine Roundtable, 7 October)",
+    "primary_source": "https://www.seroundtable.com/index.rdf",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-08",
+    "story": "Google AI Overviews add an Add to Calendar feature (Search Engine Roundtable, 7 October)",
+    "primary_source": "https://www.seroundtable.com/index.rdf",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
