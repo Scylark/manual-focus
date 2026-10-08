@@ -54,6 +54,6 @@ Content teams have a smaller adjustment to make. An answer that starts while Cha
 
 ## Gaps in what OpenAI published
 
-OpenAI hasn't said whether Intelligent UI changes how ChatGPT shows sources or links out to websites, whether ads can appear inside interactive answers, or how a plugin and a model-built interface compete for the same question. It gave no traffic or engagement figures, and it says there is "still work ahead" on the model's design judgment, so the formats will keep changing. The 44% figure and the quality claims come from OpenAI's internal evaluations, which no outside group has checked.
+OpenAI hasn't said whether Intelligent UI changes how ChatGPT shows sources or links out to websites, whether ads can appear inside interactive answers, or how a plugin and a model-built interface compete for the same question. It gave no traffic or engagement figures, and it says there is "still work ahead" on the model's design judgment, so the formats will keep changing. The 44% figure is OpenAI's own measurement and its quality claims come from internal evaluations, and no outside group has checked either.
 
 If you want help deciding which of your site tools still earn their place, [talk to us](/enquire/).
