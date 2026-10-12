@@ -6,7 +6,7 @@
 <title>The Gravel Opportunity | Manual Focus</title>
 <meta name="description" content="Five years of data on gravel, road, track and mountain bike, and where gravel's growth could get more people in the UK riding, healthier and outdoors. A Manual Focus report.">
 <meta property="og:title" content="The Gravel Opportunity">
-<meta property="og:description" content="Nearly half of adults say road safety stops them cycling more. Gravel is cycling mostly away from traffic, and it was the only bike type selling above pre-pandemic levels in the UK in 2024.">
+<meta property="og:description" content="Five years of data on gravel, road, mountain bike and track cycling, and where gravel's growth could bring more people into regular cycling.">
 <link rel="canonical" href="https://manual-focus.co.uk/reports/the-gravel-opportunity/">
 <meta property="og:url" content="https://manual-focus.co.uk/reports/the-gravel-opportunity/">
 <meta property="og:type" content="article">
@@ -62,7 +62,7 @@ strong{font-weight:700}
   .burger{display:flex;align-items:center;justify-content:center;position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:60;width:46px;height:46px;border:0;border-radius:50%;background:var(--ink);color:var(--bg);font-size:18px;cursor:pointer}
 }
 .main{margin-left:var(--nav);padding:0 max(16px,4vw) 48px}
-.col{max-width:940px;margin:0 auto}
+.col{max-width:860px;margin:0 auto}
 @media (max-width:1024px){.main{margin-left:0}}
 
 /* hero */
@@ -83,10 +83,10 @@ section{padding:60px 0 44px;border-bottom:1px solid var(--line);scroll-margin-to
 h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,4.4vw,52px);line-height:1;text-transform:uppercase;letter-spacing:.01em;margin:0 0 24px}
 h2 .n{display:block;font:600 12px var(--mono);letter-spacing:.16em;color:var(--accent-ink);margin-bottom:10px}
 h3{font:700 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:36px 0 12px;color:var(--ink)}
-p{margin:0 0 16px;max-width:72ch}
+p{margin:0 0 16px}
 .lede{font-size:20px;line-height:1.55}
 ul.l{margin:0 0 16px 20px;padding:0}
-ul.l li{margin-bottom:8px;max-width:70ch}
+ul.l li{margin-bottom:8px}
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:30px 0}
@@ -96,7 +96,7 @@ ul.l li{margin-bottom:8px;max-width:70ch}
 @media (max-width:760px){.stats{grid-template-columns:1fr 1fr}}
 
 /* callouts */
-.co{display:flex;gap:14px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:0 14px 14px 0;margin:24px 0;max-width:84ch}
+.co{display:flex;gap:14px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:0 14px 14px 0;margin:24px 0}
 .co .i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bg);font:700 12px var(--mono);display:flex;align-items:center;justify-content:center;margin-top:2px}
 .co p{margin:0}
 .co.warn{border-left-color:var(--warn);background:var(--warn-wash)}.co.warn .i{background:var(--warn)}
@@ -112,7 +112,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:now
 .g{background:var(--accent-wash)} th.g{color:var(--accent-ink)}
 tr:hover td{background:var(--line)}
 .ml{font:600 12px var(--mono);color:var(--ink-2);white-space:nowrap}
-.note{font-size:13.5px;color:var(--ink-3);margin-top:-6px;max-width:90ch}
+.note{font-size:13.5px;color:var(--ink-3);margin-top:-6px}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:0}
 .pill{display:inline-block;font:600 11px var(--mono);padding:2px 9px;border-radius:999px;white-space:nowrap}
 .p-up{background:var(--good-wash);color:var(--good)} .p-flat{background:var(--warn-wash);color:var(--warn)} .p-down{background:var(--bad-wash);color:var(--bad)}
@@ -158,6 +158,15 @@ footer svg{width:22px;height:46px;flex:none}
 footer p{margin:0 0 6px;max-width:none;opacity:.85}
 footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
 @media print{.rail,.burger{display:none}.main{margin:0}details{open:true}}
+.ab{display:grid;gap:6px;margin:6px 0 4px}
+.ab-g{font:600 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:10px}
+.ab-r{display:grid;grid-template-columns:minmax(120px,240px) minmax(0,1fr);gap:12px;align-items:center;font-size:14.5px}
+.ab-t{position:relative;height:22px;background:var(--line);border-radius:4px;overflow:hidden}
+.ab-t i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:4px}
+.ab-all .ab-t i{background:var(--ink-3)}
+.ab-t b{position:absolute;right:8px;top:2px;font:600 12.5px var(--body);color:var(--ink)}
+@media (max-width:560px){.ab-r{grid-template-columns:1fr;gap:4px}}
+details.sx>summary::marker{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -192,51 +201,54 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
   <a class="lock" href="https://manual-focus.co.uk/"><svg viewBox="-10 -50 110 240" aria-hidden="true"><defs><linearGradient id="mfg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF2D78"/><stop offset=".5" stop-color="#C026D3"/><stop offset="1" stop-color="#00E5FF"/></linearGradient></defs><circle cx="45" cy="45" r="42" fill="none" stroke="url(#mfg2)" stroke-width="7"/><circle cx="45" cy="93" r="42" fill="none" stroke="url(#mfg2)" stroke-width="7"/></svg><span>MANUAL FOCUS</span></a>
   <div class="ey">Sector report · October 2026</div>
   <h1>The gravel <em>opportunity</em></h1>
-  <p class="sub">Nearly half of adults say safety on the roads stops them cycling more. Gravel is cycling mostly away from traffic, and it was the only bike type selling above pre-pandemic levels in the UK in 2024. This report uses five years of data to show where gravel could get more people riding, more active and spending time outdoors.</p>
+  <p class="sub">Five years of data on gravel, road, mountain bike and track cycling, globally and in the UK, and where gravel's growth could bring more people into regular cycling.</p>
   <div class="meta"><span>11 October 2026</span><span>Global, UK focus</span><span>2021 to 2026</span><span>By Manual Focus</span></div>
 </header>
 
 <!-- 00 SCOPE -->
 <section id="scope">
   <h2><span class="n">00</span>Scope and data sources</h2>
-  <p class="lede">This report compares the four disciplines most British riders choose between, which are gravel, road, track and mountain bike, over the five years from autumn 2021. It looks at global data first and then at the UK, and sets out where the opportunity lies to get more people on bikes, more active and outdoors.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Evidence</th><th>What it shows</th><th>Coverage</th></tr></thead>
-    <tbody>
-      <tr><td class="ml">Search demand</td><td>Google Trends interest by discipline (weekly, October 2021 to October 2026) and Google Ads monthly search volumes (September 2022 to August 2026) for 60 UK and US terms. Both come from Google and were retrieved through the DataForSEO API on 11 October 2026</td><td>Global, UK, US</td></tr>
-      <tr><td class="ml">Search footprint</td><td>The keywords britishcycling.org.uk ranks for by discipline, and who Google ranks and cites in AI Overviews for eight UK gravel and road queries</td><td>UK</td></tr>
-      <tr><td class="ml">Events</td><td>UCI Gravel World Series calendars, World Championship fields, and entries for Unbound, The Traka, SBT GRVL, The Gralloch and Dirty Reiver</td><td>Global, UK</td></tr>
-      <tr><td class="ml">Market</td><td>Bicycle Association sales data via trade press, ZIV and ARGE Fahrrad data for Germany and Austria</td><td>UK, DACH</td></tr>
-      <tr><td class="ml">Governance</td><td>British Cycling accounts and membership, road racing data, strategy to 2029, UK Sport funding, the 2026 National Gravel Championships</td><td>UK</td></tr>
-      <tr><td class="ml">Participation</td><td>Sport England Active Lives, DfT National Travel Survey and National Travel Attitudes Study, Walking and Cycling Index, Strava Year in Sport</td><td>England, UK, global</td></tr>
-      <tr><td class="ml">Health and access</td><td>Peer-reviewed studies on cycling and health, Natural England People and Nature Survey, rights-of-way and forest visit data</td><td>UK, England, Scotland</td></tr>
-    </tbody>
-  </table></div>
-  <div class="co warn"><div class="i">!</div><p><strong>Limits of the data.</strong> No public source counts gravel riders in the UK. British Cycling does not publish licence or event numbers for every discipline, Strava stopped publishing gravel figures after its 2023 report, and UK retailers do not publish sales by category. Search data stands in for interest, and event entries stand in for participation. Where a figure is modelled, estimated or our own judgement, it is labelled. Google Trends values are relative, so the report compares disciplines with each other rather than quoting them as volumes.</p></div>
-  <div class="co"><div class="i">i</div><p><strong>Disclosure.</strong> Manual Focus works with Ribble Cycles and the Ribble Outliers gravel team. Both 2026 elite national gravel champions ride for Ribble-backed teams. The evidence here is public and sourced, and the conclusions would stand without that link, but readers should know it is there.</p></div>
+  <p class="lede">This report compares gravel, road, mountain bike and track cycling over the five years from autumn 2021, globally and in the UK. It sets out where gravel's growth could bring more people into regular cycling, and what is missing for that to happen.</p>
+  <details class="sx"><summary>Data sources, method and limitations</summary><div class="dc">
+    <div class="tw" style="margin-top:6px"><table>
+      <thead><tr><th>Evidence</th><th>What it shows</th><th>Coverage</th></tr></thead>
+      <tbody>
+        <tr><td class="ml">Search volume</td><td>Google Ads monthly search counts for 60 UK and US terms, September 2022 to August 2026, checked against DataForSEO clickstream estimates for the last 12 months</td><td>UK, US</td></tr>
+        <tr><td class="ml">Search demographics</td><td>Google Trends interest by gender and age for gravel, road, mountain bike and track terms, October 2025 to October 2026</td><td>UK</td></tr>
+        <tr><td class="ml">Search competition</td><td>Which websites rank and earn traffic for 20 common UK gravel searches, and where britishcycling.org.uk appears, including in Google AI Overviews</td><td>UK</td></tr>
+        <tr><td class="ml">Activity apps</td><td>Strava Year in Sport reports for 2021 to 2025, as reported in the cycling press</td><td>Global, UK</td></tr>
+        <tr><td class="ml">Events</td><td>UCI Gravel World Series calendars, World Championship fields, and entries for Unbound, The Traka, SBT GRVL, The Gralloch, Dirty Reiver and Glorious Gravel events</td><td>Global, UK</td></tr>
+        <tr><td class="ml">Market</td><td>Bicycle Association sales data as published in trade press, plus ZIV and ARGE Fahrrad data for Germany and Austria</td><td>UK, DACH</td></tr>
+        <tr><td class="ml">Participation and health</td><td>Sport England Active Lives, DfT National Travel Attitudes Study, Walking and Cycling Index, Natural England People and Nature Survey, peer-reviewed health studies</td><td>England, UK</td></tr>
+        <tr><td class="ml">Governance</td><td>British Cycling accounts, membership, road racing data, strategy to 2029, website structure and the 2026 National Gravel Championships</td><td>UK</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Limitations.</strong> No public source counts gravel riders in the UK. British Cycling does not publish licence or event numbers for every discipline, Strava has published only one gravel-specific growth figure since 2021, and UK retailers do not publish sales by category. Search volume and event entries are used as indicators of interest and participation, not as direct measures of either. All search, ranking and demographic data was retrieved through the DataForSEO API on 11 and 12 October 2026. Where a figure is modelled, estimated or our own assessment, the report says so.</p>
+  </div></details>
 </section>
 
 <!-- 01 SUMMARY -->
 <section id="summary">
   <h2><span class="n">01</span>Executive summary</h2>
-  <p class="lede">England has 11.8 million inactive adults, a quarter of adults doing less than 30 minutes of activity a week. Leisure cycling has fallen from 7.3 million people in 2019/20 to about 6.1 million. When the Department for Transport asks why people do not cycle more, 48% name safety. When it asks what would get them riding, 52% say off-road and segregated paths. Gravel is riding mostly off-road and away from traffic, in forests and on byways and quiet lanes. Cycling Weekly reported in January 2024 that gravel bikes were the only type with sales above pre-pandemic levels.</p>
-  <p>In a study of 264,337 UK adults, people who cycled to work had 41% lower all-cause mortality and 46% lower heart disease than those who did not. Natural England finds 89% of people who spend time outdoors say it is good for their mental health, and 62% of those who did not get outside wished they had. Gravel puts both on the same ride, which is hard exercise in green space with little or no traffic.</p>
-  <p>The UCI Gravel World Series went from 11 events in 2022 to 47 in 32 countries in 2026. UK gravel bike sales are up 284% on pre-Covid, about 30,000 a year, while the wider bike market fell to its lowest level in around 50 years. Scotland's Gralloch grew from 1,230 riders in 2023 to more than 3,000 in 2026, and Dirty Reiver sold out in six hours. Gravel's share of UK search interest in racing across the four disciplines rose from 8% to 42% in five years, UK searches for "gravel race" rose 49% in three years and "gravel cycling events" rose 37%, while "road cycling events" fell 67% and "sportive" fell 14%.</p>
-  <p>The opportunity covers people, places and products. The people include would-be riders put off by traffic, the 1.2 million adults who stopped riding for leisure, and the 26% of women who do not cycle but would like to. On places, England's forests take 313 million visits a year, cyclists can legally use only 22% of the rights of way network in England and Wales, and Scotland's access rights already open most land to responsible riding. On products, the UK gravel scene is built around experienced, mostly male riders, with almost nothing designed for beginners.</p>
-  <p>The organisations that could grow gravel participation have only started. British Cycling recognised gravel as a racing category in mid-2025, held its first National Gravel Championships in August 2026, and does not mention gravel in its strategy to 2029. Its website earns an estimated 333 search visits a month from gravel terms and does not rank in Google's top ten for "gravel events uk". Scottish Cycling ran its first sanctioned gravel championships in 2025, and Cycling UK campaigns on off-road access. The growth so far has come from independent organisers, retailers and brands. Growing participation will need governing bodies, land managers, health partners and the industry to work together.</p>
+  <p class="lede">Gravel is the only bike category selling above pre-pandemic levels in the UK. Gravel bike sales in the year to July 2024 were 284% above pre-pandemic levels while total bike sales fell to their lowest level in around 50 years, although gravel remains a small part of the market, at about 30,000 of around 1.45 million bikes sold in 2024. UK Google searches for gravel bikes are now level with searches for road bikes, at about 22,000 a month each.</p>
+  <p>The growth is visible in events as well as sales. The UCI Gravel World Series went from 11 events in 2022 to 47 in 32 countries in 2026. The Gralloch in Scotland grew from 1,230 riders in 2023 to more than 3,000 from 47 nations in 2026, and Dirty Reiver sold out its 2026 edition in six hours. UK searches for road cycling events still outnumber searches for gravel events, but the ratio fell from nearly six to one in 2022/23 to just over three to one in 2025/26.</p>
+  <p>This matters beyond the sport. England has 11.8 million inactive adults, 24.7% of the adult population, and the number of adults cycling for leisure has fallen from 7.3 million in 2019/20 to about 6.1 million. Large studies link regular cycling with lower mortality, lower heart disease and better mental health. In the Department for Transport's latest survey, 48% of adults named safety as a reason they do not cycle more, and 52% said off-road and segregated paths would encourage them. Gravel riding takes place largely on forest tracks, byways and quiet lanes, so it is one route into regular cycling that involves less riding alongside motor traffic. This report does not suggest gravel alone will close the activity gap. It sets out where gravel's growth could reach people who do not ride today.</p>
+  <p>The opportunity covers people, places and products. The people include adults who stopped riding for leisure after 2020 and the 26% of women who do not cycle but would like to. The places include England's public forests, which recorded 313 million visits in 2024/25, although cyclists can legally use only 22% of the rights of way network in England and Wales. On products, most UK gravel events and content are aimed at experienced riders, and Google's demographic data shows gravel bike searches skew more male than road or mountain bike searches.</p>
+  <p>The organisations that could grow participation have only started. British Cycling recognised gravel as a racing category in mid-2025 and held its first National Gravel Championships in August 2026. Gravel does not appear as a category on its website or in its strategy to 2029, and the site earns an estimated 24 visits a month from 20 common UK gravel searches, against more than 8,000 for the top-ranking bike retailer. The growth so far has come from independent organisers, retailers and brands.</p>
   <div class="stats">
-    <div class="stat"><div class="v">11.8m</div><div class="k">Inactive adults in England, 24.7% of adults (Sport England, 2026)</div></div>
-    <div class="stat"><div class="v">52%</div><div class="k">Say off-road and segregated paths would get them cycling more (DfT, 2024)</div></div>
-    <div class="stat"><div class="v">+284%</div><div class="k">UK gravel bike sales against pre-Covid, about 30,000 a year</div></div>
+    <div class="stat"><div class="v">22k</div><div class="k">Monthly UK Google searches for gravel bikes, level with road bikes</div></div>
+    <div class="stat"><div class="v">+284%</div><div class="k">UK gravel bike sales against pre-pandemic levels, about 30,000 a year (2024)</div></div>
     <div class="stat"><div class="v">47</div><div class="k">UCI Gravel World Series events in 2026, up from 11 in 2022</div></div>
+    <div class="stat"><div class="v">11.8m</div><div class="k">Inactive adults in England, 24.7% of adults (Sport England, 2026)</div></div>
   </div>
-  <div class="co acc"><div class="i">→</div><p><strong>Key finding.</strong> Nearly half of adults say safety stops them cycling more, and gravel is cycling mostly away from traffic. The demand, the bikes and the places to ride already exist, but there is no clear entry route for people who do not ride yet.</p></div>
+  <div class="co acc"><div class="i">→</div><p><strong>Key finding.</strong> Gravel has established itself in the UK on sales growth, search demand and events. Beginner events and rides, signed routes near towns, and governing body support have not kept pace with that growth.</p></div>
 </section>
 
 <!-- 02 WHY -->
 <section id="why">
   <h2><span class="n">02</span>Health benefits and barriers to cycling</h2>
-  <p class="lede">Cycling improves health, and riding outdoors adds the benefits of time in nature, but a large share of adults in England do not ride or exercise at all.</p>
+  <p class="lede">The evidence is compelling. Large studies consistently find that people who cycle live longer and report better mental health than people who do not.</p>
+  <p>These studies measure associations rather than proving cause and effect, but the pattern holds across different countries, study designs and more than a million participants.</p>
   <h3>Health evidence</h3>
   <div class="tw"><table>
     <thead><tr><th>Evidence</th><th>Finding</th><th>Source</th></tr></thead>
@@ -250,22 +262,21 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
     </tbody>
   </table></div>
   <h3>Activity levels in England</h3>
-  <p>In England, 24.7% of adults are inactive, which is 11.8 million people. Physical inactivity is linked to one in six UK deaths and has been estimated to cost the UK £7.4bn a year, though that estimate dates from before the pandemic. Activity levels are lowest among disabled adults, less affluent adults, Black and Asian adults, and women.</p>
-  <div class="chart"><div class="t">Share of adults in England who are active, by group</div><p class="s">Meeting the guideline of 150 minutes of moderate activity a week, November 2024 to November 2025</p>
-    <div class="cv" style="height:300px"><canvas id="cActive" aria-label="Bar chart. Share of adults active. Most affluent 73.2%, men 67.3%, all adults 64.6%, women 62.2%, Black adults 57.2%, Asian adults 56.3%, least affluent 53.8%, disabled adults 49.1%."></canvas></div>
-    <p class="cn">Sport England, Active Lives Adult Survey, published 23 April 2026. Disabled adults includes people with a long-term health condition.</p>
-    <details class="tv"><summary>Show as table</summary><table><thead><tr><th>Group</th><th class="num">Active</th></tr></thead><tbody id="tActive"></tbody></table></details>
+  <p>In England, 24.7% of adults are inactive, which is 11.8 million people doing less than 30 minutes of activity a week. Physical inactivity is linked to one in six UK deaths and has been estimated to cost the UK £7.4bn a year, though that estimate dates from before the pandemic.</p>
+  <div class="chart"><div class="t">Share of adults in England meeting the activity guideline, by group</div><p class="s">Adults doing at least 150 minutes of moderate activity a week, November 2024 to November 2025. Each group is shown separately against the figure for all adults.</p>
+    <div class="ab"><div class="ab-g">All adults</div><div class="ab-r ab-all"><span class="ab-n">All adults</span><span class="ab-t"><i style="width:64.6%"></i><b>64.6%</b></span></div><div class="ab-g">Gender</div><div class="ab-r"><span class="ab-n">Men</span><span class="ab-t"><i style="width:67.3%"></i><b>67.3%</b></span></div><div class="ab-r"><span class="ab-n">Women</span><span class="ab-t"><i style="width:62.2%"></i><b>62.2%</b></span></div><div class="ab-g">Affluence</div><div class="ab-r"><span class="ab-n">Most affluent</span><span class="ab-t"><i style="width:73.2%"></i><b>73.2%</b></span></div><div class="ab-r"><span class="ab-n">Least affluent</span><span class="ab-t"><i style="width:53.8%"></i><b>53.8%</b></span></div><div class="ab-g">Ethnicity</div><div class="ab-r"><span class="ab-n">Black adults</span><span class="ab-t"><i style="width:57.2%"></i><b>57.2%</b></span></div><div class="ab-r"><span class="ab-n">Asian adults</span><span class="ab-t"><i style="width:56.3%"></i><b>56.3%</b></span></div><div class="ab-g">Disability</div><div class="ab-r"><span class="ab-n">Disabled or long-term condition</span><span class="ab-t"><i style="width:49.1%"></i><b>49.1%</b></span></div></div>
+    <p class="cn">Sport England, Active Lives Adult Survey, published 23 April 2026. Affluence is based on socio-economic group. Sport England does not publish a combined breakdown, so each group compares people within that category only.</p>
   </div>
   <h3>Barriers to cycling</h3>
   <div class="stats">
     <div class="stat"><div class="v">48%</div><div class="k">Name safety as a reason they do not cycle more, 51% of women and 45% of men</div></div>
-    <div class="stat"><div class="v">61%</div><div class="k">Say safer roads would get them cycling more</div></div>
-    <div class="stat"><div class="v">52%</div><div class="k">Say off-road and segregated paths would get them cycling more</div></div>
+    <div class="stat"><div class="v">61%</div><div class="k">Say safer roads would encourage them to cycle more</div></div>
+    <div class="stat"><div class="v">52%</div><div class="k">Say off-road and segregated paths would encourage them to cycle more</div></div>
     <div class="stat"><div class="v">29%</div><div class="k">Of women cite a lack of confidence in their cycling skills, against 12% of men</div></div>
   </div>
-  <p class="note">DfT National Travel Attitudes Study, wave 9, fieldwork August to September 2023, published 18 January 2024.</p>
-  <p>A systematic review of 54 studies found that women prefer more separation from motor traffic than men. The Walking and Cycling Index 2025 found more than twice as many men as women cycle weekly, and 26% of women do not cycle but would like to. Safer roads take years and public money to deliver. Riding off-road is available now, wherever there is a forest track, a bridleway or a byway.</p>
-  <div class="co good"><div class="i">✓</div><p><strong>Relevance to gravel.</strong> Gravel offers the same health benefits as road cycling, adds time in nature, and removes the traffic that nearly half of adults say holds them back.</p></div>
+  <p class="note">DfT National Travel Attitudes Study, wave 9, fieldwork August to September 2023, published 18 January 2024. Respondents could choose more than one answer.</p>
+  <p>A systematic review of 54 studies found that women prefer more separation from motor traffic than men. The Walking and Cycling Index 2025 found that more than twice as many men as women cycle weekly, and that 26% of women do not cycle but would like to. Off-road routes already exist on forest tracks, bridleways and byways, but cyclists can legally use only 22% of the rights of way network in England and Wales.</p>
+  <div class="co"><div class="i">i</div><p><strong>Relevance to gravel.</strong> Gravel riding offers the same physical activity as road cycling, takes place largely in green space, and involves less riding on roads shared with motor traffic. Whether that brings in new riders depends on routes, events and support designed for beginners, which are covered later in this report.</p></div>
 </section>
 
 <!-- 03 OPPORTUNITY -->
@@ -283,7 +294,7 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
       <tr><td><strong>Existing riders moving off road</strong></td><td>About 30,000 gravel bikes a year, road racing down</td><td>Few events near them, little structure</td><td>Event calendars, regional series, membership that covers gravel</td></tr>
     </tbody>
   </table></div>
-  <div class="co warn"><div class="i">!</div><p><strong>Gravel is not yet diverse.</strong> Cyclists and mountain bikers visiting Scotland's forests were 76% male, with an average age of 32, in the 2013 All Forests Survey. Only about 10% of respondents to Cycling UK's off-road survey were women. Women say they want traffic-free riding, and gravel offers it, but the UK gravel scene has not been built for them, so events, rides and marketing need designing with women in mind from the start.</p></div>
+  <div class="co warn"><div class="i">!</div><p><strong>Gravel is not yet diverse.</strong> Google's demographic data for UK searches shows women's interest in gravel bikes scoring 74 against 100 for men, lower than for road bikes (84) or mountain bikes (88). Women say they want riding away from traffic, and gravel offers it, but UK gravel products and marketing have so far been aimed mainly at experienced riders. Events, rides and marketing that set out to include women from the start would be needed to change that.</p></div>
   <h3>Places to ride</h3>
   <div class="tw"><table>
     <thead><tr><th>Asset</th><th>What exists</th><th>Constraint</th></tr></thead>
@@ -309,11 +320,24 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
   <h3>How the discipline grew</h3>
   <ul class="l">
     <li><strong>Events came before governing bodies.</strong> The format came from the US Midwest. Unbound Gravel had 34 starters in 2006 and has run with a field of about 5,000 since 2024. The UCI created its Gravel World Series and World Championships in 2022, 16 years after Unbound began.</li>
-    <li><strong>Industry investment.</strong> SRAM launched its XPLR gravel groupset in August 2021 and Shimano launched GRX Di2 1x12 in June 2025. Specialized topped Strava's gravel bike rankings in 2024.</li>
+    <li><strong>Industry investment.</strong> SRAM launched its XPLR gravel groupset in August 2021 and Shimano launched GRX Di2 1x12 in June 2025. Nearly every major road and mountain bike brand now sells dedicated race and endurance gravel bikes.</li>
     <li><strong>Strava activity.</strong> Strava's 2023 report recorded a 55% rise in athletes logging a gravel ride, against 13% for mountain biking and 23% for e-bikes.</li>
     <li><strong>Professional racing and prize money.</strong> The Life Time Grand Prix purse rose from $250,000 in 2022 to $590,000 for 2026. WorldTour riders now race gravel worlds, and in the US the number of UCI-level road teams fell from 19 to 11 over a decade while gravel grew.</li>
   </ul>
-  <div class="co warn"><div class="i">!</div><p><strong>Signs of slowing growth.</strong> Unbound has plateaued at about 5,000 riders. SBT GRVL was capped at 1,800 by its county permit for 2025. The Gravel Earth series cut its calendar from 25 events to 12 for 2026. The 2026 World Championships in Australia drew only three WorldTour men. Some established US events have reached their ceiling, but the UCI series, The Gralloch and German and Austrian gravel bike sales all kept growing in 2025 and 2026, so the growth is now strongest in Europe and the UK.</p></div>
+  <div class="co"><div class="i">i</div><p><strong>Constraints on the largest events.</strong> Several high-profile events have stopped growing for reasons of capacity rather than demand. Unbound runs with a field of about 5,000, and its organiser has said the limit is the accommodation available in Emporia. Half its places now go through qualifying events. SBT GRVL was capped at 1,800 riders by its county permit for 2025. The Gravel Earth Series fell from about 25 events in 2025 to 12 in 2026 after several events left the series, reportedly over fees, while the UCI Gravel World Series grew from 33 to 47 events over the same period. The 2026 World Championships in Australia drew a smaller elite field because of the long-haul venue.</p></div>
+  <h3>What Strava's Year in Sport reports show</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Report</th><th>Cycling findings</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">2021</td><td>No gravel figures. UK users cycled 1.4bn km, and 17% of the UK population used Strava.</td></tr>
+      <tr><td class="ml">2022</td><td>Gravel growth mentioned without a figure. The share of UK cyclists logging an e-bike ride nearly doubled, to about 5%.</td></tr>
+      <tr><td class="ml">2023</td><td>The share of athletes logging a gravel ride rose 55%, against 13% for mountain biking and 23% for e-bikes. Strava named gravel one of its fastest-growing activities.</td></tr>
+      <tr><td class="ml">2024</td><td>No gravel growth figure. Women's cycling uploads rose 11%. Specialized was the most recorded gravel bike brand.</td></tr>
+      <tr><td class="ml">2025</td><td>No discipline growth figures. Strava's survey found riders see gravel and mountain biking as having high barriers to entry. The most recorded gravel bike brands were Specialized, Trek and Scott.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Year in Sport reports as covered by BikeRadar, Cycling Weekly, MBR and GearJunkie. Strava's separate UK data, reported by BikeBiz in July 2025, showed UK cyclists under 35 up more than 80% and women's cycling activity up nearly 20% since 2019.</p>
+  <p>Strava has published only one gravel growth figure in five years, so the reports confirm the direction of travel rather than its size. The 2025 finding that riders see gravel as hard to get into is consistent with the gap in beginner provision described later in this report.</p>
 </section>
 
 <!-- 05 MARKET -->
@@ -348,14 +372,27 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
 <!-- 06 RIDER -->
 <section id="rider">
   <h2><span class="n">06</span>Who rides gravel</h2>
-  <p>No one publishes a demographic profile of UK gravel riders, so this section uses event and federation data. It should be tested against British Cycling's own member data and event entries.</p>
+  <p>No one publishes a demographic profile of UK gravel riders. This section uses Google's demographic data for UK searches alongside event data. Search interest shows who is looking, which is an indicator of who rides rather than a measure of it.</p>
+  <h3>Who searches for gravel</h3>
+  <div class="tw"><table>
+    <thead><tr><th>UK search term</th><th class="num">Women, relative to men</th><th>Peak age group</th></tr></thead>
+    <tbody>
+      <tr><td class="g">gravel bike</td><td class="num g">74 to 100</td><td class="g">35 to 44</td></tr>
+      <tr><td>road bike</td><td class="num">84 to 100</td><td>35 to 44</td></tr>
+      <tr><td>mountain bike</td><td class="num">88 to 100</td><td>35 to 44</td></tr>
+      <tr><td class="g">gravel race</td><td class="num g">91 to 100</td><td class="g">35 to 44</td></tr>
+      <tr><td>road race cycling</td><td class="num">69 to 100</td><td>35 to 44</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Google Trends demographic interest via DataForSEO, UK, October 2025 to October 2026. Each term is scored separately, with the higher-interest gender set to 100. The scores compare relative interest, not numbers of people, and Google reports demographics only where volumes are large enough.</p>
+  <p>The search data points two ways. Women's interest in gravel bikes is lower relative to men's than it is for road or mountain bikes, so the people shopping for gravel bikes today skew more male. Women's interest in gravel racing, though, is much closer to men's than it is for road racing. That is consistent with event data, where women made up 25% of Unbound's 2025 field against about 18% of licensed British road racers in 2025. Neither source is a direct measure of UK gravel participation.</p>
+  <h3>What event data shows</h3>
   <ul class="l">
-    <li><strong>First-time racers.</strong> More than 40% of the 1,230 riders at the first Gralloch in 2023 had never raced gravel before. Those riders are potential new members for any governing body that offers them something.</li>
-    <li><strong>Gender balance.</strong> No UK data on the gender of gravel riders exists, so the figures here are proxies. Women were 25% of the field at Unbound in the US in 2025, while British road racing had 704 women among just under 4,000 licensed racers in 2025, about 18%. The two are not like for like, and Scotland's forest data later in this report shows off-road riding is still mostly male. SBT GRVL's 2020 edition sold out in under 25 minutes with 75% more women than the year before.</li>
-    <li><strong>British riders at the World Championships.</strong> 345 British riders entered the 2025 Gravel World Championships in the Netherlands, more than from Germany, France or the USA. They qualified through UCI series events, and the only one in the UK is The Gralloch.</li>
-    <li><strong>Travel and tourism.</strong> The Gralloch drew 47 nations in 2026, The Traka expected riders of 74 nationalities, and Unbound's 2025 field brought an estimated $21.8m of economic impact to one Kansas county. Gravel riders travel for events, which makes them relevant to regional funding and tourism partners.</li>
+    <li><strong>First-time racers.</strong> More than 40% of the 1,230 riders at the first Gralloch in 2023 were in their first gravel race.</li>
+    <li><strong>British riders at the World Championships.</strong> 345 British riders entered the 2025 Gravel World Championships in the Netherlands, more than from Germany, France or the USA. The only UK qualifying event is The Gralloch.</li>
+    <li><strong>Travel.</strong> The Gralloch drew riders from 47 nations in 2026, and Unbound's 2025 field brought an estimated $21.8m of economic impact to one Kansas county. Gravel riders travel for events, which makes them relevant to regional tourism and economic development bodies.</li>
   </ul>
-  <div class="co"><div class="i">i</div><p><strong>Gap in British Cycling's offer.</strong> Gravel riders are part of cycling's existing audience, but British Cycling offers them no gravel membership, series or beginner rides.</p></div>
+  <div class="co"><div class="i">i</div><p><strong>Gap in British Cycling's offer.</strong> British Cycling currently offers gravel riders no gravel membership, series or beginner rides.</p></div>
 </section>
 
 <!-- 07 COMPARE -->
@@ -368,35 +405,28 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
       <tr><td class="ml">Global events</td><td class="g">UCI series 11 to 47 events, 2022 to 2026</td><td>US UCI road teams 19 to 11</td><td>Enduro calendars thinning</td><td>Elite circuit only</td></tr>
       <tr><td class="ml">UK events</td><td class="g">Gralloch 1,230 to 3,000+, Dirty Reiver sold out in 6 hours</td><td>Circuit races down 14%, road races down 16%, 23 cancelled in 2025</td><td>Welsh Enduro Series ended, calendar leaner than 2021</td><td>Domestic racing relaunched as six series, 2024</td></tr>
       <tr><td class="ml">UK bike sales</td><td class="g">+284% on pre-Covid</td><td>Below pre-Covid, high end recovering</td><td>Below pre-Covid, high end recovering</td><td>Not reported</td></tr>
-      <tr><td class="ml">UK racing search share</td><td class="g">8% to 42%</td><td>56% to 20%</td><td>34% to 37%</td><td>2% to 1%</td></tr>
+      <tr><td class="ml">UK bike searches a year</td><td class="g">281,800</td><td>240,100</td><td>435,100</td><td>16,800</td></tr>
       <tr><td class="ml">Barrier to entry</td><td class="g">Rights of way, land access</td><td>Traffic, policing costs, licence</td><td>Trail access, travel to venues</td><td>Velodrome access, kit</td></tr>
       <tr><td class="ml">Olympic</td><td class="g">No</td><td>Yes</td><td>Yes (XC)</td><td>Yes</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Search share is gravel, road, MTB and track race terms in Google Trends UK, October 2021 to September 2022 against October 2025 to September 2026.</p>
+  <p class="note">Bike searches are Google Ads UK totals for "gravel bike", "road bike", "mountain bike" and "track bike" with close variants, 12 months to August 2026.</p>
 
-  <h3>How to read the search charts</h3>
-  <p>Google Trends does not publish search counts. It scores interest on a relative scale, so the useful measure is how searches split between the four disciplines, and how that split changes over time. Each year in these charts runs from October to September, and covers weekly UK data from October 2021 to September 2026.</p>
-  <div class="chart"><div class="t">Gravel's share of UK searches about racing has grown from 8% to 42%</div><p class="s">Each bar shows how UK Google searches for racing split between the four disciplines in one year. The terms are "gravel race", "road race cycling", "mtb race" and "track cycling race".</p>
-    <div class="legend"><span><i style="background:var(--c-gravel)"></i>Gravel</span><span><i style="background:var(--c-road)"></i>Road</span><span><i style="background:var(--c-mtb)"></i>Mountain bike</span><span><i style="background:var(--c-track)"></i>Track</span></div>
-    <div class="cv" style="height:340px"><canvas id="cRace" aria-label="Stacked bar chart. Share of UK racing searches by discipline. Gravel rises from 8% in 2021/22 to 42% in 2025/26. Road falls from 56% to 20%. Mountain bike moves from 34% to 37%. Track stays at 1 to 3%."></canvas></div>
-    <p class="cn">In 2021/22, about 8 in every 100 UK racing searches across these four terms were about gravel. By 2025/26 it was 42 in every 100. Road fell from 56 to 20, mountain bike held at around a third, and track stayed under 3. Search volumes for these terms are small, so single years move sharply. Road's drop in 2024/25 and partial recovery in 2025/26 is an example. Read the five-year direction rather than any one year. The share also depends on the terms chosen, and "road race cycling" is only one way people search for road racing. The Google Ads data in the third chart points the same way.</p>
-    <details class="tv"><summary>Show as table</summary><table><thead><tr><th>Year</th><th class="num">Gravel</th><th class="num">Road</th><th class="num">MTB</th><th class="num">Track</th></tr></thead><tbody id="tRace"></tbody></table></details>
+  <h3>How popular gravel is in UK search</h3>
+  <p>Percentage changes can mislead when the starting points are very different, so the charts below show actual search counts. They use Google Ads data, which reports how many times each term was searched in the UK each month. The figures for the most recent 12 months were checked against DataForSEO's clickstream estimates, which put UK searches for gravel bikes and road bikes level at about 22,000 a month each.</p>
+  <div class="chart"><div class="t">UK Google searches a year, by type of bike</div><p class="s">Searches for "gravel bike", "road bike", "mountain bike" and "track bike", including plurals and close variants, in each 12-month period from September to August</p>
+    <div class="legend"><span><i style="background:var(--c-gravel)"></i>Gravel bike</span><span><i style="background:var(--c-road)"></i>Road bike</span><span><i style="background:var(--c-mtb)"></i>Mountain bike</span><span><i style="background:var(--c-track)"></i>Track bike</span></div>
+    <div class="cv" style="height:340px"><canvas id="cBikes" aria-label="Grouped bar chart of UK searches a year by bike type. Gravel bike 331,500, 342,400, 310,500 and 281,800. Road bike 268,200, 300,100, 274,700 and 240,100. Mountain bike 480,400 to 435,100. Track bike about 17,000 to 21,000."></canvas></div>
+    <p class="cn">Google Ads via DataForSEO, UK, English. Google groups close variants, so "mountain bike" also includes "mtb" and "mountain biking". Searches fell for every bike type in the last year, in line with the bike market, but gravel bike searches stayed level with or ahead of road bike searches in every year.</p>
+    <details class="tv"><summary>Show as table</summary><table><thead><tr><th>Year</th><th class="num">Gravel</th><th class="num">Road</th><th class="num">MTB</th><th class="num">Track</th></tr></thead><tbody id="tBikes"></tbody></table></details>
   </div>
-
-  <div class="chart"><div class="t">Gravel's share has grown fastest in racing searches, and slowly in bike searches</div><p class="s">Each line shows gravel's share of UK searches across the four disciplines, for three types of search.</p>
-    <div class="legend"><span><i style="background:var(--c-gravel)"></i>Racing searches, such as "gravel race"</span><span><i style="background:var(--ink-2)"></i>General searches, such as "gravel cycling"</span><span><i style="background:var(--ink-3);opacity:.6"></i>Bike searches, such as "gravel bike"</span></div>
-    <div class="cv"><canvas id="cShare" aria-label="Line chart. Gravel share of UK searches. Racing searches rise from 8% to 42%, general sport searches from 5% to 9%, bike searches from 10% to 12%."></canvas></div>
-    <p class="cn">Racing searches compare "gravel race" with "road race cycling", "mtb race" and "track cycling race". General searches compare "gravel cycling" with "road cycling", "mountain biking" and "track cycling". Bike searches compare "gravel bike" with "road bike", "mountain bike" and "track bike". Gravel's share of bike searches rose from 10% to 12%, so most people shopping for a bike still look at road and mountain bikes. Its share of general searches nearly doubled from 5% to 9%. Its share of racing searches rose more than fivefold. Worldwide, gravel's share of racing searches rose from 33% to 46% over the same years.</p>
-    <details class="tv"><summary>Show as table</summary><table><thead><tr><th>Year</th><th class="num">Racing</th><th class="num">General</th><th class="num">Bikes</th></tr></thead><tbody id="tShare"></tbody></table></details>
+  <div class="chart"><div class="t">UK Google searches a year for events and races, gravel against road</div><p class="s">Gravel is "gravel race", "gravel cycling events", "gravel events" and "gravel sportive". Road is "sportive", "cycling sportives", "road cycling events", "criterium" and "road racing cycling".</p>
+    <div class="legend"><span><i style="background:var(--c-gravel)"></i>Gravel event searches</span><span><i style="background:var(--c-road)"></i>Road event searches</span></div>
+    <div class="cv" style="height:300px"><canvas id="cEvents" aria-label="Grouped bar chart. Gravel event searches 6,440, 7,520, 6,730 and 8,070 a year. Road event searches 36,890, 36,450, 33,090 and 27,700."></canvas></div>
+    <p class="cn">Google Ads via DataForSEO, UK, English, September to August years. Road event searches still outnumber gravel event searches, but the ratio fell from 5.7 to 1 in 2022/23 to 3.4 to 1 in 2025/26.</p>
+    <details class="tv"><summary>Show as table</summary><table><thead><tr><th>Year</th><th class="num">Gravel</th><th class="num">Road</th><th class="num">Road to gravel</th></tr></thead><tbody id="tEvents"></tbody></table></details>
   </div>
-
-  <div class="chart"><div class="t">UK searches for gravel races rose while searches for road events fell</div><p class="s">Change in UK Google searches for each term, comparing the 12 months to August 2026 with the 12 months to August 2023. Bars to the right grew, bars to the left fell.</p>
-    <div class="legend"><span><i style="background:var(--c-gravel)"></i>Gravel</span><span><i style="background:var(--c-road)"></i>Road</span><span><i style="background:var(--c-mtb)"></i>Mountain bike</span><span><i style="background:var(--c-track)"></i>Track</span></div>
-    <div class="cv" style="height:470px"><canvas id="cTerms" aria-label="Bar chart of three-year change in UK search volume by term."></canvas></div>
-    <p class="cn">Google Ads volumes via DataForSEO, UK, English. Close variants are grouped by Google, so "gravel bike" includes "gravel bikes". Hover for 12-month totals. These are actual search counts from Google Ads, so unlike the Trends charts they show size as well as direction. Not every gravel term grew. "Gravel events" rose 10% and "gravel sportive" fell 23%. Mountain bike racing searches also grew, by 60%, even as the UK enduro calendar shrank.</p>
-  </div>
-  <div class="co acc"><div class="i">→</div><p><strong>Purchase and event searches move differently.</strong> Searches for every bike type fell, in line with the weak bike market. Searches for gravel races and events rose while road racing searches fell, so interest in taking part is moving towards gravel.</p></div>
+  <div class="co acc"><div class="i">→</div><p><strong>What the search counts show.</strong> In bike searches, gravel has caught up with road. In event searches, road is still more than three times larger, but gravel event searches rose from about 6,400 to 8,100 a year between 2022/23 and 2025/26, while road event searches fell from about 36,900 to 27,700.</p></div>
 </section>
 
 <!-- 08 CEPS -->
@@ -406,9 +436,9 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
   <div class="tw"><table>
     <thead><tr><th>Entry point</th><th>Evidence</th><th>Who meets the rider today</th><th>BC position</th></tr></thead>
     <tbody>
-      <tr><td>"I want to ride hard without traffic"</td><td>Road cycling events searches down 67% in three years. Leisure cycling in England down 1.2m since 2019/20</td><td>Komoot, Forestry England, Cycling UK, local gravel groups</td><td><span class="pill p-down">Absent</span></td></tr>
-      <tr><td>"I've bought a gravel bike, now what?"</td><td>About 30,000 gravel bikes a year. "Gravel bike uk" searches up 13% while "road bike uk" fell 51%</td><td>Retailers (Ribble ranks first for "beginner gravel ride uk"), media</td><td><span class="pill p-down">Absent</span></td></tr>
-      <tr><td>"I want to enter my first event"</td><td>"Gravel race" and "gravel racing" searches up 49%, "gravel cycling events" up 37%</td><td>Glorious Gravel, Trailbreak, Dirty Reiver, Gralloch, Gritfest</td><td><span class="pill p-flat">9th</span></td></tr>
+      <tr><td>"I want to ride away from traffic"</td><td>"Road cycling events" searches fell from 1,190 to 390 a year. Leisure cycling in England down 1.2m since 2019/20</td><td>Komoot, Forestry England, Cycling UK, local gravel groups</td><td><span class="pill p-down">Absent</span></td></tr>
+      <tr><td>"I've bought a gravel bike, now what?"</td><td>About 30,000 gravel bikes sold a year. "Gravel bike uk" searches rose from 17,700 to 20,000 a year while "road bike uk" fell from 8,440 to 4,140</td><td>Retailers (Ribble ranks first for "beginner gravel ride uk"), media</td><td><span class="pill p-down">Absent</span></td></tr>
+      <tr><td>"I want to enter my first event"</td><td>"Gravel race" searches rose from 2,700 to 4,010 a year, "gravel cycling events" from 1,440 to 1,970</td><td>Glorious Gravel, Trailbreak, Dirty Reiver, Gralloch, Gritfest</td><td><span class="pill p-flat">9th</span></td></tr>
       <tr><td>"How do I get into gravel racing?"</td><td>Google shows an AI Overview for this query</td><td>Precision Fuel &amp; Hydration, Reddit, Apidura</td><td><span class="pill p-flat">4th, cited</span></td></tr>
       <tr><td>"I want to race for my country"</td><td>345 British entries at the 2025 Worlds</td><td>UCI series organisers abroad, The Gralloch</td><td><span class="pill p-flat">Championship only</span></td></tr>
       <tr><td>"I want to find a national championship"</td><td>Small volume, high intent</td><td>British Cycling</td><td><span class="pill p-up">1st</span></td></tr>
@@ -426,17 +456,19 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
     <p class="cn">UCI calendar announcements. Gran Fondo Daily News counted 45 events in November 2025 before the calendar was finalised at 47.</p>
   </div>
   <div class="tw"><table>
-    <thead><tr><th>Event</th><th>Where</th><th>Latest figure</th><th>Trend</th><th>Run by</th></tr></thead>
+    <thead><tr><th>Event</th><th>Where</th><th>Latest figure</th><th>Run by</th></tr></thead>
     <tbody>
-      <tr><td><strong>The Gralloch</strong></td><td>Gatehouse of Fleet, Scotland</td><td>3,000+ riders from 47 nations (2026)</td><td><span class="pill p-up">2.4x since 2023</span></td><td>Independent, UCI series</td></tr>
-      <tr><td><strong>Dirty Reiver</strong></td><td>Kielder, Northumberland</td><td>About 2,000 riders (2025), 2026 sold out in six hours</td><td><span class="pill p-up">Record</span></td><td>Focal Events</td></tr>
-      <tr><td><strong>Lloyds National Gravel Championships</strong></td><td>Ae Forest, Scotland</td><td>First edition, August 2026. No entry total published</td><td><span class="pill p-flat">New</span></td><td>Outsider Events for British Cycling</td></tr>
-      <tr><td><strong>British Gravel Championships</strong></td><td>Various, last at Dalby (2025)</td><td>Run 2021 to 2025 outside British Cycling</td><td><span class="pill p-flat">Superseded</span></td><td>Red On Group</td></tr>
-      <tr><td><strong>Scottish Gravel Championships</strong></td><td>Scotland</td><td>First sanctioned edition, August 2025</td><td><span class="pill p-flat">New</span></td><td>Scottish Cycling</td></tr>
-      <tr><td><strong>Grinduro</strong></td><td>Kingussie, Scotland</td><td>Returned in 2025 after a year off over land charges</td><td><span class="pill p-flat">Moved</span></td><td>Independent</td></tr>
+      <tr><td><strong>The Gralloch</strong></td><td>Gatehouse of Fleet, Scotland</td><td>3,000+ riders from 47 nations (2026), up from 1,230 in 2023. The only UK round of the UCI Gravel World Series</td><td>RED:ON</td></tr>
+      <tr><td><strong>Dirty Reiver</strong></td><td>Kielder, Northumberland</td><td>About 2,000 riders (2025). The 2026 edition sold out in six hours</td><td>Focal Events</td></tr>
+      <tr><td><strong>British Gravel Trophy</strong></td><td>Six rounds, including Sherwood Pines, Thetford, the Welsh Valleys and the North York Moors</td><td>Billed as the UK's first gravel race series. 50 to 60km races of about two hours, age categories from 19 to 39 up to 70 and over, separate women's standings</td><td>Glorious Gravel</td></tr>
+      <tr><td><strong>Glorious Gravel rides</strong></td><td>England, Scotland and Wales</td><td>More than 30 signed gravel rides a year plus bikepacking trips. No cut-off times, e-bikes welcome, a women's wave and a first gravel ride guide</td><td>Glorious Gravel</td></tr>
+      <tr><td><strong>British Gravel Championships</strong></td><td>Dalby Forest (2025)</td><td>Hundreds of riders and free live YouTube coverage of the elite races in 2025. Run independently of British Cycling from 2021 to 2025</td><td>Red On Sports</td></tr>
+      <tr><td><strong>Lloyds National Gravel Championships</strong></td><td>Ae Forest, Scotland</td><td>First British Cycling edition, August 2026. No entry total published</td><td>Outsider Events for British Cycling</td></tr>
+      <tr><td><strong>Scottish Gravel Championships</strong></td><td>Scotland</td><td>First sanctioned edition, August 2025</td><td>Outsider Events for Scottish Cycling</td></tr>
+      <tr><td><strong>Grinduro</strong></td><td>Kingussie, Scotland</td><td>Returned in 2025 after a year off over land charges</td><td>Independent</td></tr>
     </tbody>
   </table></div>
-  <p>The UK's gravel calendar was built by independent organisers, mostly in Scotland and the north, without British Cycling. That is a strength, because the events are good and riders trust them. It is also British Cycling's opportunity, because those organisers face the same problems road organisers do, which are insurance, land access, rising costs and marketing, and they need a governing body that helps rather than charges.</p>
+  <p>Independent organisers built the UK's gravel calendar, mostly in Scotland and the north of England. Glorious Gravel alone runs a race series and more than 30 rides a year, and it is also the most visible gravel organiser in UK search. These organisers face the same pressures as road race organisers, including insurance, land access, rising costs and marketing.</p>
   <div class="co warn"><div class="i">!</div><p><strong>Lessons from road racing.</strong> Road race organisers have blamed rising costs for safety, insurance and policing, and circuit races fell from about 700 to 600 between 2022 and 2025. Building organiser support into gravel from the start would help it avoid the same decline.</p></div>
 </section>
 
@@ -449,11 +481,12 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
       <tr><td class="ml">BC commercial income</td><td>Fell from £5.19m to £3.19m after HSBC UK ended its deal early in 2021, then to £1.84m. The Lloyds partnership lifted sponsorship and rights income from £2.52m to £5.33m in 2024/25, the first surplus in five years.</td></tr>
       <tr><td class="ml">BC membership income</td><td>Down from £6.1m to £5.8m in 2023/24, with the £27 racing membership scrapped.</td></tr>
       <tr><td class="ml">Gravel prize money</td><td>Life Time Grand Prix purse up from $250,000 (2022) to $590,000 (2026). Unbound 200 prize money doubled to $60,000.</td></tr>
-      <tr><td class="ml">Brand investment</td><td>Dedicated gravel groupsets from SRAM (2021) and Shimano (2025). Brands including Ribble now back dedicated gravel race teams.</td></tr>
-      <tr><td class="ml">Media</td><td>road.cc runs a dedicated off-road section. BikeRadar, Cycling Weekly and GCN cover it regularly. Unbound's 2026 livestream reported 470,000 views.</td></tr>
+      <tr><td class="ml">Bike brands</td><td>Nearly every major road and mountain bike brand now sells dedicated race and endurance gravel bikes. Examples include the Specialized Crux and Diverge, Trek Checkmate and Checkpoint, Canyon Grail and Grizl, Giant Revolt, BMC Kaius and URS, Orbea Terra, Factor Sarana and Santa Cruz Stigmata.</td></tr>
+      <tr><td class="ml">Components</td><td>Dedicated gravel groupsets from SRAM (XPLR, 2021) and Shimano (GRX Di2 1x12, 2025).</td></tr>
+      <tr><td class="ml">Media</td><td>road.cc runs a dedicated off-road section, and BikeRadar, Cycling Weekly and GCN cover gravel regularly. Unbound's 2026 livestream reported 470,000 views.</td></tr>
     </tbody>
   </table></div>
-  <p>Lloyds already backs the national gravel championships. A national gravel series would give the partnership a mass-participation property with sell-out events, more female fields than road racing, and scenery that films well.</p>
+  <p>Lloyds already backs the national gravel championships. A national gravel series would give the partnership a mass-participation property with sell-out events and a higher share of women in gravel racing interest than road racing.</p>
 </section>
 
 <!-- 11 PORTFOLIO -->
@@ -477,7 +510,29 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
 <!-- 12 SEARCH -->
 <section id="search">
   <h2><span class="n">12</span>British Cycling's current position on gravel</h2>
-  <p>British Cycling recognised gravel as a racing category in mid-2025 and held its first Lloyds National Gravel Championships at Ae Forest in August 2026. After that weekend its events calendar listed no other gravel events, and its strategy to 2029 does not mention gravel. Its website ranks for 42 search terms containing "gravel", worth an estimated 333 visits a month according to DataForSEO. The table shows where it appears for the searches people use to find gravel riding in the UK.</p>
+  <p>British Cycling recognised gravel as a racing category in mid-2025 and held its first Lloyds National Gravel Championships at Ae Forest in August 2026. After that weekend its events calendar listed no other gravel events, and its strategy to 2029 does not mention gravel.</p>
+  <ul class="l">
+    <li><strong>Website structure.</strong> The British Cycling website has Road, Off-Road and Track menus. Off-Road contains BMX Freestyle, BMX Racing, Cyclo-cross and Mountain bike. Gravel does not appear as a category anywhere in the site's navigation (checked 12 October 2026). During the build-up to the 2026 championships, Manual Focus could not find the event from the site's navigation.</li>
+    <li><strong>The championships.</strong> The 2025 British Gravel Championships, run independently by Red On Sports at Dalby Forest, drew hundreds of riders and streamed its elite races free on YouTube. Neither the 2025 nor the 2026 event has published an entry total. Our assessment, based on results and coverage of both, is that the 2025 field was at least three times the size of the 2026 field, which road.cc described as relatively small.</li>
+    <li><strong>Comparison with track.</strong> British Cycling runs six national track series and has a dedicated Track section on its website. UK searches for gravel bikes outnumber searches for track bikes by about 17 to 1, at 281,800 against 16,800 in the 12 months to August 2026.</li>
+  </ul>
+  <h3>Who captures UK gravel search traffic</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Website</th><th>Type</th><th class="num">Est. visits a month</th><th class="num">Terms ranked</th></tr></thead>
+    <tbody>
+      <tr><td>evanscycles.com</td><td>Retailer</td><td class="num">8,369</td><td class="num">4</td></tr>
+      <tr><td>sigmasports.com</td><td>Retailer</td><td class="num">6,945</td><td class="num">6</td></tr>
+      <tr><td>ribblecycles.co.uk</td><td>Brand and retailer</td><td class="num">4,140</td><td class="num">6</td></tr>
+      <tr><td>wheelbase.co.uk</td><td>Retailer</td><td class="num">3,722</td><td class="num">5</td></tr>
+      <tr><td>bikeradar.com</td><td>Media</td><td class="num">3,373</td><td class="num">7</td></tr>
+      <tr><td>cubestores.co.uk</td><td>Retailer</td><td class="num">1,244</td><td class="num">4</td></tr>
+      <tr><td>trekbikes.com</td><td>Brand</td><td class="num">1,196</td><td class="num">6</td></tr>
+      <tr><td>gloriousgravel.com</td><td>Event organiser</td><td class="num">248</td><td class="num">4</td></tr>
+      <tr class="g"><td>britishcycling.org.uk</td><td>Governing body</td><td class="num">24</td><td class="num">4</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">DataForSEO Labs SERP competitors for 20 common UK gravel searches, including "gravel bike", "gravel race", "gravel routes" and "gravel events uk", Google UK, 12 October 2026. Visits are modelled estimates.</p>
+  <h3>Where British Cycling appears for key searches</h3>
   <div class="tw"><table>
     <thead><tr><th>UK query</th><th class="num">BC position</th><th>AI Overview cites BC</th><th>Who ranks first</th></tr></thead>
     <tbody>
@@ -488,21 +543,20 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
       <tr><td>gravel events uk</td><td class="num">Not in top 10</td><td>No</td><td>Sportiva Events</td></tr>
       <tr><td>gravel cycling uk</td><td class="num">Not in top 10</td><td>No</td><td>Dalby Grit</td></tr>
       <tr><td>beginner gravel ride uk</td><td class="num">Not in top 10</td><td>No</td><td>Ribble Cycles</td></tr>
-      <tr><td>road races uk cycling</td><td class="num">5</td><td>No</td><td>UK Velo</td></tr>
     </tbody>
   </table></div>
   <p class="note">Google UK, English, live results via DataForSEO with AI Overviews loaded, 11 October 2026. Results change daily.</p>
-  <p>British Cycling's best gravel results come from a handful of guide pages and the championship page. Those rank and earn AI citations, which shows the domain's authority works when the content exists. The broad discovery searches, where riders look for events and routes, go to listing sites, organisers and retailers. An event calendar and a beginner hub would compete for those searches immediately.</p>
+  <p>British Cycling ranks for gravel championship searches and earns AI citations for a small number of guide pages. The broad searches people use to find events and routes go to retailers, media and organisers. An event calendar and a beginner section on britishcycling.org.uk would compete for those searches.</p>
 </section>
 
 <!-- 13 SWOT -->
 <section id="swot">
   <h2><span class="n">13</span>SWOT analysis of gravel as a route into cycling</h2>
   <div class="g2">
-    <div><h4><i style="background:var(--good)"></i>Strengths</h4><ul><li>Traffic-free, which answers the safety worry 48% of adults give for not cycling more</li><li>Exercise and time in nature on the same ride</li><li>The only bike category above pre-Covid sales in the UK, with flagship events selling out in hours</li><li>A growing global structure, from 11 to 47 UCI series events in four years</li></ul></div>
-    <div><h4><i style="background:var(--warn)"></i>Weaknesses</h4><ul><li>Male-dominated today, with 76% of Scottish forest cyclists male in the last survey</li><li>Cyclists can use only 22% of rights of way in England and Wales</li><li>No UK participation data specific to gravel</li><li>Almost no beginner products, and governing body structure that is one year old</li></ul></div>
+    <div><h4><i style="background:var(--good)"></i>Strengths</h4><ul><li>Takes place mostly away from motor traffic, on forest tracks, byways and quiet lanes</li><li>Exercise and time in nature on the same ride</li><li>The only bike category above pre-pandemic sales in the UK, with flagship events selling out in hours</li><li>A growing global structure, from 11 to 47 UCI series events in four years</li></ul></div>
+    <div><h4><i style="background:var(--warn)"></i>Weaknesses</h4><ul><li>Gravel bike search interest skews more male than road or mountain bike search interest</li><li>Cyclists can use only 22% of rights of way in England and Wales</li><li>No UK participation data specific to gravel</li><li>Almost no beginner products, and governing body structure that is one year old</li></ul></div>
     <div><h4><i style="background:var(--c-gravel)"></i>Opportunities</h4><ul><li>52% of adults say off-road paths would get them cycling more</li><li>26% of women would like to cycle but do not</li><li>313 million visits a year to England's public forests, an audience already outdoors</li><li>Health, tourism and land partners all have reasons to back it</li></ul></div>
-    <div><h4><i style="background:var(--bad)"></i>Threats</h4><ul><li>Growth stays racing-led and never reaches beginners</li><li>Access conflicts with walkers, riders and landowners if numbers rise without management</li><li>Event fatigue and plateaus, as seen with Unbound and the Gravel Earth series</li><li>Household budgets squeezed, as British Cycling's own membership fall shows</li></ul></div>
+    <div><h4><i style="background:var(--bad)"></i>Threats</h4><ul><li>Growth stays racing-led and never reaches beginners</li><li>Access conflicts with walkers, riders and landowners if numbers rise without management</li><li>Capacity limits at the largest events, as seen at Unbound and SBT GRVL</li><li>Household budgets squeezed, as British Cycling's own membership fall shows</li></ul></div>
   </div>
 </section>
 
@@ -529,6 +583,17 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
 <section id="sources">
   <h2><span class="n">15</span>Sources</h2>
   <details class="sx" open><summary>Full source list</summary><div class="dc srcs">
+    <h4>Additional sources (October 2026 update)</h4><ul>
+      <li>Google Trends demographic data via DataForSEO Trends demography, UK, October 2025 to October 2026. DataForSEO clickstream search volume, UK, 12 October 2026. DataForSEO Labs SERP competitors, 20 UK gravel terms, 12 October 2026</li>
+      <li>BikeRadar, Strava Year in Sport 2021, 8 December 2021, <a href="https://www.bikeradar.com/news/strava-year-in-sport-2021/">bikeradar.com</a>. Strava Year in Sport 2022, 8 December 2022, <a href="https://www.bikeradar.com/news/strava-year-in-sport-2022/">bikeradar.com</a>. Strava Year in Sport 2025, 4 December 2025, <a href="https://www.bikeradar.com/news/strava-year-in-sport-2025">bikeradar.com</a></li>
+      <li>MBR, Strava data shows more of us are riding off-road, 5 January 2024, <a href="https://www.mbr.co.uk/news/strava-data-shows-more-of-us-are-riding-off-road-than-ever-before-but-not-always-on-mountain-bikes-434776">mbr.co.uk</a>. Athletech, Strava 2024 report, 4 December 2024, <a href="https://athletechnews.com/strava-2024-fitness-report-highlights-trends">athletechnews.com</a></li>
+      <li>BikeBiz, Strava data reveals cycling boom among Gen Z and millennials, 4 July 2025, <a href="https://bikebiz.com/strava-data-reveals-cycling-boom-among-gen-z-and-millennials/">bikebiz.com</a></li>
+      <li>British Gravel Trophy, <a href="https://britishgraveltrophy.com/">britishgraveltrophy.com</a>. Glorious Gravel, <a href="https://gloriousgravel.com/">gloriousgravel.com</a>. Gran Fondo Guide, Glorious Gravel series, <a href="https://www.granfondoguide.com/Series/GloriousGravel">granfondoguide.com</a></li>
+      <li>Gran Fondo Guide, British Gravel Championships returns in 2025, 3 February 2025, <a href="https://www.granfondoguide.com/Contents/IndexFull/8361/british-gravel-championships-returns-in-2025-with-new-venue-and-expanded-event">granfondoguide.com</a>. Cycling Weekly, British Gravel Championships add free live coverage, 12 September 2025, <a href="https://www.cyclingweekly.com/racing/british-gravel-championships-add-free-live-coverage-to-its-list-of-firsts">cyclingweekly.com</a>. Gran Fondo Daily News, British Gravel Championship results, 14 September 2025, <a href="https://granfondodailynews.com/2025/09/14/british-gravel-championship-results-hundreds-battle-in-darby-forest-for-national-titles/">granfondodailynews.com</a></li>
+      <li>The Gralloch, Introducing the Gralloch, <a href="https://www.grallochgravel.com/news/introducing-the-gralloch">grallochgravel.com</a>. British Cycling, 2026 Lloyds National Gravel Championships announcement, 10 February 2026, <a href="https://www.britishcycling.org.uk/about/article/20260210-about-bc-news-British-Cycling-announce-2026-Lloyds-National-Gravel-Championships-0">britishcycling.org.uk</a></li>
+      <li>Escape Collective, Unbound Gravel is no longer lottery only, 27 February 2024, <a href="https://escapecollective.com/unbound-gravel-is-no-longer-lottery-only-whats-next/">escapecollective.com</a>. Joe Laverick, Gravel Earth 2026, <a href="https://www.joelaverick.com/p/gravel-earth-2026-a-series-of-unfortunate">joelaverick.com</a>. Cyclingnews, Cuckoo Iceland replaces The Rift, <a href="https://www.cyclingnews.com/news/cuckoo-iceland-replaces-the-rift-for-revamped-2026-gravel-earth-series/">cyclingnews.com</a></li>
+      <li>British Cycling website navigation, britishcycling.org.uk, checked 12 October 2026</li>
+    </ul>
     <h4>Health, activity and access</h4><ul>
       <li>Celis-Morales et al., Association between active commuting and incident cardiovascular disease, cancer, and mortality, BMJ 2017. University of Glasgow release, <a href="https://www.gla.ac.uk/news/archiveofnews/2017/may/headline_522765_en.html">gla.ac.uk</a></li>
       <li>Nordengen et al., Cycling is associated with a lower incidence of cardiovascular diseases and death, British Journal of Sports Medicine 2019</li>
@@ -544,11 +609,9 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
       <li>British Horse Society, rights of way in England and Wales, <a href="https://www.bhs.org.uk/about-us/access/england-and-wales/">bhs.org.uk</a>. Cycling UK, rights of way, <a href="https://cyclinguk.org/node/390321">cyclinguk.org</a></li>
       <li>Cycling UK, Rides of Way, February 2017, <a href="https://www.cyclinguk.org/reports/rides-of-way">cyclinguk.org</a>. Cycling UK, Scotland's Land Reform Act 2003, 4 April 2016, <a href="https://www.cyclinguk.org/briefing/scotlands-land-reform-act-2003-and-outdoor-access-code">cyclinguk.org</a></li>
       <li>Forestry England, Annual Report and Accounts 2024-25, <a href="https://assets.publishing.service.gov.uk/media/6939910f33c7ace9c4a41f55/E03303615_-_HC_1479_Forest_England_ARA_24-25_Accessible.pdf">gov.uk</a></li>
-      <li>Forestry and Land Scotland, profile of forest visitors, cycling and mountain biking (All Forests Survey 2013), <a href="https://forestryandland.gov.scot/media/uskbfozr/profile-of-forest-visitors-factsheet-cycling-and-mountain-biking.pdf">forestryandland.gov.scot</a></li>
       <li>Scottish Enterprise, Estimating the holistic value of Scotland's mountain bike sector, <a href="https://scottish-enterprise.com/learning-zone/research-evaluation-and-insight/2016/estimating-the-holistic-value-of-scotland-s-mountain-bike-sector">scottish-enterprise.com</a></li>
     </ul>
     <h4>Search data</h4><ul>
-      <li>Google Trends data via the DataForSEO Google Trends API, UK and worldwide, 1 October 2021 to 10 October 2026, three four-term sets, pulled 11 October 2026</li>
       <li>DataForSEO Google Ads search volume, 60 terms, UK and US, September 2022 to August 2026, pulled 11 October 2026</li>
       <li>DataForSEO Labs ranked keywords for britishcycling.org.uk, Google UK, and live SERPs with AI Overviews for eight UK queries, 11 October 2026</li>
     </ul>
@@ -623,6 +686,9 @@ const D={
          ['track league','track',340,470],['track bike','track',19700,16800],['track cycling','track',10100,7450],
          ['sportive','road',20600,17700],['road bike','road',268200,240100],['criterium','road',9030,5440],['road racing cycling','road',840,340],['road cycling events','road',1190,390]],
   active:[['Most affluent',73.2],['Men',67.3],['All adults',64.6],['Women',62.2],['Black adults',57.2],['Asian adults',56.3],['Least affluent',53.8],['Disabled adults',49.1]],
+  bikeYears:['2022/23','2023/24','2024/25','2025/26'],
+  bikes:{gravel:[331500,342400,310500,281800],road:[268200,300100,274700,240100],mtb:[480400,492400,528800,435100],track:[19700,21100,18900,16800]},
+  events:{gravel:[6440,7520,6730,8070],road:[36890,36450,33090,27700]},
   uci:[['2022',11],['2023',16],['2024',26],['2025',33],['2026',47]],
   bc:[['Mountain bike','mtb',8815,322],['Road','road',7472,374],['Track','track',3597,316],['Gravel','gravel',333,42]],
   map:[['Gravel','gravel',8.5,1.5],['Road','road',2,8],['Track','track',3.2,9],['Mountain bike','mtb',5,6]]
@@ -631,11 +697,10 @@ const NAMES={gravel:'Gravel',road:'Road',mtb:'Mountain bike',track:'Track'};
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const fmt=v=>Math.round(v).toLocaleString('en-GB');
 function tables(){
-  document.getElementById('tRace').innerHTML=D.years.map((y,i)=>`<tr><td>${y}</td><td class="num">${D.raceShare.gravel[i]}%</td><td class="num">${D.raceShare.road[i]}%</td><td class="num">${D.raceShare.mtb[i]}%</td><td class="num">${D.raceShare.track[i]}%</td></tr>`).join('');
-  document.getElementById('tActive').innerHTML=D.active.map(a=>`<tr><td>${a[0]}</td><td class="num">${a[1]}%</td></tr>`).join('');
-  document.getElementById('tShare').innerHTML=D.years.map((y,i)=>`<tr><td>${y}</td><td class="num">${D.share.race[i]}%</td><td class="num">${D.share.sport[i]}%</td><td class="num">${D.share.bikes[i]}%</td></tr>`).join('');
 }
 tables();
+document.getElementById('tBikes').innerHTML=D.bikeYears.map((y,i)=>`<tr><td>${y}</td><td class="num">${fmt(D.bikes.gravel[i])}</td><td class="num">${fmt(D.bikes.road[i])}</td><td class="num">${fmt(D.bikes.mtb[i])}</td><td class="num">${fmt(D.bikes.track[i])}</td></tr>`).join('');
+document.getElementById('tEvents').innerHTML=D.bikeYears.map((y,i)=>`<tr><td>${y}</td><td class="num">${fmt(D.events.gravel[i])}</td><td class="num">${fmt(D.events.road[i])}</td><td class="num">${(D.events.road[i]/D.events.gravel[i]).toFixed(1)} to 1</td></tr>`).join('');
 let charts=[];
 function draw(){
   if(!window.Chart)return;
@@ -647,11 +712,10 @@ function draw(){
   const lineOpts=(ysuf)=>({responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>` ${c.dataset.label} ${c.formattedValue}${ysuf}`}}},scales:{x:{grid:{display:false},border:{color:grid}},y:{beginAtZero:true,grid:{color:grid},border:{display:false},ticks:{callback:v=>v+ysuf}}},elements:{line:{borderWidth:2,tension:0},point:{radius:4,hoverRadius:6,borderWidth:2,borderColor:surf}}});
   // labels at line ends
   const endLabels={id:'endl',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='600 12px Inter, sans-serif';ch.data.datasets.forEach((ds,i)=>{const m=ch.getDatasetMeta(i);if(m.hidden)return;const p=m.data[m.data.length-1];ctx.fillStyle=ink;ctx.textAlign='left';ctx.fillText(ds.label,p.x+8,p.y+4)});ctx.restore()}};
-  charts.push(new Chart(document.getElementById('cRace'),{type:'bar',data:{labels:D.years,datasets:['gravel','mtb','road','track'].map(k=>({label:NAMES[k],data:D.raceShare[k],backgroundColor:C[k],borderColor:surf,borderWidth:{top:2,bottom:0,left:0,right:0},borderSkipped:false,barPercentage:.62}))},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>` ${c.dataset.label} ${c.raw}% of racing searches`}}},scales:{x:{stacked:true,grid:{display:false},border:{color:grid},title:{display:true,text:'Year, October to September',color:ink2}},y:{stacked:true,min:0,max:100,grid:{color:grid},border:{display:false},ticks:{callback:v=>v+'%'},title:{display:true,text:'Share of racing searches',color:ink2}}}},plugins:[{id:'gl',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='700 12px Inter, sans-serif';ctx.fillStyle='#fff';ctx.textAlign='center';ch.getDatasetMeta(0).data.forEach((b,i)=>{const v=D.raceShare.gravel[i];ctx.fillText(Math.round(v)+'%',b.x,b.y+(b.base-b.y)/2+4)});ctx.restore()}}]}));
-  charts.push(new Chart(document.getElementById('cShare'),{type:'line',data:{labels:D.years,datasets:[{label:'Racing',data:D.share.race,borderColor:C.gravel,backgroundColor:C.gravel,borderWidth:3},{label:'General',data:D.share.sport,borderColor:ink2,backgroundColor:ink2},{label:'Bikes',data:D.share.bikes,borderColor:ink3,backgroundColor:ink3,borderDash:[5,4]}]},options:{...lineOpts('%'),scales:{x:{grid:{display:false},border:{color:grid},title:{display:true,text:'Year, October to September',color:ink2}},y:{beginAtZero:true,max:50,grid:{color:grid},border:{display:false},ticks:{callback:v=>v+'%'},title:{display:true,text:"Gravel's share of searches",color:ink2}}},layout:{padding:{right:70}}},plugins:[endLabels]}));
   const T=D.terms.map(t=>({n:t[0],k:t[1],a:t[2],b:t[3],p:Math.round((t[3]/t[2]-1)*100)}));
-  charts.push(new Chart(document.getElementById('cTerms'),{type:'bar',data:{labels:T.map(t=>t.n),datasets:[{data:T.map(t=>t.p),backgroundColor:T.map(t=>C[t.k]),borderRadius:4,borderSkipped:false,barThickness:16}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...tip,callbacks:{title:i=>T[i[0].dataIndex].n+' · '+NAMES[T[i[0].dataIndex].k],label:c=>{const t=T[c.dataIndex];return ` ${t.p>0?'+':''}${t.p}%  (${fmt(t.a)} to ${fmt(t.b)} searches a year)`}}}},scales:{x:{grid:{color:grid},border:{display:false},ticks:{callback:v=>(v>0?'+':'')+v+'%'}},y:{grid:{display:false},border:{color:grid},ticks:{color:ink},afterFit:a=>{a.width=Math.max(a.width,Math.min(150,a.chart.width*.38))}}}}}));
-  charts.push(new Chart(document.getElementById('cActive'),{type:'bar',data:{labels:D.active.map(a=>a[0]),datasets:[{data:D.active.map(a=>a[1]),backgroundColor:D.active.map(a=>a[0]==='All adults'?ink2:C.gravel),borderRadius:4,barThickness:18}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...tip,displayColors:false,callbacks:{label:c=>` ${c.raw}% active`}}},scales:{x:{min:0,max:100,grid:{color:grid},border:{display:false},ticks:{callback:v=>v+'%'}},y:{grid:{display:false},border:{color:grid},ticks:{color:ink},afterFit:a=>{a.width=Math.max(a.width,Math.min(190,a.chart.width*.42))}}}},plugins:[{id:'av',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='600 12px Inter, sans-serif';ctx.fillStyle=ink;ch.getDatasetMeta(0).data.forEach((b,i)=>ctx.fillText(D.active[i][1]+'%',b.x+6,b.y+4));ctx.restore()}}]}));
+  const gb=(id,keys,src,lab)=>new Chart(document.getElementById(id),{type:'bar',data:{labels:D.bikeYears,datasets:keys.map(k=>({label:lab[k],data:src[k],backgroundColor:C[k],borderRadius:4,borderSkipped:false,barPercentage:.82,categoryPercentage:.72}))},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>` ${c.dataset.label} ${fmt(c.raw)} searches`}}},scales:{x:{grid:{display:false},border:{color:grid},title:{display:true,text:'12 months, September to August',color:ink2}},y:{beginAtZero:true,grid:{color:grid},border:{display:false},ticks:{callback:v=>v>=1000?Math.round(v/1000)+'k':v},title:{display:true,text:'UK searches a year',color:ink2}}}}});
+  charts.push(gb('cBikes',['gravel','road','mtb','track'],D.bikes,{gravel:'Gravel bike',road:'Road bike',mtb:'Mountain bike',track:'Track bike'}));
+  charts.push(gb('cEvents',['gravel','road'],D.events,{gravel:'Gravel events',road:'Road events'}));
   charts.push(new Chart(document.getElementById('cUci'),{type:'bar',data:{labels:D.uci.map(u=>u[0]),datasets:[{data:D.uci.map(u=>u[1]),backgroundColor:C.gravel,borderRadius:4,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...tip,displayColors:false,callbacks:{label:c=>` ${c.raw} events`}}},scales:{x:{grid:{display:false},border:{color:grid}},y:{beginAtZero:true,grid:{color:grid},border:{display:false}}}},plugins:[{id:'v',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='600 12px Inter, sans-serif';ctx.fillStyle=ink;ctx.textAlign='center';ch.getDatasetMeta(0).data.forEach((b,i)=>ctx.fillText(D.uci[i][1],b.x,b.y-6));ctx.restore()}}]}));
 }
 draw();
