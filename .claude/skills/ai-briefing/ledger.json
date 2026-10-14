@@ -462,5 +462,53 @@
     "score": 4,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-14",
+    "story": "Microsoft adds Topics Portfolio (beta) to the AI Performance report in Bing Webmaster Tools on 13 October, grouping grounding queries into topics with Topic Size, Sites Cited and Queries, plus opportunity queries where other sites are cited and yours is not",
+    "primary_source": "https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/",
+    "score": 7,
+    "decision": "published",
+    "slug": "bing-topics-portfolio-ai-citation-gaps"
+  },
+  {
+    "run_date": "2026-10-14",
+    "story": "Google releases Gemini 4 Argon broadly on 13 October, globally via the API ($2/$10 intro pricing until 30 November) and in the Gemini app and AI Mode in Search for Google AI Pro and Ultra subscribers only, as an opt-in model",
+    "primary_source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-14",
+    "story": "Meta releases Muse Wonder and Muse Wonder Full frontier models on 12 October, behind a $20 or $100 Muse subscription and the Meta Model API at $4/$20 per million tokens, no advertiser tools",
+    "primary_source": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-14",
+    "story": "Google Ads AI Max for Search adds a search terms and ad combinations report, appearing in some accounts (Search Engine Land, 13 October), no Google announcement found",
+    "primary_source": "https://searchengineland.com/google-ads-adds-search-terms-and-ad-combinations-report-for-ai-max-495476",
+    "score": 6,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-14",
+    "story": "Google tests pharmaceutical and prescription drug text and Shopping ads in AI Mode and AI Overviews, US only (Google statement to Adweek, 13 October)",
+    "primary_source": "https://www.seroundtable.com/google-ads-drugs-ai-mode-ai-overviews-42277.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-14",
+    "story": "Google job listing says Discover will become a hyper-personalised concierge experience (13 October), a plan signalled by a job post only",
+    "primary_source": "https://www.google.com/about/careers/applications/jobs/results/82901196271952582-principal-ux-search-discover",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]

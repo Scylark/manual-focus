@@ -39,9 +39,22 @@ if (opening.startsWith('#')) fails.push('post must open with a paragraph, not a 
 const openN = words(opening);
 if (openN < 40 || openN > 60) fails.push(`opening paragraph must be 40-60 words (is ${openN})`);
 const bodyN = words(body.replace(/\]\([^)]*\)/g, ']'));
-const [minBody, maxBody] = article ? [800, 1600] : [600, 950];
+const [minBody, maxBody] = article ? [800, 1600] : [700, 1500];
 if (bodyN < minBody || bodyN > maxBody) fails.push(`body should be ${minBody}-${maxBody} words (is ${bodyN})`);
 if (!/Our view at Manual Focus/.test(body)) fails.push('body needs one "Our view at Manual Focus is ..." sentence');
+
+// GEO elements (SKILL.md step 5): built to be the best answer on the topic
+const takeaways = body.match(/^## Key takeaways\s*\n+((?:[-*] .+\n?)+)/m);
+const nTake = takeaways ? takeaways[1].trim().split('\n').length : 0;
+if (nTake < 3 || nTake > 5) fails.push(`needs a "## Key takeaways" section of 3-5 bullets (has ${nTake})`);
+if (!/^\|.+\|\s*\n\|[\s|-]+\|\s*$/m.test(body)) fails.push('needs at least one markdown table (comparison, definitions or decision grid)');
+const qHeadings = (body.match(/^#{2,3} [^\n]*\?\s*$/gm) || []).length;
+if (qHeadings < 2) fails.push(`needs at least two question headings (has ${qHeadings})`);
+const internal = new Set([...body.matchAll(/\]\((\/(?:blog|lens)\/[^)#\s]*)\)/g)].map((m) => m[1]));
+if (internal.size < 4) fails.push(`needs at least 4 distinct internal links to /blog/ or /lens/ (has ${internal.size})`);
+const further = body.match(/^## Further reading\s*\n+((?:[-*] .+\n?)+)/m);
+const nFurther = further ? further[1].trim().split('\n').length : 0;
+if (nFurther < 3 || nFurther > 5) fails.push(`needs a "## Further reading" list of 3-5 links (has ${nFurther})`);
 
 // Text the reader sees, with link targets, URLs, emails and code stripped
 const visible = [
