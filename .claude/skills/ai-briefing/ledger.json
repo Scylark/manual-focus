@@ -510,5 +510,13 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-14",
+    "story": "Meta (6 October) and TikTok (5 October) AI ad tools for Advertising Week New York 2026, Meta checkout tests in Business Agent on Messenger and Meta AI, Advantage+ video generation GA, ads MCP server drafts and approvals, TikTok Buy Direct and Shopping Assistant in eligibility-based tests, Search Ads on Smart+, TikTok Ad Network for US advertisers, TikTok for Business MCP connectors; on-demand article on UK availability",
+    "primary_source": "https://www.facebook.com/business/news/advertising-week-new-york-2026",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "meta-tiktok-advertising-week-ai-ad-tools"
   }
 ]
