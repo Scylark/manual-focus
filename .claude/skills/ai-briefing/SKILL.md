@@ -145,6 +145,12 @@ them. **Do not repeat them in the body.**
 
 ### Body
 
+**The standard (James, 14 October 2026): every post should be the best
+article on its topic on the internet.** It's built to be lifted whole by
+answer engines and to link readers deeper into the site, so it carries
+the GEO elements below as well as the five parts. The checker enforces
+the elements.
+
 Every post needs these five things, in roughly this order. The
 headings are yours to write for the story, so they differ from post to
 post (see "Vary the shape" below).
@@ -168,12 +174,29 @@ colon. "What the CMA proposed" beats "What happened". "What to do before
 the 9 October deadline" beats "What to do this week". A question works as
 a heading when it is the question a reader would type into ChatGPT.
 
-**Links.** 1 or 2 inline links to related Manual Focus posts or Lens
-playbooks, with trailing slashes (`/blog/slug/`, `/lens/content/slug/`),
-where they genuinely help. End with one plain sentence pointing to
-`/services/` or `/enquire/` for readers who want help. No hard sell.
+**GEO elements (all required, the checker enforces them).**
+- **Key takeaways.** Right after the opening paragraph, a `## Key takeaways`
+  section of 3 to 5 bullets. Each bullet is one self-contained, quotable
+  fact with its number or date, so a model can lift any one of them alone.
+- **At least one table.** A comparison (this product against its nearest
+  rival), a definitions table (what each new metric or term means) or a
+  decision grid (what to do in which case). Answer engines lift tables
+  whole. Use plain `|---|` separators, with no alignment colons.
+- **At least two question headings**, phrased the way someone types the
+  question into ChatGPT or Google ("How does it compare with Search
+  Console?"). Keep every heading under about 40 characters. The site sets
+  `##` headings in large uppercase display type, so a long one runs to
+  four or five lines on a laptop.
+- **At least four internal links** to related Manual Focus posts or Lens
+  playbooks, woven in where they help, with trailing slashes (`/blog/slug/`,
+  `/lens/content/slug/`). Read the list of existing posts and playbooks
+  before you write. Link every primary source inline too.
+- **A `## Further reading` list** at the end with 3 to 5 related Manual
+  Focus posts or playbooks, each with a few words on why it's worth
+  reading. Then one plain sentence pointing to `/services/` or `/enquire/`
+  for readers who want help. No hard sell.
 
-Target 650 to 900 words of body.
+Target 900 to 1,400 words of body.
 
 ### Vary the shape across the series
 
@@ -370,7 +393,7 @@ What changes from the daily steps:
    - Tags leave out `ai-briefing`. Use `ai` plus one or two allowed tags.
    - Open with a 40 to 60 word paragraph that states only verifiable facts.
      Don't claim what "everyone is comparing" unless you can source it.
-   - Body of 800 to 1,600 words, with 4 or 5 FAQ items phrased the way
+   - Body of 800 to 1,600 words, with every GEO element from step 5 and 4 or 5 FAQ items phrased the way
      people ask.
    - Link 1 or 2 relevant Lens playbooks or posts.
 5. **Quality gates (step 6)**: run

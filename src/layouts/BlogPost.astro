@@ -230,6 +230,47 @@ const related = allPosts
     padding-left: var(--space-md);
   }
 
+  /* Tables in posts (comparisons, definitions, decision grids). Built from the
+     site's tokens; on phones a wide table scrolls inside the column rather
+     than widening the page. */
+  .post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-sm) 0 var(--space-md);
+    font-size: 0.95em;
+    line-height: 1.45;
+  }
+  .post-content :global(th),
+  .post-content :global(td) {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .post-content :global(thead th) {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    border-bottom-color: var(--color-text-muted);
+  }
+  .post-content :global(tbody td:first-child) {
+    font-weight: 600;
+  }
+  @media (max-width: 640px) {
+    .post-content :global(table) {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .post-content :global(th),
+    .post-content :global(td) {
+      min-width: 9.5rem;
+    }
+  }
+
   .post-footer {
     margin-top: var(--space-xl);
     padding-top: var(--space-md);

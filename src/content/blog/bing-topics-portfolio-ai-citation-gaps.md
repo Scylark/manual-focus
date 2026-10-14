@@ -3,6 +3,18 @@ title: "What Bing's Topics Portfolio means for AI search content plans"
 date: 2026-10-14
 tags: ["ai-briefing", "ai", "marketing-strategy"]
 description: "Bing added Topics Portfolio to Webmaster Tools on 13 October 2026. It lists the AI answer queries where other sites get cited and yours does not."
+howToName: "How to use Bing's Topics Portfolio to plan content"
+howToSteps:
+  - name: "Check you can see it"
+    text: "Verify your main domains in Bing Webmaster Tools, open the AI Performance report and look for the Topics tab next to Citations and Pages. If it is missing, Bing does not have enough data on your site yet, so check again monthly."
+  - name: "Export the three-month view"
+    text: "Take every topic with its size, sites cited and query count, plus the opportunity queries and their citation ranges, into one sheet."
+  - name: "Strip out rival brand names"
+    text: "Remove competitors' branded queries from the opportunity list, or pass them to whoever owns comparison pages."
+  - name: "Turn the top ten gaps into briefs"
+    text: "For each gap, name the page that should answer the query, decide whether to update an existing page or write a new one, and put the answer in the first paragraph."
+  - name: "Use the thumbs"
+    text: "Mark wrong topics and irrelevant opportunities down, because Microsoft says those votes go to the team tuning the classification."
 faq:
   - question: "What is Topics Portfolio in Bing Webmaster Tools?"
     answer: "Topics Portfolio is a beta tab Microsoft added to the AI Performance report in Bing Webmaster Tools on 13 October 2026. It groups the grounding queries where your site is cited in AI answers into topics, shows each topic's approximate total citations, number of sites cited and number of queries, and lists opportunity queries where other sites are cited and yours is not."
@@ -12,6 +24,8 @@ faq:
     answer: "No. Google's generative AI performance reports in Search Console, rolled out to all websites on 31 August 2026, show impressions, pages, countries, devices and dates for appearances in AI Overviews, AI Mode and Discover. They do not list queries. Bing Webmaster Tools, by contrast, shows a sample of the grounding queries behind your citations in Copilot and Bing."
   - question: "Why can't I see Topics Portfolio in Bing Webmaster Tools?"
     answer: "Microsoft shows the Topics Portfolio tab only when there is sufficient data for your site. Topics where your site has little presence, or where few sites are cited at all, are left out, so smaller sites may see a short list or no tab. The feature sits under AI Performance, next to Citations and Pages, and is labelled beta."
+  - question: "Does Topics Portfolio show which competitors are cited?"
+    answer: "No. Each topic shows the approximate number of sites cited, not their names. Citation Share, which Bing added in June 2026, gives your percentage of the citations for a query, and Microsoft says it does not expose competitor domains. Competitors' branded queries can still turn up as opportunity queries, which Microsoft lists as a known limit of the beta."
 sources:
   - title: "Introducing Topics Portfolio (Beta) in AI Performance"
     url: "https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/"
@@ -27,36 +41,79 @@ sources:
     publisher: "Google Search Central"
 ---
 
-Topics Portfolio, a beta tab Microsoft added to Bing Webmaster Tools on 13 October 2026, sorts the queries Bing's AI uses to find sources into topics and lists the ones where other sites are cited and yours is not. Content teams now have a first-party list of AI answer gaps to plan against, which Google does not offer.
+Topics Portfolio, a beta tab Microsoft added to Bing Webmaster Tools on 13 October 2026, sizes the topics where Bing's AI cites your site, shows how crowded each one is and lists the queries where other sites are cited and yours is not. Content teams now have a first-party list of AI answer gaps, which Google does not offer.
 
-## Inside the new tab
+## Key takeaways
 
-Microsoft's Bing team [announced the feature](https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/) as part of AI Performance, the report it opened in public preview in February. That report counts how often your pages are cited in Microsoft Copilot, AI-generated summaries in Bing and select partner integrations, and shows a sample of the grounding queries, the phrases the AI used to retrieve your content.
+- Topics Portfolio is a beta tab in the AI Performance report of Bing Webmaster Tools, next to Citations and Pages, announced on 13 October 2026.
+- For each topic it estimates Topic Size (citations across all sites), Sites Cited (how crowded the topic is) and Queries, over one, two or three months.
+- Top Opportunity Queries lists the queries where other sites are cited and yours is not, with citation volumes shown as ranges.
+- Google's generative AI reports in Search Console show impressions by page, country, device and date, with no query view at all.
+- Microsoft calls the numbers "directional signals for planning, not as a precise ledger", so use them as a brief rather than a scoreboard.
 
-Topics Portfolio groups those queries into themes such as football, taxes or AI chatbots. Each topic carries three estimates. Topic Size is the approximate number of citations across all sites in the period, which Microsoft offers as a measure of AI search demand. Sites Cited is the approximate number of sites appearing for the topic's queries, so it shows how crowded the topic is, and Queries counts the distinct grounding queries.
+## What is Bing's Topics Portfolio?
 
-Below the table sits a list of Top Opportunity Queries, the strongest queries across your portfolio where other sites appear and yours does not, with citation volumes given as ranges. Clicking a topic opens a page with your own citations in it and two tables, the queries you already appear for and the open ones. You can pick a one, two or three month window. In June Bing added Citation Share, your percentage of citations for a single query, but said it does not expose competitor domains, and Microsoft describes the new tab in counts of sites rather than names.
+Microsoft's Bing team [announced the feature](https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/) as part of AI Performance, the report it [opened in public preview in February](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/). That report counts how often your pages are cited in Microsoft Copilot, AI-generated summaries in Bing and select partner integrations, and shows a sample of grounding queries, the phrases the AI used to retrieve the content it cited. In June Bing [grouped those queries into topics](https://blogs.bing.com/search/2026/6/New-AI-Visibility-Insights-in-Bing-Webmaster-Tools-Intents-Topics-Citation-Share-Compare/) and added Citation Share, your percentage of the citations for a single query.
 
-## A content plan built from AI demand
+Topics Portfolio adds the view from outside your own site, how much AI demand each topic carries, how many sites compete for it and where you are missing.
 
-Without query data, planning for AI search means writing the prompts you think buyers use, running them through ChatGPT or Copilot and counting mentions. Bing now hands over the queries its own system generated, grouped and sized, along with how many rivals compete for each.
+| Measure | What Microsoft says it shows | How to read it |
+|---|---|---|
+| Topic Size | Approximate citations across all sites for the topic in the period | AI search demand for the theme |
+| Sites Cited | Approximate number of sites appearing for the topic's queries | How crowded the theme is |
+| Queries | Approximate number of distinct grounding queries in the topic | How broad the theme is |
+| Top Opportunity Queries | The strongest queries across your portfolio where other sites appear and yours does not | Your shortlist of gaps |
+| Your Grounding Queries | The top queries in a topic where your site already appears | What you already own |
 
-Google gives you less. Its [generative AI performance reports](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports), live for all sites since 31 August, show impressions, pages, countries, devices and dates for AI Overviews and AI Mode, with no query view. So for query-level evidence of which questions an AI answer engine needs sources for, Microsoft is ahead of Google.
+Clicking a topic opens a page with three figures at the top, the topic's size, your own citations in it and its query count, above two tables of the queries you already appear for and the open ones. Every topic row and opportunity query carries a thumbs up and down, and Microsoft says those votes go straight to the team working on the classification.
 
-Our view at Manual Focus is that the opportunity list belongs in the content team's planning inputs alongside keyword research, weighted by Topic Size against Sites Cited, because a large topic with few cited sites is where a new page has the best chance of becoming a source. A topic where many sites are already cited needs original data or a much sharper page, which is the argument we made in [The citation moved off the page](/blog/the-citation-moved-off-the-page/).
+## How does it compare with Search Console?
 
-There is a budget question too. A query that Bing's AI keeps retrieving for is probably a question people put to every assistant, though Microsoft makes no such claim and the overlap with Google or ChatGPT is untested. A team that fills these gaps is writing for AI answers in general, with Bing's data as the brief, and the extra cost is one export a month.
+Google gives you less. Its [generative AI performance reports](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports), announced on 3 June and rolled out to all sites on 31 August, show impressions in AI Overviews, AI Mode and Discover by page, country, date and, for Search, device. They have no query view, so you can see that you appeared but not what the AI was looking for.
 
-## Your next fortnight
+| | Bing Webmaster Tools, AI Performance | Google Search Console, generative AI reports |
+|---|---|---|
+| AI surfaces covered | Microsoft Copilot, AI summaries in Bing, select partner integrations | AI Overviews, AI Mode, generative AI features in Discover |
+| Available since | Preview 11 February 2026, Topics Portfolio beta 13 October 2026 | 3 June 2026, all sites from 31 August 2026 |
+| What it counts | Citations of your pages | Impressions of your pages |
+| Query data | A sample of grounding queries | None |
+| Topic view | Yes, with size and crowding | No |
+| Gap list | Opportunity queries, volumes as ranges | No |
+| Competitor detail | Counts of sites, no names | None |
+
+So for query-level evidence of which questions an AI answer engine needs sources for, Microsoft is ahead of Google. Google's AI answers are spreading fast all the same, as [AI Overviews reaching 82% of tracked brand searches](/blog/google-ai-overviews-brand-searches/) showed, and its reporting is moving too, with [Lens data now in Search Console](/blog/search-console-multimodal-lens-reporting/).
+
+## Which gaps should you fill first?
+
+Our view at Manual Focus is that the opportunity list belongs in the content team's planning inputs alongside keyword research, weighted by Topic Size against Sites Cited, because a large topic with few cited sites is where a new page has the best chance of becoming a source.
+
+| | Few sites cited | Many sites cited |
+|---|---|---|
+| Large topic | Write or update a page now, with the answer first | Bring original data or a much sharper angle |
+| Small topic | Answer it inside an existing page | Leave it unless it matters to sales |
+
+A crowded topic needs evidence nobody else has, which is the argument in [The citation moved off the page](/blog/the-citation-moved-off-the-page/), our piece on how far AI citations have drifted from Google rankings. Match each topic to the buying situations in your [category entry points](/lens/demand/category-entry-points/) work, so the pages you write meet buyers at the moments they ask.
+
+A query that Bing's AI keeps retrieving for is probably a question people put to other assistants too, though Microsoft makes no such claim and the overlap with Google or ChatGPT is untested. A team that fills these gaps is writing for AI answers in general, with Bing's data as the brief, and the extra cost is one export a month.
+
+## Five steps for your content plan
 
 1. **Check you can see it.** Verify your main domains in Bing Webmaster Tools if you haven't, open AI Performance and look for the Topics tab next to Citations and Pages. If it is missing, Bing doesn't have enough data on your site yet, so note the date and check again monthly.
 2. **Export the three-month view.** Take every topic with its size, sites cited and query count, plus the opportunity queries and their citation ranges, into one sheet.
 3. **Strip out rival brand names.** Microsoft warns that branded queries for competitors can appear as opportunities. Remove them, or pass them to whoever owns comparison pages.
-4. **Turn the top ten gaps into briefs.** For each, name the page that should answer the query, decide whether to update an existing page or write a new one, and put the answer in the first paragraph. Our [SEO cluster generator](/lens/content/seo-cluster-generator/) playbook shows how to fold these into a pillar and spoke plan.
+4. **Turn the top ten gaps into briefs.** For each, name the page that should answer the query, decide whether to update an existing page or write a new one, and put the answer in the first paragraph. Our [SEO cluster generator](/lens/content/seo-cluster-generator/) playbook folds these into a pillar and spoke plan, and [Building content engines that compound](/blog/building-content-engines-that-compound/) covers the internal linking that holds a cluster together.
 5. **Use the thumbs.** Mark wrong topics and irrelevant opportunities down. Microsoft says those votes go straight to the team tuning the classification.
 
-## Limits to plan around
+## What are the limits?
 
-Microsoft labels the numbers "directional signals for planning, not as a precise ledger". The topics are classified by AI and can be wrong, grounding queries are a sample, and every count is approximate. Bing hasn't explained how it ranks the strongest opportunities, and the report still has no click data, so you can't yet tell whether a citation in Copilot sends visits. Smaller sites may see few topics or none. It also covers only Microsoft's surfaces and partners, and Microsoft hasn't named the partners.
+Microsoft labels the numbers "directional signals for planning, not as a precise ledger". The topics are classified by AI and can be wrong, grounding queries are a sample, and every count is approximate. Bing hasn't explained how it ranks the strongest opportunities, and its announcements describe citations rather than clicks, so you can't yet tell whether a citation in Copilot sends visits. Smaller sites may see few topics or none. The report also covers only Microsoft's surfaces and partners, and Microsoft hasn't named the partners.
+
+## Further reading
+
+- [The citation moved off the page](/blog/the-citation-moved-off-the-page/), on why rankings stopped predicting who gets quoted
+- [AI Overviews hit 82% of tracked brand searches in September](/blog/google-ai-overviews-brand-searches/)
+- [What Google's Lens data in Search Console means for SEO teams](/blog/search-console-multimodal-lens-reporting/)
+- [What ChatGPT's GPT-6 Intelligent UI means for marketing teams](/blog/chatgpt-gpt-6-intelligent-ui-marketing-teams/)
+- [Building content engines that compound](/blog/building-content-engines-that-compound/)
 
 Our [services page](/services/) sets out how we help content teams plan for AI answers.
