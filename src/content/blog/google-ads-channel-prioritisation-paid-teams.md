@@ -41,7 +41,7 @@ Google Ads announced channel prioritisation and budget allocation on 14 October 
 
 Tal Akabas, a director of product management at Google Ads, [announced the two controls](https://blog.google/products/ads-commerce/channel-prioritization-budget-allocation/) under the line "Say goodbye to all-or-nothing channel targeting". Until now a Search campaign either served on search partners and Display or it didn't. Now an advertiser can keep a channel switched on at low priority, so Google AI spends there only after high priority channels have had what they can use at the target.
 
-Budget allocation adds a ceiling. For a low priority channel you enter a percentage of the campaign's average daily budget, and Google aims to stay under it. The [help page](https://support.google.com/google-ads/answer/18385152?hl=en) says the allocation resets each day, unspent or overspent amounts don't carry over, and a 0% allocation stops spend on that channel. Settings work at account level, at campaign level and on shared budgets, through a "Channel Prioritization" card in account or campaign settings. Search Engine Roundtable [reported](https://www.seroundtable.com/google-ads-channel-prioritization-budget-allocation-42297.html) that an alpha of the feature surfaced in August.
+Budget allocation adds a ceiling. For a low priority channel you enter a percentage of the campaign's average daily budget, and Google aims to stay under it. The [help page](https://support.google.com/google-ads/answer/18385152?hl=en) says the allocation resets each day, unspent or overspent amounts don't carry over, and a 0% allocation stops spend on that channel. Settings work at account level, at campaign level and on shared budgets where every campaign is the same type, through a "Channel Prioritization" card in account or campaign settings. Search Engine Roundtable [reported](https://www.seroundtable.com/google-ads-channel-prioritization-budget-allocation-42297.html) that an alpha of the feature surfaced in August.
 
 ## Which campaigns get which control?
 
@@ -52,7 +52,7 @@ Budget allocation adds a ceiling. For a low priority channel you enter a percent
 | Performance Max | Google channels as one group, search partners, Google Display Network | Yes |
 | Demand Gen | Google channels as one group, Google Display Network | No |
 
-In Performance Max and Demand Gen, Google treats Search, YouTube, Maps, Gmail and Discover as one block called Google channels. You can push Display and search partners below that block, but you can't rank YouTube above Search inside a Performance Max campaign.
+In Performance Max and Demand Gen, Google treats Search, YouTube, Maps, Gmail and Discover as one block called Google channels. In Performance Max you can push Display and search partners below that block, in Demand Gen only Display, and in neither can you rank YouTube above Search.
 
 ## Does prioritisation change spend at all?
 
