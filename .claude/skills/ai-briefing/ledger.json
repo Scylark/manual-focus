@@ -518,5 +518,53 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "meta-tiktok-advertising-week-ai-ad-tools"
+  },
+  {
+    "run_date": "2026-10-15",
+    "story": "Google Ads announces channel prioritisation (high/low priority tiers) and budget allocation (best-effort daily % cap on low priority channels) for Search, Shopping, PMax and Demand Gen on 14 October; Search campaigns with Display Expansion migrate in February 2027",
+    "primary_source": "https://blog.google/products/ads-commerce/channel-prioritization-budget-allocation/",
+    "score": 7,
+    "decision": "published",
+    "slug": "google-ads-channel-prioritisation-paid-teams"
+  },
+  {
+    "run_date": "2026-10-15",
+    "story": "ChatGPT links appear to drop utm_source=chatgpt.com and the referrer since GPT-6, so ChatGPT visits show as direct (Cedric Huesler LinkedIn analysis of ~500 pages, SER 14 October); no OpenAI statement and possibly a bug",
+    "primary_source": "https://www.seroundtable.com/utm-parameters-missing-chatgpt-42299.html",
+    "score": 8,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-15",
+    "story": "OpenAI assigns human ChatGPT Ads Account Managers to advertisers (email posted on X, SER 14 October)",
+    "primary_source": "https://www.seroundtable.com/openai-chatgpt-ads-account-manager-42278.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-15",
+    "story": "Google tests the AI Mode left sidebar on the main search results page (spotted on X, SER 14 October)",
+    "primary_source": "https://www.seroundtable.com/google-ai-mode-left-sidebar-42298.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-15",
+    "story": "Anthropic warns small AI models could soon self-replicate across internet-connected devices (Reuters, 13 October)",
+    "primary_source": "https://www.reuters.com/business/ai-models-may-soon-self-replicate-without-access-data-centers-anthropic-warns-2026-10-13/",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-15",
+    "story": "xAI releases Grok Voice 3.0 speech-to-speech model with unchanged API pricing (14 October)",
+    "primary_source": "https://x.ai/news/grok-voice-3",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
