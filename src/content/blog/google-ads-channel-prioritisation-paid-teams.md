@@ -62,6 +62,8 @@ For a head of paid search that settles which lever to pull. On a budget-limited 
 
 Our view at Manual Focus is that most brands should replace their search partner and Display opt-outs with a low priority setting and a small allocation, because a capped test produces evidence and an opt-out produces none. Google's own announcement addresses marketers who have "historically opted out" of search partners and Display, and until now those teams had no way to try either network at a controlled cost. A 5% cap gives them a test they can read after a month.
 
+For cycling and endurance retailers the window to try this is before Black Friday and the spring riding season, when Search budgets run tightest and every click on Google Search counts. A shop that has always excluded Display or search partners could set one of them to low priority with a 5% cap on a budget-limited bikes or kit campaign in late October, so it has four weeks of evidence before peak spend begins. If the test earns its place the cap can rise for the sales period, and if it doesn't the retailer has lost very little and gained a clear answer.
+
 Google AI still chooses bids and placements, and the team now chooses the order it spends in and the limit on each channel, which is the split of work we argued for in [Paid channels in the AI era](/blog/paid-channels-bidding-agents/). A margin-aware approach like our [paid-search bidding agent playbook](/lens/demand/paid-search-bidding-agent/) can then feed the targets that high priority channels are funded up to.
 
 ## What happens to Display in February?
