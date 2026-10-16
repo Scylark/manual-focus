@@ -366,8 +366,9 @@ post alone, and record the failure and its first error line for step 9. The
 post still goes out.
 
 The MP3 sits on the public release from step 6 onwards, before James
-approves. If James rejects the post, delete the asset with
-`gh release delete-asset podcast <slug>.mp3 --repo Scylark/manual-focus`.
+approves. If James rejects the post, delete the asset named at the end of the
+post's `podcast.audio` URL with
+`gh release delete-asset podcast <asset name> --repo Scylark/manual-focus`.
 
 ## Step 9. Hand off for approval
 
@@ -493,7 +494,11 @@ after a run that skipped the episode. Skip steps 1 to 7.
    match it by title and confirm the slug in your reply.
 2. Run step 8 in full. If the post already has a `podcast` block or a
    script, rewrite the episode from the current post and re-publish. The
-   build re-voices only the chunks that changed.
+   build re-voices only the chunks that changed. The publish script never
+   overwrites the live MP3: it uploads `<slug>-<timestamp>.mp3` and points
+   the post at that, so the live player keeps working if the upload fails.
+   Name the old asset in the PR so James can delete it once the PR is
+   merged, and never delete it before then.
 3. If preflight prints `SKIP`, stop there and tell James exactly what's
    missing. Change nothing in the repo.
 4. Hand off on branch `podcast/<slug>` with a PR against `master` titled
