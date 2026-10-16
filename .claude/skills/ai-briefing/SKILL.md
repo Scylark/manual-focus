@@ -316,10 +316,14 @@ article through. `podcast/SHOW-RULES.md` is the brief. Read it in full each
 run and follow it exactly. This step runs after the post has passed every
 gate in step 6, because the episode is written from the finished post.
 
-1. **Preflight.** Run `node podcast/preflight.mjs`. It checks the ElevenLabs
-   key, ffmpeg and ffprobe, and that `gh` can write to the
-   repo's `podcast` release, without spending anything. If it prints `SKIP`,
-   don't write the episode. Keep its lines for the summary and go to step 8.
+1. **Preflight.** Run `node podcast/preflight.mjs <slug>`. It checks the
+   ElevenLabs key, ffmpeg and ffprobe, and that `gh` can write to the repo's
+   `podcast` release, without spending anything. If it prints `SKIP`, don't
+   write the episode. Keep its lines for the summary and go to step 8. It
+   also prints `EXISTING` if the post already has a `podcast` block, the
+   release already has an MP3 for the slug, or an open PR has a script for
+   it. A new post should never have one, so on `EXISTING` skip the episode
+   too and report the lines, rather than voicing over another run's work.
 2. **Write the script**, `podcast/scripts/<slug>.txt`, to the show rules.
    The points that go wrong most:
    - The post is the only source. No fact, number, name or quote that isn't
@@ -492,8 +496,12 @@ after a run that skipped the episode. Skip steps 1 to 7.
 
 1. Find the post at `src/content/blog/<slug>.md`. If James named it loosely,
    match it by title and confirm the slug in your reply.
-2. Run step 7b in full. If the post already has a `podcast` block or a
-   script, rewrite the episode from the current post and re-publish. The
+2. Run step 7b in full, with one difference at the preflight. If it prints
+   `EXISTING` because an open PR has a script for the post, stop and tell
+   James which PR, since another run is already making that episode. If the
+   only lines are a `podcast` block or a release MP3 from a merged episode,
+   James is asking for a re-voice, so carry on: rewrite the episode from the
+   current post and re-publish. The
    build re-voices only the chunks that changed. The publish script never
    overwrites the live MP3: it uploads `<slug>-<timestamp>.mp3` and points
    the post at that, so the live player keeps working if the upload fails.

@@ -4,11 +4,17 @@
 // before voicing anything, so a missing key or tool skips the episode instead
 // of failing the briefing.
 //
-// Usage: node podcast/preflight.mjs
+// Usage: node podcast/preflight.mjs [<slug>]
 // Prints READY, or SKIP with one line per missing piece. Exits 0 when ready
-// and 1 when not.
+// and 1 when not. With a slug it also looks for an episode that already
+// exists or is in flight for that post (a `podcast` block on the post, an MP3
+// on the release, an open PR touching its script), so two runs don't voice and
+// upload over each other. It lists those under EXISTING and exits 2.
 
 import { execFileSync } from 'node:child_process';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const REPO = 'Scylark/manual-focus';
 const missing = [];
@@ -63,5 +69,27 @@ try {
 if (missing.length) {
   console.log(`SKIP\n${missing.map((m) => `- ${m}`).join('\n')}`);
   process.exit(1);
+}
+
+const slug = process.argv[2];
+const existing = [];
+if (slug) {
+  const post = join(dirname(fileURLToPath(import.meta.url)), '..', 'src', 'content', 'blog', `${slug}.md`);
+  if (existsSync(post) && /^podcast:$/m.test(readFileSync(post, 'utf8').split(/^---$/m)[1] ?? '')) {
+    existing.push(`the post already has a podcast block on this branch`);
+  }
+  const assets = run('gh', ['release', 'view', 'podcast', '--repo', REPO, '--json', 'assets', '--jq', '.assets[].name'])
+    .split('\n').filter((name) => name === `${slug}.mp3` || name.startsWith(`${slug}-`));
+  for (const name of assets) existing.push(`the release already has ${name}`);
+  // REST only: the cloud's GitHub proxy refuses GraphQL, so no `gh pr list`.
+  const prs = JSON.parse(run('gh', ['api', `repos/${REPO}/pulls?state=open&per_page=50`, '--jq', '[.[] | {number, title}]']));
+  for (const pr of prs) {
+    const files = run('gh', ['api', `repos/${REPO}/pulls/${pr.number}/files?per_page=100`, '--jq', '.[].filename']).split('\n');
+    if (files.includes(`podcast/scripts/${slug}.txt`)) existing.push(`open PR #${pr.number} (${pr.title}) has an episode for it`);
+  }
+}
+if (existing.length) {
+  console.log(`EXISTING\n${existing.map((m) => `- ${m}`).join('\n')}`);
+  process.exit(2);
 }
 console.log('READY');
