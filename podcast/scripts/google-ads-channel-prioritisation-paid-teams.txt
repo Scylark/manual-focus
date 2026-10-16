@@ -1,0 +1,75 @@
+JAMES: If you run paid search, you've just been handed a deadline. Google Ads has new controls for ranking and capping the channels your budget goes to, and in February twenty twenty-seven every Search campaign running on Display moves onto them automatically. I'm James Vickers, this is Manual Focus, and Hannah's here to take it apart with me.
+
+HANNAH: Hi James. And it's two settings, which is worth keeping straight, because they do different jobs.
+
+JAMES: Start with what Google actually announced.
+
+HANNAH: It came on the fourteenth of October, from Tal Akabas, a director of product management at Google Ads, on Google's own blog, and the help page fills in the detail. The first setting is channel prioritisation. You mark channels like Google Search, search partners and the Display Network as high or low priority. Google's AI spends on the high priority ones first, up to your Target CPA or Target ROAS, and whatever's left goes to the low priority ones.
+
+JAMES: And everything starts as high.
+
+HANNAH: Everything starts as high, yes. The second setting is budget allocation. For a low priority channel you put in a percentage of the campaign's average daily budget, and Google aims to stay under it. Their example is five per cent of a thousand dollars a day, so about fifty dollars on that channel.
+
+JAMES: [dryly] Aims to.
+
+HANNAH: Google's word is best-effort. It resets every day, nothing carries over, and if you set it to zero, that channel stops spending.
+
+JAMES: So until now it was all or nothing. You either ran on search partners and Display, or you switched them off.
+
+HANNAH: That's Google's own line, "say goodbye to all-or-nothing channel targeting". Now you can leave a channel on but at the back of the queue, with a ceiling on it.
+
+JAMES: Does it work the same across every campaign type? Because I'd guess not.
+
+HANNAH: It doesn't. Search gets all three channels and the cap. Shopping gets Search and search partners. Performance Max and Demand Gen lump Search, YouTube, Maps, Gmail and Discover together as one block Google calls Google channels. In Performance Max you can push Display and search partners below that block. In Demand Gen it's only Display, and Demand Gen doesn't get the cap at all.
+
+JAMES: And you can't put YouTube above Search.
+
+HANNAH: Not in either of them, no.
+
+JAMES: [thoughtfully] Here's the question I'd ask first, though. Does ranking a channel low actually change what gets spent?
+
+HANNAH: Only when the campaign's short of budget. The help page says prioritisation has no effect on a campaign that isn't limited by budget, because with spare budget Google funds every channel that converts at your target anyway. The cap still applies there, though. Google says it matters most for Target CPA and Target ROAS campaigns that have headroom.
+
+JAMES: So on a tight campaign, ranking search partners low protects your Google Search volume. On a campaign with room, the only lever that moves money is the percentage.
+
+HANNAH: That's the clearest way to put it.
+
+JAMES: Our view, and it's in the article, is that most brands should swap their search partner and Display opt-outs for low priority with a small cap. An opt-out tells you nothing. A five per cent cap tells you something after a month.
+
+HANNAH: And Google's announcement speaks directly to people who've historically opted out. Until now those teams had no way to try either network at a cost they controlled.
+
+JAMES: For a cycling or endurance retailer, I'd do that in late October on a budget-limited bikes or kit campaign. Four weeks of evidence before Black Friday, and if it doesn't earn its place you've lost very little.
+
+HANNAH: Then there's February.
+
+JAMES: Go on.
+
+HANNAH: From February twenty twenty-seven, every Search campaign with Display Expansion on migrates automatically, and Google says the current setup will go away. Spend may shift between channels. If you want things to stay as they are, Google's advice is Display at low priority with a fifty per cent allocation.
+
+JAMES: And there's a second change hiding in the same paragraph.
+
+HANNAH: There is. Display stops serving on Search campaigns that use Target Impression Share. So a brand campaign built on impression share loses its Display reach whatever you set.
+
+JAMES: Which brings us to the bit we do on every episode. Not a to-do list, the jobs you can hand over. Get AI on this. First job, the February audit. Every Search campaign with Display switched on, and what happens to each one.
+
+HANNAH: Give your AI a campaign export from Google Ads with the Display setting, bid strategy and budget status, and it gives you back a table. Which campaigns migrate, which use Target Impression Share, and a suggested Display setting for each, fifty per cent where Display's earning its keep and a lower cap where nobody's checked.
+
+JAMES: The decision on each one stays with you. But you're deciding from a list instead of clicking through accounts. Second, get AI on reading the capped test.
+
+HANNAH: Once the test's run for four weeks, give it the before and after reports for that campaign, and it tells you cost per acquisition and new customer share against the four weeks before, with a plain recommendation to raise the cap, keep it, or drop the channel. And it should say where the data's too thin to call.
+
+JAMES: Third, get AI on the account-by-account work. Manager accounts can't apply these settings, and the API and Editor can't yet either.
+
+HANNAH: So give it your list of client or brand accounts and their Search campaigns, and it gives you a change plan per account, the settings to make, in order, with a column to tick off. Run it as a routine every week until February, so nothing slips.
+
+JAMES: The prompts are in the show notes. So, what don't we know?
+
+HANNAH: [thoughtfully] How far best-effort can overshoot. The help page doesn't say. It doesn't describe channel-level reporting either, which you need to judge a low priority test. Rollout runs over the coming months, with Demand Gen later. Google hasn't said whether a low priority channel gets worse inventory or just less budget, and it gave no performance data at all.
+
+JAMES: So test it before peak trading, and don't take Google's framing as proof it works.
+
+HANNAH: That's my read.
+
+JAMES: The short version. Google's given you a dial where you had a switch, and a date in February when it gets set for you if you don't. The full article, with the campaign table and the February decision grid, is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.
