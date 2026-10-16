@@ -566,5 +566,53 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-16",
+    "story": "Google announces five link changes to AI Mode and AI Overviews on 15 October (inline links higher, test of an official websites section at the top of task responses, Preferred Sources news carousels to more markets, thumbnails on related links, clickable creator names on AI Mode video); Preferred Sources use up more than 7x in 2026",
+    "primary_source": "https://blog.google/products-and-platforms/products/search/updates-ai-mode-overviews-explore-web/",
+    "score": 8,
+    "decision": "published",
+    "slug": "google-ai-mode-official-websites-links"
+  },
+  {
+    "run_date": "2026-10-16",
+    "story": "ChatGPT utm_source=chatgpt.com tag returns after a bug, per Adobe's Cedric Huesler relaying OpenAI (fix from about 2am PT 15 October), referrer still missing; no OpenAI statement",
+    "primary_source": "https://www.relevantaudience.com/analytics/chatgpt-utm-tag-bug-fixed-openai-confirmed-adobe/",
+    "score": 6,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-16",
+    "story": "Meta to switch product browsing on by default for existing ads from 28 October unless advertisers opt out (14 October, secondary reports only)",
+    "primary_source": "https://adsuploader.com/blog/meta-ads-updates",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-16",
+    "story": "Raptive survey of 3,083 US consumers finds trust in an AI answer is 42% with no source shown (14 October)",
+    "primary_source": "https://agilebrandguide.com/yesterdays-martech-ai-cx-news-october-15-2026",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-16",
+    "story": "OpenAI rolls out GPT-Live-1.1 and GPT-Live-1.1 Quip in ChatGPT Voice with new language voices (15 October release notes)",
+    "primary_source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-16",
+    "story": "Notch founders join OpenAI's Ads team as OpenAI expands self-service ad buying",
+    "primary_source": "https://agilebrandguide.com/yesterdays-martech-ai-cx-news-october-15-2026",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
