@@ -2,7 +2,7 @@
 // podcast app. One episode per blog post that has a `podcast` block in its
 // frontmatter (written by podcast/publish-episode.mjs). Episode notes come
 // from the summary in podcast/notes/<slug>.md.
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import type { APIContext } from 'astro';
 
 const SHOW = {
@@ -35,16 +35,20 @@ const hms = (seconds: number) =>
     .map((n) => String(n).padStart(2, '0'))
     .join(':');
 
+type Post = CollectionEntry<'blog'>;
+const episodeDate = (post: Post) => post.data.podcast?.published ?? post.data.date;
+
 export async function GET(context: APIContext) {
   const site = context.site!.toString().replace(/\/$/, '');
   const episodes = (await getCollection('blog'))
     .filter((post) => post.data.podcast)
     .sort((a, b) =>
-      b.data.podcast!.published.getTime() - a.data.podcast!.published.getTime() ||
+      episodeDate(b).getTime() - episodeDate(a).getTime() ||
       b.data.date.getTime() - a.data.date.getTime());
 
   const items = episodes.map((post) => {
-    const { audio, duration, bytes, published } = post.data.podcast!;
+    const { audio, duration, bytes } = post.data.podcast!;
+    const published = episodeDate(post);
     const link = `${site}/blog/${post.id}/`;
     const text = summary(post.id, post.data.description);
     const html = `<p>${escape(text)}</p><p>Read the article and get the prompts: <a href="${link}">${escape(post.data.title)}</a></p>`;
