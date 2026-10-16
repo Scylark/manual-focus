@@ -13,8 +13,25 @@ import { execFileSync } from 'node:child_process';
 const REPO = 'Scylark/manual-focus';
 const missing = [];
 
-// The voice IDs default to the show's voices in build-episode.mjs.
-if (!process.env.ELEVENLABS_API_KEY) missing.push('ELEVENLABS_API_KEY is not set');
+// ElevenLabs: look up James's voice, which needs a working key and confirms
+// the voice exists. Locally the key comes from ELEVENLABS_API_KEY; in a cloud
+// session it's a network secret the agent proxy adds, so the env var is unset.
+const key = process.env.ELEVENLABS_API_KEY;
+const voice = process.env.ELEVENLABS_JAMES_VOICE || '9uOKe1BPuYSPsgUcIJd5';
+try {
+  const res = await fetch(`https://api.elevenlabs.io/v1/voices/${voice}`, {
+    headers: key ? { 'xi-api-key': key } : {},
+  });
+  if (res.status === 401 || res.status === 403) {
+    missing.push(key
+      ? `ElevenLabs rejected ELEVENLABS_API_KEY (${res.status})`
+      : `No ElevenLabs key: set ELEVENLABS_API_KEY, or add it as a network secret for api.elevenlabs.io (${res.status})`);
+  } else if (!res.ok) {
+    missing.push(`ElevenLabs answered ${res.status} for James's voice`);
+  }
+} catch (err) {
+  missing.push(`Can't reach api.elevenlabs.io (${err.cause?.code ?? err.message})`);
+}
 
 const run = (cmd, args) => execFileSync(cmd, args, { stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
 

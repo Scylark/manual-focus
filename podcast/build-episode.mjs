@@ -17,7 +17,8 @@
 // Usage: node podcast/build-episode.mjs <slug> [--dry-run]
 // --dry-run parses and chunks the script and prints the plan, without calling
 // ElevenLabs or ffmpeg, so it needs no key.
-// Needs ELEVENLABS_API_KEY and ffmpeg on the PATH. ELEVENLABS_JAMES_VOICE and
+// Needs an ElevenLabs key (ELEVENLABS_API_KEY locally, a network secret in the
+// cloud) and ffmpeg on the PATH. ELEVENLABS_JAMES_VOICE and
 // ELEVENLABS_HANNAH_VOICE optionally override the show's voices.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
@@ -53,12 +54,11 @@ const VOICES = {
 const dryRun = process.argv.includes('--dry-run');
 const slug = process.argv.slice(2).find((a) => !a.startsWith('--'));
 if (!slug) throw new Error('Usage: node podcast/build-episode.mjs <slug> [--dry-run]');
-if (!dryRun) {
-  if (!apiKey) throw new Error('ELEVENLABS_API_KEY is not set');
-  for (const [who, id] of Object.entries(VOICES)) {
-    if (!id) throw new Error(`ELEVENLABS_${who}_VOICE is not set`);
-  }
-}
+// In a cloud session the key is a network secret: the agent proxy adds the
+// xi-api-key header to requests for api.elevenlabs.io, so the session never
+// sees it and ELEVENLABS_API_KEY is unset. Run podcast/preflight.mjs to check
+// that a key reaches ElevenLabs either way.
+const authHeaders = apiKey ? { 'xi-api-key': apiKey } : {};
 
 const script = readFileSync(join(ROOT, 'scripts', `${slug}.txt`), 'utf8');
 const turns = script
@@ -113,7 +113,7 @@ async function voice(chunk, i) {
 
   const res = await fetch('https://api.elevenlabs.io/v1/text-to-dialogue?output_format=mp3_44100_128', {
     method: 'POST',
-    headers: { 'xi-api-key': apiKey, 'content-type': 'application/json' },
+    headers: { ...authHeaders, 'content-type': 'application/json' },
     body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error(`ElevenLabs failed on chunk ${i + 1} (${res.status}): ${await res.text()}`);

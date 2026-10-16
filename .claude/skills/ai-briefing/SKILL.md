@@ -20,7 +20,7 @@ the analysis is the product, and the news is the hook.
 1. **No post beats a weak post.** Publish only when a story clears the
    bar in step 3. Most days one will; some days none will. On a
    no-post day, change nothing in the repo: no branch, no commit, no PR.
-   Report the decision in your final summary (step 9) and stop. Never pad.
+   Report the decision in your final summary (step 8) and stop. Never pad.
 2. **At most one post per run.** Two only if two separate stories both
    score 9+ (a major frontier model launch on the same day as a Google
    search change, say).
@@ -35,9 +35,9 @@ the analysis is the product, and the news is the hook.
    "Our view at Manual Focus is...", "The practical read for a
    marketing team is...".
 5. **Nothing goes live without James.** Work on a branch and open a pull
-   request (step 9). Never push to `master`.
+   request (step 8). Never push to `master`.
 6. **The podcast never blocks the post.** Every post ships with its
-   episode when the run environment can make one (step 8). When it can't,
+   episode when the run environment can make one (step 7b). When it can't,
    or anything in the episode step fails, publish the post anyway and say
    in the final summary that the episode was skipped and why.
 
@@ -287,7 +287,7 @@ direct, answer first. Use "you" for the reader where it fits.
 
 If a gate can't pass (e.g. you can't verify the key fact), don't
 publish. Try the next candidate that scored 7 or more, and if there
-isn't one, treat it as a no-post day (step 9).
+isn't one, treat it as a no-post day (step 8).
 
 ## Step 7. Update the ledger (post days only)
 
@@ -309,7 +309,7 @@ bar it costs nothing.
 }
 ```
 
-## Step 8. Make the podcast episode (post days only)
+## Step 7b. Make the podcast episode (post days only)
 
 Every post gets a companion episode: James Vickers and Hannah talking the
 article through. `podcast/SHOW-RULES.md` is the brief. Read it in full each
@@ -319,7 +319,7 @@ gate in step 6, because the episode is written from the finished post.
 1. **Preflight.** Run `node podcast/preflight.mjs`. It checks the ElevenLabs
    key, ffmpeg and ffprobe, and that `gh` can write to the
    repo's `podcast` release, without spending anything. If it prints `SKIP`,
-   don't write the episode. Keep its lines for the summary and go to step 9.
+   don't write the episode. Keep its lines for the summary and go to step 8.
 2. **Write the script**, `podcast/scripts/<slug>.txt`, to the show rules.
    The points that go wrong most:
    - The post is the only source. No fact, number, name or quote that isn't
@@ -362,7 +362,7 @@ If any of steps 2 to 6 fails (the checker won't pass after three rounds of
 fixes, ElevenLabs returns an error or runs out of credit, ffmpeg fails, the
 upload is refused), stop the episode there. Delete the episode's script and
 notes and revert any change to the post's frontmatter, so the PR carries the
-post alone, and record the failure and its first error line for step 9. The
+post alone, and record the failure and its first error line for step 8. The
 post still goes out.
 
 The MP3 sits on the public release from step 6 onwards, before James
@@ -370,7 +370,7 @@ approves. If James rejects the post, delete the asset named at the end of the
 post's `podcast.audio` URL with
 `gh release delete-asset podcast <asset name> --repo Scylark/manual-focus`.
 
-## Step 9. Hand off for approval
+## Step 8. Hand off for approval
 
 James approves each post from the Claude app. He should be able to read the
 whole article and publish it without opening anything else, so the hand-off
@@ -378,7 +378,7 @@ has one shape every day.
 
 **Post day.**
 - Branch: `briefing/YYYY-MM-DD`. Commit the post and the ledger, plus the
-  episode's script, show notes and the post's `podcast` block when step 8
+  episode's script, show notes and the post's `podcast` block when step 7b
   made one.
 - Open a pull request against `master` titled `AI briefing | <post title>`,
   **ready for review, never a draft** (pass `draft: false`), so the Merge
@@ -409,7 +409,7 @@ has one shape every day.
   (score)>, <story (score)>.
 
   Podcast: <m:ss>, <audio URL>
-  (or, when step 8 didn't make one: Episode skipped, <reason>. Say "make
+  (or, when step 7b didn't make one: Episode skipped, <reason>. Say "make
   the podcast for <slug>" once that's fixed.)
   ```
 
@@ -476,12 +476,12 @@ What changes from the daily steps:
    more out of 60), the fact check and the no-claimed-experience check.
 6. **Ledger (step 7)**: add one entry with `"decision": "published-on-demand"`
    and a score of `null`, so the daily run won't repeat the topic.
-7. **Podcast (step 8)** as normal, so the article ships with its episode.
-8. **Hand off (step 9)**: branch `article/<slug>`, PR titled
+7. **Podcast (step 7b)** as normal, so the article ships with its episode.
+8. **Hand off (step 8)**: branch `article/<slug>`, PR titled
    `Article | <post title>`, ready for review, with the article first in the
-   body as in step 9. Then the search terms targeted, what you verified and
+   body as in step 8. Then the search terms targeted, what you verified and
    where, what you left out as unverified, and the self-audit score. End
-   with the step 9 approval message. Never push to `master`. James merges,
+   with the step 8 approval message. Never push to `master`. James merges,
    and the merge publishes the post.
 
 ## On-demand podcast mode
@@ -492,7 +492,7 @@ after a run that skipped the episode. Skip steps 1 to 7.
 
 1. Find the post at `src/content/blog/<slug>.md`. If James named it loosely,
    match it by title and confirm the slug in your reply.
-2. Run step 8 in full. If the post already has a `podcast` block or a
+2. Run step 7b in full. If the post already has a `podcast` block or a
    script, rewrite the episode from the current post and re-publish. The
    build re-voices only the chunks that changed. The publish script never
    overwrites the live MP3: it uploads `<slug>-<timestamp>.mp3` and points
@@ -518,21 +518,19 @@ after a run that skipped the episode. Skip steps 1 to 7.
 
 ## Run environment for the podcast
 
-The daily run is a cloud routine, so its environment needs these for step 8.
-Without any one of them the preflight skips the episode and the post still
-ships.
+The daily run is a cloud routine in the "AI briefing" cloud environment, so
+that environment needs these for step 7b. Without them the preflight skips the
+episode and the post still ships.
 
 | What | Why | How |
 |---|---|---|
-| `ELEVENLABS_API_KEY` | Voices the script (Text to Dialogue, `eleven_v3`) | Secret environment variable |
-| `ffmpeg` and `ffprobe` | Join chunks, mix the music, read the duration | Setup script, `apt-get install -y ffmpeg` |
-| `gh` signed in with write access | Uploads the MP3 to the `podcast` release | `GH_TOKEN` secret, a fine-grained token on `Scylark/manual-focus` with Contents read and write |
-| Network access | Reach the APIs | Allow `api.elevenlabs.io`, `api.github.com` and `uploads.github.com` |
+| ElevenLabs key | Voices the script (Text to Dialogue, `eleven_v3`) | A network secret on the environment: allowed website `api.elevenlabs.io`, custom header `xi-api-key` with no prefix. The agent proxy adds it to each request, so the session never sees the key and `ELEVENLABS_API_KEY` stays unset |
+| `ffmpeg` and `ffprobe` | Join chunks, mix the music, read the duration | The environment's setup script, `apt-get update && apt-get install -y ffmpeg` |
+| `gh` with write access | Uploads the MP3 to the `podcast` release | Nothing to add. `gh` is pre-installed and the GitHub proxy signs its REST calls for the attached repo. Don't set `GH_TOKEN` |
+| Network access | Reach ElevenLabs and GitHub | The environment is on Full access |
 
-The voice IDs are defaults in `podcast/build-episode.mjs`, since they only
-work with the account's key. `ELEVENLABS_JAMES_VOICE` and
-`ELEVENLABS_HANNAH_VOICE` override them, and `PODCAST_STABILITY` (default 0.5)
-is optional and changes how steady the
-voices are. Locally, the same variables go in your shell before running the
-scripts.
-
+Locally, `ELEVENLABS_API_KEY` in the shell does the job of the network
+secret. The voice IDs are defaults in `podcast/build-episode.mjs`, since they
+only work with the account's key. `ELEVENLABS_JAMES_VOICE` and
+`ELEVENLABS_HANNAH_VOICE` override them, and `PODCAST_STABILITY` (default
+0.5) changes how steady the voices are.
