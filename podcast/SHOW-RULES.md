@@ -1,0 +1,163 @@
+# Manual Focus podcast: show rules
+
+Every blog post gets a companion episode: a two-host conversation that talks
+the article through for people who'd rather listen. These rules apply to every
+script. The scripts live in `podcast/scripts/<post-slug>.txt` and
+`podcast/build-episode.mjs` turns them into audio with ElevenLabs.
+
+## The hosts
+
+**James Vickers (JAMES).** Marketing expert and founder of Manual Focus. He
+brings the practitioner's view: what a head of marketing would do on Monday
+morning, what it costs, who in the team owns it, and where the hype doesn't
+match what he's seen with clients. He opens and closes each episode and asks the
+questions a sharp marketing lead would ask.
+
+**Hannah (HANNAH).** The Manual Focus AI expert. She explains how the
+technology works, what the announcement or research actually says, and where
+the evidence stops. She takes the hard questions and pushes back when James
+oversimplifies.
+
+They're both experts and they talk as peers. Neither of them plays the novice,
+and neither lectures. James knows marketing better, Hannah knows AI better, and
+the episode works where those two meet.
+
+## Who it's for
+
+Marketers at every level, from a junior content executive to a CMO. Explain any
+term the first time it comes up, in a clause, without stopping the
+conversation ("Preferred Sources, the setting that lets a reader pick sites
+they trust..."). Never assume the listener has read the article.
+
+## Evidence: name it, don't drown in it
+
+Cite the evidence the way you'd mention it over a coffee, not the way a paper
+does. One or two sources per point at most, with the publisher named so a
+listener could find it:
+
+> "We went through Google's own announcement and the Search Central docs, and
+> what they show is..."
+>
+> "Search Engine Journal checked Google's help page on the fifteenth, and it
+> listed the US, Canada and India only."
+
+Say what the evidence doesn't show as plainly as what it does. If Google gave
+no numbers, say so. Every claim must come from the article or its listed
+sources; the script adds no new facts, figures or quotes.
+
+## Shape of an episode
+
+About 6 to 8 minutes, roughly 900 to 1,100 words of script.
+
+1. **Cold open (JAMES, 2–3 sentences).** The news and why a marketer should
+   care, then introduce the show and Hannah, in different words each time.
+   There's no recorded intro or stock opening line. The theme music
+   (`podcast/music/road-at-dawn.mp3`) plays alone for about five seconds and
+   then sits under James's opening; the build script handles that, so the
+   script never mentions music.
+2. **What happened (mostly HANNAH).** The facts, with the source named.
+3. **Two or three "so what" exchanges.** Follow the article's sections, each
+   one starting from a question James would genuinely ask.
+4. **Get AI on this (JAMES leads, HANNAH adds).** Not a to-do list for
+   the listener. Take the article's actions and say what to hand to an AI
+   instead, and what it gives back. See the next section.
+5. **What we don't know yet (HANNAH).** The open questions.
+6. **Close (JAMES).** One-line takeaway, then point to the full article on
+   manual-focus.co.uk. The closing music comes in under the last few lines and
+   finishes the episode, so end on a natural sign-off, not a set phrase.
+
+## Get AI on this
+
+It's model-agnostic: we say "AI" or "your AI" on air, never one brand,
+because listeners use whatever their company pays for.
+
+This is the show's signature segment and the thing that makes it Manual Focus.
+Most marketing podcasts end with a list of jobs for the listener. We end with
+the jobs you can hand to AI, because that's how we think marketing teams
+should work now: build the thing that does the task, don't do the task.
+
+- Pick two or three of the article's actions that an AI can genuinely do or
+  do most of: pulling and sorting data, auditing pages, drafting, setting up a
+  recurring check. Leave out anything that needs a human decision or a
+  sign-in, or say plainly which part stays with a person.
+- On air, James names the job in a sentence, starting "Get AI on this",
+  and Hannah says what to give it and what comes back ("Give it your Search
+  Console export and your help-desk tags, and it hands you the top ten tasks
+  ranked by volume").
+- Don't read prompts out. Close the segment with: "The prompts are in the show
+  notes."
+- If a job should run on a schedule, say so ("set it as a fortnightly
+  routine") rather than implying someone will remember to do it.
+
+### Show notes
+
+Each episode has `podcast/notes/<post-slug>.md`: a one-paragraph summary, the
+sources named in the episode, then a **Get AI on this** section with one
+ready-to-paste prompt per job mentioned on air. Each prompt:
+
+- states the goal and the context the model needs (who we are, which site, which
+  market);
+- says what to attach or connect (a Search Console export, the help-desk tag
+  report, the URL list);
+- describes the output exactly (a table with named columns, a ranked list, a
+  draft page);
+- tells the model to say what it couldn't check rather than guess;
+- works in any capable assistant (ChatGPT, Claude, Gemini, Copilot), so it
+  names no product features. Where a job needs browsing or a schedule, say
+  that the tool needs those, not which tool has them.
+
+Prompts follow the article. They add no facts, numbers or claims the article
+doesn't make.
+
+## Writing for the ear
+
+- Turns of 1 to 4 sentences. Nobody speaks for more than about 30 seconds.
+- Write numbers the way they're said: "eighty-two per cent", "the fifteenth of
+  October". The voices read digits badly.
+- No tables, URLs, bullet points or "as you can see". Turn a table into "two
+  are live, one's rolling out, and two are tests".
+- Contractions throughout. Short reactions ("Right.", "That's the bit I'd
+  worry about.") are fine but no more than one every few turns, and never
+  "Great question" or "Absolutely".
+- The no-slop rules for the blog apply here too: no "game-changer", "in
+  today's fast-paced landscape", "let's dive in", or tidy three-part
+  summaries.
+- British English, Manual Focus voice: grounded, practical, a bit dry.
+
+## Delivery cues
+
+Episodes are voiced with ElevenLabs' v3 dialogue model, which reads audio tags
+in square brackets as performance directions. Use them sparingly, where a
+real host would do it, at most one every few turns:
+
+- reactions: `[laughs]`, `[chuckles]`, `[sighs]`
+- tone: `[thoughtfully]`, `[dryly]`, `[curious]`, `[excited]`
+- pacing: `[pause]`, and an em dash at the end of a turn for a cut-off
+  ("Right, and the bit that worries me is—")
+
+**James stays measured.** He's calm, dry and considered, never over-excited.
+His tags are limited to `[thoughtfully]`, `[dryly]`, `[calmly]`, `[pause]` and
+the odd `[chuckles]`. Never `[excited]`, `[enthusiastic]` or `[laughs]` on a
+James line, and no exclamation marks in his turns. Hannah can be a shade
+warmer, but she's an expert, not a presenter.
+
+Put the tag at the start of the words it colours. Never tag every line, and
+never use a tag to fake a joke the words don't make.
+
+## Script format
+
+One line per turn, speaker in capitals, blank line between turns:
+
+```text
+JAMES: ...
+
+HANNAH: ...
+```
+
+Nothing else in the file: no stage directions, headings or notes, other than
+the audio tags above. `node podcast/build-episode.mjs <post-slug>` voices it.
+
+## Disclosure
+
+Both voices are AI-generated (James's is a clone of his own voice, Hannah's is
+a synthetic voice). The episode show notes and the player on each post say so.

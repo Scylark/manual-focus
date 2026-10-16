@@ -1,0 +1,79 @@
+JAMES: Google is testing a new section at the very top of its AI answers, a slot for the one or two official websites that can actually get a task done. If you run a brand, your returns page or your warranty form could end up as the first link someone sees. This is Manual Focus, I'm James Vickers, and with me is Hannah, our AI expert.
+
+HANNAH: Hi James. And it's one of five link changes Google announced on the fifteenth of October, so it's worth separating them out, because they're not all at the same stage.
+
+JAMES: Go on then. What did Google actually say?
+
+HANNAH: We went through the announcement on Google's blog, written by Hema Budaraju, who runs product for Search. Five changes. Inline links, the little source links inside the AI answer, now appear higher up more often. Related article links get image thumbnails. News carousels that favour a reader's Preferred Sources are rolling out to more countries. And then two tests: the official websites section, and clickable creator names on video results in AI Mode.
+
+JAMES: So two are live, one's rolling out, and two are tests.
+
+HANNAH: That's it. And on the inline links, Google says it's made, in its words, continued and substantial increases. It didn't give a number.
+
+JAMES: [dryly] Which is very Google. Let's start with the official websites section, because that's the one I think brand teams will care about most. What does official mean here?
+
+HANNAH: Google hasn't defined it. The example it gives is a task where there are only one or two official places on the web to get it done. That fits government services perfectly, renewing a passport, that kind of thing. But it fits brand journeys almost as well. If you want to return a jacket, register a bike warranty, or book a car in for a service, there's really one right answer, and it's the brand's own page.
+
+JAMES: And Google writes a line of context next to the link, explaining why it's useful.
+
+HANNAH: Yes, and that's worth noticing. The link sits above an AI-written answer, with a sentence Google wrote, not you.
+
+JAMES: [thoughtfully] Here's where I think a lot of brands will trip up. The returns policy is a PDF. The warranty form is behind a login. And there are four versions of the delivery page across the UK site, the EU site and some campaign microsite nobody's turned off.
+
+HANNAH: [chuckles] Which is exactly the problem. If Google can't tell which page is the official one, it'll pick something. That might be a retailer's help page or a forum thread. And if you've got several near-identical pages for the same task, the one Google chooses might not be the one your team actually maintains.
+
+JAMES: So our view is pretty simple. Take your top ten customer tasks and treat each one like a search product. One page per task, owned by you, crawlable, with a plain title, and the answer in the first paragraph.
+
+HANNAH: And it builds on something we covered earlier this month. AI Overviews were showing on eighty-two per cent of tracked brand searches in September. This test goes a step further. It puts your own task page above Google's summary of it.
+
+JAMES: Let's do Preferred Sources. I suspect plenty of people listening haven't come across them.
+
+HANNAH: It's a setting that lets a reader pick sites they trust. Google's Search Central documentation says if someone picks your site, they'll see your content more often in Top Stories, and it may carry a preferred badge in AI Mode and AI Overviews. Google also says use of the feature has grown more than seven times since the start of this year.
+
+JAMES: [calmly] Is there a catch?
+
+HANNAH: Two. Your site has to be included in Search's generative AI features, which you can check in Search Console. And only whole domains or subdomains qualify. So if your blog lives at a slash-blog path, it doesn't count on its own.
+
+JAMES: So who should bother?
+
+HANNAH: Anyone who publishes regularly. News, research, editorial.
+
+JAMES: I'd add any brand with a loyal readership. Think of a cycling brand whose race reports and product tests have a real following. A line in the newsletter asking readers to choose you as a preferred source costs nothing. And once someone's opted in, that's a signal a ranking update can't take away.
+
+HANNAH: Google gives you a button and a plain link for exactly that.
+
+JAMES: Quickly, the video change. Creator names becoming clickable.
+
+HANNAH: In the test, creator and publisher names on AI Mode video results link through to Search profiles, which Google launched in June. But Search Engine Journal checked Google's help page on the fifteenth, and profiles were listed for the US, Canada and India only. So UK teams can't claim one yet.
+
+JAMES: Watch it, don't act on it. Right, so what do you actually do about the rest? And I don't mean a to-do list. Get AI on this.
+
+HANNAH: Go on, what's the first job?
+
+JAMES: Get AI on finding your top customer tasks. The returns, the deliveries, the warranty claims, the bookings.
+
+HANNAH: Give it your Search Console queries and your help-desk tags, and it hands you back the ten tasks people ask about most, ranked, with the page you think answers each one.
+
+JAMES: Second job. Get your AI to audit those pages. Is there one page per task, or four? Is the answer stuck in a PDF or behind a login? Does the first paragraph actually answer the question?
+
+HANNAH: And it'll draft the fixes. A new opening paragraph, which duplicates to merge, which PDF to turn into a proper page. The decisions stay with your team, but the legwork's done.
+
+JAMES: Third, the one nobody remembers to do. Checking AI Mode for those tasks.
+
+HANNAH: Set it up as a fortnightly routine. Your AI searches each task, records which page Google links to, whether an official section shows up, and whose site wins when it isn't yours. You get a table every other Monday.
+
+JAMES: And one for you, not the AI. Put a note on the fifteenth of October in your analytics today.
+
+HANNAH: That one matters more than it sounds. Every link inside an AI Overview shares the same position in Search Console, so if your link moves higher inside the answer, the report won't show it. A dated note is how you'll connect any change in clicks back to this.
+
+JAMES: The prompts for all three are in the show notes. [pause] So, what don't we know yet?
+
+HANNAH: [thoughtfully] Quite a lot. Google gave no numbers on the inline links, and no evidence these changes actually increase clicks. So I'd treat it as a statement of intent. The official websites section has no launch date, no list of markets and no eligibility rules. And we don't know how Google decides what counts as official, or whether a big retailer selling your product could be picked over you.
+
+JAMES: Does structured data help?
+
+HANNAH: Google's own guidance says you don't need any special markup to appear in AI features, and nothing in this announcement changes that.
+
+JAMES: So the takeaway is this. Google wants to send people to the official page for a task, and you need to make sure that page is yours, is easy to find, and gives the answer straight away. The full article, with the table of all five changes and links to the sources, is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.
