@@ -14,9 +14,12 @@
 // last lines and rises to its natural ending once James stops talking.
 // There's no fixed jingle or voiceover; the cold open is different each time.
 //
-// Usage: node podcast/build-episode.mjs <slug>
-// Needs ELEVENLABS_API_KEY, ELEVENLABS_JAMES_VOICE, ELEVENLABS_HANNAH_VOICE,
-// plus ffmpeg on the PATH.
+// Usage: node podcast/build-episode.mjs <slug> [--dry-run]
+// --dry-run parses and chunks the script and prints the plan, without calling
+// ElevenLabs or ffmpeg, so it needs no key.
+// Needs an ElevenLabs key (ELEVENLABS_API_KEY locally, a network secret in the
+// cloud) and ffmpeg on the PATH. ELEVENLABS_JAMES_VOICE and
+// ELEVENLABS_HANNAH_VOICE optionally override the show's voices.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -41,17 +44,21 @@ const FULL = 0.85; // music on its own, just under the voices
 const BED = 0.1; // music under speech
 
 const apiKey = process.env.ELEVENLABS_API_KEY;
+// Voice IDs aren't secret (they only work with the account's API key), so the
+// show's voices are the defaults and the env vars only override them.
 const VOICES = {
-  JAMES: process.env.ELEVENLABS_JAMES_VOICE,
-  HANNAH: process.env.ELEVENLABS_HANNAH_VOICE,
+  JAMES: process.env.ELEVENLABS_JAMES_VOICE || '9uOKe1BPuYSPsgUcIJd5', // James's clone
+  HANNAH: process.env.ELEVENLABS_HANNAH_VOICE || 'y1LQSw6x4O5I1qZEI77j',
 };
 
-const slug = process.argv[2];
-if (!slug) throw new Error('Usage: node podcast/build-episode.mjs <slug>');
-if (!apiKey) throw new Error('ELEVENLABS_API_KEY is not set');
-for (const [who, id] of Object.entries(VOICES)) {
-  if (!id) throw new Error(`ELEVENLABS_${who}_VOICE is not set`);
-}
+const dryRun = process.argv.includes('--dry-run');
+const slug = process.argv.slice(2).find((a) => !a.startsWith('--'));
+if (!slug) throw new Error('Usage: node podcast/build-episode.mjs <slug> [--dry-run]');
+// In a cloud session the key is a network secret: the agent proxy adds the
+// xi-api-key header to requests for api.elevenlabs.io, so the session never
+// sees it and ELEVENLABS_API_KEY is unset. Run podcast/preflight.mjs to check
+// that a key reaches ElevenLabs either way.
+const authHeaders = apiKey ? { 'xi-api-key': apiKey } : {};
 
 const script = readFileSync(join(ROOT, 'scripts', `${slug}.txt`), 'utf8');
 const turns = script
@@ -80,6 +87,16 @@ for (const turn of turns) {
 }
 if (current.length) chunks.push(current);
 
+if (dryRun) {
+  for (const [i, chunk] of chunks.entries()) {
+    const chars = chunk.reduce((n, t) => n + t.text.length, 0);
+    console.log(`Chunk ${i + 1}/${chunks.length}: ${chunk.length} turns, ${chars} chars`);
+  }
+  const chars = turns.reduce((n, t) => n + t.text.length, 0);
+  console.log(`Dry run: ${turns.length} turns, ${chars} characters to voice. Nothing sent to ElevenLabs.`);
+  process.exit(0);
+}
+
 const outDir = join(ROOT, 'out', slug);
 mkdirSync(outDir, { recursive: true });
 
@@ -96,7 +113,7 @@ async function voice(chunk, i) {
 
   const res = await fetch('https://api.elevenlabs.io/v1/text-to-dialogue?output_format=mp3_44100_128', {
     method: 'POST',
-    headers: { 'xi-api-key': apiKey, 'content-type': 'application/json' },
+    headers: { ...authHeaders, 'content-type': 'application/json' },
     body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error(`ElevenLabs failed on chunk ${i + 1} (${res.status}): ${await res.text()}`);

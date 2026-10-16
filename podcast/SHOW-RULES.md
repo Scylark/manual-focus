@@ -8,7 +8,9 @@ script. The scripts live in `podcast/scripts/<post-slug>.txt` and
 ## Making an episode
 
 1. Write `podcast/scripts/<post-slug>.txt` and `podcast/notes/<post-slug>.md`
-   to these rules.
+   to these rules, then run `node podcast/check-episode.mjs <post-slug>`
+   until it prints PASS. `node podcast/preflight.mjs` says whether this
+   machine has the keys and tools for the next two steps.
 2. `node podcast/build-episode.mjs <post-slug>` voices it with ElevenLabs and
    mixes in the theme music. Output: `podcast/out/<post-slug>.mp3`.
 3. `node podcast/publish-episode.mjs <post-slug>` uploads the MP3 to the
