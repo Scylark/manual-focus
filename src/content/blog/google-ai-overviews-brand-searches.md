@@ -7,6 +7,7 @@ podcast:
   audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/google-ai-overviews-brand-searches.mp3"
   duration: 384
   bytes: 4613060
+  published: 2026-10-16
 faq:
   - question: "Does Google show AI Overviews when people search for a brand name?"
     answer: "Increasingly, yes. DemandSphere, which tracks branded keywords daily, reported on 1 October 2026 that AI Overviews appeared on about 26% of its tracked branded queries in early September and on 82.06% by 29 September, after peaking at 90.48% on 27 September. Google has not announced the change."

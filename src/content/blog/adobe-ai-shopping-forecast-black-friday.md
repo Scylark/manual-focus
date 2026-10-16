@@ -7,6 +7,7 @@ podcast:
   audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/adobe-ai-shopping-forecast-black-friday.mp3"
   duration: 376
   bytes: 4511183
+  published: 2026-10-16
 faq:
   - question: "How much will AI shopping traffic grow this holiday season?"
     answer: "Adobe forecast on 28 September 2026 that traffic from AI services to US retail sites will rise 130% year on year over November and December, measured by shoppers clicking a link. It expects the biggest jump on Thanksgiving, up 159%, followed by Black Friday at 95% and Cyber Monday at 88%. The forecast covers the US only."

@@ -7,6 +7,7 @@ podcast:
   audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/meta-tiktok-advertising-week-ai-ad-tools.mp3"
   duration: 446
   bytes: 5348459
+  published: 2026-10-16
 howToName: "How UK paid social teams can prepare for Meta and TikTok's new AI ad tools"
 howToSteps:
   - name: "Check what each account shows"

@@ -8,6 +8,7 @@ podcast:
   audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/the-90-day-ai-integration-plan.mp3"
   duration: 420
   bytes: 5040319
+  published: 2026-10-16
 howToName: "Integrate AI into a marketing function in 90 days"
 howToSteps:
   - name: "Weeks 1–2: audit current AI usage and the brand voice doc"

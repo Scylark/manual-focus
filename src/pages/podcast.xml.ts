@@ -39,10 +39,12 @@ export async function GET(context: APIContext) {
   const site = context.site!.toString().replace(/\/$/, '');
   const episodes = (await getCollection('blog'))
     .filter((post) => post.data.podcast)
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+    .sort((a, b) =>
+      b.data.podcast!.published.getTime() - a.data.podcast!.published.getTime() ||
+      b.data.date.getTime() - a.data.date.getTime());
 
   const items = episodes.map((post) => {
-    const { audio, duration, bytes } = post.data.podcast!;
+    const { audio, duration, bytes, published } = post.data.podcast!;
     const link = `${site}/blog/${post.id}/`;
     const text = summary(post.id, post.data.description);
     const html = `<p>${escape(text)}</p><p>Read the article and get the prompts: <a href="${link}">${escape(post.data.title)}</a></p>`;
@@ -51,7 +53,7 @@ export async function GET(context: APIContext) {
       <title>${escape(post.data.title)}</title>
       <link>${link}</link>
       <guid isPermaLink="false">manual-focus-podcast-${post.id}</guid>
-      <pubDate>${post.data.date.toUTCString()}</pubDate>
+      <pubDate>${published.toUTCString()}</pubDate>
       <description><![CDATA[${html}]]></description>
       <itunes:summary>${escape(text)}</itunes:summary>
       <enclosure url="${escape(audio)}" length="${bytes}" type="audio/mpeg" />

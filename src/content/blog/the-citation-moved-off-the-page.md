@@ -8,6 +8,7 @@ podcast:
   audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/the-citation-moved-off-the-page.mp3"
   duration: 386
   bytes: 4632182
+  published: 2026-10-16
 ---
 
 For twenty years the job was to rank. You earned a top-three position on Google and you earned the click, and the whole apparatus of SEO existed to move you up that list. The position was the prize because the position was the visibility.
