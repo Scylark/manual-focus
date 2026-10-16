@@ -5,6 +5,17 @@ the article through for people who'd rather listen. These rules apply to every
 script. The scripts live in `podcast/scripts/<post-slug>.txt` and
 `podcast/build-episode.mjs` turns them into audio with ElevenLabs.
 
+## Making an episode
+
+1. Write `podcast/scripts/<post-slug>.txt` and `podcast/notes/<post-slug>.md`
+   to these rules.
+2. `node podcast/build-episode.mjs <post-slug>` voices it with ElevenLabs and
+   mixes in the theme music. Output: `podcast/out/<post-slug>.mp3`.
+3. `node podcast/publish-episode.mjs <post-slug>` uploads the MP3 to the
+   `podcast` release on GitHub and adds the `podcast` block to the post's
+   frontmatter. The player and the feed (`/podcast.xml`) appear on the next
+   site build.
+
 ## The hosts
 
 **James Vickers (JAMES).** Marketing expert and founder of Manual Focus. He

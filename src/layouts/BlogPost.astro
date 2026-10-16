@@ -23,7 +23,7 @@ interface Props {
   faq?: FaqItem[];
   sources?: Source[];
   minutes?: number;
-  podcast?: { audio: string; duration: number };
+  podcast?: { audio: string; duration: number; bytes: number };
   slug?: string;
   newerPost?: PostRef | null;
   olderPost?: PostRef | null;
@@ -81,7 +81,7 @@ const related = allPosts
             <a href={url(`/blog/tag/${tag}/`)} class="tag">{formatTag(tag)}</a>
           ))}
         </div>
-        {podcast && <PostPlayer audio={url(podcast.audio)} duration={podcast.duration} />}
+        {podcast && <PostPlayer audio={podcast.audio} duration={podcast.duration} />}
       </header>
 
       <div class="post-content">

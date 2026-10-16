@@ -51,6 +51,7 @@ const blog = defineCollection({
     podcast: z.object({
       audio: z.string(),
       duration: z.number(), // seconds
+      bytes: z.number(), // file size, for the feed's enclosure
     }).optional(),
   }),
 });

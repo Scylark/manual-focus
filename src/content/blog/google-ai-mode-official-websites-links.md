@@ -3,6 +3,10 @@ title: "What Google's new AI Mode links mean for brand websites"
 date: 2026-10-16
 tags: ["ai-briefing", "ai", "brand"]
 description: "Google moved inline links higher in AI Mode and AI Overviews on 15 October 2026 and is testing an official websites section, so brand task pages matter more."
+podcast:
+  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/google-ai-mode-official-websites-links.mp3"
+  duration: 490
+  bytes: 5882298
 faq:
   - question: "What did Google change in AI Mode and AI Overviews on 15 October 2026?"
     answer: "Google announced five link changes to AI Mode and AI Overviews on 15 October 2026. Inline links now appear higher in responses more often, related article links get image thumbnails, and news carousels that favour a user's Preferred Sources reach more countries and languages. Google is also testing an official websites section at the top of some responses and clickable creator names on AI Mode video results."
