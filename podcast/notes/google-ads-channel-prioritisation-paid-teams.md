@@ -25,19 +25,26 @@ moves every Search campaign with Display Expansion enabled onto channel
 prioritisation and budget allocation, and Display stops serving on Search
 campaigns that use Target Impression Share.
 
-Attached is a Google Ads campaign export with, for each Search campaign: the
-campaign name, whether Display Expansion is on, the bid strategy, the average
-daily budget, and whether the campaign is limited by budget.
+Attached are two files:
+- a Google Ads campaign export with, for each Search campaign: the campaign
+  name, whether Display Expansion is on, the bid strategy, the average daily
+  budget, and whether the campaign is limited by budget
+- a report for the last 3 months segmented by network, with cost,
+  conversions and cost per acquisition for the Display Network and for Google
+  Search in each campaign
 
 Give me a table with the columns: Campaign | Display on? | Bid strategy |
 Limited by budget? | Migrates in February? (yes/no) | Loses Display because
 of Target Impression Share? (yes/no) | Suggested Display setting.
 
-For the suggested setting, use "low priority, 50% allocation" to keep today's
-behaviour where Display's results look sound, and "low priority, 5% to 10%"
-where the export shows no evidence either way. Explain each suggestion in a
-few words. If a column is missing from the export, say which and leave that
-cell as "not in data" rather than guessing.
+For the suggested setting, compare each campaign's Display cost per
+acquisition with its Google Search cost per acquisition in the network report.
+Use "low priority, 50% allocation" to keep today's behaviour where Display
+converts at or near the Search figure, and "low priority, 5% to 10%" where it
+converts much worse or has too few conversions to judge. Explain each
+suggestion in a few words, with the two figures. If a campaign has no network
+data, or a column is missing from either file, say which and put "no
+performance data, decide by hand" in that cell rather than guessing.
 ```
 
 ### 2. Read a capped channel test
@@ -47,15 +54,20 @@ I ran a test in Google Ads on the campaign [campaign name]. On [start date] I
 set [search partners / the Google Display Network] to low priority with a
 [5%] budget allocation, where before it was switched off.
 
-Attached are two reports for this campaign, one for the four weeks before the
-change and one for the four weeks after, with cost, conversions, cost per
-acquisition and new customer conversions, split by network where available.
+Attached are:
+- two reports for this campaign, one for the four weeks before the change and
+  one for the four weeks after, with cost, conversions, cost per acquisition
+  and new customer conversions, split by network where available
+- a daily report for the four weeks after, segmented by day and network, with
+  each day's cost on the low priority channel and the campaign's daily budget
+  that day
 
 Give me:
 1. A table with the columns: Metric | Four weeks before | Four weeks after |
    Change.
-2. What the low priority channel spent, as a share of the campaign's daily
-   budget, and on how many days it went over the cap.
+2. From the daily report, what the low priority channel spent each day as a
+   share of that day's budget, the average share, and on how many days it went
+   over the cap. If the daily report is missing, say so and skip this part.
 3. One recommendation: raise the cap, keep it, or switch the channel off,
    with the reason in two sentences.
 
