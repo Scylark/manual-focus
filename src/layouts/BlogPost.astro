@@ -23,7 +23,7 @@ interface Props {
   faq?: FaqItem[];
   sources?: Source[];
   minutes?: number;
-  podcast?: { audio: string; duration: number; bytes: number };
+  podcast?: { audio: string; duration: number; bytes: number; published?: Date };
   slug?: string;
   newerPost?: PostRef | null;
   olderPost?: PostRef | null;

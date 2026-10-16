@@ -3,6 +3,11 @@ title: "Lightspeed's AI shopping study and what smaller brands should do"
 date: 2026-10-01
 tags: ["ai-briefing", "ai", "brand"]
 description: "A Lightspeed study published 29 September 2026 found AI assistants picked national chains over smaller rivals up to 94% of the time. Here is how to respond."
+podcast:
+  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/ai-shopping-assistants-favour-big-retailers.mp3"
+  duration: 413
+  bytes: 4960698
+  published: 2026-10-16
 faq:
   - question: "Do ChatGPT and Google AI favour big retailers in shopping answers?"
     answer: "A study by Vaer AI for Lightspeed Commerce, published on 29 September 2026, found they do. Across about 460,000 responses from ChatGPT, Google AI Mode and Google AI Overviews, the assistants chose a national chain over a smaller retailer 90 to 94% of the time in head-to-head comparisons when answering from their own training data."

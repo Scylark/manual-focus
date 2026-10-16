@@ -7,6 +7,7 @@ podcast:
   audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/google-ai-mode-official-websites-links.mp3"
   duration: 490
   bytes: 5882298
+  published: 2026-10-16
 faq:
   - question: "What did Google change in AI Mode and AI Overviews on 15 October 2026?"
     answer: "Google announced five link changes to AI Mode and AI Overviews on 15 October 2026. Inline links now appear higher in responses more often, related article links get image thumbnails, and news carousels that favour a user's Preferred Sources reach more countries and languages. Google is also testing an official websites section at the top of some responses and clickable creator names on AI Mode video results."

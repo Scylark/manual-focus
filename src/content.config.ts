@@ -52,6 +52,9 @@ const blog = defineCollection({
       audio: z.string(),
       duration: z.number(), // seconds
       bytes: z.number(), // file size, for the feed's enclosure
+      // When the episode went out. Episodes can be added to older posts, so
+      // the feed orders and dates episodes by this; without it, the post's date.
+      published: z.coerce.date().optional(),
     }).optional(),
   }),
 });

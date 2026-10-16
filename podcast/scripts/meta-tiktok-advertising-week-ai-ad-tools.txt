@@ -1,0 +1,59 @@
+JAMES: Meta and TikTok both used Advertising Week New York to announce AI ad tools, on the fifth and sixth of October: checkout inside chats and feeds, video ads made from still images, and outside AI agents running campaigns. The question for a UK paid social team is which of it you can actually use. I'm James Vickers, this is Manual Focus, and Hannah's here to separate the live from the not yet.
+
+HANNAH: Hi James. And most of the headline stuff is in the not yet pile.
+
+JAMES: Start with TikTok, since they went first.
+
+HANNAH: TikTok's newsroom post led with agentic commerce. Buy Direct is a checkout inside TikTok, one click from a stored payment method, and the brand stays merchant of record, meaning the brand, not TikTok, is the seller. Shopping Assistant answers product questions in TikTok's in-app browser, using information the merchant provides. And Lead Agent qualifies prospects in direct messages. TikTok's product blog says all three are in eligibility-based tests, and Buy Direct needs a Universal Commerce Protocol integration.
+
+JAMES: Which is what, in a sentence?
+
+HANNAH: A shared standard for letting AI systems handle checkout. Its site lists Google, Shopify, Meta and Microsoft among the co-developers, so the integration work may serve other platforms too.
+
+JAMES: And Meta's side?
+
+HANNAH: Meta is testing checkout with Shopify inside its business agent on Messenger, so a shopper can buy straight after a brand's agent answers their questions. Checkout tests in Meta AI start this autumn. Video generation from your existing static ads in Advantage plus creative is now generally available. And Meta says advertisers who take its assistant's recommendations typically see five per cent more conversions at the same cost per conversion.
+
+JAMES: [dryly] Typically. So what's open to a UK team today?
+
+HANNAH: Neither company mentions the UK in its announcement, so we went to the help pages. TikTok's help centre lists the UK as live for Search Ads Campaigns, and those now run on Smart plus, which automates keywords and creative. Lead generation through search is US only. TikTok Ad Network, the old Pangle, opened to US advertisers, and the UK isn't on its delivery list. And Shopify's help page says the checkout it powers on Meta shows only to shoppers in the US, Canada and Mexico.
+
+JAMES: So search on TikTok is the one that's definitely real here. Video from stills, Meta names no countries, so you check Ads Manager. Let's talk agents, because that's the bit that'll worry a head of paid. What's actually changed?
+
+HANNAH: Both have an MCP server. Model Context Protocol, a standard way for an outside AI tool to read and act on a system. TikTok's packages about four hundred ad functions as tools, and it says advertisers using it have grown by more than two hundred per cent since launch. Meta's has been in open beta since the twenty-ninth of April, and it now lets outside tools upload creative and stage campaigns as drafts. Every action needs explicit approval, and since the sixteenth of July a business portfolio admin can set rules on what agents may change.
+
+JAMES: And TikTok?
+
+HANNAH: TikTok's developer documentation describes agents shifting budget towards the best return without a person stepping in at each stage.
+
+JAMES: [thoughtfully] We already hand bidding to the platforms. This lets you plug your own agent into the same account. Our view is that UK teams should connect agents for reporting now, and allow budget or targeting changes only once a named person has written down what an agent may change and who approves it.
+
+HANNAH: And TikTok's authorisation lapses after thirty days, which gives you a natural monthly review.
+
+JAMES: What about the performance claims? Five per cent from Meta, and TikTok had one too.
+
+HANNAH: Twenty per cent more conversions from adding Search Ads to In-Feed Ads. Both come from the platforms' own data with no published method, and TikTok's figure dates from July twenty twenty-four.
+
+JAMES: So test both with a holdout on your own account, a group that doesn't see the change, so you can measure the real lift. And on search, start with terms that already convert in Google Ads, with TikTok's suggested budget-to-bid ratio of twenty to one.
+
+HANNAH: The other practical point is checkout prep. Shopping Assistant answers from merchant information, and Meta's checkout pulls products from Shopify Catalog. So complete titles, sizing, returns terms and stock data give an assistant better material. And Shopify says Google Analytics and custom pixels won't fire in Meta's direct checkout, only server-to-server events.
+
+JAMES: So a team reporting from Google Analytics wouldn't see those sales at all. Right. Get AI on this. First, your product feed.
+
+HANNAH: Give it a feed export and it goes product by product, flagging where sizing, materials, returns terms or stock aren't in plain text, and drafts the missing copy for someone to check.
+
+JAMES: Second, get AI on the TikTok search shortlist.
+
+HANNAH: Hand it your Google Ads search terms report. It gives back the terms that already convert, grouped into a first TikTok Search test, with budget and bid set at that twenty to one ratio and a note on how to hold out a control.
+
+JAMES: Third, get AI on drafting the agent rules.
+
+HANNAH: Give it your team structure and the accounts you'd connect. It drafts one page: who may authorise a connection, reporting only to start, what an agent may change, who approves it, and a monthly review timed to TikTok's thirty days.
+
+JAMES: And one for you. A named person reads that page and signs it before anything gets connected. The prompts are in the show notes. So what don't we know?
+
+HANNAH: [thoughtfully] No UK date for in-app checkout, Shopping Assistant or Meta's agentic actions in the assistant. No fees for Buy Direct. Meta hasn't said how checkout sales will show up in Ads Manager, or how Meta AI picks which products to surface. And TikTok warns that MCP tools may vary by region and account.
+
+JAMES: So the takeaway: start with search, check Ads Manager for video, and write your agent rules before you need them. The full piece, with the side-by-side comparison, is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

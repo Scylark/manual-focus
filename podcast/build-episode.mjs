@@ -167,5 +167,5 @@ execFileSync('ffmpeg', [
   '-map', '[out]', '-ac', '1', '-ar', '44100', '-b:a', '96k', mp3,
 ]);
 
-const seconds = duration(mp3);
-console.log(`Wrote ${mp3} (${Math.floor(seconds / 60)}:${String(Math.round(seconds % 60)).padStart(2, '0')})`);
+const seconds = Math.round(duration(mp3));
+console.log(`Wrote ${mp3} (${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')})`);

@@ -3,6 +3,11 @@ title: "What the CMA's AI choice screen plan means for UK marketers"
 date: 2026-09-23
 tags: ["ai-briefing", "ai", "marketing-strategy"]
 description: "The CMA wants AI assistants like ChatGPT on Google's UK Android and Chrome choice screens, with a yearly prompt, and that raises the value of AI citations."
+podcast:
+  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/cma-google-choice-screen-ai-assistants.mp3"
+  duration: 369
+  bytes: 4427800
+  published: 2026-10-16
 faq:
   - question: "Will ChatGPT appear on Google's search choice screen in the UK?"
     answer: "It could, if the proposal goes through. On 23 September 2026 the CMA proposed that AI assistants such as ChatGPT and Perplexity can appear on Google's UK choice screens for Android and Chrome, provided they work as a general search service, search the web for up-to-date information, and clearly credit and link to the web content behind their answers. The proposal is still out for consultation."

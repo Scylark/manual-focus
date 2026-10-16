@@ -1,0 +1,63 @@
+JAMES: Ask an AI assistant where to buy something, and according to a study Lightspeed Commerce published on the twenty-ninth of September, it'll pick the national chain over a smaller rival up to ninety-four per cent of the time. If you're a specialist or challenger brand, that's a lot of shoppers who never hear your name. I'm James Vickers, you're listening to Manual Focus, and Hannah's here to tell us how much weight those numbers can bear.
+
+HANNAH: Hi James. Some weight, not all of it, and I'll come back to why. The research was done by Vaer AI, an AI search consultancy, for Lightspeed, which sells point of sale, payments and ecommerce software to retailers.
+
+JAMES: How big was it?
+
+HANNAH: Twenty thousand shopping prompts across ten product categories, set in Los Angeles, San Francisco, New York City and Montreal. They ran them through ChatGPT, Google AI Mode and Google AI Overviews between June and August, which gave roughly four hundred and sixty thousand responses and more than two point four million links. No prompt mentioned store size, so any lean toward big names came from the assistants themselves.
+
+JAMES: So where does the ninety-four come from?
+
+HANNAH: That's when the assistants answered from their training data alone, what they learned from the web before release. In head-to-head comparisons they chose the chain ninety to ninety-four per cent of the time. With live web search switched on the gap narrowed, but chains still took forty-six to fifty-eight per cent of recommendations.
+
+JAMES: Did the three behave the same?
+
+HANNAH: No. Google AI Overviews leaned hardest. It recommended no local store at all in sixty-eight per cent of shopping answers. ChatGPT and AI Mode named a local retailer in roughly seventy per cent of theirs.
+
+JAMES: [thoughtfully] The bit that caught my eye is where smaller retailers lose. Local shops were the top pick in about a third of broad category searches, and that fell to as little as one in ten once the shopper named a specific product.
+
+HANNAH: Which is the query closest to the sale. Someone asking where to buy a particular trail shoe has usually decided what they want.
+
+JAMES: So why does the chain win that one?
+
+HANNAH: A chain with national stock and years of reviews and coverage looks like the safe answer to a model trained on the open web. Tom Wells, Vaer AI's founder, said in the release that the bias "begins in training". Live search helps because the assistant reads current pages and listings instead.
+
+JAMES: Which tells a content team where to spend its time. You can't do much about training data, but you can shape the pages an assistant fetches. Product pages, stockist pages, and the editorial round-ups that sit beside them.
+
+HANNAH: And there's a finding that points at something else you control. Vaer AI re-ran matched prompts with the word independent added, and the share going to large chains dropped from about forty-four per cent to as little as nine.
+
+JAMES: One word.
+
+HANNAH: One word. So the way shoppers describe what they want changes which retailers get considered.
+
+JAMES: That makes it a category entry point problem, the needs and moments that bring someone to buy. If customers choose you because you're independent, specialist, local or expert-led, that word has to be in plain text wherever an assistant reads about you. Homepage, about page, product copy, your Google Business Profile, your Merchant Center feed. Not tucked into a logo.
+
+HANNAH: There was a survey alongside it too. Censuswide asked two thousand North American consumers. Fifty-six per cent had used AI to help with a shopping decision, and half said they'd shop locally more often if AI made independents easier to find.
+
+JAMES: Our view at Manual Focus is that challenger retailers and DTC brands should stop treating AI visibility as one score and track it product by product. You can look healthy on broad category prompts and still vanish at the point of purchase. So, get AI on this.
+
+HANNAH: What's the first job?
+
+JAMES: Get AI on writing your test prompts. Thirty of them, three buying questions for each of your ten best sellers.
+
+HANNAH: Give it your best-seller list, and it hands back thirty prompts phrased the way a shopper would ask, with your town or region in where location matters. Plus a paired version of each with your attribute added, independent or specialist.
+
+JAMES: Second job is running them, plain and paired, in all three assistants from the study, and recording who gets named.
+
+HANNAH: Set it up as a monthly routine, with a run in early November so you can see what moved before Black Friday. Where your AI can't reach one of the assistants itself, someone pastes the answers in and it does the logging. You get a table of prompt, version, assistant and retailers named, and whether you're one of them.
+
+JAMES: [calmly] And third, the prompts you lose.
+
+HANNAH: Your AI goes through the links on those answers and lists the round-ups, review sites and directories that keep turning up, ranked by how often. That's the PR brief. Getting listed in them is a human job, but the list is done.
+
+JAMES: The prompts are in the show notes. So what can't the study tell us?
+
+HANNAH: [thoughtfully] Quite a bit. Lightspeed commissioned it, sells software to the smaller retailers it describes, and used the release to launch an AI visibility campaign aimed at them. The release gives headline figures and a methodology note, but no full dataset or category breakdown, and an AI classifier sorted each retailer as large, mid or small.
+
+JAMES: And for a UK audience?
+
+HANNAH: There's no UK figure. Four North American cities, and North American shoppers in the survey. The results also reflect the versions of each assistant that were live between June and August. And none of it explains why a given brand was left out. Only your own tests will show that.
+
+JAMES: So treat it as a signal, and go and find your own number, product by product, because that's where you'd disappear without noticing. The full write-up is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

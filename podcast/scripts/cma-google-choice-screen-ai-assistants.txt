@@ -1,0 +1,59 @@
+JAMES: The UK competition regulator wants Google to ask people every year which search service they'd like to use, and it wants AI assistants like ChatGPT and Perplexity on that list. If people start picking them, being cited by an assistant matters alongside ranking on Google. Welcome to Manual Focus. I'm James Vickers, and Hannah's with me to go through what was actually proposed.
+
+HANNAH: Hi James. This came from the Competition and Markets Authority, the CMA, on the twenty-third of September. In October twenty twenty-five it designated Google with strategic market status in general search, which lets it impose rules on Google. This is one of them, called the user choice conduct requirement.
+
+JAMES: So what would Google have to do?
+
+HANNAH: Three things, going by the press release. Show a search choice screen when someone sets up an Android phone or opens Chrome for the first time, then ask again every year. Let AI assistants onto those screens if they meet the criteria. And make every provider on the screen credit publisher content clearly, so people can see where an answer came from.
+
+JAMES: You said going by the press release. Does the consultation document say more?
+
+HANNAH: Quite a bit more. It extends the screen to Chrome on desktop, mobile and tablet, including Windows and iOS, wherever Google Search is the default. Google would list providers in a fully random order that people have to scroll through before choosing. And if more than twelve qualify, you see the five most popular and seven picked at random.
+
+JAMES: Which assistants get in?
+
+HANNAH: Only ones that handle the full range of general search tasks, search the web for current information, and link clearly to the content behind their answers. Google would approve eligible providers against those criteria every six months.
+
+JAMES: [dryly] I'm guessing Google wasn't keen on asking every year.
+
+HANNAH: [chuckles] No. According to The Next Web, it argued for a permanent setting instead. And the CMA's chief executive, Sarah Cardell, said the regulator is responding to AI assistants people are "increasingly using as their search service" that aren't on Google's choice screens.
+
+JAMES: So should a marketing director be planning for an exodus from Google?
+
+HANNAH: No, and the CMA's own research says why. Thinks Insight and Strategy ran eighty user tests for it. People rushed the screens, skimmed the information and mostly picked the service they already used. But when they noticed the AI assistants, they slowed down and read the options, and some of them switched.
+
+JAMES: So a slow drift, led by early adopters. [pause] Where it does touch the numbers is attribution.
+
+HANNAH: Right. An assistant only gets onto the screen if it credits and links to its sources. So when someone who's switched asks a question, the page the assistant quotes gets a visit as well as a mention.
+
+JAMES: Our view at Manual Focus is that this won't move UK search share much in twenty twenty-seven, but it will reward the brands AI assistants can already quote easily. And if your paid search plan assumes every UK search starts on Google, write that down as an assumption and review it every quarter.
+
+HANNAH: Quoting easily mostly means pages that give the direct answer in the opening paragraph, with specific numbers and sources a model can check.
+
+JAMES: Then let's make it practical. Get AI on this.
+
+HANNAH: First job?
+
+JAMES: Get AI on your citation baseline. Your twenty most commercially important buyer questions, and which brands the assistants cite for each.
+
+HANNAH: Give it your product range and your sales team's common questions, and it drafts the twenty and builds the tracking table. Where it can browse it runs them itself. Where it can't reach an assistant, someone pastes the answers in and it logs who's cited and linked, and whether you're one of them. Re-run it each quarter, and you'll see the drift when it comes.
+
+JAMES: Second, can the assistants read your site at all.
+
+HANNAH: Give it your robots file and your key page addresses, and it tells you which AI crawlers you're blocking and which pages don't render as plain HTML. Your CDN's bot rules sit behind a sign-in, so that part stays with whoever owns them.
+
+JAMES: [calmly] Third, the pages themselves.
+
+HANNAH: Point it at your top pages and it drafts a new opening paragraph for each, direct answer first, with the numbers and sources pulled from the page. Your team edits and signs off, but the first draft's done.
+
+JAMES: And one for you. Set up a segment in your analytics for referrals from the AI assistants, so you can see the drift when it starts. The prompts are in the show notes. So what don't we know?
+
+HANNAH: [thoughtfully] The CMA can still change the proposal. The consultation ran until five o'clock on the ninth of October, a final decision is expected by the end of the year, and there's no implementation date. Nobody knows which assistants will pass the eligibility tests. The user research was qualitative, so it shows how people behave on the screens, not how many will switch.
+
+JAMES: And when would people actually see the prompt?
+
+HANNAH: The CMA expects Google to show the annual prompt as part of major Chrome and Android updates, so the timing will vary from device to device.
+
+JAMES: So the takeaway. If the plan goes through, every covered UK phone and browser gets asked the question again each year, and the brands assistants can quote easily pick up whatever moves. The full article is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

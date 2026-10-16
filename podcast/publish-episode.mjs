@@ -68,11 +68,17 @@ const duration = haveMp3 ? Math.round(Number(execFileSync('ffprobe', [
   '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp3,
 ]).toString().trim())) : 0;
 
-// Replace any existing podcast block, then add the new one after `description`.
-const block = `podcast:\n  audio: "${audio}"\n  duration: ${duration}\n  bytes: ${bytes}\n`;
 const src = readFileSync(post, 'utf8');
 const [, frontmatter, body] = src.match(/^---\n([\s\S]*?\n)---\n([\s\S]*)$/) ?? [];
 if (!frontmatter) throw new Error(`Couldn't read the frontmatter in ${post}`);
+
+// An episode keeps its first publish date when it's re-voiced, so podcast apps
+// don't treat a fix as a new episode.
+const published = frontmatter.match(/^podcast:\n(?:[ \t]+.*\n)*?[ \t]+published:\s*(\S+)/m)?.[1]
+  ?? new Date().toISOString().slice(0, 10);
+
+// Replace any existing podcast block, then add the new one after `description`.
+const block = `podcast:\n  audio: "${audio}"\n  duration: ${duration}\n  bytes: ${bytes}\n  published: ${published}\n`;
 const cleaned = frontmatter.replace(/^podcast:\n(?:[ \t]+.*\n)*/m, '');
 const withPodcast = cleaned.replace(/^(description:.*\n)/m, `$1${block}`);
 if (withPodcast === cleaned) throw new Error(`No description line in ${post} to place the podcast block after`);

@@ -1,0 +1,59 @@
+JAMES: Plenty of marketing teams are using AI without being able to tell you what for, who's paying for it, or whether any of it's working. The gap between a team that uses AI and a team that has a plan for it is what we're talking about today. I'm James Vickers, this is Manual Focus, and Hannah's here to keep me honest on the AI side.
+
+HANNAH: Hi James. This is one of our own pieces, a ninety-day plan for marketing leaders, split into six two-week blocks. No hiring and no restructure.
+
+JAMES: So start at the start. Weeks one and two.
+
+HANNAH: An audit, and it's two questions. First, what is everyone actually using AI for right now? Survey the team. The honest answer is usually unsanctioned chatbot use, a subscription or two nobody's tracking, and a few power users running shadow workflows the rest of the team doesn't know about.
+
+JAMES: And the second question is the brand voice doc.
+
+HANNAH: Is it operational? If it's a page describing your tone with a few adjectives, it isn't. It has to be specific enough to prompt from, with examples, bans and patterns. By the end of week two you want one page: usage by person, tool spend, the state of the voice doc, and the three biggest pain points.
+
+JAMES: [dryly] So a page of nice adjectives doesn't count. Weeks three and four are where that gets fixed.
+
+HANNAH: The article calls the voice prompt the single highest-leverage thing in the first month, because everything you build later draws on it. Three positive examples of strong on-brand writing. Three negative ones, off-brand or nearly-there drafts, annotated. Specific bans, specific structural patterns. A senior writer or editor owns it, and you keep iterating until pasting it into a request gets you something close to ship-ready.
+
+JAMES: And at the same time you settle the tools. One chat model, one research tool, one media-production tool. Three subscriptions, paid for centrally, and the shadow stack goes.
+
+HANNAH: Heavy-handed?
+
+JAMES: [thoughtfully] I think the rest of the plan depends on it. Five people on five tools with five prompts means you can't compare anything. The goal by the end of month one is that everyone has the same tools, the same voice prompt and the same idea of what AI is for.
+
+HANNAH: Then weeks five and six. Pick the workflow that drags most, usually content production, and rebuild it properly. The brief is AI-generated and human-edited. The draft is AI-produced against the brief, the voice prompt and the research. The edit is human. Repurposing into other formats is AI, working from the long-form piece.
+
+JAMES: Then you run it on three real pieces and measure time and quality against the old way. That's the proof point. Once the team sees one workflow that's faster and at least as good, adoption gets easier.
+
+HANNAH: Weeks seven and eight take the same pattern to a second area. Defined inputs, AI-assisted production, human editorial decisions, defined outputs. Reporting, campaign briefs, ad creative, social repurposing, whichever hurts next.
+
+JAMES: And only one more. Two workflows running well beats five half-built ones, because the point is to prove the pattern travels. Each one should be documented well enough that a new hire could pick it up within a week.
+
+HANNAH: Weeks nine and ten are where the article says a lot of rollouts stall. The team produces more, nobody checks whether the extra output is working, and six months in nobody can say if it's paying off.
+
+JAMES: So, one dashboard, one source of truth, a weekly cadence. Every piece tagged by the workflow that made it, by topic and by format.
+
+HANNAH: And the split of jobs matters. The model summarises what's working each week. The senior person reads that and decides what to change.
+
+JAMES: A lot of this plan can be handed over. Get AI on the week-one audit.
+
+HANNAH: Give it your team survey responses and your software spend, and it hands back the one-page picture: who's using what, what it costs, and the pain points that come up most. Then give it your voice doc and it tells you whether you could actually prompt from it, and what's missing.
+
+JAMES: Second. Get your AI to draft the first version of the voice prompt.
+
+HANNAH: Give it three pieces you're proud of and three that missed, and it drafts the prompt with the examples, bans and patterns laid out. Your senior writer still owns it and does the iterating. The AI just saves them the blank page.
+
+JAMES: Third, the weekly summary. That's the one that quietly stops happening.
+
+HANNAH: Set it up as a weekly routine. Every Monday it takes your tagged dashboard export and reports what's working by workflow, topic and format, and what's moved since last week. The call on what to adjust stays with a person. The prompts are in the show notes.
+
+JAMES: Then the last fortnight, weeks eleven and twelve. I'd say this one matters most, and the article agrees.
+
+HANNAH: An hour with the team, and the article is firm that it's a conversation rather than a strategy presentation. What's working, what isn't, where people are nervous. Some will have leaned in, and a few will think their job's about to disappear.
+
+JAMES: [calmly] And you're explicit with them. AI makes the senior marketing problem bigger, and the people who learn to run these workflows well end up doing more of the strategic work. Skip that conversation and the people side of the change goes underground, and the workflow gains never quite stick.
+
+HANNAH: On what we don't know. The article says a team can be producing substantially more at brand quality after ninety days, but it doesn't put a number on that.
+
+JAMES: Which is why the measurement loop matters. It's how you'll find out what your own ninety days bought. So the takeaway. Disciplined integration is a leadership job before it's a tools job, and teams that skip it will spend the next year being out-shipped by the ones that did it. The full plan, block by block, is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

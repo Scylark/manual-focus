@@ -3,6 +3,11 @@ title: "What ChatGPT's GPT-6 Intelligent UI means for marketing teams"
 date: 2026-10-08
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "OpenAI put GPT-6 and Intelligent UI into ChatGPT on 7 October 2026, so answers now arrive as comparisons, maps and tools. Brand calculators face a new rival."
+podcast:
+  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/chatgpt-gpt-6-intelligent-ui-marketing-teams.mp3"
+  duration: 438
+  bytes: 5258180
+  published: 2026-10-16
 faq:
   - question: "What is Intelligent UI in ChatGPT?"
     answer: "Intelligent UI is a GPT-6 capability OpenAI launched in ChatGPT on 7 October 2026. The model builds each answer from text, visuals and interactive elements such as charts, forms, buttons, maps and side-by-side comparisons, and it can create small tools like a savings calculator inside the conversation. It still gives a plain text answer when that suits the question best."
