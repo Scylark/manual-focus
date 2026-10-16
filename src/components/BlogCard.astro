@@ -6,11 +6,18 @@ interface Props {
   date: Date;
   slug: string;
   minutes?: number;
+  listenMinutes?: number; // set when the post has a podcast episode
 }
-const { title, description, date, slug, minutes } = Astro.props;
+const { title, description, date, slug, minutes, listenMinutes } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <article class="blog-card">
+  {listenMinutes && (
+    <span class="blog-card-listen" title="This post has a podcast episode">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2" /><rect x="3" y="14" width="4" height="6" rx="1.5" /><rect x="17" y="14" width="4" height="6" rx="1.5" /></svg>
+      <span>Listen · {listenMinutes} min</span>
+    </span>
+  )}
   <p class="blog-card-meta">
     <time datetime={date.toISOString()}>{formattedDate}</time>
     {minutes && <span class="blog-card-minutes">· {minutes} min read</span>}
@@ -72,6 +79,32 @@ const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 0;
+  }
+
+  /* Podcast badge, above the date on cards whose post has an episode. */
+  .blog-card-listen {
+    display: inline-flex;
+    margin-bottom: 0.75rem;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-cta-start);
+    border: 1px solid currentColor;
+    border-radius: 2px;
+  }
+  .blog-card-listen svg {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+  .blog-card:hover .blog-card-listen {
+    color: #fff;
   }
 
   .blog-card-minutes {

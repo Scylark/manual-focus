@@ -3,6 +3,10 @@ title: "What ChatGPT Ads on Shopify means for UK ecommerce brands"
 date: 2026-09-24
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "OpenAI's ChatGPT Ads app for Shopify began reaching merchants outside the US on 23 September 2026, and the UK already has self-serve access."
+podcast:
+  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/chatgpt-ads-shopify-uk-ecommerce.mp3"
+  duration: 357
+  bytes: 4285798
 faq:
   - question: "Can UK businesses advertise on ChatGPT?"
     answer: "UK businesses can advertise on ChatGPT, and OpenAI's Ads Manager help page lists the United Kingdom as available for self-service, so a UK-based business can sign up at ads.openai.com and run campaigns without going through an agency. Larger advertisers can also work with the OpenAI Ads Solutions team or agency partners such as dentsu, Havas Media, Omnicom Media, Publicis Groupe and WPP."

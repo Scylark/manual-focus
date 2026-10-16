@@ -1,0 +1,59 @@
+JAMES: If you run a Shopify store in the UK, you can now buy ads in ChatGPT without leaving Shopify, and without an agency. OpenAI started opening its ChatGPT Ads app to merchants outside the US on the twenty-third of September. Welcome to Manual Focus. I'm James Vickers, and Hannah's with me to work out whether it's worth a test before Black Friday.
+
+HANNAH: Hi James. And the speed of this is the first thing to notice. Digiday reported in August that UK advertising started in June on an agency-only basis. So British merchants have gone from needing an agency to buying from inside Shopify in about three months.
+
+JAMES: Take me through what OpenAI actually announced.
+
+HANNAH: It came in a bigger announcement on the sixteenth of September. OpenAI named Shopify its first ecommerce partner and HubSpot its first CRM partner. It said products are already integrated through Shopify Catalog, the product data a merchant keeps in Shopify, so you can start running ads and tracking performance straight away. US merchants got the app that day, and other markets from the twenty-third.
+
+JAMES: And OpenAI's own availability page lists the UK for self-service.
+
+HANNAH: It does. And a week later OpenAI took ads into seven more Asian markets, put the total at more than sixty countries, and said the business reached a billion dollars in annualised revenue in less than two hundred days.
+
+JAMES: [dryly] So it's moving quickly. What came with it on the advertiser side?
+
+HANNAH: A few AI tools. You can create and analyse campaigns by prompting through an Ads Manager plugin. Ads Manager suggests copy and imagery from your landing page and objective. There's an optional setting that rewrites your headlines and descriptions to fit each conversation and translates them into the user's language. And Sponsored Agents, where a shopper who clicks an ad carries on talking to an agent the brand sponsors, are only in a test with select US advertisers.
+
+JAMES: Who actually sees these ads?
+
+HANNAH: Only people on ChatGPT's Free and Go plans. Plus, Pro and Enterprise stay ad-free.
+
+JAMES: [thoughtfully] For a consumer brand that's most shoppers. But if you sell to senior buyers using a paid plan at work, the ads won't reach them at all.
+
+HANNAH: And for them the only way in is still being the source ChatGPT cites. OpenAI also says ads never influence the answers. So buying ads won't get your products recommended in the answer itself.
+
+JAMES: So paid and organic run as separate efforts, even though they sit on the same screen.
+
+HANNAH: Right. And there's a knock-on for the catalogue. The ads draw on whatever's in Shopify, so your product titles, descriptions, images and prices are doing the job ad creative used to do.
+
+JAMES: A thin catalogue now costs you twice, then. In the paid channel and in organic AI answers.
+
+HANNAH: That's the bit I'd worry about if I were a merchant with thin product titles.
+
+JAMES: So our view at Manual Focus is this. If you're a UK Shopify brand with clear product-level demand, run a small, controlled test this autumn, paid for from your experimental budget, not cut from paid search or social that already performs. Start with one category where shoppers ask detailed questions before they buy, sizing, compatibility, what it's for, because those are the conversations ChatGPT handles.
+
+HANNAH: And what about the automatic copy?
+
+JAMES: Leave it off at first. It rewrites your headlines in your name, and you should see what it produces before you let it run. If you want to test it, put it in a second ad group and compare it against your own copy.
+
+HANNAH: And measure against paid search. Tag every click, then compare cost per order and returning-customer rate with your Google Shopping campaigns for the same products.
+
+JAMES: Right. Get AI on this. First job, tidy the catalogue for the category you're testing.
+
+HANNAH: Give it a product export for that category and it goes through every title, description and image description, flags what's thin or inconsistent, and drafts better titles and descriptions for your team to approve before anything changes in Shopify.
+
+JAMES: Second, get your AI to read the automatic copy.
+
+HANNAH: Paste in the rewritten headlines from the test ad group alongside your brand guidelines. It tells you which ones change a claim, drift from your tone or mistranslate, line by line.
+
+JAMES: Third, the comparison nobody keeps up with.
+
+HANNAH: Set it as a weekly routine. Export ChatGPT Ads results and your Google Shopping results for the same products, and it gives you a table of cost per order and returning-customer rate side by side, with what moved since last week. The prompts are in the show notes.
+
+JAMES: So what's still unclear?
+
+HANNAH: OpenAI said the app reaches other markets starting the twenty-third, so it may roll out over several days. Check the App Store listing from your own account. There's no public UK performance data yet, no date for Sponsored Agents outside the US, and OpenAI says new formats, optimisation tools and measurement are still to come.
+
+JAMES: So the takeaway: it's open to UK merchants now, a small test is the sensible step, and the work that decides it is your catalogue. The full article is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

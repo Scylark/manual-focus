@@ -418,6 +418,7 @@ set up the lens</code></pre>
               date={post.data.date}
               slug={post.id}
               minutes={readingTime(post.body ?? '')}
+              listenMinutes={post.data.podcast && Math.round(post.data.podcast.duration / 60)}
             />
           ))}
         </div>

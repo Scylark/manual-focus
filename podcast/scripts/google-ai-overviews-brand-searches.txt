@@ -1,0 +1,59 @@
+JAMES: The search results for your own company name are probably the page you've controlled most closely. In September, Google started writing its own summary on most of them. I'm James Vickers, you're listening to Manual Focus, and Hannah's with me to go through the numbers.
+
+HANNAH: Hi James. They're striking numbers, and they come mainly from one tracking firm, so it's worth being clear where they're from.
+
+JAMES: Go on.
+
+HANNAH: DemandSphere, which checks branded keywords once a day across all markets and devices, published a report on the first of October, written by Ray Grieselhuber. For most of September, AI Overviews, the AI-written summaries Google puts in search results, showed on roughly twenty-six to thirty-five per cent of its tracked brand searches. On the twenty-sixth that jumped to sixty-nine per cent, it peaked at just over ninety per cent on the twenty-seventh, and by the twenty-ninth it was a little over eighty-two per cent.
+
+JAMES: And that counts any AI Overview, whether or not the brand is cited in it.
+
+HANNAH: Yes, DemandSphere counted it either way.
+
+JAMES: Is anyone else seeing it?
+
+HANNAH: Chris Long at Nectiv, coming at it from a different direction. Search Engine Roundtable reported on the thirtieth that he'd posted that ninety-three per cent of the brands he tested had AI Overviews, naming Reddit, Salesforce, Amazon and Adobe. Barry Schwartz there noted most of these summaries sit below the company's own listing. Adobe was the exception, with the summary above its main page. Google's own name and news publishers were left out.
+
+JAMES: And what has Google said?
+
+HANNAH: Nothing. There's been no announcement.
+
+JAMES: [thoughtfully] Here's why I think this matters more than the usual AI Overview story. Someone types your name because they already know you. Until September, that page was mostly things you wrote or paid for. Your homepage, your sitelinks, perhaps a knowledge panel, your own ads.
+
+HANNAH: And now Google's the author. It writes a paragraph about your company from whatever pages it judges relevant. That could be a review site, a Reddit thread, an old press story, or a competitor's comparison page.
+
+JAMES: Think about who's searching. A prospect before a sales call. A journalist confirming a fact. A candidate reading up before an interview. If the summary carries an old price, a discontinued product or a complaint from twenty twenty-three, Google's put it on the page you rely on most.
+
+HANNAH: And there's no edit button. Google doesn't let brands change an AI Overview directly. It draws on pages across the web, so the practical route is to correct the sources it cites.
+
+JAMES: Which raises the question of who owns it. Brand searches usually belong to SEO. What the summary says belongs to brand and comms. The sources it cites often belong to PR.
+
+HANNAH: Three teams, one paragraph.
+
+JAMES: [dryly] Which usually means nobody. Our view at Manual Focus is that the head of brand or comms should own the AI Overview on your brand name, with SEO supplying the monitoring. What it says is a reputation question before it's a ranking one.
+
+HANNAH: There's some relief in the placement, for now. Mostly it sits below your homepage listing, where it's less likely to take the click than it would be above it. But Adobe shows Google will put it on top for some brands.
+
+JAMES: Right, so what do you hand over? Get AI on the brand-search check itself.
+
+HANNAH: Give it your query list: your company name, your main product names, and your name with reviews, with pricing, and versus your main competitor. It runs each one, records the summary, the sources Google links beside it, and where the summary sits on the page. Set it as a fortnightly routine with the same list, and it tells you what's moved since the last run.
+
+JAMES: Second. Get your AI to read those summaries against your own facts.
+
+HANNAH: Give it the summaries and your current about page and product details. It marks anything out of date, wrong or unflattering, lists the sources beside each error, and sorts the fixes by owner. Your own pages and Google Business Profile, PR for review sites and directories, and a Wikipedia talk-page request with your connection disclosed. It drafts the requests. Someone on your team sends them.
+
+JAMES: Third, the click baseline.
+
+HANNAH: Give it a Search Console export filtered to branded queries. It compares click-through rate before and after the twenty-sixth of September and gives you the table, so you've a baseline to judge against.
+
+JAMES: And one for you, not the AI. Decide who owns this, and put a name next to it this week. The prompts are in the show notes. [pause] So what don't we know?
+
+HANNAH: A fair amount. DemandSphere hasn't said how many branded keywords it tracks or which brands they belong to, and it's still working on device and market breakdowns, so there's no UK figure. Chris Long's test is a social post, not a published study. Neither source measures clicks, so the traffic effect is unknown. And a jump this sharp over a few days could be a test Google scales back.
+
+JAMES: And the brands named are very large.
+
+HANNAH: Large global companies, yes. A mid-sized company may see something quite different.
+
+JAMES: So the takeaway. Google is now writing a paragraph about your company that a lot of people read before they reach your site. You can't edit it, but you can fix what it reads. The full article, with all five checks, is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

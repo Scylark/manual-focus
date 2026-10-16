@@ -3,6 +3,10 @@ title: "AI Overviews hit 82% of tracked brand searches in September"
 date: 2026-10-02
 tags: ["ai-briefing", "ai", "brand"]
 description: "DemandSphere data published 1 October 2026 shows AI Overviews on over 80% of tracked brand searches, up from 26%. Check what Google says about your brand."
+podcast:
+  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/google-ai-overviews-brand-searches.mp3"
+  duration: 384
+  bytes: 4613060
 faq:
   - question: "Does Google show AI Overviews when people search for a brand name?"
     answer: "Increasingly, yes. DemandSphere, which tracks branded keywords daily, reported on 1 October 2026 that AI Overviews appeared on about 26% of its tracked branded queries in early September and on 82.06% by 29 September, after peaking at 90.48% on 27 September. Google has not announced the change."

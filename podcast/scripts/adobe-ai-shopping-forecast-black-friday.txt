@@ -1,0 +1,55 @@
+JAMES: Adobe reckons AI assistants will send a hundred and thirty per cent more shoppers to US retail sites this holiday season than last. It's an American number, but Black Friday falls on the twenty-seventh of November here too, and a brand that can't see its own AI traffic yet is short of time. I'm James Vickers, this is Manual Focus, and Hannah's here for the AI side.
+
+HANNAH: Hi James. And the clock matters here, because the useful thing is a baseline before peak, not a post-mortem after it.
+
+JAMES: What did Adobe actually publish?
+
+HANNAH: A holiday forecast, on the twenty-eighth of September. Adobe expects US online spending of two hundred and seventy-five point one billion dollars between the first of November and the end of December, up six point seven per cent on twenty twenty-five. The AI figures sit inside that, and Adobe counts AI traffic as a shopper clicking a link from an AI service through to a retail site.
+
+JAMES: And the hundred and thirty per cent covers the whole season?
+
+HANNAH: Year on year, over November and December. The steepest day is Thanksgiving, up a hundred and fifty-nine per cent, then Black Friday up ninety-five, and Cyber Monday up eighty-eight. It's built on more than a trillion visits to US retail sites, and a hundred million products across eighteen categories.
+
+JAMES: There was a survey as well.
+
+HANNAH: Five thousand consumers, in July. Among people who'd already shopped with AI, seventy-seven per cent said it made them more confident in a purchase, and sixty-nine per cent said they were less likely to send an item back. And as the Spokesman-Review reported, Vivek Pandya, Adobe's director of digital insights, said use now reaches beyond big-ticket items to everyday essentials.
+
+JAMES: [dryly] So, a self-reported survey of people who already like the thing.
+
+HANNAH: [chuckles] Fair. It's people already shopping with AI, not all shoppers, reporting their own behaviour. I'd hold it loosely.
+
+JAMES: Then the obvious question. Why should a UK marketing director care about an American forecast?
+
+HANNAH: Because the assistants are the same. ChatGPT, Gemini, Perplexity and Copilot are what British shoppers use too. Thanksgiving means little here, but Black Friday and Cyber Monday are fixed points in the UK retail calendar.
+
+JAMES: And without that, you go into the busiest weeks of the year with nothing to compare against. That's the bit I'd worry about.
+
+HANNAH: There's a page-level side too. Say a shopper asks an assistant to compare three running jackets under a hundred and fifty pounds. The assistant reads product pages, reviews and retailer listings, then sends the click to whichever page answered best. Thin descriptions, sizing hidden in an image, a price that loads late, all of that gives it less to quote.
+
+JAMES: So the product catalogue is now doing part of the job a comparison site or a paid search ad used to do.
+
+HANNAH: That's the shift, yes.
+
+JAMES: [thoughtfully] Our view at Manual Focus is that UK retail and direct-to-consumer brands should treat AI referrals as a named channel in this year's peak trading report. Its own baseline, its own targets, even while the numbers are small. And I'd set those targets on conversion and returns rather than volume.
+
+HANNAH: Which fits the survey. If it's right, the shopper who arrives from an assistant is further along in the decision.
+
+JAMES: Right. The article has four jobs to finish before the twenty-seventh, and most of them shouldn't be done by hand. Get AI on this. First job: get AI on building the AI referral channel.
+
+HANNAH: Give it a referral export for September and October, and it picks out the visits from the main assistants, hands you a baseline by week, and writes the matching rule for your analytics team to set up as a channel. Run it again as a monthly routine, because new referrer domains keep appearing.
+
+JAMES: Second, get your AI to put that channel next to paid search and organic.
+
+HANNAH: Give it a channel export with conversion rate, average order value and thirty-day return rate, and it gives you one table, all channels side by side, with a note on where the same shopper may have clicked an ad too and been counted twice.
+
+JAMES: Third, the pages. Get AI on your twenty best-selling Black Friday products.
+
+HANNAH: Give it the URLs and it checks each page for sizing, materials, compatibility, price and stock in plain text. Anything in an image or missing, it flags, and it drafts the copy to fix it. Your team signs it off.
+
+JAMES: And one for a person, not the AI. Ask whoever runs your CDN and robots file to confirm bot protection isn't shutting out the AI crawlers that fetch your product pages. The prompts are in the show notes.
+
+HANNAH: [thoughtfully] So, the gaps. Adobe gives growth rates, not the share of retail visits that AI referrals make up, so a hundred and thirty per cent rise could still be a small slice. It counts clicks only, which misses every purchase an AI answer shaped without sending a visit. The survey's self-reported. And it's US data, so British brands have to build the evidence from their own analytics.
+
+JAMES: So the takeaway is this. Don't plan on Adobe's number, but don't go into Black Friday unable to see your own. Name the channel, set its baseline now, and judge it on conversion and returns. The full article is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

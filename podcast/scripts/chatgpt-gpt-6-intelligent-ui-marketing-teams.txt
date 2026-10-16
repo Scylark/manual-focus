@@ -1,0 +1,63 @@
+JAMES: On the seventh of October, OpenAI started putting GPT-six into ChatGPT, and its answers no longer arrive as just text. They come as comparisons, maps and small tools built on the spot, which puts every calculator on your website up against one a buyer can make in the chat. I'm James Vickers, this is Manual Focus, and Hannah's here to take it apart with me.
+
+HANNAH: Hi James. The feature's called Intelligent UI, and it's worth being precise about it, because the name makes it sound vaguer than it is.
+
+JAMES: So what did OpenAI actually announce?
+
+HANNAH: We went through OpenAI's announcement and its ChatGPT release notes. GPT-six was trained to build each answer from text, visuals and interactive elements, things like charts, forms, buttons and maps, and to choose the mix for each question. A comparison can sit side by side, an explanation can become an interactive diagram, and road-trip stops can go on a map with notes on which are worth a detour. It still gives plain text when that suits the question best.
+
+JAMES: And people can ask it to make them a tool.
+
+HANNAH: Yes. OpenAI's examples are a calculator for how savings could grow, a bill splitter and a game. It's built a library of native components and a compiler that renders the interface as the model writes, so the layout appears bit by bit.
+
+JAMES: Who gets it?
+
+HANNAH: Everyone, in stages. Plus, Pro, Business and Enterprise users got GPT-six Sol in the Chat tab from the seventh of October, and Free and Go users get GPT-six Luna from the eighth. Enterprise access depends on admin settings, and the models behind Work and Codex haven't changed. OpenAI puts ChatGPT at more than one point two billion weekly users.
+
+JAMES: [dryly] So, a fair-sized audience. And it's quicker, I gather.
+
+HANNAH: ChatGPT can now start answering while it's still thinking or using tools. For questions that need web search, OpenAI says GPT-six Instant starts answering forty-four per cent sooner on average than GPT-five point six Instant, and that it's better at deciding when to look something up. Both of those are OpenAI's own measurements, though. Nobody outside has checked them.
+
+JAMES: Let's get to the bit that worries me. Plenty of brands built their traffic and lead capture on simple tools. Mortgage and savings calculators, size and fit guides, ROI estimators, comparison tables.
+
+HANNAH: And OpenAI picked a savings calculator as a launch example. If a buyer can type "build me a calculator for how much I'd save over five years" and get a working one, they've less reason to click through to yours. Any finance brand that ranks for "savings calculator" should be paying attention.
+
+JAMES: [thoughtfully] Then there's the comparison layout, which I think is the quieter risk.
+
+HANNAH: When ChatGPT puts three products in columns, it fills each cell with whatever it found about price, specs and delivery. If your facts are scattered across PDFs, images and product pages that don't match, you risk a blank or wrong cell next to a competitor whose numbers were easy to read. But OpenAI hasn't said what data the comparisons draw on, so that's our inference from how ChatGPT search already works.
+
+JAMES: So our view at Manual Focus is that a generic calculator or comparison table is no longer a defensible traffic asset. Rebuild those tools around what ChatGPT can't make up. Live prices, stock, a customer's own account data, a quote you'll honour.
+
+HANNAH: And that can live on your site or inside a ChatGPT plugin. OpenAI published a case study on Radisson's plugin, which shows hotels on a map with prices and amenities. It converted visits to bookings at about one and a half times Radisson's organic search rate in July and August.
+
+JAMES: Though OpenAI chose which result to publish.
+
+HANNAH: Exactly, so treat it as a signal, not proof.
+
+JAMES: And content teams?
+
+HANNAH: A smaller adjustment. If the answer starts while ChatGPT's still searching, that rewards pages that state the key fact early, in plain language.
+
+JAMES: Right. So rather than a to-do list, here's what to hand over. Get AI on your interactive tools.
+
+HANNAH: Give it a list of every calculator, quiz, guide and comparison table on your site, with the traffic and leads from your analytics export. It builds its own version of each one and hands back a table: which of yours it can match, and which depend on something only you have, like live prices or account data. What you add after that is your team's call.
+
+JAMES: Second. Get your AI on your product pages.
+
+HANNAH: Give it the URLs and it checks whether price, key specs, dimensions and delivery terms are readable in plain text, in the same format on every page, or buried in images and downloads. It flags the gaps and drafts a consistent fact block for each product.
+
+JAMES: Third, the referral baseline. Mark the eighth of October in your analytics now.
+
+HANNAH: Then set a one-off task for after the fifth of November. Your AI takes the analytics export and compares ChatGPT referral sessions, and conversions on your tool pages, for the four weeks either side. You get a before-and-after table.
+
+JAMES: And one for you, not the AI. Re-run your twenty most important buyer questions yourself, on a Free account and a Plus account, and screenshot the format of each answer and whether you appear in any comparison. That needs two sign-ins and a human eye. The prompts are in the show notes.
+
+HANNAH: Good, because there's a lot OpenAI hasn't told us.
+
+JAMES: Such as?
+
+HANNAH: [thoughtfully] Whether Intelligent UI changes how ChatGPT shows sources or links out to websites. Whether ads can appear inside interactive answers. How a plugin and a model-built interface compete for the same question. There are no traffic or engagement figures, and OpenAI says there's still work ahead on the model's design judgement, so expect the formats to keep changing.
+
+JAMES: So the takeaway. If ChatGPT can build your tool in the chat, your tool needs something it can't build: your prices, your stock, your customer's own data. The full article, with all five checks, is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

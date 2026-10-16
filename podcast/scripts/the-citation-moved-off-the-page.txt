@@ -1,0 +1,55 @@
+JAMES: For about twenty years the deal in search was simple. Rank near the top and you earned the click, so the whole job of SEO was moving up the list. The idea we're picking apart today is that ranking well and being quoted by AI have come apart. I'm James Vickers, this is Manual Focus, and Hannah's with me.
+
+HANNAH: Hi James. The number behind it is stark. A Brandlight analysis, published by Five W in May, looked at the overlap between the top organic Google links and the sources cited inside AI-generated answers. In early twenty twenty-four it was around seventy per cent. By April twenty twenty-six it was below twenty.
+
+JAMES: So the page that ranks first usually isn't the page the model quotes.
+
+HANNAH: Most of the time, no. Two different games are running on the same search, and most brands are only playing one of them.
+
+JAMES: Why now, though? People have been talking about AI search for a while.
+
+HANNAH: Scale, mostly. EMARKETER's forecast has close to four in ten people in the US using generative AI this year, and a growing share of them use it to search. They ask a chatbot, they read Google's AI Overviews, the summary at the top of the results, without scrolling down to the links, or they let an answer engine assemble it for them. Each time, a model decides which sources to pull in.
+
+JAMES: And it decides on different signals from a ranking algorithm.
+
+HANNAH: Quite different. A ranked result rewards authority, backlinks, freshness and relevance to the query. A citation rewards something narrower. The model wants a passage it can lift cleanly, a claim it can stand behind, a number it can attribute. So a page can rank beautifully and still never be quoted, because nothing on it is shaped like an answer.
+
+JAMES: [thoughtfully] That's uncomfortable for anyone whose content calendar was built in twenty twenty. So what does earn the citation?
+
+HANNAH: The article names four things. First, answer first. The opening two hundred words should fully answer the main question. If you spend three paragraphs warming up, the citation can go to whoever got to the point faster.
+
+JAMES: Second is original data. A survey you ran, a benchmark you measured. If the number only lives on your page, the model has to cite you to use it. If you're restating what everyone already knows, you're interchangeable, and interchangeable sources don't get named.
+
+HANNAH: Third, claims the model can stand behind. Specific, falsifiable, sourced. A model won't stake an answer on "the best kit on the market". It will stake one on "rated highest for wet-weather grip in the twenty twenty-six independent test", because that can be checked.
+
+JAMES: [dryly] So the superlatives marketing teams love are the first thing the model skips.
+
+HANNAH: [chuckles] Pretty much. And fourth, third-party corroboration. Models weight sources that other credible sources reference, so earning genuine mentions in real publications matters more for AI visibility than it ever did for rankings. The model is reading the wider web to decide who to trust.
+
+JAMES: Here's our view at Manual Focus. Smaller teams still have a first-mover window, because these moves are cheap and in most categories nobody's locked down GEO yet. That's generative engine optimisation, the work of getting cited in AI answers.
+
+HANNAH: And where do people go wrong?
+
+JAMES: They treat it as a new channel to bolt on, when it changes how every channel gets discovered. So the fix is structural. Shape the content so a model can parse and quote it, and build the data that makes you the only place to get it.
+
+HANNAH: Which is a lot of auditing across a lot of pages.
+
+JAMES: It is, so it's a good one to hand over. Get AI on this. First job, get AI on your opening paragraphs.
+
+HANNAH: Give it the URLs of your most important pages and the question each one is meant to answer. It reads the first two hundred words of each, tells you whether that question actually gets answered, and drafts a new opening wherever it doesn't.
+
+JAMES: Second. Get your AI to hunt down the vague claims.
+
+HANNAH: Same pages. It lists every superlative and fuzzy claim, suggests a specific, checkable version of each, and flags the ones where you don't have a source yet. Deciding what's true and finding the evidence stays with your team.
+
+JAMES: Third, the scoreboard most of us haven't been watching.
+
+HANNAH: Set it up as a monthly routine. Give it the questions your customers actually ask, and it runs them through the AI answer tools it can reach, records which sources get cited, and whether you're one of them. Each month you get a table showing who's being quoted in your place.
+
+JAMES: And one for you rather than the AI. The original data. AI can help you analyse a survey, but deciding what's worth measuring and running it is your job. The prompts are in the show notes. So, what don't we know?
+
+HANNAH: [thoughtfully] The article doesn't go into how the Brandlight analysis was run, which AI tools or which categories it covered, so I'd treat the drop from seventy to under twenty as one strong signal and keep watching. And the four tactics are our view of what earns a citation. The piece doesn't report testing them.
+
+JAMES: And none of this means rankings stopped mattering. The blue links still drive real traffic. The scoreboard you've been watching just covers less of the game than it used to, and the AI side is keeping score somewhere most teams haven't looked. The full piece, with links to the research, is on manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.
