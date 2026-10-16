@@ -91,9 +91,11 @@ should work now: build the thing that does the task, don't do the task.
 
 ### Show notes
 
-Each episode has `podcast/notes/<post-slug>.md`: a one-paragraph summary, the
-sources named in the episode, then a **Get AI on this** section with one
-ready-to-paste prompt per job mentioned on air. Each prompt:
+Each episode has `podcast/notes/<post-slug>.md`: a one-paragraph summary, then
+a **Get AI on this** section with one ready-to-paste prompt per job mentioned
+on air. The notes render under the post, which already lists its sources and
+links, so don't repeat those; the podcast feed adds the article link and
+sources from the post itself. Each prompt:
 
 - states the goal and the context the model needs (who we are, which site, which
   market);

@@ -1,6 +1,7 @@
 ---
 import Base from './Base.astro';
 import SEOHead from '../components/SEOHead.astro';
+import PostPlayer from '../components/PostPlayer.astro';
 import { url } from '../utils/paths';
 import { formatTag } from '../utils/blog';
 import { getCollection } from 'astro:content';
@@ -22,11 +23,17 @@ interface Props {
   faq?: FaqItem[];
   sources?: Source[];
   minutes?: number;
+  podcast?: { audio: string; duration: number };
+  slug?: string;
   newerPost?: PostRef | null;
   olderPost?: PostRef | null;
 }
 
-const { title, description, date, updated, tags, image, howToName, howToSteps, faq, sources, minutes, newerPost, olderPost } = Astro.props;
+const { title, description, date, updated, tags, image, howToName, howToSteps, faq, sources, minutes, podcast, slug, newerPost, olderPost } = Astro.props;
+
+// Show notes for the episode, written alongside its script in podcast/notes/.
+const showNotes = import.meta.glob<{ Content: any }>('/podcast/notes/*.md', { eager: true });
+const ShowNotes = podcast && slug ? showNotes[`/podcast/notes/${slug}.md`]?.Content : undefined;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const formattedUpdated = updated && updated.getTime() !== date.getTime()
   ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
@@ -74,6 +81,7 @@ const related = allPosts
             <a href={url(`/blog/tag/${tag}/`)} class="tag">{formatTag(tag)}</a>
           ))}
         </div>
+        {podcast && <PostPlayer audio={url(podcast.audio)} duration={podcast.duration} />}
       </header>
 
       <div class="post-content">
@@ -103,6 +111,13 @@ const related = allPosts
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {ShowNotes && (
+          <section id="show-notes" class="show-notes" aria-labelledby="show-notes-heading">
+            <h2 id="show-notes-heading">From the podcast</h2>
+            <ShowNotes />
           </section>
         )}
       </div>
@@ -150,6 +165,22 @@ const related = allPosts
     </aside>
   )}
 </Base>
+
+<script>
+  // A copy button on each show-notes prompt.
+  document.querySelectorAll<HTMLElement>('.show-notes pre').forEach((pre) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'copy-prompt';
+    button.textContent = 'Copy prompt';
+    button.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(pre.querySelector('code')?.innerText ?? pre.innerText);
+      button.textContent = 'Copied';
+      setTimeout(() => (button.textContent = 'Copy prompt'), 2000);
+    });
+    pre.append(button);
+  });
+</script>
 
 <style>
   .post-header {
@@ -314,6 +345,47 @@ const related = allPosts
   }
   @media (min-width: 640px) {
     .post-nav { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Podcast show notes: the "Get AI on this" prompts render as code blocks.
+     Wrap them so they fit the column, and give each a copy button. */
+  .show-notes :global(pre) {
+    position: relative;
+    margin: var(--space-xs) 0 var(--space-md);
+    padding: var(--space-sm);
+    padding-top: 2.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-card-bg) !important;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+  .show-notes :global(pre code) {
+    color: var(--color-text-secondary) !important;
+  }
+  .show-notes :global(pre code span) {
+    color: inherit !important;
+  }
+  .show-notes :global(.copy-prompt) {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    background: var(--color-bg);
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .show-notes :global(.copy-prompt:hover) {
+    color: var(--color-text);
+    border-color: var(--color-text);
   }
 
   /* Related reading — internal-link block under each post for topical

@@ -11,15 +11,6 @@ official, who should care about Preferred Sources, why UK teams should watch
 the creator test rather than act on it, and three jobs to hand to AI this
 month.
 
-Read the full article: [What Google's new AI Mode links mean for brand websites](https://manual-focus.co.uk/blog/google-ai-mode-official-websites-links/)
-
-## Sources mentioned
-
-- [More ways to connect with the web from Search](https://blog.google/products-and-platforms/products/search/updates-ai-mode-overviews-explore-web/), Google
-- [Preferred sources](https://developers.google.com/search/docs/appearance/preferred-sources), Google Search Central
-- [AI features and your website](https://developers.google.com/search/docs/appearance/ai-features), Google Search Central
-- [Google Puts Inline Links Higher In More AI Search Responses](https://www.searchenginejournal.com/google-inline-links-higher-ai-search-responses/593089/), Search Engine Journal
-
 ## Get AI on this
 
 Paste these into whichever AI assistant you use: ChatGPT, Claude, Gemini or

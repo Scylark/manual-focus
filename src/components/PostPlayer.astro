@@ -1,0 +1,190 @@
+---
+// "Listen to this article" player for posts with a podcast episode. A plain
+// <audio> element does the work, so the episode still plays without JS; the
+// script swaps in the styled controls when it runs.
+interface Props {
+  audio: string;
+  duration: number; // seconds
+}
+
+const { audio, duration } = Astro.props;
+const minutes = Math.round(duration / 60);
+const total = `${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).padStart(2, '0')}`;
+---
+<section class="player" aria-label="Listen to this article" data-player>
+  <div class="player-head">
+    <span class="player-label">Listen · {minutes} min</span>
+    <span class="player-hosts">James Vickers &amp; Hannah talk it through</span>
+  </div>
+
+  <div class="player-controls" hidden data-controls>
+    <button class="player-play" type="button" aria-label="Play episode" data-play>
+      <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg>
+    </button>
+    <span class="player-time mono" data-current>0:00</span>
+    <input class="player-seek" type="range" min="0" max={Math.round(duration)} value="0" step="1" aria-label="Seek" data-seek />
+    <span class="player-time mono">{total}</span>
+    <button class="player-speed mono" type="button" aria-label="Playback speed" data-speed>1×</button>
+  </div>
+
+  <audio controls preload="none" src={audio} data-audio>
+    <a href={audio}>Download the episode (MP3)</a>
+  </audio>
+
+  <p class="player-note">
+    Both voices are AI-generated from our own script. The prompts mentioned are
+    in the <a href="#show-notes">show notes</a>.
+  </p>
+</section>
+
+<script>
+  const SPEEDS = [1, 1.25, 1.5];
+  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+
+  document.querySelectorAll<HTMLElement>('[data-player]').forEach((root) => {
+    const audio = root.querySelector<HTMLAudioElement>('[data-audio]')!;
+    const controls = root.querySelector<HTMLElement>('[data-controls]')!;
+    const play = root.querySelector<HTMLButtonElement>('[data-play]')!;
+    const seek = root.querySelector<HTMLInputElement>('[data-seek]')!;
+    const current = root.querySelector<HTMLElement>('[data-current]')!;
+    const speed = root.querySelector<HTMLButtonElement>('[data-speed]')!;
+
+    audio.controls = false;
+    audio.hidden = true;
+    controls.hidden = false;
+
+    const paint = () => seek.style.setProperty('--progress', `${(Number(seek.value) / Number(seek.max)) * 100}%`);
+
+    play.addEventListener('click', () => (audio.paused ? audio.play() : audio.pause()));
+    audio.addEventListener('play', () => { root.classList.add('is-playing'); play.setAttribute('aria-label', 'Pause episode'); });
+    audio.addEventListener('pause', () => { root.classList.remove('is-playing'); play.setAttribute('aria-label', 'Play episode'); });
+    audio.addEventListener('timeupdate', () => {
+      seek.value = String(Math.floor(audio.currentTime));
+      current.textContent = fmt(audio.currentTime);
+      paint();
+    });
+    seek.addEventListener('input', () => {
+      audio.currentTime = Number(seek.value);
+      paint();
+    });
+    speed.addEventListener('click', () => {
+      const next = SPEEDS[(SPEEDS.indexOf(audio.playbackRate) + 1) % SPEEDS.length];
+      audio.playbackRate = next;
+      speed.textContent = `${next}×`;
+    });
+  });
+</script>
+
+<style>
+  .player {
+    margin-top: var(--space-md);
+    padding: var(--space-sm);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-card-bg);
+  }
+
+  .player-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .player-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .player-hosts {
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .player-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .player-controls[hidden] { display: none; }
+
+  .player-play {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-cta-start);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .player-play:hover { transform: scale(1.05); }
+  .player-play:focus-visible { outline: 2px solid var(--color-text); outline-offset: 3px; }
+  .player-play svg { width: 20px; height: 20px; fill: currentColor; }
+  .icon-pause, .is-playing .icon-play { display: none; }
+  .is-playing .icon-pause { display: block; }
+
+  .player-time {
+    flex: none;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .player-seek {
+    --progress: 0%;
+    flex: 1;
+    min-width: 0;
+    height: 4px;
+    appearance: none;
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--color-cta-start) var(--progress), var(--color-line) var(--progress));
+    cursor: pointer;
+  }
+  .player-seek::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-text);
+  }
+  .player-seek::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-text);
+  }
+
+  .player-speed {
+    flex: none;
+    min-width: 3rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    background: none;
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .player-speed:hover { color: var(--color-text); border-color: var(--color-text); }
+
+  audio { width: 100%; }
+
+  .player-note {
+    margin: 0.75rem 0 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+  .player-note a { color: var(--color-text-secondary); }
+
+  @media (max-width: 480px) {
+    .player-time:last-of-type { display: none; }
+  }
+</style>
