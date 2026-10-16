@@ -46,6 +46,13 @@ const blog = defineCollection({
       url: z.string().url(),
       publisher: z.string().optional(),
     })).optional(),
+    // Companion podcast episode, built by podcast/build-episode.mjs. Show
+    // notes come from podcast/notes/<slug>.md when that file exists.
+    podcast: z.object({
+      audio: z.string(),
+      duration: z.number(), // seconds
+      bytes: z.number(), // file size, for the feed's enclosure
+    }).optional(),
   }),
 });
 
