@@ -317,7 +317,7 @@ run and follow it exactly. This step runs after the post has passed every
 gate in step 6, because the episode is written from the finished post.
 
 1. **Preflight.** Run `node podcast/preflight.mjs`. It checks the ElevenLabs
-   key and both voice IDs, ffmpeg and ffprobe, and that `gh` can write to the
+   key, ffmpeg and ffprobe, and that `gh` can write to the
    repo's `podcast` release, without spending anything. If it prints `SKIP`,
    don't write the episode. Keep its lines for the summary and go to step 9.
 2. **Write the script**, `podcast/scripts/<slug>.txt`, to the show rules.
@@ -525,13 +525,14 @@ ships.
 | What | Why | How |
 |---|---|---|
 | `ELEVENLABS_API_KEY` | Voices the script (Text to Dialogue, `eleven_v3`) | Secret environment variable |
-| `ELEVENLABS_JAMES_VOICE` | James's cloned voice ID | Secret environment variable |
-| `ELEVENLABS_HANNAH_VOICE` | Hannah's voice ID | Secret environment variable |
 | `ffmpeg` and `ffprobe` | Join chunks, mix the music, read the duration | Setup script, `apt-get install -y ffmpeg` |
 | `gh` signed in with write access | Uploads the MP3 to the `podcast` release | `GH_TOKEN` secret, a fine-grained token on `Scylark/manual-focus` with Contents read and write |
 | Network access | Reach the APIs | Allow `api.elevenlabs.io`, `api.github.com` and `uploads.github.com` |
 
-`PODCAST_STABILITY` (default 0.5) is optional and changes how steady the
+The voice IDs are defaults in `podcast/build-episode.mjs`, since they only
+work with the account's key. `ELEVENLABS_JAMES_VOICE` and
+`ELEVENLABS_HANNAH_VOICE` override them, and `PODCAST_STABILITY` (default 0.5)
+is optional and changes how steady the
 voices are. Locally, the same variables go in your shell before running the
 scripts.
 

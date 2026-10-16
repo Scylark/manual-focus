@@ -17,8 +17,8 @@
 // Usage: node podcast/build-episode.mjs <slug> [--dry-run]
 // --dry-run parses and chunks the script and prints the plan, without calling
 // ElevenLabs or ffmpeg, so it needs no key.
-// Needs ELEVENLABS_API_KEY, ELEVENLABS_JAMES_VOICE, ELEVENLABS_HANNAH_VOICE,
-// plus ffmpeg on the PATH.
+// Needs ELEVENLABS_API_KEY and ffmpeg on the PATH. ELEVENLABS_JAMES_VOICE and
+// ELEVENLABS_HANNAH_VOICE optionally override the show's voices.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -43,9 +43,11 @@ const FULL = 0.85; // music on its own, just under the voices
 const BED = 0.1; // music under speech
 
 const apiKey = process.env.ELEVENLABS_API_KEY;
+// Voice IDs aren't secret (they only work with the account's API key), so the
+// show's voices are the defaults and the env vars only override them.
 const VOICES = {
-  JAMES: process.env.ELEVENLABS_JAMES_VOICE,
-  HANNAH: process.env.ELEVENLABS_HANNAH_VOICE,
+  JAMES: process.env.ELEVENLABS_JAMES_VOICE || '9uOKe1BPuYSPsgUcIJd5', // James's clone
+  HANNAH: process.env.ELEVENLABS_HANNAH_VOICE || 'y1LQSw6x4O5I1qZEI77j',
 };
 
 const dryRun = process.argv.includes('--dry-run');

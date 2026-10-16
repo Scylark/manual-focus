@@ -13,9 +13,8 @@ import { execFileSync } from 'node:child_process';
 const REPO = 'Scylark/manual-focus';
 const missing = [];
 
-for (const name of ['ELEVENLABS_API_KEY', 'ELEVENLABS_JAMES_VOICE', 'ELEVENLABS_HANNAH_VOICE']) {
-  if (!process.env[name]) missing.push(`${name} is not set`);
-}
+// The voice IDs default to the show's voices in build-episode.mjs.
+if (!process.env.ELEVENLABS_API_KEY) missing.push('ELEVENLABS_API_KEY is not set');
 
 const run = (cmd, args) => execFileSync(cmd, args, { stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
 
