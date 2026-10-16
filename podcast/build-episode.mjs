@@ -14,7 +14,9 @@
 // last lines and rises to its natural ending once James stops talking.
 // There's no fixed jingle or voiceover; the cold open is different each time.
 //
-// Usage: node podcast/build-episode.mjs <slug>
+// Usage: node podcast/build-episode.mjs <slug> [--dry-run]
+// --dry-run parses and chunks the script and prints the plan, without calling
+// ElevenLabs or ffmpeg, so it needs no key.
 // Needs ELEVENLABS_API_KEY, ELEVENLABS_JAMES_VOICE, ELEVENLABS_HANNAH_VOICE,
 // plus ffmpeg on the PATH.
 
@@ -46,11 +48,14 @@ const VOICES = {
   HANNAH: process.env.ELEVENLABS_HANNAH_VOICE,
 };
 
-const slug = process.argv[2];
-if (!slug) throw new Error('Usage: node podcast/build-episode.mjs <slug>');
-if (!apiKey) throw new Error('ELEVENLABS_API_KEY is not set');
-for (const [who, id] of Object.entries(VOICES)) {
-  if (!id) throw new Error(`ELEVENLABS_${who}_VOICE is not set`);
+const dryRun = process.argv.includes('--dry-run');
+const slug = process.argv.slice(2).find((a) => !a.startsWith('--'));
+if (!slug) throw new Error('Usage: node podcast/build-episode.mjs <slug> [--dry-run]');
+if (!dryRun) {
+  if (!apiKey) throw new Error('ELEVENLABS_API_KEY is not set');
+  for (const [who, id] of Object.entries(VOICES)) {
+    if (!id) throw new Error(`ELEVENLABS_${who}_VOICE is not set`);
+  }
 }
 
 const script = readFileSync(join(ROOT, 'scripts', `${slug}.txt`), 'utf8');
@@ -79,6 +84,16 @@ for (const turn of turns) {
   size += turn.text.length;
 }
 if (current.length) chunks.push(current);
+
+if (dryRun) {
+  for (const [i, chunk] of chunks.entries()) {
+    const chars = chunk.reduce((n, t) => n + t.text.length, 0);
+    console.log(`Chunk ${i + 1}/${chunks.length}: ${chunk.length} turns, ${chars} chars`);
+  }
+  const chars = turns.reduce((n, t) => n + t.text.length, 0);
+  console.log(`Dry run: ${turns.length} turns, ${chars} characters to voice. Nothing sent to ElevenLabs.`);
+  process.exit(0);
+}
 
 const outDir = join(ROOT, 'out', slug);
 mkdirSync(outDir, { recursive: true });
