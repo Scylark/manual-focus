@@ -3,6 +3,11 @@ title: "Above the line vs below the line marketing, explained"
 date: 2026-10-17
 tags: ["basics", "marketing-strategy", "go-to-market"]
 description: "Above the line is mass-media advertising, below the line is targeted promotion such as direct mail and events, and through the line joins the two."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/above-the-line-below-the-line-basics.mp3"
+  duration: 724
+  bytes: 8687849
+  published: 2026-10-17
 howToName: "How to plan a through-the-line campaign"
 howToSteps:
   - name: "Start from one objective and audience"

@@ -3,6 +3,11 @@ title: "PR 101, a basics guide to public relations"
 date: 2026-10-17
 tags: ["basics", "brand", "marketing-strategy"]
 description: "Public relations looks after reputation by earning understanding and support. What PR covers, how media relations works, and how to pitch a journalist."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/pr-101-basics.mp3"
+  duration: 746
+  bytes: 8952730
+  published: 2026-10-17
 howToName: "How to pitch a story to a journalist"
 howToSteps:
   - name: "Find the story"

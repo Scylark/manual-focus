@@ -3,6 +3,11 @@ title: "Owned, paid and earned media, explained"
 date: 2026-10-17
 tags: ["basics", "marketing-strategy", "go-to-market"]
 description: "Owned media is what you control, paid media is attention you buy, earned media is what others say about you. How the three differ and work together."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/owned-paid-earned-media-basics.mp3"
+  duration: 729
+  bytes: 8750229
+  published: 2026-10-17
 howToName: "How to audit your owned, paid and earned media mix"
 howToSteps:
   - name: "List every channel"

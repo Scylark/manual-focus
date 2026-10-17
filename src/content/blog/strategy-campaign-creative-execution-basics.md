@@ -3,6 +3,11 @@ title: "Strategy vs campaign vs creative vs execution, explained"
 date: 2026-10-17
 tags: ["basics", "marketing-strategy", "brand"]
 description: "Strategy is the choice of who and why, a campaign is a time-bound push, creative is the idea people see, execution is the delivery. How each differs."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/strategy-campaign-creative-execution-basics.mp3"
+  duration: 714
+  bytes: 8566536
+  published: 2026-10-17
 howToName: "How to check a marketing plan separates strategy, campaign, creative and execution"
 howToSteps:
   - name: "Write the strategy in two sentences"
