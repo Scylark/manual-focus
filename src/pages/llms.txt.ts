@@ -3,6 +3,7 @@
 // collections so it never drifts from the pages it describes.
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
+import { SHOW, transcript } from '../utils/podcast';
 
 const STACKS: Record<string, string> = {
   brand: 'Brand & positioning',
@@ -52,6 +53,16 @@ export async function GET(context: APIContext) {
     `${skills.length} skills, installable in Cowork (Customize > Plugins > Add marketplace: Scylark/manual-focus) or Claude Code (/plugin marketplace add Scylark/manual-focus, then /plugin install the-lens@manual-focus).`,
     '',
     ...skills.sort((a, b) => a.data.name.localeCompare(b.data.name)).map((s) => `- [${s.data.name}](${site}/lens/skills/${s.data.name}/)`),
+    '',
+    '## Podcast',
+    '',
+    `${SHOW.description}`,
+    '',
+    `- [Podcast home](${site}${SHOW.hub}): every episode, and where to subscribe`,
+    `- [Podcast feed](${site}${SHOW.feed})`,
+    ...posts
+      .filter((p) => p.data.podcast)
+      .map((p) => `- [${p.data.title}](${site}/blog/${p.id}/#podcast)${transcript(p.id) ? `: [transcript](${site}/podcast/transcripts/${p.id}.txt)` : ''}`),
     '',
     '## Blog',
     '',

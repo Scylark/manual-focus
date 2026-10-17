@@ -1,0 +1,111 @@
+---
+// The podcast's home on the site: what the show is, where to subscribe, and
+// every episode. It carries the PodcastSeries structured data that each
+// episode's PodcastEpisode points at, so search and answer engines can tie
+// the show, its episodes and the articles together.
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { url } from '../../utils/paths';
+import { readingTime } from '../../utils/blog';
+import { SHOW } from '../../utils/podcast';
+import { getCollection } from 'astro:content';
+
+const site = (Astro.site?.toString() ?? 'https://manual-focus.co.uk/').replace(/\/$/, '');
+const episodes = (await getCollection('blog', (p) => Boolean(p.data.podcast)))
+  .sort((a, b) =>
+    (b.data.podcast!.published ?? b.data.date).getTime() - (a.data.podcast!.published ?? a.data.date).getTime() ||
+    b.data.date.getTime() - a.data.date.getTime());
+
+const title = 'The Manual Focus podcast: AI news for marketing leaders';
+const description = 'James Vickers and Hannah talk through each Manual Focus article: what changed in AI and search, what it means for marketing teams, and the jobs to hand to AI.';
+
+const seriesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'PodcastSeries',
+  '@id': `${site}${SHOW.hub}#series`,
+  name: SHOW.title,
+  description: SHOW.description,
+  url: `${site}${SHOW.hub}`,
+  webFeed: `${site}${SHOW.feed}`,
+  image: `${site}${SHOW.image}`,
+  inLanguage: 'en-GB',
+  author: { '@id': `${site}/about/#james-vickers` },
+  publisher: { '@id': `${site}/#organization` },
+  ...(SHOW.apple || SHOW.spotify ? { sameAs: [SHOW.apple, SHOW.spotify].filter(Boolean) } : {}),
+  hasPart: episodes.map((p) => ({ '@id': `${site}/blog/${p.id}/#podcast` })),
+};
+---
+<Base title={title} description={description} ogImage={SHOW.image}>
+  <SEOHead slot="seo" type="website" title={title} description={description} image={SHOW.image} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Podcast', url: '/podcast' }]} />
+  <script type="application/ld+json" slot="seo" set:html={JSON.stringify(seriesSchema)} />
+
+  <section class="section">
+    <div class="container">
+      <h1>Podcast</h1>
+      <p class="lead">{description} Each episode ends with prompts you can paste into your own AI assistant. Both voices are AI-generated from our own scripts.</p>
+
+      <nav class="subscribe" aria-label="Subscribe to the podcast">
+        {SHOW.apple && <a href={SHOW.apple} class="tag" rel="noopener">Apple Podcasts</a>}
+        {SHOW.spotify && <a href={SHOW.spotify} class="tag" rel="noopener">Spotify</a>}
+        <a href={url(SHOW.feed)} class="tag">RSS feed</a>
+      </nav>
+
+      <div class="blog-grid">
+        {episodes.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.id}
+            minutes={readingTime(post.body ?? '')}
+            listenMinutes={Math.round(post.data.podcast!.duration / 60)}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .subscribe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+  }
+
+  .tag {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+  }
+
+  .tag:hover {
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

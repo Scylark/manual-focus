@@ -2,6 +2,9 @@
 // "Listen to this article" player for posts with a podcast episode. A plain
 // <audio> element does the work, so the episode still plays without JS; the
 // script swaps in the styled controls when it runs.
+import { url } from '../utils/paths';
+import { SHOW } from '../utils/podcast';
+
 interface Props {
   audio: string;
   duration: number; // seconds
@@ -11,7 +14,7 @@ const { audio, duration } = Astro.props;
 const minutes = Math.round(duration / 60);
 const total = `${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).padStart(2, '0')}`;
 ---
-<section class="player" aria-label="Listen to this article" data-player>
+<section id="podcast" class="player" aria-label="Listen to this article" data-player>
   <div class="player-head">
     <span class="player-label">Listen · {minutes} min</span>
     <span class="player-hosts">James Vickers &amp; Hannah talk it through</span>
@@ -34,7 +37,8 @@ const total = `${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).
 
   <p class="player-note">
     Both voices are AI-generated from our own script. The prompts mentioned are
-    in the <a href="#show-notes">show notes</a>.
+    in the <a href="#show-notes">show notes</a>, with the
+    <a href="#transcript">full transcript</a>. <a href={url(SHOW.hub)}>All episodes</a>.
   </p>
 </section>
 

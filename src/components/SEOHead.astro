@@ -1,4 +1,6 @@
 ---
+import { SHOW, transcript, transcriptText, isoDuration } from '../utils/podcast';
+
 interface BreadcrumbItem {
   name: string;
   url: string;
@@ -32,6 +34,8 @@ interface Props {
   sources?: Source[];
   /** Article flavour: BlogPosting for posts, TechArticle for playbooks. */
   schemaType?: 'BlogPosting' | 'TechArticle' | 'Article';
+  /** Companion podcast episode, for PodcastEpisode structured data. */
+  podcast?: { audio: string; duration: number; bytes: number; published?: Date; slug: string };
 }
 
 const siteUrlRaw = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
@@ -51,6 +55,7 @@ const {
   articleFaq,
   sources,
   schemaType = 'BlogPosting',
+  podcast,
 } = Astro.props;
 
 // Canonical URLs on this site end in a slash; anything else is a redirect.
@@ -196,6 +201,7 @@ const articleSchema =
           '@type': 'WebPage',
           '@id': new URL(Astro.url.pathname, siteUrl).toString(),
         },
+        ...(podcast ? { audio: { '@id': `${new URL(Astro.url.pathname, siteUrl).toString()}#podcast` } } : {}),
       }
     : null;
 
@@ -282,6 +288,47 @@ const breadcrumbSchema =
       }
     : null;
 
+// PodcastEpisode schema for posts with an episode, tied to the show's
+// PodcastSeries (described in full on /podcast/) and to the article it talks
+// through. The transcript makes the episode's content readable to answer
+// engines, which can't listen to the audio.
+const episodeTurns = podcast ? transcript(podcast.slug) : undefined;
+const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const audioObject = podcast
+  ? {
+      '@type': 'AudioObject',
+      contentUrl: podcast.audio,
+      encodingFormat: 'audio/mpeg',
+      duration: isoDuration(podcast.duration),
+      contentSize: `${podcast.bytes} B`,
+      ...(episodeTurns ? { transcript: transcriptText(episodeTurns) } : {}),
+    }
+  : null;
+const episodeSchema = podcast && audioObject
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'PodcastEpisode',
+      '@id': `${pageUrl}#podcast`,
+      url: `${pageUrl}#podcast`,
+      name: title,
+      description,
+      datePublished: (podcast.published ?? publishDate ?? new Date()).toISOString(),
+      timeRequired: isoDuration(podcast.duration),
+      inLanguage: 'en-GB',
+      associatedMedia: audioObject,
+      partOfSeries: {
+        '@type': 'PodcastSeries',
+        '@id': `${siteUrl}${SHOW.hub}#series`,
+        name: SHOW.title,
+        url: `${siteUrl}${SHOW.hub}`,
+        webFeed: `${siteUrl}${SHOW.feed}`,
+      },
+      author: { '@id': jamesId },
+      publisher: { '@id': `${siteUrl}/#organization` },
+      about: { '@id': `${pageUrl}#article` },
+    }
+  : null;
+
 // HowTo schema — emitted when an article supplies steps. Makes the post
 // rich-result eligible for "how to" queries.
 const howToSchema =
@@ -310,3 +357,4 @@ const howToSchema =
 {serviceSchemas && serviceSchemas.map(s => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 {howToSchema && <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}
+{episodeSchema && <script type="application/ld+json" set:html={JSON.stringify(episodeSchema)} />}

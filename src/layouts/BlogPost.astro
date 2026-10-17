@@ -2,6 +2,7 @@
 import Base from './Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import PostPlayer from '../components/PostPlayer.astro';
+import { transcript } from '../utils/podcast';
 import { url } from '../utils/paths';
 import { formatTag } from '../utils/blog';
 import { getCollection } from 'astro:content';
@@ -34,6 +35,9 @@ const { title, description, date, updated, tags, image, howToName, howToSteps, f
 // Show notes for the episode, written alongside its script in podcast/notes/.
 const showNotes = import.meta.glob<{ Content: any }>('/podcast/notes/*.md', { eager: true });
 const ShowNotes = podcast && slug ? showNotes[`/podcast/notes/${slug}.md`]?.Content : undefined;
+// The words of the episode, as text on the page, so search and answer engines
+// can read what was said.
+const turns = podcast && slug ? transcript(slug) : undefined;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const formattedUpdated = updated && updated.getTime() !== date.getTime()
   ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
@@ -64,7 +68,7 @@ const related = allPosts
   .map(x => x.post);
 ---
 <Base title={title} description={description} ogImage={image} ogType="article" publishedTime={date} modifiedTime={updated ?? date}>
-  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} articleFaq={faq} sources={sources} />
+  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} articleFaq={faq} sources={sources} podcast={podcast && slug ? { ...podcast, slug } : undefined} />
 
   <article class="section">
     <div class="container prose">
@@ -114,10 +118,18 @@ const related = allPosts
           </section>
         )}
 
-        {ShowNotes && (
+        {(ShowNotes || turns) && (
           <section id="show-notes" class="show-notes" aria-labelledby="show-notes-heading">
             <h2 id="show-notes-heading">From the podcast</h2>
-            <ShowNotes />
+            {ShowNotes && <ShowNotes />}
+            {turns && (
+              <details id="transcript" class="transcript">
+                <summary>Read the episode transcript</summary>
+                {turns.map((t) => (
+                  <p><strong>{t.speaker}:</strong> {t.text}</p>
+                ))}
+              </details>
+            )}
           </section>
         )}
       </div>
@@ -167,6 +179,14 @@ const related = allPosts
 </Base>
 
 <script>
+  // Opens the transcript when a link points at it (the player links to #transcript).
+  const openTranscript = () => {
+    const t = document.getElementById('transcript');
+    if (location.hash === '#transcript' && t instanceof HTMLDetailsElement) t.open = true;
+  };
+  openTranscript();
+  window.addEventListener('hashchange', openTranscript);
+
   // A copy button on each show-notes prompt.
   document.querySelectorAll<HTMLElement>('.show-notes pre').forEach((pre) => {
     const button = document.createElement('button');
@@ -383,6 +403,28 @@ const related = allPosts
     border-radius: 2px;
     cursor: pointer;
   }
+  /* Episode transcript: closed by default, but in the HTML for crawlers. */
+  .transcript {
+    margin: var(--space-md) 0;
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .transcript summary {
+    padding: var(--space-sm) 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+  }
+  .transcript summary:hover { color: var(--color-text); }
+  .transcript p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+  .transcript strong { color: var(--color-text); font-weight: 600; }
+
   .show-notes :global(.copy-prompt:hover) {
     color: var(--color-text);
     border-color: var(--color-text);
