@@ -3,19 +3,9 @@
 // frontmatter (written by podcast/publish-episode.mjs). Episode notes come
 // from the summary in podcast/notes/<slug>.md.
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { SHOW, transcript } from '../utils/podcast';
 import type { APIContext } from 'astro';
 
-const SHOW = {
-  title: 'Manual Focus',
-  subtitle: 'AI news for marketing leaders, talked through',
-  description:
-    'James Vickers and Hannah, the Manual Focus AI expert, talk through each article from the Manual Focus blog: what changed in AI and search, what it means for marketing teams, and the jobs you can hand to AI this month. Both voices are AI-generated from our own scripts.',
-  author: 'James Vickers, Manual Focus',
-  email: 'James@manual-focus.co.uk',
-  image: '/images/podcast-cover.jpg',
-  category: 'Business',
-  subcategory: 'Marketing',
-};
 
 const notes = import.meta.glob<string>('/podcast/notes/*.md', { eager: true, query: '?raw', import: 'default' });
 
@@ -61,17 +51,18 @@ export async function GET(context: APIContext) {
       <description><![CDATA[${html}]]></description>
       <itunes:summary>${escape(text)}</itunes:summary>
       <enclosure url="${escape(audio)}" length="${bytes}" type="audio/mpeg" />
-      <itunes:duration>${hms(duration)}</itunes:duration>
+      ${transcript(post.id) ? `<podcast:transcript url="${site}/podcast/transcripts/${post.id}.txt" type="text/plain" language="en-gb" />
+      ` : ''}<itunes:duration>${hms(duration)}</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>`;
   });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:podcast="https://podcastindex.org/namespace/1.0">
   <channel>
     <title>${escape(SHOW.title)}</title>
-    <link>${site}/blog/</link>
+    <link>${site}${SHOW.hub}</link>
     <atom:link href="${site}/podcast.xml" rel="self" type="application/rss+xml" />
     <language>en-gb</language>
     <copyright>© ${new Date().getFullYear()} Manual Focus</copyright>
@@ -87,13 +78,18 @@ export async function GET(context: APIContext) {
     <image>
       <url>${site}${SHOW.image}</url>
       <title>${escape(SHOW.title)}</title>
-      <link>${site}/blog/</link>
+      <link>${site}${SHOW.hub}</link>
     </image>
     <itunes:category text="${SHOW.category}">
       <itunes:category text="${SHOW.subcategory}" />
     </itunes:category>
     <itunes:explicit>false</itunes:explicit>
-    <itunes:type>episodic</itunes:type>${items.join('')}
+    <itunes:type>episodic</itunes:type>
+    <podcast:guid>${SHOW.guid}</podcast:guid>
+    <podcast:locked owner="${SHOW.email}">yes</podcast:locked>
+    <podcast:medium>podcast</podcast:medium>
+    <podcast:person role="host" href="${site}/about/" img="${site}/images/james-vickers.jpg">James Vickers</podcast:person>
+    <podcast:person role="host">Hannah</podcast:person>${items.join('')}
   </channel>
 </rss>
 `;
