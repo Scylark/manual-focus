@@ -3,6 +3,11 @@ title: "What Meta's new crawling terms mean for UK advertisers"
 date: 2026-10-17
 tags: ["ai-briefing", "ai", "brand"]
 description: "Meta's new Commercial Terms, live on 30 October 2026, let it crawl sites linked to a business, and the UK edition names AI training. Set robots.txt now."
+podcast:
+  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/meta-commercial-terms-crawling-uk-advertisers.mp3"
+  duration: 435
+  bytes: 5220877
+  published: 2026-10-17
 faq:
   - question: "What changes in Meta's Commercial Terms on 30 October 2026?"
     answer: "Meta's updated Commercial Terms, which replace the version in force since 6 March 2024, add a clause authorising Meta to use crawlers and create test credentials to access, index and collect the domains and pages associated with a business's products or services. The UK English edition says Meta may use that content to train its products. Continuing to use Meta's commercial products after 30 October means accepting the new terms."
