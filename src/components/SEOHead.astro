@@ -1,4 +1,6 @@
 ---
+import { SHOW, isoDuration } from '../utils/podcast';
+
 interface BreadcrumbItem {
   name: string;
   url: string;
@@ -32,6 +34,8 @@ interface Props {
   sources?: Source[];
   /** Article flavour: BlogPosting for posts, TechArticle for playbooks. */
   schemaType?: 'BlogPosting' | 'TechArticle' | 'Article';
+  /** The post's podcast episode, for the AudioObject and PodcastEpisode data. */
+  episode?: { audio: string; duration: number; published: Date; transcript: string };
 }
 
 const siteUrlRaw = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
@@ -51,6 +55,7 @@ const {
   articleFaq,
   sources,
   schemaType = 'BlogPosting',
+  episode,
 } = Astro.props;
 
 // Canonical URLs on this site end in a slash; anything else is a redirect.
@@ -161,6 +166,20 @@ const profileSchema =
       }
     : null;
 
+// The episode's audio, with its transcript. Built here so the article's
+// `audio` and the PodcastEpisode below share one object.
+const audioObject = episode
+  ? {
+      '@type': 'AudioObject',
+      name: `${title} (podcast episode)`,
+      contentUrl: episode.audio,
+      encodingFormat: 'audio/mpeg',
+      duration: isoDuration(episode.duration),
+      uploadDate: episode.published.toISOString().slice(0, 10),
+      transcript: episode.transcript,
+    }
+  : null;
+
 const articleSchema =
   type === 'article' && publishDate
     ? {
@@ -196,6 +215,38 @@ const articleSchema =
           '@type': 'WebPage',
           '@id': new URL(Astro.url.pathname, siteUrl).toString(),
         },
+        ...(audioObject ? { audio: audioObject } : {}),
+      }
+    : null;
+
+// The post's podcast episode: the same AudioObject as the article's `audio`,
+// as a PodcastEpisode in the Manual Focus series, so answer engines and
+// podcast search can tie the episode, its transcript and the article together.
+const episodeSchema =
+  episode && audioObject
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'PodcastEpisode',
+        '@id': `${siteUrl}${Astro.url.pathname}#episode`,
+        url: `${new URL(Astro.url.pathname, siteUrl).toString()}#listen`,
+        name: title,
+        description,
+        datePublished: episode.published.toISOString().slice(0, 10),
+        timeRequired: isoDuration(episode.duration),
+        inLanguage: 'en-GB',
+        associatedMedia: audioObject,
+        actor: [
+          { '@type': 'Person', '@id': jamesId, name: 'James Vickers' },
+          { '@type': 'Person', name: 'Hannah', description: 'The Manual Focus AI expert, an AI-generated voice' },
+        ],
+        partOfSeries: {
+          '@type': 'PodcastSeries',
+          '@id': `${siteUrl}/podcast/#series`,
+          name: SHOW.title,
+          url: `${siteUrl}/podcast/`,
+          webFeed: `${siteUrl}/podcast.xml`,
+        },
+        subjectOf: { '@id': `${siteUrl}${Astro.url.pathname}#article` },
       }
     : null;
 
@@ -306,6 +357,7 @@ const howToSchema =
 <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 {profileSchema && <script type="application/ld+json" set:html={JSON.stringify(profileSchema)} />}
 {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+{episodeSchema && <script type="application/ld+json" set:html={JSON.stringify(episodeSchema)} />}
 {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 {serviceSchemas && serviceSchemas.map(s => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}

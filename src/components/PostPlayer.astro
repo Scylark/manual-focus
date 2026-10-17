@@ -5,13 +5,14 @@
 interface Props {
   audio: string;
   duration: number; // seconds
+  hasTranscript?: boolean;
 }
 
-const { audio, duration } = Astro.props;
+const { audio, duration, hasTranscript = false } = Astro.props;
 const minutes = Math.round(duration / 60);
 const total = `${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).padStart(2, '0')}`;
 ---
-<section class="player" aria-label="Listen to this article" data-player>
+<section id="listen" class="player" aria-label="Listen to this article" data-player>
   <div class="player-head">
     <span class="player-label">Listen · {minutes} min</span>
     <span class="player-hosts">James Vickers &amp; Hannah talk it through</span>
@@ -34,7 +35,8 @@ const total = `${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).
 
   <p class="player-note">
     Both voices are AI-generated from our own script. The prompts mentioned are
-    in the <a href="#show-notes">show notes</a>.
+    in the <a href="#show-notes">show notes</a>{hasTranscript && <>, and there's
+    a <a href="#transcript">full transcript</a></>}.
   </p>
 </section>
 

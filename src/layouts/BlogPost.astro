@@ -5,6 +5,7 @@ import PostPlayer from '../components/PostPlayer.astro';
 import { url } from '../utils/paths';
 import { formatTag } from '../utils/blog';
 import { getCollection } from 'astro:content';
+import { transcript, transcriptText } from '../utils/podcast';
 
 interface HowToStep { name: string; text: string }
 interface PostRef { slug: string; title: string }
@@ -34,6 +35,12 @@ const { title, description, date, updated, tags, image, howToName, howToSteps, f
 // Show notes for the episode, written alongside its script in podcast/notes/.
 const showNotes = import.meta.glob<{ Content: any }>('/podcast/notes/*.md', { eager: true });
 const ShowNotes = podcast && slug ? showNotes[`/podcast/notes/${slug}.md`]?.Content : undefined;
+// The episode's script as a transcript. It's on the article page, not a page
+// of its own, so the article, the audio and the transcript rank as one URL.
+const turns = podcast && slug ? transcript(slug) : [];
+const episode = podcast && turns.length
+  ? { audio: podcast.audio, duration: podcast.duration, published: podcast.published ?? date, transcript: transcriptText(turns) }
+  : undefined;
 const formattedDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const formattedUpdated = updated && updated.getTime() !== date.getTime()
   ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
@@ -64,7 +71,7 @@ const related = allPosts
   .map(x => x.post);
 ---
 <Base title={title} description={description} ogImage={image} ogType="article" publishedTime={date} modifiedTime={updated ?? date}>
-  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} articleFaq={faq} sources={sources} />
+  <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} articleFaq={faq} sources={sources} episode={episode} />
 
   <article class="section">
     <div class="container prose">
@@ -81,7 +88,7 @@ const related = allPosts
             <a href={url(`/blog/tag/${tag}/`)} class="tag">{formatTag(tag)}</a>
           ))}
         </div>
-        {podcast && <PostPlayer audio={podcast.audio} duration={podcast.duration} />}
+        {podcast && <PostPlayer audio={podcast.audio} duration={podcast.duration} hasTranscript={turns.length > 0} />}
       </header>
 
       <div class="post-content">
@@ -118,6 +125,18 @@ const related = allPosts
           <section id="show-notes" class="show-notes" aria-labelledby="show-notes-heading">
             <h2 id="show-notes-heading">From the podcast</h2>
             <ShowNotes />
+          </section>
+        )}
+
+        {turns.length > 0 && (
+          <section id="transcript" class="transcript" aria-labelledby="transcript-heading">
+            <h2 id="transcript-heading">Transcript</h2>
+            <details>
+              <summary>Read the full episode transcript</summary>
+              {turns.map((turn) => (
+                <p><strong>{turn.speaker}:</strong> {turn.text}</p>
+              ))}
+            </details>
           </section>
         )}
       </div>
@@ -451,5 +470,26 @@ const related = allPosts
   }
   @media (min-width: 720px) {
     .related-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Episode transcript: collapsed by default so the article stays the page's
+     main content, but in the HTML for search engines and answer engines. */
+  .transcript summary {
+    cursor: pointer;
+    padding: var(--space-sm);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+  }
+
+  .transcript summary:hover,
+  .transcript details[open] summary {
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  .transcript details[open] summary {
+    margin-bottom: var(--space-md);
   }
 </style>

@@ -1,0 +1,144 @@
+---
+// The podcast's home on the site: what the show is, where to listen, and every
+// episode. Each episode lives on its article's page, with the player, show
+// notes and transcript, so the cards link there.
+import Base from '../../layouts/Base.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { url } from '../../utils/paths';
+import { readingTime } from '../../utils/blog';
+import { SHOW, isoDuration } from '../../utils/podcast';
+import { getCollection } from 'astro:content';
+
+const site = (Astro.site?.toString() ?? 'https://manual-focus.co.uk/').replace(/\/$/, '');
+const episodeDate = (p: { data: { date: Date; podcast?: { published?: Date } } }) => p.data.podcast?.published ?? p.data.date;
+const episodes = (await getCollection('blog'))
+  .filter((p) => p.data.podcast)
+  .sort((a, b) => episodeDate(b).getTime() - episodeDate(a).getTime() || b.data.date.getTime() - a.data.date.getTime());
+
+const title = 'The Manual Focus podcast, AI news for marketing leaders';
+const description = 'James Vickers and Hannah talk through each Manual Focus briefing: what changed in AI and search, what it means for marketing teams, and the jobs to hand to AI. Every episode has show notes, prompts and a transcript.';
+
+const listen = [
+  SHOW.listen.apple && { name: 'Apple Podcasts', href: SHOW.listen.apple },
+  SHOW.listen.spotify && { name: 'Spotify', href: SHOW.listen.spotify },
+  { name: 'RSS feed', href: url('/podcast.xml') },
+].filter(Boolean) as { name: string; href: string }[];
+
+const seriesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'PodcastSeries',
+  '@id': `${site}/podcast/#series`,
+  name: SHOW.title,
+  description: SHOW.description,
+  url: `${site}/podcast/`,
+  webFeed: `${site}/podcast.xml`,
+  image: `${site}${SHOW.image}`,
+  inLanguage: 'en-GB',
+  author: { '@id': `${site}/about/#james-vickers` },
+  publisher: { '@id': `${site}/#organization` },
+  ...(SHOW.listen.apple || SHOW.listen.spotify
+    ? { sameAs: [SHOW.listen.apple, SHOW.listen.spotify].filter(Boolean) }
+    : {}),
+  hasPart: episodes.map((p) => ({
+    '@type': 'PodcastEpisode',
+    '@id': `${site}/blog/${p.id}/#episode`,
+    name: p.data.title,
+    url: `${site}/blog/${p.id}/#listen`,
+    datePublished: episodeDate(p).toISOString().slice(0, 10),
+    timeRequired: isoDuration(p.data.podcast!.duration),
+  })),
+};
+---
+<Base title={title} description={description} ogImage={SHOW.image}>
+  <SEOHead slot="seo" type="website" title={title} description={description} image={SHOW.image} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Podcast', url: '/podcast' }]} />
+  <script slot="seo" type="application/ld+json" set:html={JSON.stringify(seriesSchema)} />
+
+  <section class="section">
+    <div class="container">
+      <h1>Podcast</h1>
+      <p class="lead">
+        James Vickers and Hannah, the Manual Focus AI expert, talk through each
+        briefing in about seven minutes: what changed in AI and search, what it
+        means for marketing teams, and the jobs you can hand to AI this month.
+      </p>
+
+      <nav class="listen" aria-label="Where to listen">
+        {listen.map((l) => <a href={l.href} class="tag" rel={l.href.startsWith('http') ? 'noopener' : undefined}>{l.name}</a>)}
+      </nav>
+
+      <p class="note">
+        Each episode sits on its article's page, with the show notes, the
+        "Get AI on this" prompts and a full transcript. Both voices are
+        AI-generated from our own scripts.
+      </p>
+
+      <h2 class="episodes-heading">{episodes.length} episodes</h2>
+      <div class="blog-grid">
+        {episodes.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={episodeDate(post)}
+            slug={post.id}
+            minutes={readingTime(post.body ?? '')}
+            listenMinutes={Math.round(post.data.podcast!.duration / 60)}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .listen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+
+  .tag {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+  }
+
+  .tag:hover {
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  .note {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .episodes-heading {
+    margin-bottom: var(--space-md);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

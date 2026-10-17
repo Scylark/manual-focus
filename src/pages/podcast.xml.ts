@@ -1,22 +1,14 @@
 // The Manual Focus podcast feed, for Apple Podcasts, Spotify and any other
 // podcast app. One episode per blog post that has a `podcast` block in its
 // frontmatter (written by podcast/publish-episode.mjs). Episode notes come
-// from the summary in podcast/notes/<slug>.md.
+// from the summary in podcast/notes/<slug>.md. Each episode's transcript is
+// on its article page (#transcript), linked with podcast:transcript.
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { APIContext } from 'astro';
+import { SHOW } from '../utils/podcast';
 
-const SHOW = {
-  title: 'Manual Focus',
-  subtitle: 'AI news for marketing leaders, talked through',
-  description:
-    'James Vickers and Hannah, the Manual Focus AI expert, talk through each article from the Manual Focus blog: what changed in AI and search, what it means for marketing teams, and the jobs you can hand to AI this month. Both voices are AI-generated from our own scripts.',
-  author: 'James Vickers, Manual Focus',
-  email: 'James@manual-focus.co.uk',
-  image: '/images/podcast-cover.jpg',
-  category: 'Business',
-  subcategory: 'Marketing',
-};
 
+const scripts = import.meta.glob<string>('/podcast/scripts/*.txt', { eager: true, query: '?raw', import: 'default' });
 const notes = import.meta.glob<string>('/podcast/notes/*.md', { eager: true, query: '?raw', import: 'default' });
 
 const escape = (s: string) =>
@@ -29,6 +21,8 @@ function summary(slug: string, fallback: string) {
   const body = raw.replace(/^---\n[\s\S]*?\n---\n/, '').trim();
   return body.split(/\n\s*\n/)[0].replace(/\s+/g, ' ');
 }
+
+const hasTranscript = (slug: string) => Boolean(scripts[`/podcast/scripts/${slug}.txt`]);
 
 const hms = (seconds: number) =>
   [Math.floor(seconds / 3600), Math.floor((seconds % 3600) / 60), seconds % 60]
@@ -63,15 +57,16 @@ export async function GET(context: APIContext) {
       <enclosure url="${escape(audio)}" length="${bytes}" type="audio/mpeg" />
       <itunes:duration>${hms(duration)}</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
+      <itunes:explicit>false</itunes:explicit>${hasTranscript(post.id) ? `
+      <podcast:transcript url="${link}#transcript" type="text/html" language="en-gb" />` : ''}
     </item>`;
   });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:podcast="https://podcastindex.org/namespace/1.0">
   <channel>
     <title>${escape(SHOW.title)}</title>
-    <link>${site}/blog/</link>
+    <link>${site}/podcast/</link>
     <atom:link href="${site}/podcast.xml" rel="self" type="application/rss+xml" />
     <language>en-gb</language>
     <copyright>© ${new Date().getFullYear()} Manual Focus</copyright>
@@ -87,13 +82,14 @@ export async function GET(context: APIContext) {
     <image>
       <url>${site}${SHOW.image}</url>
       <title>${escape(SHOW.title)}</title>
-      <link>${site}/blog/</link>
+      <link>${site}/podcast/</link>
     </image>
     <itunes:category text="${SHOW.category}">
       <itunes:category text="${SHOW.subcategory}" />
     </itunes:category>
     <itunes:explicit>false</itunes:explicit>
-    <itunes:type>episodic</itunes:type>${items.join('')}
+    <itunes:type>episodic</itunes:type>
+    <podcast:guid>${SHOW.guid}</podcast:guid>${items.join('')}
   </channel>
 </rss>
 `;
