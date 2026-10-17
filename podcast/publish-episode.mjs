@@ -79,7 +79,7 @@ if (!dryRun) {
 // with git plumbing so the working tree and index are untouched. The commit
 // carries HEAD's tree, which includes the workflow that does the upload.
 function stage(asset) {
-  const git = (args, opts = {}) => execFileSync('git', args, { cwd: join(ROOT, '..'), ...opts }).toString().trim();
+  const git = (args, opts = {}) => execFileSync('git', args, { cwd: join(ROOT, '..'), stdio: ['ignore', 'pipe', 'pipe'], ...opts }).toString().trim();
   const branch = `podcast-audio/${asset.replace(/\.mp3$/, '')}`;
   const index = join(mkdtempSync(join(tmpdir(), 'episode-index-')), 'index');
   const env = { ...process.env, GIT_INDEX_FILE: index };
@@ -89,7 +89,9 @@ function stage(asset) {
   const tree = git(['write-tree'], { env });
   const commit = git(['commit-tree', tree, '-p', 'HEAD', '-m', `Podcast audio: ${asset}`]);
   rmSync(dirname(index), { recursive: true, force: true });
-  git(['push', 'origin', `${commit}:refs/heads/${branch}`], { stdio: 'inherit' });
+  // `+` replaces a staging branch a failed earlier attempt left behind.
+  git(['push', 'origin', `+${commit}:refs/heads/${branch}`]);
+  console.log(`Pushed ${branch}; waiting for the Action to upload it.`);
 
   // The Action usually finishes in under a minute.
   const deadline = Date.now() + 5 * 60 * 1000;
