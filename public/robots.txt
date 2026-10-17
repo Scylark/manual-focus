@@ -4,8 +4,10 @@
 User-agent: *
 Allow: /
 
-# Be explicit about what's off-limits (nothing right now)
-Disallow:
+# Episode transcripts are also on each post page (under "Read the episode
+# transcript"). The plain-text copies exist for podcast apps, via the feed's
+# <podcast:transcript>, so keep crawlers on the post versions.
+Disallow: /podcast/transcripts/
 
 # Sitemap
 Sitemap: https://manual-focus.co.uk/sitemap-index.xml

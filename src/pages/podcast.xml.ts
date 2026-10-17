@@ -78,7 +78,7 @@ export async function GET(context: APIContext) {
     <image>
       <url>${site}${SHOW.image}</url>
       <title>${escape(SHOW.title)}</title>
-      <link>${site}/blog/</link>
+      <link>${site}${SHOW.hub}</link>
     </image>
     <itunes:category text="${SHOW.category}">
       <itunes:category text="${SHOW.subcategory}" />
