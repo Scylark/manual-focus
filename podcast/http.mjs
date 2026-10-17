@@ -7,15 +7,18 @@
 // is passed in a header file, so it never shows up in the process list.
 
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, readFileSync, rmSync, existsSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, readFileSync, rmSync, existsSync, renameSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 // Returns { status, body } where body is a Buffer, or writes the body to
-// `out` when given. Never throws on an HTTP error status.
+// `out` when given. Never throws on an HTTP error status. `out` only ever
+// holds a complete 2xx response: curl writes to `<out>.part`, which is renamed
+// on success and deleted otherwise, so a cut-off download can't be mistaken
+// for a cached chunk.
 export function request(url, { method = 'GET', json, out } = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'podcast-http-'));
-  const bodyFile = out ?? join(dir, 'body');
+  const bodyFile = out ? `${out}.part` : join(dir, 'body');
   const args = ['-sS', '-X', method, url, '-o', bodyFile, '-w', '%{http_code}'];
   const headers = [];
   if (process.env.ELEVENLABS_API_KEY && new URL(url).host === 'api.elevenlabs.io') {
@@ -34,9 +37,10 @@ export function request(url, { method = 'GET', json, out } = {}) {
       stdio: ['pipe', 'pipe', 'pipe'],
     }).toString().trim());
     const body = existsSync(bodyFile) ? readFileSync(bodyFile) : Buffer.alloc(0);
-    if (out && (status < 200 || status >= 300)) rmSync(out, { force: true });
+    if (out && status >= 200 && status < 300) renameSync(bodyFile, out);
     return { status, body };
   } finally {
+    if (out) rmSync(bodyFile, { force: true });
     rmSync(dir, { recursive: true, force: true });
   }
 }
