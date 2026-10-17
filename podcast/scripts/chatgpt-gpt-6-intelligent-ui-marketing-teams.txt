@@ -58,6 +58,6 @@ JAMES: Such as?
 
 HANNAH: [thoughtfully] Whether Intelligent UI changes how ChatGPT shows sources or links out to websites. Whether ads can appear inside interactive answers. How a plugin and a model-built interface compete for the same question. There are no traffic or engagement figures, and OpenAI says there's still work ahead on the model's design judgement, so expect the formats to keep changing.
 
-JAMES: So the takeaway. If ChatGPT can build your tool in the chat, your tool needs something it can't build: your prices, your stock, your customer's own data. The full article, with all five checks, is on manual-focus dot co dot uk. Thanks, Hannah.
+JAMES: So the takeaway. If ChatGPT can build your tool in the chat, your tool needs something it can't build: your prices, your stock, your customer's own data. The full article, with all five checks, is on manual-focus dot co dot uk. If this was useful, follow the show in Spotify, Apple Podcasts or wherever you listen. And if you'd like to work out which of your tools still earn their place, book a free working session with us through the site. Thanks, Hannah.
 
 HANNAH: Thanks, James.

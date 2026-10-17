@@ -4,9 +4,9 @@ date: 2026-10-14
 tags: ["ai", "marketing-strategy", "go-to-market"]
 description: "Meta and TikTok unveiled AI checkout, video and agent tools on 5 and 6 October 2026. Checkout has no UK date yet, but TikTok Search Ads is live in the UK."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/meta-tiktok-advertising-week-ai-ad-tools.mp3"
-  duration: 446
-  bytes: 5348459
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/meta-tiktok-advertising-week-ai-ad-tools-20261017223621.mp3"
+  duration: 464
+  bytes: 5568201
   published: 2026-10-16
 howToName: "How UK paid social teams can prepare for Meta and TikTok's new AI ad tools"
 howToSteps:
