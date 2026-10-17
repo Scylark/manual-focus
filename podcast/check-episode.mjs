@@ -10,6 +10,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import yaml from 'js-yaml';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const slug = process.argv[2];
@@ -44,7 +45,8 @@ const turns = readFileSync(paths.script, 'utf8')
 
 // Basics episodes (posts tagged "basics") are longer explainers; see
 // "Basics episode" in SHOW-RULES.md.
-const basics = /^tags:.*["']basics["']/m.test(readFileSync(paths.post, 'utf8'));
+const postFront = readFileSync(paths.post, 'utf8').match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
+const basics = [].concat(yaml.load(postFront)?.tags ?? []).includes('basics');
 const [hardMin, aimMin, aimMax, hardMax] = basics ? [1600, 1800, 2200, 2500] : [800, 900, 1100, 1300];
 const aim = `aim for ${aimMin.toLocaleString('en-GB')} to ${aimMax.toLocaleString('en-GB')}${basics ? ' (Basics episode)' : ''}`;
 const words = turns.reduce((n, t) => n + t.text.replace(/\[[^\]]*\]/g, '').split(/\s+/).filter(Boolean).length, 0);
