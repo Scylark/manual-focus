@@ -1,0 +1,63 @@
+JAMES: On the thirtieth of October, every business that advertises on Facebook or Instagram signs up to new terms without lifting a finger, and those terms let Meta crawl the websites linked to your products. In the UK edition, they also say Meta can use what it finds to train its products. I'm James Vickers, this is Manual Focus, and Hannah's here to read the small print with me.
+
+HANNAH: Hi James. And it is small print. These are Meta's Commercial Terms, the contract behind any business use of Meta's products, and the new version replaces one that's been in force since March twenty twenty-four.
+
+JAMES: So what does the new clause actually say?
+
+HANNAH: It says you authorise Meta, or anyone acting for it, to use automated software, crawlers, bots, scrapers, and to create test credentials, to access, index, cache and collect from the domains associated with your products or services. And to keep pulling updates from them.
+
+JAMES: [dryly] Test credentials. That's a phrase I'd want explained.
+
+HANNAH: So would everyone else. The terms don't define it, and Search Engine Journal reports that Meta declined to say whether those credentials could get past paywalls or paid content.
+
+JAMES: Where did this come from? Did Meta announce it?
+
+HANNAH: Nieman Lab reported it on the fifteenth of October, after three legal professionals went through the terms. The next day Andy Stone, Meta's spokesperson, called that reporting false on X. He said the update is about pulling accurate product information from third-party sites for ad and content recommendations, and that it's not about scraping news sites.
+
+JAMES: Which brings us to the bit I think matters most for a UK listener. You read both versions.
+
+HANNAH: We did, on the seventeenth. The UK English edition says Meta may use the content to provide, develop, improve, research and train its products. The US English edition says the purpose is advertising and business products, and it doesn't use the word train at all.
+
+JAMES: [thoughtfully] So Stone's description sounds more like the American text than the British one.
+
+HANNAH: That's how it reads. And Meta hasn't explained the difference. So the practical point is that a UK legal team should read the edition Meta actually shows in the brand's own Business Suite account, rather than assume either one.
+
+JAMES: Let's talk about who's exposed. My instinct is this lands on brand and content teams before paid.
+
+HANNAH: I'd agree. Think about what sits on a brand's site. Product photography licensed from a studio, guides you paid to produce, customer reviews, athlete or creator content used under limited permissions. The clause covers any content available through those pages, and nothing in the terms says how a brand can grant Meta rights to material it doesn't own outright.
+
+JAMES: So the question for the head of brand is, do we even know what we're allowed to hand over?
+
+HANNAH: Exactly. And the practical lever sits with the SEO and web team, which is robots.txt, the file that tells crawlers what they can and can't visit. Meta's own crawler documentation lists four of them with different jobs.
+
+JAMES: Give me the short version.
+
+HANNAH: Meta-ExternalAgent crawls for things like training foundation AI models. Meta-WebIndexer improves Meta AI's search results and helps it cite and link to you. Meta-ExternalFetcher fetches a link when a user asks, and FacebookExternalHit fetches pages people share on Facebook, Instagram and Messenger. Those last two may bypass robots.txt in some cases.
+
+JAMES: Our view is that you don't pull Meta spend over this. You block ExternalAgent on any domain carrying licensed or customer content, you keep WebIndexer allowed so Meta AI can still cite you, and you get Meta to confirm in writing that the block actually limits the licence.
+
+HANNAH: And I'd push on one thing there. That block is a partial control, not a training opt-out. The clause covers any automated software, your content can still reach Meta through the crawlers you leave open or through what you upload, and Meta hasn't said a block narrows what it can train on.
+
+JAMES: [calmly] Fair. It limits one door, it doesn't lock the house. And paid teams?
+
+HANNAH: They feel it least for now. Stone tied the clause to product information for ads. Meta hasn't said which crawler feeds each ad product, so if you block anything, watch catalogue and ad delivery for a fortnight afterwards.
+
+JAMES: Right. Get AI on this. First job, finding every domain the clause could touch.
+
+HANNAH: Give it your Meta ads export, your catalogue settings and the list of sites in Business Suite, and it hands back every domain and subdomain you link to, microsites, regional stores and help centres included, with where each one came from.
+
+JAMES: Second, get AI on the robots.txt audit.
+
+HANNAH: Give it that domain list and it reads each site's robots.txt, says what each of Meta's four crawlers is currently allowed to do, and drafts the rules you'd add. A person on the web team still decides and deploys them.
+
+JAMES: And third, get AI on the paperwork. Drafting the written questions to Meta and the note for legal.
+
+HANNAH: Give it the UK clause and your licence types, and it drafts the email to your Meta rep, whether robots.txt limits the licence, what test credentials can reach, why the two editions differ, plus a one-page brief for legal. You send them, not the AI.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: What we don't know yet. Whether a robots.txt block narrows the licence at all, because the terms don't mention robots.txt. What counts as associated with your products, or what test credentials are. There's no partial opt-out, the terms say a business that doesn't agree can stop using Meta for business. And we don't know if the UK and US wording will match by the thirtieth.
+
+JAMES: So, thirteen days. Work out which of your sites Meta can read, decide what you're comfortable with, and get Meta's answer in writing before the terms switch on. The full article, with both crawler tables and the clause side by side, is on manual-focus dot co dot uk. Hannah, good to have you on this one.
+
+HANNAH: Any time, James.

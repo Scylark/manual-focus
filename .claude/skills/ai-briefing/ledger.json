@@ -614,5 +614,53 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-17",
+    "story": "Meta's updated Commercial Terms (effective 30 October 2026) authorise crawlers and test credentials on domains associated with a business; the UK English edition says Meta may use the content to train its products, the US edition names advertising and business products; no robots.txt mention (Nieman Lab 15 October, Andy Stone denial 16 October)",
+    "primary_source": "https://en-gb.facebook.com/legal/commercial_terms_preview",
+    "score": 8,
+    "decision": "published",
+    "slug": "meta-commercial-terms-crawling-uk-advertisers"
+  },
+  {
+    "run_date": "2026-10-17",
+    "story": "Google launches Universal Cart in US Search (AI Mode) and the Gemini app on 15 October, multi-retailer cart with price tracking, promo codes and Google Pay checkout via UCP; US only, no UK plans stated",
+    "primary_source": "https://blog.google/products-and-platforms/products/shopping/universal-cart-launch/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-17",
+    "story": "404 Media reports ChatGPT advertisers can target users by email, phone number, device ID and prompts (15 October); paywalled, no OpenAI documentation found",
+    "primary_source": "https://404media.co/how-chatgpt-targets-ads-to-you-based-on-your-prompts-phone-number-and-email",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-17",
+    "story": "Google Ads lead forms add lead scoring, marking qualifying answers to custom questions (SER 16 October, no Google announcement)",
+    "primary_source": "https://www.seroundtable.com/google-ads-lead-form-scoring-42310.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-17",
+    "story": "ChatGPT launches Slides for building and presenting decks (aggregator-listed 16 October)",
+    "primary_source": "https://releasebot.io/updates/openai",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-17",
+    "story": "Anthropic research says agent work hours outnumber employees 6:1 and junior hiring is falling at Anthropic",
+    "primary_source": "https://www.anthropic.com/research/employment-at-anthropic",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
