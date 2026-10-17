@@ -4,7 +4,7 @@ date: 2026-10-16
 tags: ["ai-briefing", "ai", "brand"]
 description: "Google moved inline links higher in AI Mode and AI Overviews on 15 October 2026 and is testing an official websites section, so brand task pages matter more."
 podcast:
-  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/google-ai-mode-official-websites-links.mp3"
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ai-mode-official-websites-links.mp3"
   duration: 490
   bytes: 5882298
   published: 2026-10-16

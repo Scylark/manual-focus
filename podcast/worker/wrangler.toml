@@ -1,0 +1,10 @@
+# Serves podcast audio from the manual-focus-podcast R2 bucket.
+# Deploy: npx wrangler@4 deploy --config podcast/worker/wrangler.toml
+name = "manual-focus-podcast"
+main = "index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[[r2_buckets]]
+binding = "AUDIO"
+bucket_name = "manual-focus-podcast"

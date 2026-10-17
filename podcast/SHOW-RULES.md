@@ -14,7 +14,8 @@ script. The scripts live in `podcast/scripts/<post-slug>.txt` and
 2. `node podcast/build-episode.mjs <post-slug>` voices it with ElevenLabs and
    mixes in the theme music. Output: `podcast/out/<post-slug>.mp3`.
 3. `node podcast/publish-episode.mjs <post-slug>` uploads the MP3 to the
-   `podcast` release on GitHub and adds the `podcast` block to the post's
+   `manual-focus-podcast` R2 bucket, served by the Worker in
+   `podcast/worker/`, and adds the `podcast` block to the post's
    frontmatter. The player and the feed (`/podcast.xml`) appear on the next
    site build.
 

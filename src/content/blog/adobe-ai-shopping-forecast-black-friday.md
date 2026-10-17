@@ -4,7 +4,7 @@ date: 2026-09-29
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "Adobe forecast on 28 September 2026 that AI referrals to US retail sites will rise 130% this holiday season. UK brands should measure them before Black Friday."
 podcast:
-  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/adobe-ai-shopping-forecast-black-friday.mp3"
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/adobe-ai-shopping-forecast-black-friday.mp3"
   duration: 376
   bytes: 4511183
   published: 2026-10-16

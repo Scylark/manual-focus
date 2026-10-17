@@ -5,7 +5,7 @@ updated: 2026-09-27
 tags: ["ai", "fractional-cmo", "leadership"]
 description: "A 90-day plan to integrate AI into a marketing team, audit usage, build a voice prompt, rebuild two workflows, measure weekly and talk to the team."
 podcast:
-  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/the-90-day-ai-integration-plan.mp3"
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/the-90-day-ai-integration-plan.mp3"
   duration: 420
   bytes: 5040319
   published: 2026-10-16

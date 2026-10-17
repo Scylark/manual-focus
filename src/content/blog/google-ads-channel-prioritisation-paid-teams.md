@@ -4,7 +4,7 @@ date: 2026-10-15
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "Google Ads added channel prioritisation and budget allocation on 14 October 2026. Search campaigns using Display change in February 2027, so audit them now."
 podcast:
-  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/google-ads-channel-prioritisation-paid-teams.mp3"
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ads-channel-prioritisation-paid-teams.mp3"
   duration: 439
   bytes: 5264136
 faq:
