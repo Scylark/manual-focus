@@ -325,10 +325,16 @@ gate in step 6, because the episode is written from the finished post.
    it. A new post should never have one, so on `EXISTING` skip the episode
    too and report the lines, rather than voicing over another run's work.
 2. **Write the script**, `podcast/scripts/<slug>.txt`, to the show rules.
-   The points that go wrong most:
-   - The post is the only source. No fact, number, name or quote that isn't
-     in the post or its listed sources. When the post says Google gave no
-     number, the hosts say so too.
+   First connect the dots: read the Manual Focus posts the new post links
+   to and the two or three most related posts (shared tags, same company or
+   channel), plus the scripts in `podcast/scripts/` for any of them that
+   have episodes. Use one to three of those links on air where they add a
+   trend, an update or a contrast, naming the earlier piece by topic and
+   roughly when. The points that go wrong most:
+   - The post is the main source. No fact, number, name or quote that isn't
+     in the post, its listed sources, or an earlier Manual Focus post the
+     hosts name on air. When the post says Google gave no number, the hosts
+     say so too.
    - James stays measured. His tags are only `[thoughtfully]`, `[dryly]`,
      `[calmly]`, `[pause]` and the odd `[chuckles]`, and he never uses an
      exclamation mark.
@@ -337,6 +343,11 @@ gate in step 6, because the episode is written from the finished post.
      on "The prompts are in the show notes."
    - Numbers as they're said ("the fifteenth of October"), no URLs read out,
      and the close points to the full article on manual-focus dot co dot uk.
+   - The close ends with the call to action, in James's own words and
+     different each time: follow the show in Apple Podcasts, Spotify or
+     wherever people listen, and book a free working session at
+     manual-focus dot co dot uk to apply it in their own team. Two or three
+     sentences, an invitation rather than a sales pitch.
    - Vary the cold open. Read the last two scripts in `podcast/scripts/` and
      don't reuse their opening line or sign-off.
 3. **Write the show notes**, `podcast/notes/<slug>.md`, with frontmatter
