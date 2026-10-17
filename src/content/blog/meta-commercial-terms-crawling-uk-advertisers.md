@@ -11,7 +11,7 @@ faq:
   - question: "Does robots.txt stop Meta crawling my site under the new terms?"
     answer: "Meta told Nieman Lab that content owners can still manage access with robots.txt, but the new Commercial Terms don't mention robots.txt at all. Meta's crawler documentation lists Meta-ExternalAgent for AI model training and Meta-WebIndexer for Meta AI search as separate user agents, while Meta-ExternalFetcher and FacebookExternalHit may bypass robots.txt in some cases."
   - question: "Which Meta crawler should a brand block?"
-    answer: "Meta-ExternalAgent is the crawler Meta says gathers pages for uses such as training foundation AI models, so it is the one to block if a brand objects to training. Meta-WebIndexer improves Meta AI search results and helps Meta cite and link to a site, so most brands should keep it allowed. FacebookExternalHit fetches pages shared on Facebook, Instagram and Messenger."
+    answer: "Meta-ExternalAgent is the crawler Meta says gathers pages for uses such as training foundation AI models, so it is the one to block if a brand objects to training, though the block limits one crawler and isn't a confirmed training opt-out. Meta-WebIndexer improves Meta AI search results and helps Meta cite and link to a site, so most brands should keep it allowed. FacebookExternalHit fetches pages shared on Facebook, Instagram and Messenger."
 sources:
   - title: "Meta Commercial Terms, UK English edition effective 30 October 2026"
     url: "https://en-gb.facebook.com/legal/commercial_terms_preview"
@@ -65,19 +65,19 @@ SEO and web teams own the practical control, robots.txt. Meta's [crawler documen
 
 | Crawler | What Meta says it does | Respects robots.txt | Sensible default for a brand |
 |---|---|---|---|
-| Meta-ExternalAgent | Crawls for uses such as training foundation AI models | Meta gives Disallow examples | Block if you object to training |
+| Meta-ExternalAgent | Crawls for uses such as training foundation AI models | Meta gives Disallow examples | Block if you object to training, as a partial control |
 | Meta-WebIndexer | Improves Meta AI search results, helps Meta cite and link to you | Meta gives Disallow examples | Allow |
 | Meta-ExternalFetcher | Fetches individual links at a user's request | May bypass | Leave alone |
 | FacebookExternalHit | Fetches content shared on Facebook, Instagram and Messenger | May bypass for security or integrity checks | Allow |
 
-Our view at Manual Focus is that UK brands shouldn't pause Meta spend over this clause, but they should block Meta-ExternalAgent on any domain that carries licensed or customer content, keep Meta-WebIndexer allowed so Meta AI can cite them, and get Meta to confirm in writing that a robots.txt block limits the licence. That mirrors the trade we set out in [The citation moved off the page](/blog/the-citation-moved-off-the-page/), where being retrievable by AI answers is worth more than the training data a single brand withholds.
+Our view at Manual Focus is that UK brands shouldn't pause Meta spend over this clause, but they should block Meta-ExternalAgent on any domain that carries licensed or customer content, keep Meta-WebIndexer allowed so Meta AI can cite them, and get Meta to confirm in writing that a robots.txt block limits the licence. Treat that block as a partial crawl control rather than a training opt-out, because the clause covers any automated software, content can still reach Meta through the crawlers you allow or through what you upload, and Meta hasn't said the block narrows what it may train on. That mirrors the trade we set out in [The citation moved off the page](/blog/the-citation-moved-off-the-page/), where being retrievable by AI answers is worth more than the training data a single brand withholds.
 
 Paid teams feel this least in the short term. Stone tied the clause to product information for ad and content recommendations, the same area as the agent and checkout tools in our guide to [Meta and TikTok's Advertising Week AI ad tools](/blog/meta-tiktok-advertising-week-ai-ad-tools/). Meta's documentation gives shared-link fetching to FacebookExternalHit, not Meta-ExternalAgent, but Meta hasn't said which crawler feeds each ad product, so watch catalogue and ad delivery for a fortnight after any block.
 
 ## What to do before 30 October
 
 1. **Find every associated domain.** List the sites linked from your Meta ads, catalogues, shops and Business Suite, including microsites, regional stores and help centres, because the clause covers all of them.
-2. **Set robots.txt per crawler.** Add a Disallow rule for Meta-ExternalAgent where you hold licensed or customer content, check Meta-WebIndexer and FacebookExternalHit remain allowed, and confirm your CDN's bot rules match, a check we also recommended in our [Adobe holiday forecast post](/blog/adobe-ai-shopping-forecast-black-friday/).
+2. **Set robots.txt per crawler.** Add a Disallow rule for Meta-ExternalAgent where you hold licensed or customer content, knowing it limits one crawler and doesn't by itself stop training, check Meta-WebIndexer and FacebookExternalHit remain allowed, and confirm your CDN's bot rules match, a check we also recommended in our [Adobe holiday forecast post](/blog/adobe-ai-shopping-forecast-black-friday/).
 3. **Send the UK edition to legal.** Ask them to read the clause against your photography, creator and review licences and to flag any agreement that forbids passing content to third parties for AI training.
 4. **Put the questions to Meta in writing.** Ask your Meta representative whether robots.txt limits the licence, what test credentials can reach, and why the UK and US editions differ. Keep the reply on file.
 5. **Record the decision.** Write down which crawlers you block on which domains and why, and add it to your brand rules so new microsites inherit it. Our [brand guardrails as code playbook](/lens/ops/brand-guardrails-as-code/) shows how to make a rule like that checkable.
