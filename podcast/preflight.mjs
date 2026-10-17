@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 // Checks that this machine can build and publish an episode, without spending
-// any ElevenLabs credit or touching the release. The AI briefing runs it
+// any ElevenLabs credit or uploading anything. The AI briefing runs it
 // before voicing anything, so a missing key or tool skips the episode instead
 // of failing the briefing.
 //
 // Usage: node podcast/preflight.mjs [<slug>]
 // Prints READY, or SKIP with one line per missing piece. Exits 0 when ready
 // and 1 when not. With a slug it also looks for an episode that already
-// exists or is in flight for that post (a `podcast` block on the post, an MP3
-// on the release, an open PR touching its script), so two runs don't voice and
+// exists or is in flight for that post (a `podcast` block on the post, a live
+// MP3 for it, an open PR touching its script), so two runs don't voice and
 // upload over each other. It lists those under EXISTING and exits 2.
 
 import { execFileSync } from 'node:child_process';
@@ -48,21 +48,12 @@ for (const tool of ['ffmpeg', 'ffprobe']) {
   }
 }
 
-// publish-episode.mjs needs push rights on the repo (it uploads to the release,
-// or pushes a podcast-audio/ branch for the Action to upload) and an existing
-// "podcast" release.
+// publish-episode.mjs needs push rights on the repo: it uploads to R2 with
+// Wrangler where it can, and otherwise pushes a podcast-audio/ branch for the
+// Action to upload. Either way the post goes up in a PR.
 try {
   const canPush = run('gh', ['api', `repos/${REPO}`, '--jq', '.permissions.push']);
-  if (canPush !== 'true') {
-    missing.push(`gh is signed in without write access to ${REPO}`);
-  } else {
-    try {
-      // REST only: the cloud's GitHub proxy refuses GraphQL, which `gh release view` uses.
-      run('gh', ['api', `repos/${REPO}/releases/tags/podcast`, '--jq', '.tag_name']);
-    } catch {
-      missing.push(`the "podcast" release doesn't exist on ${REPO}`);
-    }
-  }
+  if (canPush !== 'true') missing.push(`gh is signed in without write access to ${REPO}`);
 } catch (err) {
   missing.push(err.code === 'ENOENT' ? 'the gh CLI is not installed' : `gh can't reach ${REPO} (not signed in, or no access)`);
 }
@@ -79,9 +70,11 @@ if (slug) {
   if (existsSync(post) && /^podcast:$/m.test(readFileSync(post, 'utf8').split(/^---$/m)[1] ?? '')) {
     existing.push(`the post already has a podcast block on this branch`);
   }
-  const assets = run('gh', ['api', `repos/${REPO}/releases/tags/podcast`, '--jq', '.assets[].name'])
-    .split('\n').filter((name) => name === `${slug}.mp3` || name.startsWith(`${slug}-`));
-  for (const name of assets) existing.push(`the release already has ${name}`);
+  try {
+    const live = run('curl', ['-sI', '-o', '/dev/null', '-w', '%{http_code}',
+      `https://manual-focus-podcast.manual-focus.workers.dev/episodes/${slug}.mp3`]);
+    if (live === '200') existing.push(`${slug}.mp3 is already live`);
+  } catch {}
   // REST only: the cloud's GitHub proxy refuses GraphQL, so no `gh pr list`.
   const prs = JSON.parse(run('gh', ['api', `repos/${REPO}/pulls?state=open&per_page=50`, '--jq', '[.[] | {number, title, branch: .head.ref}]']));
   // The PR for the branch we're on is this run's own work, not another run's.

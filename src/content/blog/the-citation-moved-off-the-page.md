@@ -5,7 +5,7 @@ updated: 2026-09-27
 tags: ["ai", "marketing-strategy", "go-to-market"]
 description: "The overlap between top Google links and AI-cited sources has fallen from 70% to under 20%. Your rankings stopped predicting who gets quoted."
 podcast:
-  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/the-citation-moved-off-the-page.mp3"
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/the-citation-moved-off-the-page.mp3"
   duration: 386
   bytes: 4632182
   published: 2026-10-16

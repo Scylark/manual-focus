@@ -4,7 +4,7 @@ date: 2026-10-02
 tags: ["ai-briefing", "ai", "brand"]
 description: "DemandSphere data published 1 October 2026 shows AI Overviews on over 80% of tracked brand searches, up from 26%. Check what Google says about your brand."
 podcast:
-  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/google-ai-overviews-brand-searches.mp3"
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ai-overviews-brand-searches.mp3"
   duration: 384
   bytes: 4613060
   published: 2026-10-16

@@ -1,7 +1,9 @@
-# Moves podcast audio onto the "podcast" release. Cloud sessions can't upload
-# release files, so podcast/publish-episode.mjs pushes the MP3 to a
+# Puts podcast audio in the manual-focus-podcast R2 bucket. Cloud sessions
+# can't run Wrangler, so podcast/publish-episode.mjs pushes the MP3 to a
 # podcast-audio/<name> branch as podcast/upload/<name>.mp3, and this uploads it
 # and deletes the branch. Nothing from these branches reaches master.
+# Needs the repo secret CLOUDFLARE_API_TOKEN, a Cloudflare API token with
+# "Workers R2 Storage: Edit" on the account.
 name: Upload podcast audio
 
 on:
@@ -21,21 +23,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Upload to the podcast release
+      - name: Upload to R2
         env:
-          GH_TOKEN: ${{ github.token }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: f6a74d04f6c721d2629876028977e46a
         run: |
           shopt -s nullglob
           files=(podcast/upload/*.mp3)
           if [ ${#files[@]} -eq 0 ]; then echo "No MP3 in podcast/upload/"; exit 1; fi
-          existing=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/podcast" --jq '.assets[].name')
           for f in "${files[@]}"; do
             name=$(basename "$f")
             # Never replace a live episode; a re-voice gets a new name.
-            if grep -qxF "$name" <<< "$existing"; then
-              echo "$name is already on the release, leaving it as it is"
+            status=$(curl -sI -o /dev/null -w '%{http_code}' "https://manual-focus-podcast.manual-focus.workers.dev/episodes/$name")
+            if [ "$status" = "200" ]; then
+              echo "$name is already live, leaving it as it is"
             else
-              gh release upload podcast "$f" --repo "$GITHUB_REPOSITORY"
+              npx -y wrangler@4 r2 object put "manual-focus-podcast/episodes/$name" --file "$f" --content-type audio/mpeg --remote
             fi
           done
 

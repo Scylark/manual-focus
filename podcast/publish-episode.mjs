@@ -1,39 +1,37 @@
 #!/usr/bin/env node
-// Publishes a built episode: uploads podcast/out/<slug>.mp3 to the "podcast"
-// GitHub release on Scylark/manual-focus, then writes the episode's URL,
-// duration and size into the post's frontmatter so the player and the
-// podcast feed (src/pages/podcast.xml.ts) pick it up on the next build.
+// Publishes a built episode: uploads podcast/out/<slug>.mp3 to the
+// manual-focus-podcast R2 bucket, then writes the episode's URL, duration and
+// size into the post's frontmatter so the player and the podcast feed
+// (src/pages/podcast.xml.ts) pick it up on the next build.
 //
-// Audio lives on the release rather than in the site, because a few MB a day
-// would push GitHub Pages past its 1 GB limit within months.
+// Audio is served by the Worker in podcast/worker/, which sends it as
+// audio/mpeg with byte-range support. Apple Podcasts rejects audio served as a
+// generic download, which is what GitHub release assets are.
 //
 // Usage: node podcast/publish-episode.mjs <slug> [--dry-run]
 // --dry-run uploads nothing and leaves the post alone; it prints the
 // frontmatter it would write (with placeholder numbers if there's no MP3 yet).
-// Needs the gh CLI signed in with write access to the repo, and ffprobe.
+// Needs ffprobe, and either Wrangler signed in to the Cloudflare account
+// (`npx wrangler@4 login`, or CLOUDFLARE_API_TOKEN set) or gh push access.
 //
-// Cloud sessions can't upload release files: GitHub's proxy there passes git
-// pushes and REST calls, but not binary uploads. When the direct upload fails,
-// the MP3 goes up on a podcast-audio/<name> branch instead, and the
-// "Upload podcast audio" Action (.github/workflows/podcast-audio.yml) moves it
-// onto the release and deletes the branch. The script waits for the asset to
-// appear before it writes the post's frontmatter.
+// Cloud sessions can't use Wrangler. When the direct upload fails, the MP3
+// goes up on a podcast-audio/<name> branch instead, and the "Upload podcast
+// audio" Action (.github/workflows/podcast-audio.yml) puts it in R2 and
+// deletes the branch. The script waits for the episode URL to answer before
+// it writes the post's frontmatter.
 //
-// The first upload is <slug>.mp3. A republish never overwrites a live asset
-// (`gh release upload --clobber` deletes the old file before uploading, so a
-// failed upload would break the player on the live post). It uploads
-// <slug>-<UTC timestamp>.mp3 instead and points the post at that. Once the
-// post with the new URL is merged, the old asset can be deleted.
+// The first upload is <slug>.mp3. A republish never overwrites a live episode:
+// it uploads <slug>-<UTC timestamp>.mp3 instead and points the post at that.
 
-import { readFileSync, writeFileSync, statSync, existsSync, mkdtempSync, copyFileSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, statSync, existsSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const REPO = 'Scylark/manual-focus';
-const RELEASE = 'podcast';
+const BUCKET = 'manual-focus-podcast';
+const AUDIO_BASE = 'https://manual-focus-podcast.manual-focus.workers.dev/episodes';
 
 const dryRun = process.argv.includes('--dry-run');
 const slug = process.argv.slice(2).find((a) => !a.startsWith('--'));
@@ -45,33 +43,27 @@ const haveMp3 = existsSync(mp3);
 if (!haveMp3 && !dryRun) throw new Error(`No episode at ${mp3}; run build-episode.mjs first`);
 if (!existsSync(post)) throw new Error(`No post at ${post}`);
 
-// REST only: the cloud's GitHub proxy refuses GraphQL, which `gh release view` uses.
-const releaseAssets = () => execFileSync('gh', [
-  'api', `repos/${REPO}/releases/tags/${RELEASE}`, '--jq', '.assets[].name',
-], { stdio: ['ignore', 'pipe', 'pipe'] }).toString().split('\n');
+// Whether an episode file is already live, by asking the Worker for it.
+const isLive = (name) => {
+  try {
+    return execFileSync('curl', ['-sI', '-o', '/dev/null', '-w', '%{http_code}', `${AUDIO_BASE}/${name}`]).toString() === '200';
+  } catch {
+    return false;
+  }
+};
 
-let assets = [];
-try {
-  assets = releaseAssets();
-} catch (err) {
-  if (!dryRun) throw err; // a dry run can go without gh
-}
-const name = assets.includes(`${slug}.mp3`)
+const name = !dryRun && isLive(`${slug}.mp3`)
   ? `${slug}-${new Date().toISOString().replace(/\D/g, '').slice(0, 14)}.mp3`
   : `${slug}.mp3`;
 
 if (!dryRun) {
-  // gh names the asset after the file, so upload a copy with the chosen name.
-  const dir = mkdtempSync(join(tmpdir(), 'episode-'));
-  const upload = join(dir, name);
-  copyFileSync(mp3, upload);
   try {
-    execFileSync('gh', ['release', 'upload', RELEASE, upload, '--repo', REPO], { stdio: ['ignore', 'inherit', 'pipe'] });
+    execFileSync('npx', ['-y', 'wrangler@4', 'r2', 'object', 'put', `${BUCKET}/episodes/${name}`,
+      '--file', mp3, '--content-type', 'audio/mpeg', '--remote'], { stdio: ['ignore', 'ignore', 'pipe'] });
+    console.log(`Uploaded ${name} to R2.`);
   } catch (err) {
-    console.log(`Direct upload failed (${err.stderr?.toString().trim().split('\n')[0] || err.message}); staging it for the Action.`);
+    console.log(`Direct upload failed (${err.stderr?.toString().trim().split('\n').pop() || err.message}); staging it for the Action.`);
     stage(name);
-  } finally {
-    rmSync(dir, { recursive: true, force: true });
   }
 }
 
@@ -97,15 +89,15 @@ function stage(asset) {
   const deadline = Date.now() + 5 * 60 * 1000;
   while (Date.now() < deadline) {
     execFileSync('sleep', ['10']);
-    if (releaseAssets().includes(asset)) {
-      console.log(`The Action uploaded ${asset} to the release.`);
+    if (isLive(asset)) {
+      console.log(`The Action uploaded ${asset} to R2.`);
       return;
     }
   }
-  throw new Error(`${asset} wasn't on the release after 5 minutes; check the "Upload podcast audio" Action run for ${branch}`);
+  throw new Error(`${asset} wasn't live after 5 minutes; check the "Upload podcast audio" Action run for ${branch}`);
 }
 
-const audio = `https://github.com/${REPO}/releases/download/${RELEASE}/${name}`;
+const audio = `${AUDIO_BASE}/${name}`;
 const bytes = haveMp3 ? statSync(mp3).size : 0;
 const duration = haveMp3 ? Math.round(Number(execFileSync('ffprobe', [
   '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp3,

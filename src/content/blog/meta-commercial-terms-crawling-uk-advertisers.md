@@ -4,7 +4,7 @@ date: 2026-10-17
 tags: ["ai-briefing", "ai", "brand"]
 description: "Meta's new Commercial Terms, live on 30 October 2026, let it crawl sites linked to a business, and the UK edition names AI training. Set robots.txt now."
 podcast:
-  audio: "https://github.com/Scylark/manual-focus/releases/download/podcast/meta-commercial-terms-crawling-uk-advertisers.mp3"
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/meta-commercial-terms-crawling-uk-advertisers.mp3"
   duration: 435
   bytes: 5220877
   published: 2026-10-17

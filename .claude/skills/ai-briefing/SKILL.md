@@ -317,11 +317,11 @@ run and follow it exactly. This step runs after the post has passed every
 gate in step 6, because the episode is written from the finished post.
 
 1. **Preflight.** Run `node podcast/preflight.mjs <slug>`. It checks the
-   ElevenLabs key, ffmpeg and ffprobe, and that `gh` can write to the repo's
-   `podcast` release, without spending anything. If it prints `SKIP`, don't
+   ElevenLabs key, ffmpeg and ffprobe, and that `gh` can write to the repo,
+   without spending anything. If it prints `SKIP`, don't
    write the episode. Keep its lines for the summary and go to step 8. It
    also prints `EXISTING` if the post already has a `podcast` block, the
-   release already has an MP3 for the slug, or an open PR has a script for
+   slug already has a live MP3, or an open PR has a script for
    it. A new post should never have one, so on `EXISTING` skip the episode
    too and report the lines, rather than voicing over another run's work.
 2. **Write the script**, `podcast/scripts/<slug>.txt`, to the show rules.
@@ -358,11 +358,12 @@ gate in step 6, because the episode is written from the finished post.
    `podcast/out/<slug>.mp3` (git ignores `podcast/out/`). A full run takes a
    few minutes, so run it in the background if your tools allow.
 6. **Publish.** `node podcast/publish-episode.mjs <slug>` uploads the MP3 to the
-   `podcast` release and adds the `podcast` block to the post's frontmatter.
-   In a cloud session the direct upload is refused, so the script pushes the
-   MP3 to a `podcast-audio/<name>` branch, the "Upload podcast audio" Action
-   moves it onto the release and deletes the branch, and the script waits
-   (up to five minutes) for the file to appear. Don't send James the MP3 or
+   `manual-focus-podcast` R2 bucket (served by the Worker in
+   `podcast/worker/`) and adds the `podcast` block to the post's frontmatter.
+   In a cloud session Wrangler isn't signed in, so the script pushes the MP3
+   to a `podcast-audio/<name>` branch, the "Upload podcast audio" Action puts
+   it in R2 and deletes the branch, and the script waits (up to five
+   minutes) for the episode URL to answer. Don't send James the MP3 or
    ask him to upload it. Run `npm run build` again, since the post now
    renders the player and the show notes.
 
@@ -373,10 +374,11 @@ notes and revert any change to the post's frontmatter, so the PR carries the
 post alone, and record the failure and its first error line for step 8. The
 post still goes out.
 
-The MP3 sits on the public release from step 6 onwards, before James
-approves. If James rejects the post, delete the asset named at the end of the
-post's `podcast.audio` URL with
-`gh release delete-asset podcast <asset name> --repo Scylark/manual-focus`.
+The MP3 is public from step 6 onwards, before James approves. If James
+rejects the post, delete the file named at the end of the post's
+`podcast.audio` URL with
+`npx wrangler@4 r2 object delete manual-focus-podcast/episodes/<file name> --remote`
+(on James's Mac, where Wrangler is signed in).
 
 ## Step 8. Hand off for approval
 
@@ -503,7 +505,7 @@ after a run that skipped the episode. Skip steps 1 to 7.
 2. Run step 7b in full, with one difference at the preflight. If it prints
    `EXISTING` because an open PR has a script for the post, stop and tell
    James which PR, since another run is already making that episode. If the
-   only lines are a `podcast` block or a release MP3 from a merged episode,
+   only lines are a `podcast` block or a live MP3 from a merged episode,
    James is asking for a re-voice, so carry on: rewrite the episode from the
    current post and re-publish. The
    build re-voices only the chunks that changed. The publish script never
@@ -538,7 +540,7 @@ episode and the post still ships.
 |---|---|---|
 | ElevenLabs key | Voices the script (Text to Dialogue, `eleven_v3`) | A network secret on the environment: allowed website `api.elevenlabs.io`, custom header `xi-api-key` with no prefix. The agent proxy adds it to each request, so the session never sees the key and `ELEVENLABS_API_KEY` stays unset |
 | `ffmpeg` and `ffprobe` | Join chunks, mix the music, read the duration | The environment's setup script, `apt-get update && apt-get install -y ffmpeg` |
-| `gh` and git push access | Gets the MP3 onto the `podcast` release | Nothing to add. `gh` is pre-installed and the GitHub proxy signs its REST calls and git pushes for the attached repo. It refuses GraphQL and release uploads, so the scripts use REST and the `podcast-audio/` branch and Action. Don't set `GH_TOKEN` |
+| `gh` and git push access | Gets the MP3 to R2, through the `podcast-audio/` branch and the "Upload podcast audio" Action | Nothing to add in the environment. `gh` is pre-installed and the GitHub proxy signs its REST calls and git pushes for the attached repo. It refuses GraphQL, so the scripts use REST. Don't set `GH_TOKEN`. The Action needs the repo secret `CLOUDFLARE_API_TOKEN` (R2 edit) |
 | Network access | Reach ElevenLabs and GitHub | The environment is on Full access |
 
 Locally, `ELEVENLABS_API_KEY` in the shell does the job of the network
