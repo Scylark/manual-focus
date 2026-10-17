@@ -38,7 +38,9 @@ const total = `${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).
   <p class="player-note">
     Both voices are AI-generated from our own script. The prompts mentioned are
     in the <a href="#show-notes">show notes</a>, with the
-    <a href="#transcript">full transcript</a>. <a href={url(SHOW.hub)}>All episodes</a>.
+    <a href="#transcript">full transcript</a>. <a href={url(SHOW.hub)}>All episodes</a>{SHOW.apple && SHOW.spotify && (
+      <>, or follow on <a href={SHOW.apple} rel="noopener">Apple Podcasts</a> and <a href={SHOW.spotify} rel="noopener">Spotify</a></>
+    )}.
   </p>
 </section>
 

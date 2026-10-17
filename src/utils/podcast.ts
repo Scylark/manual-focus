@@ -18,8 +18,8 @@ export const SHOW = {
   guid: 'c2f6e872-94ad-5d8d-80f7-3b966158e436',
   // Directory listings. Fill in once each one is live; links render only
   // when set.
-  apple: '',
-  spotify: '',
+  apple: 'https://podcasts.apple.com/gb/podcast/manual-focus/id6824067738',
+  spotify: 'https://open.spotify.com/show/0bc23K2CrBxO4nnSFyYi9f',
 };
 
 export interface Turn {
