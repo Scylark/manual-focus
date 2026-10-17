@@ -54,7 +54,7 @@ You will often read that the terms started at a particular company in a particul
 
 Above-the-line, or ATL, is any media that reaches a broad audience you don't select individually. Television, radio, national and regional press, outdoor posters, cinema and broad-reach online video all count. Its job is mainly to build memory, so that when someone in the market thinks of the category, your brand comes to mind.
 
-ATL is hard to measure in short-term response, because most of the people who see it aren't buying that week. That is the point of it rather than a flaw. The [Category Entry Point research](/lens/demand/category-entry-points/) playbook helps decide which buying moments your mass media should link to the brand.
+ATL is hard to measure in short-term response, because most of the people who see it aren't buying that week, and reaching people before they are in the market is the whole job. The [Category Entry Point research](/lens/demand/category-entry-points/) playbook helps decide which buying moments your mass media should link to the brand.
 
 ## What counts as below the line?
 
@@ -74,7 +74,7 @@ The [event sponsorship](/lens/demand/event-sponsorship-playbook/) and [retail pa
 
 Through-the-line, or TTL, is a campaign that uses above-the-line and below-the-line activity together under one idea. A launch film builds awareness, retail displays and sampling meet people in the shop, and an email sequence follows up with those who signed up. Each piece is more recognisable because of the others.
 
-For most marketing teams today TTL is simply what good campaign planning looks like, and the useful lesson is to give each line a clear job rather than to argue about which line matters more. The Basics piece on [strategy, campaigns, creative and execution](/blog/strategy-campaign-creative-execution-basics/) covers how one creative idea carries across a campaign.
+For most marketing teams today TTL is simply what good campaign planning looks like, and the useful lesson is to give each line a clear job and stop arguing about which line matters more. The Basics piece on [strategy, campaigns, creative and execution](/blog/strategy-campaign-creative-execution-basics/) covers how one creative idea carries across a campaign.
 
 ## Is digital above or below the line?
 

@@ -3,6 +3,11 @@ title: "The three layers of AI, a basics guide for marketers"
 date: 2026-10-17
 tags: ["basics", "ai", "marketing-strategy"]
 description: "AI in marketing works on three layers. Chat with a language model, agents that carry out a request, and orchestration that runs many agents as one system."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/three-layers-of-ai-basics.mp3"
+  duration: 717
+  bytes: 8606974
+  published: 2026-10-17
 howToName: "How to move a marketing team up the three layers of AI"
 howToSteps:
   - name: "Get layer one right"
@@ -45,7 +50,7 @@ AI does marketing work on three layers. Layer one is a large language model you 
 ## Key takeaways
 
 - Layer one is chat. A large language model predicts likely text from what sits in its context window, its working memory for the conversation.
-- Layer two is agentic delivery. Anthropic defines agents as systems where the model directs its own process and tool use, rather than following a fixed script.
+- Layer two is agentic delivery. Anthropic defines agents as systems where the model directs its own process and tool use, with no fixed script.
 - Layer three is orchestration. In Anthropic's own research system, a lead agent with subagents beat a single agent by 90.2% on an internal test.
 - Each layer costs more to run. Anthropic reports agents use about four times the tokens of chat, and multi-agent systems about fifteen times.
 - Most teams should get layer one consistent before they delegate whole jobs, and delegate reliably before they orchestrate.
@@ -100,7 +105,7 @@ Anthropic's own research feature shows the shape. In its [June 2025 write-up](ht
 
 In marketing, orchestration looks like a pipeline. One agent researches a topic, a second drafts against the brief and voice prompt, a third checks the draft against the brand rules and sources, and a person approves the result before it publishes. The [brief-to-ship pipeline](/lens/ops/brief-to-ship-pipeline/) and [your own news desk](/lens/content/news-desk/) playbooks are both layer three systems.
 
-The human job changes at this layer. You design the system, set its rules and own its output, rather than doing each step. That is closer to running a team than to writing a prompt, which is why orchestration is a leadership question as much as a technical one.
+The human job changes at this layer. You design the system, set its rules and own its output, and the agents do the steps. That is closer to running a team than to writing a prompt, which is why orchestration is a leadership question as much as a technical one.
 
 ## Which layer should your team start at?
 

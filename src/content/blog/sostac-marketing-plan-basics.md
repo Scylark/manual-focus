@@ -3,6 +3,11 @@ title: "SOSTAC explained, a basics guide to marketing planning"
 date: 2026-10-17
 tags: ["basics", "marketing-strategy"]
 description: "SOSTAC is PR Smith's six-stage planning model. Situation, Objectives, Strategy, Tactics, Action and Control, and how to use each stage in a real marketing plan."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/sostac-marketing-plan-basics.mp3"
+  duration: 718
+  bytes: 8617631
+  published: 2026-10-17
 howToName: "How to write a marketing plan with SOSTAC"
 howToSteps:
   - name: "Situation"

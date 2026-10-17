@@ -10,7 +10,7 @@ howToSteps:
   - name: "Define each campaign against the strategy"
     text: "Give every campaign one objective, a start and end date, a budget and a line saying which part of the strategy it serves."
   - name: "Brief the creative idea"
-    text: "Brief one central idea per campaign that the audience would notice and talk about, and judge it against the strategy rather than personal taste."
+    text: "Brief one central idea per campaign that the audience would notice and talk about, and judge it against the strategy, not personal taste."
   - name: "Plan the execution"
     text: "List the assets, channels, owners, deadlines and checks needed to deliver the idea, and measure the delivery separately from the results."
 faq:
