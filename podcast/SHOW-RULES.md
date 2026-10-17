@@ -57,7 +57,30 @@ listener could find it:
 
 Say what the evidence doesn't show as plainly as what it does. If Google gave
 no numbers, say so. Every claim must come from the article or its listed
-sources; the script adds no new facts, figures or quotes.
+sources, or from an earlier Manual Focus post the hosts name on air (see
+"Connect the dots"). The script adds no other facts, figures or quotes.
+
+## Connect the dots
+
+Before writing, read what Manual Focus has already said on the subject, so
+the hosts can join this episode to earlier ones the way regular presenters
+would.
+
+- Read every Manual Focus post the article links to, and the two or three
+  most related posts (shared tags, same company or same channel). Where one
+  of them has an episode, read its script in `podcast/scripts/` too.
+- Use one to three of those links on air, where they add something: a trend
+  building across weeks, an update to something covered before, a contrast
+  with another platform's move, or the playbook that tells you what to do
+  about it. "When we covered AI Overviews hitting eighty-two per cent of
+  brand searches a couple of weeks ago..." is the shape.
+- Name the earlier piece by its topic and roughly when, never by URL. Facts
+  taken from an earlier post count as sourced, as long as the hosts say
+  where they come from.
+- If the new post updates or contradicts something said before, say so
+  plainly. Don't paper over a change of view.
+- Don't force it. A link that's only "we've talked about AI before" is
+  filler; leave it out.
 
 ## Shape of an episode
 
@@ -76,9 +99,20 @@ About 6 to 8 minutes, roughly 900 to 1,100 words of script.
    the listener. Take the article's actions and say what to hand to an AI
    instead, and what it gives back. See the next section.
 5. **What we don't know yet (HANNAH).** The open questions.
-6. **Close (JAMES).** One-line takeaway, then point to the full article on
-   manual-focus.co.uk. The closing music comes in under the last few lines and
-   finishes the episode, so end on a natural sign-off, not a set phrase.
+6. **Close (JAMES, with HANNAH's sign-off).** One-line takeaway, point to
+   the full article on manual-focus dot co dot uk, then the call to action.
+   It has two parts and every episode needs both:
+   - **Subscribe:** ask listeners to follow the show in Apple Podcasts,
+     Spotify or wherever they listen, so the next episode turns up on its
+     own.
+   - **Reach out to Manual Focus:** if they want this applied in their own
+     team, they can book a free working session at manual-focus dot co dot
+     uk.
+   Say it in James's own words, differently each time, in two or three
+   sentences at most. It's an invitation, not an advert: no "smash that
+   button", no hard sell. The closing music comes in under these last lines
+   and finishes the episode, so end on a natural sign-off, not a set
+   phrase.
 
 ## Get AI on this
 
