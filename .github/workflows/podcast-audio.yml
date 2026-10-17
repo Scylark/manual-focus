@@ -1,0 +1,43 @@
+# Moves podcast audio onto the "podcast" release. Cloud sessions can't upload
+# release files, so podcast/publish-episode.mjs pushes the MP3 to a
+# podcast-audio/<name> branch as podcast/upload/<name>.mp3, and this uploads it
+# and deletes the branch. Nothing from these branches reaches master.
+name: Upload podcast audio
+
+on:
+  push:
+    branches: ['podcast-audio/**']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: podcast-audio-${{ github.ref }}
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload to the podcast release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          shopt -s nullglob
+          files=(podcast/upload/*.mp3)
+          if [ ${#files[@]} -eq 0 ]; then echo "No MP3 in podcast/upload/"; exit 1; fi
+          existing=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/podcast" --jq '.assets[].name')
+          for f in "${files[@]}"; do
+            name=$(basename "$f")
+            # Never replace a live episode; a re-voice gets a new name.
+            if grep -qxF "$name" <<< "$existing"; then
+              echo "$name is already on the release, leaving it as it is"
+            else
+              gh release upload podcast "$f" --repo "$GITHUB_REPOSITORY"
+            fi
+          done
+
+      - name: Delete the staging branch
+        run: git push origin --delete "$GITHUB_REF_NAME"
