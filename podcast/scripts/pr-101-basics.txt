@@ -1,0 +1,128 @@
+JAMES: PR is the part of marketing most people can describe and fewest can define. Ask ten marketers what public relations is and you'll get press releases, crisis management, influencers and reputation, sometimes all in one answer. So in this Basics episode we're doing PR one-oh-one, properly from the start. I'm James Vickers, this is Manual Focus, and Hannah's with me.
+
+HANNAH: Hi James. And I come to this one from an odd angle, because a lot of what's changed in PR recently is AI on both sides of the inbox. But let's do the foundations first.
+
+JAMES: Let's. What is public relations?
+
+HANNAH: The clearest definition is the one from the Chartered Institute of Public Relations, the professional body here in the UK. They describe it as the discipline which looks after reputation, with the aim of earning understanding and support and influencing opinion and behaviour. And they add that it's the planned and sustained effort to establish and maintain goodwill and mutual understanding between an organisation and its publics.
+
+JAMES: There are two words in there I'd underline.
+
+HANNAH: Go on.
+
+JAMES: "Earning", because PR can't buy the result. And "publics", plural. An organisation has several audiences at once. Customers, staff, investors, regulators, local communities, the press. A good PR plan knows which one it's talking to.
+
+HANNAH: So what does PR actually cover? Because I think most people picture press releases and stop there.
+
+JAMES: In most in-house teams and agencies it splits into a handful of disciplines. Media relations, which is working with journalists, editors and creators. Corporate communications, the organisation's story to investors, partners and the public. Internal communications, keeping staff informed. Crisis and issues management, preparing for bad news and handling it when it comes. Public affairs, dealing with government and regulators. And thought leadership, which is senior people's opinions in public.
+
+HANNAH: Which of those does a marketing team usually own?
+
+JAMES: Media relations and thought leadership, mostly, with internal comms and public affairs sitting elsewhere in bigger organisations. Crisis is the one that catches people out. In most teams nobody owns it until the day it's needed, and then everyone owns it at once. The basics there are unglamorous. A holding statement drafted in advance, a named spokesperson who's had some training, and an agreed order of who signs off what.
+
+HANNAH: So the work is done before anything goes wrong.
+
+JAMES: Almost all of it.
+
+HANNAH: And how's it different from advertising? I know we covered this in the owned, paid and earned episode, but it's worth saying again.
+
+JAMES: Advertising is paid media. You buy the space and you control every word. PR mostly works through earned media, where a journalist, a creator or a reviewer decides whether to cover you and what to say. You give up control, and in return you get credibility, because the audience knows you didn't pay for the words.
+
+HANNAH: And the line blurs with sponsored content.
+
+JAMES: It does, and in the UK the CAP Code is clear that marketing communications must be obviously identifiable as such. So a sponsored article or a paid creator post is paid media, whatever it looks like, and it needs labelling.
+
+HANNAH: There's also a model PR people use that splits it out further, PESO.
+
+JAMES: Gini Dietrich's model, paid, earned, shared and owned. It's popular with PR teams because it gives social conversation its own category. We went through it in the owned, paid and earned episode.
+
+HANNAH: So what makes something worth covering? From the journalist's side.
+
+JAMES: Something new, specific and relevant to their readers. In practice that tends to mean original data, a sharp opinion from someone senior who knows the subject, a genuine change like a launch or a decision, or a human story that shows a wider point.
+
+HANNAH: And this is where you wanted Seth Godin again.
+
+JAMES: Purple Cow. You've explained it once in this series, so do it in a sentence.
+
+HANNAH: [chuckles] Godin's argument is that only remarkable things get noticed. A brown cow in a field is invisible, a purple one gets talked about. So the product or idea itself has to be worth remarking on.
+
+JAMES: And the same test applies to a story. If nobody outside the company would mention it to a friend, a press release won't change that. Our view is that most PR problems are really product or story problems. So the first job isn't the pitch. It's finding something remarkable to say.
+
+HANNAH: Then let's talk about the pitch, because there's good data on this. Muck Rack's State of Journalism report came out in March, and it's a survey of eight hundred and ninety-seven journalists, mostly in the US, with others from the UK, Canada and India.
+
+JAMES: What did it find?
+
+HANNAH: Eighty-six per cent of journalists said at least some of their stories start from PR pitches. So pitching works. But nearly half said they seldom get pitches that match what they cover, and eighty-eight per cent said they immediately disregard pitches that miss their beat.
+
+JAMES: [dryly] So most pitches are being sent to the wrong person.
+
+HANNAH: That's how I read it. And there's a nuance I liked. Seventy-eight per cent said a pitch feels genuinely relevant when it directly affects the community their audience belongs to. So relevance is about their readers, not just their beat.
+
+JAMES: And what did journalists say they actually want in a pitch?
+
+HANNAH: Four things. Clear relevance to their beat. Access to relevant sources. Original research or data. And high-resolution images.
+
+JAMES: Which gives you a checklist. Send it only to people who cover the subject, by reading what they've written recently, not by buying a list. Say why it matters to their readers in the first couple of lines. And have the spokesperson, the data and the images ready before you send, so a journalist can file without waiting on you. Follow up once, with something useful, and then log what landed so the next round's sharper.
+
+HANNAH: Do journalists still want press releases, then? I'd half assumed they were dead.
+
+JAMES: They're not dead, they've just changed jobs. A release is still a useful record of news, the thing a journalist can check facts against and link to. What's dead is the mass mail-out, the same release sent to a list of a few thousand addresses. The survey numbers on beat are the reason.
+
+HANNAH: And that's where the earned-media pitch generator playbook in The Lens comes in.
+
+JAMES: It does the matching and the drafting. A person still decides what goes out and to whom.
+
+HANNAH: So, AI. The same survey found eighty-two per cent of journalists use at least one AI tool, up from seventy-seven per cent the year before. And PR teams are using AI to draft outreach at volume.
+
+JAMES: Which means a lot more well-written, irrelevant pitches.
+
+HANNAH: And speaking as the AI person here, a model drafting a pitch from a prompt has no idea what that journalist wrote last week unless you give it that research. Fluent isn't the same as relevant.
+
+JAMES: Which tells you which half of the job to automate first.
+
+
+HANNAH: Exactly. So careful targeting is worth more than it was, not less. And the other change is where coverage ends up. AI assistants draw on third-party coverage when they answer questions about a category. So earned media now shapes what those answers say about your brand, as well as what readers see.
+
+JAMES: We covered both of those in more depth. The earned channels in the AI era piece back in April, and more recently the piece on how the citation moved off the page, which showed how far the sources AI answers cite have drifted from Google's top results.
+
+HANNAH: And there's a part of PR you've been firm should stay human.
+
+JAMES: Senior opinion pieces and a founder's own voice. They're on our list of places AI shouldn't touch, because the whole point is that it's that person's view. The founder and institutional voice playbook sets out who speaks for the brand where.
+
+HANNAH: How should a team measure PR? That's always been the hard part.
+
+JAMES: Count outcomes, not volume. Coverage in the outlets your audience actually reads. How much of that coverage carries your key messages. Branded search after coverage lands. Referral traffic. And now, whether AI assistants describe your brand accurately. What I'd avoid is advertising value equivalents, which put a price on coverage as if it were bought space.
+
+HANNAH: Why avoid them?
+
+JAMES: Because they say nothing about whether anyone's opinion changed. A large number that measures the wrong thing is worse than a small one that measures the right thing. Which, if you remember the CIPR definition, is the whole job. Influencing opinion and behaviour.
+
+HANNAH: So what can we hand over to AI?
+
+JAMES: Get AI on this: building the beat list before you pitch.
+
+HANNAH: Give it the story in one sentence and a list of publications your audience reads, and with browsing switched on it reads each journalist's recent articles and hands back a table of who covers the subject now, with two recent pieces each as evidence. It drops anyone whose beat doesn't fit and says when it couldn't check.
+
+JAMES: Second, get AI on testing whether the story is remarkable before anyone writes a release.
+
+HANNAH: Give it the story and the evidence behind it, and it checks it against what journalists said they value, relevance, sources, original data and images, scores each, and tells you what's missing. It'll tell you plainly if there's no news in it.
+
+JAMES: And third, a monthly check on what AI assistants say about you.
+
+HANNAH: Set it as a monthly routine. Give it your brand, your category and the questions customers ask, and it records how AI answers describe the brand and which sources they cite, so you can see whether coverage is reaching them. The prompts are in the show notes.
+
+JAMES: Common mistakes, then.
+
+HANNAH: From the article. Mass pitching people whose beat doesn't fit. Writing a release before checking there's a story. And measuring the pile of clippings rather than whether it reached the right audience.
+
+JAMES: And one of mine. Starting PR in a crisis. Reputation is built in the quiet months, through relationships and a steady record of saying useful things. If the first time a journalist hears from you is when something's gone wrong, you've started too late.
+
+HANNAH: That's the best argument for the "planned and sustained" part of the definition I've heard.
+
+JAMES: So the takeaway. PR is earning reputation, not buying it. Find something remarkable to say, send it only to the people whose readers care, and measure whether opinion moved.
+
+HANNAH: And that's the end of the first run of the Basics series.
+
+JAMES: It is. The full guide is on manual-focus dot co dot uk, alongside the rest of the series. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and the daily episodes will keep arriving. And if you'd like help finding the story worth pitching, book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

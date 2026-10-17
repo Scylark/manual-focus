@@ -1,0 +1,118 @@
+JAMES: Above the line, below the line, through the line. If you've joined a marketing team in the last ten years, there's a fair chance someone used those phrases in your first week and nobody explained them. They're older than digital marketing, and they're still a useful way to think about a budget. I'm James Vickers, this is Manual Focus, and this Basics episode is the plain-English version, with Hannah.
+
+HANNAH: Hi James. I'm glad we're doing this one, because I'll be honest, the first time I heard "below the line" I assumed it meant something slightly disreputable.
+
+JAMES: [chuckles] It doesn't, though it's never sounded glamorous. Start with the definitions.
+
+HANNAH: Above the line, or ATL, is advertising in mass media that reaches a whole market at once. Television, radio, newspapers, outdoor posters, cinema, and these days broad-reach online video. Below the line, or BTL, reaches people more directly and selectively. Direct mail, email, events, trade shows, sampling, sales promotions, displays in shops. And through the line, TTL, is a campaign that uses both together under one idea.
+
+JAMES: And where do the names come from? People always ask.
+
+HANNAH: The usual explanation is a literal line in a marketing budget. Mass-media advertising sat above it, and the other promotional costs went below it. The Cambridge Business English Dictionary now defines above-the-line as advertising on television, in newspapers, on the internet and so on, rather than other ways of telling people about a company. Its below-the-line entry covers things like trade shows and direct mail, which communicate more directly with customers and cost less than television and newspaper advertising.
+
+JAMES: You'll also read that the terms started at one particular company in one particular year.
+
+HANNAH: You will, and we went looking for a primary record of that story and couldn't find one. So it's not in the article, and I'm not going to repeat it here.
+
+JAMES: Good. So let's take them one at a time. Above the line. What's it for?
+
+HANNAH: Mainly memory. Its job is that when someone in the market thinks of the category, your brand comes to mind. Most of the people who see a TV ad aren't buying that week, so it's hard to measure in short-term response.
+
+JAMES: And that's the bit finance teams struggle with. You'll usually see the conversation go like this. The response numbers on the TV campaign look poor, so someone proposes moving the money into search, where the numbers look great. And it works, for a while.
+
+HANNAH: Until?
+
+JAMES: Until the search volume dries up, because nobody's building the demand that search was harvesting. That's the point of mass media rather than a flaw in it. The Category Entry Point research playbook in The Lens helps you decide which buying moments your mass media should link the brand to, so it's doing a specific job, not just being seen.
+
+HANNAH: Then below the line. What's that for?
+
+JAMES: Prompting action from people who are close to buying. Direct mail, email, events, trade shows, sampling, promotions, displays in shops, the activation around a sponsorship. Its results show up quickly and they're easy to count. Leads, redemptions, footfall, sales that week.
+
+HANNAH: And the risk with BTL on its own?
+
+JAMES: You squeeze existing demand without creating any more. It looks efficient, every pound is measured, and the market you're selling to slowly gets smaller. The event sponsorship and retail partner programme playbooks are both largely below-the-line work, and the lifecycle journey builder covers the email and CRM side.
+
+HANNAH: Does any of this apply in business-to-business marketing? It sounds very consumer.
+
+JAMES: It applies, the mix just looks different. In most business-to-business teams, below the line is the bulk of the budget. Trade shows, events, direct outreach, email, the sales team's own materials. Above the line is often small or missing altogether, and that's usually the gap. If nobody in the market has heard of you before your salesperson calls, every deal starts from cold.
+
+HANNAH: So the same memory and action split, just weighted the other way. Which is interesting, because I'd have guessed the jargon belonged to consumer brands and big television budgets.
+
+JAMES: It's a fair guess, and a common one, but the idea travels well beyond that. And for a business-to-business team, above the line might well be broad-reach online video or a sponsorship rather than television, which is where the digital blur comes in. We'll get to that.
+
+HANNAH: Which brings us to through the line.
+
+JAMES: TTL is simply what good campaign planning looks like for most teams now. One idea, carried across both. A launch film builds awareness, retail displays and sampling meet people in the shop, and an email sequence follows up with those who signed up. Each piece is more recognisable because of the others.
+
+HANNAH: So the useful thing isn't arguing which line matters more.
+
+JAMES: No, it's giving each line a clear job. Memory or action. And where I'd say it still goes wrong in a lot of businesses is structural. Two teams, sometimes two agencies, one doing brand and one doing response, running two different ideas at the same audience. The customer doesn't know or care which budget paid for what, they just see a brand that seems to say two things.
+
+HANNAH: Our strategy and campaigns Basics episode made the same point about one creative idea running through a whole campaign.
+
+JAMES: So if you're planning a through-the-line campaign from scratch, there are four steps in the article. Write the objective and the audience once, so every channel, mass or targeted, works to the same brief. Give each line a job, memory for the mass work and action for the targeted work. Keep one idea running through both. And measure both horizons, short-term response from the targeted pieces, longer-term brand measures from the mass pieces, and review them side by side.
+
+HANNAH: The last one sounds like the hard part.
+
+JAMES: It is, because the two sets of numbers move at different speeds. The response numbers arrive in days, the brand numbers in months. If you review them separately, the fast numbers win every argument.
+
+
+JAMES: It did. Now, digital. This is where people get confused.
+
+HANNAH: Because digital sits on both sides. A homepage takeover on a national news site, or a broad online video buy, behaves like above the line. A search ad, a retargeting ad or a personalised email behaves like below the line. Paid social could be either, depending on how tightly you target it.
+
+JAMES: So the line hasn't disappeared, it just doesn't follow the media any more.
+
+HANNAH: That's how I'd put it. And there's a trap in it. Digital made below-the-line style measurement available for almost everything. So it's tempting to judge every channel on short-term clicks.
+
+JAMES: Which is where Binet and Field come in again.
+
+HANNAH: Les Binet and Peter Field's report for the IPA, The Long and the Short of It. They looked at how campaign effects build up over time and warned that relying on short-term online metrics as the main measures could harm long-term success.
+
+JAMES: Our view is that the line is still worth asking about, even though the media have changed. "Is this building memory or prompting action?" is the question that stops a team pouring the whole budget into harvesting demand it never created.
+
+HANNAH: And then there's the other way of sorting channels, owned, paid and earned. How do the two fit?
+
+JAMES: They answer different questions. Above and below the line is about reach and purpose. Owned, paid and earned is about who controls the channel. Almost all above-the-line is paid media. Below the line mixes paid things like promotions with owned channels like your email list. We've done a separate Basics episode on owned, paid and earned.
+
+HANNAH: And the paid side has changed a lot with AI.
+
+JAMES: It has. Back in the spring we wrote about paid channels in the AI era, where the platforms' bidding agents now make most of the targeting decisions. That's mostly below-the-line style activity, run by machines on both sides of the auction. Which makes the human decision about the split between memory and action more important, not less, because the agents will happily optimise towards whatever's easiest to count.
+
+HANNAH: So who should own that split, between memory and action?
+
+JAMES: The most senior marketer, written into the plan. In SOSTAC terms it's a strategy decision, not a tactic, so it shouldn't be left to whichever channel team argues hardest or to whatever the platforms' algorithms prefer. Set it once a year, review it each quarter, and make anyone who wants to change it explain what's changed in the situation.
+
+HANNAH: That links straight back to the SOSTAC episode.
+
+JAMES: Most of this series does, which is rather the point of it.
+
+HANNAH: So what can we hand over?
+
+JAMES: Get AI on this: sorting last year's budget into memory and action.
+
+HANNAH: Give it your media and marketing spend by line item, and it hands back a table classing each line as above the line, below the line or digital that could be either, with what job it was doing, and the overall split. It'll mark anything it can't classify from the description rather than guessing.
+
+JAMES: Second, get AI on checking whether a campaign is genuinely through the line.
+
+HANNAH: Give it the campaign plan and the assets for each channel, and it checks whether one idea runs through the broadcast pieces and the targeted ones, listing any channel where the message or look has drifted.
+
+JAMES: And third, a measurement plan that covers both horizons.
+
+HANNAH: Give it the campaign objective and the channels, and it drafts a measurement plan with short-term response measures for the targeted work and longer-term brand measures for the mass work, and when to review them together. The prompts are in the show notes.
+
+JAMES: Common mistakes, then.
+
+HANNAH: From the article. Judging above-the-line media on next week's sales. Running below-the-line on its own and wondering why demand shrinks. And two teams running two ideas under one brand.
+
+JAMES: And one of mine. Using the jargon in front of the board. "We're shifting from ATL to BTL" means nothing to most people outside marketing. "We're spending less on reaching new people and more on converting people who already know us" is the same sentence, and it starts the right argument.
+
+HANNAH: [laughs] Which is a very Basics note to end on.
+
+JAMES: So the takeaway. Above the line builds memory, below the line prompts action, through the line joins them, and every channel, digital included, should know which job it's doing.
+
+HANNAH: And the article has the comparison table, with how each one's measured and where each one goes wrong.
+
+JAMES: It's on manual-focus dot co dot uk. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen to get the rest of the Basics series as it comes out. And if you'd like help balancing brand and response spend in your own plan, book a free working session at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

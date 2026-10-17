@@ -42,9 +42,14 @@ const turns = readFileSync(paths.script, 'utf8')
     return { n: i + 1, speaker: m?.[1], text: (m?.[2] ?? block).replace(/\s+/g, ' ') };
   });
 
+// Basics episodes (posts tagged "basics") are longer explainers; see
+// "Basics episode" in SHOW-RULES.md.
+const basics = /^tags:.*["']basics["']/m.test(readFileSync(paths.post, 'utf8'));
+const [hardMin, aimMin, aimMax, hardMax] = basics ? [1600, 1800, 2200, 2500] : [800, 900, 1100, 1300];
+const aim = `aim for ${aimMin.toLocaleString('en-GB')} to ${aimMax.toLocaleString('en-GB')}${basics ? ' (Basics episode)' : ''}`;
 const words = turns.reduce((n, t) => n + t.text.replace(/\[[^\]]*\]/g, '').split(/\s+/).filter(Boolean).length, 0);
-if (words < 800 || words > 1300) fails.push(`Script is ${words} words; aim for 900 to 1,100`);
-else if (words < 900 || words > 1100) warns.push(`Script is ${words} words; aim for 900 to 1,100`);
+if (words < hardMin || words > hardMax) fails.push(`Script is ${words} words; ${aim}`);
+else if (words < aimMin || words > aimMax) warns.push(`Script is ${words} words; ${aim}`);
 
 if (turns[0]?.speaker !== 'JAMES') fails.push('James must open the episode');
 // James closes; a one-line "Thanks, James" from Hannah after him is fine.

@@ -1,0 +1,99 @@
+JAMES: When someone in a marketing team says they're using AI, they could mean three very different things, and most of the confusion I hear comes from people talking past each other about which one. So today we're going back to basics with the three layers of AI. I'm James Vickers, this is Manual Focus, and this is the first episode in our Basics series. Hannah's here, as ever, to make sure I get the technical part right.
+
+HANNAH: Hi James. And I like this one, because it's the frame you use with clients, and it holds up when you look at how the technology actually works.
+
+JAMES: So let me set it out, and then you can take it apart. Layer one is the large language model and the chat window. Layer two is agentic, where you hand over a whole request and the AI delivers it. Layer three is orchestration, where several agents or steps run together as one system.
+
+HANNAH: And each one adds something the one below doesn't have. Chat adds language. Agents add action. Orchestration adds coordination. But every layer sits on the same language model underneath, so its strengths and its weaknesses carry all the way up.
+
+JAMES: Then let's start underneath. What is a large language model, from first principles?
+
+HANNAH: It's a prediction engine for text. Anthropic's own glossary puts it plainly: in pretraining, the model learns to predict the next word from the text that comes before it, across an enormous amount of written material. On its own, that raw predictor isn't much of an assistant. So there's further training, including people ranking answers against each other, and that's what turns it into something that follows instructions and holds a conversation.
+
+JAMES: So when it writes a headline for me, it's predicting what a good headline probably looks like.
+
+HANNAH: Given everything in front of it, yes. And "everything in front of it" is the important bit. There's a thing called the context window, which is the model's working memory for the conversation. It's the text it can look back at while it answers. If your brand guidelines, your audience research and your product facts aren't in that window, the model falls back on general patterns.
+
+JAMES: [dryly] Which is why a generic prompt gets you generic copy.
+
+HANNAH: Exactly that. The second property is that because it's predicting, it can be confidently wrong. A group of OpenAI researchers published a paper in September twenty twenty-five arguing that models make things up partly because training and testing reward a good guess over saying "I don't know". So any fact, figure or quote that comes out of a chat window needs checking at the source before it goes anywhere.
+
+JAMES: And the third thing, the one I'd underline for a marketing lead, is who carries the work at layer one.
+
+HANNAH: The person does. You paste in the brief, you read the draft, you ask for changes, you copy the result into your content system. The model never touches your systems. It only sees what you show it.
+
+JAMES: That's where most teams are, and I'd say there's no shame in it. In most marketing teams I talk to, layer one is patchy rather than missing. Five people, five tools, five ways of prompting, and nobody can compare the results. The first job is to make it consistent: one approved assistant, one voice prompt that actually works, a shared library of the prompts people trust.
+
+HANNAH: That links back to the ninety-day integration plan we talked through a few weeks ago, where the voice prompt was the first real build, in weeks three and four.
+
+JAMES: It does, and for the same reason. Everything you build at the higher layers draws on it. So, layer two. What changes when AI becomes an agent?
+
+HANNAH: You stop asking for answers and start asking for outcomes. An agent is a language model that's been given tools, such as web search, a browser, access to files, or a connection to your analytics, and the freedom to decide which tool to use and when. Then it checks its own progress and keeps going until it thinks the job's done.
+
+JAMES: There's a distinction in the Anthropic guide on this that I found useful.
+
+HANNAH: Their December twenty twenty-four piece, Building effective agents. They separate workflows, where the model and its tools follow steps someone has laid down in advance, from agents, where the model directs its own process and decides which tools to use. They call both of them agentic systems. And their advice is to find the simplest thing that works and only add complexity when you need it.
+
+JAMES: So give me the marketing version of that difference.
+
+HANNAH: "Write me three subject lines" is a layer one request. "Pull last month's email results, find the three weakest flows, work out why from the content and the send times, and give me a one-page brief to fix them" is a layer two request. The agent opens the export, does the analysis, and comes back with the brief.
+
+JAMES: [thoughtfully] And that second request is the one that used to take someone a morning. What does it need to work?
+
+HANNAH: Two things. First, connections to the tools where your data lives. In November twenty twenty-four Anthropic open-sourced something called the Model Context Protocol, a standard way of plugging assistants into business tools and document stores, so agents can reach the data. Second, a clear definition of done. An agent stops when it thinks the job is finished. If you haven't said what finished looks like, which data to trust and where to stop and ask, it decides for itself.
+
+JAMES: That's the part I'd worry about in a real team. The tech works, and then nobody wrote down what good looks like. So you get a confident report built on the wrong export.
+
+HANNAH: Which is why the article points to the evaluation frameworks playbook in The Lens. Write the checks before the first run, not after the first mistake.
+
+JAMES: Our view is that the best first agent jobs are the dull ones. Reporting, audits, briefing packs. They repeat, they have an obvious finished state, they're easy to check, and the time saved shows up in the first week. Nobody needs convincing after that.
+
+HANNAH: Then layer three. Orchestration is several agents or steps working together as one system. The Anthropic guide names the patterns. There's prompt chaining, where each step feeds the next. Routing, where an input gets sent to a specialist. And orchestrator and workers, where a central model breaks a job into parts, hands them out, and puts the results back together.
+
+JAMES: Is there evidence it's worth the trouble, or is this a nice diagram?
+
+HANNAH: The clearest public example is Anthropic's own research feature, which they wrote up in June twenty twenty-five. A lead agent plans the research, starts several sub-agents that search in parallel, then combines what they find. On their internal research test it beat a single agent by ninety point two per cent. That's their own test, so treat it as their number. They were also honest about the cost. Agents use about four times the tokens of a normal chat, and multi-agent systems about fifteen times.
+
+JAMES: So it's expensive, and it's for work that's worth it.
+
+HANNAH: That's how they frame it. Valuable, complicated jobs, not every task.
+
+JAMES: In a marketing team, layer three looks like a pipeline. One agent researches the topic, a second drafts against the brief and the voice prompt, a third checks the draft against the brand rules and the sources, and a person approves it before anything publishes. The brief-to-ship pipeline and the news desk playbook in The Lens are both built that way.
+
+HANNAH: And the human job changes at that layer, doesn't it?
+
+JAMES: Completely. You're designing the system, setting its rules and owning what comes out, instead of doing each step. That's much closer to running a team than to writing a prompt. Which is why I'd say orchestration is a leadership question as much as a technical one. Someone senior has to own the rules.
+
+HANNAH: So where should a team start?
+
+JAMES: One layer below where they want to be. If people are using AI ad hoc, with different tools and prompts, you're on layer one, and the move is one approved assistant and a shared voice prompt. If chat is consistent and you've got repeatable jobs, delegate one report or one audit end to end. And only when two or three agents work reliably on their own do you connect them.
+
+HANNAH: Teams that skip layer one end up automating inconsistent prompts. Teams that skip layer two end up orchestrating agents that were never reliable on their own.
+
+JAMES: A lot of this you can hand straight over. Get AI on this: work out which layer each job in your team sits on today.
+
+HANNAH: Give it a list of the recurring marketing jobs your team does, with who does them and how long they take, and it hands back a table sorting each one into chat, agent or orchestration, with the checks each would need and the three best candidates to delegate first.
+
+JAMES: Second, get AI on your first agent brief. Pick the dull job, say the weekly channel report.
+
+HANNAH: Give it the job, the data it should use and what a finished report looks like, and it writes the full instructions for an agent, including where it must stop and ask a person. Your team lead still signs off the rules.
+
+JAMES: And third, the definition of done. Get AI on writing the checks for that job.
+
+HANNAH: Give it two examples of a good report and one that went wrong, and it drafts a short checklist the agent's output has to pass every time. The prompts are in the show notes.
+
+JAMES: Where do people go wrong with this?
+
+HANNAH: Mostly by treating the three layers as one thing. The classic is a team that buys an agent product because the demo was impressive, when nobody can yet write a consistent prompt. The agent then inherits all of that inconsistency at speed. The other one is trusting layer one output as if it were checked, when the model was only ever predicting.
+
+JAMES: And the layers don't change what good marketing is. A clear objective, a sharp audience and something worth saying still decide whether any of this lands. Which is why the rest of this Basics series is about SOSTAC, strategy and campaigns, and the media you use. And there are still jobs, like a founder's own opinion pieces, that we've argued AI shouldn't touch at any layer.
+
+HANNAH: That was our piece on when not to use AI in marketing.
+
+JAMES: It was. So the takeaway. Chat adds language, agents add action, orchestration adds coordination, and each layer is only as good as the one beneath it.
+
+HANNAH: Which is the whole case for starting at the bottom.
+
+JAMES: The full guide, with the tables, is on manual-focus dot co dot uk. If this was useful, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and the rest of the Basics series will turn up as it lands. And if you'd like to work out which layer your own team should be on, book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James. See you next time.

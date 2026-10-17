@@ -1,0 +1,115 @@
+JAMES: Four words get used interchangeably in nearly every marketing meeting: strategy, campaign, creative and execution. And when they blur, teams end up arguing about the wrong thing, usually blaming the idea for what was really a missed deadline. I'm James Vickers, this is Manual Focus, and in this Basics episode Hannah and I are pulling the four apart.
+
+HANNAH: Hi James. And I'll play the outsider a little here, because from where I sit, a lot of marketing vocabulary sounds like it's used to mean whatever the speaker needs it to mean that day.
+
+JAMES: [dryly] That's not unfair. So let's be strict. Strategy is the choice of who you serve, what change you want in their behaviour, and why they should pick you. A campaign is a time-bound push that carries part of that strategy into the market. Creative is the idea and the work the audience actually sees and hears. And execution is the delivery.
+
+HANNAH: And the time spans are different, aren't they? That's what made it click for me in the article.
+
+JAMES: Very different. A strategy usually holds for a year or more. A campaign runs for weeks or months. A creative idea lasts the life of the campaign, sometimes years if it's good. And a single piece of execution might be days.
+
+HANNAH: So start with strategy. What does a marketing strategy actually contain?
+
+JAMES: A set of choices. The audience you'll serve, the change you want in what they do, and the reason they should choose you over the alternatives, including doing nothing. In the SOSTAC model we covered in the last Basics episode, it's the S that comes after Situation and Objectives. How do we get there?
+
+HANNAH: And this is where you wanted to bring in Seth Godin.
+
+JAMES: Because he's very good on the choice part. Do you want to explain the smallest viable audience? I think it lands better from first principles.
+
+HANNAH: Sure. Godin sets it out in his twenty eighteen book, This Is Marketing, and he's written about it on his blog. The idea is that instead of trying to reach everyone, you pick the smallest group of people you could serve so well that the work sustains itself, and so well that they recommend you to people like them. On his blog he describes that small group as a stepping-stone rather than a compromise. You grow outwards from it.
+
+JAMES: And the reason marketers resist it is that it feels like leaving money on the table.
+
+HANNAH: Which is the opposite of how it works if he's right. A vague audience gives the creative nothing to aim at.
+
+JAMES: That's what you'll usually see when a campaign underperforms. People go straight to the creative. Was the ad wrong? But when you look at the brief, the audience is "adults, twenty-five to fifty-four, interested in fitness". That isn't a choice. Our view is that most weak campaigns are strategy problems in disguise.
+
+HANNAH: There's a second Godin idea in the article, "people like us do things like this".
+
+JAMES: Go on, you explain it.
+
+HANNAH: It's the title of an essay he wrote in twenty seventeen for students on his altMBA course. The argument is that people make choices based on the group they see themselves as part of, so culture and belonging drive behaviour more than features do. For a strategist, it changes the question from "who is our audience" to "which group do they belong to, and what do people in that group do".
+
+JAMES: Which is very practical. If you're selling to club cyclists, the question isn't which features they want. It's what a serious club cyclist is expected to ride, wear and know about. Then you decide whether you're going to fit that, or change it.
+
+HANNAH: So, campaigns. How is a campaign different?
+
+JAMES: It's a push with a beginning and an end. One objective, a budget, dates and a defined audience, carrying part of the strategy into the market. One strategy might run several campaigns a year. A launch, a seasonal push, an always-on acquisition programme. All serving the same choice of audience and position.
+
+HANNAH: The article brings in Binet and Field here.
+
+JAMES: Les Binet and Peter Field's report for the IPA, The Long and the Short of It. They looked at how campaign effects build up over time, and they warned against relying on short-term online metrics as the main measure of success.
+
+HANNAH: Why does that matter for the distinction we're making?
+
+JAMES: Because a campaign judged only on this month's clicks will crowd out the brand-building work a strategy needs over years. If every campaign has to pay back in four weeks, you end up with a strategy nobody's actually funding.
+
+HANNAH: And how do you check a campaign's in the right relationship with the strategy?
+
+JAMES: The brief names the line of the strategy it serves. If it can't, either the campaign shouldn't run or the strategy has a gap. That's a very quick test, and it kills a lot of pet projects. The message house generator in The Lens is useful here, because it turns the strategy into the core messages every campaign draws on.
+
+HANNAH: You mentioned always-on activity a moment ago. If something never ends, is it still a campaign?
+
+JAMES: I'd treat it as one for planning purposes, with a review date instead of an end date. Search, email flows, a steady level of paid social. They still need an objective and a budget, and they still have to serve a line of the strategy. The danger with always-on is that nobody ever asks whether it should still be on.
+
+HANNAH: So the review date does the job the end date would have done.
+
+JAMES: That's it. And the channel side of that, which media each campaign uses, has its own Basics episodes, on owned, paid and earned media and on above and below the line.
+
+HANNAH: Then creative. I'll admit this is the word I find most slippery, because agencies use it as a noun.
+
+JAMES: They do. "Have you seen the creative?" means the finished ads. "The creative team" means the people who make them. But the useful definition is the idea and the work the audience meets. The concept, the words, the images, the sound, the design.
+
+HANNAH: And Godin again, Purple Cow.
+
+JAMES: Go on.
+
+HANNAH: The book's metaphor is simple. Driving past a field of brown cows, you stop noticing them. A purple cow, you'd tell someone about. Godin's argument is that the product or idea itself has to be remarkable, worth remarking on, rather than a dull offer made louder with advertising. So the test for creative becomes, will the audience notice this, and will they mention it to anyone?
+
+JAMES: And I'd add, judge creative against the strategy, not against taste. In most agencies and in-house teams, creative gets approved in a room by people who aren't the audience. An idea everyone in the room likes can still miss the audience the strategy chose. The tagline system playbook in The Lens shows how to generate lines and test them against a brief, rather than by a show of hands.
+
+HANNAH: And then execution.
+
+JAMES: Delivery. Producing the assets, placing the media, publishing the content, running the events, and checking each piece before and after it goes live. There's an agency use too. An "execution" can mean one version of an idea, so a campaign might have three executions, a film, a poster and a social cut.
+
+HANNAH: And this is where AI is changing things fastest. Drafting variants, resizing assets, checking copy against brand rules, building the weekly report. Those all sit at layer two of the three layers of AI we covered in the first Basics episode, where you hand over the whole request.
+
+JAMES: The brief-to-ship pipeline playbook shows one team's execution running from brief to publication with a check at each step.
+
+HANNAH: You were quite firm in the article about measuring execution separately.
+
+JAMES: Because otherwise you learn the wrong lesson. If you only measure results, a strong idea delivered a week late looks exactly like a weak idea. So measure execution on its own terms. On time, on brief, free of errors.
+
+HANNAH: Which brings us to the bit that ties it together.
+
+JAMES: Every layer should trace back to the one above it. Every piece of execution delivers part of a creative idea, every creative idea serves a campaign objective, and every campaign carries part of the strategy. When a result disappoints, walk back up the chain in that order. Execution first, because it's cheapest to fix. Then creative. Then the campaign. And question the strategy last.
+
+HANNAH: Can AI do some of that walking?
+
+JAMES: A lot of it. Get AI on this: checking every campaign brief traces back to the strategy.
+
+HANNAH: Give it your strategy, written in a couple of sentences, and this quarter's campaign briefs. It hands back a table showing which line of the strategy each campaign serves, which briefs don't connect to any line, and which audiences are too vague to brief creative against.
+
+JAMES: Second, get AI on separating execution problems from idea problems when a campaign disappoints.
+
+HANNAH: Give it the campaign plan, the delivery log with what went live when, and the results. It sorts what went wrong into execution, creative, campaign and strategy, with the evidence for each, and tells you where the data's too thin to say.
+
+JAMES: And third, sharpening the audience.
+
+HANNAH: Give it your current audience definition and your customer research, and ask it, using Godin's idea of a smallest viable audience, to draft three tighter audience choices, each with the group they belong to and what people in that group do. The choice stays with you. The prompts are in the show notes.
+
+JAMES: Where do people go wrong, apart from everything we've said?
+
+HANNAH: Calling a list of campaigns a strategy. Changing direction every time a new campaign idea comes along, because strategy and campaign are blurred. And judging creative on whether the room likes it.
+
+JAMES: And one more of mine. Treating execution as junior work. Most of what an audience actually experiences is execution, the timing, the placement, the typo that went out. It deserves the same care as the idea.
+
+HANNAH: That's a nice place to end up, for a series called Basics.
+
+JAMES: So the takeaway. Strategy is who and why, a campaign is a time-bound push, creative is the idea people meet, and execution is the delivery. Keep them apart, and you'll know which one to fix.
+
+HANNAH: And the article has the full table, with who owns each one and how to judge it.
+
+JAMES: It's on manual-focus dot co dot uk with the rest of the Basics series. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and the next episode will be waiting for you. And if you'd like help separating strategy from tactics in your own plan, book a free working session at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.

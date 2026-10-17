@@ -1,0 +1,107 @@
+JAMES: Most marketing plans I'm shown start with tactics. A list of channels, a content calendar, a few campaigns, and somewhere near the bottom a line about objectives. There's a planning model that fixes that by putting things in the right order, and it's the one I come back to more than any other. I'm James Vickers, this is Manual Focus, and in this Basics episode Hannah and I are taking apart SOSTAC.
+
+HANNAH: Hi James. I'll admit this is a slightly unusual one for me, because it's not an AI topic. But it turns out to be a very good frame for working out where AI belongs in a plan, so I'm glad we're doing it.
+
+JAMES: We'll get there. Start with the basics. What is it and where does it come from?
+
+HANNAH: SOSTAC is a planning model created by a British marketer called PR Smith in the nineteen-nineties. The letters stand for Situation, Objectives, Strategy, Tactics, Action and Control. And the reason it's lasted is that each stage answers one plain question. Where are we now? Where do we want to be? How do we get there? Then the detail of what we'll do, who does it, and finally, how do we know we're getting there?
+
+JAMES: And it's well used. Dave Chaffey, who writes a lot on digital marketing, notes it was rated among the most popular marketing models in a poll run by the Chartered Institute of Marketing.
+
+HANNAH: So take me through it the way a marketing team would actually use it. Situation first.
+
+JAMES: Situation analysis is the evidence for everything after it. Who your customers are and what they want, who your competitors are and how they position themselves, how you did against last year's objectives, and the strengths and weaknesses that matter for the next twelve months.
+
+HANNAH: That sounds like it could go on for ever.
+
+JAMES: [dryly] It often does. The most common thing you'll see is a long deck of charts with no conclusions. Nobody can tell which facts matter, so the rest of the plan ignores them. The test of a good situation analysis is that it ends in three or four findings, each with its evidence. Something like, we're losing first-time buyers to a cheaper competitor, and here's the data that shows it.
+
+HANNAH: And that's where AI is already useful, I'd say. Pulling the data together, summarising competitor sites and reviews, synthesising research. That's the slog that used to make a proper situation analysis too expensive for a lot of teams.
+
+JAMES: It is. But deciding which findings matter stays with a person. Then objectives. Where do we want to be?
+
+HANNAH: PR Smith recommends SMART objectives here. Specific, measurable, achievable, relevant and time-bound.
+
+JAMES: And the discipline I'd add is tying them to business results. "Grow online revenue from new customers by fifteen per cent by next September" gives the plan a target. "Increase brand awareness" doesn't, because nobody can say whether you hit it. And keep the business objective separate from the marketing objectives that serve it. Revenue's the business objective. New customer numbers, conversion rate, repeat purchase, those are the marketing objectives that drive it.
+
+HANNAH: Then the stage people seem to argue about most, strategy and tactics. How do you tell them apart?
+
+JAMES: Strategy is the route. Who you'll target, how you'll position the brand against the alternatives, which channels carry the plan and which partners you'll work with. Tactics are the details of that route, what PR Smith describes as the marketing mix. The specific products, prices, places and promotions.
+
+HANNAH: I think that blur is where most plans go wrong, isn't it? A list of channels with "strategy" written at the top.
+
+JAMES: Very often. And the cost is real, because a list of tactics gives you no basis for saying no to anything. The test I use is whether the line would still be true if every campaign changed. "Win cyclists who train indoors through the winter, through coaches and clubs rather than paid social." That survives a change of campaign, so it's strategy. "Run a January indoor training challenge" is a tactic that serves it.
+
+HANNAH: That's a useful test. Our next Basics episode goes further into this, the difference between strategy, campaigns, creative and execution.
+
+JAMES: And the channel choices inside a strategy have their own Basics episodes too, owned, paid and earned media, and above the line versus below the line. Those are two different ways of sorting the same channels, and a strategy should be clear on both.
+
+HANNAH: Can I push on tactics for a second? You said the marketing mix. For anyone who hasn't come across it, that's the four Ps, isn't it?
+
+JAMES: Product, price, place and promotion. PR Smith's article mentions the extended seven Ps as well. The point for a plan is that tactics are wider than promotion. A price change or a new stockist can do more for an objective than another campaign.
+
+HANNAH: That's a point I don't think gets made enough. Most marketing teams I'd imagine only control the promotion part.
+
+JAMES: Which is exactly why the plan matters. If the situation analysis says the problem is price, a better advert won't fix it, and the plan is the document that lets marketing say so to the rest of the business.
+
+JAMES: It does. Then action, which is the bit most plans skip because it's dull.
+
+HANNAH: PR Smith frames it as making sure the tactics are actually carried out well. Resources, project management, training.
+
+JAMES: In practice it's an owner's name against every piece, a timeline, a budget, and the briefs and processes that get work out of the door. The plans that fail in delivery nearly always fail here. Everyone agreed what to do, and nobody was named as doing it.
+
+HANNAH: And then control. Are we getting there?
+
+JAMES: The measures for each objective, how often you report, and the points where the team sits down and decides what to change. A plan without control can't learn. So the same mistakes come round again next year.
+
+HANNAH: And the danger there is measuring what's easy rather than what the objective needs.
+
+JAMES: That's the big one. And the rhythm matters as much as the measures. In most teams I'd want a short monthly report against each objective and a proper quarterly review where you're allowed to change the tactics, while the strategy stays put unless the situation has genuinely changed.
+
+HANNAH: So control is where the plan gets updated, not just scored.
+
+JAMES: Exactly. Clicks are easy, by the way. Whether the new customers came back is harder. The attribution tear-down playbook in The Lens is useful here, because it tests whether the numbers on your dashboard reflect what actually drove the result.
+
+HANNAH: So, AI. PR Smith wrote about this himself, for the Chartered Institute of Marketing in September twenty twenty-five, alongside an AI edition of his SOSTAC guide. He named situation analysis, strategy, tactics and actions as the stages where AI is especially relevant. And his advice was to treat any AI-generated plan as a first draft only. He also argues that marketers should behave more like scientists, testing and adjusting all the time rather than writing a plan and waiting a year to find out.
+
+JAMES: Which I agree with. If you map it onto the three layers of AI we covered in the first Basics episode, chat helps with drafting and stress-testing, an agent can build the situation pack or the weekly control report, and the choices, the targets, the audience, the position, stay with people.
+
+HANNAH: I'd go a little further, actually. I think AI makes the model more useful, because the two evidence stages, situation and control, are exactly the ones teams skimp on when time is short.
+
+JAMES: That's our view too. AI takes out the hours that used to make a thorough situation analysis and a proper control loop too expensive for most teams. The quarterly planning ritual playbook shows how to run that loop every quarter rather than once a year.
+
+HANNAH: So, the jobs to hand over?
+
+JAMES: Get AI on this: the situation pack. That's the one that eats the most time.
+
+HANNAH: Give it last year's results, your customer research and a list of your main competitors' websites, and it hands back a draft situation analysis with three to five findings, each with the evidence under it, and a list of what it couldn't verify. A person still decides which findings matter.
+
+JAMES: Second, get AI on checking the plan you've already written.
+
+HANNAH: Paste in the draft plan and ask it to sort every line into the six SOSTAC stages. It hands back a table showing which stage each line belongs in, where tactics are sitting under strategy, and which objectives have no measure in control.
+
+JAMES: And third, the control report itself.
+
+HANNAH: Set it up as a monthly routine. Give it the objectives and the data exports, and each month it reports progress against each objective, what's moved, and the questions the team should discuss at the review. The prompts are in the show notes.
+
+JAMES: Let's finish with where people go wrong.
+
+HANNAH: From the article, three things. A situation analysis that's a data dump with no conclusions. Objectives that describe activity, like "post three times a week", instead of results. And tactics that don't trace back to any strategy.
+
+JAMES: I'd add one. Treating SOSTAC as a document you write once a year and file. It's meant to be a loop. And it scales down too. For a single campaign, give each stage two or three lines. The situation finding the campaign responds to, the one objective, the audience and position, the main activity, the owner and date, and the single number you'll judge it by. If any of those is blank, the campaign isn't ready to brief.
+
+HANNAH: That's a good test for any brief, really.
+
+JAMES: And on length, people ask how long a SOSTAC plan should be. As long as the decisions need and no longer. For an annual plan, the situation and control sections usually take most of the space, because that's where the evidence and the measures live. Strategy should fit on a page. If it doesn't, it usually isn't a strategy yet.
+
+HANNAH: I like that. The strategy section as the shortest part of the plan.
+
+JAMES: The shortest and the hardest to write.
+
+JAMES: So the takeaway. SOSTAC works because it makes you answer the questions in the right order, and AI now makes the two evidence stages cheap enough that there's no excuse to skip them.
+
+HANNAH: And the article has the full table of stages and common mistakes.
+
+JAMES: It's on manual-focus dot co dot uk, along with the rest of the Basics series. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, so the next one arrives on its own. And if you'd like a second pair of eyes on your own plan, book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.
