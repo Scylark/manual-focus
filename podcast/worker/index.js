@@ -14,34 +14,77 @@ export default {
       return new Response('Not found', { status: 404 });
     }
 
-    const object = request.method === 'HEAD'
-      ? await env.AUDIO.head(key)
-      : await env.AUDIO.get(key, { range: request.headers, onlyIf: request.headers });
-    if (!object) return new Response('Not found', { status: 404 });
+    // Parse the Range header ourselves so the 206 headers always match the
+    // bytes sent. Browsers stream audio with ranges (usually "bytes=0-"), and a
+    // malformed Content-Range makes them refuse to play.
+    const head = await env.AUDIO.head(key);
+    if (!head) return new Response('Not found', { status: 404 });
+    const size = head.size;
 
     const headers = new Headers();
-    object.writeHttpMetadata(headers);
+    head.writeHttpMetadata(headers);
     headers.set('content-type', 'audio/mpeg');
     headers.set('accept-ranges', 'bytes');
-    headers.set('etag', object.httpEtag);
+    headers.set('etag', head.httpEtag);
     headers.set('cache-control', 'public, max-age=86400');
     headers.set('access-control-allow-origin', '*');
+    headers.set('access-control-expose-headers', 'content-length, content-range, accept-ranges');
 
-    // A failed conditional request returns metadata but no body.
-    if (request.method === 'GET' && !('body' in object)) {
+    // An unchanged episode revalidated with its ETag needs no body.
+    const ifNoneMatch = request.headers.get('if-none-match');
+    if (ifNoneMatch && etagMatches(ifNoneMatch, head.httpEtag)) {
       return new Response(null, { status: 304, headers });
     }
 
-    const range = object.range;
-    if (request.method === 'GET' && range && request.headers.has('range')) {
-      const start = 'suffix' in range ? object.size - range.suffix : range.offset ?? 0;
-      const length = 'suffix' in range ? range.suffix : range.length ?? object.size - start;
-      headers.set('content-range', `bytes ${start}-${start + length - 1}/${object.size}`);
-      headers.set('content-length', String(length));
+    // HEAD ignores Range, as HTTP requires for anything but GET.
+    if (request.method === 'HEAD') {
+      headers.set('content-length', String(size));
+      return new Response(null, { headers });
+    }
+
+    const range = parseRange(request.headers.get('range'), size);
+    if (range === 'invalid') {
+      headers.set('content-range', `bytes */${size}`);
+      return new Response(null, { status: 416, headers });
+    }
+
+    if (range) {
+      const object = await env.AUDIO.get(key, { range: { offset: range.start, length: range.end - range.start + 1 } });
+      if (!object) return new Response('Not found', { status: 404 });
+      headers.set('content-range', `bytes ${range.start}-${range.end}/${size}`);
+      headers.set('content-length', String(range.end - range.start + 1));
       return new Response(object.body, { status: 206, headers });
     }
 
-    headers.set('content-length', String(object.size));
-    return new Response(request.method === 'HEAD' ? null : object.body, { headers });
+    const object = await env.AUDIO.get(key);
+    if (!object) return new Response('Not found', { status: 404 });
+    headers.set('content-length', String(size));
+    return new Response(object.body, { headers });
   },
 };
+
+// "bytes=start-end", "bytes=start-" or "bytes=-suffix". Returns null when there's
+// no usable Range header (serve the whole file), or 'invalid' when it can't be
+// satisfied. Multi-range requests get the whole file.
+function parseRange(header, size) {
+  const m = header && /^bytes=(\d*)-(\d*)$/.exec(header.trim());
+  if (!m || (m[1] === '' && m[2] === '')) return null;
+  let start, end;
+  if (m[1] === '') {
+    const suffix = Number(m[2]);
+    if (suffix === 0) return 'invalid';
+    start = Math.max(size - suffix, 0);
+    end = size - 1;
+  } else {
+    start = Number(m[1]);
+    end = m[2] === '' ? size - 1 : Math.min(Number(m[2]), size - 1);
+  }
+  if (start >= size || start > end) return 'invalid';
+  return { start, end };
+}
+
+// If-None-Match holds "*" or a comma-separated list of ETags, possibly weak.
+function etagMatches(header, etag) {
+  const bare = (t) => t.trim().replace(/^W\//, '');
+  return header.split(',').some((t) => t.trim() === '*' || bare(t) === bare(etag));
+}
