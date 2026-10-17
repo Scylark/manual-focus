@@ -357,10 +357,14 @@ gate in step 6, because the episode is written from the finished post.
    `node podcast/build-episode.mjs <slug>`. It writes
    `podcast/out/<slug>.mp3` (git ignores `podcast/out/`). A full run takes a
    few minutes, so run it in the background if your tools allow.
-6. **Publish.** `node podcast/publish-episode.mjs <slug>` uploads the MP3 to
-   the `podcast` release and adds the `podcast` block to the post's
-   frontmatter. Run `npm run build` again, since the post now renders the
-   player and the show notes.
+6. **Publish.** `node podcast/publish-episode.mjs <slug>` uploads the MP3 to the
+   `podcast` release and adds the `podcast` block to the post's frontmatter.
+   In a cloud session the direct upload is refused, so the script pushes the
+   MP3 to a `podcast-audio/<name>` branch, the "Upload podcast audio" Action
+   moves it onto the release and deletes the branch, and the script waits
+   (up to five minutes) for the file to appear. Don't send James the MP3 or
+   ask him to upload it. Run `npm run build` again, since the post now
+   renders the player and the show notes.
 
 If any of steps 2 to 6 fails (the checker won't pass after three rounds of
 fixes, ElevenLabs returns an error or runs out of credit, ffmpeg fails, the
@@ -534,7 +538,7 @@ episode and the post still ships.
 |---|---|---|
 | ElevenLabs key | Voices the script (Text to Dialogue, `eleven_v3`) | A network secret on the environment: allowed website `api.elevenlabs.io`, custom header `xi-api-key` with no prefix. The agent proxy adds it to each request, so the session never sees the key and `ELEVENLABS_API_KEY` stays unset |
 | `ffmpeg` and `ffprobe` | Join chunks, mix the music, read the duration | The environment's setup script, `apt-get update && apt-get install -y ffmpeg` |
-| `gh` with write access | Uploads the MP3 to the `podcast` release | Nothing to add. `gh` is pre-installed and the GitHub proxy signs its REST calls for the attached repo. Don't set `GH_TOKEN` |
+| `gh` and git push access | Gets the MP3 onto the `podcast` release | Nothing to add. `gh` is pre-installed and the GitHub proxy signs its REST calls and git pushes for the attached repo. It refuses GraphQL and release uploads, so the scripts use REST and the `podcast-audio/` branch and Action. Don't set `GH_TOKEN` |
 | Network access | Reach ElevenLabs and GitHub | The environment is on Full access |
 
 Locally, `ELEVENLABS_API_KEY` in the shell does the job of the network

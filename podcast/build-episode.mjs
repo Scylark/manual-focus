@@ -21,11 +21,12 @@
 // cloud) and ffmpeg on the PATH. ELEVENLABS_JAMES_VOICE and
 // ELEVENLABS_HANNAH_VOICE optionally override the show's voices.
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { request } from './http.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const MODEL = 'eleven_v3';
@@ -43,7 +44,6 @@ const OUTRO = { from: 148.5, to: 173.7, underLast: 12 };
 const FULL = 0.85; // music on its own, just under the voices
 const BED = 0.1; // music under speech
 
-const apiKey = process.env.ELEVENLABS_API_KEY;
 // Voice IDs aren't secret (they only work with the account's API key), so the
 // show's voices are the defaults and the env vars only override them.
 const VOICES = {
@@ -54,11 +54,8 @@ const VOICES = {
 const dryRun = process.argv.includes('--dry-run');
 const slug = process.argv.slice(2).find((a) => !a.startsWith('--'));
 if (!slug) throw new Error('Usage: node podcast/build-episode.mjs <slug> [--dry-run]');
-// In a cloud session the key is a network secret: the agent proxy adds the
-// xi-api-key header to requests for api.elevenlabs.io, so the session never
-// sees it and ELEVENLABS_API_KEY is unset. Run podcast/preflight.mjs to check
-// that a key reaches ElevenLabs either way.
-const authHeaders = apiKey ? { 'xi-api-key': apiKey } : {};
+// In a cloud session the key is a network secret the agent proxy adds, so
+// ELEVENLABS_API_KEY is unset there; http.mjs sends it when it is set.
 
 const script = readFileSync(join(ROOT, 'scripts', `${slug}.txt`), 'utf8');
 const turns = script
@@ -111,13 +108,10 @@ async function voice(chunk, i) {
   const file = join(outDir, `chunk-${String(i + 1).padStart(2, '0')}-${hash}.mp3`);
   if (existsSync(file)) return file;
 
-  const res = await fetch('https://api.elevenlabs.io/v1/text-to-dialogue?output_format=mp3_44100_128', {
-    method: 'POST',
-    headers: { ...authHeaders, 'content-type': 'application/json' },
-    body: JSON.stringify(body),
+  const res = request('https://api.elevenlabs.io/v1/text-to-dialogue?output_format=mp3_44100_128', {
+    method: 'POST', json: body, out: file,
   });
-  if (!res.ok) throw new Error(`ElevenLabs failed on chunk ${i + 1} (${res.status}): ${await res.text()}`);
-  writeFileSync(file, Buffer.from(await res.arrayBuffer()));
+  if (res.status !== 200) throw new Error(`ElevenLabs failed on chunk ${i + 1} (${res.status}): ${res.body.toString().slice(0, 500)}`);
   return file;
 }
 

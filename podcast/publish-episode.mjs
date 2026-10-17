@@ -12,6 +12,13 @@
 // frontmatter it would write (with placeholder numbers if there's no MP3 yet).
 // Needs the gh CLI signed in with write access to the repo, and ffprobe.
 //
+// Cloud sessions can't upload release files: GitHub's proxy there passes git
+// pushes and REST calls, but not binary uploads. When the direct upload fails,
+// the MP3 goes up on a podcast-audio/<name> branch instead, and the
+// "Upload podcast audio" Action (.github/workflows/podcast-audio.yml) moves it
+// onto the release and deletes the branch. The script waits for the asset to
+// appear before it writes the post's frontmatter.
+//
 // The first upload is <slug>.mp3. A republish never overwrites a live asset
 // (`gh release upload --clobber` deletes the old file before uploading, so a
 // failed upload would break the player on the live post). It uploads
@@ -38,11 +45,14 @@ const haveMp3 = existsSync(mp3);
 if (!haveMp3 && !dryRun) throw new Error(`No episode at ${mp3}; run build-episode.mjs first`);
 if (!existsSync(post)) throw new Error(`No post at ${post}`);
 
+// REST only: the cloud's GitHub proxy refuses GraphQL, which `gh release view` uses.
+const releaseAssets = () => execFileSync('gh', [
+  'api', `repos/${REPO}/releases/tags/${RELEASE}`, '--jq', '.assets[].name',
+], { stdio: ['ignore', 'pipe', 'pipe'] }).toString().split('\n');
+
 let assets = [];
 try {
-  assets = execFileSync('gh', [
-    'release', 'view', RELEASE, '--repo', REPO, '--json', 'assets', '--jq', '.assets[].name',
-  ], { stdio: ['ignore', 'pipe', 'pipe'] }).toString().split('\n');
+  assets = releaseAssets();
 } catch (err) {
   if (!dryRun) throw err; // a dry run can go without gh
 }
@@ -56,10 +66,43 @@ if (!dryRun) {
   const upload = join(dir, name);
   copyFileSync(mp3, upload);
   try {
-    execFileSync('gh', ['release', 'upload', RELEASE, upload, '--repo', REPO], { stdio: 'inherit' });
+    execFileSync('gh', ['release', 'upload', RELEASE, upload, '--repo', REPO], { stdio: ['ignore', 'inherit', 'pipe'] });
+  } catch (err) {
+    console.log(`Direct upload failed (${err.stderr?.toString().trim().split('\n')[0] || err.message}); staging it for the Action.`);
+    stage(name);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+}
+
+// Pushes the MP3 to podcast-audio/<name> as one commit on top of HEAD, built
+// with git plumbing so the working tree and index are untouched. The commit
+// carries HEAD's tree, which includes the workflow that does the upload.
+function stage(asset) {
+  const git = (args, opts = {}) => execFileSync('git', args, { cwd: join(ROOT, '..'), stdio: ['ignore', 'pipe', 'pipe'], ...opts }).toString().trim();
+  const branch = `podcast-audio/${asset.replace(/\.mp3$/, '')}`;
+  const index = join(mkdtempSync(join(tmpdir(), 'episode-index-')), 'index');
+  const env = { ...process.env, GIT_INDEX_FILE: index };
+  const blob = git(['hash-object', '-w', mp3]);
+  git(['read-tree', 'HEAD'], { env });
+  git(['update-index', '--add', '--cacheinfo', `100644,${blob},podcast/upload/${asset}`], { env });
+  const tree = git(['write-tree'], { env });
+  const commit = git(['commit-tree', tree, '-p', 'HEAD', '-m', `Podcast audio: ${asset}`]);
+  rmSync(dirname(index), { recursive: true, force: true });
+  // `+` replaces a staging branch a failed earlier attempt left behind.
+  git(['push', 'origin', `+${commit}:refs/heads/${branch}`]);
+  console.log(`Pushed ${branch}; waiting for the Action to upload it.`);
+
+  // The Action usually finishes in under a minute.
+  const deadline = Date.now() + 5 * 60 * 1000;
+  while (Date.now() < deadline) {
+    execFileSync('sleep', ['10']);
+    if (releaseAssets().includes(asset)) {
+      console.log(`The Action uploaded ${asset} to the release.`);
+      return;
+    }
+  }
+  throw new Error(`${asset} wasn't on the release after 5 minutes; check the "Upload podcast audio" Action run for ${branch}`);
 }
 
 const audio = `https://github.com/${REPO}/releases/download/${RELEASE}/${name}`;
