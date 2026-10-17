@@ -201,7 +201,9 @@ const articleSchema =
           '@type': 'WebPage',
           '@id': new URL(Astro.url.pathname, siteUrl).toString(),
         },
-        ...(podcast ? { audio: { '@id': `${new URL(Astro.url.pathname, siteUrl).toString()}#podcast` } } : {}),
+        // schema.org `audio` takes an AudioObject, so point at the episode's
+        // audio rather than the PodcastEpisode itself.
+        ...(podcast ? { audio: { '@id': `${new URL(Astro.url.pathname, siteUrl).toString()}#audio` } } : {}),
       }
     : null;
 
@@ -297,6 +299,7 @@ const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const audioObject = podcast
   ? {
       '@type': 'AudioObject',
+      '@id': `${pageUrl}#audio`,
       contentUrl: podcast.audio,
       encodingFormat: 'audio/mpeg',
       duration: isoDuration(podcast.duration),

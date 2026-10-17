@@ -56,7 +56,7 @@ const seriesSchema = {
           <BlogCard
             title={post.data.title}
             description={post.data.description}
-            date={post.data.date}
+            date={post.data.podcast!.published ?? post.data.date}
             slug={post.id}
             minutes={readingTime(post.body ?? '')}
             listenMinutes={Math.round(post.data.podcast!.duration / 60)}
