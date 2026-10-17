@@ -62,7 +62,7 @@ export async function GET(context: APIContext) {
     `- [Podcast feed](${site}${SHOW.feed})`,
     ...posts
       .filter((p) => p.data.podcast)
-      .map((p) => `- [${p.data.title}](${site}/blog/${p.id}/#podcast)${transcript(p.id) ? `: [transcript](${site}/podcast/transcripts/${p.id}.txt)` : ''}`),
+      .map((p) => `- [${p.data.title}](${site}/blog/${p.id}/#podcast)${transcript(p.id) ? `: [transcript](${site}/blog/${p.id}/#transcript)` : ''}`),
     '',
     '## Blog',
     '',
