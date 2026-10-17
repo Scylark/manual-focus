@@ -53,10 +53,15 @@ if (!/manual[- ]focus(\.| dot )co(\.| dot )uk/i.test(turns.slice(-3).map((t) => 
   warns.push('The close should point to the full article on manual-focus.co.uk');
 }
 
-// The close's call to action: subscribe, and get in touch with Manual Focus.
-const close = turns.slice(-4).map((t) => t.text).join(' ');
-if (!/\b(subscribe|follow)\b/i.test(close)) fails.push('The close needs the subscribe call to action (follow the show in Apple Podcasts, Spotify or wherever they listen)');
-if (!/working session|get in touch|talk to us|reach out/i.test(close)) fails.push('The close needs the Manual Focus call to action (book a free working session at manual-focus dot co dot uk)');
+// The close's call to action, in James's closing turns: follow the show
+// somewhere specific, and book a free working session with Manual Focus.
+const jamesClose = turns.slice(-3).filter((t) => t.speaker === 'JAMES').map((t) => t.text).join(' ');
+const subscribe = /\b(subscribe|follow)\b/i.test(jamesClose)
+  && /apple podcasts|spotify|wherever you (listen|get)/i.test(jamesClose);
+if (!subscribe) fails.push("James's close needs the subscribe call to action: follow the show in Apple Podcasts, Spotify or wherever they listen");
+const contact = /free working session/i.test(jamesClose)
+  && /manual[- ]focus(\.| dot )co(\.| dot )uk/i.test(jamesClose);
+if (!contact) fails.push("James's close needs the Manual Focus call to action: book a free working session at manual-focus dot co dot uk");
 
 let tagged = 0;
 for (const t of turns) {
