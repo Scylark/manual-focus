@@ -30,15 +30,22 @@ export default {
     headers.set('access-control-allow-origin', '*');
     headers.set('access-control-expose-headers', 'content-length, content-range, accept-ranges');
 
+    // An unchanged episode revalidated with its ETag needs no body.
+    const ifNoneMatch = request.headers.get('if-none-match');
+    if (ifNoneMatch && etagMatches(ifNoneMatch, head.httpEtag)) {
+      return new Response(null, { status: 304, headers });
+    }
+
+    // HEAD ignores Range, as HTTP requires for anything but GET.
+    if (request.method === 'HEAD') {
+      headers.set('content-length', String(size));
+      return new Response(null, { headers });
+    }
+
     const range = parseRange(request.headers.get('range'), size);
     if (range === 'invalid') {
       headers.set('content-range', `bytes */${size}`);
       return new Response(null, { status: 416, headers });
-    }
-
-    if (request.method === 'HEAD') {
-      headers.set('content-length', String(size));
-      return new Response(null, { headers });
     }
 
     if (range) {
@@ -74,4 +81,10 @@ function parseRange(header, size) {
   }
   if (start >= size || start > end) return 'invalid';
   return { start, end };
+}
+
+// If-None-Match holds "*" or a comma-separated list of ETags, possibly weak.
+function etagMatches(header, etag) {
+  const bare = (t) => t.trim().replace(/^W\//, '');
+  return header.split(',').some((t) => t.trim() === '*' || bare(t) === bare(etag));
 }
