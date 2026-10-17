@@ -4,9 +4,9 @@ date: 2026-10-08
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "OpenAI put GPT-6 and Intelligent UI into ChatGPT on 7 October 2026, so answers now arrive as comparisons, maps and tools. Brand calculators face a new rival."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/chatgpt-gpt-6-intelligent-ui-marketing-teams.mp3"
-  duration: 438
-  bytes: 5258180
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/chatgpt-gpt-6-intelligent-ui-marketing-teams-20261017223552.mp3"
+  duration: 457
+  bytes: 5488580
   published: 2026-10-16
 faq:
   - question: "What is Intelligent UI in ChatGPT?"

@@ -109,7 +109,11 @@ if (!frontmatter) throw new Error(`Couldn't read the frontmatter in ${post}`);
 
 // An episode keeps its first publish date when it's re-voiced, so podcast apps
 // don't treat a fix as a new episode.
+// An episode published before `published` existed was dated by its post in
+// the feed, so it keeps that date rather than becoming today's.
+const hadEpisode = /^podcast:\n/m.test(frontmatter);
 const published = frontmatter.match(/^podcast:\n(?:[ \t]+.*\n)*?[ \t]+published:\s*(\S+)/m)?.[1]
+  ?? (hadEpisode ? frontmatter.match(/^date:\s*["']?([0-9-]+)/m)?.[1] : undefined)
   ?? new Date().toISOString().slice(0, 10);
 
 // Replace any existing podcast block, then add the new one after `description`.

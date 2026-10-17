@@ -4,9 +4,9 @@ date: 2026-09-24
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "OpenAI's ChatGPT Ads app for Shopify began reaching merchants outside the US on 23 September 2026, and the UK already has self-serve access."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/chatgpt-ads-shopify-uk-ecommerce.mp3"
-  duration: 357
-  bytes: 4285798
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/chatgpt-ads-shopify-uk-ecommerce-20261017223546.mp3"
+  duration: 369
+  bytes: 4428740
   published: 2026-10-16
 faq:
   - question: "Can UK businesses advertise on ChatGPT?"

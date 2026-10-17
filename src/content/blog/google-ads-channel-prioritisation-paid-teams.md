@@ -4,9 +4,10 @@ date: 2026-10-15
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "Google Ads added channel prioritisation and budget allocation on 14 October 2026. Search campaigns using Display change in February 2027, so audit them now."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ads-channel-prioritisation-paid-teams.mp3"
-  duration: 439
-  bytes: 5264136
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ads-channel-prioritisation-paid-teams-20261017223600.mp3"
+  duration: 456
+  bytes: 5475101
+  published: 2026-10-15
 faq:
   - question: "What is channel prioritisation in Google Ads?"
     answer: "Channel prioritisation is an optional Google Ads setting announced on 14 October 2026. Advertisers mark channels such as Google Search, search partners and the Google Display Network as high or low priority. Google AI spends on high priority channels first, within any Target CPA or Target ROAS goal, and sends remaining budget to low priority channels. All channels start as high priority."

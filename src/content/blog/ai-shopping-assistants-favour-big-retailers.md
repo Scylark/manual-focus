@@ -4,9 +4,9 @@ date: 2026-10-01
 tags: ["ai-briefing", "ai", "brand"]
 description: "A Lightspeed study published 29 September 2026 found AI assistants picked national chains over smaller rivals up to 94% of the time. Here is how to respond."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/ai-shopping-assistants-favour-big-retailers.mp3"
-  duration: 413
-  bytes: 4960698
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/ai-shopping-assistants-favour-big-retailers-20261017223541.mp3"
+  duration: 436
+  bytes: 5228400
   published: 2026-10-16
 faq:
   - question: "Do ChatGPT and Google AI favour big retailers in shopping answers?"

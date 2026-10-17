@@ -4,9 +4,9 @@ date: 2026-10-02
 tags: ["ai-briefing", "ai", "brand"]
 description: "DemandSphere data published 1 October 2026 shows AI Overviews on over 80% of tracked brand searches, up from 26%. Check what Google says about your brand."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ai-overviews-brand-searches.mp3"
-  duration: 384
-  bytes: 4613060
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ai-overviews-brand-searches-20261017223612.mp3"
+  duration: 398
+  bytes: 4774497
   published: 2026-10-16
 faq:
   - question: "Does Google show AI Overviews when people search for a brand name?"

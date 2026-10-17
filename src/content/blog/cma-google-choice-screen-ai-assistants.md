@@ -4,9 +4,9 @@ date: 2026-09-23
 tags: ["ai-briefing", "ai", "marketing-strategy"]
 description: "The CMA wants AI assistants like ChatGPT on Google's UK Android and Chrome choice screens, with a yearly prompt, and that raises the value of AI citations."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/cma-google-choice-screen-ai-assistants.mp3"
-  duration: 369
-  bytes: 4427800
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/cma-google-choice-screen-ai-assistants-20261017223556.mp3"
+  duration: 380
+  bytes: 4564159
   published: 2026-10-16
 faq:
   - question: "Will ChatGPT appear on Google's search choice screen in the UK?"
