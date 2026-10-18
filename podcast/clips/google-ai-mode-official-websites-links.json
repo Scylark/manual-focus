@@ -1,0 +1,33 @@
+{
+  "slug": "google-ai-mode-official-websites-links",
+  "title": "What Google's new AI Mode links mean for brand websites",
+  "url": "https://manual-focus.co.uk/blog/google-ai-mode-official-websites-links/",
+  "clips": [
+    {
+      "from": "11.1",
+      "to": "13.3",
+      "why": "Opens on a recognisable problem, the returns PDF and the four delivery pages, and ends on a clear rule of one page per task.",
+      "hook": "Give your AI your Search Console queries and help-desk tags and it ranks the 10 tasks customers ask about most.",
+      "youtube": {
+        "title": "Why your returns page matters in Google AI Mode",
+        "description": "Google is testing a section in AI Mode for the official site that can complete a task, such as a return or a booking. James and Hannah on why duplicate and hidden task pages put that slot at risk.\n\nFull episode and article: https://manual-focus.co.uk/blog/google-ai-mode-official-websites-links/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI your Search Console queries and help-desk tags and it ranks the 10 tasks customers ask about most.\n\nGoogle is testing a section at the top of some AI answers for the official website that can complete a task, such as a return or a booking.\n\nThe risk is the state of those pages. The returns policy is a PDF, the warranty form is behind a login and the delivery page exists in four versions. If Google can't tell which is official, it might pick a retailer or a forum thread.\n\nOur view is one page per task, owned by you, crawlable, with a plain title and the answer in the first paragraph.\n\nStart by finding the tasks. Your AI hands back the 10 that matter most, ranked, with the page that answers each.\n\nThe full episode and article are at https://manual-focus.co.uk/blog/google-ai-mode-official-websites-links/ (the podcast voices are AI-generated).",
+      "words": 139,
+      "text": "Here's where I think a lot of brands will trip up. The returns policy is a PDF. The warranty form is behind a login. And there are four versions of the delivery page across the UK site, the EU site and some campaign microsite nobody's turned off. Which is exactly the problem. If Google can't tell which page is the official one, it'll pick something. That might be a retailer's help page or a forum thread. And if you've got several near-identical pages for the same task, the one Google chooses might not be the one your team actually maintains. So our view is pretty simple. Take your top ten customer tasks and treat each one like a search product. One page per task, owned by you, crawlable, with a plain title, and the answer in the first paragraph."
+    },
+    {
+      "from": "27.1",
+      "to": "30.3",
+      "why": "Two Get AI on this jobs back to back, finding the top customer tasks and auditing their pages, each with what goes in and what comes back.",
+      "hook": "Give your AI your Search Console queries and help-desk tags and it ranks the 10 tasks customers ask about most.",
+      "youtube": {
+        "title": "Get AI to find and audit your top customer task pages",
+        "description": "Hannah and James on two jobs to hand to AI. Find the customer tasks people search for most, then check whether each has one clear page that answers it.\n\nFull episode and article: https://manual-focus.co.uk/blog/google-ai-mode-official-websites-links/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI your Search Console queries and help-desk tags and it ranks the 10 tasks customers ask about most.\n\nGoogle is testing an official websites section at the top of AI Mode answers, for tasks like returns, warranty claims and bookings. Whether your page gets it depends on Google finding one clear answer on your site.\n\nTwo jobs to hand to AI. First, give it your Search Console queries and your help-desk tags, and it gives you the 10 tasks people ask about most, ranked, with the page you think answers each.\n\nSecond, have it audit those pages for duplicates, answers stuck in a PDF or behind a login, and opening paragraphs that miss the question. It drafts the fixes too. Your team still makes the decisions.\n\nThe prompts are in the show notes, with the full episode and article at https://manual-focus.co.uk/blog/google-ai-mode-official-websites-links/ (the podcast voices are AI-generated).",
+      "words": 115,
+      "text": "Get AI on finding your top customer tasks. The returns, the deliveries, the warranty claims, the bookings. Give it your Search Console queries and your help-desk tags, and it hands you back the ten tasks people ask about most, ranked, with the page you think answers each one. Second job. Get your AI to audit those pages. Is there one page per task, or four? Is the answer stuck in a PDF or behind a login? Does the first paragraph actually answer the question? And it'll draft the fixes. A new opening paragraph, which duplicates to merge, which PDF to turn into a proper page. The decisions stay with your team, but the legwork's done."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "chatgpt-gpt-6-intelligent-ui-marketing-teams",
+  "title": "What ChatGPT's GPT-6 Intelligent UI means for marketing teams",
+  "url": "https://manual-focus.co.uk/blog/chatgpt-gpt-6-intelligent-ui-marketing-teams/",
+  "clips": [
+    {
+      "from": "14.1",
+      "to": "15.3",
+      "why": "Opens on a plain description of how ChatGPT fills a comparison and lands a clear view on what brand tools need now.",
+      "hook": "Your AI can rebuild each tool on your site and show which ones ChatGPT can now match.",
+      "youtube": {
+        "title": "Why a generic calculator is no longer a safe traffic asset",
+        "description": "ChatGPT's GPT-6 can now build small tools and side-by-side comparisons inside an answer. James and Hannah on why scattered product facts risk a blank cell, and why brand tools need something ChatGPT can't make up.\n\nFull episode and article: https://manual-focus.co.uk/blog/chatgpt-gpt-6-intelligent-ui-marketing-teams/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Your AI can rebuild each tool on your site and show which ones ChatGPT can now match.\n\nSince 7 October, ChatGPT answers can arrive as side-by-side comparisons and small tools built on request. OpenAI's own launch example was a savings calculator.\n\nOur view is that a generic calculator or comparison table is no longer a defensible traffic asset. Rebuild those tools around what ChatGPT can't make up. Live prices, stock, a customer's own account data, a quote you'll honour.\n\nStart with an audit. Give your AI a list of every calculator, quiz, guide and comparison table on your site, with traffic and leads from your analytics. It builds its own version of each and hands back a table of which it can match and which depend on something only you have.\n\nThe podcast voices are AI-generated. Full episode and article at https://manual-focus.co.uk/blog/chatgpt-gpt-6-intelligent-ui-marketing-teams/",
+      "words": 113,
+      "text": "When ChatGPT puts three products in columns, it fills each cell with whatever it found about price, specs and delivery. If your facts are scattered across PDFs, images and product pages that don't match, you risk a blank or wrong cell next to a competitor whose numbers were easy to read. But OpenAI hasn't said what data the comparisons draw on, so that's our inference from how ChatGPT search already works. So our view at Manual Focus is that a generic calculator or comparison table is no longer a defensible traffic asset. Rebuild those tools around what ChatGPT can't make up. Live prices, stock, a customer's own account data, a quote you'll honour."
+    },
+    {
+      "from": "21.3",
+      "to": "24.2",
+      "why": "Two Get AI on this jobs that stand alone, each naming the input and the table that comes back.",
+      "hook": "Your AI can rebuild each tool on your site and show which ones ChatGPT can now match.",
+      "youtube": {
+        "title": "Get AI to audit your website tools against ChatGPT",
+        "description": "Two jobs to hand to AI now ChatGPT can build tools and comparisons in the chat. Check which of your calculators and guides it can match, then make sure price, specs and delivery terms are readable on every product page.\n\nFull episode and article: https://manual-focus.co.uk/blog/chatgpt-gpt-6-intelligent-ui-marketing-teams/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Your AI can rebuild each tool on your site and show which ones ChatGPT can now match.\n\nGPT-6 in ChatGPT can build a working calculator from a one-line request and lay products out in columns. That puts every simple tool on your website up against one a buyer can make in the chat.\n\nGive your AI a list of your calculators, quizzes, guides and comparison tables, with sessions and leads. It builds its own version of each and tells you which of yours depend on something only you have, like live prices or account data.\n\nThen give it your product page URLs. It checks whether price, key specs, dimensions and delivery terms are in plain text and drafts a consistent fact block for each product.\n\nThe prompts are in the show notes.\n\nThe podcast voices are AI-generated. Full episode and article at https://manual-focus.co.uk/blog/chatgpt-gpt-6-intelligent-ui-marketing-teams/",
+      "words": 126,
+      "text": "Get AI on your interactive tools. Give it a list of every calculator, quiz, guide and comparison table on your site, with the traffic and leads from your analytics export. It builds its own version of each one and hands back a table: which of yours it can match, and which depend on something only you have, like live prices or account data. What you add after that is your team's call. Second. Get your AI on your product pages. Give it the URLs and it checks whether price, key specs, dimensions and delivery terms are readable in plain text, in the same format on every page, or buried in images and downloads. It flags the gaps and drafts a consistent fact block for each product."
+    }
+  ]
+}

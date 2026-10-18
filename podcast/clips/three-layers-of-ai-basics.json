@@ -1,0 +1,33 @@
+{
+  "slug": "three-layers-of-ai-basics",
+  "title": "The three layers of AI, a basics guide for marketers",
+  "url": "https://manual-focus.co.uk/blog/three-layers-of-ai-basics/",
+  "clips": [
+    {
+      "from": "22.5",
+      "to": "25.4",
+      "why": "Opens on a plain statement about how agents stop, and lands on which jobs make the best first agent jobs.",
+      "hook": "Give AI a list of your team's recurring jobs, and it sorts each into chat, agent or orchestration.",
+      "youtube": {
+        "title": "What makes a good first AI agent job in marketing",
+        "description": "An AI agent stops when it thinks the job is finished, so someone has to say what finished looks like. James and Hannah on writing the checks first, and why the dull jobs make the best first agent jobs.\n\nFull episode and article: https://manual-focus.co.uk/blog/three-layers-of-ai-basics/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI a list of your team's recurring jobs, and it sorts each into chat, agent or orchestration.\n\nThe agent layer is where I'd worry most in a real team. An agent stops when it thinks the job is finished. If nobody wrote down what finished looks like, which data to trust and where to stop and ask, you get a confident report built on the wrong export.\n\nSo write the checks before the first run, not after the first mistake. And start with the dull jobs. Reporting, audits, briefing packs. They repeat, they're easy to check, and the time saved shows up in the first week.\n\nThe sorting job tells you which three to hand over first, with the checks each one needs.\n\nThe podcast voices are AI-generated. The full guide and episode are at https://manual-focus.co.uk/blog/three-layers-of-ai-basics/",
+      "words": 135,
+      "text": "An agent stops when it thinks the job is finished. If you haven't said what finished looks like, which data to trust and where to stop and ask, it decides for itself. That's the part I'd worry about in a real team. The tech works, and then nobody wrote down what good looks like. So you get a confident report built on the wrong export. Which is why the article points to the evaluation frameworks playbook in The Lens. Write the checks before the first run, not after the first mistake. Our view is that the best first agent jobs are the dull ones. Reporting, audits, briefing packs. They repeat, they have an obvious finished state, they're easy to check, and the time saved shows up in the first week. Nobody needs convincing after that."
+    },
+    {
+      "from": "37.2",
+      "to": "40.2",
+      "why": "A complete Get AI on this job that sorts a team's work into the three layers, followed by the brief for a first agent job.",
+      "hook": "Give AI a list of your team's recurring jobs, and it sorts each into chat, agent or orchestration.",
+      "youtube": {
+        "title": "Use AI to find which marketing jobs to hand to an agent",
+        "description": "Hand AI a list of your team's recurring jobs and it sorts each one into chat, agent or orchestration, with the best candidates to delegate first. Then get it to write the brief for your first agent job.\n\nFull episode and article: https://manual-focus.co.uk/blog/three-layers-of-ai-basics/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI a list of your team's recurring jobs, and it sorts each into chat, agent or orchestration.\n\nWhen someone in a marketing team says they're using AI, they could mean three very different things. Knowing which layer each job sits on today tells you where to start.\n\nList the jobs with who does them and how long they take. What comes back is a table with the layer for each, the checks each would need and the three best candidates to delegate first.\n\nThen pick the dull one, say the weekly channel report, and get AI to write the agent's instructions, including where it must stop and ask a person. Your team lead still signs off the rules.\n\nThe podcast voices are AI-generated. The prompts, episode and full guide are at https://manual-focus.co.uk/blog/three-layers-of-ai-basics/",
+      "words": 124,
+      "text": "Get AI on this: work out which layer each job in your team sits on today. Give it a list of the recurring marketing jobs your team does, with who does them and how long they take, and it hands back a table sorting each one into chat, agent or orchestration, with the checks each would need and the three best candidates to delegate first. Second, get AI on your first agent brief. Pick the dull job, say the weekly channel report. Give it the job, the data it should use and what a finished report looks like, and it writes the full instructions for an agent, including where it must stop and ask a person. Your team lead still signs off the rules."
+    }
+  ]
+}

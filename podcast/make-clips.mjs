@@ -26,8 +26,9 @@
 //    <slug>-<n>.mp4, <slug>-<n>.jpg (a frame for review) and <slug>-<n>.md
 //    (the copy, ready to paste).
 //
-// Usage: node podcast/make-clips.mjs <slug> [--repick] [--pick-only]
+// Usage: node podcast/make-clips.mjs <slug> [--repick] [--pick-only] [--time-only]
 // --pick-only stops after the choice, so it needs no ElevenLabs key.
+// --time-only aligns the audio and prints each clip's length, without rendering.
 // Needs: the `claude` CLI (for a new pick), ELEVENLABS_API_KEY, ffmpeg,
 // python3 with Pillow, and macOS's Arial Narrow and Menlo fonts.
 
@@ -60,6 +61,7 @@ const args = process.argv.slice(2);
 const slug = args.find((a) => !a.startsWith('--'));
 const repick = args.includes('--repick');
 const pickOnly = args.includes('--pick-only');
+const timeOnly = args.includes('--time-only');
 if (!slug) throw new Error('Usage: node podcast/make-clips.mjs <slug> [--repick] [--pick-only]');
 
 const paths = {
@@ -226,7 +228,7 @@ try {
 } catch {
   missing.push('python3 with Pillow');
 }
-if (missing.length) {
+if (missing.length && !timeOnly) {
   console.log(`RENDER SKIPPED: no ${missing.join(', ')}. Run node podcast/make-clips.mjs ${slug} on James's Mac.`);
   process.exit(0);
 }
@@ -318,6 +320,11 @@ for (const [n, clip] of choice.clips.entries()) {
   const end = Math.min(clipWords.at(-1).end + TAIL, after ? after.start - 0.03 : Infinity);
   const speech = end - start;
   const total = speech + END_CARD;
+  if (timeOnly) {
+    const ok = total >= MIN_TOTAL && total <= MAX_TOTAL;
+    console.log(`Clip ${n + 1}: ${total.toFixed(1)}s with the end card${ok ? '' : `, outside ${MIN_TOTAL} to ${MAX_TOTAL}`}`);
+    continue;
+  }
   if (total < MIN_TOTAL || total > MAX_TOTAL) {
     throw new Error(`Clip ${n + 1} would run ${total.toFixed(1)}s with its end card (limits ${MIN_TOTAL} to ${MAX_TOTAL}). Edit from/to in ${paths.choice} or rerun with --repick.`);
   }
@@ -395,4 +402,5 @@ for (const [n, clip] of choice.clips.entries()) {
   clipFiles.push(`${mp4} (${total.toFixed(1)}s)`);
 }
 
+if (timeOnly) process.exit(0);
 console.log(`Wrote:\n  ${clipFiles.join('\n  ')}\nCopy and review frames are beside them in ${paths.out}`);
