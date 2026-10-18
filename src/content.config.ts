@@ -14,6 +14,7 @@ const ALLOWED_TAGS = [
   'endurance-sports',
   'leadership',
   'productivity',
+  'basics',
 ] as const;
 
 const blog = defineCollection({

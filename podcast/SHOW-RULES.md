@@ -84,7 +84,8 @@ would.
 
 ## Shape of an episode
 
-About 6 to 8 minutes, roughly 900 to 1,100 words of script.
+About 6 to 8 minutes, roughly 900 to 1,100 words of script. Basics episodes
+run longer; see "Basics episode" below.
 
 1. **Cold open (JAMES, 2–3 sentences).** The news and why a marketer should
    care, then introduce the show and Hannah, in different words each time.
@@ -113,6 +114,40 @@ About 6 to 8 minutes, roughly 900 to 1,100 words of script.
    button", no hard sell. The closing music comes in under these last lines
    and finishes the episode, so end on a natural sign-off, not a set
    phrase.
+
+## Basics episode
+
+Posts tagged `basics` are evergreen explainers (the three layers of AI,
+SOSTAC, owned, paid and earned media and so on), and their episodes are
+longer: about 12 to 15 minutes, roughly 1,800 to 2,200 words of script.
+`check-episode.mjs` reads the post's tags and applies these limits. They go
+out on the same feed as every other episode; there's no separate show.
+Everything else in these rules applies, with these changes to the shape:
+
+1. **Cold open (JAMES).** The question the episode answers and who it's for,
+   then the show and Hannah. Say it's part of the Basics series.
+2. **First principles (mostly HANNAH).** Hannah explains the idea from the
+   ground up, where it comes from and who coined it, naming the source the
+   way the article does. Ideas from a named thinker (Seth Godin, PR Smith)
+   are attributed on air and paraphrased, never quoted at length.
+3. **How real teams use it (JAMES leads).** Three or four exchanges, one per
+   part of the article, where James grounds each idea in how marketing teams
+   actually work: who owns it, where it goes wrong, what it looks like in a
+   plan or a brief. He speaks from the practitioner's view, but never invents
+   a client, a result or a story; "in most teams" and "what you'll usually
+   see" are fine, "a client of ours" is not.
+4. **Connect the dots.** Join the episode to the rest of the Basics series and
+   to the earlier posts it builds on, as in the daily episodes.
+5. **Get AI on this.** As for every episode: two or three jobs, show-notes
+   line at the end.
+6. **Where people go wrong (HANNAH and JAMES).** The common mistakes, in place
+   of "What we don't know yet", unless the topic has real open questions.
+7. **Close.** As for every episode, including both parts of the call to
+   action.
+
+Turns can run a little longer when Hannah is explaining a concept, but keep
+each under about 30 seconds and let James interrupt with the question a
+listener would ask.
 
 ## Get AI on this
 

@@ -1,0 +1,115 @@
+JAMES: Every channel a brand uses is one of three things. Something it owns, something it pays for, or something it earns. That split has been standard vocabulary for well over a decade, and it's still the quickest way I know to see what's wrong with a media plan. I'm James Vickers, this is Manual Focus, and in this Basics episode Hannah and I are going through owned, paid and earned media.
+
+HANNAH: Hi James. And this one builds on three pieces we published back in the spring, on owned, paid and earned channels in the AI era. So today's the foundation those three were standing on.
+
+JAMES: That's right. Those were about what's changing. This is about what the words mean. Let's start with definitions.
+
+HANNAH: Owned media is any channel the brand controls. Your website, your email list, your app, your blog, this podcast. Paid media is attention you buy. Search ads, social ads, display, television, radio, outdoor, sponsorship. And earned media is what other people choose to say or share about you. Press coverage, reviews, mentions, word of mouth, and these days, citations in AI answers.
+
+JAMES: And where does the framework come from? It feels like it's always been there.
+
+HANNAH: It became standard through a Forrester report in December two thousand and nine, by an analyst called Sean Corcoran, called No Media Should Stand Alone. The title is the argument. The summary says all three can play specific roles in meeting marketers' objectives, especially when they work together. And it uses a lovely image. Paid media as a catalyst, and owned media built out into a solar system of long-term touchpoints.
+
+JAMES: The solar system is still the best way to picture it, I think. Owned at the centre, paid pushing attention towards it, and earned orbiting round it in conversations you don't control.
+
+HANNAH: So take owned first. What does it look like in a real team?
+
+JAMES: The website, the email list and the app, mostly. The thing that makes owned media valuable is that you keep the audience. Every subscriber is someone you can reach again without paying a platform or asking its permission. And the value builds over time, which is also its weakness. It's slow.
+
+HANNAH: This is where Seth Godin comes in, with permission marketing.
+
+JAMES: Explain it from the start, because people often think it just means opt-in boxes.
+
+HANNAH: Godin wrote a book called Permission Marketing, and he summed the idea up in a blog post in two thousand and eight. He describes it as the privilege, not the right, of delivering messages that are anticipated, personal and relevant to people who want to get them. So it's not the tick box. It's whether the person is actually expecting to hear from you and glad when you turn up.
+
+JAMES: And that's the useful test for an email list. A smaller list of people who look forward to your emails is worth more than a big one of people who never asked. In most teams the opposite happens. The list grows through competitions and checkout boxes, and then everyone wonders why open rates keep falling.
+
+HANNAH: And the AI-era version of owned?
+
+JAMES: That was the argument in the owned channels piece. The website should behave like a product that ships and tests every week, not something you rebuild every few years. And it has to be the clearest, most citable source on the questions your customers ask, because AI answers are reading it too. The lifecycle journey builder and the subscription and membership playbooks in The Lens show how to turn an owned audience into repeat revenue.
+
+HANNAH: Then paid.
+
+JAMES: Paid is attention on demand. Its strength is control over timing and reach. You can be in front of a chosen audience tomorrow. Its weakness is that the reach stops when the money stops. It's also where the above-the-line and below-the-line split mostly lives, from mass television to tightly targeted retargeting, which is our other Basics episode on channels.
+
+HANNAH: And there's a regulatory point in the article about paid having to look like paid.
+
+JAMES: There is, and it's important in the UK. Rule two point one of the CAP Code, which the Advertising Standards Authority enforces, says marketing communications must be obviously identifiable as such. And rule two point four says marketers and publishers must make clear that advertorials are marketing communications. So a sponsored article or a paid creator post is paid media, however much it looks like earned.
+
+HANNAH: That's a line some brands would like to blur.
+
+JAMES: [dryly] It's a line the regulator would like you not to. And on how paid works now, the paid channels piece we published in April covers how the platforms' bidding agents run most of the auction, and what they reward. Creative volume, clean data and a strong landing page.
+
+HANNAH: So earned. That's the one that feels least controllable.
+
+JAMES: Because it is. Earned is what other people choose to say or share. You can't buy it and you can't guarantee it, which is exactly why audiences trust it more. It mostly follows from having something worth talking about. A remarkable product, a sharp opinion, original data.
+
+HANNAH: And the earned piece in the AI-era series made the point that journalists now use AI themselves.
+
+JAMES: It did, and that changed what earns coverage. We've got a separate Basics episode on PR next, so I won't go deep here. But the earned-media pitch generator playbook is the practical tool. It matches stories to the journalists who actually cover that beat.
+
+HANNAH: Can we do the awkward one? Social media. Owned, paid or earned?
+
+JAMES: All three, which is why it causes arguments. Your brand's own profile is owned content, but the platform controls who sees it. So a lot of marketers call it rented. Boosted posts and social ads are paid. Other people's posts and shares about you are earned.
+
+HANNAH: And there's a model that solves that by adding a fourth type.
+
+JAMES: The PESO model.
+
+HANNAH: Gini Dietrich created it and launched it with her book Spin Sucks in twenty fourteen. Paid, earned, shared and owned. Shared covers content and engagement on social platforms. PR teams tend to prefer it, because it gives social conversation its own place rather than splitting it between owned and earned.
+
+JAMES: And media planners mostly stick with three. Either works, as long as the team uses one consistently.
+
+HANNAH: I can see why PR people like the fourth type, though. A comment thread under your post behaves differently from your own post, and differently again from a journalist's article.
+
+JAMES: It does. It's faster, less controllable and much closer to word of mouth. If your team spends a lot of time there, PESO probably fits better.
+
+HANNAH: I'd add one thing on rented. The platform can change the rules whenever it likes.
+
+JAMES: That's the risk in one sentence. You can spend years building a following on a platform and then watch its reach fall when the platform decides to show fewer brand posts. Which is another argument for treating every social profile as a way to bring people back to something you own, rather than as the destination.
+
+HANNAH: And how do you measure each of the three? I'd assume they can't share one scorecard.
+
+JAMES: They can't, and trying to is how earned and owned lose budget arguments. Owned is best measured by the audience you can reach again, subscribers, logged-in users, returning visitors. Paid by cost per result against the objective. And earned by the quality of the coverage and who's citing you, including whether AI answers describe the brand accurately. Then you review the three together, because each one feeds the others.
+
+HANNAH: So how should the three work together?
+
+JAMES: Use paid and earned to grow owned. A paid campaign that builds the email list keeps paying off after the budget stops. Coverage that links to a genuinely useful page on your site brings readers you can keep. And good owned content, clear and well sourced, gives journalists and AI answers something to cite. So the loop runs both ways.
+
+HANNAH: And where do most brands get that wrong?
+
+JAMES: Our view is that most brands under-invest in owned because its returns are slow, and then overspend on paid to make up for an audience they never built. So start any audit with owned, and judge every paid and earned activity partly by how much owned audience it leaves behind.
+
+HANNAH: There's a step-by-step version of that audit in the article.
+
+JAMES: Four steps. List every channel and sort it into owned, paid or earned, noting the rented ones separately. Give each type a job, so owned for permission and conversion, paid for reach, earned for credibility. Check the hand-offs, whether paid campaigns are growing the list and whether coverage links to your pages. And measure each one on its own terms.
+
+HANNAH: Which is a nice set of jobs to hand over.
+
+JAMES: It is. Get AI on this: the media audit itself.
+
+HANNAH: Give it a list of every channel you use, with spend and results where you have them, and it sorts each one into owned, paid, earned or rented, says what job each is doing, and flags any type with no clear job.
+
+JAMES: Second, get AI on checking the hand-offs.
+
+HANNAH: Give it last quarter's paid campaigns and your list growth over the same weeks, and it shows which campaigns left owned audience behind and which didn't. It'll say plainly where the data can't connect the two.
+
+JAMES: And third, the permission check on your email programme.
+
+HANNAH: Give it your last ten emails and how people joined the list, and it scores each email against Godin's test, anticipated, personal and relevant, with a line on how to fix the weakest. The prompts are in the show notes.
+
+JAMES: Common mistakes, to finish.
+
+HANNAH: Treating a social profile as owned when the platform controls its reach. Building a big email list with no permission behind it. Paid content passing itself off as earned, which in the UK runs into the CAP Code. And judging earned media by volume of coverage instead of who's covering you.
+
+JAMES: And one of mine. Running the three as separate teams with separate targets. The paid team hits its numbers, the PR team hits its numbers, and nobody's job is to make sure the audience ends up somewhere you own.
+
+HANNAH: Which is exactly the Forrester point from two thousand and nine.
+
+JAMES: No media should stand alone. So the takeaway. Owned is what you control, paid is what you buy, earned is what others give you by choice, and the best plans use the second two to build the first.
+
+HANNAH: The full guide, with the comparison table, links to all three AI-era pieces.
+
+JAMES: It's on manual-focus dot co dot uk. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and the PR episode will arrive on its own. And if you'd like help rebalancing your own media mix, book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.
