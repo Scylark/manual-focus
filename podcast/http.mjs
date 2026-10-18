@@ -15,8 +15,9 @@ import { join } from 'node:path';
 // `out` when given. Never throws on an HTTP error status. `out` only ever
 // holds a complete 2xx response: curl writes to `<out>.part`, which is renamed
 // on success and deleted otherwise, so a cut-off download can't be mistaken
-// for a cached chunk.
-export function request(url, { method = 'GET', json, out } = {}) {
+// for a cached chunk. `form` sends multipart fields the way curl's -F does,
+// so a value starting with @ uploads that file.
+export function request(url, { method = 'GET', json, form, out } = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'podcast-http-'));
   const bodyFile = out ? `${out}.part` : join(dir, 'body');
   const args = ['-sS', '-X', method, url, '-o', bodyFile, '-w', '%{http_code}'];
@@ -31,6 +32,15 @@ export function request(url, { method = 'GET', json, out } = {}) {
     args.push('-H', `@${headerFile}`);
   }
   if (json !== undefined) args.push('--data-binary', '@-');
+  for (const [name, value] of Object.entries(form ?? {})) {
+    // Text goes through a file too, so a long transcript isn't an argument.
+    if (value.startsWith('@')) args.push('-F', `${name}=${value}`);
+    else {
+      const file = join(dir, `field-${name}`);
+      writeFileSync(file, value);
+      args.push('-F', `${name}=<${file}`);
+    }
+  }
   try {
     const status = Number(execFileSync('curl', args, {
       input: json === undefined ? undefined : JSON.stringify(json),

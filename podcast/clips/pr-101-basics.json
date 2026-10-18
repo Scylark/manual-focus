@@ -1,0 +1,33 @@
+{
+  "slug": "pr-101-basics",
+  "title": "PR 101, a basics guide to public relations",
+  "url": "https://manual-focus.co.uk/blog/pr-101-basics/",
+  "clips": [
+    {
+      "from": "24.1",
+      "to": "25.5",
+      "why": "Opens on Godin's Purple Cow in a sentence and lands a clear view that most PR problems are product or story problems.",
+      "hook": "Give your AI your story and the publications your audience reads, and it finds who covers that subject now.",
+      "youtube": {
+        "title": "Most PR problems are really story problems",
+        "description": "Hannah explains Seth Godin's Purple Cow in a sentence, and James applies it to PR. If nobody outside the company would mention the story to a friend, a press release won't change that.\n\nFull episode and article: https://manual-focus.co.uk/blog/pr-101-basics/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI your story and the publications your audience reads, and it finds who covers that subject now.\n\nIf nobody outside the company would mention your story to a friend, a press release won't change that.\n\nThat's Seth Godin's Purple Cow applied to PR. Only remarkable things get noticed. Our view is that most PR problems are really product or story problems, so the first job is finding something remarkable to say.\n\nThe second job is sending it to the right people. In Muck Rack's 2026 survey, 88% of journalists said they immediately disregard pitches that miss their beat. Give your AI your story and the publications your audience reads, and it reads each journalist's recent articles and hands back who covers the subject now, with two recent pieces each as evidence.\n\nThe full episode and article are at https://manual-focus.co.uk/blog/pr-101-basics/ (the podcast voices are AI-generated).",
+      "words": 86,
+      "text": "Godin's argument is that only remarkable things get noticed. A brown cow in a field is invisible, a purple one gets talked about. So the product or idea itself has to be worth remarking on. And the same test applies to a story. If nobody outside the company would mention it to a friend, a press release won't change that. Our view is that most PR problems are really product or story problems. So the first job isn't the pitch. It's finding something remarkable to say."
+    },
+    {
+      "from": "51.1",
+      "to": "54.2",
+      "why": "Two Get AI on this jobs for PR, the beat list and the story test, each with what goes in and what comes back.",
+      "hook": "Give your AI your story and the publications your audience reads, and it finds who covers that subject now.",
+      "youtube": {
+        "title": "Get AI to build a journalist beat list before you pitch",
+        "description": "Two PR jobs to hand to AI. Build a beat list from what journalists have actually written lately, then test whether the story is worth pitching before anyone writes a release.\n\nFull episode and article: https://manual-focus.co.uk/blog/pr-101-basics/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI your story and the publications your audience reads, and it finds who covers that subject now.\n\nIn Muck Rack's 2026 survey of 897 journalists, 88% said they immediately disregard pitches that miss their beat. Most pitches go to the wrong person.\n\nGive your AI the story in one sentence and a list of publications your audience reads. With browsing on, it reads each journalist's recent articles and hands back a table of who covers the subject now, with two recent pieces each as evidence.\n\nThen have it test the story before anyone writes a release. It scores it against what journalists said they value, relevance, sources, original data and images, and tells you plainly if there's no news in it.\n\nThe prompts are in the show notes, with the full episode and article at https://manual-focus.co.uk/blog/pr-101-basics/ (the podcast voices are AI-generated).",
+      "words": 125,
+      "text": "Get AI on this: building the beat list before you pitch. Give it the story in one sentence and a list of publications your audience reads, and with browsing switched on it reads each journalist's recent articles and hands back a table of who covers the subject now, with two recent pieces each as evidence. It drops anyone whose beat doesn't fit and says when it couldn't check. Second, get AI on testing whether the story is remarkable before anyone writes a release. Give it the story and the evidence behind it, and it checks it against what journalists said they value, relevance, sources, original data and images, scores each, and tells you what's missing. It'll tell you plainly if there's no news in it."
+    }
+  ]
+}

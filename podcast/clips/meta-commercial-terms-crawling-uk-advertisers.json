@@ -1,0 +1,20 @@
+{
+  "slug": "meta-commercial-terms-crawling-uk-advertisers",
+  "title": "What Meta's new crawling terms mean for UK advertisers",
+  "url": "https://manual-focus.co.uk/blog/meta-commercial-terms-crawling-uk-advertisers/",
+  "clips": [
+    {
+      "from": "18.1",
+      "to": "19.2",
+      "why": "Names Meta's four crawlers in plain terms before James gives the practical position, block one, keep one and get it in writing.",
+      "hook": "Give your AI your domain list and it reads each robots.txt and shows what Meta's four crawlers can reach.",
+      "youtube": {
+        "title": "Meta's four web crawlers and which one to block",
+        "description": "Meta's new Commercial Terms take effect on 30 October 2026 and let it crawl sites linked to a business. Hannah explains Meta's four crawlers, and James sets out which to block and which to keep.\n\nFull episode and article: https://manual-focus.co.uk/blog/meta-commercial-terms-crawling-uk-advertisers/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI your domain list and it reads each robots.txt and shows what Meta's four crawlers can reach.\n\nMeta's new Commercial Terms take effect on 30 October and let Meta crawl sites linked to your products. The UK English edition says it can use what it finds to train its products.\n\nOur view is to keep the Meta spend and block Meta-ExternalAgent on any domain carrying licensed or customer content, keep Meta-WebIndexer allowed so Meta AI can still cite you, and get Meta's word in writing that the block limits the licence. Meta hasn't said a block narrows what it can train on.\n\nAI can do the checking. It reads each site's robots.txt, says what each crawler is allowed to do and drafts the rules you'd add. Your web team still decides and deploys them.\n\nThe full episode and article are at https://manual-focus.co.uk/blog/meta-commercial-terms-crawling-uk-advertisers/ (the podcast voices are AI-generated).",
+      "words": 99,
+      "text": "Meta-ExternalAgent crawls for things like training foundation AI models. Meta-WebIndexer improves Meta AI's search results and helps it cite and link to you. Meta-ExternalFetcher fetches a link when a user asks, and FacebookExternalHit fetches pages people share on Facebook, Instagram and Messenger. Those last two may bypass robots.txt in some cases. Our view is that you don't pull Meta spend over this. You block ExternalAgent on any domain carrying licensed or customer content, you keep WebIndexer allowed so Meta AI can still cite you, and you get Meta to confirm in writing that the block actually limits the licence."
+    }
+  ]
+}

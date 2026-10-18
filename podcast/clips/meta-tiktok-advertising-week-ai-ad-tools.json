@@ -1,0 +1,33 @@
+{
+  "slug": "meta-tiktok-advertising-week-ai-ad-tools",
+  "title": "Meta and TikTok AI ad tools from Advertising Week, a UK guide",
+  "url": "https://manual-focus.co.uk/blog/meta-tiktok-advertising-week-ai-ad-tools/",
+  "clips": [
+    {
+      "from": "14.1",
+      "to": "16.1",
+      "why": "Starts on a plain fact about agents moving budget without a person, then lands a clear rule on who approves what.",
+      "hook": "Give your AI your product feed and it flags every product missing sizing, materials, returns terms or stock.",
+      "youtube": {
+        "title": "Rules for AI agents in your Meta and TikTok ad accounts",
+        "description": "Meta and TikTok now let outside AI agents work inside ad accounts. James sets out when UK teams should let them change budgets, and Hannah on the 30-day review.\n\nFull episode and article: https://manual-focus.co.uk/blog/meta-tiktok-advertising-week-ai-ad-tools/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI your product feed and it flags every product missing sizing, materials, returns terms or stock.\n\nMeta and TikTok both now let outside AI tools work inside your ad accounts, and TikTok describes agents shifting budget without a person stepping in at each stage.\n\nOur view is to connect agents for reporting now, and allow budget or targeting changes only once a named person has written down what an agent may change and who approves it. TikTok's authorisation lapses after 30 days, which gives you a natural monthly review.\n\nBoth platforms are also testing checkout inside their apps, which runs on your product data. Give your AI your feed export and it flags the gaps product by product and drafts the missing copy for someone to check.\n\nThe full episode and article are at https://manual-focus.co.uk/blog/meta-tiktok-advertising-week-ai-ad-tools/ (the podcast voices are AI-generated).",
+      "words": 86,
+      "text": "TikTok's developer documentation describes agents shifting budget towards the best return without a person stepping in at each stage. We already hand bidding to the platforms. This lets you plug your own agent into the same account. Our view is that UK teams should connect agents for reporting now, and allow budget or targeting changes only once a named person has written down what an agent may change and who approves it. And TikTok's authorisation lapses after thirty days, which gives you a natural monthly review."
+    },
+    {
+      "from": "20.1",
+      "to": "22.1",
+      "why": "A practical so what on checkout data and tracking, followed straight away by the Get AI on this job that fixes the feed.",
+      "hook": "Give your AI your product feed and it flags every product missing sizing, materials, returns terms or stock.",
+      "youtube": {
+        "title": "Get your product feed ready for Meta and TikTok checkout",
+        "description": "Checkout inside Meta and TikTok answers shoppers from your product data. Hannah on why that data needs to be complete, what Shopify says about tracking, and the job to hand to AI.\n\nFull episode and article: https://manual-focus.co.uk/blog/meta-tiktok-advertising-week-ai-ad-tools/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI your product feed and it flags every product missing sizing, materials, returns terms or stock.\n\nMeta and TikTok are both testing checkout inside their apps. There's no UK date yet, but the work it needs is in your product data, and that can start now.\n\nTikTok's Shopping Assistant answers from merchant information, and Meta's checkout pulls products from Shopify Catalog. Complete titles, sizing, returns terms and stock data give an assistant better material. Shopify also says Google Analytics won't fire in Meta's direct checkout, so a team reporting from it wouldn't see those sales.\n\nGive your AI a feed export. It goes product by product, flags where sizing, materials, returns terms or stock aren't in plain text, and drafts the missing copy for someone to check.\n\nThe prompt is in the show notes, with the full episode and article at https://manual-focus.co.uk/blog/meta-tiktok-advertising-week-ai-ad-tools/ (the podcast voices are AI-generated).",
+      "words": 106,
+      "text": "The other practical point is checkout prep. Shopping Assistant answers from merchant information, and Meta's checkout pulls products from Shopify Catalog. So complete titles, sizing, returns terms and stock data give an assistant better material. And Shopify says Google Analytics and custom pixels won't fire in Meta's direct checkout, only server-to-server events. So a team reporting from Google Analytics wouldn't see those sales at all. Right. Get AI on this. First, your product feed. Give it a feed export and it goes product by product, flagging where sizing, materials, returns terms or stock aren't in plain text, and drafts the missing copy for someone to check."
+    }
+  ]
+}

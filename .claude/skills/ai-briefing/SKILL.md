@@ -404,6 +404,37 @@ rejects the post, delete the file named at the end of the post's
 `npx wrangler@4 r2 object delete manual-focus-podcast/episodes/<file name> --remote`
 (on James's Mac, where Wrangler is signed in).
 
+## Step 7c. Pick the clips (post days with an episode)
+
+Each episode gets one or two vertical clips (1080x1920, 30 to 60 seconds) for
+YouTube Shorts and LinkedIn, with their copy. Skip this step when step 7b
+didn't publish an episode. Like the episode, the clips never block the post:
+if this step fails, carry on to step 8 and say why in the summary.
+
+1. Run `node podcast/make-clips.mjs <slug>`. It asks Claude to pick the
+   passages against the rubric in `podcast/clip-prompt.md`. When the
+   `claude` CLI can't answer (it isn't signed in, or this is a cloud
+   session) it prints `PICK NEEDED`, writes the full prompt to
+   `podcast/out/clips/<slug>/pick-prompt.md` and exits with code 2. Then
+   you are the picker: read that file, follow it exactly, save your JSON
+   answer as `podcast/clips/<slug>.json` and run the command again.
+2. Fix every `WARN` line it prints (passage length, a colon or dash in the
+   copy, a missing link or #Shorts) by editing `podcast/clips/<slug>.json`,
+   and read each clip's `text` back to check it makes sense with no context.
+3. On James's Mac it then aligns the script to the published MP3 with
+   ElevenLabs, renders the clips and writes `<slug>-<n>.mp4`, a review frame
+   and the copy to `podcast/out/clips/<slug>/` (git ignores it). Where the
+   fonts or Pillow are missing, as in a cloud session, it prints
+   `RENDER SKIPPED` after the pick. That's expected, and the choice and copy
+   still go in the PR.
+4. Commit `podcast/clips/<slug>.json` with the post. Never upload a clip.
+   Uploading stays with James (see `podcast/CLIPS.md`).
+
+When James asks for clips of an episode that already exists ("make the clips
+for <slug>"), run this step alone and hand off on branch `clips/<slug>` with a
+PR titled `Clips | <post title>` whose body is the `## Clips` section from
+step 8.
+
 ## Step 8. Hand off for approval
 
 James approves each post from the Claude app. He should be able to read the
@@ -413,7 +444,8 @@ has one shape every day.
 **Post day.**
 - Branch: `briefing/YYYY-MM-DD`. Commit the post and the ledger, plus the
   episode's script, show notes, chapters file and the post's `podcast`
-  block when step 7b made one.
+  block when step 7b made one, and `podcast/clips/<slug>.json` when step 7c
+  did.
 - Open a pull request against `master` titled `AI briefing | <post title>`,
   **ready for review, never a draft** (pass `draft: false`), so the Merge
   button works straight away.
@@ -427,6 +459,9 @@ has one shape every day.
      their start times, the `check-episode.mjs` warnings if any, and the
      show notes' prompts; or
      `Episode skipped` and the reason (the preflight lines or the error).
+  4. `## Clips`: for each clip, the passage (from/to and its length), the
+     YouTube title and description and the LinkedIn draft, and whether it
+     was rendered or needs `node podcast/make-clips.mjs <slug>` on the Mac.
 - End the run with the approval message below as your final reply, exactly
   in this shape. It's what James sees in the Claude app.
 
@@ -446,6 +481,8 @@ has one shape every day.
   Podcast: <m:ss>, <audio URL>
   (or, when step 7b didn't make one: Episode skipped, <reason>. Say "make
   the podcast for <slug>" once that's fixed.)
+  Clips: <n> picked, copy in the PR (rendered, or "render on the Mac with
+  node podcast/make-clips.mjs <slug>")
   ```
 
 **No-post day.** Don't create a branch, commit or PR. End the run with this
@@ -511,7 +548,8 @@ What changes from the daily steps:
    more out of 60), the fact check and the no-claimed-experience check.
 6. **Ledger (step 7)**: add one entry with `"decision": "published-on-demand"`
    and a score of `null`, so the daily run won't repeat the topic.
-7. **Podcast (step 7b)** as normal, so the article ships with its episode.
+7. **Podcast and clips (steps 7b and 7c)** as normal, so the article ships
+   with its episode and clips.
 8. **Hand off (step 8)**: branch `article/<slug>`, PR titled
    `Article | <post title>`, ready for review, with the article first in the
    body as in step 8. Then the search terms targeted, what you verified and
