@@ -1,0 +1,55 @@
+{
+  "version": "1.2.0",
+  "title": "Owned, paid and earned media, explained",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Cold open"
+    },
+    {
+      "startTime": 44.4,
+      "title": "What the three words mean"
+    },
+    {
+      "startTime": 83.3,
+      "title": "Where the framework comes from"
+    },
+    {
+      "startTime": 130.2,
+      "title": "Owned media"
+    },
+    {
+      "startTime": 234.2,
+      "title": "Paid media"
+    },
+    {
+      "startTime": 320.6,
+      "title": "Earned media"
+    },
+    {
+      "startTime": 369.3,
+      "title": "Social media and the PESO model"
+    },
+    {
+      "startTime": 474,
+      "title": "Measuring each one"
+    },
+    {
+      "startTime": 507.7,
+      "title": "Making the three work together"
+    },
+    {
+      "startTime": 582.9,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 638.3,
+      "title": "Common mistakes"
+    },
+    {
+      "startTime": 677.7,
+      "title": "The takeaway"
+    }
+  ]
+}

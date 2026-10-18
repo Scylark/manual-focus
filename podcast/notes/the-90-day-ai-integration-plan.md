@@ -1,6 +1,23 @@
 ---
 post: the-90-day-ai-integration-plan
 title: "The 90-day AI integration plan for marketing leaders"
+chapters:
+  - title: "Cold open"
+    at: "Plenty of marketing teams are using AI"
+  - title: "Weeks one and two: the audit"
+    at: "So start at the start"
+  - title: "Weeks three and four: voice and tools"
+    at: "Weeks three and four are where"
+  - title: "Weeks five to eight: workflows"
+    at: "Then weeks five and six"
+  - title: "Weeks nine and ten: measurement"
+    at: "Weeks nine and ten are"
+  - title: "Get AI on this"
+    at: "A lot of this plan can be handed over"
+  - title: "Weeks eleven and twelve: the team"
+    at: "Then the last fortnight"
+  - title: "What we don't know, and the close"
+    at: "On what we don't know"
 ---
 
 James and Hannah walk through a 90-day plan for moving a marketing team from

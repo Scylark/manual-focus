@@ -359,6 +359,11 @@ gate in step 6, because the episode is written from the finished post.
    model to say what it couldn't check, and works in any capable assistant,
    naming no product features. Don't repeat the post's sources. Use
    `podcast/notes/google-ai-mode-official-websites-links.md` as the model.
+   Add the `chapters` list to the frontmatter: one chapter per section of
+   the script (cold open, what happened, each "so what" exchange, Get AI on
+   this, what we don't know, the takeaway), each with a short title and an
+   `at` phrase quoted from the script where it starts. See "Chapters" in
+   `podcast/SHOW-RULES.md`.
 4. **Check.** `node podcast/check-episode.mjs <slug>` must print PASS. Fix and
    re-run. Treat its warnings as edits to make unless there's a reason not
    to (say which you kept in the PR). Then re-read the script against the
@@ -377,6 +382,14 @@ gate in step 6, because the episode is written from the finished post.
    minutes) for the episode URL to answer. Don't send James the MP3 or
    ask him to upload it. Run `npm run build` again, since the post now
    renders the player and the show notes.
+7. **Chapters.** `node podcast/chapters.mjs <slug>` transcribes the
+   published MP3 with ElevenLabs Speech to Text (same key as the build),
+   lines the words up with the script and writes
+   `podcast/chapters/<slug>.json`, which the feed links with
+   `<podcast:chapters>`. It prints each chapter's start time: check they
+   rise steadily and none is a few seconds from the one before. Commit the
+   JSON with the episode. If it fails, ship the episode without chapters,
+   say so in the PR and give the first error line; it can be re-run later.
 
 If any of steps 2 to 6 fails (the checker won't pass after three rounds of
 fixes, ElevenLabs returns an error or runs out of credit, ffmpeg fails, the
@@ -430,8 +443,9 @@ has one shape every day.
 
 **Post day.**
 - Branch: `briefing/YYYY-MM-DD`. Commit the post and the ledger, plus the
-  episode's script, show notes and the post's `podcast` block when step 7b
-  made one, and `podcast/clips/<slug>.json` when step 7c did.
+  episode's script, show notes, chapters file and the post's `podcast`
+  block when step 7b made one, and `podcast/clips/<slug>.json` when step 7c
+  did.
 - Open a pull request against `master` titled `AI briefing | <post title>`,
   **ready for review, never a draft** (pass `draft: false`), so the Merge
   button works straight away.
@@ -441,8 +455,9 @@ has one shape every day.
   2. `---` then `## Review notes`: the story and why it cleared the bar
      (score), the primary source, the no-slop self-audit score out of 60,
      anything you were unsure of, and the rejected candidates with scores.
-  3. `## Podcast`: the episode's length and audio URL, the
-     `check-episode.mjs` warnings if any, and the show notes' prompts; or
+  3. `## Podcast`: the episode's length and audio URL, the chapters with
+     their start times, the `check-episode.mjs` warnings if any, and the
+     show notes' prompts; or
      `Episode skipped` and the reason (the preflight lines or the error).
   4. `## Clips`: for each clip, the passage (from/to and its length), the
      YouTube title and description and the LinkedIn draft, and whether it
@@ -565,8 +580,9 @@ after a run that skipped the episode. Skip steps 1 to 7.
    missing. Change nothing in the repo.
 4. Hand off on branch `podcast/<slug>` with a PR against `master` titled
    `Podcast | <post title>`, ready for review. The body gives the episode
-   length, the audio URL, the summary paragraph and prompts from the show
-   notes, and any checker warnings you kept. End with:
+   length, the audio URL, the chapters with their start times, the summary
+   paragraph and prompts from the show notes, and any checker warnings you
+   kept. End with:
 
    ```markdown
    ## Approve the episode: <post title>
@@ -586,7 +602,7 @@ episode and the post still ships.
 
 | What | Why | How |
 |---|---|---|
-| ElevenLabs key | Voices the script (Text to Dialogue, `eleven_v3`) | A network secret on the environment: allowed website `api.elevenlabs.io`, custom header `xi-api-key` with no prefix. The agent proxy adds it to each request, so the session never sees the key and `ELEVENLABS_API_KEY` stays unset |
+| ElevenLabs key | Voices the script (Text to Dialogue, `eleven_v3`) and times the chapters (Speech to Text, `scribe_v1`) | A network secret on the environment: allowed website `api.elevenlabs.io`, custom header `xi-api-key` with no prefix. The agent proxy adds it to each request, so the session never sees the key and `ELEVENLABS_API_KEY` stays unset |
 | `ffmpeg` and `ffprobe` | Join chunks, mix the music, read the duration | The environment's setup script, `apt-get update && apt-get install -y ffmpeg` |
 | `gh` and git push access | Gets the MP3 to R2, through the `podcast-audio/` branch and the "Upload podcast audio" Action | Nothing to add in the environment. `gh` is pre-installed and the GitHub proxy signs its REST calls and git pushes for the attached repo. It refuses GraphQL, so the scripts use REST. Don't set `GH_TOKEN`. The Action needs the repo secret `CLOUDFLARE_API_TOKEN` (R2 edit) |
 | Network access | Reach ElevenLabs and GitHub | The environment is on Full access |

@@ -1,6 +1,29 @@
 ---
 post: sostac-marketing-plan-basics
 title: "SOSTAC explained, a basics guide to marketing planning"
+chapters:
+  - title: "Cold open"
+    at: "Most marketing plans I'm shown"
+  - title: "What SOSTAC is"
+    at: "Start with the basics. What is it"
+  - title: "Situation"
+    at: "So take me through it"
+  - title: "Objectives"
+    at: "Then objectives"
+  - title: "Strategy and tactics"
+    at: "Then the stage people seem to argue about most"
+  - title: "Action"
+    at: "Then action, which is the bit"
+  - title: "Control"
+    at: "And then control"
+  - title: "SOSTAC and AI"
+    at: "So, AI. PR Smith"
+  - title: "Get AI on this"
+    at: "So, the jobs to hand over"
+  - title: "Where people go wrong"
+    at: "Let's finish with where people go wrong"
+  - title: "The takeaway"
+    at: "So the takeaway. SOSTAC works"
 ---
 
 A Manual Focus Basics episode. James and Hannah walk through SOSTAC, the

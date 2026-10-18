@@ -45,6 +45,12 @@ export function transcript(slug: string): Turn[] | undefined {
     }));
 }
 
+// Chapters files written by podcast/chapters.mjs, keyed by post slug.
+export const chapters = Object.fromEntries(
+  Object.entries(import.meta.glob<object>('/podcast/chapters/*.json', { eager: true, import: 'default' }))
+    .map(([path, file]) => [path.replace(/^.*\/|\.json$/g, ''), file]),
+);
+
 export const transcriptText = (turns: Turn[]) => turns.map((t) => `${t.speaker}: ${t.text}`).join('\n\n');
 
 // ISO 8601 duration for schema.org, e.g. 490 seconds -> PT8M10S.

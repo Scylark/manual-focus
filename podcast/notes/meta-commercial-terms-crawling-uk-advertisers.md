@@ -1,6 +1,25 @@
 ---
 post: meta-commercial-terms-crawling-uk-advertisers
 title: "What Meta's new crawling terms mean for UK advertisers"
+chapters:
+  - title: "Cold open"
+    at: "On the thirtieth of October"
+  - title: "What the clause says"
+    at: "So what does the new clause actually say"
+  - title: "Where it came from"
+    at: "Where did this come from"
+  - title: "The UK version"
+    at: "Which brings us to the bit I think matters most"
+  - title: "Who's exposed"
+    at: "Let's talk about who's exposed"
+  - title: "Our view"
+    at: "Our view is that you don't pull Meta spend"
+  - title: "Get AI on this"
+    at: "Get AI on this. First job"
+  - title: "What we don't know"
+    at: "What we don't know yet"
+  - title: "The takeaway"
+    at: "So, thirteen days"
 ---
 
 James and Hannah read through the new clause in Meta's Commercial Terms, which

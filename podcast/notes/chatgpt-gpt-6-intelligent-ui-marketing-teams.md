@@ -1,6 +1,23 @@
 ---
 post: chatgpt-gpt-6-intelligent-ui-marketing-teams
 title: "What ChatGPT's GPT-6 Intelligent UI means for marketing teams"
+chapters:
+  - title: "Cold open"
+    at: "On the seventh of October"
+  - title: "What OpenAI announced"
+    at: "So what did OpenAI actually announce"
+  - title: "The risk to brand-built tools"
+    at: "Let's get to the bit that worries me"
+  - title: "Comparison layouts"
+    at: "Then there's the comparison layout"
+  - title: "Our view"
+    at: "So our view at Manual Focus"
+  - title: "Get AI on this"
+    at: "So rather than a to-do list"
+  - title: "What we don't know"
+    at: "there's a lot OpenAI hasn't told us"
+  - title: "The takeaway"
+    at: "So the takeaway. If ChatGPT"
 ---
 
 James and Hannah talk through GPT-6 and Intelligent UI, which OpenAI began

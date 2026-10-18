@@ -1,6 +1,27 @@
 ---
 post: strategy-campaign-creative-execution-basics
 title: "Strategy vs campaign vs creative vs execution, explained"
+chapters:
+  - title: "Cold open"
+    at: "Four words get used interchangeably"
+  - title: "Four words, strictly defined"
+    at: "So let's be strict"
+  - title: "Strategy"
+    at: "So start with strategy"
+  - title: "Campaigns"
+    at: "So, campaigns"
+  - title: "Creative"
+    at: "Then creative"
+  - title: "Execution"
+    at: "And then execution"
+  - title: "How the layers connect"
+    at: "Which brings us to the bit that ties it together"
+  - title: "Get AI on this"
+    at: "Can AI do some of that walking"
+  - title: "Where people go wrong"
+    at: "Where do people go wrong, apart"
+  - title: "The takeaway"
+    at: "So the takeaway. Strategy is"
 ---
 
 A Manual Focus Basics episode. James and Hannah separate four words that

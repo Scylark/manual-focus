@@ -1,0 +1,43 @@
+{
+  "version": "1.2.0",
+  "title": "The three layers of AI, a basics guide for marketers",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Cold open"
+    },
+    {
+      "startTime": 37.8,
+      "title": "The three layers"
+    },
+    {
+      "startTime": 74.5,
+      "title": "Layer one: chat"
+    },
+    {
+      "startTime": 232.6,
+      "title": "Layer two: agents"
+    },
+    {
+      "startTime": 387,
+      "title": "Layer three: orchestration"
+    },
+    {
+      "startTime": 509.6,
+      "title": "Where to start"
+    },
+    {
+      "startTime": 547.2,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 610.3,
+      "title": "Where people go wrong"
+    },
+    {
+      "startTime": 664.8,
+      "title": "The takeaway"
+    }
+  ]
+}

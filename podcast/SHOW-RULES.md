@@ -18,8 +18,16 @@ script. The scripts live in `podcast/scripts/<post-slug>.txt` and
    `podcast/worker/`, and adds the `podcast` block to the post's
    frontmatter. The player and the feed (`/podcast.xml`) appear on the next
    site build.
-4. `node podcast/make-clips.mjs <post-slug>` cuts one or two vertical clips
+4. `node podcast/chapters.mjs <post-slug>` times the chapters in the show
+   notes against the published audio and writes
+   `podcast/chapters/<post-slug>.json`, which the feed links with
+   `<podcast:chapters>`.
+5. `node podcast/make-clips.mjs <post-slug>` cuts one or two vertical clips
    for YouTube Shorts and LinkedIn, with their copy. See `podcast/CLIPS.md`.
+6. Once the "Manual Focus Marketing" YouTube channel (@manualfocusuk) has
+   imported the episode from the feed, add `youtube: <video ID>` to the
+   post's `podcast` block. The episode's structured data then carries a
+   VideoObject for the YouTube version.
 
 ## The hosts
 
@@ -195,6 +203,34 @@ sources from the post itself. Each prompt:
 
 Prompts follow the article. They add no facts, numbers or claims the article
 doesn't make.
+
+### Chapters
+
+The notes' frontmatter also holds the chapter plan, which podcast apps show
+as jump points. One chapter per section of the episode's shape: the cold
+open, what happened, each "so what" exchange, Get AI on this, what we don't
+know (or where people go wrong) and the takeaway.
+
+```yaml
+chapters:
+  - title: "Cold open"
+    at: "The search results for your own company name"
+  - title: "What the data shows"
+    at: "They're striking numbers"
+  - title: "Get AI on this"
+    at: "so what do you hand over"
+```
+
+- `title` is what a listener sees in the app: short, plain, and specific to
+  the episode where it can be ("What Google announced", not "The news").
+- `at` is a phrase copied from the script where the chapter starts: the
+  opening words of the turn, or the sentence mid-turn that changes the
+  subject. Tags and punctuation don't matter; the words must match.
+- The first chapter starts at the script's first words. Sections shorter
+  than about twenty seconds fold into the one before.
+
+`check-episode.mjs` fails a plan whose phrases aren't in the script, in
+order. `chapters.mjs` times the plan once the episode is published.
 
 ## Writing for the ear
 

@@ -1,6 +1,31 @@
 ---
 post: pr-101-basics
 title: "PR 101, a basics guide to public relations"
+chapters:
+  - title: "Cold open"
+    at: "PR is the part of marketing"
+  - title: "What PR is"
+    at: "What is public relations"
+  - title: "What PR covers"
+    at: "So what does PR actually cover"
+  - title: "PR versus advertising"
+    at: "And how's it different from advertising"
+  - title: "What makes a story worth covering"
+    at: "So what makes something worth covering"
+  - title: "What journalists want in a pitch"
+    at: "Then let's talk about the pitch"
+  - title: "Are press releases dead?"
+    at: "Do journalists still want press releases"
+  - title: "AI on both sides of the inbox"
+    at: "So, AI. The same survey"
+  - title: "Measuring PR"
+    at: "How should a team measure PR"
+  - title: "Get AI on this"
+    at: "So what can we hand over to AI"
+  - title: "Common mistakes"
+    at: "Common mistakes, then"
+  - title: "The takeaway"
+    at: "So the takeaway. PR is earning"
 ---
 
 A Manual Focus Basics episode. James and Hannah go through public relations

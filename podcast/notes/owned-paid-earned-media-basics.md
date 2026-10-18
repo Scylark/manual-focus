@@ -1,6 +1,31 @@
 ---
 post: owned-paid-earned-media-basics
 title: "Owned, paid and earned media, explained"
+chapters:
+  - title: "Cold open"
+    at: "Every channel a brand uses"
+  - title: "What the three words mean"
+    at: "This is about what the words"
+  - title: "Where the framework comes from"
+    at: "And where does the framework come from"
+  - title: "Owned media"
+    at: "So take owned first"
+  - title: "Paid media"
+    at: "Then paid"
+  - title: "Earned media"
+    at: "So earned"
+  - title: "Social media and the PESO model"
+    at: "Can we do the awkward one"
+  - title: "Measuring each one"
+    at: "And how do you measure each"
+  - title: "Making the three work together"
+    at: "So how should the three work together"
+  - title: "Get AI on this"
+    at: "Which is a nice set of jobs to hand over"
+  - title: "Common mistakes"
+    at: "Common mistakes, to finish"
+  - title: "The takeaway"
+    at: "So the takeaway. Owned is"
 ---
 
 A Manual Focus Basics episode, and the foundation for our three earlier pieces

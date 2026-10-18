@@ -1,6 +1,23 @@
 ---
 post: adobe-ai-shopping-forecast-black-friday
 title: "What Adobe's AI shopping forecast means for Black Friday"
+chapters:
+  - title: "Cold open"
+    at: "Adobe reckons"
+  - title: "What Adobe published"
+    at: "What did Adobe actually publish"
+  - title: "Why UK marketers should care"
+    at: "Then the obvious question"
+  - title: "Product pages as comparison sites"
+    at: "There's a page-level side too"
+  - title: "Our view"
+    at: "Our view at Manual Focus"
+  - title: "Get AI on this"
+    at: "The article has four jobs"
+  - title: "What we don't know"
+    at: "So, the gaps"
+  - title: "The takeaway"
+    at: "So the takeaway is this"
 ---
 
 James and Hannah talk through Adobe's holiday forecast of 28 September 2026,
