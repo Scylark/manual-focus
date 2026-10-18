@@ -16,10 +16,8 @@ chapters:
     at: "A lot of this plan can be handed over"
   - title: "Weeks eleven and twelve: the team"
     at: "Then the last fortnight"
-  - title: "What we don't know"
+  - title: "What we don't know, and the close"
     at: "On what we don't know"
-  - title: "The close"
-    at: "Which is why the measurement loop matters"
 ---
 
 James and Hannah walk through a 90-day plan for moving a marketing team from

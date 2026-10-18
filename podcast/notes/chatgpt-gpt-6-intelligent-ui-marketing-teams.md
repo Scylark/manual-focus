@@ -12,8 +12,6 @@ chapters:
     at: "Then there's the comparison layout"
   - title: "Our view"
     at: "So our view at Manual Focus"
-  - title: "Content teams"
-    at: "And content teams"
   - title: "Get AI on this"
     at: "So rather than a to-do list"
   - title: "What we don't know"

@@ -6,8 +6,6 @@ chapters:
     at: "Adobe reckons"
   - title: "What Adobe published"
     at: "What did Adobe actually publish"
-  - title: "How far to trust the survey"
-    at: "So, a self-reported survey"
   - title: "Why UK marketers should care"
     at: "Then the obvious question"
   - title: "Product pages as comparison sites"

@@ -10,8 +10,6 @@ chapters:
     at: "The bit that caught my eye"
   - title: "One word changes the answer"
     at: "And there's a finding that points"
-  - title: "The shopper survey"
-    at: "There was a survey alongside it"
   - title: "Our view"
     at: "Our view at Manual Focus"
   - title: "Get AI on this"

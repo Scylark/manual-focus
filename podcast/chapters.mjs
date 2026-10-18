@@ -106,9 +106,14 @@ const timed = chapters.map(({ title, index }, c) => {
   // Start a moment before the first word, so the chapter doesn't clip it.
   return { startTime: Math.max(0, Math.floor((heard[j].start - 0.3) * 10) / 10), title };
 });
-timed.forEach((ch, c) => {
-  if (c && ch.startTime <= timed[c - 1].startTime) throw new Error(`"${ch.title}" doesn't start after "${timed[c - 1].title}"`);
-});
+// SHOW-RULES.md: sections shorter than about twenty seconds fold into the
+// one before, so a chapter that short means the plan needs merging.
+const MIN_CHAPTER = 20;
+const short = timed.slice(1).flatMap((ch, c) => ch.startTime - timed[c].startTime < MIN_CHAPTER
+  ? [`"${timed[c].title}" runs ${(ch.startTime - timed[c].startTime).toFixed(1)}s before "${ch.title}"`] : []);
+if (short.length) {
+  throw new Error(`Chapters under ${MIN_CHAPTER} seconds; fold each into a neighbour in the notes' plan:\n  ${short.join('\n  ')}`);
+}
 const duration = front.podcast.duration;
 if (duration && timed.at(-1).startTime >= duration) throw new Error(`"${timed.at(-1).title}" starts after the episode ends`);
 
