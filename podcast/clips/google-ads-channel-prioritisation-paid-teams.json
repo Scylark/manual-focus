@@ -1,0 +1,33 @@
+{
+  "slug": "google-ads-channel-prioritisation-paid-teams",
+  "title": "What Google Ads channel prioritisation means for paid teams",
+  "url": "https://manual-focus.co.uk/blog/google-ads-channel-prioritisation-paid-teams/",
+  "clips": [
+    {
+      "from": "19.1",
+      "to": "21.2",
+      "why": "A plain, opinionated recommendation on search partner and Display opt-outs, with a timed test a paid lead can run this month.",
+      "hook": "Give your AI a Google Ads campaign export and it tells you which Search campaigns change in February.",
+      "youtube": {
+        "title": "Swap your Google Ads opt-outs for a capped test",
+        "description": "Google Ads now lets you put search partners and Display at low priority with a budget cap. James and Hannah on why that beats switching them off, and when to run the test before Black Friday.\n\nFull episode and article: https://manual-focus.co.uk/blog/google-ads-channel-prioritisation-paid-teams/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI a Google Ads campaign export and it tells you which Search campaigns change in February.\n\nGoogle Ads now lets you rank channels and cap the low priority ones at a share of daily budget. Our view is that most brands should swap their search partner and Display opt-outs for low priority with a small cap. An opt-out tells you nothing. A 5% cap tells you something after a month.\n\nFrom February 2027, every Search campaign with Display Expansion on moves onto these settings anyway.\n\nGive your AI a campaign export with the Display setting, bid strategy and budget status, and it gives you back a table of which campaigns migrate and a suggested Display setting for each. The decision stays with you.\n\nThe full episode and article are at https://manual-focus.co.uk/blog/google-ads-channel-prioritisation-paid-teams/ (the podcast voices are AI-generated).",
+      "words": 106,
+      "text": "Our view, and it's in the article, is that most brands should swap their search partner and Display opt-outs for low priority with a small cap. An opt-out tells you nothing. A five per cent cap tells you something after a month. And Google's announcement speaks directly to people who've historically opted out. Until now those teams had no way to try either network at a cost they controlled. For a cycling or endurance retailer, I'd do that in late October on a budget-limited bikes or kit campaign. Four weeks of evidence before Black Friday, and if it doesn't earn its place you've lost very little."
+    },
+    {
+      "from": "27.3",
+      "to": "29.2",
+      "why": "A complete Get AI on this job, what to give the AI and what comes back, with the February deadline named in the passage.",
+      "hook": "Give your AI a Google Ads campaign export and it tells you which Search campaigns change in February.",
+      "youtube": {
+        "title": "Get AI to audit your Google Ads Search campaigns before February",
+        "description": "From February 2027, Search campaigns with Display switched on move to Google's new channel settings. Hannah explains what to give your AI and the table it gives you back.\n\nFull episode and article: https://manual-focus.co.uk/blog/google-ads-channel-prioritisation-paid-teams/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give your AI a Google Ads campaign export and it tells you which Search campaigns change in February.\n\nFrom February 2027, every Google Ads Search campaign with Display Expansion on migrates to channel prioritisation automatically, and Display stops serving on campaigns that use Target Impression Share. If you run several accounts, that is a lot of clicking.\n\nGive your AI a campaign export with the Display setting, bid strategy and budget status. It gives you back a table of which campaigns migrate, which use Target Impression Share, and a suggested Display setting for each. 50% where Display is earning its keep, a lower cap where nobody has checked.\n\nYou still make the call on each campaign. You just make it from a list.\n\nThe prompt is in the show notes, with the full episode and article at https://manual-focus.co.uk/blog/google-ads-channel-prioritisation-paid-teams/ (the podcast voices are AI-generated).",
+      "words": 96,
+      "text": "Get AI on this. First job, the February audit. Every Search campaign with Display switched on, and what happens to each one. Give your AI a campaign export from Google Ads with the Display setting, bid strategy and budget status, and it gives you back a table. Which campaigns migrate, which use Target Impression Share, and a suggested Display setting for each, fifty per cent where Display's earning its keep and a lower cap where nobody's checked. The decision on each one stays with you. But you're deciding from a list instead of clicking through accounts."
+    }
+  ]
+}

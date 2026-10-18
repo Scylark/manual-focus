@@ -18,6 +18,8 @@ script. The scripts live in `podcast/scripts/<post-slug>.txt` and
    `podcast/worker/`, and adds the `podcast` block to the post's
    frontmatter. The player and the feed (`/podcast.xml`) appear on the next
    site build.
+4. `node podcast/make-clips.mjs <post-slug>` cuts one or two vertical clips
+   for YouTube Shorts and LinkedIn, with their copy. See `podcast/CLIPS.md`.
 
 ## The hosts
 
