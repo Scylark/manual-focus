@@ -215,6 +215,22 @@ for (const [i, clip] of choice.clips.entries()) {
 }
 if (pickOnly) process.exit(0);
 
+// Rendering needs macOS's fonts and Pillow, so a cloud run stops after the
+// pick: the choice and copy go in the PR and the video is made on the Mac.
+const missing = [];
+for (const f of ['/System/Library/Fonts/Supplemental/Arial Narrow.ttf', '/System/Library/Fonts/Menlo.ttc']) {
+  if (!existsSync(f)) missing.push(f);
+}
+try {
+  execFileSync('python3', ['-c', 'import PIL'], { stdio: 'ignore' });
+} catch {
+  missing.push('python3 with Pillow');
+}
+if (missing.length) {
+  console.log(`RENDER SKIPPED: no ${missing.join(', ')}. Run node podcast/make-clips.mjs ${slug} on James's Mac.`);
+  process.exit(0);
+}
+
 // ---- 2. Time the words --------------------------------------------------
 
 mkdirSync(paths.out, { recursive: true });
