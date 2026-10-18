@@ -1,6 +1,23 @@
 ---
 post: chatgpt-ads-shopify-uk-ecommerce
 title: "What ChatGPT Ads on Shopify means for UK ecommerce brands"
+chapters:
+  - title: "Cold open"
+    at: "If you run a Shopify store"
+  - title: "What OpenAI announced"
+    at: "Take me through what OpenAI"
+  - title: "Who sees the ads"
+    at: "Who actually sees these ads"
+  - title: "A thin catalogue costs you twice"
+    at: "And there's a knock-on for the catalogue"
+  - title: "Our view"
+    at: "So our view at Manual Focus"
+  - title: "Get AI on this"
+    at: "Get AI on this. First job"
+  - title: "What's still unclear"
+    at: "So what's still unclear"
+  - title: "The takeaway"
+    at: "So the takeaway: it's open"
 ---
 
 James and Hannah talk through OpenAI's ChatGPT Ads app for Shopify, which

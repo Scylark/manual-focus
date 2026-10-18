@@ -1,6 +1,27 @@
 ---
 post: meta-tiktok-advertising-week-ai-ad-tools
 title: "Meta and TikTok AI ad tools from Advertising Week, a UK guide"
+chapters:
+  - title: "Cold open"
+    at: "Meta and TikTok both used Advertising Week"
+  - title: "TikTok's announcements"
+    at: "Start with TikTok"
+  - title: "Meta's side"
+    at: "And Meta's side"
+  - title: "What's open to UK teams"
+    at: "So what's open to a UK team today"
+  - title: "Agents running your ads"
+    at: "Both have an MCP server"
+  - title: "The performance claims"
+    at: "What about the performance claims"
+  - title: "Checkout prep"
+    at: "The other practical point is checkout prep"
+  - title: "Get AI on this"
+    at: "Get AI on this. First, your product feed"
+  - title: "What we don't know"
+    at: "No UK date for in-app checkout"
+  - title: "The takeaway"
+    at: "So the takeaway: start with search"
 ---
 
 James and Hannah go through the AI ad tools Meta and TikTok announced at

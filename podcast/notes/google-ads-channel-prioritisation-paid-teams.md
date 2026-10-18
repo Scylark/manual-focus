@@ -1,6 +1,25 @@
 ---
 post: google-ads-channel-prioritisation-paid-teams
 title: "What Google Ads channel prioritisation means for paid teams"
+chapters:
+  - title: "Cold open"
+    at: "If you run paid search"
+  - title: "What Google announced"
+    at: "Start with what Google actually announced"
+  - title: "How it varies by campaign type"
+    at: "Does it work the same across every campaign type"
+  - title: "What ranking a channel low does"
+    at: "Here's the question I'd ask first"
+  - title: "Our view"
+    at: "Our view, and it's in the article"
+  - title: "February's migration"
+    at: "Then there's February"
+  - title: "Get AI on this"
+    at: "Which brings us to the bit we do on every episode"
+  - title: "What we don't know"
+    at: "So, what don't we know"
+  - title: "The takeaway"
+    at: "The short version"
 ---
 
 James and Hannah talk through the two Google Ads controls announced on 14

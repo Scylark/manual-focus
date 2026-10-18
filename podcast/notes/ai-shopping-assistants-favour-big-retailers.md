@@ -1,6 +1,25 @@
 ---
 post: ai-shopping-assistants-favour-big-retailers
 title: "Lightspeed's AI shopping study and what smaller brands should do"
+chapters:
+  - title: "Cold open"
+    at: "Ask an AI assistant where to buy"
+  - title: "What the study found"
+    at: "How big was it"
+  - title: "Where smaller retailers lose"
+    at: "The bit that caught my eye"
+  - title: "One word changes the answer"
+    at: "And there's a finding that points"
+  - title: "The shopper survey"
+    at: "There was a survey alongside it"
+  - title: "Our view"
+    at: "Our view at Manual Focus"
+  - title: "Get AI on this"
+    at: "What's the first job"
+  - title: "What the study can't tell us"
+    at: "So what can't the study tell"
+  - title: "The takeaway"
+    at: "So treat it as a signal"
 ---
 
 James and Hannah go through a study Vaer AI ran for Lightspeed Commerce,

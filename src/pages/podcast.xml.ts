@@ -3,7 +3,7 @@
 // frontmatter (written by podcast/publish-episode.mjs). Episode notes come
 // from the summary in podcast/notes/<slug>.md.
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { SHOW, transcript } from '../utils/podcast';
+import { SHOW, transcript, chapters } from '../utils/podcast';
 import type { APIContext } from 'astro';
 
 
@@ -52,6 +52,7 @@ export async function GET(context: APIContext) {
       <itunes:summary>${escape(text)}</itunes:summary>
       <enclosure url="${escape(audio)}" length="${bytes}" type="audio/mpeg" />
       ${transcript(post.id) ? `<podcast:transcript url="${site}/podcast/transcripts/${post.id}.txt" type="text/plain" language="en-gb" />
+      ` : ''}${chapters[post.id] ? `<podcast:chapters url="${site}/podcast/chapters/${post.id}.json" type="application/json+chapters" />
       ` : ''}<itunes:duration>${hms(duration)}</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>

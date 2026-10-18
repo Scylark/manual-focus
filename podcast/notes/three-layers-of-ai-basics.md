@@ -1,6 +1,25 @@
 ---
 post: three-layers-of-ai-basics
 title: "The three layers of AI, a basics guide for marketers"
+chapters:
+  - title: "Cold open"
+    at: "When someone in a marketing team says"
+  - title: "The three layers"
+    at: "So let me set it out"
+  - title: "Layer one: chat"
+    at: "Then let's start underneath"
+  - title: "Layer two: agents"
+    at: "So, layer two"
+  - title: "Layer three: orchestration"
+    at: "Then layer three"
+  - title: "Where to start"
+    at: "So where should a team start"
+  - title: "Get AI on this"
+    at: "A lot of this you can hand straight over"
+  - title: "Where people go wrong"
+    at: "Where do people go wrong with this"
+  - title: "The takeaway"
+    at: "So the takeaway. Chat adds language"
 ---
 
 The first episode of the Manual Focus Basics series. James and Hannah explain

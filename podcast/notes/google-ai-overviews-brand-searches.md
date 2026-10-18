@@ -1,6 +1,23 @@
 ---
 post: google-ai-overviews-brand-searches
 title: "AI Overviews hit 82% of tracked brand searches in September"
+chapters:
+  - title: "Cold open"
+    at: "The search results for your own company name"
+  - title: "What the data shows"
+    at: "They're striking numbers"
+  - title: "Other evidence, and Google's silence"
+    at: "Is anyone else seeing it"
+  - title: "Why brand searches matter"
+    at: "Here's why I think this matters"
+  - title: "Who owns it"
+    at: "Which raises the question of who owns it"
+  - title: "Get AI on this"
+    at: "so what do you hand over"
+  - title: "What we don't know"
+    at: "A fair amount. DemandSphere hasn't"
+  - title: "The takeaway"
+    at: "So the takeaway. Google is now"
 ---
 
 James and Hannah go through DemandSphere's data, published on 1 October 2026,

@@ -1,6 +1,29 @@
 ---
 post: above-the-line-below-the-line-basics
 title: "Above the line vs below the line marketing, explained"
+chapters:
+  - title: "Cold open"
+    at: "Above the line, below the line"
+  - title: "The definitions, and where the names come from"
+    at: "Start with the definitions"
+  - title: "Above the line: building memory"
+    at: "So let's take them one at a time"
+  - title: "Below the line: prompting action"
+    at: "Then below the line"
+  - title: "Does it apply in B2B?"
+    at: "Does any of this apply in business"
+  - title: "Through the line"
+    at: "Which brings us to through the line"
+  - title: "Digital sits on both sides"
+    at: "Now, digital"
+  - title: "Owned, paid and earned, and AI"
+    at: "And then there's the other way of sorting"
+  - title: "Get AI on this"
+    at: "So what can we hand over"
+  - title: "Common mistakes"
+    at: "Common mistakes, then"
+  - title: "The takeaway"
+    at: "So the takeaway"
 ---
 
 A Manual Focus Basics episode. James and Hannah explain above the line

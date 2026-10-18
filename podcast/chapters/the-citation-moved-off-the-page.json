@@ -1,0 +1,43 @@
+{
+  "version": "1.2.0",
+  "title": "The citation moved off the page",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Cold open"
+    },
+    {
+      "startTime": 26.7,
+      "title": "The numbers"
+    },
+    {
+      "startTime": 61.2,
+      "title": "Why now"
+    },
+    {
+      "startTime": 127.2,
+      "title": "What earns the citation"
+    },
+    {
+      "startTime": 208.1,
+      "title": "Our view"
+    },
+    {
+      "startTime": 224.4,
+      "title": "Where people go wrong"
+    },
+    {
+      "startTime": 241.7,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 325.6,
+      "title": "What we don't know"
+    },
+    {
+      "startTime": 345.9,
+      "title": "The close"
+    }
+  ]
+}

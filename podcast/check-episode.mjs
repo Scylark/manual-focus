@@ -11,6 +11,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
+import { scriptWords, readPlan, locate } from './chapter-plan.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const slug = process.argv[2];
@@ -125,6 +126,17 @@ if (!/couldn't|could not|can't see|cannot|not in data|say so/i.test(promptText))
 }
 if (/https?:\/\//.test(notes.replace(/```[\s\S]*?```/g, ''))) {
   warns.push('Notes link out; the post already lists the sources, so don\'t repeat them');
+}
+
+// The chapter plan that chapters.mjs times once the episode is published.
+const plan = readPlan(paths.notes);
+if (!plan.length) fails.push('Notes frontmatter needs a "chapters" list (see "Chapters" in SHOW-RULES.md)');
+else {
+  const { chapters, problems } = locate(plan, scriptWords(paths.script));
+  fails.push(...problems);
+  if (chapters.length && !chapters.some((c) => /^get ai on this$/i.test(c.title))) {
+    warns.push('No "Get AI on this" chapter');
+  }
 }
 
 report();

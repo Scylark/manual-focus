@@ -1,6 +1,23 @@
 ---
 post: cma-google-choice-screen-ai-assistants
 title: "What the CMA's AI choice screen plan means for UK marketers"
+chapters:
+  - title: "Cold open"
+    at: "The UK competition regulator"
+  - title: "What the CMA proposed"
+    at: "So what would Google have to do"
+  - title: "Which assistants qualify"
+    at: "Which assistants get in"
+  - title: "Will people leave Google?"
+    at: "So should a marketing director be planning"
+  - title: "Our view"
+    at: "Our view at Manual Focus"
+  - title: "Get AI on this"
+    at: "Then let's make it practical"
+  - title: "What we don't know"
+    at: "The CMA can still change the proposal"
+  - title: "The takeaway"
+    at: "So the takeaway. If the plan"
 ---
 
 James and Hannah talk through the Competition and Markets Authority's proposal

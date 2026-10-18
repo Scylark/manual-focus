@@ -1,6 +1,25 @@
 ---
 post: the-citation-moved-off-the-page
 title: "The citation moved off the page"
+chapters:
+  - title: "Cold open"
+    at: "For about twenty years"
+  - title: "The numbers"
+    at: "The number behind it is stark"
+  - title: "Why now"
+    at: "Why now, though"
+  - title: "What earns the citation"
+    at: "So what does earn the citation"
+  - title: "Our view"
+    at: "Here's our view at Manual Focus"
+  - title: "Where people go wrong"
+    at: "And where do people go wrong"
+  - title: "Get AI on this"
+    at: "Which is a lot of auditing"
+  - title: "What we don't know"
+    at: "The article doesn't go into how"
+  - title: "The close"
+    at: "And none of this means rankings"
 ---
 
 James and Hannah talk through why ranking on Google no longer predicts who

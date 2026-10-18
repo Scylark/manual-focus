@@ -1,6 +1,23 @@
 ---
 post: google-ai-mode-official-websites-links
 title: "What Google's new AI Mode links mean for brand websites"
+chapters:
+  - title: "Cold open"
+    at: "Google is testing a new section"
+  - title: "What Google announced"
+    at: "What did Google actually say"
+  - title: "The official websites section"
+    at: "Let's start with the official websites section"
+  - title: "Preferred Sources"
+    at: "Let's do Preferred Sources"
+  - title: "Clickable creator names"
+    at: "Quickly, the video change"
+  - title: "Get AI on this"
+    at: "so what do you actually do"
+  - title: "What we don't know"
+    at: "So, what don't"
+  - title: "The takeaway"
+    at: "So the takeaway is this"
 ---
 
 James and Hannah talk through the five link changes Google announced for AI

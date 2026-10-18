@@ -1,0 +1,51 @@
+{
+  "version": "1.2.0",
+  "title": "SOSTAC explained, a basics guide to marketing planning",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Cold open"
+    },
+    {
+      "startTime": 45.2,
+      "title": "What SOSTAC is"
+    },
+    {
+      "startTime": 90.5,
+      "title": "Situation"
+    },
+    {
+      "startTime": 163.5,
+      "title": "Objectives"
+    },
+    {
+      "startTime": 208.2,
+      "title": "Strategy and tactics"
+    },
+    {
+      "startTime": 350.4,
+      "title": "Action"
+    },
+    {
+      "startTime": 380.5,
+      "title": "Control"
+    },
+    {
+      "startTime": 438.4,
+      "title": "SOSTAC and AI"
+    },
+    {
+      "startTime": 520.8,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 584.9,
+      "title": "Where people go wrong"
+    },
+    {
+      "startTime": 666.9,
+      "title": "The takeaway"
+    }
+  ]
+}
