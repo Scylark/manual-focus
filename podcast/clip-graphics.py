@@ -183,10 +183,13 @@ def caption(state, path):
         d.ellipse([lx - 30, 12, lx - 14, 28], fill=colour)
         spaced(d, (lx, 4), label, name, colour, 8)
         words = [w.upper() for w in state['words']]
-        for size in (104, 94, 84, 76):
+        # Shrink until it's two lines at most and no line (a long product
+        # name on its own, say) runs past the margins.
+        for size in (104, 94, 84, 76, 68, 60, 52):
             fnt = font(NARROW_BOLD, size)
             lines = wrap(d, ' '.join(words), fnt, W - 2 * MARGIN)
-            if len(lines) <= 2:
+            widest = max(d.textlength(line, font=fnt) for line in lines)
+            if len(lines) <= 2 and widest <= W - 2 * MARGIN:
                 break
         space = d.textlength(' ', font=fnt)
         y = 70 if len(lines) == 2 else 70 + size // 2
