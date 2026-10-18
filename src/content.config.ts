@@ -56,6 +56,10 @@ const blog = defineCollection({
       // When the episode went out. Episodes can be added to older posts, so
       // the feed orders and dates episodes by this; without it, the post's date.
       published: z.coerce.date().optional(),
+      // The episode's YouTube video ID (the 11 characters after watch?v=),
+      // once the channel's podcast import has published it. Adds a
+      // VideoObject to the episode's structured data.
+      youtube: z.string().regex(/^[\w-]{11}$/).optional(),
     }).optional(),
   }),
 });

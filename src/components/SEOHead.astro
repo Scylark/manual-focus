@@ -35,7 +35,7 @@ interface Props {
   /** Article flavour: BlogPosting for posts, TechArticle for playbooks. */
   schemaType?: 'BlogPosting' | 'TechArticle' | 'Article';
   /** Companion podcast episode, for PodcastEpisode structured data. */
-  podcast?: { audio: string; duration: number; bytes: number; published?: Date; slug: string };
+  podcast?: { audio: string; duration: number; bytes: number; published?: Date; youtube?: string; slug: string };
 }
 
 const siteUrlRaw = Astro.site?.toString().replace(/\/$/, '') || 'https://manual-focus.co.uk';
@@ -319,6 +319,20 @@ const episodeSchema = podcast && audioObject
       timeRequired: isoDuration(podcast.duration),
       inLanguage: 'en-GB',
       associatedMedia: audioObject,
+      // The same episode on YouTube, from the channel's podcast import.
+      ...(podcast.youtube ? {
+        video: {
+          '@type': 'VideoObject',
+          name: title,
+          description,
+          thumbnailUrl: `https://i.ytimg.com/vi/${podcast.youtube}/hqdefault.jpg`,
+          uploadDate: (podcast.published ?? publishDate ?? new Date()).toISOString(),
+          duration: isoDuration(podcast.duration),
+          embedUrl: `https://www.youtube.com/embed/${podcast.youtube}`,
+          url: `https://www.youtube.com/watch?v=${podcast.youtube}`,
+          inLanguage: 'en-GB',
+        },
+      } : {}),
       partOfSeries: {
         '@type': 'PodcastSeries',
         '@id': `${siteUrl}${SHOW.hub}#series`,

@@ -22,6 +22,10 @@ script. The scripts live in `podcast/scripts/<post-slug>.txt` and
    notes against the published audio and writes
    `podcast/chapters/<post-slug>.json`, which the feed links with
    `<podcast:chapters>`.
+5. Once the "Manual Focus Marketing" YouTube channel (@manualfocusuk) has
+   imported the episode from the feed, add `youtube: <video ID>` to the
+   post's `podcast` block. The episode's structured data then carries a
+   VideoObject for the YouTube version.
 
 ## The hosts
 
