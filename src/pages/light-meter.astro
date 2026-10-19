@@ -3,8 +3,8 @@ import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
 
-const title = 'Light Meter, AI visibility measurement for brands';
-const description = 'Light Meter measures which brands ChatGPT, Gemini, Claude, Perplexity and Google AI recommend, how often, and which sites decide it. Category audits and brand reports.';
+const title = 'Manual Focus Light Meter, an AI visibility tool for brands';
+const description = 'Light Meter is an AI visibility tool. It measures which brands ChatGPT, Gemini, Claude, Perplexity and Google AI recommend, how often, and which websites they cite.';
 const report = url('/reports/ai-shortlist-indoor-cycling/');
 const enquire = (offer: string, extra = '') => `${url('/enquire/')}?offer=${offer}${extra}`;
 
@@ -27,25 +27,25 @@ const ghost = [86, 64, 48, 37, 22];
 
   <section class="section">
     <div class="container">
-      <div class="eyebrow">LIGHT METER</div>
-      <h1>See where AI puts your brand.</h1>
-      <p class="lead">Light Meter asks ChatGPT, Gemini, Claude, Perplexity and Google's AI the questions your buyers ask, several times over, and measures which brands they name and which websites they trust. It's the instrument behind the Manual Focus AI Shortlist research.</p>
+      <div class="eyebrow">MANUAL FOCUS LIGHT METER</div>
+      <h1>Light Meter shows which brands AI recommends</h1>
+      <p class="lead">Light Meter is an AI visibility tool. It asks six AI engines (ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews and Google AI Mode) the questions your buyers ask, three times each, then reports which brands they name and which websites they cite. It's the tool behind the Manual Focus AI Shortlist research.</p>
       <div class="lm-ctas">
         <a href={enquire('ai-shortlist-card')} class="btn-cta">Get your free AI Shortlist card</a>
-        <a href={report} class="btn-ghost">See the indoor cycling study</a>
+        <a href={report} class="btn-ghost">Read the indoor cycling study</a>
       </div>
     </div>
   </section>
 
   <section class="section section-alt">
     <div class="container">
-      <div class="eyebrow">WHAT IT MEASURES</div>
-      <h2 class="lm-h2">Four things a rank tracker can't tell you</h2>
+      <div class="eyebrow">WHAT LIGHT METER MEASURES</div>
+      <h2 class="lm-h2">What Light Meter measures</h2>
       <div class="lm-stats">
-        <div class="lm-stat"><span class="lm-v mono">6</span><p><strong>AI engines</strong>, measured separately, because they disagree. In our first study one brand appeared in 43% of Claude's answers and 5% of Google AI Mode's.</p></div>
-        <div class="lm-stat"><span class="lm-v mono">×3</span><p><strong>Runs per question</strong>, because AI answers change. An engine named the same brands in all three runs only 20% of the time.</p></div>
-        <div class="lm-stat"><span class="lm-v mono">95%</span><p><strong>Ranges on every number</strong>, so you can tell a real gap from noise before you spend money closing it.</p></div>
-        <div class="lm-stat"><span class="lm-v mono">50%+</span><p><strong>Of citations came from editorial sites</strong> in indoor cycling. Light Meter shows which sites decide your category.</p></div>
+        <div class="lm-stat"><span class="lm-v mono">6</span><p><strong>Six AI engines, measured separately</strong>, because they disagree. In our first study one brand appeared in 43% of Claude's answers and 5% of Google AI Mode's.</p></div>
+        <div class="lm-stat"><span class="lm-v mono">×3</span><p><strong>Three runs per question</strong>, because AI answers change. An engine named the same brands in all three runs only 20% of the time.</p></div>
+        <div class="lm-stat"><span class="lm-v mono">95%</span><p><strong>A 95% range on every number</strong>, so you can tell a real gap from noise before you spend money closing it.</p></div>
+        <div class="lm-stat"><span class="lm-v mono">50%+</span><p><strong>The websites AI cites.</strong> In indoor cycling, editorial sites supplied over half the citations. Light Meter shows which sites decide your category.</p></div>
       </div>
     </div>
   </section>
@@ -53,12 +53,12 @@ const ghost = [86, 64, 48, 37, 22];
   <section class="section">
     <div class="container">
       <div class="eyebrow">HOW IT WORKS</div>
-      <h2 class="lm-h2">From buyer question to AI shortlist</h2>
+      <h2 class="lm-h2">How a Light Meter study works</h2>
       <ol class="lm-steps">
-        <li><strong>Questions.</strong> We write 100 to 300 questions the way UK buyers ask them, tagged by buying moment, from value and beginner to performance and problem questions.</li>
-        <li><strong>Engines.</strong> Each question goes to six AI engines from a UK location, three times each.</li>
-        <li><strong>Measure.</strong> Light Meter records every brand named and every site cited, then calculates each brand's share with a 95% range.</li>
-        <li><strong>Read.</strong> You get the league table, each engine's view, who wins each buying moment and the sites that decide it, with clear next steps.</li>
+        <li><strong>We write the buyer questions.</strong> We write 100 to 300 questions the way UK buyers ask them, tagged by buying moment, from value and beginner to performance and problem questions.</li>
+        <li><strong>We ask six AI engines.</strong> Each question goes to six AI engines from a UK location, three times each.</li>
+        <li><strong>We count brands and citations.</strong> Light Meter records every brand named and every site cited, then calculates each brand's share with a 95% range.</li>
+        <li><strong>You get the report.</strong> It has the league table, each engine's view, who wins each buying moment and the sites that decide it, with clear next steps.</li>
       </ol>
     </div>
   </section>
@@ -66,14 +66,14 @@ const ghost = [86, 64, 48, 37, 22];
   <section class="section section-alt">
     <div class="container">
       <div class="eyebrow">THE FIRST STUDY</div>
-      <h2 class="lm-h2">Indoor cycling, October 2026</h2>
+      <h2 class="lm-h2">First study: UK indoor cycling, October 2026</h2>
       <p class="lm-copy">309 UK questions, six engines, 5,562 answers. Wahoo was named in 83% of smart trainer answers and Zwift in 88% of training app answers, and cycling media supplied over half the citations. The full report is open to everyone.</p>
       <a href={report} class="lm-shot" aria-label="Open the indoor cycling report">
         <img src={url('/images/ai-shortlist/shortlist.svg')} alt="Who AI recommends for UK smart trainers, training apps and smart bikes" width="1200" height="640" loading="lazy" decoding="async" />
       </a>
       <div class="lm-ctas">
-        <a href={report} class="btn-cta">Open the report</a>
-        <a href={url('/blog/which-indoor-cycling-brands-does-ai-recommend/')} class="btn-ghost">Read the article</a>
+        <a href={report} class="btn-cta">Open the interactive report</a>
+        <a href={url('/blog/which-indoor-cycling-brands-does-ai-recommend/')} class="btn-ghost">Read the article on the findings</a>
       </div>
     </div>
   </section>
@@ -81,8 +81,8 @@ const ghost = [86, 64, 48, 37, 22];
   <section class="section">
     <div class="container">
       <div class="eyebrow">CATEGORY AUDITS</div>
-      <h2 class="lm-h2">Order an audit for your category</h2>
-      <p class="lm-copy">Every audit uses the same method as the indoor cycling study and is built to order in five working days. Previews stay locked until you order. Price on application, paid by invoice or card.</p>
+      <h2 class="lm-h2">Category audits you can order</h2>
+      <p class="lm-copy">A category audit is a full Light Meter study of one product category, using the same method as the indoor cycling study. Indoor cycling is published and free to read. Every other category below is built to order in five working days, and its results stay locked until you order. Price on application, paid by invoice or card.</p>
       <div class="lm-grid">
         {audits.map((a) => (
           <article class={`lm-audit ${a.status === 'published' ? 'is-open' : ''}`}>
@@ -111,8 +111,8 @@ const ghost = [86, 64, 48, 37, 22];
 
   <section class="section section-alt">
     <div class="container">
-      <div class="eyebrow">WAYS TO USE IT</div>
-      <h2 class="lm-h2">From a free card to a fix programme</h2>
+      <div class="eyebrow">SERVICES AND PRICES</div>
+      <h2 class="lm-h2">Light Meter services and prices</h2>
       <div class="lm-offers">
         <div class="lm-offer">
           <p class="lm-tag mono">Free</p>
