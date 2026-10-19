@@ -24,7 +24,7 @@ export async function GET(context: APIContext) {
   const lines: string[] = [
     '# Manual Focus',
     '',
-    '> Manual Focus is a London marketing agency for endurance and sports brands, run by senior operators, with work across AI, fintech, hardware and digital assets too. It is led by James Vickers, who was on the founding team at RGT Cycling (acquired by Wahoo Fitness). It works as a fractional CMO, a strategic advisor or on fixed-price builds, with AI doing the heavy lifting. Manual Focus also publishes The Lens, a free library of AI marketing playbooks and installable Claude skills, and the AI Shortlist research on which brands AI recommends.',
+    '> Manual Focus is a London marketing agency for endurance and sports brands, run by senior operators who also work in AI, fintech, hardware and digital assets. James Vickers leads it, and he was on the founding team at RGT Cycling, which Wahoo Fitness bought. The team works as a fractional CMO, as a strategic advisor or on fixed-price builds, with AI doing the heavy lifting. Manual Focus also publishes The Lens, a free library of AI marketing playbooks and installable Claude skills, and runs Light Meter, which measures which brands AI engines recommend and which sites they cite.',
     '',
     '## Working with Manual Focus',
     '',

@@ -174,8 +174,8 @@ make it stronger, in order of impact:
 6. **The headline.** Two alternatives are above.
 7. **"Agency" in the page title.** It's kept for search, though the FAQ
    argues against the word.
-8. **About and Lens body copy** still says "ambitious brands". The page
-   metadata, schema and llms.txt now match the new positioning.
+8. **Lens body copy** still says "ambitious brands". The home and About
+   pages, metadata, schema and llms.txt now match the new positioning.
 
 ## Sources
 
