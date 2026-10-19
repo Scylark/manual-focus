@@ -37,6 +37,8 @@ You can explore every number, every question and every engine's answer in the [f
 - Challenger brands depend on the engine, as JetBlack ranged from 47% of Claude's trainer answers to 11% of Google AI Mode's.
 - Editorial sites supplied 51% to 56% of citations, while Reddit, YouTube and forums supplied 3% to 5%.
 
+![Who AI recommends for UK smart trainers, training apps and smart bikes. Wahoo 83%, Tacx 65% and Elite 39% for trainers. Zwift 88%, Rouvy 71% and MyWhoosh 69% for apps. Wahoo 64%, Wattbike 58% and Zwift Ride 49% for smart bikes.](/images/ai-shortlist/shortlist.svg)
+
 ## What did we measure?
 
 We wrote 309 questions the way UK riders ask them, such as "quietest smart trainer for a flat" or "best indoor cycling app for students". Of those, 260 name no brand, and only those count towards the headline numbers. The other 49 name brands and sit in the report's question explorer.
@@ -68,7 +70,9 @@ For a brand team, the more useful finding sits below the headline table, because
 | Performance | Wahoo 93%, Tacx 89% | TrainerRoad 84%, Zwift 82% | Wahoo 89%, Wattbike 73% |
 | Scenery | Not asked | Rouvy 97%, Zwift 91% | Not asked |
 
-A brand that wins performance questions can still be missing from the beginner shortlist. Van Rysel, Decathlon's own brand, appears in roughly half of value answers for trainers but in 9% of performance answers. Peloton, a fitness brand more than a cycling one, leads the beginner moment for smart bikes. The [category entry points playbook](/lens/demand/category-entry-points/) is the method for mapping these moments in your own category before you measure them.
+A brand that wins performance questions can still be missing from the beginner shortlist. Van Rysel, Decathlon's own brand, appears in roughly half of value answers for trainers but in 9% of performance answers. Peloton, a fitness brand more than a cycling one, leads the beginner moment for smart bikes. ![Bubble chart of which training apps AI names for each buying moment. Rouvy leads scenery questions, MyWhoosh value questions and TrainerRoad performance questions.](/images/ai-shortlist/moments.svg)
+
+The [category entry points playbook](/lens/demand/category-entry-points/) is the method for mapping these moments in your own category before you measure them.
 
 ## Do the AI engines agree?
 
@@ -78,11 +82,15 @@ Claude names more brands per answer than any other engine, 4.2 on average agains
 
 Google AI Overviews only showed up for 64% of these searches. When no overview appeared, no brand got the AI spotlight on that results page, which is why Google AI Overviews gives the lowest rate for most of the leading brands, including Wahoo, Tacx, Zwift and Wattbike.
 
+![Dot plot of how often six AI engines name each smart trainer brand. Engines agree on Wahoo but split widely on Tacx, JetBlack and Van Rysel.](/images/ai-shortlist/engines.svg)
+
 Our view at Manual Focus is that a brand team should treat each engine as a separate channel with its own shortlist, because a single "AI visibility" score averages away the gaps a challenger brand can actually close.
 
 ## Which sites decide the answer?
 
 Cycling media supplies most of the sources. Editorial sites supplied 56% of citations for trainers, 53% for smart bikes and 51% for apps, led by BikeRadar, Cyclingnews and Cycling Weekly. Reddit, YouTube and forums supplied 3% to 5%. Brand websites mattered most for apps, at 30% of citations, where Rouvy's and MyWhoosh's own pages were cited in a large share of answers.
+
+![Bar chart of the websites AI engines cite most for indoor cycling questions, led by Cyclingnews, BikeRadar and Cycling Weekly, with the source mix by category.](/images/ai-shortlist/sources.svg)
 
 So the work for a brand team is mostly earned media, in line with our earlier argument that [the citation moved off the page](/blog/the-citation-moved-off-the-page/). For an endurance brand, the review in a buyer's guide on BikeRadar now does double duty, as the article a rider reads and as the source an AI engine quotes. The [earned media pitch generator](/lens/content/earned-media-pitch-generator/) and the [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/) cover how to earn those placements.
 
