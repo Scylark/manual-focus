@@ -4,6 +4,11 @@ date: 2026-10-19
 unlisted: true
 tags: ["ai", "endurance-sports", "marketing-strategy"]
 description: "Six AI engines, 309 UK questions on smart trainers, training apps and smart bikes. Wahoo and Zwift lead, and cycling media decides who AI names."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/which-indoor-cycling-brands-does-ai-recommend.mp3"
+  duration: 458
+  bytes: 5494536
+  published: 2026-10-19
 faq:
   - question: "Which smart trainer does ChatGPT recommend in the UK?"
     answer: "In the Manual Focus study run on 19 October 2026, ChatGPT named Wahoo in 94% of its answers to unbranded UK smart trainer questions, followed by Tacx in 77% and Elite in 42%. It also named Van Rysel, Decathlon's own brand, in 37% of answers, far more often than Google AI Mode did at 5%."
