@@ -1,14 +1,16 @@
 ---
-title: "Which smart trainer does AI recommend in the UK?"
+title: "Which indoor cycling brands does AI recommend in the UK?"
 date: 2026-10-19
 unlisted: true
 tags: ["ai", "endurance-sports", "marketing-strategy"]
-description: "Six AI engines, 309 UK questions on smart trainers, apps and smart bikes. Wahoo leads trainers, Zwift leads apps and cycling media decides who gets named."
+description: "Six AI engines, 309 UK questions on smart trainers, training apps and smart bikes. Wahoo and Zwift lead, and cycling media decides who AI names."
 faq:
   - question: "Which smart trainer does ChatGPT recommend in the UK?"
     answer: "In the Manual Focus study run on 19 October 2026, ChatGPT named Wahoo in 94% of its answers to unbranded UK smart trainer questions, followed by Tacx in 77% and Elite in 42%. It also named Van Rysel, Decathlon's own brand, in 37% of answers, far more often than Google AI Mode did at 5%."
   - question: "Which indoor cycling app does AI recommend most?"
     answer: "Zwift appeared in 88% of answers across six AI engines in the Manual Focus study of 90 unbranded UK app questions. Rouvy (71%) and MyWhoosh (69%) followed. The leader changes by buying moment, with Rouvy named in 97% of answers about scenery and MyWhoosh in 87% of answers about value."
+  - question: "Which smart bike does AI recommend in the UK?"
+    answer: "Wahoo appeared in 64% of answers to unbranded UK smart bike questions across six AI engines in the Manual Focus study, with Wattbike close behind at 58% and Zwift Ride at 49%. Wahoo led performance questions at 89%, while Peloton was named most often for beginner questions, at 67%."
   - question: "Do different AI engines recommend the same brands?"
     answer: "Mostly at the top, much less below it. All six engines put Wahoo first for smart trainers and Zwift first for apps. Challenger brands vary widely, so JetBlack appeared in 47% of Claude's trainer answers and 11% of Google AI Mode's. Asked the same question three times, an engine named exactly the same set of brands only 20% of the time."
   - question: "Which websites do AI engines cite for cycling kit?"
@@ -34,9 +36,9 @@ sources:
     publisher: "DataForSEO"
 ---
 
-On 19 October 2026 Manual Focus asked six AI engines 309 UK shopping questions about smart trainers, training apps and smart bikes, three times each. Across 5,562 answers, Wahoo was named in 83% of unbranded smart trainer answers and Zwift in 88% of app answers, and cycling media supplied more than half of every citation.
+On 19 October 2026 Manual Focus asked six AI engines 309 UK shopping questions about indoor cycling, three times each. Across 5,562 answers, AI named Wahoo in 83% of smart trainer answers, Zwift in 88% of training app answers and Wahoo in 64% of smart bike answers, while cycling media supplied over half the citations.
 
-You can explore every number, every question and every engine's answer in the [full interactive report](/reports/ai-shortlist-indoor-cycling/).
+You can explore every number, question and answer in the [full interactive report](/reports/ai-shortlist-indoor-cycling/). Brands in the study can [request a free one-page AI Shortlist card](/enquire/?offer=ai-shortlist-card).
 
 ## Key takeaways
 
@@ -127,13 +129,13 @@ So the work for a brand team is mostly earned media, in line with our earlier ar
 
 ## What this study can't tell you
 
-The study counts whether AI names a brand, not whether it praises the brand, and not whether anyone buys. Logged-in users with chat history may see different answers. Perplexity and Claude were measured through their APIs, which can differ from their apps. The engines change often, so this is a picture of October 2026.
+The study counts whether AI names a brand, not whether it praises the brand, and not whether anyone buys. Logged-in users with chat history may see different answers. Perplexity and Claude were measured through their APIs, which can differ from their apps. This is a snapshot of October 2026.
 
 Disclosure, James Vickers has previously worked with Wahoo and Wattbike and was on the founding team at RGT Cycling, which Wahoo acquired. He currently works with Ribble Cycles, which isn't ranked but appears as a cited retailer in 19 of the 5,562 answers. No brand paid for or saw this research before publication.
 
 ## Further reading
 
-- [The citation moved off the page](/blog/the-citation-moved-off-the-page/), on why ranking stopped predicting who AI quotes.
+- [The citation moved off the page](/blog/the-citation-moved-off-the-page/), on why rankings stopped predicting citations.
 - [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/), the search groundwork behind AI visibility.
 - [Owned, paid and earned media explained](/blog/owned-paid-earned-media-basics/), for the earned side that AI engines lean on.
 - [Category entry points](/lens/demand/category-entry-points/), for mapping the buying moments in your own market.
