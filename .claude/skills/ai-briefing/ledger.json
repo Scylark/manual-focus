@@ -662,5 +662,13 @@
     "score": 4,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-19",
+    "story": "Manual Focus AI Shortlist study, UK indoor cycling (smart trainers, apps, smart bikes) across six AI engines",
+    "primary_source": "https://manual-focus.co.uk/reports/ai-shortlist-indoor-cycling/",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "which-smart-trainer-does-ai-recommend"
   }
 ]
