@@ -38,7 +38,9 @@ sources:
 
 On 19 October 2026 Manual Focus asked six AI engines 309 UK shopping questions about indoor cycling, three times each. Across 5,562 answers, AI named Wahoo in 83% of smart trainer answers, Zwift in 88% of training app answers and Wahoo in 64% of smart bike answers, while cycling media supplied over half the citations.
 
-You can explore every number, question and answer in the [full interactive report](/reports/ai-shortlist-indoor-cycling/). Brands in the study can [request a free one-page AI Shortlist card](/enquire/?offer=ai-shortlist-card).
+[![Open the interactive report](/images/ai-shortlist/report-banner.svg)](/reports/ai-shortlist-indoor-cycling/)
+
+Brands in the study can [request a free one-page AI Shortlist card](/enquire/?offer=ai-shortlist-card).
 
 ## Key takeaways
 
@@ -48,7 +50,7 @@ You can explore every number, question and answer in the [full interactive repor
 - Challenger brands depend on the engine, as JetBlack ranged from 47% of Claude's trainer answers to 11% of Google AI Mode's.
 - Editorial sites supplied 51% to 56% of citations, while Reddit, YouTube and forums supplied 3% to 5%.
 
-![Who AI recommends for UK smart trainers, training apps and smart bikes](/images/ai-shortlist/shortlist.svg)
+[![Who AI recommends for UK smart trainers, training apps and smart bikes](/images/ai-shortlist/shortlist.svg)](/reports/ai-shortlist-indoor-cycling/#shortlist)
 
 ## Why does AI's answer matter now?
 
@@ -95,7 +97,7 @@ For a brand team, the more useful finding sits below the headline table, because
 | Performance | Wahoo 93%, Tacx 89% | TrainerRoad 84%, Zwift 82% | Wahoo 89%, Wattbike 73% |
 | Scenery | Not asked | Rouvy 97%, Zwift 91% | Not asked |
 
-A brand that wins performance questions can still be missing from the beginner shortlist. Van Rysel, Decathlon's own brand, appears in roughly half of value answers for trainers but in 9% of performance answers. Peloton, a fitness brand more than a cycling one, leads the beginner moment for smart bikes. ![Which training apps AI names for each buying moment](/images/ai-shortlist/moments.svg)
+A brand that wins performance questions can still be missing from the beginner shortlist. Van Rysel, Decathlon's own brand, appears in roughly half of value answers for trainers but in 9% of performance answers. Peloton, a fitness brand more than a cycling one, leads the beginner moment for smart bikes. [![Which training apps AI names for each buying moment](/images/ai-shortlist/moments.svg)](/reports/ai-shortlist-indoor-cycling/#moments)
 
 The [category entry points playbook](/lens/demand/category-entry-points/) is the method for mapping these moments in your own category before you measure them.
 
@@ -107,7 +109,7 @@ Claude names more brands per answer than any other engine, 4.2 on average agains
 
 Because AI Overviews appeared for only 64% of these searches, they give the lowest rate for most leading brands, including Wahoo, Tacx, Zwift and Wattbike.
 
-![How often six AI engines name each smart trainer brand](/images/ai-shortlist/engines.svg)
+[![How often six AI engines name each smart trainer brand](/images/ai-shortlist/engines.svg)](/reports/ai-shortlist-indoor-cycling/#engines)
 
 Our view at Manual Focus is that a brand team should treat each engine as a separate channel with its own shortlist, because a single "AI visibility" score averages away the gaps a challenger brand can actually close.
 
@@ -115,7 +117,7 @@ Our view at Manual Focus is that a brand team should treat each engine as a sepa
 
 Cycling media supplies most of the sources. Editorial sites supplied 56% of citations for trainers, 53% for smart bikes and 51% for apps, led by BikeRadar, Cyclingnews and Cycling Weekly. Reddit, YouTube and forums supplied 3% to 5%. Brand websites mattered most for apps, at 30% of citations, where Rouvy's and MyWhoosh's own pages were cited in a large share of answers.
 
-![The websites AI engines cite most for indoor cycling questions](/images/ai-shortlist/sources.svg)
+[![The websites AI engines cite most for indoor cycling questions](/images/ai-shortlist/sources.svg)](/reports/ai-shortlist-indoor-cycling/#sources)
 
 So the work for a brand team is mostly earned media, in line with our earlier argument that [the citation moved off the page](/blog/the-citation-moved-off-the-page/). For an endurance brand, the review in a buyer's guide on BikeRadar now does double duty, as the article a rider reads and as the source an AI engine quotes. The [earned media pitch generator](/lens/content/earned-media-pitch-generator/) and the [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/) cover how to earn those placements.
 
@@ -135,6 +137,7 @@ Disclosure, James Vickers has previously worked with Wahoo and Wattbike and was 
 
 ## Further reading
 
+- [The interactive report](/reports/ai-shortlist-indoor-cycling/), with every brand and question.
 - [The citation moved off the page](/blog/the-citation-moved-off-the-page/), on why rankings stopped predicting citations.
 - [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/), the search groundwork behind AI visibility.
 - [Owned, paid and earned media explained](/blog/owned-paid-earned-media-basics/), for the earned side that AI engines lean on.
