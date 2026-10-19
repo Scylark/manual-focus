@@ -97,7 +97,11 @@ for (const w of EXPERIENCE) if (all.includes(w)) fails.push(`claims first-hand e
 if (/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(all)) fails.push('emoji');
 
 // Internal links resolve in the built site and use trailing slashes
-for (const [, href] of body.matchAll(/\]\((\/[^)#\s]*)/g)) {
+// Images (![alt](/images/...)) are files, so they only need to exist.
+for (const [, href] of body.matchAll(/!\[[^\]]*\]\((\/[^)#\s]*)/g)) {
+  if (!existsSync(`dist${href}`)) fails.push(`missing image: ${href} (run npm run build first)`);
+}
+for (const [, href] of body.replace(/!\[[^\]]*\]\([^)]*\)/g, '').matchAll(/\]\((\/[^)#\s]*)/g)) {
   if (!href.endsWith('/')) fails.push(`internal link needs trailing slash: ${href}`);
   if (!existsSync(`dist${href.replace(/\/?$/, '/')}index.html`)) fails.push(`broken internal link: ${href} (run npm run build first)`);
 }
