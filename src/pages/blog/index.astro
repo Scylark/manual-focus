@@ -3,10 +3,10 @@ import Base from '../../layouts/Base.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import { url } from '../../utils/paths';
-import { formatTag, readingTime } from '../../utils/blog';
+import { formatTag, readingTime, isListed } from '../../utils/blog';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog'))
+const posts = (await getCollection('blog', isListed))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
 const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();

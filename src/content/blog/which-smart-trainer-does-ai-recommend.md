@@ -1,6 +1,7 @@
 ---
 title: "Which smart trainer does AI recommend in the UK?"
 date: 2026-10-19
+unlisted: true
 tags: ["ai", "endurance-sports", "marketing-strategy"]
 description: "Six AI engines, 309 UK questions on smart trainers, apps and smart bikes. Wahoo leads trainers, Zwift leads apps and cycling media decides who gets named."
 faq:

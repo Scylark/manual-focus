@@ -4,7 +4,7 @@ import SEOHead from '../components/SEOHead.astro';
 import PostPlayer from '../components/PostPlayer.astro';
 import { transcript } from '../utils/podcast';
 import { url } from '../utils/paths';
-import { formatTag } from '../utils/blog';
+import { formatTag, isListed } from '../utils/blog';
 import { getCollection } from 'astro:content';
 
 interface HowToStep { name: string; text: string }
@@ -26,11 +26,12 @@ interface Props {
   minutes?: number;
   podcast?: { audio: string; duration: number; bytes: number; published?: Date; youtube?: string };
   slug?: string;
+  unlisted?: boolean;
   newerPost?: PostRef | null;
   olderPost?: PostRef | null;
 }
 
-const { title, description, date, updated, tags, image, howToName, howToSteps, faq, sources, minutes, podcast, slug, newerPost, olderPost } = Astro.props;
+const { title, description, date, updated, tags, image, howToName, howToSteps, faq, sources, minutes, podcast, slug, unlisted, newerPost, olderPost } = Astro.props;
 
 // Show notes for the episode, written alongside its script in podcast/notes/.
 const showNotes = import.meta.glob<{ Content: any }>('/podcast/notes/*.md', { eager: true });
@@ -52,7 +53,7 @@ const breadcrumbs = [
 // Related posts — rank other posts by shared-tag count, exclude current,
 // take top 3. Gives Google internal link signals for topical authority
 // and keeps readers moving through the content.
-const allPosts = await getCollection('blog');
+const allPosts = await getCollection('blog', isListed);
 const related = allPosts
   .filter(p => p.data.title !== title)
   .map(p => ({
@@ -67,7 +68,7 @@ const related = allPosts
   .slice(0, 3)
   .map(x => x.post);
 ---
-<Base title={title} description={description} ogImage={image} ogType="article" publishedTime={date} modifiedTime={updated ?? date}>
+<Base title={title} description={description} noindex={unlisted} ogImage={image} ogType="article" publishedTime={date} modifiedTime={updated ?? date}>
   <SEOHead slot="seo" type="article" title={title} description={description} publishDate={date} modifiedDate={updated} tags={tags} image={image} breadcrumbs={breadcrumbs} howToName={howToName} howToSteps={howToSteps} articleFaq={faq} sources={sources} podcast={podcast && slug ? { ...podcast, slug } : undefined} />
 
   <article class="section">

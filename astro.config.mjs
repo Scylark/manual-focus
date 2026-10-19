@@ -21,6 +21,13 @@ const blogLastmod = new Map(
     .filter(([, date]) => date),
 );
 
+// Unlisted posts are live but kept out of the sitemap until launch.
+const unlistedUrls = new Set(
+  readdirSync('./src/content/blog')
+    .filter((f) => f.endsWith('.md') && /^unlisted:\s*true\s*$/m.test(readFileSync(`./src/content/blog/${f}`, 'utf8')))
+    .map((f) => `${SITE}/blog/${f.replace(/\.md$/, '')}/`),
+);
+
 // lastmod for Lens playbooks (updatedAt ?? publishedAt), keyed by URL.
 const lensLastmod = new Map(
   readdirSync('./src/content/lens')
@@ -48,6 +55,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      filter: (page) => !unlistedUrls.has(page),
       serialize(item) {
         const date = blogLastmod.get(item.url) ?? lensLastmod.get(item.url);
         if (date) item.lastmod = new Date(date).toISOString();

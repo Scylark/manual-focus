@@ -1,12 +1,17 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
-import { readingTime } from '../../utils/blog';
+import { readingTime, isListed } from '../../utils/blog';
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('blog'))
+  const all = await getCollection('blog');
+  const posts = all
+    .filter(isListed)
     .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
-  return posts.map((post, i) => ({
+  const unlisted = all
+    .filter((p) => !isListed(p))
+    .map((post) => ({ params: { slug: post.id }, props: { post, newerPost: null, olderPost: null } }));
+  return [...unlisted, ...posts.map((post, i) => ({
     params: { slug: post.id },
     props: {
       post,
@@ -15,7 +20,7 @@ export async function getStaticPaths() {
       newerPost: i > 0 ? { slug: posts[i - 1].id, title: posts[i - 1].data.title } : null,
       olderPost: i < posts.length - 1 ? { slug: posts[i + 1].id, title: posts[i + 1].data.title } : null,
     },
-  }));
+  }))];
 }
 
 const { post, newerPost, olderPost } = Astro.props;
@@ -35,6 +40,7 @@ const minutes = readingTime(post.body ?? '');
   sources={post.data.sources}
   podcast={post.data.podcast}
   slug={post.id}
+  unlisted={post.data.unlisted}
   minutes={minutes}
   newerPost={newerPost}
   olderPost={olderPost}
