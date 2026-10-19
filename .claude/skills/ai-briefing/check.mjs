@@ -102,8 +102,9 @@ for (const [, href] of body.matchAll(/!\[[^\]]*\]\((\/[^)#\s]*)/g)) {
   if (!existsSync(`dist${href}`)) fails.push(`missing image: ${href} (run npm run build first)`);
 }
 for (const [, href] of body.replace(/!\[[^\]]*\]\([^)]*\)/g, '').matchAll(/\]\((\/[^)#\s]*)/g)) {
-  if (!href.endsWith('/')) fails.push(`internal link needs trailing slash: ${href}`);
-  if (!existsSync(`dist${href.replace(/\/?$/, '/')}index.html`)) fails.push(`broken internal link: ${href} (run npm run build first)`);
+  const path = href.split('?')[0];
+  if (!path.endsWith('/')) fails.push(`internal link needs trailing slash: ${href}`);
+  if (!existsSync(`dist${path.replace(/\/?$/, '/')}index.html`)) fails.push(`broken internal link: ${href} (run npm run build first)`);
 }
 
 if (fails.length) { console.log(`FAIL ${file}\n- ${fails.join('\n- ')}`); process.exit(1); }

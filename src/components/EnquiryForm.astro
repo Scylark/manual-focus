@@ -28,6 +28,8 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
       <option value="fractional-cmo">Fractional CMO</option>
       <option value="build-and-hand-over">Build &amp; Hand Over</option>
       <option value="manual-focus-ai">Manual Focus AI</option>
+      <option value="ai-shortlist-card">AI Shortlist brand card (free)</option>
+      <option value="ai-shortlist-data">AI Shortlist dataset (free)</option>
     </select>
   </div>
 
@@ -142,6 +144,18 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
   const offerParam = new URLSearchParams(window.location.search).get('offer');
   if (offerSelect && offerParam && [...offerSelect.options].some(o => o.value === offerParam)) {
     offerSelect.value = offerParam;
+  }
+
+  // AI Shortlist research links here with ?offer=ai-shortlist-card&brand=<name>;
+  // start the message so the request only needs a name and email.
+  const challenge = form?.querySelector<HTMLTextAreaElement>('#challenge');
+  const brandParam = new URLSearchParams(window.location.search).get('brand')?.slice(0, 80);
+  if (challenge && !challenge.value) {
+    if (offerParam === 'ai-shortlist-card') {
+      challenge.value = `Please send the AI Shortlist card for ${brandParam || 'our brand'}.`;
+    } else if (offerParam === 'ai-shortlist-data') {
+      challenge.value = 'Please send the AI Shortlist indoor cycling dataset.';
+    }
   }
 
   form?.addEventListener('submit', (e) => {
