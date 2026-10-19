@@ -75,7 +75,7 @@ At the top, yes. Every engine put Wahoo first for trainers and Zwift first for a
 
 Claude names more brands per answer than any other engine, 4.2 on average against 2.9 to 3.3 for the rest. Saris appears in 40% of Claude's trainer answers and under 10% of every other engine's. Van Rysel appears in 43% of Claude's trainer answers and 37% of ChatGPT's, but in only 5% of Google AI Mode's.
 
-Google AI Overviews only showed up for 64% of these searches. When no overview appeared, no brand got the AI spotlight on that results page, which is why Google AI Overviews scores lowest for every brand in the report.
+Google AI Overviews only showed up for 64% of these searches. When no overview appeared, no brand got the AI spotlight on that results page, which is why Google AI Overviews gives the lowest rate for most of the leading brands, including Wahoo, Tacx, Zwift and Wattbike.
 
 Our view at Manual Focus is that a brand team should treat each engine as a separate channel with its own shortlist, because a single "AI visibility" score averages away the gaps a challenger brand can actually close.
 
