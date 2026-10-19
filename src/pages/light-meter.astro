@@ -1,0 +1,188 @@
+---
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+import { url } from '../utils/paths';
+
+const title = 'Light Meter, AI visibility measurement for brands';
+const description = 'Light Meter measures which brands ChatGPT, Gemini, Claude, Perplexity and Google AI recommend, how often, and which sites decide it. Category audits and brand reports.';
+const report = url('/reports/ai-shortlist-indoor-cycling/');
+const enquire = (offer: string, extra = '') => `${url('/enquire/')}?offer=${offer}${extra}`;
+
+// Categories brands can order. Indoor cycling is published; the rest are built to order.
+const audits = [
+  { name: 'Indoor cycling', detail: 'Smart trainers, training apps, smart bikes', status: 'published' },
+  { name: 'Trail running kit', detail: 'Shoes, waterproof jackets, hydration packs, races', status: 'edition', when: 'Next edition, January 2027' },
+  { name: 'Running shoes', detail: 'Road, race and daily trainers' },
+  { name: 'Sports nutrition', detail: 'Gels, drink mixes, recovery' },
+  { name: 'GPS sports watches', detail: 'Running, multisport and outdoor' },
+  { name: 'Bike helmets and lights', detail: 'Road, commuting and off-road' },
+  { name: 'Outdoor clothing', detail: 'Waterproofs, insulation, base layers' },
+  { name: 'Your category', detail: 'Any UK consumer category, on request' },
+];
+// Placeholder bar widths for the locked previews. They carry no brand names or values.
+const ghost = [86, 64, 48, 37, 22];
+---
+<Base title={title} description={description} noindex>
+  <SEOHead slot="seo" type="service" title={title} description={description} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Light Meter', url: '/light-meter/' }]} />
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">LIGHT METER</div>
+      <h1>See where AI puts your brand.</h1>
+      <p class="lead">Light Meter asks ChatGPT, Gemini, Claude, Perplexity and Google's AI the questions your buyers ask, several times over, and measures which brands they name and which websites they trust. It's the instrument behind the Manual Focus AI Shortlist research.</p>
+      <div class="lm-ctas">
+        <a href={enquire('ai-shortlist-card')} class="btn-cta">Get your free AI Shortlist card</a>
+        <a href={report} class="btn-ghost">See the indoor cycling study</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">WHAT IT MEASURES</div>
+      <h2 class="lm-h2">Four things a rank tracker can't tell you</h2>
+      <div class="lm-stats">
+        <div class="lm-stat"><span class="lm-v mono">6</span><p><strong>AI engines</strong>, measured separately, because they disagree. In our first study one brand appeared in 43% of Claude's answers and 5% of Google AI Mode's.</p></div>
+        <div class="lm-stat"><span class="lm-v mono">×3</span><p><strong>Runs per question</strong>, because AI answers change. An engine named the same brands in all three runs only 20% of the time.</p></div>
+        <div class="lm-stat"><span class="lm-v mono">95%</span><p><strong>Ranges on every number</strong>, so you can tell a real gap from noise before you spend money closing it.</p></div>
+        <div class="lm-stat"><span class="lm-v mono">50%+</span><p><strong>Of citations came from editorial sites</strong> in indoor cycling. Light Meter shows which sites decide your category.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">HOW IT WORKS</div>
+      <h2 class="lm-h2">From buyer question to AI shortlist</h2>
+      <ol class="lm-steps">
+        <li><strong>Questions.</strong> We write 100 to 300 questions the way UK buyers ask them, tagged by buying moment, from value and beginner to performance and problem questions.</li>
+        <li><strong>Engines.</strong> Each question goes to six AI engines from a UK location, three times each.</li>
+        <li><strong>Measure.</strong> Light Meter records every brand named and every site cited, then calculates each brand's share with a 95% range.</li>
+        <li><strong>Read.</strong> You get the league table, each engine's view, who wins each buying moment and the sites that decide it, with clear next steps.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">THE FIRST STUDY</div>
+      <h2 class="lm-h2">Indoor cycling, October 2026</h2>
+      <p class="lm-copy">309 UK questions, six engines, 5,562 answers. Wahoo was named in 83% of smart trainer answers and Zwift in 88% of training app answers, and cycling media supplied over half the citations. The full report is open to everyone.</p>
+      <a href={report} class="lm-shot" aria-label="Open the indoor cycling report">
+        <img src={url('/images/ai-shortlist/shortlist.svg')} alt="Who AI recommends for UK smart trainers, training apps and smart bikes" width="1200" height="640" loading="lazy" decoding="async" />
+      </a>
+      <div class="lm-ctas">
+        <a href={report} class="btn-cta">Open the report</a>
+        <a href={url('/blog/which-indoor-cycling-brands-does-ai-recommend/')} class="btn-ghost">Read the article</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">CATEGORY AUDITS</div>
+      <h2 class="lm-h2">Order an audit for your category</h2>
+      <p class="lm-copy">Every audit uses the same method as the indoor cycling study and is built to order in five working days. Previews stay locked until you order. Price on application, paid by invoice or card.</p>
+      <div class="lm-grid">
+        {audits.map((a) => (
+          <article class={`lm-audit ${a.status === 'published' ? 'is-open' : ''}`}>
+            <div class="lm-preview" aria-hidden="true">
+              {ghost.map((w) => <span style={`width:${a.status === 'published' ? w : w - 6}%`}></span>)}
+              {a.status !== 'published' && <div class="lm-lock mono">Built to order</div>}
+            </div>
+            <h3>{a.name}</h3>
+            <p class="lm-detail">{a.detail}</p>
+            {a.status === 'published' ? (
+              <>
+                <p class="lm-tag mono">Published · free to read</p>
+                <a href={report} class="lm-link">Open the report</a>
+              </>
+            ) : (
+              <>
+                <p class="lm-tag mono">{a.when ?? 'Five working days · price on application'}</p>
+                <a href={enquire('ai-shortlist-audit', `&category=${encodeURIComponent(a.name)}`)} class="lm-link">{a.status === 'edition' ? 'Reserve the full audit' : 'Request this audit'}</a>
+              </>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">WAYS TO USE IT</div>
+      <h2 class="lm-h2">From a free card to a fix programme</h2>
+      <div class="lm-offers">
+        <div class="lm-offer">
+          <p class="lm-tag mono">Free</p>
+          <h3>AI Shortlist card</h3>
+          <p>One page for a brand already in a study: its rate on each engine, the buying moments it wins and loses, the sites that cite its rivals but not it, and the questions it misses.</p>
+          <a href={enquire('ai-shortlist-card')} class="lm-link">Request your card</a>
+        </div>
+        <div class="lm-offer">
+          <p class="lm-tag mono">Price on application</p>
+          <h3>Category audit</h3>
+          <p>A full AI Shortlist study of your category, with every brand, engine, buying moment and source, built to order in five working days.</p>
+          <a href={enquire('ai-shortlist-audit')} class="lm-link">Request an audit</a>
+        </div>
+        <div class="lm-offer">
+          <p class="lm-tag mono">Price on application</p>
+          <h3>Brand Snapshot</h3>
+          <p>Your brand against up to five competitors on the questions that matter to you, with the source gaps and a short list of actions.</p>
+          <a href={enquire('ai-shortlist-snapshot')} class="lm-link">Request a Snapshot</a>
+        </div>
+        <div class="lm-offer">
+          <p class="lm-tag mono">Price on application</p>
+          <h3>Fix programme</h3>
+          <p>We measure, work on the pages and publications that decide your category, then measure again to show what moved.</p>
+          <a href={enquire('ai-shortlist-fix')} class="lm-link">Talk about a programme</a>
+        </div>
+      </div>
+      <p class="lm-note">Disclosure: James Vickers has worked with Wahoo and Wattbike, was on the founding team at RGT Cycling, and currently works with Ribble Cycles. Category audits are run on the same method whoever orders them, and we don't change results on request.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lm-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); }
+  .lm-h2 { margin-top: var(--space-sm); max-width: 900px; }
+  .lm-copy { margin-top: var(--space-md); color: var(--color-text-secondary); font-size: var(--font-size-lg); line-height: 1.6; max-width: 760px; }
+
+  .lm-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-md); }
+  .lm-stat { border: 1px solid var(--color-line); border-radius: 6px; padding: var(--space-md); min-width: 0; }
+  .lm-v { display: block; font-size: 2.4rem; line-height: 1; background: var(--color-cta-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lm-stat p { margin-top: var(--space-sm); color: var(--color-text-secondary); line-height: 1.5; font-size: var(--font-size-sm); }
+  .lm-stat strong { color: var(--color-text); }
+  @media (max-width: 900px) { .lm-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .lm-stats { grid-template-columns: minmax(0, 1fr); } }
+
+  .lm-steps { margin-top: var(--space-md); padding-left: 1.25rem; max-width: 760px; display: flex; flex-direction: column; gap: var(--space-sm); color: var(--color-text-secondary); line-height: 1.6; }
+  .lm-steps strong { color: var(--color-text); }
+
+  .lm-shot { display: block; margin-top: var(--space-md); max-width: 900px; border-radius: 12px; overflow: hidden; }
+  .lm-shot img { display: block; width: 100%; height: auto; }
+
+  .lm-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-md); }
+  @media (max-width: 1000px) { .lm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .lm-grid { grid-template-columns: minmax(0, 1fr); } }
+  .lm-audit { border: 1px solid var(--color-line); border-radius: 6px; padding: var(--space-sm); display: flex; flex-direction: column; min-width: 0; }
+  .lm-audit h3 { margin-top: var(--space-sm); font-size: 1.15rem; }
+  .lm-detail { color: var(--color-text-secondary); font-size: var(--font-size-sm); line-height: 1.45; margin-top: 0.25rem; }
+  .lm-preview { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 4px; background: var(--color-bg-alt); }
+  .lm-preview span { display: block; height: 9px; border-radius: 3px; background: var(--color-cta-gradient); opacity: 0.85; }
+  .lm-audit:not(.is-open) .lm-preview span { filter: blur(3px); opacity: 0.45; }
+  .lm-lock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); }
+  .lm-tag { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-secondary); margin-top: var(--space-sm); }
+  .lm-link { margin-top: auto; padding-top: var(--space-sm); color: var(--color-text); font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
+  .lm-link::after { content: ' →'; }
+
+  .lm-offers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-md); }
+  @media (max-width: 1000px) { .lm-offers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .lm-offers { grid-template-columns: minmax(0, 1fr); } }
+  .lm-offer { border: 1px solid var(--color-line); border-radius: 6px; padding: var(--space-md); display: flex; flex-direction: column; min-width: 0; }
+  .lm-offer .lm-tag { margin-top: 0; }
+  .lm-offer h3 { margin-top: var(--space-xs); font-size: 1.2rem; }
+  .lm-offer p:not(.lm-tag) { margin-top: var(--space-xs); color: var(--color-text-secondary); line-height: 1.5; font-size: var(--font-size-sm); }
+  .lm-note { margin-top: var(--space-md); color: var(--color-text-secondary); font-size: var(--font-size-sm); max-width: 760px; line-height: 1.55; }
+</style>
