@@ -1,0 +1,67 @@
+JAMES: This one's different. It isn't a news story, it's our own research, the first Manual Focus AI Shortlist. We asked AI engines which indoor cycling brands a UK rider should buy, and counted who they named. I'm James Vickers, this is Manual Focus, and Hannah's here to take it apart with me.
+
+HANNAH: Hi James. The method in one breath. Six engines, three hundred and nine UK questions, each asked three times, which gave us five thousand five hundred and sixty-two answers. The engines were ChatGPT, Gemini, Google AI Overviews, Google AI Mode, Perplexity and Claude, all set to a UK location.
+
+JAMES: Before we go further, a disclosure, said once and plainly. I've worked with Wahoo and Wattbike in the past, I was on the founding team at RGT Cycling, which Wahoo acquired, and I currently work with Ribble, which isn't ranked in this study. No brand paid for this research or saw it before it went out.
+
+HANNAH: And the headline numbers only use the two hundred and sixty questions that don't name a brand. Questions like "quietest smart trainer for a flat".
+
+JAMES: So who's on the shortlist?
+
+HANNAH: For smart trainers, Wahoo, named in eighty-three per cent of answers, and every one of the six engines put it first. Tacx is second at sixty-five, Elite third at thirty-nine. For training apps, Zwift leads at eighty-eight per cent, with Rouvy and MyWhoosh effectively tied behind it. Smart bikes are much closer. Wahoo at sixty-four per cent, Wattbike at fifty-eight.
+
+JAMES: [thoughtfully] So the leaders are the brands you'd expect. Where it gets useful for a brand team is underneath that.
+
+HANNAH: The leader changes with the question behind the search. We tagged every question with its buying moment. Ask about scenery and Rouvy is named in ninety-seven per cent of app answers. Ask about value and MyWhoosh is at eighty-seven. Ask about performance training and TrainerRoad leads at eighty-four.
+
+JAMES: And trainers?
+
+HANNAH: Van Rysel, Decathlon's own brand, turns up in roughly half of value answers and nine per cent of performance answers. For smart bikes, Peloton leads the beginner moment, which tells you something about who AI thinks a beginner is.
+
+JAMES: [dryly] A fitness brand winning the cycling beginners. That's the bit I'd want on a slide. A brand can own performance and still be missing from the shortlist a first-time buyer sees.
+
+HANNAH: Then the engines themselves. At the top they agree. Below it, they behave like different shops. Claude names more brands per answer, four point two on average against roughly three for the rest. JetBlack appears in forty-seven per cent of Claude's trainer answers and eleven per cent of Google AI Mode's.
+
+JAMES: So there's no single AI shortlist.
+
+HANNAH: There isn't even a stable one inside a single engine. Ask the same question three times and an engine named exactly the same set of brands only twenty per cent of the time. ChatGPT was the least consistent at thirteen per cent, Perplexity the most at forty-eight.
+
+JAMES: Which is why we measured how often a brand appears, not where it ranks. SparkToro gave brands the same advice in January.
+
+HANNAH: And one thing Google watchers will notice. An AI Overview appeared on sixty-four per cent of these searches, well above the roughly thirty per cent Ofcom found across all UK searches. Shopping questions pull the AI answer in.
+
+JAMES: [calmly] Our view at Manual Focus is that every engine should be treated as its own channel with its own shortlist. A single "AI visibility" score averages away exactly the gaps a challenger can close. Now, the obvious next question. Where does the AI get all this from?
+
+HANNAH: Mostly cycling media. Editorial sites supplied between fifty-one and fifty-six per cent of the citations, led by BikeRadar, Cyclingnews and Cycling Weekly. Reddit, YouTube and forums supplied three to five per cent. The exception is apps, where the brands' own websites carried thirty per cent of the citations.
+
+JAMES: When we covered the citation moving off the page back in June, the argument was that rankings had stopped predicting who AI quotes. This is what that looks like in one category. The buyer's guide review on BikeRadar now does two jobs. The rider reads it, and the engine quotes it.
+
+HANNAH: So the work for most brands is earned media, not just their own pages.
+
+JAMES: Right, so how do you act on this without a research team? Get AI on this.
+
+HANNAH: Go on.
+
+JAMES: First, get your AI to map your buying moments. The five questions a buyer in your category asks most, tagged by moment, value, beginner, performance, problem.
+
+HANNAH: Give it your search queries and your customer service tags, and it hands you the list with the moment you most need to win at the top.
+
+JAMES: Second, check each engine separately. Your position on one says very little about the others.
+
+HANNAH: Set it up as a routine. Run the same questions three times on each engine, record which brands each answer names, and track how often you appear, because a single answer tells you very little.
+
+JAMES: Third, audit the sites AI cites. Have your AI list the buyer's guides the engines cite for your category, then check whether your products are in them and whether the details are current.
+
+HANNAH: The output is a hit list for your PR team. Getting into those guides is still a human job.
+
+JAMES: The prompts for all three are in the show notes.
+
+HANNAH: [thoughtfully] And what this study can't tell you. It counts whether AI names a brand, not whether it praises it, and not whether anyone buys. Logged-in users with chat history may see different answers. Perplexity and Claude were measured through their APIs, which can differ from their apps. And it's a snapshot of October twenty twenty-six.
+
+JAMES: So the takeaway. For a UK rider asking AI what to buy, the shortlist is real, it changes with the buying moment and the engine, and cycling media writes most of it. The interactive report has every brand and every question, and it's on manual-focus dot co dot uk.
+
+HANNAH: And if your brand is in the study, you can ask for a free one-page AI Shortlist card there too.
+
+JAMES: If this was useful, follow the show in Apple Podcasts, Spotify or wherever you listen. And if you'd like to know where your own brand sits, book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.
