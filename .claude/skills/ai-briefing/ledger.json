@@ -669,6 +669,14 @@
     "primary_source": "https://manual-focus.co.uk/reports/ai-shortlist-indoor-cycling/",
     "score": null,
     "decision": "published-on-demand",
-    "slug": "which-smart-trainer-does-ai-recommend"
+    "slug": "which-indoor-cycling-brands-does-ai-recommend"
+  },
+  {
+    "run_date": "2026-10-19",
+    "story": "Manual Focus Light Meter launch, why AI visibility needs repeated runs, separate engines and confidence ranges",
+    "primary_source": "https://manual-focus.co.uk/light-meter/",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "manual-focus-light-meter-ai-visibility"
   }
 ]

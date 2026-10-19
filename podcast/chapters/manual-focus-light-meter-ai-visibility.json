@@ -1,0 +1,43 @@
+{
+  "version": "1.2.0",
+  "title": "Manual Focus Light Meter, measuring which brands AI recommends",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Type it again"
+    },
+    {
+      "startTime": 25.6,
+      "title": "What Light Meter measures"
+    },
+    {
+      "startTime": 95.1,
+      "title": "Why a rank tracker isn't enough"
+    },
+    {
+      "startTime": 131.7,
+      "title": "Ask once, get one draw"
+    },
+    {
+      "startTime": 169.3,
+      "title": "Six engines, six shortlists"
+    },
+    {
+      "startTime": 220.1,
+      "title": "Which gaps are real"
+    },
+    {
+      "startTime": 283.2,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 349,
+      "title": "What Light Meter can't tell you"
+    },
+    {
+      "startTime": 396.9,
+      "title": "The takeaway"
+    }
+  ]
+}
