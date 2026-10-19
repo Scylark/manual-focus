@@ -30,6 +30,9 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
       <option value="manual-focus-ai">Manual Focus AI</option>
       <option value="ai-shortlist-card">AI Shortlist brand card (free)</option>
       <option value="ai-shortlist-data">AI Shortlist dataset (free)</option>
+      <option value="ai-shortlist-audit">Light Meter category audit</option>
+      <option value="ai-shortlist-snapshot">Light Meter Brand Snapshot</option>
+      <option value="ai-shortlist-fix">AI visibility fix programme</option>
     </select>
   </div>
 
@@ -155,6 +158,11 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
       challenge.value = `Please send the AI Shortlist card for ${brandParam || 'our brand'}.`;
     } else if (offerParam === 'ai-shortlist-data') {
       challenge.value = 'Please send the AI Shortlist indoor cycling dataset.';
+    } else if (offerParam === 'ai-shortlist-audit') {
+      const category = new URLSearchParams(window.location.search).get('category')?.slice(0, 80);
+      challenge.value = `We'd like a Light Meter category audit${category ? ` for ${category}` : ''}. Please send pricing and timing.`;
+    } else if (offerParam === 'ai-shortlist-snapshot') {
+      challenge.value = 'We would like a Light Meter Brand Snapshot. Please send pricing and timing.';
     }
   }
 
