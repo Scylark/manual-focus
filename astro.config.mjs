@@ -28,7 +28,7 @@ const unlistedUrls = new Set(
     .map((f) => `${SITE}/blog/${f.replace(/\.md$/, '')}/`),
 );
 // Pages that are live but not launched yet (they also set noindex).
-for (const path of ['/light-meter/']) unlistedUrls.add(`${SITE}${path}`);
+for (const path of []) unlistedUrls.add(`${SITE}${path}`);
 
 // lastmod for Lens playbooks (updatedAt ?? publishedAt), keyed by URL.
 const lensLastmod = new Map(
