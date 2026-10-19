@@ -1,0 +1,33 @@
+{
+  "slug": "manual-focus-light-meter-ai-visibility",
+  "title": "Manual Focus Light Meter, measuring which brands AI recommends",
+  "url": "https://manual-focus.co.uk/blog/manual-focus-light-meter-ai-visibility/",
+  "clips": [
+    {
+      "from": "7.2",
+      "to": "9.3",
+      "why": "Opens on a tool every marketing team already owns and explains in plain terms why it can't see an AI answer, so it works with no context.",
+      "hook": "Give AI your search queries and support tags and it writes the buyer questions to test in AI.",
+      "youtube": {
+        "title": "Why a rank tracker can't measure AI visibility",
+        "description": "A rank tracker tells you where your page sits in a list of results. An AI answer has no list, only the brands the engine chose to name and the sites it leaned on. This is why we built Manual Focus Light Meter.\n\nFull episode and article: https://manual-focus.co.uk/blog/manual-focus-light-meter-ai-visibility/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI your search queries and support tags and it writes the buyer questions to test in AI.\n\nMost marketing teams already have a rank tracker. It tells you where your page sits for a keyword. An AI answer has no list to sit in, only a short set of brands the engine chose to name and the sites it leaned on.\n\nSo we built Manual Focus Light Meter. It asks six AI engines the questions UK buyers ask, three times each, and measures which brands they name and which sites they cite.\n\nYou can start without it. Hand your AI your Search Console queries and customer service tags, and it gives back the ten unbranded questions your buyers ask most, tagged by buying moment.\n\nThe podcast voices are AI-generated. The full episode, article and prompts are at https://manual-focus.co.uk/blog/manual-focus-light-meter-ai-visibility/",
+      "words": 103,
+      "text": "Most marketing teams already have a rank tracker. Why isn't that enough? Because a rank tracker answers a different question. It tells you where your page sits in a list of results for a keyword. In an AI answer there's no list to sit in. There's a short set of brands the engine chose to name, and the sites it leaned on to choose them. Which is the argument we made back in June, when we said the citation had moved off the page. Ranking well and being quoted by AI had come apart. This is us trying to measure where it went."
+    },
+    {
+      "from": "25.1",
+      "to": "28.2",
+      "why": "Two complete Get AI on this jobs, each with what to give the AI and what comes back, that a brand team can run without commissioning a study.",
+      "hook": "Give AI your search queries and support tags and it writes the buyer questions to test in AI.",
+      "youtube": {
+        "title": "Use AI to track how often AI names your brand",
+        "description": "Two jobs to hand to AI before you pay for any AI visibility tool. Have it write the buyer questions for your category, then run them on several engines every quarter and count how often you're named.\n\nFull episode and article: https://manual-focus.co.uk/blog/manual-focus-light-meter-ai-visibility/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI your search queries and support tags and it writes the buyer questions to test in AI.\n\nIn our first AI Shortlist study, an engine named exactly the same brands across three runs of a question only 20% of the time. One check of ChatGPT tells you very little.\n\nSo start with two jobs. Have your AI write the ten unbranded questions your buyers ask most, tagged by buying moment, with the evidence for each. Then set it a quarterly routine to run them on at least three engines, three times each, and count how often you're named.\n\nWhere it can't reach an engine, it should say so and a person pastes the answers in.\n\nThe podcast voices are AI-generated. The prompts, episode and article are at https://manual-focus.co.uk/blog/manual-focus-light-meter-ai-visibility/",
+      "words": 123,
+      "text": "First, get your AI to write your question set. The ten unbranded questions your buyers ask most, each tagged with its buying moment, value, beginner, performance, problem. Give it your search queries and your customer service tags, and it hands back the ten questions, phrased the way a buyer would ask them, with the evidence for each one. Second, have it run those questions on a schedule. Three engines at least, three times each, counting how often you're named. Set it as a quarterly routine, so the same questions run again in three months and you can see whether anything you changed moved the rate. Where your AI can't reach an engine, it should say so, and a person pastes the answers in."
+    }
+  ]
+}

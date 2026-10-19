@@ -1,0 +1,71 @@
+JAMES: If you've ever typed your category into ChatGPT, seen your brand in the answer and felt relieved, I'd ask you to type it again. Today we're talking about the tool we built to measure that properly, Manual Focus Light Meter. I'm James Vickers, this is Manual Focus, and Hannah's here to check I don't oversell it.
+
+HANNAH: Hi James. I'll start with what it does. Light Meter takes the questions UK buyers ask, usually somewhere between a hundred and three hundred of them, and puts each one to six AI engines. ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews and Google AI Mode, all from a UK location, three times each.
+
+JAMES: And it counts what?
+
+HANNAH: Two things. Which brands each answer names, and which websites each engine cites as its sources. From that it works out a brand's shortlist rate, the share of answers that name it, and every rate comes with a ninety-five per cent range.
+
+JAMES: Before we go on, the same disclosure as in our indoor cycling episode. I've worked with Wahoo and Wattbike, I was on the founding team at RGT Cycling, and I currently work with Ribble Cycles. The audits run on the same method whoever orders them, and we don't change results on request.
+
+HANNAH: And the evidence for all of this is our first study, on UK indoor cycling. Three hundred and nine questions, five thousand five hundred and sixty-two answers.
+
+JAMES: [thoughtfully] So start with the obvious objection. Most marketing teams already have a rank tracker. Why isn't that enough?
+
+HANNAH: Because a rank tracker answers a different question. It tells you where your page sits in a list of results for a keyword. In an AI answer there's no list to sit in. There's a short set of brands the engine chose to name, and the sites it leaned on to choose them.
+
+JAMES: Which is the argument we made back in June, when we said the citation had moved off the page. Ranking well and being quoted by AI had come apart. This is us trying to measure where it went.
+
+HANNAH: Right. And the first thing you hit is that the answer won't sit still.
+
+JAMES: Go on.
+
+HANNAH: We asked every question three times on every engine. An engine named exactly the same set of brands across all three runs only twenty per cent of the time. Perplexity was the steadiest at forty-eight per cent. Gemini and Google AI Mode were down at eleven.
+
+JAMES: [dryly] So the screenshot of ChatGPT in last month's board deck.
+
+HANNAH: Is one draw from a moving set. SparkToro gave brands the same advice in January, track how often you appear, not where.
+
+JAMES: Then the six engines. Why not blend them into one number? That's what a board wants.
+
+HANNAH: Because they disagree, and the disagreement is where the opportunity is. At the top they agree. All six put Wahoo first for smart trainers and Zwift first for apps. Below that, Van Rysel, Decathlon's own brand, appeared in forty-three per cent of Claude's trainer answers and five per cent of Google AI Mode's.
+
+JAMES: [calmly] Our view at Manual Focus is that one blended score hides the most useful thing a challenger brand can know, which engine it's already close on and which one it's missing from.
+
+HANNAH: And part of that is just how the engines answer. Claude named about four brands per answer, the others nearer three.
+
+JAMES: Now the ranges. I suspect that's the bit people skip.
+
+HANNAH: It's the bit that saves money. A shortlist rate is an estimate from a sample of answers, so it has a margin. Wahoo's eighty-three per cent for smart trainers runs from seventy-nine to eighty-seven, well clear of Tacx at sixty-five. But Rouvy at seventy-one and MyWhoosh at sixty-nine overlap. You can't honestly call either one second.
+
+JAMES: So if you're MyWhoosh's marketing lead, you don't spend a quarter's budget closing a two-point gap that might not exist.
+
+HANNAH: Exactly. And the last thing it measures is the sources. In indoor cycling, editorial sites supplied more than half the citations, led by BikeRadar, Cyclingnews and Cycling Weekly. Reddit, YouTube and forums, three to five per cent.
+
+JAMES: Which tells you the work is mostly earned media. Getting into the buyer's guides the engines quote, more than rewriting your own pages. So how does a team start on this without commissioning a study? Get AI on this.
+
+HANNAH: What's first?
+
+JAMES: First, get your AI to write your question set. The ten unbranded questions your buyers ask most, each tagged with its buying moment, value, beginner, performance, problem.
+
+HANNAH: Give it your search queries and your customer service tags, and it hands back the ten questions, phrased the way a buyer would ask them, with the evidence for each one.
+
+JAMES: Second, have it run those questions on a schedule. Three engines at least, three times each, counting how often you're named.
+
+HANNAH: Set it as a quarterly routine, so the same questions run again in three months and you can see whether anything you changed moved the rate. Where your AI can't reach an engine, it should say so, and a person pastes the answers in.
+
+JAMES: Third, the sources. Have your AI list the sites the engines cite for your category and check whether you're in them.
+
+HANNAH: You get a hit list of guides, with the ones that leave you out at the top. Getting into them is still a human job.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: [thoughtfully] And what Light Meter can't tell you. It counts whether an engine names a brand, not whether it praises it, and not whether anyone buys. Logged-in users with chat history may see different answers. Perplexity and Claude are measured through their APIs, which can differ from the apps. And each study is a snapshot of one month, so a category needs repeat editions before it shows a trend.
+
+JAMES: Which is why the next edition matters. Trail running kit, in January twenty twenty-seven.
+
+HANNAH: And if your brand is already in the indoor cycling study, there's a free one-page AI Shortlist card you can ask for.
+
+JAMES: So the takeaway. Measuring AI visibility means asking more than once, reading each engine on its own, and knowing which gaps are real before you act on them. The full article and the Light Meter page are on manual-focus dot co dot uk. If you want the next study when it lands, follow the show in Apple Podcasts, Spotify or wherever you listen. And if you'd like to work out what this means for your own brand, book a free working session with us on the site. Thanks, Hannah.
+
+HANNAH: Thanks, James. Until next time.
