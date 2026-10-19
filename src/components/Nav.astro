@@ -7,6 +7,7 @@ const { hideUntilScroll = false } = Astro.props;
 const navLinks = [
   { href: url('/about'), label: 'About' },
   { href: url('/services'), label: 'Services' },
+  { href: url('/light-meter'), label: 'Light Meter' },
   { href: url('/lens'), label: 'The Lens' },
   { href: url('/blog'), label: 'Blog' },
   { href: url('/faq'), label: 'FAQ' },
@@ -169,6 +170,14 @@ const currentPath = Astro.url.pathname;
     gap: var(--space-md);
   }
 
+  /* Six links only just fit between the desktop breakpoint and 1200px,
+     so the spacing tightens a little there. Wider screens are unchanged. */
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    .nav-menu { gap: 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-link { letter-spacing: 0.15em; }
+  }
+
   .nav-link {
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -179,6 +188,7 @@ const currentPath = Astro.url.pathname;
     color: var(--color-text-secondary);
     transition: color 0.2s ease;
     position: relative;
+    white-space: nowrap;
   }
 
   .nav-link::after {
