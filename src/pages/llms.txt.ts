@@ -1,6 +1,7 @@
 // /llms.txt: a plain-text map of the site for AI assistants and answer
 // engines (https://llmstxt.org). Generated at build time from the content
 // collections so it never drifts from the pages it describes.
+import { isListed } from '../utils/blog';
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 import { SHOW, transcript } from '../utils/podcast';
@@ -17,7 +18,7 @@ export async function GET(context: APIContext) {
   const site = context.site!.toString().replace(/\/$/, '');
   const playbooks = await getCollection('lens', (e) => e.data.status !== 'retired');
   const skills = await getCollection('lensSkills');
-  const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const posts = (await getCollection('blog', isListed)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   const slugOf = (id: string) => id.split('/').pop()!.replace(/\.md$/, '');
 
   const lines: string[] = [

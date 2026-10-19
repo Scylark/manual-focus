@@ -3,11 +3,11 @@ import Base from '../../../layouts/Base.astro';
 import SEOHead from '../../../components/SEOHead.astro';
 import BlogCard from '../../../components/BlogCard.astro';
 import { url } from '../../../utils/paths';
-import { readingTime } from '../../../utils/blog';
+import { readingTime, isListed } from '../../../utils/blog';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection('blog', isListed);
   const allTags = [...new Set(posts.flatMap(p => p.data.tags))];
 
   return allTags.map(tag => ({

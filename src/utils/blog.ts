@@ -1,5 +1,10 @@
 // Shared helpers for blog listings and post pages.
 
+// Unlisted posts are live at their URL but appear in no listing or feed.
+export function isListed(post: { data: { unlisted?: boolean } }): boolean {
+  return !post.data.unlisted;
+}
+
 // Tag slugs are lowercase-hyphenated ("ai", "fractional-cmo"). The old
 // approach — CSS text-transform: capitalize — rendered "ai" as "Ai" and
 // "cmo" as "Cmo". Format labels in JS instead so acronyms read correctly.

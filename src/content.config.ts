@@ -26,6 +26,9 @@ const blog = defineCollection({
     tags: z.array(z.enum(ALLOWED_TAGS)).min(1),
     description: z.string().max(160),
     image: z.string().optional(),
+    // Published at its URL but kept out of every listing, feed and the
+    // sitemap, and marked noindex. For posts that are live before launch.
+    unlisted: z.boolean().optional(),
     // Optional HowTo schema steps for step-by-step articles. When set,
     // SEOHead emits HowTo structured data for rich-result eligibility.
     howToName: z.string().optional(),
