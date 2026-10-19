@@ -1,9 +1,9 @@
 ---
 post: manual-focus-light-meter-ai-visibility
-title: "Manual Focus Light Meter, measuring which brands AI recommends"
+title: "Introducing Manual Focus Light Meter, AI visibility for brands"
 chapters:
-  - title: "Type it again"
-    at: "If you've ever typed your category into ChatGPT"
+  - title: "Launching Light Meter"
+    at: "Today we're launching something of our own"
   - title: "What Light Meter measures"
     at: "I'll start with what it does"
   - title: "Why a rank tracker isn't enough"
@@ -18,19 +18,23 @@ chapters:
     at: "So how does a team start on this without commissioning a study"
   - title: "What Light Meter can't tell you"
     at: "And what Light Meter can't tell you"
+  - title: "What brands can order"
+    at: "So what can a brand actually order"
   - title: "The takeaway"
-    at: "So the takeaway. Measuring AI visibility"
+    at: "So the takeaway. Light Meter tells you"
 ---
 
-James and Hannah introduce Manual Focus Light Meter, the tool behind the
-Manual Focus AI Shortlist research, and explain why measuring AI visibility
-needs three things a rank tracker doesn't do. Repeated runs, because in the
+James and Hannah launch Manual Focus Light Meter, an AI visibility tool that
+measures which brands AI recommends to UK buyers, using the UK indoor cycling
+study as the worked example. They explain why it measures three things a rank
+tracker doesn't. Repeated runs, because in the
 UK indoor cycling study an engine named the same brands across three runs of
 a question only 20% of the time. Separate engines, because Van Rysel appeared
 in 43% of Claude's trainer answers and 5% of Google AI Mode's. And 95% ranges,
 because Rouvy and MyWhoosh look like second and third but overlap. They finish
-with three jobs to hand to AI, what Light Meter can't tell you, and the next
-edition, trail running kit in January 2027.
+with three jobs to hand to AI, what Light Meter can't tell you, what brands can
+order (a free AI Shortlist card, category audits, Brand Snapshots and a Fix
+programme) and the next edition, trail running kit in January 2027.
 
 ## Get AI on this
 
