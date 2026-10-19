@@ -285,6 +285,13 @@ const related = allPosts
   /* Tables in posts (comparisons, definitions, decision grids). Built from the
      site's tokens; on phones a wide table scrolls inside the column rather
      than widening the page. */
+  /* Charts and images in a post scale down to the column instead of being clipped. */
+  .post-content :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: var(--space-sm) 0 var(--space-md);
+  }
   .post-content :global(table) {
     width: 100%;
     border-collapse: collapse;
