@@ -76,7 +76,7 @@ const fullImage = image
   ? (image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? '' : '/'}${image}`)
   : `${siteUrl}/images/og-default.png`;
 
-// Organization schema — present on every page. Address signals London location
+// Organization schema — present on every page. Address signals the Sheffield location
 // for local SEO, description leans into the actual positioning, knowsAbout
 // gives crawlers and LLMs a clean topic-association set.
 const organizationSchema = {
@@ -112,7 +112,7 @@ const organizationSchema = {
   ],
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'London',
+    addressLocality: 'Sheffield',
     addressCountry: 'GB',
   },
   sameAs: ['https://www.linkedin.com/company/manualfocusuk/'],
