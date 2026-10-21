@@ -3,4 +3,4 @@ question: "Who actually does the work?"
 order: 8
 ---
 
-A small senior team led by James Vickers, with operators from the Foundry, the collective Manual Focus is part of. There's no account manager layer and no junior staff on your account. The people in the working session are the people doing the work.
+James Vickers leads a small senior team that does the work, with operators from the Foundry, the collective Manual Focus is part of. You won't deal with account managers or junior staff, because the people in the working session are the people doing the work.
