@@ -3,6 +3,11 @@ title: "What ChatGPT Ads' automatic rewrites mean for UK advertisers"
 date: 2026-10-21
 tags: ["ai-briefing", "ai", "brand"]
 description: "On 29 October 2026 OpenAI turns on creative enhancements for ChatGPT Ads by default, so ads can be rewritten and run unreviewed. Decide per campaign now."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/chatgpt-ads-creative-enhancements-default.mp3"
+  duration: 471
+  bytes: 5655973
+  published: 2026-10-21
 faq:
   - question: "What are creative enhancements in ChatGPT Ads?"
     answer: "Creative enhancements are an OpenAI setting that adapts a ChatGPT ad to the conversation or the user's interests. OpenAI's help centre says it can write new or updated headlines and descriptions, translate ad text, resize images and change the destination URL to another page on the advertiser's site, drawing on the existing ad and its landing page. Enhanced versions can run without the advertiser reviewing each one."
