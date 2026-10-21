@@ -3,4 +3,4 @@ question: "What industries do you work in?"
 order: 5
 ---
 
-We have particular depth in endurance and sports brands like Classified, Wahoo, Wattbike, RGT, Ribble, Planet X and Pelotan. Beyond that, we've led marketing across AI, fintech, sports tech, hardware and digital assets, from AI wealth management to privacy-focused digital assets to direct-to-consumer cycling. The marketing playbook is portable; the AI tooling is industry-agnostic.
+Most of our work has been with endurance and sports brands, including Classified, Wahoo, Wattbike, RGT, Ribble, Planet X and Pelotan. We've also led marketing in AI, fintech, sports tech, hardware and digital assets, including AI wealth management, a privacy-focused crypto project and direct-to-consumer cycling. The marketing playbook carries across categories, and the AI tooling works in any industry.
