@@ -108,7 +108,8 @@ async function voice(chunk, i) {
   const file = join(outDir, `chunk-${String(i + 1).padStart(2, '0')}-${hash}.mp3`);
   if (existsSync(file)) return file;
 
-  const res = request('https://api.elevenlabs.io/v1/text-to-dialogue?output_format=mp3_44100_128', {
+  // The streaming endpoint, so audio arrives before the cloud proxy's ~30s upstream timeout.
+  const res = request('https://api.elevenlabs.io/v1/text-to-dialogue/stream?output_format=mp3_44100_128', {
     method: 'POST', json: body, out: file,
   });
   if (res.status !== 200) throw new Error(`ElevenLabs failed on chunk ${i + 1} (${res.status}): ${res.body.toString().slice(0, 500)}`);
