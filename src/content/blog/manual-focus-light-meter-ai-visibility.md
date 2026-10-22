@@ -2,7 +2,7 @@
 title: "Manual Focus Light Meter, measuring which brands AI recommends"
 date: 2026-10-19
 tags: ["ai", "marketing-strategy", "endurance-sports"]
-description: "Manual Focus Light Meter asks six AI engines UK buyer questions three times and measures which brands they name, with 95% ranges, and which sites they cite."
+description: "Manual Focus Light Meter shows which brands six AI engines recommend to UK buyers. It also shows which sites they cite, with a 95% range on every number."
 podcast:
   audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/manual-focus-light-meter-ai-visibility.mp3"
   duration: 446

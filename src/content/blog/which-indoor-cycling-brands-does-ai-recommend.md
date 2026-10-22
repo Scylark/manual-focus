@@ -2,7 +2,7 @@
 title: "Which indoor cycling brands does AI recommend in the UK?"
 date: 2026-10-19
 tags: ["ai", "endurance-sports", "marketing-strategy"]
-description: "Six AI engines, 309 UK questions on smart trainers, training apps and smart bikes. Wahoo and Zwift lead, and cycling media decides who AI names."
+description: "Six AI engines answered 309 UK questions about smart trainers and training apps. Wahoo and Zwift lead. Cycling media decides who AI names."
 podcast:
   audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/which-indoor-cycling-brands-does-ai-recommend.mp3"
   duration: 458

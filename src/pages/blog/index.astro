@@ -26,6 +26,7 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
         ))}
       </nav>
 
+      <h2 class="sr-only">All posts</h2>
       <div class="blog-grid">
         {posts.map(post => (
           <BlogCard

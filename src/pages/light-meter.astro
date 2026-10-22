@@ -4,19 +4,19 @@ import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
 
 const title = 'Manual Focus Light Meter, an AI visibility tool for brands';
-const description = 'Light Meter is an AI visibility tool. It measures which brands ChatGPT, Gemini, Claude, Perplexity and Google AI recommend, and which sites they cite.';
+const description = 'Light Meter is an AI visibility tool from Manual Focus. It shows which brands six AI engines recommend. It also shows which sites they cite.';
 const report = url('/reports/ai-shortlist-indoor-cycling/');
 const enquire = (offer: string, extra = '') => `${url('/enquire/')}?offer=${offer}${extra}`;
 
 // Categories brands can order. Indoor cycling is published; the rest are built to order.
 const audits = [
-  { name: 'Indoor cycling', detail: 'Smart trainers, training apps, smart bikes', status: 'published' },
-  { name: 'Trail running kit', detail: 'Shoes, waterproof jackets, hydration packs, races', status: 'edition', when: 'Next edition, January 2027' },
-  { name: 'Running shoes', detail: 'Road, race and daily trainers' },
-  { name: 'Sports nutrition', detail: 'Gels, drink mixes, recovery' },
-  { name: 'GPS sports watches', detail: 'Running, multisport and outdoor' },
-  { name: 'Bike helmets and lights', detail: 'Road, commuting and off-road' },
-  { name: 'Outdoor clothing', detail: 'Waterproofs, insulation, base layers' },
+  { name: 'Indoor cycling', detail: 'Smart trainers and training apps', status: 'published' },
+  { name: 'Trail running kit', detail: 'Shoes and waterproof jackets', status: 'edition', when: 'Next edition, January 2027' },
+  { name: 'Running shoes', detail: 'Race shoes and daily trainers' },
+  { name: 'Sports nutrition', detail: 'Gels and drink mixes' },
+  { name: 'GPS sports watches', detail: 'Running and multisport watches' },
+  { name: 'Bike helmets and lights', detail: 'Road and off-road' },
+  { name: 'Outdoor clothing', detail: 'Waterproofs and base layers' },
   { name: 'Your category', detail: 'Any UK consumer category, on request' },
 ];
 // Placeholder bar widths for the locked previews. They carry no brand names or values.
@@ -29,7 +29,7 @@ const ghost = [86, 64, 48, 37, 22];
     <div class="container">
       <div class="eyebrow">NEW · MANUAL FOCUS LIGHT METER</div>
       <h1>Light Meter shows which brands AI recommends</h1>
-      <p class="lead">Manual Focus Light Meter is our new AI visibility tool, launched in October 2026. It asks six AI engines (ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews and Google AI Mode) the questions your buyers ask, three times each, then reports which brands they name and which websites they cite. Our first study with it, UK indoor cycling, is open to everyone as an example of what you get.</p>
+      <p class="lead">Manual Focus Light Meter is our new AI visibility tool, launched in October 2026. It puts the questions your buyers ask to six AI engines, including ChatGPT and Google's AI Mode. Each question runs three times. You see which brands the engines name. You also see which websites they cite. Our first study with it, UK indoor cycling, is open to everyone as an example of what you get.</p>
       <div class="lm-ctas">
         <a href={enquire('ai-shortlist-card')} class="btn-cta">Get your free AI Shortlist card</a>
         <a href={report} class="btn-ghost">See an example study</a>
@@ -55,10 +55,10 @@ const ghost = [86, 64, 48, 37, 22];
       <div class="eyebrow">HOW IT WORKS</div>
       <h2 class="lm-h2">How a Light Meter study works</h2>
       <ol class="lm-steps">
-        <li><strong>We write the buyer questions.</strong> We write 100 to 300 questions the way UK buyers ask them, tagged by buying moment, from value and beginner to performance and problem questions.</li>
-        <li><strong>We ask six AI engines.</strong> Each question goes to six AI engines from a UK location, three times each.</li>
+        <li><strong>We write the buyer questions.</strong> We write 100 to 300 questions the way UK buyers ask them. Each one is tagged by buying moment, from value and beginner questions to performance and problems.</li>
+        <li><strong>Light Meter runs them on six AI engines.</strong> Each question goes to every engine from a UK location, three times.</li>
         <li><strong>We count brands and citations.</strong> Light Meter records every brand named and every site cited, then calculates each brand's share with a 95% range.</li>
-        <li><strong>You get the report.</strong> It has the league table, each engine's view, who wins each buying moment and the sites that decide it, with clear next steps.</li>
+        <li><strong>You get the report.</strong> It has the league table with each engine's view. It shows who wins each buying moment and which sites decide it. It ends with clear next steps.</li>
       </ol>
     </div>
   </section>
@@ -66,8 +66,8 @@ const ghost = [86, 64, 48, 37, 22];
   <section class="section section-alt">
     <div class="container">
       <div class="eyebrow">EXAMPLE STUDY</div>
-      <h2 class="lm-h2">Example: UK indoor cycling, October 2026</h2>
-      <p class="lm-copy">309 UK questions, six engines, 5,562 answers. Wahoo was named in 83% of smart trainer answers and Zwift in 88% of training app answers, and cycling media supplied over half the citations. The full report and the article on the findings are open to everyone, so you can see exactly what a Light Meter study gives you before you order one.</p>
+      <h2 class="lm-h2">An example study of UK indoor cycling, October 2026</h2>
+      <p class="lm-copy">The study covered 309 UK questions across six engines, for 5,562 answers. Wahoo was named in 83% of smart trainer answers. Zwift was named in 88% of training app answers. Cycling media supplied over half the citations. The full report and the article on the findings are open to everyone. You can see exactly what a Light Meter study gives you before you order one.</p>
       <a href={report} class="lm-shot" aria-label="Open the indoor cycling report">
         <img src={url('/images/ai-shortlist/shortlist.svg')} alt="Who AI recommends for UK smart trainers, training apps and smart bikes" width="1200" height="640" loading="lazy" decoding="async" />
       </a>
@@ -82,7 +82,7 @@ const ghost = [86, 64, 48, 37, 22];
     <div class="container">
       <div class="eyebrow">CATEGORY AUDITS</div>
       <h2 class="lm-h2">Category audits you can order</h2>
-      <p class="lm-copy">A category audit is a full Light Meter study of one product category, using the same method as the indoor cycling study. Indoor cycling is published and free to read. Every other category below is built to order in five working days, and its results stay locked until you order. Price on application, paid by invoice or card.</p>
+      <p class="lm-copy">A category audit is a full Light Meter study of one product category, using the same method as the indoor cycling study. Indoor cycling is published and free to read. Every other category below is built to order in five working days. Its results stay locked until you order. Prices are on application, paid by invoice or card.</p>
       <div class="lm-grid">
         {audits.map((a) => (
           <article class={`lm-audit ${a.status === 'published' ? 'is-open' : ''}`}>
@@ -117,29 +117,29 @@ const ghost = [86, 64, 48, 37, 22];
         <div class="lm-offer">
           <p class="lm-tag mono">Free</p>
           <h3>AI Shortlist card</h3>
-          <p>One page for a brand already in a study: its rate on each engine, the buying moments it wins and loses, the sites that cite its rivals but not it, and the questions it misses.</p>
+          <p>The card is one page for a brand that's already in a study. It shows how often each engine names the brand. It shows which buying moments the brand wins or loses. It also lists the sites that cite rivals but not the brand, plus the questions it misses.</p>
           <a href={enquire('ai-shortlist-card')} class="lm-link">Request your card</a>
         </div>
         <div class="lm-offer">
           <p class="lm-tag mono">Price on application</p>
           <h3>Category audit</h3>
-          <p>A full AI Shortlist study of your category, with every brand, engine, buying moment and source, built to order in five working days.</p>
+          <p>This is a full AI Shortlist study of your category, covering every brand and every source. It's built to order in five working days.</p>
           <a href={enquire('ai-shortlist-audit')} class="lm-link">Request an audit</a>
         </div>
         <div class="lm-offer">
           <p class="lm-tag mono">Price on application</p>
           <h3>Brand Snapshot</h3>
-          <p>Your brand against up to five competitors on the questions that matter to you, with the source gaps and a short list of actions.</p>
+          <p>We compare your brand with up to five competitors on the questions that matter to you. You get the source gaps and a short list of actions.</p>
           <a href={enquire('ai-shortlist-snapshot')} class="lm-link">Request a Snapshot</a>
         </div>
         <div class="lm-offer">
           <p class="lm-tag mono">Price on application</p>
           <h3>Fix programme</h3>
-          <p>We measure, work on the pages and publications that decide your category, then measure again to show what moved.</p>
+          <p>We measure first. Then we work on the pages and publications that decide your category. Then we measure again to show what moved.</p>
           <a href={enquire('ai-shortlist-fix')} class="lm-link">Talk about a programme</a>
         </div>
       </div>
-      <p class="lm-note">Disclosure: James Vickers has worked with Wahoo and Wattbike, was on the founding team at RGT Cycling, and currently works with Ribble Cycles. Category audits are run on the same method whoever orders them, and we don't change results on request.</p>
+      <p class="lm-note">To be open about it, James Vickers has worked with Wahoo and Wattbike. He was on the founding team at RGT Cycling. He works with Ribble Cycles now. Every category audit uses the same method, whoever orders it. We don't change results on request.</p>
     </div>
   </section>
 </Base>
