@@ -13,7 +13,7 @@ const posts = (await getCollection('blog', isListed))
   .slice(0, 3);
 
 const pageTitle = 'Manual Focus, marketing agency for endurance and sports brands';
-const pageDescription = 'Manual Focus is a Sheffield marketing agency for endurance and sports brands, where senior operators lead, advise or build, with AI doing the heavy lifting.';
+const pageDescription = 'Manual Focus is a Sheffield marketing agency for endurance and sports brands. Senior operators do the work, with AI doing the heavy lifting.';
 
 // The hero punchline flips in a character at a time. Each word is wrapped
 // so it can never break mid-word; the gap between words keeps its own
@@ -52,10 +52,10 @@ const heroWords = heroPunchline.split(' ').map((word) => {
 
       <div class="hero-meta">
         <p class="hero-sub">
-          Manual Focus is a Sheffield team of senior marketing operators who lead your
-          marketing as a fractional CMO, advise the team you have, or build what you
-          need and hand it over. There are <strong>no account managers or juniors</strong>,
-          so the people on the call are the people doing the work.
+          Manual Focus is a Sheffield team of senior marketing operators. We can lead
+          your marketing as a fractional CMO or advise the team you have. We also build
+          what you need and hand it over. There are <strong>no account managers or
+          juniors</strong>, so the people on the call are the people doing the work.
         </p>
         <div class="hero-ctas">
           <a href={url('/enquire/')} class="btn-cta">Book a free working session</a>
@@ -89,7 +89,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
         <span class="brand-mark brand-serif">Pelotan</span>
       </div>
       <p class="logos-note reveal">
-        We've also worked in AI, fintech, sports tech, hardware and digital assets.
+        Outside endurance, we've run marketing in AI and fintech. We've also worked in hardware and digital assets.
       </p>
     </div>
   </section>
@@ -107,14 +107,14 @@ const heroWords = heroPunchline.split(' ').map((word) => {
         </h2>
         <div class="problem-grid">
           <p class="problem-copy reveal">
-            Most brands still launch the way they did a decade ago, with a six-week
-            campaign, a burst of content, a paid push and the hope that something sticks,
-            which a better brief or a bigger budget won't change.
+            Most brands still launch the way they did a decade ago. There's a six-week
+            campaign with a burst of content. A paid push follows. Then everyone hopes
+            something sticks. A better brief won't change that. Neither will a bigger budget.
           </p>
           <p class="problem-copy reveal">
-            We build marketing that keeps working after launch week. We wire your owned,
-            earned and paid channels together and use AI for the repetitive work, so each
-            campaign builds on the last and a small team ships as much as a big one.
+            We build marketing that keeps working after launch week. We wire your owned
+            channels into your earned and paid ones. We hand the repetitive work to AI.
+            Each campaign builds on the last, so a small team ships as much as a big one.
           </p>
         </div>
       </div>
@@ -164,7 +164,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
             <article class="way-card way-card-featured">
               <div class="way-num mono"><span>/02 · FRACTIONAL CMO</span><span class="way-flag">RECOMMENDED</span></div>
               <h3>You need a part-time CMO.</h3>
-              <p class="way-for">A senior marketer joins your leadership team one or two days a week to set the thesis, run the team and ship the plan, with AI doing the heavy lifting.</p>
+              <p class="way-for">A senior marketer joins your leadership team one or two days a week. They set the thesis and run the team. Then they ship the plan, with AI doing the heavy lifting.</p>
               <ul class="way-list">
                 <li>A marketing thesis and a 90-day plan in the first month</li>
                 <li>We lead and grow your existing team and hold it to a standard</li>
@@ -178,12 +178,13 @@ const heroWords = heroPunchline.split(' ').map((word) => {
             <article class="way-card">
               <div class="way-num mono">/03 · BUILD &amp; HAND OVER</div>
               <h3>You know what you need built.</h3>
-              <p class="way-for">We scope it, build it in weeks with AI wired in from the start, and hand it back with docs and training, so you don't depend on us afterwards.</p>
+              <p class="way-for">We scope it and build it in weeks, with AI wired in from the start. Then we hand it back with docs and training, so you don't depend on us afterwards.</p>
               <ul class="way-list">
-                <li>Launches, SEO programmes, content engines, brand refreshes</li>
-                <li>Headless and rapid web builds on Shopify, BigCommerce, WooCommerce and WordPress</li>
+                <li>Launches and brand refreshes</li>
+                <li>SEO programmes and content engines</li>
+                <li>Headless and rapid web builds on Shopify and BigCommerce, or WooCommerce on WordPress</li>
                 <li>AI built in from day one</li>
-                <li>Fixed scope, timeline and price, handed back with docs and training</li>
+                <li>A fixed price for a fixed scope, handed back with docs and training</li>
               </ul>
               <p class="way-shape mono">Project-based, with most builds taking 4–12 weeks</p>
               <a href={`${url('/enquire/')}?offer=build-and-hand-over`} class="btn-ghost way-cta">Book a free working session</a>
@@ -195,7 +196,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
 
     <div class="container">
       <div class="services-cta reveal">
-        <p class="services-note">If you'd rather we ran the AI workflows for you, we take on content planning, wireframing and production through <strong>Manual Focus AI</strong>, delivered in your brand on an agreed schedule for a monthly retainer.</p>
+        <p class="services-note">If you'd rather we ran the AI workflows for you, that's <strong>Manual Focus AI</strong>. We plan and produce the content, wireframes included. It arrives in your brand on an agreed schedule, for a monthly retainer.</p>
         <a href={url('/services')} class="btn-ghost">Read the detail</a>
       </div>
     </div>
@@ -231,9 +232,9 @@ const heroWords = heroPunchline.split(' ').map((word) => {
           </article>
         </div>
         <p class="results-more reveal">
-          The track record also includes a conversion rate lifted from 20% to 45%, prompted
-          brand recall taken from 0 to 95 and more than 2.2 million sessions driven to a platform.
-          <a href={url('/about/')}>See the full track record</a>
+          The track record also includes a conversion rate lifted from 20% to 45%. Prompted
+          brand recall went from 0 to 95. The work drove more than 2.2 million sessions to
+          one platform. <a href={url('/about/')}>See the full track record</a>
         </p>
       </div>
     </div>
@@ -253,11 +254,11 @@ const heroWords = heroPunchline.split(' ').map((word) => {
               <span class="gradient-text">from the inside.</span>
             </h2>
             <p class="reveal">
-              James Vickers leads Manual Focus and has spent 15+ years running brand, demand,
-              product and growth in AI, fintech, sports tech, hardware and digital assets,
-              including on the founding team at RGT Cycling. He works with the Foundry, a
-              collective of senior operators with marketing CVs of their own, who share AI
-              tooling so new models reach client work soon after they ship.
+              James Vickers leads Manual Focus. He has spent 15+ years running brand and
+              growth in emerging tech, from fintech to sports tech. He was on the founding team
+              at RGT Cycling. He works with the Foundry, a collective of senior operators
+              with marketing CVs of their own. They share AI tooling so new models reach
+              client work soon after they ship.
             </p>
             <a href={url('/about/')} class="btn-ghost reveal">More about James</a>
           </div>
@@ -295,14 +296,14 @@ const heroWords = heroPunchline.split(' ').map((word) => {
           <article class="way-card">
             <div class="way-num mono"><span>/01 · LIGHT METER · AI VISIBILITY</span><span class="way-flag">NEW</span></div>
             <h3>See which brands AI recommends in your category.</h3>
-            <p class="way-for">We use Light Meter to put your buyers' questions to six AI engines, three times each, and record which brands they name and which sites they cite. You can read the first study, on UK indoor cycling, free.</p>
+            <p class="way-for">You see which brands six AI engines recommend to your buyers. You also see which sites those engines cite. Our first study, on UK indoor cycling, is free to read.</p>
             <p class="way-shape mono">6 ENGINES · 309 QUESTIONS · 5,562 ANSWERS</p>
             <a href={url('/light-meter/')} class="btn-ghost way-cta">See how Light Meter works</a>
           </article>
           <article class="way-card">
             <div class="way-num mono"><span>/02 · THE LENS · OPEN SOURCE</span><span class="way-flag way-flag-alt">FREE</span></div>
             <h3>Install our AI marketing playbooks free.</h3>
-            <p class="way-for">We've published our methodology as 28 skills for Claude and 47 playbooks across brand, demand, content, ops and productivity, which you can read, install or ask us to run for you.</p>
+            <p class="way-for">We've published our method as 47 playbooks with 28 skills for Claude. You can read them or install them. We can also run them for you.</p>
             <p class="way-shape mono">47 PLAYBOOKS · 28 SKILLS · MIT LICENSED</p>
             <a href={url('/lens')} class="btn-ghost way-cta">Open The Lens</a>
           </article>
@@ -358,8 +359,8 @@ const heroWords = heroPunchline.split(' ').map((word) => {
 
       <div class="container cta-close-inner">
         <h2 class="cta-headline reveal">
-          Got a problem, a brief,<br/>
-          or a <span class="gradient-text">vague feeling</span> something's off?
+          Got a problem or a brief?<br/>
+          Or a <span class="gradient-text">vague feeling</span> something's off?
         </h2>
         <p class="cta-sub reveal">Bring it and we'll work out the shape of the work together.</p>
         <ol class="cta-steps stagger">
