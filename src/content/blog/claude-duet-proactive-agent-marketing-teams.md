@@ -74,7 +74,7 @@ A chat assistant waits for someone to open it, while Duet decides when to messag
 
 ## Why the plan type matters most
 
-Duet is on individual Pro and Max plans only. Team and Enterprise, the plans a company buys and runs centrally, have to wait. So the first people in a marketing team to use Duet will be on accounts they pay for themselves, connecting it to the company's Gmail, Slack and HubSpot with their own logins.
+Duet is on individual Pro and Max plans only. Team and Enterprise, the plans a company buys and runs centrally, have to wait. So the first people in a marketing team to use Duet will be on individual accounts that no company admin controls, connecting it to the company's Gmail, Slack and HubSpot with their own logins.
 
 Our view at Manual Focus is that marketing leaders should treat Duet as a personal tool until Anthropic ships it for Team and Enterprise, and should decide now which company systems a personal agent may connect to, so the answer comes from a policy and not from a surprise in an audit log. Anthropic's approval list also leaves gaps for marketers. It covers messages, payments, signatures and deletions, and says nothing about publishing a post, editing a live web page or changing a HubSpot list. Write rules for those yourself, using the approach in our [brand guardrails as code](/lens/ops/brand-guardrails-as-code/) playbook.
 

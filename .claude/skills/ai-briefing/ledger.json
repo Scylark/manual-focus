@@ -753,7 +753,7 @@
   },
   {
     "run_date": "2026-10-22",
-    "story": "Apple WebKit plans to block identity-resolution tracking domains from iOS 27 (19 October), not an AI story",
+    "story": "Apple WebKit blog (19 October) says Safari and WebKit block network access to identity-resolution infrastructure in the iOS, iPadOS, macOS and visionOS 27 releases, not an AI story",
     "primary_source": "https://webkit.org/blog/18438/blocking-identity-resolution-infrastructure/",
     "score": 5,
     "decision": "skipped-low-impact",
