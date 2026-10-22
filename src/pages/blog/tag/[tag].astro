@@ -89,7 +89,7 @@ const tagMeta: Record<string, { title: string; description: string; headline: st
   },
   'productivity': {
     title: 'Marketing productivity and workflow, Manual Focus',
-    description: 'Workflow and productivity for marketing teams. AI as leverage, not as theatre. Pipelines that compound.',
+    description: 'These posts cover workflow and productivity for marketing teams, with AI doing real work in pipelines that compound.',
     headline: 'Marketing productivity',
   },
 };
@@ -106,6 +106,7 @@ const meta = tagMeta[tag] ?? {
       <h1 style="text-transform: capitalize;">{meta.headline}</h1>
       <p><a href={url('/blog')}>&larr; All posts</a></p>
 
+      <h2 class="sr-only">Posts</h2>
       <div class="blog-grid">
         {posts.map((post: any) => (
           <BlogCard
