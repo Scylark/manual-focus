@@ -18,7 +18,7 @@ const episodes = (await getCollection('blog', (p) => Boolean(p.data.podcast)))
     b.data.date.getTime() - a.data.date.getTime());
 
 const title = 'The Manual Focus podcast: AI news for marketing leaders';
-const description = 'James Vickers and Hannah talk through each Manual Focus article: what changed in AI and search, what it means for marketing teams, and the jobs to hand to AI.';
+const description = 'James Vickers and Hannah talk through each Manual Focus article. They cover what changed in AI and search. Then they get into what it means for marketing teams and which jobs to hand to AI.';
 
 const seriesSchema = {
   '@context': 'https://schema.org',
@@ -51,6 +51,7 @@ const seriesSchema = {
         <a href={url(SHOW.feed)} class="tag">RSS feed</a>
       </nav>
 
+      <h2 class="sr-only">Episodes</h2>
       <div class="blog-grid">
         {episodes.map((post) => (
           <BlogCard

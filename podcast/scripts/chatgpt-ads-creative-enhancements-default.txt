@@ -1,0 +1,69 @@
+JAMES: Next Thursday, OpenAI starts rewriting ChatGPT ads by default. Headlines, translations, images, even the page the click lands on, and none of it needs your sign-off before it runs. I'm James Vickers, this is Manual Focus, and Hannah's here to help me work out which switch to flip and when.
+
+HANNAH: Hi James. And it is one switch, which is the useful part. The feature's called creative enhancements, and the details are on a page in OpenAI's own help centre.
+
+JAMES: Start with what it does.
+
+HANNAH: It adapts your ad to the conversation, or to the user's interests. It draws on three things, the conversation, your existing ad and the content of your landing page. And then it can change four things. It can write new or updated headlines and descriptions, translate the text into another language, resize your images, and change the destination URL to what it calls a relevant page on your site.
+
+JAMES: And the part about approval?
+
+HANNAH: OpenAI's words are that when it's enabled, these ads can run automatically without requiring you to review or approve each version. And the help page says there's no preview of every variation.
+
+JAMES: [thoughtfully] When we covered the Shopify launch in September, this was a setting you had to turn on.
+
+HANNAH: That's the change. OpenAI announced text customisation on the sixteenth of September as something you opt into, and it only rewrote headlines and descriptions and translated them. Now it covers images and landing pages too, and from the twenty-ninth of October it's on for new and existing campaigns unless you've opted out.
+
+JAMES: Twenty-ninth. I'd seen the thirtieth.
+
+HANNAH: You'd have seen that in the email. Search Engine Roundtable published it on the twentieth, and the email says Friday the thirtieth and talks about self-serve campaigns. The help centre says Thursday the twenty-ninth, and new and existing campaigns. OpenAI hasn't explained it.
+
+JAMES: So you act before the earlier date, and you don't assume a sales-managed account is exempt.
+
+HANNAH: That's how I'd read it. Opt-outs you already set at account or campaign level are kept, and a campaign setting beats the account default. So you can be off everywhere and on in one place.
+
+JAMES: Let's talk about who's on the hook, because in the UK that's not complicated. The CAP Code, the rules the ASA enforces, says primary responsibility for observing the code falls on marketers. Agencies and publishers take on an obligation too, but the brand comes first.
+
+HANNAH: And nothing in OpenAI's help page moves that. If an enhanced headline turns up with a claim your legal team wouldn't approve, it still has your name on it.
+
+JAMES: Where does it go wrong in practice?
+
+HANNAH: OpenAI's example is harmless. Fresh groceries delivered becomes groceries for quick weeknight dinners, in a chat about cooking. But the help page also asks you to keep prices, promotions, product details and availability current on your landing pages, because the system reads them. So an old sale page that's still live is source material.
+
+JAMES: [dryly] And a destination URL it chose for you can be that page.
+
+HANNAH: Right. Which brings in measurement. Ads Manager reports impressions, clicks, spend, click-through rate and attributed conversions, at campaign, ad group and ad level. And OpenAI says itself that changes over time don't, on their own, establish the effect of creative enhancements.
+
+JAMES: Which is the whole problem for a paid team. If November looks better, you won't know whether it was the rewritten copy, a different landing page, or the season. When we looked at OpenAI's measurement tools at the start of October, the argument was that a ChatGPT budget lives or dies on a test finance will accept.
+
+HANNAH: And the obvious shortcut doesn't quite work. If you copy the campaign and switch enhancements off in the copy, the two compete in the same auctions, and the platform can show them in different conversations. So that comparison is directional at best.
+
+JAMES: So what's the proper version?
+
+HANNAH: A holdout or a geo-lift test, agreed with finance before you widen anything. That October piece covered the partners OpenAI named for geo-based experiments, Haus, Measured and WorkMagic.
+
+JAMES: That's our position, then. Off at account level, on for one test campaign with simple claims and current landing pages, and a person reading a sample of what actually runs every week. Widen it only when a properly split test shows a lower cost per conversion. And it's the second platform default this month. Meta's new commercial terms switch on the day after, on the thirtieth, and in both cases doing nothing is a decision.
+
+JAMES: So, Get AI on this. The first job is the landing page audit. Get AI on this, checking every page an enhanced URL could send someone to.
+
+HANNAH: Give it the destination URLs from your campaigns and your site map, and it comes back with every page on those paths that shows an expired offer, an out-of-stock product or missing tracking, grouped by campaign.
+
+JAMES: Second, the weekly read of what actually ran.
+
+HANNAH: Give it your list of claims, prices and phrases the brand can't use, and the sample of ads you've pulled that week, and it marks each one pass or fail against the list with the line that broke it. Set it as a weekly routine, because nobody remembers on week five.
+
+JAMES: And third, the test plan for finance.
+
+HANNAH: Give it your conversion volumes and the regions you sell in, and it drafts a one-page holdout or geo-lift plan, with the split, the length of the test and the result that would count as a win. Finance signs it off, not the AI.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: What we don't know yet. Whether your UTM tags, the tracking codes on your ad links, survive when OpenAI changes the destination. Whether Ads Manager will ever show you which version of an ad ran. How translated ads get chosen for UK users, or whether you can limit the languages. And which date is right, the twenty-ninth or the thirtieth.
+
+JAMES: So the takeaway is this. Decide before the twenty-ninth, keep the account default off, and let one campaign earn the right to be rewritten. The full article, with the table of what OpenAI can change and who should check each part, is on manual-focus dot co dot uk.
+
+HANNAH: And the test plan is in there too.
+
+JAMES: Follow the show in Apple Podcasts, Spotify or wherever you listen, and the next episode will be waiting. And if you'd like a hand setting up that test, book a free working session with us at manual-focus dot co dot uk. Hannah, thank you.
+
+HANNAH: Good luck with the settings page, everyone.

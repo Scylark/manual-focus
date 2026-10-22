@@ -19,13 +19,14 @@ const faqSchemaItems = faqItems.map(item => ({
   answer: item.answer,
 }));
 ---
-<Base title="FAQ, working with Manual Focus" description="Straight answers on working with Manual Focus: engagement shapes, cost, minimum terms, who does the work, confidentiality and The Lens.">
-  <SEOHead slot="seo" type="faq" title="FAQ, working with Manual Focus" description="Straight answers on working with Manual Focus: engagement shapes, cost, minimum terms, who does the work, confidentiality and The Lens." faqItems={faqSchemaItems} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'FAQ', url: '/faq/' }]} />
+<Base title="FAQ, working with Manual Focus" description="Straight answers on working with Manual Focus. Find out what it costs and who does the work.">
+  <SEOHead slot="seo" type="faq" title="FAQ, working with Manual Focus" description="Straight answers on working with Manual Focus. Find out what it costs and who does the work." faqItems={faqSchemaItems} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'FAQ', url: '/faq/' }]} />
 
   <section class="section">
     <div class="container">
       <h1>Frequently asked questions</h1>
-      <p class="lead">Straight answers. No jargon.</p>
+      <p class="lead">We answer the questions people ask us most, in plain English.</p>
+      <h2 class="sr-only">Questions and answers</h2>
       <FaqAccordion items={faqItems} />
     </div>
   </section>

@@ -207,6 +207,14 @@ const fullTitle = brandTitle(title);
         }, { rootMargin: '150% 0% 50% 0%' });
         revealItems.forEach(el => visObs.observe(el));
 
+        // Items inside a pinned (.dwell-pin) stage stop moving once the
+        // stage sticks, so revealing off their own top froze anything
+        // low in the stage part-way (body copy and CTAs held at ~30%
+        // opacity for the whole pin). Those items are capped so they
+        // finish revealing by the moment the pin starts.
+        const pinOf = new Map<HTMLElement, HTMLElement | null>();
+        revealItems.forEach(el => pinOf.set(el, el.closest<HTMLElement>('.dwell-pin')));
+
         let pending = false;
         function update() {
           const vh = window.innerHeight;
@@ -216,7 +224,11 @@ const fullTitle = brandTitle(title);
           const window70 = vh * 0.7;
           nearViewport.forEach(el => {
             const rect = el.getBoundingClientRect();
-            const raw = (vh - rect.top) / window70;
+            const pin = pinOf.get(el);
+            const top = pin
+              ? Math.min(rect.top, pin.getBoundingClientRect().top + vh * 0.3)
+              : rect.top;
+            const raw = (vh - top) / window70;
             const p = raw < 0 ? 0 : raw > 1 ? 1 : raw;
             const prev = lastP.get(el);
             if (prev !== undefined && Math.abs(p - prev) < 0.01) return;

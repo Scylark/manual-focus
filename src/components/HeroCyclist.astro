@@ -8,15 +8,17 @@
  * Manual Focus interlocking rings — scaled massive and scroll-
  * choreographed into a wordmark reveal.
  *
+ * The hero copy is on screen from the first frame, with the rings
+ * turning beside it (behind it, faded, on narrow screens). Scrolling
+ * then plays the brand sequence as the hand-off into the page.
  * Choreography across 0..1 scroll progress through the section:
- *  0.00 → 0.40: rings huge + centred, spinning slowly, breathing
- *  0.40 → 0.60: rings scale up, rotate faster, separate vertically
- *  0.55 → 0.75: rings fade out as the MANUAL FOCUS wordmark fades in
- *  0.70 → 0.90: wordmark settles, hero copy fades in beneath it
- *  0.90 → 1.00: wordmark shrinks to the final eyebrow position
+ *  0.00 → 0.06: hero copy holds, rings turning slowly
+ *  0.06 → 0.30: copy fades out, rings slide to centre at full size
+ *  0.30 → 0.58: rings scale up, rotate faster, separate, fade
+ *  0.50 → 0.92: MANUAL FOCUS wordmark fades in, holds, explodes
  *
- * Mobile + reduced-motion: holds the final frame (wordmark resting,
- * hero copy visible). No scroll-scrub.
+ * Reduced-motion: holds the copy with the rings faded behind it.
+ * No scroll-scrub.
  */
 ---
 <section class="hero-scroll" data-hero-scroll>
@@ -79,11 +81,11 @@
   .hero-scroll {
     position: relative;
     width: 100%;
-    /* 600vh = ~500vh of pinned scroll runway (was 800vh). Every phase
-       keeps its share of the scroll, so the choreography is unchanged:
-       the wordmark still holds for ~1.5 screens, and the headline and
-       CTAs now arrive after ~4 screens instead of ~6. */
-    height: 600vh;
+    /* 300vh = ~200vh of pinned scroll runway (was 600vh, and 800vh
+       before that). The headline and CTAs no longer wait for the
+       sequence: they're on the first screen, and the rings and
+       wordmark play out over the next two. */
+    height: 300vh;
     background: var(--color-bg);
     isolation: isolate;
     overflow: clip;
@@ -108,8 +110,8 @@
     margin: auto;
     width: min(160vh, 100vw);
     height: min(160vh, 100vw);
-    /* Set initially — JS overrides via the animation loop. */
-    transform: translateZ(0) scale(1) rotate(0deg);
+    /* First-frame pose (beside the copy) — JS takes over from here. */
+    transform: translate3d(28vw, 0, 0) scale(0.62);
     transform-origin: 50% 50%;
     will-change: transform, opacity;
     z-index: 1;
@@ -203,10 +205,9 @@
        short viewports. Short-viewport fit is handled by the
        max-height media queries on the headline (see index.astro). */
     padding-block: clamp(5.5rem, 12vh, 8rem) clamp(2.5rem, 6vh, 4.5rem);
-    opacity: 0;
-    pointer-events: none;
+    /* Visible at first paint, so the message never waits on JS. */
+    opacity: 1;
     will-change: opacity, transform;
-    transform: translate3d(0, 24px, 0);
   }
 
   .hero-content > :global(*) {
@@ -224,12 +225,11 @@
      smaller ring base size so it fits a narrower viewport. */
   @media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .hero-scroll {
-      /* 400vh on mobile. Each thumb-swipe on a phone covers more
+      /* 250vh on mobile. Each thumb-swipe on a phone covers more
          viewport-relative distance than a desktop scroll wheel, so
          a shorter section gives equivalent dwell-feel without
-         tiring the visitor. The proportions still put a full ~1
-         viewport-height of scroll on the MANUAL FOCUS hold phase. */
-      height: 400vh;
+         tiring the visitor. */
+      height: 250vh;
     }
     .hero-scroll-sticky {
       min-height: 560px;
@@ -237,6 +237,9 @@
     .hero-rings {
       width: min(100vh, 90vw);
       height: min(100vh, 90vw);
+      /* First-frame pose: faded behind the full-width copy. */
+      transform: none;
+      opacity: 0.16;
     }
     .hero-content {
       padding-block: clamp(5rem, 11vh, 6.5rem) clamp(2.5rem, 6vh, 4rem);
@@ -276,6 +279,10 @@
     // performs well on mobile — Safari and Android Chrome both
     // batch RAF efficiently against touch scroll events.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Matches the CSS breakpoint where the copy goes full width: there the
+    // rings sit faded behind the copy instead of beside it.
+    const narrow = window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)');
 
     // Scroll progress 0..1 across the sticky-pinned distance.
     let scrollProgress = 0;
@@ -318,7 +325,7 @@
 
     // Cache last-applied values so we don't thrash style/property
     // updates when nothing has changed frame-to-frame.
-    let lastRingScale = -1, lastRingRot = -1, lastRingOpacity = -1, lastRingSep = -1;
+    let lastRingScale = -1, lastRingRot = -1, lastRingOpacity = -1, lastRingSep = -1, lastRingX = -1;
     let lastWordOpacity = -1, lastWordExitT = -1, lastWordFadeIn = -1;
     let lastContentT = -1;
 
@@ -330,13 +337,20 @@
       const t = (now - startTime) / 1000;
 
       // ── Rings ──────────────────────────────────────────────────
+      // Start beside the copy (wide) or faded behind it (narrow), slide
+      // to centre as the copy leaves, then scale up, split and fade.
+      const isNarrow = narrow.matches;
+      const toCentre = smooth(norm(p, 0.06, 0.30));
+      const ringX = isNarrow ? 0 : lerp(28, 0, toCentre);
+      const restScale = isNarrow ? 1.0 : lerp(0.62, 1.0, toCentre);
+      const restOpacity = isNarrow ? lerp(0.16, 1, toCentre) : 1;
       // Idle drift: constant slow rotation on top of scroll rotation.
       const ringIdleRot = t * 8;
       const ringScrollRot = p * 540;
       const ringRotation = ringIdleRot + ringScrollRot;
-      const ringScale = lerp(1.0, 2.4, smooth(p));
-      const ringSeparate = lerp(0, 6, smooth(norm(p, 0.20, 0.40)));
-      const ringOpacity = 1 - smooth(norm(p, 0.25, 0.40));
+      const ringScale = restScale * lerp(1.0, 2.4, smooth(norm(p, 0.30, 0.60)));
+      const ringSeparate = lerp(0, 6, smooth(norm(p, 0.38, 0.55)));
+      const ringOpacity = restOpacity * (1 - smooth(norm(p, 0.45, 0.58)));
 
       // Only update style when values have meaningfully changed —
       // skips the redundant transform/style writes that would
@@ -344,10 +358,11 @@
       // hasn't actually scrolled.
       // Once the rings have faded out there's nothing to rotate.
       const ringsHidden = ringOpacity <= 0 && lastRingOpacity <= 0;
-      if (!ringsHidden && (Math.abs(ringScale - lastRingScale) > 0.001 || Math.abs(ringRotation - lastRingRot) > 0.05)) {
-        rings.style.transform = `translateZ(0) scale(${ringScale.toFixed(3)}) rotate(${ringRotation.toFixed(2)}deg)`;
+      if (!ringsHidden && (Math.abs(ringScale - lastRingScale) > 0.001 || Math.abs(ringRotation - lastRingRot) > 0.05 || Math.abs(ringX - lastRingX) > 0.01)) {
+        rings.style.transform = `translate3d(${ringX.toFixed(2)}vw, 0, 0) scale(${ringScale.toFixed(3)}) rotate(${ringRotation.toFixed(2)}deg)`;
         lastRingScale = ringScale;
         lastRingRot = ringRotation;
+        lastRingX = ringX;
       }
       if (Math.abs(ringOpacity - lastRingOpacity) > 0.005) {
         rings.style.opacity = String(ringOpacity);
@@ -362,20 +377,14 @@
       }
 
       // ── Wordmark ──────────────────────────────────────────────
-      // Choreography (with 600vh section ≈ 500vh of useful scroll;
-      // durations below are for the original 800vh, scale by 5/7):
-      //   0.35 → 0.45  fade in (~70vh of scroll)
-      //   0.45 → 0.75  HOLD at full size (~210vh of pure dwell —
-      //                3 viewport-heights of scrolling on the
-      //                wordmark before any motion at all)
-      //   0.75 → 0.82  EXPLODE: MANUAL flies up + scales + blurs,
+      // Choreography (300vh section ≈ 200vh of useful scroll):
+      //   0.50 → 0.60  fade in as the rings fade out (~20vh)
+      //   0.60 → 0.80  HOLD at full size (~40vh of pure dwell)
+      //   0.80 → 0.92  EXPLODE: MANUAL flies up + scales + blurs,
       //                FOCUS flies down + scales + blurs, both fade
-      //   0.82 → 0.87  PAUSE — empty stage, brand reveal lands
-      //   0.87 → 0.93  hero copy fades in
-      //   0.93 → 1.00  REST — hero copy fully visible while the
-      //                sticky still pins (~50vh of actual read time)
-      const wordFadeIn = smooth(norm(p, 0.35, 0.45));
-      const wordExit = smooth(norm(p, 0.75, 0.82));
+      //   0.92 → 1.00  PAUSE — empty stage before the page takes over
+      const wordFadeIn = smooth(norm(p, 0.50, 0.60));
+      const wordExit = smooth(norm(p, 0.80, 0.92));
       const wordOpacity = wordFadeIn * (1 - wordExit);
 
       if (Math.abs(wordOpacity - lastWordOpacity) > 0.005) {
@@ -411,13 +420,12 @@
       }
 
       // ── Hero content ──────────────────────────────────────────
-      // Fades in 0.87 → 0.93, then HOLDS fully visible through to
-      // 1.00 so the visitor has ~50vh of read time before the
-      // sticky releases.
-      const contentT = smooth(norm(p, 0.87, 0.93));
+      // Fully visible from the first frame; fades up and out
+      // 0.06 → 0.20 as the rings take the stage.
+      const contentT = 1 - smooth(norm(p, 0.06, 0.20));
       if (Math.abs(contentT - lastContentT) > 0.005) {
         content.style.opacity = String(contentT);
-        content.style.transform = `translate3d(0, ${lerp(24, 0, contentT).toFixed(2)}px, 0)`;
+        content.style.transform = `translate3d(0, ${lerp(-24, 0, contentT).toFixed(2)}px, 0)`;
         content.style.pointerEvents = contentT > 0.5 ? 'auto' : 'none';
         lastContentT = contentT;
       }

@@ -4,8 +4,8 @@ import SEOHead from '../components/SEOHead.astro';
 import FocusObject from '../components/FocusObject.astro';
 import { url } from '../utils/paths';
 ---
-<Base title="About James Vickers and Manual Focus" description="Marketing agency led by James Vickers. 15+ years senior marketing across endurance and sports brands, AI, fintech and digital assets. Co-founded RGT Cycling (acquired by Wahoo).">
-  <SEOHead slot="seo" type="profile" title="About James Vickers and Manual Focus" description="Marketing agency led by James Vickers. 15+ years senior marketing across endurance and sports brands, AI, fintech and digital assets. Co-founded RGT Cycling (acquired by Wahoo)." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about/' }]} />
+<Base title="About James Vickers and Manual Focus" description="James Vickers leads Manual Focus, a marketing agency for endurance and sports brands. He was on the founding team at RGT Cycling, which Wahoo bought.">
+  <SEOHead slot="seo" type="profile" title="About James Vickers and Manual Focus" description="James Vickers leads Manual Focus, a marketing agency for endurance and sports brands. He was on the founding team at RGT Cycling, which Wahoo bought." breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about/' }]} />
 
   <!-- HERO -->
   <section class="about-hero">
@@ -14,16 +14,17 @@ import { url } from '../utils/paths';
     <div class="container about-hero-inner">
       <div class="eyebrow">001 · ABOUT</div>
       <h1 class="about-headline" style="font-size: clamp(2.5rem, 6.5vw, 6rem); line-height: 0.95; letter-spacing: -0.02em; margin-top: var(--space-md); max-width: 900px;">
-        Two circles.<br/>
-        One <span class="gradient-text">intersection.</span><br/>
-        That's where we work.
+        We work where<br/>
+        two circles<br/>
+        <span class="gradient-text">intersect.</span>
       </h1>
       <p class="about-lead">
-        The Manual Focus mark shows two circles drifting into alignment, marking the point
-        where emerging technology meets the markets it changes. AI is changing how people
-        find products, and digital assets are changing how trust works. The <strong>Foundry</strong>, our collective, and the
-        <strong>Forge</strong>, the AI toolkit it built, meet at the same overlap. We
-        bring that to ambitious brands, with particular depth in endurance and sports.
+        The Manual Focus mark is two circles drifting into alignment. We work where they
+        overlap, at the point where new technology meets the markets it changes. AI is
+        changing how people find products. Digital assets are changing how trust works.
+        We help endurance and sports brands make the most of both changes. We do it with
+        the <strong>Foundry</strong>, our collective of senior operators. The Foundry built
+        the <strong>Forge</strong>, the AI toolkit we all use.
       </p>
     </div>
   </section>
@@ -55,20 +56,22 @@ import { url } from '../utils/paths';
       </div>
       <div class="about-grid-body">
         <p>
-          Manual Focus is led by <strong>James Vickers</strong>, who has spent 15+ years
-          running sales, marketing and growth across emerging tech sectors. He co-founded
-          RGT Cycling, a virtual cycling platform that grew to 350,000 users before Wahoo
-          Fitness acquired it, led marketing for a $200M privacy-focused digital asset, and now advises
-          AI-powered wealth managers. He has a habit of arriving in these markets before
-          mainstream adoption does.
+          <strong>James Vickers</strong> leads Manual Focus. He has spent 15+ years running
+          marketing and growth in emerging tech. He was on the founding team at RGT Cycling,
+          a virtual cycling platform that grew to 350,000 users before Wahoo Fitness bought
+          it. He has also led marketing for a privacy-focused crypto project worth $200M.
+          Now he advises companies that use AI to manage people's wealth. He tends to get
+          into these markets before the mainstream does.
         </p>
         <p class="about-links">
           <a href="https://www.linkedin.com/in/james-vickers-bke/" target="_blank" rel="noopener me">James on LinkedIn ↗</a>
         </p>
         <p>
-          Around him, the Foundry brings operators who've led B2B and B2C teams across AI,
-          digital assets, fintech and hardware, each from inside the company rather than
-          advising from outside. The Forge, our shared AI toolkit, keeps the cycle short.
+          He works with the Foundry, a collective of operators who have led B2B and B2C
+          teams from inside companies. They've worked in AI and fintech. They've also
+          worked in hardware and digital assets. Together they built the Forge, a shared AI
+          toolkit, so new models
+          reach client work soon after they ship.
         </p>
       </div>
     </div>
@@ -80,7 +83,7 @@ import { url } from '../utils/paths';
 
     <div class="container">
       <div class="eyebrow">003 · THE NUMBERS</div>
-      <h2 class="about-h2 reveal" style="font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 0.98; max-width: 900px;">A track record.<br/><span class="gradient-text">Not a pitch deck.</span></h2>
+      <h2 class="about-h2 reveal" style="font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 0.98; max-width: 900px;">Our <span class="gradient-text">track record</span>,<br/>in numbers.</h2>
       <div class="numbers-grid stagger">
         <div class="number-card">
           <div class="number-value"><span class="num-prefix">19k →</span><span class="num-main">350k</span></div>
@@ -88,23 +91,23 @@ import { url } from '../utils/paths';
         </div>
         <div class="number-card">
           <div class="number-value"><span class="num-prefix">−65 →</span><span class="num-main">+45</span></div>
-          <div class="number-label">NPS brand turnaround</div>
+          <div class="number-label">net promoter score, in a brand turnaround</div>
         </div>
         <div class="number-card">
           <div class="number-value"><span class="num-main">160+</span></div>
-          <div class="number-label">media placements, single product launch</div>
+          <div class="number-label">media placements from a single product launch</div>
         </div>
         <div class="number-card">
           <div class="number-value"><span class="num-prefix">0 →</span><span class="num-main">95</span></div>
-          <div class="number-label">brand recall, prompted</div>
+          <div class="number-label">prompted brand recall</div>
         </div>
         <div class="number-card">
           <div class="number-value"><span class="num-prefix">20% →</span><span class="num-main">45%</span></div>
-          <div class="number-label">conversion rate improvement</div>
+          <div class="number-label">conversion rate</div>
         </div>
         <div class="number-card">
           <div class="number-value"><span class="num-main">2.2M+</span></div>
-          <div class="number-label">sessions driven to platform</div>
+          <div class="number-label">sessions driven to a platform</div>
         </div>
       </div>
     </div>
@@ -115,20 +118,19 @@ import { url } from '../utils/paths';
     <div class="container about-grid">
       <div class="about-grid-side">
         <div class="eyebrow">004 · WHY WE EXIST</div>
-        <h2 style="font-size: clamp(2rem, 4vw, 3.75rem); line-height: 0.98; margin-top: var(--space-xs);">Tools change<br/>weekly.<br/><span class="gradient-text">Craft doesn't.</span></h2>
+        <h2 style="font-size: clamp(2rem, 4vw, 3.75rem); line-height: 0.98; margin-top: var(--space-xs);">The <span class="gradient-text">craft</span><br/>outlasts tools<br/>that change weekly.</h2>
       </div>
       <div class="about-grid-body">
         <p>
-          A new foundation model drops every week and a new AI tool launches every day, so
-          most teams struggle to prioritise amid the constant releases. Some freeze, others
-          chase everything, and neither approach works.
+          A new foundation model comes out every week. A new AI tool comes out every day.
+          Most teams struggle to decide what to use, so they either freeze or chase
+          everything.
         </p>
         <p>
-          Getting the tools is easy. Knowing which ones matter, when to use them, and how to
-          wire them into your owned, earned and paid channels so they produce results is the
-          hard part, and it's why Manual Focus exists. We use these tools daily and test the
-          models as they ship, so you get a senior marketer who knows the tools without a
-          full-time hire.
+          The hard part is knowing which tools matter. You also need to know when to use
+          them. After that comes wiring them into your channels so they produce results. We
+          use them every day and test new models as they ship. You get a senior marketer
+          who knows the tools without making a full-time hire.
         </p>
       </div>
     </div>

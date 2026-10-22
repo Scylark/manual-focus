@@ -2,7 +2,7 @@
 title: "Introducing Manual Focus Light Meter, AI visibility for brands"
 date: 2026-10-19
 tags: ["ai", "marketing-strategy", "endurance-sports"]
-description: "Manual Focus Light Meter measures which brands six AI engines recommend to UK buyers. Get a free AI Shortlist card or order a category audit."
+description: "Manual Focus Light Meter shows which brands six AI engines recommend to UK buyers. Get a free AI Shortlist card or order a category audit."
 podcast:
   audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/manual-focus-light-meter-ai-visibility-20261019130304.mp3"
   duration: 477
@@ -20,7 +20,7 @@ howToSteps:
     text: "A category audit is built to order in five working days, using the same method as the published indoor cycling study."
 faq:
   - question: "What is Manual Focus Light Meter?"
-    answer: "Manual Focus Light Meter is an AI visibility tool from the London agency Manual Focus. It asks six AI engines, ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews and Google AI Mode, the questions UK buyers ask, three times each, and reports which brands they name, with a 95% range on each rate, and which websites they cite."
+    answer: "Manual Focus Light Meter is an AI visibility tool from the Sheffield agency Manual Focus. It asks six AI engines, ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews and Google AI Mode, the questions UK buyers ask, three times each, and reports which brands they name, with a 95% range on each rate, and which websites they cite."
   - question: "What do you get from a Manual Focus Light Meter study?"
     answer: "A Manual Focus Light Meter study gives a league table of the brands AI names in a category, each engine's shortlist, the brands that win each buying moment and the websites the engines cite. The first published study, UK indoor cycling, covers 309 questions and 5,562 answers and is free to read."
   - question: "How much does a Manual Focus Light Meter audit cost?"

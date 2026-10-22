@@ -678,5 +678,53 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "manual-focus-light-meter-ai-visibility"
+  },
+  {
+    "run_date": "2026-10-21",
+    "story": "OpenAI switches on ChatGPT Ads creative enhancements by default for new and existing campaigns from 29 October 2026 (help centre, the advertiser email says 30 October), rewriting headlines and descriptions, translating, resizing images and changing destination URLs with no per-version approval",
+    "primary_source": "https://help.openai.com/en/articles/20001614-creative-enhancements-for-chatgpt-ads",
+    "score": 8,
+    "decision": "published",
+    "slug": "chatgpt-ads-creative-enhancements-default"
+  },
+  {
+    "run_date": "2026-10-21",
+    "story": "Google begins testing ads in AI Mode for users who connect apps through Personal Intelligence, help doc updated (SER 19 October), connected apps not available in the UK or EU",
+    "primary_source": "https://support.google.com/websearch/answer/16859283?hl=en",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-21",
+    "story": "Redact finds 102 hidden AI-only instruction blocks on 80 WhatsApp help pages telling chatbots not to mention regulators or GDPR, removed by 18 October, WhatsApp says a bug exposed its support chatbot's instructions (WIRED 19 October)",
+    "primary_source": "https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-21",
+    "story": "Google appears to drop the AI Overview label on some desktop AI Overviews for shows and movies (SER 20 October, Glenn Gabe on X, unconfirmed by Google)",
+    "primary_source": "https://www.seroundtable.com/google-ai-overviews-label-missing-42337.html",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-21",
+    "story": "OpenAI adds an optional 12-hour prompt cache to its API for persistent agents (20 October changelog)",
+    "primary_source": "https://developers.openai.com/api/docs/changelog",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-21",
+    "story": "Netflix cuts its 2026 ad revenue target from $3 billion to $2.7 billion in its Q3 shareholder letter (PPC Land, 20 October)",
+    "primary_source": "https://ppc.land/netflix-cuts-its-ad-target-to-2-7bn-as-openai-turns-on-automatic-ad-rewrites/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]

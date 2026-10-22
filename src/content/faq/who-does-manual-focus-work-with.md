@@ -3,4 +3,4 @@ question: "Who does Manual Focus work with?"
 order: 1
 ---
 
-Companies that want senior marketing capability without the cost or commitment of a full-time CMO. We have particular depth in endurance and sports brands (Wahoo, Wattbike, Ribble, Classified, RGT, Pelotan, Planet X), and broader work across AI, fintech, sports tech, hardware and digital assets. The best fit is usually a scaleup or established business with no senior marketer in the room, or one between hires.
+We work with companies that want senior marketing without the cost or commitment of a full-time CMO. Most of our work has been with endurance and sports brands such as Wahoo and Wattbike. We also work in AI and fintech. The best fit is usually a scaleup or established business with no senior marketer in the room, or one between hires.

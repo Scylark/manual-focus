@@ -52,6 +52,7 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-GB', { year: 'num
       {entries.length === 0 && (
         <p class="stack-empty">No playbooks published in this stack yet. Check back next month, or browse another stack from the <a href={url('/lens/library')}>library</a>.</p>
       )}
+      <h2 class="sr-only">Playbooks in this stack</h2>
       <div class="library-grid">
         {entries.map(entry => {
           const slug = entry.id.split('/').pop()?.replace(/\.md$/, '') ?? entry.id;
