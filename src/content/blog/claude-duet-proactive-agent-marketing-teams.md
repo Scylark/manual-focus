@@ -3,6 +3,11 @@ title: "What Anthropic's Claude Duet agent means for marketing teams"
 date: 2026-10-22
 tags: ["ai-briefing", "ai", "productivity"]
 description: "Anthropic opened a US waitlist for Claude Duet on 21 October 2026, an agent working across 6,000+ connectors. Set agent rules before staff connect it."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/claude-duet-proactive-agent-marketing-teams.mp3"
+  duration: 379
+  bytes: 4554755
+  published: 2026-10-22
 faq:
   - question: "What is Claude Duet?"
     answer: "Claude Duet is a proactive agent from Anthropic, announced as a research preview on 21 October 2026. It runs on Claude Opus 5.5 on its own cloud computer, sends a morning brief, checks connected apps every few hours and messages you when something needs attention. It asks for approval before it sends a message, makes a payment, signs a document or deletes anything."
