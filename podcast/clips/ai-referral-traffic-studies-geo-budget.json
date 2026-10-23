@@ -1,0 +1,20 @@
+{
+  "slug": "ai-referral-traffic-studies-geo-budget",
+  "title": "What three new AI traffic studies mean for your GEO budget",
+  "url": "https://manual-focus.co.uk/blog/ai-referral-traffic-studies-geo-budget/",
+  "clips": [
+    {
+      "from": "25.1",
+      "to": "28.2",
+      "why": "It opens on the label \"Get AI on this\", names two plain jobs, and has Hannah say what to give the AI and what comes back, with James and Hannah trading turns and a clean ending.",
+      "hook": "Give AI a year of session data and it works out your AI traffic as a share of organic.",
+      "youtube": {
+        "title": "How to work out your AI traffic as a share of organic",
+        "description": "James and Hannah set two jobs for AI. The first takes a year of Google Analytics data and works out AI traffic as a share of organic search, with conversion rates side by side. The second cleans up direct traffic so a spike of bots isn't reported as AI success.\n\nFull episode and article: https://manual-focus.co.uk/blog/ai-referral-traffic-studies-geo-budget/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI a year of session data and it works out your AI traffic as a share of organic.\n\nIt is the first of three jobs from this week's Manual Focus episode on three new studies of AI traffic. They found AI assistants send a small slice of what Google organic does, so it helps to know your own number.\n\nGive it a Google Analytics export of sessions and key events by source, and it hands back the ratio with conversion rates beside it.\n\nThe second job cleans up direct traffic, so bots don't get reported as AI success.\n\nThe podcast voices are AI-generated, and mine is a clone of my own voice.\n\nFull episode and article at https://manual-focus.co.uk/blog/ai-referral-traffic-studies-geo-budget/",
+      "words": 97,
+      "text": "So, Get AI on this. First, work out your own ratio. Hand AI twelve months of your session data by source. Give it a Google Analytics export of sessions and key events by source. It groups the AI assistants the way The SEO Works did, and hands back AI traffic as a share of organic, with conversion rates side by side. Second, clean your direct traffic before anyone presents it. Give it direct sessions split by landing page, browser and engagement. It flags the spikes of unengaged visits and gives you an engaged-only line to report instead."
+    }
+  ]
+}
