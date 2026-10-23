@@ -24,24 +24,28 @@ chapters:
     at: "So the takeaway. Light Meter tells you"
 ---
 
-James and Hannah launch Manual Focus Light Meter, an AI visibility tool that
-measures which brands AI recommends to UK buyers, using the UK indoor cycling
-study as the worked example. They explain why it measures three things a rank
-tracker doesn't. Repeated runs, because in the
-UK indoor cycling study an engine named the same brands across three runs of
-a question only 20% of the time. Separate engines, because Van Rysel appeared
-in 43% of Claude's trainer answers and 5% of Google AI Mode's. And 95% ranges,
-because Rouvy and MyWhoosh look like second and third but overlap. They finish
-with three jobs to hand to AI, what Light Meter can't tell you, what brands can
-order (a free AI Shortlist card, category audits, Brand Snapshots and a Fix
-programme) and the next edition, trail running kit in January 2027.
+James and Hannah launch Manual Focus Light Meter. It's an AI visibility tool
+that measures which brands AI recommends to UK buyers. The UK indoor cycling
+study is the worked example.
+
+They explain why Light Meter measures things a rank tracker doesn't.
+
+- Repeated runs. In the indoor cycling study an engine named the same brands
+  across three runs of a question only 20% of the time.
+- Separate engines. Van Rysel appeared in 43% of Claude's trainer answers but
+  5% of Google AI Mode's.
+- 95% ranges. Rouvy and MyWhoosh look like second and third, but their ranges
+  overlap.
+
+They finish with three jobs to hand to AI. Then they cover what Light Meter
+can't tell you. Last comes what brands can order, from a free AI Shortlist card
+to a Fix programme. The next edition covers trail running kit in January 2027.
 
 ## Get AI on this
 
-Paste these into whichever AI assistant you use: ChatGPT, Claude, Gemini or
-Copilot. Swap the bracketed parts for your own details. The first needs file
+Paste these into whichever AI assistant you use. Swap the bracketed parts for your own details. The first needs file
 uploads. The second needs an assistant that can run searches on other engines
-and a schedule, or a person to paste the answers in. The third needs web
+on a schedule. A person can paste the answers in instead. The third needs web
 browsing.
 
 ### 1. Write your question set
