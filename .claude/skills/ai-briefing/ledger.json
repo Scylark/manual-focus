@@ -726,5 +726,53 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Anthropic announces Claude Duet research preview on 21 October 2026, a proactive agent on Opus 5.5 with 6,000+ connectors (HubSpot, Canva, LinkedIn, Shopify), US Pro and Max waitlist only",
+    "primary_source": "https://claude.com/resources/articles/claude-duet",
+    "score": 7,
+    "decision": "published",
+    "slug": "claude-duet-proactive-agent-marketing-teams"
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "OpenAI expands ChatGPT Ads to 26 more markets (89 total), 100,000+ advertisers since launch (21 October)",
+    "primary_source": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Gemini app adds small-business landing page, marketing skills and Google Ads, Business Profile, Shopify and Canva connectors, rolling out globally (20 October)",
+    "primary_source": "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Apple WebKit blog (19 October) says Safari and WebKit block network access to identity-resolution infrastructure in the iOS, iPadOS, macOS and visionOS 27 releases, not an AI story",
+    "primary_source": "https://webkit.org/blog/18438/blocking-identity-resolution-infrastructure/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Google adds the Search generative AI control (live since 31 August) to its Control what you share docs (21 October)",
+    "primary_source": "https://developers.google.com/search/docs/crawling-indexing/control-what-you-share",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Performance Max sourced videos become opt-out (PPC News Feed, no Google announcement found)",
+    "primary_source": "https://ppcnewsfeed.com/ppc-news/2026-10/performance-max-sourced-videos-become-opt-out/",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
   }
 ]
