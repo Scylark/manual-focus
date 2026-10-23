@@ -4,9 +4,9 @@ date: 2026-10-23
 tags: ["ai-briefing", "ai", "marketing-strategy"]
 description: "Three studies out in the week to 22 October 2026 find AI assistants send a sliver of Google's organic traffic. Size AI search budgets to match."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/ai-referral-traffic-studies-geo-budget.mp3"
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/ai-referral-traffic-studies-geo-budget-20261023062609.mp3"
   duration: 493
-  bytes: 5913018
+  bytes: 5918660
   published: 2026-10-23
 faq:
   - question: "How much traffic does ChatGPT send compared with Google?"
@@ -66,9 +66,9 @@ A higher conversion rate on 2.6% of the traffic still adds up to a small number 
 
 Haynes argues it is, for most sites, and recommends that teams stop prioritising ChatGPT citations and work on Google Search and Google's own AI features instead. Her data supports the first half. The second half needs a caveat that The SEO Works spells out, because clicks from Google AI Overviews arrive in GA4 as organic sessions. When AI Overviews appear on most of a brand's searches, as [DemandSphere's September data](/blog/google-ai-overviews-brand-searches/) suggested, some of what these studies call Google traffic already comes through an AI answer.
 
-The studies also measure what happens after a click. An assistant that names your brand in an answer can shape a shortlist without sending anyone to your site, which is the argument we made in [the citation moved off the page](/blog/the-citation-moved-off-the-page/). Indig went looking for that effect in direct and branded traffic and couldn't find it reliably. Across his 12 sites total direct sessions rose 140.9% from August to September while engaged direct sessions fell 1.0%, and one site logged 409,000 direct sessions of which 198 were engaged. Teams that read rising direct traffic as an AI dividend are often counting bots.
+The studies also measure what happens after a click. An assistant that names your brand in an answer can shape a shortlist without sending anyone to your site, which is the argument we made in [the citation moved off the page](/blog/the-citation-moved-off-the-page/). Indig went looking for that effect in direct and branded traffic and couldn't find it reliably. Across his filtered January to September sample, total direct sessions rose 140.9% while engaged direct sessions fell 1.0% in monthly counts, and one site logged 409,000 direct sessions of which 198 were engaged. Teams that read rising direct traffic as an AI dividend are often counting bots.
 
-Manual Focus sells AI visibility measurement through [Light Meter](/blog/manual-focus-light-meter-ai-visibility/), so weigh what follows with that in mind. Our view at Manual Focus is that these studies settle the referral question, since AI assistants are a small traffic source for most brands, and leave the influence question open, so AI search work should be sized to a modest share of the SEO budget and judged on how often buyers see your brand in AI answers and on what new customers say, with referral sessions as the third signal. Indig recommends the same three signals on one monthly report.
+Manual Focus sells AI visibility measurement through [Light Meter](/blog/manual-focus-light-meter-ai-visibility/), so weigh what follows with that in mind. Our view at Manual Focus is that these studies settle the referral question, since AI assistants are a small traffic source for most brands, and leave the influence question open, so AI search work should be sized to a modest share of the SEO budget and judged on how often buyers see your brand in AI answers and on what new customers say, with referral sessions as the third signal. Indig recommends a similar monthly report, with commercial results such as qualified leads, purchases and revenue as his third signal.
 
 ## What to change in your reporting
 
