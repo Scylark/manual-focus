@@ -52,7 +52,7 @@ Search Engine Roundtable [grouped the three together](https://www.seroundtable.c
 | The SEO Works, AI referral traffic benchmark | Data to August 2026 | 95 GA4 properties, 63 in the conversion comparison | AI assistants at 2.6% of organic sessions | AI 7.18% against organic 6.08%, or 3.2 AI conversions for every 100 from organic |
 | Kevin Indig, Growth Memo | 19 October 2026 | 12 sites, mostly B2B, August against September 2026 | AI traces in 0.003% of direct sessions | Not measured |
 
-[Haynes](https://www.mariehaynes.com/geo-is-a-distraction/) also reports that ChatGPT's referral growth stopped in August 2025, around the GPT-5 release. [The SEO Works](https://www.seoworks.co.uk/downloads/ai-referral-traffic-benchmark/) found a gentler rise, with AI referrals climbing from 2.29% to 3.04% of organic sessions from May 2026. Both put AI assistants in the low single digits as a share of organic search.
+[Haynes](https://www.mariehaynes.com/geo-is-a-distraction/) also reports that ChatGPT's referral growth stopped in August 2025, around the GPT-5 release. [The SEO Works](https://www.seoworks.co.uk/downloads/ai-referral-traffic-benchmark/) found a gentler rise, with AI referrals climbing from 2.29% to 3.04% of organic sessions from May 2026. Both put AI assistants below about 3% of organic search sessions.
 
 ## Do AI visitors convert better?
 
