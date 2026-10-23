@@ -726,5 +726,53 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "Three studies (Marie Haynes 21 October, The SEO Works benchmark to August 2026, Kevin Indig Growth Memo 19 October) find AI assistants send 0.62% to 2.6% of Google organic traffic, convert 1.18x to 4.5x organic but 0.67x paid, and show no reliable link from AI visibility to direct or branded traffic (SER roundup 22 October)",
+    "primary_source": "https://www.mariehaynes.com/geo-is-a-distraction/",
+    "score": 7,
+    "decision": "published",
+    "slug": "ai-referral-traffic-studies-geo-budget"
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "Walmart launches Agent Gateway, an MCP server letting approved AI agents search inventory and buy on Walmart and Sam's Club, with Agent Profiles and spending limits next month (TechCrunch 21 October, US)",
+    "primary_source": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "Google Ads customer lifecycle goals updates before the holidays, high value mode in Shopping, wider retention goals and percentage multipliers (SER 22 October)",
+    "primary_source": "https://www.seroundtable.com/google-ads-customer-lifecycle-goals-update-42358.html",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "LinkedIn job title, industry and seniority targeting available for CTV buys through Google DV360 in the US (22 October)",
+    "primary_source": "https://ppc.land/linkedin-job-title-targeting-reaches-google-dv360-ctv-buys-in-the-us/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "Will Critchlow says Search Console now shows AI visibility data (X post, no Google announcement found)",
+    "primary_source": "https://x.com/willcritchlow/status/2112909269565665722",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "OpenAI frontier models and Codex coming to Google Cloud Model Garden and Marketplace (21 October)",
+    "primary_source": "https://openai.com/index/openai-models-google-cloud/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]

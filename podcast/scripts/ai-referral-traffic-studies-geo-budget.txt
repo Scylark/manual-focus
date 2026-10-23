@@ -1,0 +1,71 @@
+JAMES: If someone in finance has asked you what AI search is worth to the business, three studies published this week give you an awkward answer. AI assistants send a sliver of the traffic Google does. I'm James Vickers, this is Manual Focus, and Hannah's here to help me work out what that means for the budget.
+
+HANNAH: Hi James. Awkward rather than fatal, because all three measure clicks, and clicks aren't the whole story.
+
+JAMES: Give me the clearest one.
+
+HANNAH: Marie Haynes published a piece on the twenty-first of October called "GEO is a distraction". GEO means generative engine optimisation, getting your brand into AI answers. She looked at a year of Google Analytics data across a hundred websites. ChatGPT sent nought point six two per cent as many sessions as Google organic search. Add every other AI assistant and it only rises to nought point seven three.
+
+JAMES: [dryly] So well under one per cent.
+
+HANNAH: Well under. The second study is from The SEO Works, an agency in Sheffield. Ninety-five sites, September last year to August this year. About seventy-two thousand sessions from AI assistants, against about two point eight million from organic search. So organic sent thirty-nine times more traffic.
+
+JAMES: And the third?
+
+HANNAH: Kevin Indig, in his Growth Memo newsletter on the nineteenth. He asked whether AI visibility shows up later as direct traffic, or as people searching for your brand by name. Across twelve sites, direct sessions with any identifiable trace of AI were nought point nought nought three per cent of direct traffic. And across six hundred and thirty-two tests on four brands, he couldn't find a reliable link.
+
+JAMES: [thoughtfully] The argument for AI traffic has always been that it converts better. Does that hold?
+
+HANNAH: Against organic search, mostly yes. Haynes found ChatGPT visitors converting at thirteen point eight per cent, against about three per cent for Google organic. But only fifty-five of her sites tracked conversions. In The SEO Works' bigger sample, AI converted at about one point two times the organic rate. It was worse than organic on twenty-three of the sixty-three sites they compared, and at about two thirds the rate of paid search.
+
+JAMES: So a better rate on a tiny slice.
+
+HANNAH: Still a small number of customers. And it splits by business type. The SEO Works put consumer sites at one and a half times the organic rate, and business-to-business product sites at about six tenths.
+
+JAMES: When we covered Adobe's holiday forecast last month, a hundred and thirty per cent growth in AI referrals to US retailers, we said that could still be a small slice. Is this the slice?
+
+HANNAH: It's the first decent look at its size. Adobe gave growth rates, these give shares, and the shares are low single digits. The trends disagree, though. Haynes says ChatGPT referrals stopped growing around August last year, when GPT five came out. The SEO Works saw AI rise from about two point three to just over three per cent of organic since May.
+
+JAMES: So is Marie Haynes right? Is GEO a distraction?
+
+HANNAH: She says stop chasing ChatGPT citations and work on Google Search and Google's own AI features. Her data backs the first half. The second has a catch, which The SEO Works spells out. Clicks from Google's AI Overviews turn up in your analytics as ordinary organic sessions. So some of what these studies call Google traffic already came through an AI answer.
+
+JAMES: And at the start of the month we wrote about AI Overviews showing on eighty-two per cent of tracked brand searches.
+
+HANNAH: Right, so Google versus AI isn't a clean split. And none of the three can see an answer that names your brand and shapes a shortlist with no click at all. That's the citation moving off the page, which we've argued since June.
+
+JAMES: [calmly] Let me be straight with listeners here. We sell AI visibility measurement, through Light Meter, so weigh this with that in mind. Our view is that these studies settle the referral question. For most brands AI assistants are a small traffic source.
+
+HANNAH: But not the influence question.
+
+JAMES: No. So size the work to a modest share of the SEO budget, and judge it on how often buyers see you in AI answers, what new customers say when you ask how they found you, and referral sessions third.
+
+HANNAH: Which is what Indig recommends, the three signals on one monthly report. He also warns about direct traffic. Across his twelve sites total direct sessions rose about a hundred and forty per cent from August to September, while engaged direct sessions fell one per cent.
+
+JAMES: Bots.
+
+HANNAH: Mostly. One site logged four hundred and nine thousand direct sessions, and a hundred and ninety-eight were engaged. So check any direct traffic spike before calling it proof that AI is working.
+
+JAMES: So, Get AI on this. First, work out your own ratio. Hand AI twelve months of your session data by source.
+
+HANNAH: Give it a Google Analytics export of sessions and key events by source. It groups the AI assistants the way The SEO Works did, and hands back AI traffic as a share of organic, with conversion rates side by side.
+
+JAMES: Second, clean your direct traffic before anyone presents it.
+
+HANNAH: Give it direct sessions split by landing page, browser and engagement. It flags the spikes of unengaged visits and gives you an engaged-only line to report instead.
+
+JAMES: And third, read what new customers tell you.
+
+HANNAH: Once "an AI assistant" is an option in the how-did-you-hear question on your forms, give it the export each month. It tallies the answers and the assistants people name, beside your referral sessions. Set it as a monthly routine, though adding the question is a person's job.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: [thoughtfully] As for what we don't know. Haynes calls hers a small dataset. The SEO Works doesn't give sectors or countries and doesn't split results by assistant. Indig's sample leans towards business-to-business and American sites, and his visibility tests had only seventeen and thirty-five usable weeks of data. Nobody can yet separate clicks from AI Overviews or AI Mode in standard analytics.
+
+JAMES: So the takeaway. AI assistants are a small traffic source today, so budget for them like one, and measure whether buyers see you rather than counting the clicks they send. The full article, with all three studies linked, is on manual-focus dot co dot uk.
+
+HANNAH: Along with the prompts.
+
+JAMES: If this was useful, follow us in Apple Podcasts, Spotify or wherever you get your shows, and the next one will turn up by itself. And if you'd like help putting a number on AI search that finance will accept, book a free working session at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James. Go and check those direct sessions.
