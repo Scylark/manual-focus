@@ -774,5 +774,53 @@
     "score": 4,
     "decision": "skipped-unverifiable",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "SISTRIX citation worthiness study (22 October) compares 48,527 cited pages with uncited pages from the same domains, 96,418 URLs across ChatGPT, AI Mode and AI Overviews in DACH, finds table of contents 1.7, Article schema 1.6, no measurable effect from llms.txt",
+    "primary_source": "https://www.sistrix.com/blog/citation-worthiness-study/",
+    "score": 7,
+    "decision": "published",
+    "slug": "sistrix-ai-citation-study-geo-tactics"
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "Google Marketing Platform October Drop, Gemini-curated DV360 Marketplace bundles, new Search Ads 360 Home, LinkedIn CTV in DV360 (22 October)",
+    "primary_source": "https://blog.google/products/marketingplatform/360/google-marketing-platform-drop-october/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "Canva releases Craft, its first image generation model, to all users via Dream Lab and the API (TechCrunch 22 October)",
+    "primary_source": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "Google appears to test AI-generated summaries in AI Overview citation cards (SER 23 October, not confirmed by Google)",
+    "primary_source": "https://www.seroundtable.com/google-ai-overview-citation-ai-summaries-42361.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "Google Ads adds image and video sourcing options to Performance Max, sourced videos toggle (Search Engine Land and SER 23 October, no Google announcement found)",
+    "primary_source": "https://www.seroundtable.com/google-ads-sourced-videos-42365.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "SparkToro asks whether AI visibility is a marketing boondoggle, built on the Haynes, SEO Works and Growth Memo studies (22 October)",
+    "primary_source": "https://sparktoro.com/blog/is-ai-visibility-a-marketing-boondoggle/",
+    "score": 4,
+    "decision": "skipped-duplicate",
+    "slug": null
   }
 ]
