@@ -822,5 +822,53 @@
     "score": 4,
     "decision": "skipped-duplicate",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Meta delays its updated Commercial Terms and Self-Serve Ad Terms from 30 October to 20 November 2026 (Reuters, 23 October) and has removed 'train' from the crawling clause, licence otherwise unchanged; UK preview still shows 30 October. Material update to the 17 October post",
+    "primary_source": "https://www.facebook.com/legal/commercial_terms_preview",
+    "score": 7,
+    "decision": "published",
+    "slug": "meta-crawling-terms-delay-uk-advertisers"
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Semrush finds AI Overviews on 88% of 400 tracked US desktop commercial keywords in August 2026, up from 45.75% (21 October)",
+    "primary_source": "https://www.semrush.com/blog/ai-overviews-commercial-modifiers-study/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Google Ads expands Smart Bidding Exploration to Performance Max and Shopping campaigns on Target ROAS (help page, PPC News Feed 22 October, SEL 23 October)",
+    "primary_source": "https://support.google.com/google-ads/answer/18743168",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Envoyra study finds ChatGPT, Claude, Gemini and Perplexity disagree on top software brands, with 79% of question-assistant pairs changing over four weeks (SEL 22 October)",
+    "primary_source": "https://searchengineland.com/ai-brand-recommendations-vary-platform-week-497967",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Google privacy policy (effective 16 October) says connected Personal Intelligence data in Search can shape ads, beta excludes the UK and EEA (Hacker News report 24 October)",
+    "primary_source": "https://thehackernews.com/2026/10/google-says-gmail-and-photos-data.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "OpenAI says it will train frontier models on cached and simulated copies of the web instead of the live internet (TechCrunch 23 October)",
+    "primary_source": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
