@@ -48,8 +48,16 @@ const turns = readFileSync(paths.script, 'utf8')
 // "Basics episode" in SHOW-RULES.md.
 const postFront = readFileSync(paths.post, 'utf8').match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
 const basics = [].concat(yaml.load(postFront)?.tags ?? []).includes('basics');
-const [hardMin, aimMin, aimMax, hardMax] = basics ? [1600, 1800, 2200, 2500] : [800, 900, 1100, 1300];
-const aim = `aim for ${aimMin.toLocaleString('en-GB')} to ${aimMax.toLocaleString('en-GB')}${basics ? ' (Basics episode)' : ''}`;
+// A long-form Basics episode (30 to 45 minutes) sets "length: long" in its
+// show notes' frontmatter; see "Long-form Basics episode" in SHOW-RULES.md.
+const notesFront = existsSync(paths.notes)
+  ? yaml.load(readFileSync(paths.notes, 'utf8').match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '') ?? {}
+  : {};
+const long = basics && notesFront.length === 'long';
+if (notesFront.length === 'long' && !basics) fails.push('"length: long" is only for Basics episodes (posts tagged basics)');
+const [hardMin, aimMin, aimMax, hardMax] = long ? [4200, 4700, 6300, 6900]
+  : basics ? [1600, 1800, 2200, 2500] : [800, 900, 1100, 1300];
+const aim = `aim for ${aimMin.toLocaleString('en-GB')} to ${aimMax.toLocaleString('en-GB')}${long ? ' (long-form Basics episode)' : basics ? ' (Basics episode)' : ''}`;
 const words = turns.reduce((n, t) => n + t.text.replace(/\[[^\]]*\]/g, '').split(/\s+/).filter(Boolean).length, 0);
 if (words < hardMin || words > hardMax) fails.push(`Script is ${words} words; ${aim}`);
 else if (words < aimMin || words > aimMax) warns.push(`Script is ${words} words; ${aim}`);

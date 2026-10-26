@@ -870,5 +870,13 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-26",
+    "story": "What is marketing, a long-form Basics guide joining product-market fit, research, requirements, the communication hierarchy, the benefits ladder and SOSTAC through a hypothetical helmet launch",
+    "primary_source": "https://www.cim.co.uk/content-insights/articles/what-is-marketing/",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "what-is-marketing-basics"
   }
 ]

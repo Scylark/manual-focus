@@ -159,6 +159,27 @@ Turns can run a little longer when Hannah is explaining a concept, but keep
 each under about 30 seconds and let James interrupt with the question a
 listener would ask.
 
+### Long-form Basics episode
+
+Some Basics topics join several earlier episodes into one story ("What is
+marketing?" runs from product-market fit to SOSTAC). These run about 30 to 45
+minutes, roughly 4,700 to 6,300 words of script. Set `length: long` in the
+show notes' frontmatter and `check-episode.mjs` applies those limits; it's
+only allowed on posts tagged `basics`. Everything in "Basics episode" applies,
+with these changes:
+
+- **One thread, worked through.** Carry a single worked example (a
+  hypothetical product launch, say) through every section, so the listener
+  hears each idea applied rather than defined. Say on air that it's
+  hypothetical, and give it no numbers the post doesn't have.
+- **Signpost the route.** In the cold open, James says where the episode is
+  going in a sentence. At each new section, one line says where they are
+  ("So that's the research. Now the brief.").
+- **Lean on the series.** Name the earlier Basics episodes where they go
+  deeper, so the long episode works as the front door to the rest.
+- **More chapters.** One per section, so listeners can jump to the part
+  they need. Turn lengths and every other rule stay the same.
+
 ## Get AI on this
 
 It's model-agnostic: we say "AI" or "your AI" on air, never one brand,
