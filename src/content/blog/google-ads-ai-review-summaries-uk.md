@@ -3,6 +3,11 @@ title: "What Google's AI review summaries in ads mean for UK brands"
 date: 2026-10-27
 tags: ["ai-briefing", "ai", "brand"]
 description: "Google now writes positive-only AI summaries of your online reviews into UK, US, Australian and Indian Search ads. You cannot edit them, so check your reviews."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ads-ai-review-summaries-uk.mp3"
+  duration: 425
+  bytes: 5105520
+  published: 2026-10-27
 faq:
   - question: "What are review summaries in Google Search ads?"
     answer: "Review summaries are short AI-generated commentary that Google adds to Search ads. Google's help page says its AI aggregates online reviews from across the web, writes summaries that are positive only and shows them when it predicts the ad will perform better. Advertisers cannot edit or customise the text, because Google says it represents user feedback."
