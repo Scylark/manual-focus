@@ -872,6 +872,54 @@
     "slug": null
   },
   {
+    "run_date": "2026-10-27",
+    "story": "Google Ads help page 'About Review summaries' (first reported 24 October) documents AI-generated, positive-only summaries of online reviews in Search ads, English in the US, UK, Australia and India, no editing and no documented opt-out",
+    "primary_source": "https://support.google.com/google-ads/answer/18760807",
+    "score": 7,
+    "decision": "published",
+    "slug": "google-ads-ai-review-summaries-uk"
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Semrush, SE Ranking and seoClarity data put AI Overviews on more than 80% of Google searches (SER recap 26 October), overlaps the 25 October Semrush skip and the brand-searches post",
+    "primary_source": "https://www.seroundtable.com/recap-10-26-2026-42374.html",
+    "score": 5,
+    "decision": "skipped-duplicate",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Some ChatGPT ads show a new Learn more arrow link and some are served through Amazon DSP (SER 26 October, no OpenAI or Amazon announcement found)",
+    "primary_source": "https://www.seroundtable.com/recap-10-26-2026-42374.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Cloudflare AI reporting tools showing bot crawls, AI referrals and brand appearances in AI answers (SEL 26 October, launch date unclear, dashboard first launched 6 August)",
+    "primary_source": "https://searchengineland.com/cloudflare-upend-ai-visibility-space-498710",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Google Ads AI Max FAQ adds one-click experiment recommendations on eligible accounts (SER 26 October)",
+    "primary_source": "https://www.seroundtable.com/recap-10-26-2026-42374.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Owners of Elvis Presley's music sue Anthropic for copyright infringement (New York Times via SER recap 26 October)",
+    "primary_source": "https://www.seroundtable.com/recap-10-26-2026-42374.html",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
     "run_date": "2026-10-26",
     "story": "What is marketing, a long-form Basics guide joining product-market fit, research, requirements, the communication hierarchy, the benefits ladder and SOSTAC through a hypothetical helmet launch",
     "primary_source": "https://www.cim.co.uk/content-insights/articles/what-is-marketing/",
