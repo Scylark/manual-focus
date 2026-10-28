@@ -25,6 +25,9 @@ sources:
   - title: "Discussing Laddering Application by the Means-End Chain Theory"
     url: "https://nsuworks.nova.edu/tqr/vol11/iss4/1"
     publisher: "The Qualitative Report"
+  - title: "This Is Marketing"
+    url: "https://penguinrandomhouse.com/books/600458/this-is-marketing-by-seth-godin"
+    publisher: "Penguin Random House"
   - title: "What is PR Smith's SOSTAC Planning?"
     url: "https://prsmith.org/sostac/"
     publisher: "PR Smith"
@@ -44,7 +47,9 @@ The Chartered Institute of Marketing defines marketing as the management process
 
 The [CIM's definition](https://www.cim.co.uk/content-insights/articles/what-is-marketing/) is the one most UK courses teach, and the institute spells out what it covers. Marketing decides what a company will produce, what it will charge, how it will deliver to the customer and how it will tell customers about it, which the CIM sums up as the 7Ps of product, price, place, promotion, people, process and physical evidence. The [American Marketing Association](https://www.ama.org/the-definition-of-marketing-what-is-marketing/) takes a similar line, describing marketing as the activity and processes for creating, communicating, delivering and exchanging offerings that have value for customers, clients, partners and society.
 
-Both definitions start with the customer and end with promotion. Most people meet marketing from the other end, through adverts, posts and emails, which is why so many plans begin with channels. The Basics guides on [owned, paid and earned media](/blog/owned-paid-earned-media-basics/) and [above and below the line](/blog/above-the-line-below-the-line-basics/) cover those channels. This guide covers what has to be true before you choose any of them.
+Seth Godin offers a softer description. His 2018 book [This Is Marketing](https://penguinrandomhouse.com/books/600458/this-is-marketing-by-seth-godin) frames marketing as helping others become who they want to be, and argues that great marketers use marketing to solve other people's problems rather than their company's. The CIM tells you what the job covers, and Godin tells you what it's for.
+
+Both formal definitions start with the customer and end with promotion. Most people meet marketing from the other end, through adverts, posts and emails, which is why so many plans begin with channels. The Basics guides on [owned, paid and earned media](/blog/owned-paid-earned-media-basics/) and [above and below the line](/blog/above-the-line-below-the-line-basics/) cover those channels. This guide covers what has to be true before you choose any of them.
 
 ## The common thread in six steps
 
@@ -93,7 +98,7 @@ The benefits ladder takes each supporting message and climbs it, from the featur
 | Larger vents and internal channels | Cooler on long climbs | You ride further and feel strong doing it |
 | Adjustable fit system | Comfortable on a five-hour ride | You forget you're wearing it and enjoy the ride |
 
-Features prove a claim, benefits explain it, and the emotional rung is usually what people remember. Most launch copy stops at the bottom rung, which is why so much of it reads like a spec sheet.
+Features prove a claim, benefits explain it, and the emotional rung is usually what people remember. It is also where Godin's idea shows up in copy, because it describes the rider the buyer wants to become. Most launch copy stops at the bottom rung, which is why so much of it reads like a spec sheet.
 
 ## Where SOSTAC brings it together
 
