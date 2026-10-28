@@ -1,0 +1,277 @@
+/* Diagrams written as HTML in a post, as <figure class="dg ...">.
+   The text is real text, so search engines, AI answer engines and screen
+   readers can read it. CSS lays it out for the width it has (one column on
+   phones, two on wider screens), and the colours come from the theme
+   tokens, so diagrams follow the dark and light themes like the rest of the
+   page. Selectors start with .post-content so they win over the post's own
+   list and paragraph styles. */
+
+.post-content .dg {
+  --dg-a: var(--color-cta-start);
+  --dg-b: var(--color-cta-mid);
+  --dg-c: var(--color-cta-end);
+  --dg-a-tint: color-mix(in srgb, var(--dg-a) 16%, transparent);
+  --dg-b-tint: color-mix(in srgb, var(--dg-b) 16%, transparent);
+  --dg-c-tint: color-mix(in srgb, var(--dg-c) 16%, transparent);
+  margin: var(--space-sm) 0 var(--space-md);
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-bg-alt);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Header and shared pieces */
+.post-content .dg-head { margin-bottom: 1rem; }
+.post-content .dg-kicker,
+.post-content .dg-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.post-content .dg-kicker { color: var(--dg-a); }
+.post-content .dg-label { color: var(--color-text-muted); margin-bottom: 0.25rem; }
+.post-content .dg-title {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.post-content .dg-strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.post-content .dg-q { display: block; color: var(--color-text-secondary); font-size: 0.88rem; }
+.post-content .dg-note { margin-top: 0.9rem; font-size: 0.82rem; color: var(--color-text-muted); }
+.post-content .dg .dg-list { list-style: none; padding: 0; margin: 0; }
+.post-content .dg .dg-list > li { margin: 0; }
+.post-content .dg-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+.post-content .dg-chip {
+  display: inline-block;
+  margin-top: 0.35rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--dg-c-tint);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.post-content .dg-split { display: grid; gap: 1.25rem; align-items: start; }
+@media (min-width: 760px) {
+  .post-content .dg-split { grid-template-columns: 1.55fr 1fr; }
+}
+
+/* 1. The chain of steps */
+.post-content .dg-steps { display: grid; gap: 0.6rem; }
+@media (min-width: 760px) {
+  .post-content .dg-steps {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+  }
+}
+.post-content .dg-step { display: grid; grid-template-columns: 2.3rem 1fr; gap: 0.75rem; align-items: center; }
+.post-content .dg-num {
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--dg-a);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+.post-content .dg-step.dg-go .dg-num { background: var(--dg-c); color: var(--color-bg); }
+
+/* 2. Is there a market? */
+.post-content .dg-funnel { display: grid; gap: 0.5rem; text-align: center; }
+.post-content .dg-funnel > li {
+  margin-inline: calc(var(--i, 0) * 5%);
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  background: var(--dg-c-tint);
+}
+.post-content .dg-funnel > li:nth-child(2) { background: var(--dg-b-tint); }
+.post-content .dg-funnel > li:nth-child(3) { background: var(--dg-a-tint); }
+.post-content .dg-funnel > li.dg-win { background: var(--dg-a); }
+.post-content .dg-funnel > li.dg-win .dg-strong { color: #fff; }
+.post-content .dg-bullets > li { position: relative; padding-left: 1.1rem; margin-bottom: 0.45rem; }
+.post-content .dg-bullets > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--dg-a);
+}
+
+/* 3. Findings to requirements to features */
+.post-content .dg-trace { display: grid; gap: 0.6rem; }
+.post-content .dg-trace-head { display: none; }
+.post-content .dg-trace-row { display: grid; gap: 0.35rem; }
+.post-content .dg-cell { border-radius: 10px; padding: 0.65rem 0.85rem; }
+.post-content .dg-t1 { background: var(--dg-b-tint); }
+.post-content .dg-t2 { background: var(--dg-c-tint); }
+.post-content .dg-t3 { background: var(--dg-a-tint); }
+.post-content .dg-trace-row { border-bottom: 1px solid var(--color-line); padding-bottom: 0.6rem; }
+.post-content .dg-trace-row:last-child { border-bottom: 0; padding-bottom: 0; }
+@media (min-width: 760px) {
+  .post-content .dg-trace-head,
+  .post-content .dg-trace-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4rem; }
+  .post-content .dg-trace-row { border-bottom: 0; padding-bottom: 0; }
+  .post-content .dg-trace-head .dg-label { color: var(--dg-a); }
+  .post-content .dg-cell .dg-label { display: none; }
+  .post-content .dg-t1,
+  .post-content .dg-t2 { position: relative; }
+  .post-content .dg-t1::after,
+  .post-content .dg-t2::after {
+    content: '→';
+    position: absolute;
+    right: -1.15rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+  }
+}
+
+/* 4. Communication hierarchy */
+.post-content .dg-core {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: var(--dg-a);
+  text-align: center;
+}
+.post-content .dg-core .dg-label { color: rgba(255, 255, 255, 0.8); }
+.post-content .dg-core .dg-strong { color: #fff; font-size: 1.25rem; }
+.post-content .dg-support { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.6rem; }
+.post-content .dg-support > li { display: grid; gap: 0.4rem; text-align: center; font-size: 0.85rem; }
+.post-content .dg-sup { padding: 0.6rem 0.5rem; border-radius: 10px; background: var(--dg-b-tint); }
+.post-content .dg-sup .dg-strong { font-size: 0.95rem; }
+.post-content .dg-proof { padding: 0.55rem 0.5rem; border-radius: 10px; background: var(--dg-c-tint); }
+.post-content .dg-bars > li { margin-bottom: 0.8rem; }
+.post-content .dg-bar {
+  display: block;
+  height: 0.7rem;
+  margin: 0.3rem 0 0.2rem;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--dg-a) var(--f), var(--color-line) var(--f));
+}
+.post-content .dg-bar-name { display: block; font-weight: 600; }
+
+/* 5. Benefits ladder */
+.post-content .dg-ladder {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0 0.7rem;
+  border-left: 5px solid var(--color-line);
+  border-right: 5px solid var(--color-line);
+}
+.post-content .dg-rung { padding: 0.75rem 0.9rem; border-radius: 10px; }
+.post-content .dg-rung .dg-label { color: inherit; opacity: 0.8; }
+.post-content .dg-r3 { background: var(--dg-a); color: #fff; }
+.post-content .dg-r3 .dg-strong { color: #fff; }
+.post-content .dg-r2 { background: var(--dg-b-tint); }
+.post-content .dg-r1 { background: var(--dg-c-tint); }
+.post-content .dg-steps-text > li { margin-bottom: 0.85rem; color: var(--color-text-secondary); }
+
+/* 6. Channels */
+.post-content .dg-rings { display: grid; place-items: center; }
+.post-content .dg-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 0.78rem;
+}
+.post-content .dg-earned { width: min(100%, 300px); padding: 0.9rem 0 0.8rem; background: var(--dg-b-tint); }
+.post-content .dg-paid { width: 74%; padding: 0.75rem 0 0.7rem; background: var(--dg-c-tint); }
+.post-content .dg-owned {
+  width: 62%;
+  justify-content: center;
+  background: var(--dg-a);
+  color: #fff;
+  padding: 0.4rem;
+}
+.post-content .dg-owned .dg-strong { color: #fff; }
+.post-content .dg-ring .dg-label { margin: 0; font-size: 0.6rem; }
+.post-content .dg table { margin: 0.4rem 0 0; font-size: 0.88rem; }
+
+/* 7. The launch, layer by layer */
+.post-content .dg-layers { display: grid; gap: 0.45rem; }
+.post-content .dg-layer {
+  display: grid;
+  gap: 0.25rem;
+  margin-inline: calc(var(--i, 0) * 1.6%);
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  background: var(--dg-b-tint);
+}
+.post-content .dg-layer:first-child { background: var(--dg-a); }
+.post-content .dg-layer:first-child .dg-strong,
+.post-content .dg-layer:first-child .dg-q,
+.post-content .dg-layer:first-child .dg-helmet { color: #fff; }
+.post-content .dg-layer:nth-child(4) { background: var(--dg-c-tint); }
+.post-content .dg-layer:nth-child(5) { background: color-mix(in srgb, var(--dg-c) 30%, transparent); }
+.post-content .dg-helmet { color: var(--color-text); }
+@media (min-width: 760px) {
+  .post-content .dg-layer { grid-template-columns: 15rem 1fr; align-items: center; gap: 1rem; }
+}
+
+/* 8. SOSTAC */
+.post-content .dg-sostac { display: grid; gap: 0.45rem; }
+.post-content .dg-stage { display: grid; grid-template-columns: 2.6rem 1fr; gap: 0.8rem; align-items: center; }
+.post-content .dg-letter {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 2.6rem;
+  border-radius: 8px;
+  background: var(--dg-a);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+.post-content .dg-stage.dg-ev .dg-letter { background: var(--dg-c); color: var(--color-bg); }
+.post-content .dg-stage-body { display: grid; gap: 0.15rem; }
+@media (min-width: 760px) {
+  .post-content .dg-stage-body { grid-template-columns: 13rem 1fr; align-items: center; gap: 1rem; }
+}
+
+/* Narrow screens. The supporting messages sit one per row with their proof
+   beside them, and the diagram's own table drops the blog table's minimum
+   cell width so it fits without scrolling. */
+.post-content .dg { overflow-wrap: break-word; }
+.post-content .dg.dg :is(th, td) { min-width: 0; }
+@media (max-width: 640px) {
+  .post-content .dg.dg table { display: table; width: 100%; }
+  .post-content .dg.dg :is(th, td) { padding: 8px 6px; }
+}
+@media (max-width: 560px) {
+  .post-content .dg-support { grid-template-columns: 1fr; }
+  .post-content .dg-support > li { grid-template-columns: 1fr 1fr; }
+}
+.post-content .dg-split > * { min-width: 0; }

@@ -17,7 +17,10 @@ const src = readFileSync(file, 'utf8');
 const m = src.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
 if (!m) { console.error('FAIL no frontmatter'); process.exit(1); }
 const fm = yaml.load(m[1]);
-const body = m[2];
+// HTML in the body (a <picture> serving a wide diagram on bigger screens) is
+// markup, not prose: keep only image alt text for the text checks.
+const body = m[2].replace(/<img\b[^>]*\balt="([^"]*)"[^>]*>/g, (_, alt) => `![${alt}](/html-img)`).replace(/<[^>]+>/g, '');
+const rawBody = m[2];
 const fails = [];
 const words = (t) => t.trim().split(/\s+/).filter(Boolean).length;
 
@@ -39,7 +42,10 @@ if (opening.startsWith('#')) fails.push('post must open with a paragraph, not a 
 const openN = words(opening);
 if (openN < 40 || openN > 60) fails.push(`opening paragraph must be 40-60 words (is ${openN})`);
 // Image alt text isn't prose, so it doesn't count towards the length.
-const bodyN = words(body.replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\]\([^)]*\)/g, ']'));
+// HTML diagrams (<figure class="dg">) are labelled structure, like images,
+// so their text is checked below but doesn't count towards the length.
+const prose = m[2].replace(/<figure class="dg[\s\S]*?<\/figure>/g, '').replace(/<[^>]+>/g, '');
+const bodyN = words(prose.replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\]\([^)]*\)/g, ']'));
 const [minBody, maxBody] = article ? [800, 1600] : [700, 1500];
 if (bodyN < minBody || bodyN > maxBody) fails.push(`body should be ${minBody}-${maxBody} words (is ${bodyN})`);
 if (!/Our view at Manual Focus/.test(body)) fails.push('body needs one "Our view at Manual Focus is ..." sentence');
@@ -100,6 +106,10 @@ if (/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(all)) fails.push('emoji');
 // Internal links resolve in the built site and use trailing slashes
 // Images (![alt](/images/...)) are files, so they only need to exist.
 for (const [, href] of body.matchAll(/!\[[^\]]*\]\((\/[^)#\s]*)/g)) {
+  if (href === '/html-img') continue;
+  if (!existsSync(`dist${href}`)) fails.push(`missing image: ${href} (run npm run build first)`);
+}
+for (const [, href] of rawBody.matchAll(/\b(?:src|srcset)="(\/[^"\s]+)"/g)) {
   if (!existsSync(`dist${href}`)) fails.push(`missing image: ${href} (run npm run build first)`);
 }
 for (const [, href] of body.replace(/!\[[^\]]*\]\([^)]*\)/g, '').matchAll(/\]\((\/[^)#\s]*)/g)) {
