@@ -42,7 +42,10 @@ if (opening.startsWith('#')) fails.push('post must open with a paragraph, not a 
 const openN = words(opening);
 if (openN < 40 || openN > 60) fails.push(`opening paragraph must be 40-60 words (is ${openN})`);
 // Image alt text isn't prose, so it doesn't count towards the length.
-const bodyN = words(body.replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\]\([^)]*\)/g, ']'));
+// HTML diagrams (<figure class="dg">) are labelled structure, like images,
+// so their text is checked below but doesn't count towards the length.
+const prose = m[2].replace(/<figure class="dg[\s\S]*?<\/figure>/g, '').replace(/<[^>]+>/g, '');
+const bodyN = words(prose.replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\]\([^)]*\)/g, ']'));
 const [minBody, maxBody] = article ? [800, 1600] : [700, 1500];
 if (bodyN < minBody || bodyN > maxBody) fails.push(`body should be ${minBody}-${maxBody} words (is ${bodyN})`);
 if (!/Our view at Manual Focus/.test(body)) fails.push('body needs one "Our view at Manual Focus is ..." sentence');
