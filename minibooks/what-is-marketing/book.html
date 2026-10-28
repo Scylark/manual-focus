@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>What is marketing? A Manual Focus Basics minibook</title>
+<meta name="author" content="James Vickers, Manual Focus">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F1EBE0; --card: #FBF7F0; --line: #E7DECF; --text: #1A1612; --sub: #5F574A; --muted: #8A8172;
+    --orange: #C45A2C; --gold: #D89B3F; --teal: #7CA89A; --orange-tint: #F6E3D9; --gold-tint: #F7EBD6; --teal-tint: #E2EEEA;
+    --display: 'Arial Narrow', 'Archivo Narrow', Arial, sans-serif;
+    --body: Inter, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'JetBrains Mono', Menlo, monospace;
+  }
+  @page {
+    size: A5;
+    /* No side margins: sections pad themselves, so the cover and back page
+       can bleed to the edge without Chrome shrinking the whole document. */
+    margin: 17mm 0 19mm;
+    @bottom-left { content: "WHAT IS MARKETING?"; font: 7pt var(--mono); letter-spacing: 1.5pt; color: #8A8172; padding-left: 15mm; }
+    @bottom-right { content: counter(page); font: 8pt var(--mono); color: #8A8172; padding-right: 15mm; }
+  }
+  @page :first { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+  @page plain { @bottom-left { content: none; } @bottom-right { content: none; } }
+  @page back { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+  section:not(.cover):not(.back) { padding: 0 15mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font: 9.6pt/1.55 var(--body); color: var(--text); hyphens: auto; }
+  p { margin: 0 0 3.2mm; orphans: 3; widows: 3; }
+  a { color: inherit; text-decoration: none; border-bottom: 0.5pt solid var(--orange); }
+  strong { font-weight: 600; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; line-height: 0.95; margin: 0; break-after: avoid; }
+  h2 { font-size: 30pt; margin: 0 0 5mm; }
+  h3 { font-size: 14pt; margin: 6mm 0 2.5mm; letter-spacing: 0.2pt; }
+  .kicker { break-after: avoid; font: 500 7.5pt var(--mono); letter-spacing: 2pt; text-transform: uppercase; color: var(--orange); margin-bottom: 3mm; }
+  .chapter { break-before: page; }
+  .lede { font-size: 11.5pt; line-height: 1.45; color: var(--sub); margin-bottom: 5mm; }
+  ul, ol { margin: 0 0 3.5mm; padding-left: 5mm; }
+  li { margin-bottom: 1.4mm; }
+  figure { margin: 4mm 0 5mm; break-inside: avoid; }
+  figure svg { width: auto; max-width: 100%; height: auto; max-height: 112mm; display: block; margin: 0 auto; }
+  figcaption { font-size: 7.5pt; color: var(--muted); margin-top: 1.5mm; }
+  .box { background: var(--card); border: 0.6pt solid var(--line); border-radius: 3mm; padding: 4mm 4.5mm 1.5mm; margin: 4mm 0 5mm; break-inside: avoid; }
+  .box .kicker { margin-bottom: 2mm; }
+  .box.helmet { background: var(--teal-tint); border-color: #C9DDD6; }
+  .box.helmet .kicker { color: #3F6B5E; }
+  .box.ai { background: var(--gold-tint); border-color: #EBD7B2; }
+  .box.ai .kicker { color: #8A5A12; }
+  .box.mistake { background: var(--orange-tint); border-color: #EBCBB9; }
+  blockquote { margin: 4mm 0 5mm; padding: 0 0 0 4mm; border-left: 1.2mm solid var(--orange); font: 700 14pt/1.12 var(--display); text-transform: uppercase; }
+  blockquote cite { display: block; margin-top: 2mm; font: 400 7.5pt var(--mono); letter-spacing: 1pt; text-transform: uppercase; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 8.2pt; line-height: 1.4; break-inside: avoid; }
+  table.long { break-inside: auto; }
+  table.long td { padding: 1.5mm 2mm; }
+  table.small { font-size: 7.6pt; }
+  table.small td { padding: 1.5mm 2mm; }
+  tr { break-inside: avoid; }
+  .refs li { font-size: 8.4pt; margin-bottom: 1mm; }
+  .tight .lines div { height: 5.6mm; }
+  .tight .lines { margin-bottom: 2mm; }
+  .tight .q { margin-top: 2.2mm; }
+  th { text-align: left; font: 500 6.8pt var(--mono); letter-spacing: 1pt; text-transform: uppercase; color: var(--sub); padding: 1.6mm 2mm; border-bottom: 0.8pt solid var(--text); }
+  td { padding: 2mm; border-bottom: 0.5pt solid var(--line); vertical-align: top; }
+  .write td { height: 13mm; }
+  .lines { margin: 2mm 0 4mm; }
+  .lines div { border-bottom: 0.5pt solid #CFC5B3; height: 8mm; }
+  .worksheet h3 { margin-top: 4mm; }
+  .worksheet .q { font-weight: 600; margin: 3mm 0 0; }
+  pre { white-space: pre-wrap; font: 7.2pt/1.45 var(--mono); background: var(--card); border: 0.6pt solid var(--line); border-radius: 3mm; padding: 4mm; margin: 3mm 0 5mm; }
+  .prompt { break-inside: auto; }
+
+  /* Cover */
+  .cover { height: 210mm; width: 148mm; background: var(--text); color: #F2EDE6; padding: 16mm 14mm; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .cover .series { font: 500 7.5pt var(--mono); letter-spacing: 2.5pt; color: var(--gold); text-transform: uppercase; }
+  .cover h1 { font-size: 64pt; line-height: 0.88; margin-top: 14mm; color: #F2EDE6; }
+  .cover h1 span { color: var(--orange); }
+  .cover .sub { font-size: 11.5pt; line-height: 1.45; color: #CFC7BA; margin-top: 7mm; max-width: 100mm; }
+  .cover .rings { position: absolute; right: -38mm; bottom: -6mm; width: 100mm; height: 100mm; }
+  .cover .foot { margin-top: auto; font: 500 7.5pt var(--mono); letter-spacing: 1.5pt; text-transform: uppercase; color: #CFC7BA; position: relative; }
+  .cover .foot strong { color: #F2EDE6; font-weight: 500; }
+  .plain { page: plain; }
+  .contents ol { list-style: none; padding: 0; counter-reset: ch; }
+  .contents li { display: flex; gap: 4mm; padding: 2.2mm 0; border-bottom: 0.5pt solid var(--line); margin: 0; font-size: 10pt; }
+  .contents li span { font: 500 8pt var(--mono); color: var(--orange); width: 7mm; padding-top: 0.6mm; }
+  .back { page: back; break-before: page; background: var(--text); color: #F2EDE6; padding: 24mm 15mm; height: 210mm; }
+  .back h2 { color: #F2EDE6; }
+  .back p { color: #CFC7BA; }
+  .back a { color: #F2EDE6; }
+  .back .cta { margin-top: 8mm; display: inline-block; background: var(--orange); color: #fff; font: 700 13pt var(--display); text-transform: uppercase; padding: 3.5mm 6mm; border-radius: 2mm; border: 0; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="series">Manual Focus · Basics</div>
+  <h1>What is<br><span>marketing?</span></h1>
+  <p class="sub">From product-market fit to a SOSTAC plan, one launch at a time. A minibook that follows a single product from the first question to the last measure.</p>
+  <svg class="rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="none" stroke="#C45A2C" stroke-width="2"/><circle cx="100" cy="100" r="74" fill="none" stroke="#D89B3F" stroke-width="2"/><circle cx="100" cy="100" r="52" fill="none" stroke="#7CA89A" stroke-width="2"/><circle cx="100" cy="100" r="30" fill="#C45A2C"/></svg>
+  <div class="foot"><strong>James Vickers</strong><br>Manual Focus · manual-focus.co.uk<br>First edition, October 2026</div>
+</section>
+
+<!-- ABOUT THIS BOOK -->
+<section class="plain" style="break-before: page;">
+  <div class="kicker">Before you start</div>
+  <h2>About this book</h2>
+  <p class="lede">Ask a room of people what marketing is and most of them will describe advertising. Advertising is the visible end of marketing, and it should be the last thing you decide.</p>
+  <p>This minibook joins up the ideas in the Manual Focus Basics series into one answer. It starts with two formal definitions and a softer one, then follows a single product, a new road helmet, from the first question a marketer should ask to the last number they should check.</p>
+  <p>Each chapter covers one step. Each step answers one question and hands its answer to the next. By the end you will have the whole chain, a planning model to run it with, and a clear view of where AI helps and where it doesn't.</p>
+  <h3>The helmet is hypothetical</h3>
+  <p>The helmet, the brand behind it and its research findings are invented to show how the steps connect. They are not a real launch, and nothing in this book reports real sales, prices or survey results. Where the book cites a fact, it names the source, and the sources are listed at the back.</p>
+  <h3>How to use it</h3>
+  <ul>
+    <li><strong>Read it straight through</strong> to see how the steps depend on each other.</li>
+    <li><strong>Use the worksheets</strong> at the end of each chapter on a real product of your own.</li>
+    <li><strong>Hand the AI prompts</strong> in chapter 10 to whichever assistant your company uses.</li>
+  </ul>
+</section>
+
+<!-- CONTENTS -->
+<section class="plain contents" style="break-before: page;">
+  <div class="kicker">Contents</div>
+  <h2>Inside</h2>
+  <ol>
+    <li><span>01</span>What marketing is</li>
+    <li><span>02</span>The common thread</li>
+    <li><span>03</span>Is there a market?</li>
+    <li><span>04</span>Market research</li>
+    <li><span>05</span>Product requirements</li>
+    <li><span>06</span>The communication hierarchy</li>
+    <li><span>07</span>The benefits ladder</li>
+    <li><span>08</span>SOSTAC brings it together</li>
+    <li><span>09</span>Where AI fits</li>
+    <li><span>10</span>Get AI on this, three prompts</li>
+    <li><span>11</span>Where people go wrong</li>
+    <li><span>12</span>The one-page plan</li>
+    <li><span>··</span>Glossary, sources and further reading</li>
+  </ol>
+</section>
+
+<!-- 1 -->
+<section class="chapter">
+  <div class="kicker">Chapter 01</div>
+  <h2>What marketing is</h2>
+  <p class="lede">There are two definitions most people are taught, and a softer one worth keeping beside them.</p>
+
+  <blockquote>The management process responsible for identifying, anticipating and satisfying customer requirements profitably.<cite>Chartered Institute of Marketing</cite></blockquote>
+
+  <p>The Chartered Institute of Marketing, the professional body for marketers in the UK, uses this definition, and it is the one most UK courses teach. Every word in it does a job.</p>
+  <ul>
+    <li><strong>Identifying</strong> means finding out what people need now.</li>
+    <li><strong>Anticipating</strong> means spotting what they will need next. Most teams react well to what customers said last year and leave little time to ask what will be different next year, which is usually where a competitor gets in.</li>
+    <li><strong>Satisfying</strong> means meeting the need, which is a product and service question as much as a communication one.</li>
+    <li><strong>Profitably</strong> is the word that gets forgotten in a launch, when everyone is excited about the product and nobody has checked the margin at the price the market will pay.</li>
+  </ul>
+
+  <p>The institute goes on to spell out what marketing decides. It covers what a company will produce, what it will charge, how it will get the product or service to the customer, and how it will tell customers about it. It sums these up as the 7Ps.</p>
+
+  <table>
+    <tr><th>The 7Ps</th><th>The question it answers</th></tr>
+    <tr><td>Product</td><td>What will we make or offer?</td></tr>
+    <tr><td>Price</td><td>What will we charge?</td></tr>
+    <tr><td>Place</td><td>How and where will customers get it?</td></tr>
+    <tr><td>Promotion</td><td>How will we tell customers about it?</td></tr>
+    <tr><td>People</td><td>Who delivers it, and how do they behave?</td></tr>
+    <tr><td>Process</td><td>How does the customer move through buying and using it?</td></tr>
+    <tr><td>Physical evidence</td><td>What can the customer see and touch that proves it?</td></tr>
+  </table>
+
+  <p>Promotion is one of seven. Most people meet marketing from the promotion end, through adverts, posts and emails, which is why so many marketing plans begin with channels. A price change or a new stockist can do more for a business objective than another campaign, and a better advert will not fix a problem whose cause is price.</p>
+
+  <blockquote>The activity, set of institutions, and processes for creating, communicating, delivering, and exchanging offerings that have value for customers, clients, partners, and society at large.<cite>American Marketing Association</cite></blockquote>
+
+  <p>The American Marketing Association's definition is broader, and it takes in partners and society as well as customers. Both formal definitions start with the customer and treat telling people about the product as one part of the job among several.</p>
+
+  <h3>The softer one</h3>
+  <p>Seth Godin's book <em>This Is Marketing</em>, published by Portfolio in November 2018, offers a different emphasis. He frames marketing as helping others become who they want to be, and argues that great marketers use marketing to solve other people's problems rather than their company's.</p>
+  <p>The formal definitions tell you what the job covers. Godin's tells you what it is for. Keep both in mind and the helmet in this book stops being about a helmet and starts being about the rider. That idea comes back in chapter 7, where the top rung of the benefits ladder describes the person the buyer wants to become.</p>
+
+  <div class="box">
+    <div class="kicker">Where this book sits</div>
+    <p>The Manual Focus Basics series has separate guides on the vocabulary of promotion, including owned, paid and earned media, and above and below the line. This book covers what has to be true before you choose any channel. Get those decisions right and the channel choices get much easier.</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="chapter">
+  <div class="kicker">Chapter 02</div>
+  <h2>The common thread</h2>
+  <p class="lede">Marketing is one chain of decisions. Each step answers one question and hands its answer to the next.</p>
+  <figure>{{chain}}</figure>
+  <p>The order matters. Skip a step and the gap shows up later, usually as a campaign that can't explain why anyone should care. A team that writes the message before the research ends up promoting what the factory can make rather than what buyers need. A team that writes requirements without findings builds features looking for a reason.</p>
+  <p>The chain also maps onto SOSTAC, the planning model the last chapters use to run it. The first two steps are the Situation, the middle steps make up the Objectives, Strategy and Tactics, and the plan and its measures are Action and Control.</p>
+
+  <div class="box helmet">
+    <div class="kicker">The helmet brief</div>
+    <p>A UK cycling brand wants to launch a new road helmet. It has a design team, a few retail stockists and an online shop. The leadership team has asked marketing for a go-to-market plan.</p>
+    <p>The rest of this book follows that brief from the first question to the last measure. Every name, finding and feature is invented for the example.</p>
+  </div>
+
+  <p>The tempting first move is to ask what the launch campaign should look like. This book starts somewhere less glamorous.</p>
+</section>
+
+<!-- 3 -->
+<section class="chapter">
+  <div class="kicker">Chapter 03 · Step 1</div>
+  <h2>Is there a market?</h2>
+  <p class="lede">The first question is whether there is a market for the product, and whether you can win it.</p>
+  <p>The term people use is product-market fit. The definition most people quote comes from Marc Andreessen, in an essay called "The only thing that matters", published on his blog on 25 June 2007.</p>
+  <blockquote>Product/market fit means being in a good market with a product that can satisfy that market.<cite>Marc Andreessen, 2007</cite></blockquote>
+  <p>He went further and wrote that the only thing that matters is getting to product/market fit. He was writing about start-ups, but the logic carries to any launch. If the market isn't there, nothing downstream fixes it.</p>
+
+  <h3>Why marketing belongs in this conversation</h3>
+  <p>In many companies the product decision is made first, and marketing is brought in at launch and asked to sell it. By then the expensive choices are locked. Marketing should be in the room for this question, because it is the function whose job, by the institute's definition, is identifying and anticipating what customers need.</p>
+
+  <figure>{{market}}</figure>
+
+  <h3>A market existing is not a market for you</h3>
+  <p>For a helmet, a market plainly exists, because riders already buy helmets. That is the trap. The useful question is much narrower, and it has three parts.</p>
+  <ol>
+    <li>Which riders are badly served by what they wear now?</li>
+    <li>Roughly how many of them are there?</li>
+    <li>Would they switch at the price the brand needs to charge?</li>
+  </ol>
+  <p>If the honest answer to the first is "nobody in particular", the launch should stop there. That is hard to say inside a company that has already designed the product, but it is the cheapest moment to say it, because every step after this costs more.</p>
+
+  <h3>Instead of what?</h3>
+  <p>The most useful question in this chapter is what those riders are doing instead. The competition is not only other helmets. For a rider who wants to be seen on a dark evening, the alternative might be their current helmet with a cheap clip-on light. It might be another brand's helmet. Or it might be not riding after dark at all.</p>
+  <p>Those are very different competitors. If the real alternative is staying at home, the launch has to give people a reason to ride, not a reason to switch brands, and the person staying at home appears in nobody's market share figures.</p>
+
+  <h3>A hypothesis, not a verdict</h3>
+  <p>You rarely get a clean yes or no at this stage. You get a hypothesis, such as "we think year-round riders are badly served", and the next step exists to test it. So the output of step one is a go or no-go on whether it is worth finding out more.</p>
+
+  <div class="box helmet">
+    <div class="kicker">The helmet, step 1</div>
+    <p>The brand's working hypothesis is that riders who keep cycling through the winter and through hot summers are badly served by helmets designed for mild weekend rides. It decides that is worth testing before anything else is designed or briefed.</p>
+  </div>
+
+  <div class="worksheet box">
+    <div class="kicker">Worksheet · Is there a market?</div>
+    <p class="q">Who is badly served by what they use now, and how do you know?</p><div class="lines"><div></div><div></div></div>
+    <p class="q">What do they do instead? List at least three alternatives, including doing nothing.</p><div class="lines"><div></div><div></div></div>
+    <p class="q">Would enough of them switch at the price you need? What would change your mind?</p><div class="lines"><div></div><div></div></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="chapter">
+  <div class="kicker">Chapter 04 · Step 2</div>
+  <h2>Market research</h2>
+  <p class="lede">Research is where "cyclists" stop being a category and start being people.</p>
+  <p>For the helmet, the research needs to find out a handful of things.</p>
+  <table>
+    <tr><th>What to find out</th><th>Why it matters for the launch</th></tr>
+    <tr><td>Who rides, and where</td><td>Defines the audience and the conditions the product must handle</td></tr>
+    <tr><td>What they wear now, and why they chose it</td><td>Shows the real competition and the reasons it wins</td></tr>
+    <tr><td>What they complain about</td><td>Points to the gap a new product could fill</td></tr>
+    <tr><td>Where they buy</td><td>Decides place, and whether fitting help is part of the product</td></tr>
+    <tr><td>What triggers a purchase</td><td>Tells you when people are ready to listen</td></tr>
+  </table>
+
+  <h3>Triggers, or category entry points</h3>
+  <p>The triggers are the most useful part. The Manual Focus Lens has a playbook on category entry points, a framework from the Ehrenberg-Bass Institute for the moments and needs that bring someone into a category in the first place.</p>
+  <p>For a helmet you can guess at a few. A crash means the old one has to be replaced. A new bike prompts a new kit list. Someone starts commuting. The clocks go back and the evenings get dark. Each trigger brings a different person with a different worry, and a launch that knows which triggers it is going after will spend its money better.</p>
+  <p>The playbook pulls these triggers from four streams, which are search data, reviews, forum threads and a small set of interviews with eight to twelve recent buyers, about thirty minutes each. It takes about three working days, which is cheap compared with the cost of a launch aimed at the wrong person.</p>
+
+  <h3>End in findings, not charts</h3>
+  <p>The most common failure in research is a long deck of charts with no conclusions. Nobody can tell which facts matter, so the rest of the plan ignores them. Good research ends in three or four findings, each one a sentence, each with its evidence underneath.</p>
+
+  <div class="box helmet">
+    <div class="kicker">The helmet, step 2</div>
+    <p>Say the hypothetical research produced three findings.</p>
+    <ol>
+      <li>Year-round commuters want drivers to see them on dark evenings.</li>
+      <li>Road riders overheat on long climbs in summer.</li>
+      <li>People riding for several hours find most helmets uncomfortable by the end.</li>
+    </ol>
+    <p>These three findings shape everything that follows.</p>
+  </div>
+
+  <h3>Choosing between people</h3>
+  <p>The commuter on a dark evening and the road rider on a summer climb are often not the same person. That is a real decision. You can build a helmet for one of them and do it brilliantly, or try to serve both and risk serving neither. In many launches this is where the team quietly avoids choosing.</p>
+  <p>For the example, the brand looks for the thread between the groups. Both want to keep riding when conditions are against them, dark in one case and heat in the other. If the research backs that up, the launch can be built around year-round riding. If it doesn't, the brand should pick one group and say no to the other, at least for the first season.</p>
+
+  <div class="box ai">
+    <div class="kicker">AI and research · who is missing</div>
+    <p>AI is very good at summarising a pile of reviews or forum threads, but it can only summarise what is in the pile. Reviews come from people who bought something and felt strongly enough to write. You will hear a lot from existing buyers of other helmets and very little from people who don't ride in winter because they don't feel safe. Those people might be your best market, and they are not in the data. That is why the interviews matter, and why some of them should be with people who aren't buying yet.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="chapter">
+  <div class="kicker">Chapter 05 · Step 3</div>
+  <h2>Product requirements</h2>
+  <p class="lede">This is the step where marketing most often gets left out, which is odd, because product is the first of the 7Ps.</p>
+  <p>A requirements brief written by marketing describes what the product has to do for the buyer, in the buyer's words, and leaves engineering to decide how.</p>
+  <p>From the first finding, a requirement might be "visible from behind to drivers on an unlit road". An integrated rear light is one answer to it. A reflective shell or a light mount might be others. Choosing between them is engineering's job. The requirement is the problem, and the feature is one solution.</p>
+
+  <figure>{{trace}}</figure>
+
+  <h3>Every requirement traces back</h3>
+  <p>Each requirement should trace to a research finding. Staying cool on a long climb traces to the second finding. Comfort on a five-hour ride traces to the third. Anything in the brief that traces to nothing is a feature looking for a reason.</p>
+  <p>That gives a useful test for any product meeting. When somebody wants to add a feature, ask which finding it is for. If nobody can answer, it probably shouldn't be there, or at least it shouldn't be in the launch story.</p>
+  <p>The test works in the other direction too. A finding with no requirement against it means the product is ignoring something the market told you, and that gap is often where the competitive advantage sits, in the thing everyone in the category knows riders complain about and nobody has fixed.</p>
+
+  <h3>Price and place are requirements too</h3>
+  <p>The brief should cover price and where the product is sold, because they come from the same findings. If research shows most riders buy their helmet in a bike shop where someone helps with the fit, then being stocked and fitted in shops is a requirement, and it changes the margin the brand needs. If they buy online, the fit system has to work without help. Product, price and place are one decision made from one picture of the buyer.</p>
+
+  <div class="worksheet box">
+    <div class="kicker">Worksheet · Requirements brief</div>
+    <table class="write">
+      <tr><th>Finding</th><th>Requirement, in the buyer's words</th><th>Possible features</th></tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+    </table>
+    <p class="q">Which features in the current design trace to no finding?</p><div class="lines"><div></div></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="chapter">
+  <div class="kicker">Chapter 06 · Step 4</div>
+  <h2>The communication hierarchy</h2>
+  <p class="lede">A communication hierarchy ranks what you say. One message comes first, and everything else supports it.</p>
+  <p>The structure has three levels.</p>
+  <ul>
+    <li><strong>One core message</strong>, the single thing you want a buyer to remember if they remember nothing else.</li>
+    <li><strong>Three or four supporting messages</strong> beneath it, each one a reason to believe the core message.</li>
+    <li><strong>Proof</strong> under each supporting message, the facts that make it true.</li>
+  </ul>
+
+  <h3>Why the ranking matters</h3>
+  <p>Every channel has a different amount of room. A six-second video can carry one thing. A poster can carry one thing and perhaps a line beneath it. A product page can carry the whole hierarchy. So each channel leads with the top and goes as far down as it has room for. Without a ranking, every channel picks its own favourite message, and the launch says six different things.</p>
+
+  <figure>{{hierarchy}}</figure>
+
+  <div class="box helmet">
+    <div class="kicker">The helmet, step 4</div>
+    <p>Working from the findings, the core message is "the helmet for riding all year". The supporting messages follow the research, seen on dark evenings, cool on long climbs and comfortable all day. The proof under each is the specification, the light, the vents and the fit system.</p>
+    <p>The core message is a choice. It says the helmet is for people who ride in the dark and the cold, and by implication not for someone who rides twice a summer.</p>
+  </div>
+
+  <h3>Who owns it</h3>
+  <p>In most teams the hierarchy sits with whoever owns positioning, usually brand or product marketing. What matters is that one person signs it off and everyone else works from it. The agency writing the ads, the person writing the emails and the retail team briefing shops should all have the same page. It belongs at the top of every brief, because a brief that doesn't say which message it carries will get back whatever the writer found most interesting.</p>
+
+  <h3>Where it goes wrong</h3>
+  <ul>
+    <li><strong>A core message that is really a list.</strong> "Light, cool, comfortable and great value" is four messages joined with commas.</li>
+    <li><strong>A core message nobody could disagree with.</strong> "Quality you can trust" is true of every helmet brand's view of itself, so it tells the buyer nothing.</li>
+  </ul>
+  <p>A useful check is the portability test. If a sentence would still be true about a different company, cut it or make it specific.</p>
+
+  <div class="box">
+    <div class="kicker">In the Lens · message house generator</div>
+    <p>The Manual Focus message house playbook builds this structure from a positioning brief. It produces one narrative sentence at the top, three or four pillars, three to five proof points under each pillar and lines for each channel. It adds a rebuttal sheet, eight to twelve of the hardest questions a sceptic will ask, each answered from the proof. For a helmet, the obvious one is "why should I pay more than I do now?". If the hierarchy can't answer that, it isn't ready.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="chapter">
+  <div class="kicker">Chapter 07 · Step 5</div>
+  <h2>The benefits ladder</h2>
+  <p class="lede">The hierarchy decides what you say. The benefits ladder decides how you say each part of it.</p>
+  <p>Most launch copy reads like a specification sheet. The benefits ladder fixes that. It has three rungs.</p>
+  <ul>
+    <li><strong>Feature</strong>, at the bottom. What the product has.</li>
+    <li><strong>Benefit</strong>, in the middle. What the feature does for you.</li>
+    <li><strong>Emotional resonance</strong>, at the top. Why that benefit matters to you as a person.</li>
+  </ul>
+  <p>You take each supporting message and climb it.</p>
+
+  <figure>{{ladder}}</figure>
+
+  <table>
+    <tr><th>Feature</th><th>Benefit</th><th>Emotional resonance</th></tr>
+    <tr><td>Integrated rear light</td><td>Drivers see you on dark evenings</td><td>You get home, and nobody at home has to worry</td></tr>
+    <tr><td>Larger vents and internal channels</td><td>Cooler on long climbs</td><td>You ride further and feel strong doing it</td></tr>
+    <tr><td>Adjustable fit system</td><td>Comfortable on a five-hour ride</td><td>You forget you're wearing it and enjoy the ride</td></tr>
+  </table>
+
+  <h3>Where the ladder comes from</h3>
+  <p>The ladder draws on laddering, an interview method that Thomas Reynolds and Jonathan Gutman set out in the Journal of Advertising Research in 1988. Researchers still describe it as an in-depth, one-on-one interviewing technique for understanding how consumers translate the attributes of products into meaningful associations with respect to self. It sits within what researchers call the means-end chain.</p>
+  <p>In an interview, the researcher keeps asking "why does that matter to you?", and the answers climb from the product to the person. So research climbs the ladder by asking why, and copy uses the answers. The emotional rung should come from what people said in the interviews, not from a meeting. If riders said they worry about being seen in the dark, the copy can talk about getting home, because they told you so.</p>
+  <p>The top rung is also where Godin's definition from chapter 1 shows up in practice. It describes the rider the buyer wants to become.</p>
+
+  <h3>The ladder works in both directions</h3>
+  <p>Copy that stops at the bottom rung reads like a spec sheet. The opposite failure is a launch film that is all feeling, with no clue about what the product does, which people enjoy and can't connect to anything. The ladder guards against both, because every emotional line has to stand on a benefit and a feature. If you can't climb down from a line to the thing that proves it, the line doesn't belong in the launch.</p>
+
+  <div class="box mistake">
+    <div class="kicker">A caution for safety products</div>
+    <p>The emotional rung can't promise more than the product does. Helping drivers see you is a fair claim for a rear light. Implying that a helmet keeps you safe from anything is not. The proof at the bottom has to hold up the promise at the top.</p>
+  </div>
+
+  <h3>How the ladder and the hierarchy fit together</h3>
+  <p>The core message often lives near the top of the ladder, because it is about the rider, not the helmet. The supporting messages sit at the benefit rung. The proof points are the features at the bottom. A short ad leads with the emotional line, and a product page can climb all the way down to the specification.</p>
+
+  <div class="worksheet box">
+    <div class="kicker">Worksheet · Build a ladder</div>
+    <table class="write">
+      <tr><th>Feature</th><th>Benefit</th><th>Emotional resonance</th><th>What a customer said</th></tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="chapter">
+  <div class="kicker">Chapter 08 · Step 6</div>
+  <h2>SOSTAC brings it together</h2>
+  <p class="lede">SOSTAC turns the chain into a plan that a team can run, review and change.</p>
+  <p>SOSTAC is the planning model created by the British marketer PR Smith in the 1990s. The letters stand for Situation, Objectives, Strategy, Tactics, Action and Control. PR Smith gives the stages plain questions. Where are we now? Where do we want to be? How do we get there? Tactics are the details of strategy, and actions are the details of tactics. And finally, how do we know we are getting there?</p>
+  <p>Much of the plan is already written by this point. Product-market fit and the research are the Situation.</p>
+
+  <figure>{{sostac}}</figure>
+
+  <h3>Objectives</h3>
+  <p>The objectives say what the launch must achieve, and by when. Sales, new customers or a share of a particular group of riders, each with a date. Tie them to business results rather than activity. "Launch the helmet with a big splash" is not an objective, because nobody can say whether it was met. Keep the business objective, such as revenue, separate from the marketing objectives that serve it, such as new customers or repeat purchase.</p>
+
+  <h3>Strategy</h3>
+  <p>Strategy is who you target, how you position the product against the alternatives, and which channels and partners carry it. For the helmet, the audience is the year-round rider, the position is the helmet for riding all year, and the communication hierarchy is the heart of the strategy, because it is the decision about what the brand stands for.</p>
+
+  <h3>Tactics</h3>
+  <p>Tactics are the marketing mix in detail. The price, where it is stocked, the launch content written with the benefits ladder, and the specific campaigns and channels. This is where owned, paid and earned media and the rest of the channel vocabulary come back in.</p>
+
+  <h3>Action</h3>
+  <p>Action is who does what, by when and with what budget. For a product with a season, the Manual Focus Lens has a gear launch sequence playbook built as a twelve-month calendar. It runs from pre-launch foundation work, through the hero shoot, a quieter phase before the reveal and the public reveal, then proof from riders and races, and finally a long stretch of sustained sell-through.</p>
+  <p>The playbook itself says the full calendar is overkill for a product with no athlete proof and no retail channel, and a small brand would run a much leaner version. The principle holds either way. Every piece of work has a name next to it and a date.</p>
+
+  <h3>Control</h3>
+  <p>Control is the measures you review against each objective, on a rhythm. A short monthly look and a proper quarterly review, where the team is allowed to change the tactics, suit most teams. For a launch, Control should reach right back to the start of the chain.</p>
+  <table>
+    <tr><th>Step</th><th>What to measure</th></tr>
+    <tr><td>Product-market fit</td><td>Whether the group you aimed at is the group buying, from a short survey at purchase</td></tr>
+    <tr><td>Research</td><td>Whether the triggers you planned around show up in why people say they bought</td></tr>
+    <tr><td>Message</td><td>Whether people can play back the core message when asked what the product is for</td></tr>
+    <tr><td>Business</td><td>Sales against the objective, and the margin</td></tr>
+  </table>
+  <p>If the people buying are a different group from the one you planned for, the situation analysis was wrong, and you want to know that early. Control feeds the next Situation, which is what makes SOSTAC a loop rather than a document. The message playback check is cheap to run and tells you whether the hierarchy survived contact with the real channels, which most launches never check.</p>
+
+  <div class="box">
+    <div class="kicker">Words teams mix up</div>
+    <p>The Basics guide to strategy, campaign, creative and execution is worth reading alongside this chapter. The communication hierarchy is strategy. A launch campaign is a time-bound push that carries it. The benefits ladder feeds the creative, the idea people see. The launch calendar is execution. Teams that blur these end up blaming the idea for a missed deadline.</p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="chapter">
+  <div class="kicker">Chapter 09</div>
+  <h2>Where AI fits</h2>
+  <p class="lede">There is work for AI at every step of the chain. The decisions don't move.</p>
+  <table>
+    <tr><th>Step</th><th>What AI can do</th><th>What stays with a person</th></tr>
+    <tr><td>Product-market fit</td><td>Gather what is known about the category and its alternatives</td><td>The go or no-go</td></tr>
+    <tr><td>Market research</td><td>Summarise reviews, forum threads and interview transcripts, with the quotes behind each theme</td><td>Which findings matter, and who is missing from the data</td></tr>
+    <tr><td>Requirements</td><td>Check that every line in the brief traces to a finding</td><td>Trade-offs between requirements, price and margin</td></tr>
+    <tr><td>Hierarchy</td><td>Check every ad and email against the core message</td><td>What the core message is</td></tr>
+    <tr><td>Benefits ladder</td><td>Draft ladders for every feature, tied to what customers said</td><td>Which lines to back, and what the product can honestly claim</td></tr>
+    <tr><td>SOSTAC</td><td>Build timelines, briefs and recurring reports</td><td>Objectives, strategy and accountability</td></tr>
+  </table>
+
+  <h3>Three layers of AI</h3>
+  <p>The Basics guide to the three layers of AI sorts these jobs further. Chat with a language model helps you draft the ladders. An agent, which takes a whole request and delivers a finished result, can run the research synthesis or check every piece of launch copy against the hierarchy. Orchestration is when several of those steps run together as one system.</p>
+
+  <h3>A first draft only</h3>
+  <p>PR Smith wrote about SOSTAC and AI for the Chartered Institute of Marketing in September 2025. He named situation analysis, strategy, tactics and actions as the stages where AI is especially relevant, and advised treating any AI-generated plan as a first draft only, checked against all six sections. He also argued that marketers need to become agile scientists, or at least experimentalists, testing and improving all the time.</p>
+  <p>Our view at Manual Focus is that AI makes this whole chain cheaper to run properly. The steps teams used to skip for lack of time, the research at the start and the measurement at the end, are exactly the ones AI makes affordable, so they deserve more attention now, not less. The order of the chain stays the same. You still start by asking whether there is a market.</p>
+</section>
+
+<!-- 10 -->
+<section class="chapter">
+  <div class="kicker">Chapter 10</div>
+  <h2>Get AI on this</h2>
+  <p class="lede">Three jobs from the chain that you can hand to AI. Each prompt works in any capable assistant.</p>
+  <p>Replace the bracketed parts with your own brand, product and market, attach what each prompt asks for, and read the output as a first draft. Each prompt tells the model to say what it couldn't check rather than guess.</p>
+
+  <h3>1. Turn your research into findings</h3>
+  <p>Attach your review exports, a set of forum threads and your customer interview transcripts.</p>
+<pre class="prompt">You are helping the marketing team at [brand], which sells [product category] in [market], prepare for the launch of [new product].
+
+I've attached customer reviews, forum threads and interview transcripts. Read all of them and find:
+1. The purchase triggers, the moments or needs that lead someone to buy in this category.
+2. The complaints people have about what they use now.
+
+Return a table with the columns: Trigger or complaint | How many sources mention it | Two verbatim quotes | Source file. Rank by how often it comes up.
+
+Then write three or four findings, one sentence each, with the evidence from the table under each one.
+
+Finally, list the groups of people the material doesn't cover (for example, people who don't buy in the category yet) and say what you couldn't check. Don't invent quotes or counts. If something appears only once, say so.</pre>
+
+  <h3>2. Draft a benefits ladder for every feature</h3>
+  <p>Attach the product specification, your research findings and the interview transcripts.</p>
+<pre class="prompt">You are helping the marketing team at [brand] write launch messaging for [new product].
+
+I've attached the product specification, our research findings and customer interview transcripts.
+
+For each feature in the specification, build a benefits ladder:
+- Feature: the feature as specified.
+- Benefit: what it does for the buyer, in plain words.
+- Emotional resonance: two or three options for why that benefit matters to the buyer as a person.
+
+Every emotional line must be tied to something a customer actually said in the transcripts. Quote the line it's based on. If no customer said anything that supports an emotional rung for a feature, say so rather than writing one.
+
+Return a table with the columns: Feature | Benefit | Emotional options | Supporting quote | Research finding it traces to.
+
+Flag any line that promises more than the feature can prove, and any feature that traces to no research finding.</pre>
+
+  <h3>3. Check launch copy against the hierarchy</h3>
+  <p>Run it before each launch phase goes live. Attach the hierarchy and every piece of copy.</p>
+<pre class="prompt">You are checking launch copy for [brand]'s [new product] against its communication hierarchy.
+
+Attached are:
+1. The communication hierarchy: one core message, three or four supporting messages and the proof points under each.
+2. Every piece of launch copy: ads, emails, social posts, the product page.
+
+For each piece of copy, return a row with the columns: Piece | Channel | Message it leads with | Which hierarchy level that is | Supporting messages it includes | Anything it says that isn't in the hierarchy.
+
+Then list:
+- Pieces that lead with something other than the core message, where the channel has room for only one message.
+- Supporting messages that never appear in any piece.
+- Claims in the copy that no proof point supports.
+
+If you can't tell which message a piece leads with, say so rather than guessing.</pre>
+</section>
+
+<!-- 11 -->
+<section class="chapter">
+  <div class="kicker">Chapter 11</div>
+  <h2>Where people go wrong</h2>
+  <p class="lede">Most broken launches fail at one of these links in the chain.</p>
+  <table class="small">
+    <tr><th>Mistake</th><th>What it looks like</th><th>The fix</th></tr>
+    <tr><td>Starting at the end</td><td>Channels and content chosen before anyone checked there's a market</td><td>Answer the step 1 questions first</td></tr>
+    <tr><td>Research as a report</td><td>Charts with no conclusions, so no decision changes</td><td>Three or four findings with evidence</td></tr>
+    <tr><td>Nobody chooses</td><td>A product for two groups that serves neither</td><td>Find the thread between them, or pick one</td></tr>
+    <tr><td>A brief written in features</td><td>Nobody can say which problem each feature solves</td><td>Requirements in the buyer's words, traced to findings</td></tr>
+    <tr><td>A core message that is a list</td><td>Four ideas joined with commas, a different one in every channel</td><td>One core message, signed off by one person</td></tr>
+    <tr><td>A bottom-rung ladder</td><td>Spec-sheet copy</td><td>Climb each feature to the benefit and the feeling</td></tr>
+    <tr><td>A top-rung ladder</td><td>An emotional line no customer said, with nothing to prove it</td><td>Tie every emotional line to a quote and a feature</td></tr>
+    <tr><td>No Control</td><td>The plan is filed after launch</td><td>Monthly and quarterly reviews that feed the next Situation</td></tr>
+  </table>
+  <p>The most expensive mistake is treating all of this as a one-off. The research, hierarchy and ladder should be living documents, and when Control shows different buyers from the ones you planned for, go back up the chain.</p>
+</section>
+
+<!-- 12 -->
+<section class="chapter worksheet tight">
+  <div class="kicker">Chapter 12</div>
+  <h2>The one-page plan</h2>
+  <p class="lede">The chain scales down. For a small brand or a single campaign, every step can be a paragraph. If any answer is blank, you are not ready to brief.</p>
+  <p class="q">1. Is there a market, and who in it is badly served? What do they do instead?</p><div class="lines"><div></div><div></div></div>
+  <p class="q">2. What did we learn? Write three or four findings, each with its evidence.</p><div class="lines"><div></div><div></div></div>
+  <p class="q">3. What must the product do for them, in their words?</p><div class="lines"><div></div><div></div></div>
+  <p class="q">4. What is the one thing we say first?</p><div class="lines"><div></div></div>
+  <p class="q">5. Why does it matter to the buyer? Write the top rung of the ladder.</p><div class="lines"><div></div><div></div></div>
+  <p class="q">6. Who does what by when, and how will we know it's working?</p><div class="lines"><div></div></div>
+</section>
+
+<!-- GLOSSARY -->
+<section class="chapter">
+  <div class="kicker">Reference</div>
+  <h2>Glossary</h2>
+  <table class="long">
+    <tr><th>Term</th><th>Meaning in this book</th></tr>
+    <tr><td>Marketing</td><td>The management process responsible for identifying, anticipating and satisfying customer requirements profitably (Chartered Institute of Marketing)</td></tr>
+    <tr><td>The 7Ps</td><td>Product, price, place, promotion, people, process and physical evidence, the CIM's summary of what marketing decides</td></tr>
+    <tr><td>Product-market fit</td><td>Being in a good market with a product that can satisfy that market (Marc Andreessen)</td></tr>
+    <tr><td>Category entry point</td><td>A moment or need that brings someone into a category, a framework from the Ehrenberg-Bass Institute</td></tr>
+    <tr><td>Finding</td><td>One sentence from research, with its evidence, that changes a decision</td></tr>
+    <tr><td>Requirement</td><td>What the product must do for the buyer, in the buyer's words</td></tr>
+    <tr><td>Communication hierarchy</td><td>A ranking of what you say, one core message, supporting messages and proof</td></tr>
+    <tr><td>Message house</td><td>A four-tier version of the hierarchy used in the Manual Focus Lens, with a narrative, pillars, proof points and channel lines</td></tr>
+    <tr><td>Benefits ladder</td><td>Feature, benefit and emotional resonance, climbed for each message</td></tr>
+    <tr><td>Laddering</td><td>An interview method set out by Reynolds and Gutman in 1988 that keeps asking why something matters</td></tr>
+    <tr><td>SOSTAC</td><td>Situation, Objectives, Strategy, Tactics, Action and Control, PR Smith's planning model</td></tr>
+    <tr><td>Portability test</td><td>If a sentence would still be true about another company, cut it or make it specific</td></tr>
+  </table>
+</section>
+
+<!-- SOURCES -->
+<section class="chapter refs">
+  <div class="kicker">Reference</div>
+  <h2>Sources and further reading</h2>
+  <h3>Sources</h3>
+  <ul>
+    <li>Chartered Institute of Marketing, <a href="https://www.cim.co.uk/content-insights/articles/what-is-marketing/">What is marketing?</a> (March 2023)</li>
+    <li>American Marketing Association, <a href="https://www.ama.org/the-definition-of-marketing-what-is-marketing/">Definitions of Marketing</a></li>
+    <li>Seth Godin, <a href="https://penguinrandomhouse.com/books/600458/this-is-marketing-by-seth-godin">This Is Marketing</a> (Portfolio, 2018)</li>
+    <li>Marc Andreessen, <a href="https://pmarchive.com/guide_to_startups_part4.html">The only thing that matters</a> (25 June 2007)</li>
+    <li>Thomas Reynolds and Jonathan Gutman, "Laddering Theory, Method, Analysis, and Interpretation", Journal of Advertising Research (1988), as discussed in Veludo-de-Oliveira, Ikeda and Campomar, <a href="https://nsuworks.nova.edu/tqr/vol11/iss4/1">Discussing Laddering Application by the Means-End Chain Theory</a>, The Qualitative Report (2006)</li>
+    <li>PR Smith, <a href="https://prsmith.org/sostac/">What is PR Smith's SOSTAC Planning?</a></li>
+    <li>PR Smith, <a href="https://www.cim.co.uk/content-insights/articles/sostac-plans-in-the-ai-age/">SOSTAC plans in the AI age</a>, Chartered Institute of Marketing (September 2025)</li>
+  </ul>
+  <h3>From Manual Focus</h3>
+  <ul>
+    <li><a href="https://manual-focus.co.uk/blog/what-is-marketing-basics/">What is marketing, the web guide and podcast episode</a></li>
+    <li><a href="https://manual-focus.co.uk/blog/sostac-marketing-plan-basics/">SOSTAC explained</a></li>
+    <li><a href="https://manual-focus.co.uk/blog/strategy-campaign-creative-execution-basics/">Strategy vs campaign vs creative vs execution</a></li>
+    <li><a href="https://manual-focus.co.uk/blog/owned-paid-earned-media-basics/">Owned, paid and earned media</a></li>
+    <li><a href="https://manual-focus.co.uk/blog/above-the-line-below-the-line-basics/">Above the line vs below the line</a></li>
+    <li><a href="https://manual-focus.co.uk/blog/three-layers-of-ai-basics/">The three layers of AI</a></li>
+    <li><a href="https://manual-focus.co.uk/lens/demand/category-entry-points/">Category Entry Point research</a>, <a href="https://manual-focus.co.uk/lens/brand/message-house-generator/">Message house generator</a> and <a href="https://manual-focus.co.uk/lens/ops/gear-launch-sequence/">Gear launch sequence</a> in the Lens</li>
+  </ul>
+</section>
+
+<!-- BACK -->
+<section class="back">
+  <div class="kicker" style="color: var(--gold);">Manual Focus</div>
+  <h2>Run the chain on your own launch</h2>
+  <p>Manual Focus is a marketing agency led by James Vickers, for teams that want AI doing real work for their brand, demand and growth. If you are working out what AI should be doing in your marketing, start from your market, not the tools.</p>
+  <p>Book a free working session and we'll go through the chain with you, from whether there's a market to how you'll know it's working.</p>
+  <a class="cta" href="https://manual-focus.co.uk/enquire/">Book a free working session</a>
+  <p style="margin-top: 10mm;">manual-focus.co.uk/enquire<br>The companion episode of the Manual Focus podcast, in which James and Hannah talk the whole chain through, is on Apple Podcasts, Spotify and wherever you listen.</p>
+</section>
+
+</body>
+</html>

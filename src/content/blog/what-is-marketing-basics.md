@@ -43,6 +43,8 @@ The Chartered Institute of Marketing defines marketing as the management process
 - A communication hierarchy ranks what you say, with one core message first, then three or four supporting messages, then the proof under each.
 - A benefits ladder climbs from a feature to a practical benefit to the emotional reason someone buys, and SOSTAC turns the whole chain into a plan.
 
+**[Download the minibook (PDF, 40 pages)](/downloads/what-is-marketing-minibook.pdf)**, the full version with worksheets, the AI prompts and a one-page plan.
+
 ## What is marketing?
 
 The [CIM's definition](https://www.cim.co.uk/content-insights/articles/what-is-marketing/) is the one most UK courses teach, and the institute spells out what it covers. Marketing decides what a company will produce, what it will charge, how it will deliver to the customer and how it will tell customers about it, which the CIM sums up as the 7Ps of product, price, place, promotion, people, process and physical evidence. The [American Marketing Association](https://www.ama.org/the-definition-of-marketing-what-is-marketing/) takes a similar line, describing marketing as the activity and processes for creating, communicating, delivering and exchanging offerings that have value for customers, clients, partners and society.
@@ -54,6 +56,8 @@ Both formal definitions start with the customer and end with promotion. Most peo
 ## The common thread in six steps
 
 Each step answers one question and hands its answer to the next. Skip one and the gap shows up later, usually as a campaign that can't explain why anyone should care.
+
+![The six steps of the chain, each mapped to its SOSTAC stage](/images/what-is-marketing/chain.svg)
 
 | Step | Question it answers | What it produces | SOSTAC stage |
 |---|---|---|---|
@@ -68,6 +72,8 @@ Each step answers one question and hands its answer to the next. Skip one and th
 
 Take a hypothetical UK cycling brand planning a new road helmet. The first question is whether there is a market it can win. Andreessen's [2007 essay](https://pmarchive.com/guide_to_startups_part4.html) defined product/market fit as being in a good market with a product that can satisfy that market, and called getting there the only thing that matters for a young company.
 
+![Narrowing from everyone who buys helmets to the market a new helmet can win](/images/what-is-marketing/market.svg)
+
 For a helmet, a market plainly exists, because riders already buy them. The real question is narrower. Which riders are badly served by what they wear now, how many of them are there, and would they switch at the price the brand needs to charge? If the honest answer is "nobody in particular", the launch should stop here, before any money goes on messaging.
 
 ## What should the research find?
@@ -80,17 +86,23 @@ As in the Situation stage of [SOSTAC](/blog/sostac-marketing-plan-basics/), the 
 
 A requirements brief written by marketing describes what the product must do for the buyer, in the buyer's words, and leaves engineering to decide how. "Visible from behind to drivers on an unlit road" is a requirement. "Integrated rear light" is one answer to it. Each requirement should trace back to a research finding, and anything that traces to nothing is a feature looking for a reason.
 
+![Each finding becomes a requirement, and each requirement a feature](/images/what-is-marketing/trace.svg)
+
 This is where marketing shapes the product rather than only promoting it, which is the first of the CIM's 7Ps.
 
 ## What is a communication hierarchy?
 
 A communication hierarchy ranks what you say. One core message sits at the top, the single thing you want a buyer to remember. Three or four supporting messages sit beneath it, each with its proof. Every channel then leads with the top and only goes as far down as it has room for, so a six-second video carries the core message and a product page carries all of it.
 
+![The helmet's communication hierarchy and how much of it each channel carries](/images/what-is-marketing/hierarchy.svg)
+
 For the hypothetical helmet, the core message might be "the helmet for riding all year". The supporting messages follow the research, seen on dark evenings, cool on long climbs and comfortable all day, with the specification as proof. The [message house generator](/lens/brand/message-house-generator/) playbook builds this structure from a positioning brief.
 
 ## How does the benefits ladder work?
 
 The benefits ladder takes each supporting message and climbs it, from the feature, to the practical benefit, to the emotional reason it matters. It draws on laddering, an interview method that Thomas Reynolds and Jonathan Gutman set out in 1988 and that [researchers still describe](https://nsuworks.nova.edu/tqr/vol11/iss4/1) as a way to understand how consumers translate the attributes of products into meaningful associations with respect to self. Research climbs the ladder by asking "why does that matter to you?". Copy uses the answers.
+
+![The benefits ladder for the helmet's rear light](/images/what-is-marketing/ladder.svg)
 
 | Feature | Benefit | Emotional resonance |
 |---|---|---|
@@ -101,6 +113,8 @@ The benefits ladder takes each supporting message and climbs it, from the featur
 Features prove a claim, benefits explain it, and the emotional rung is usually what people remember. It is also where Godin's idea shows up in copy, because it describes the rider the buyer wants to become. Most launch copy stops at the bottom rung, which is why so much of it reads like a spec sheet.
 
 ## Where SOSTAC brings it together
+
+![SOSTAC filled in for the helmet launch, with Control feeding the next Situation](/images/what-is-marketing/sostac.svg)
 
 [PR Smith's SOSTAC](https://prsmith.org/sostac/) turns the chain into a plan. Fit and research are the Situation. The launch's targets, sales or new customers by a date, are the Objectives. The audience, the position and the communication hierarchy make up the Strategy. The benefit-led copy, pricing and channel choices are Tactics. The launch calendar and owners are Action, and the [gear launch sequence](/lens/ops/gear-launch-sequence/) playbook sets that out for a seasonal product. The measures you review each month are Control. The Basics guide to [strategy, campaigns, creative and execution](/blog/strategy-campaign-creative-execution-basics/) covers where each of those words starts and stops.
 
