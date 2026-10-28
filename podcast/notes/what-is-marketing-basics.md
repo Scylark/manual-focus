@@ -17,8 +17,12 @@ chapters:
     at: "And there are two tools here"
   - title: "The benefits ladder"
     at: "And then the benefits ladder sits under that"
+  - title: "Channels"
+    at: "Now the part most people think marketing is"
+  - title: "Campaign, creative and PR"
+    at: "Then the launch itself"
   - title: "SOSTAC brings it together"
-    at: "Now the plan. And this is where SOSTAC comes in"
+    at: "And the plan that holds it all together"
   - title: "Where AI fits"
     at: "Now AI. And the honest answer"
   - title: "Get AI on this"
@@ -34,7 +38,8 @@ one answer to "what is marketing?". James and Hannah start from the Chartered
 Institute of Marketing's definition, then follow a hypothetical new cycling
 helmet from the first question, is there a market, through market research,
 the product requirements brief, the communication hierarchy and the benefits
-ladder, and into a SOSTAC plan. They finish on where AI fits at each step and
+ladder, then into the channels, the launch campaign, the creative and the PR,
+and finally a SOSTAC plan to run and measure it. They finish on where AI fits at each step and
 the mistakes that most often break the chain. The helmet and its findings are
 an illustration, not a real launch.
 

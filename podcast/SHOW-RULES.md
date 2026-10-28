@@ -270,8 +270,12 @@ order. `chapters.mjs` times the plan once the episode is published.
 
 ## Delivery cues
 
-Episodes are voiced with ElevenLabs' v3 dialogue model, which reads audio tags
-in square brackets as performance directions. Use them sparingly, where a
+Episodes are voiced turn by turn with ElevenLabs' v4 text-to-speech model, the
+same set-up as the WattPlan podcast, so each host's voice stays the same for
+the whole episode. It reads audio tags in square brackets as performance
+directions. Because each turn is voiced on its own, a cut-off at the end of
+one turn and the reply in the next don't overlap, so write interruptions as a
+complete short turn rather than relying on timing. Use them sparingly, where a
 real host would do it, at most one every few turns:
 
 - reactions: `[laughs]`, `[chuckles]`, `[sighs]`

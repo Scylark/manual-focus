@@ -80,7 +80,7 @@ function chip(x, y, label, { fill = C.tealTint, color = '#3F6B5E', size = 17 } =
   };
 }
 
-// 1. The common thread: six steps, each with its SOSTAC stage.
+// 1. The common thread: eight steps, each with its SOSTAC stage.
 export function chain() {
   const steps = [
     ['Product-market fit', 'Is there a market that wants this?', 'Situation'],
@@ -88,21 +88,24 @@ export function chain() {
     ['Product requirements', 'What must the product do for them?', 'Objectives · Strategy'],
     ['Communication hierarchy', 'What do we say first?', 'Strategy'],
     ['Benefits ladder', 'Why will they care?', 'Tactics'],
-    ['Plan and measure', 'Who does what, and is it working?', 'Action · Control'],
+    ['Channels', 'Where and when do we say it?', 'Strategy · Tactics'],
+    ['Campaign, creative and PR', 'How does the launch reach people?', 'Tactics · Action'],
+    ['Measure and learn', 'Is it working, and what changes?', 'Control'],
   ];
-  const top = 170, rowH = 158;
-  let body = `<line x1="88" y1="${top + 70}" x2="88" y2="${top + 70 + rowH * 5}" stroke="${C.cardLine}" stroke-width="4"/>`;
+  const n = steps.length;
+  const top = 170, rowH = 140;
+  let body = `<line x1="88" y1="${top + 63}" x2="88" y2="${top + 63 + rowH * (n - 1)}" stroke="${C.cardLine}" stroke-width="4"/>`;
   steps.forEach(([name, q, stage], i) => {
     const y = top + i * rowH;
-    body += `<rect x="40" y="${y}" width="${W - 80}" height="${rowH - 18}" rx="14" fill="${C.panel}" stroke="${C.cardLine}"/>`;
-    body += `<circle cx="88" cy="${y + 70}" r="26" fill="${i === 5 ? C.teal : C.orange}"/>`;
-    body += text(88, y + 79, String(i + 1), { size: 26, font: F.display, weight: 700, fill: '#fff', anchor: 'middle' });
-    body += text(134, y + 46, name, { size: 30, font: F.display, weight: 700, upper: true });
-    body += text(134, y + 80, q, { size: 21, fill: C.sub });
-    body += `<g transform="translate(134 ${y + 96})">${chip(0, 0, stage).svg}</g>`;
+    body += `<rect x="40" y="${y}" width="${W - 80}" height="${rowH - 14}" rx="14" fill="${C.panel}" stroke="${C.cardLine}"/>`;
+    body += `<circle cx="88" cy="${y + 63}" r="26" fill="${i >= 5 ? C.teal : C.orange}"/>`;
+    body += text(88, y + 72, String(i + 1), { size: 26, font: F.display, weight: 700, fill: '#fff', anchor: 'middle' });
+    body += text(134, y + 40, name, { size: 30, font: F.display, weight: 700, upper: true });
+    body += text(134, y + 72, q, { size: 21, fill: C.sub });
+    body += `<g transform="translate(134 ${y + 84})">${chip(0, 0, stage).svg}</g>`;
   });
-  body += text(48, top + rowH * 6 + 24, 'The chip under each step is the SOSTAC stage it feeds.', { size: 18, fill: C.muted });
-  return frame('chain', 'The common thread of marketing in six steps, each mapped to its SOSTAC stage', 'The common thread', 'Six steps, one chain', body, top + rowH * 6 + 60);
+  body += text(48, top + rowH * n + 24, 'Orange steps decide what you offer and say. Green steps take it to market.', { size: 18, fill: C.muted });
+  return frame('chain', 'The whole job of marketing in eight steps, each mapped to its SOSTAC stage', 'The whole job', 'Eight steps, one chain', body, top + rowH * n + 60);
 }
 
 // 2. Is there a market? Narrowing from the category to the market you can win.
@@ -232,9 +235,9 @@ export function sostac() {
     ['S', 'Situation', 'Where are we now?', 'Product-market fit and the research findings'],
     ['O', 'Objectives', 'Where do we want to be?', 'Sales or new customers from the launch, by a date'],
     ['S', 'Strategy', 'How do we get there?', 'Year-round riders, the position, the hierarchy'],
-    ['T', 'Tactics', 'The details of strategy', 'Price, stockists, benefit-led copy, channels'],
+    ['T', 'Tactics', 'The details of strategy', 'Price, stockists, channel plan, campaign, PR'],
     ['A', 'Action', 'The details of tactics', 'Launch calendar, owners, budgets, briefs'],
-    ['C', 'Control', 'How do we know we’re getting there?', 'Who is buying, message playback, sales and margin'],
+    ['C', 'Control', 'How do we know we’re getting there?', 'Who is buying, message playback, sales, margin'],
   ];
   const top = 166, rowH = 112, x0 = 140;
   let body = '';
@@ -254,4 +257,55 @@ export function sostac() {
   return frame('sostac', 'SOSTAC filled in for the helmet launch, with Control feeding back into the next Situation analysis', 'Bringing it together · PR Smith’s SOSTAC', 'The plan is a loop', body, top + rowH * 6 + 30);
 }
 
-export const all = { chain, market, trace, hierarchy, ladder, sostac };
+// 6. Channels: owned at the centre, paid as the catalyst, earned as proof,
+// and the buying triggers that set the timing.
+export function channels() {
+  const top = 168, cx = W / 2, cy = top + 200;
+  let body = '';
+  body += `<circle cx="${cx}" cy="${cy}" r="196" fill="${C.goldTint}"/>`;
+  body += `<circle cx="${cx}" cy="${cy}" r="132" fill="${C.tealTint}"/>`;
+  body += `<circle cx="${cx}" cy="${cy}" r="84" fill="${C.orange}"/>`;
+  body += text(cx, cy - 6, 'Owned', { size: 26, font: F.display, weight: 700, fill: '#fff', anchor: 'middle', upper: true });
+  body += text(cx, cy + 22, 'Website, email list', { size: 15, fill: '#fff', anchor: 'middle' });
+  body += text(cx, cy - 92, 'Paid · the catalyst', { size: 15, font: F.mono, fill: '#3F6B5E', anchor: 'middle', spacing: 1.5, upper: true });
+  body += text(cx, cy + 102, 'Search, social, outdoor', { size: 18, fill: C.text, anchor: 'middle' });
+  body += text(cx, cy - 160, 'Earned · the proof', { size: 15, font: F.mono, fill: '#8A5A12', anchor: 'middle', spacing: 1.5, upper: true });
+  body += text(cx, cy + 172, 'Reviews, press, riders', { size: 18, fill: C.text, anchor: 'middle' });
+  // Trigger -> where -> when.
+  const y0 = cy + 236;
+  body += text(48, y0, 'The trigger sets the timing', { size: 16, font: F.mono, fill: C.orange, spacing: 2.5, upper: true });
+  const rows = [['A crash', 'Search', 'Any time'], ['A new bike', 'Bike shop fitting', 'Spring'], ['Clocks go back', 'Outdoor, video, email', 'Late October']];
+  const cols = [48, 300, 590];
+  ['Trigger', 'Where', 'When'].forEach((h, j) => { body += text(cols[j], y0 + 40, h, { size: 15, font: F.mono, fill: C.muted, spacing: 1.5, upper: true }); });
+  rows.forEach((row, i) => {
+    const y = y0 + 58 + i * 52;
+    body += `<rect x="40" y="${y}" width="${W - 80}" height="44" rx="10" fill="${C.panel}" stroke="${C.cardLine}"/>`;
+    row.forEach((t, j) => { body += text(cols[j] + 8, y + 29, t, { size: 20, weight: j === 0 ? 600 : 400 }); });
+  });
+  return frame('channels', 'Owned media at the centre of the helmet launch, paid media as the catalyst and earned media as the proof, with the buying triggers that set the timing', 'Step 6 · Channels', 'Where and when to be seen', body, y0 + 58 + 3 * 52 + 30);
+}
+
+// 7. The launch: strategy, campaign, creative and execution for the helmet.
+export function launch() {
+  const layers = [
+    ['Strategy', 'Who we serve and why us', 'Year-round riders, the helmet for riding all year', C.orange, '#fff'],
+    ['Campaign', 'A time-bound push with its own objective', 'Winter launch, new customers by spring', C.gold, C.text],
+    ['Creative', 'The idea people see and hear', 'From the top rung, getting home on dark evenings', C.goldTint, C.text],
+    ['PR and reviews', 'Credibility you can\u2019t buy', 'Trusted reviewers and riders, early', C.tealTint, C.text],
+    ['Execution', 'Delivery, on time and on brief', 'Photography, media, shop displays, emails', C.teal, C.text],
+  ];
+  const top = 168, rowH = 116;
+  let body = '';
+  layers.forEach(([name, what, helmet, fill, ink], i) => {
+    const y = top + i * rowH;
+    const inset = i * 14;
+    body += `<rect x="${40 + inset}" y="${y}" width="${W - 80 - inset * 2}" height="${rowH - 14}" rx="12" fill="${fill}"/>`;
+    body += text(64 + inset, y + 38, name, { size: 26, font: F.display, weight: 700, fill: ink, upper: true });
+    body += text(W - 64 - inset, y + 36, what, { size: 16, fill: ink === '#fff' ? '#FCE6DA' : C.sub, anchor: 'end' });
+    body += text(64 + inset, y + 76, helmet, { size: 20, fill: ink });
+  });
+  body += text(48, top + rowH * 5 + 22, 'Each layer serves the one above. When a result disappoints, check from the bottom up.', { size: 18, fill: C.muted });
+  return frame('launch', 'Strategy, campaign, creative, PR and execution for the helmet launch, each serving the layer above', 'Step 7 · Campaign, creative and PR', 'The launch, layer by layer', body, top + rowH * 5 + 58);
+}
+
+export const all = { chain, market, trace, hierarchy, ladder, channels, launch, sostac };

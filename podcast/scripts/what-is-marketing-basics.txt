@@ -1,8 +1,8 @@
-JAMES: Ask a room of people what marketing is and most of them will describe advertising. Posts, emails, a billboard, maybe a clever video. That's the visible end of it, and it's the last thing you should decide. I'm James Vickers, this is Manual Focus, and this is a longer Basics episode than usual, because Hannah and I are going to pull the whole series together into one answer to a plain question. What is marketing?
+JAMES: Ask a room of people what marketing is and most of them will describe advertising. Posts, emails, a billboard, maybe a clever video. That's the visible end of it, and it matters, but it comes late in the chain. I'm James Vickers, this is Manual Focus, and this is a longer Basics episode than usual, because Hannah and I are going to pull the whole series together into one answer to a plain question. What is marketing?
 
 HANNAH: Hi James. And we're going to do it by launching something, aren't we?
 
-JAMES: We are. A hypothetical one. We'll take an imaginary British cycling brand that wants to launch a new road helmet, and follow it from the very first question, is there a market for this, through research, the product brief, what you say and how you say it, and then into a plan using SOSTAC. Every step hands something to the next one.
+JAMES: We are. A hypothetical one. We'll take an imaginary British cycling brand that wants to launch a new road helmet, and follow it from the very first question, is there a market for this, through research, the product brief, and what you say and how you say it. Then the channels, the launch campaign and the press, and finally a plan using SOSTAC that tells you whether it's working. The whole job, start to finish, and every step hands something to the next one.
 
 HANNAH: So if you've heard our earlier Basics episodes, this is the thread that runs through all of them.
 
@@ -40,7 +40,7 @@ JAMES: The seven Ps, in the institute's version. Product, price, place, promotio
 
 HANNAH: And promotion has its own vocabulary that we've covered. Owned, paid and earned media, and above and below the line.
 
-JAMES: Two ways of sorting the same channels, and both worth knowing. But this episode is about everything that has to be true before you pick a channel. If you get those decisions right, the channel choices get much easier. Get them wrong and no media budget will save you.
+JAMES: Two ways of sorting the same channels, and we'll come to both properly, once we know who we're talking to and what we're saying. Pick the channels first and you end up choosing where to shout before you know what to say.
 
 HANNAH: So, to the helmet. Where does it start?
 
@@ -78,15 +78,15 @@ HANNAH: And this is where cyclists stop being a category and start being people.
 
 JAMES: Right. For the helmet, the research needs to find out a handful of things. Who rides, and where. What they wear now, and why they chose it. What they complain about. Where they buy. And what triggers a purchase in the first place.
 
-HANNAH: The triggers are the interesting part. In the Lens, our library of playbooks, there's one on category entry points, a framework from the Ehrenberg-Bass Institute. Those are the moments and needs that bring someone into a category in the first place.
+HANNAH: The triggers are the interesting part. The Ehrenberg-Bass Institute calls them category entry points, the moments and needs that bring someone into a category in the first place.
 
 JAMES: And for a helmet you can guess at a few. A crash, so the old one has to be replaced. A new bike. Starting to commute. The clocks going back and the evenings getting dark. Each of those is a different person with a different worry, and a launch that knows which ones it's going after will spend its money much better.
 
-HANNAH: The playbook pulls those triggers from search data, reviews, forum threads and a small set of customer interviews. Eight to twelve recent buyers, half an hour each.
+HANNAH: You can find a lot of them in search data, reviews and forum threads. But I'd always want a small set of interviews too, with people who bought recently.
 
 JAMES: Which sounds like a lot of effort for a helmet.
 
-HANNAH: It's three working days in the playbook. Compared with the cost of a launch aimed at the wrong person, it's cheap.
+HANNAH: Compared with the cost of a launch aimed at the wrong person, it's cheap.
 
 JAMES: Then what should come out of it? Because the most common failure I see in research is the same one we talked about in the SOSTAC episode. A long deck of charts with no conclusions.
 
@@ -154,11 +154,7 @@ HANNAH: So for the helmet, what's the core message?
 
 JAMES: Working from our findings, something like, the helmet for riding all year. Then the supporting messages follow the research. Seen on dark evenings. Cool on long climbs. Comfortable all day. And the proof under each one is the specification. The light, the vents, the fit system.
 
-HANNAH: There's a playbook for this too, isn't there? The message house generator.
-
-JAMES: There is. It builds what it calls a message house from a positioning brief. One narrative sentence at the top, three or four pillars, three to five proof points under each pillar, then lines for each channel. And it adds a rebuttal sheet, the hardest questions a sceptic will ask, with an answer grounded in the proof.
-
-HANNAH: The rebuttal sheet is the part I'd want. For a helmet, the obvious one is, why should I pay more than I do now?
+HANNAH: Before you sign it off, I'd test it against the hardest questions a sceptic would ask. For a helmet, the obvious one is, why should I pay more than I do now?
 
 JAMES: And if your hierarchy can't answer that, it isn't ready.
 
@@ -222,9 +218,69 @@ HANNAH: So the test is whether you can climb down from any line to the thing tha
 
 JAMES: That's the test.
 
-HANNAH: So that's the message. Now the plan?
+HANNAH: So that's the message. Now the part most people think marketing is. Where do we say it?
 
-JAMES: Now the plan. And this is where SOSTAC comes in, which we gave a whole Basics episode to earlier this month.
+JAMES: The channels. And this is where two of our earlier Basics episodes come in, owned, paid and earned media, and above and below the line.
+
+HANNAH: Quick version of the first. Owned media is the channels you control, your website, your email list, your app. Paid media is attention you buy, ads and sponsorship. Earned media is what other people choose to say about you, press coverage, reviews, word of mouth, and these days what AI assistants say when someone asks about the category.
+
+JAMES: And the terms go back to a Forrester report by Sean Corcoran in December two thousand and nine, called No Media Should Stand Alone. The point was in the title. The three work best together.
+
+HANNAH: His picture was paid media as the catalyst, around a solar system of owned media that lasts.
+
+JAMES: Which is how I'd plan the helmet. The product page and the email list sit at the centre. Paid media pushes the right riders towards them. And earned media, the reviews and the press, is what makes them believe it.
+
+HANNAH: And the triggers from the research tell you when to be there, don't they?
+
+JAMES: That's the link back. The clocks going back is a date you can put in a plan. A new bike is a moment in a bike shop. A crash replacement starts with a search. So each trigger points to a channel and a time. Search for the replacement, the shop and the fitting for the new bike, and a push in late October for the dark evenings.
+
+HANNAH: And the other way of sorting channels, above and below the line?
+
+JAMES: Above the line is mass media aimed at a broad audience. Television, radio, press, outdoor, broad online video. Its job is mostly memory, so that when someone thinks about the category, your brand comes to mind. Below the line is direct and targeted. Email, events, sampling, point of sale in the shop. It's aimed at people close to buying.
+
+HANNAH: And through the line is both, under one idea.
+
+JAMES: Which is how most launches should be planned. The risk for a helmet brand is that everything drifts below the line, because it's measurable. Search ads and retargeting, all harvesting people who were already looking.
+
+HANNAH: Binet and Field's report for the IPA, The Long and the Short of It, is the one people cite on that. They warned that relying on very short-term online metrics as your main measures has dangerous implications for long-term success.
+
+JAMES: And here's why it matters for this launch. If the real competitor is the rider staying at home in winter, nobody's searching for your helmet yet. Something has to make them think about riding in the dark at all. That's the job of the broader, slower work.
+
+HANNAH: So the channel plan comes straight out of what we've already done.
+
+JAMES: It does. The hierarchy says what each channel carries. The triggers say when. And the objectives say how much each one is worth.
+
+HANNAH: Then the launch itself. The campaign, the creative, the press.
+
+JAMES: Our Basics episode on strategy, campaign, creative and execution is the one to go back to here. Strategy is who you serve and why they should choose you. A campaign is a time-bound push, with its own objective, budget and dates, that carries part of the strategy. Creative is the idea people see and hear. And execution is the delivery.
+
+HANNAH: So for the helmet, the strategy is the year-round rider and the helmet for riding all year. And the launch campaign is one push that carries it.
+
+JAMES: With its own objective. Say, a number of new customers by the end of the winter. And the brief should name the part of the strategy it serves. If it can't, either the campaign shouldn't run or the strategy has a gap.
+
+HANNAH: And the creative comes off the ladder.
+
+JAMES: The top rung, usually. The idea people remember is about getting home, or riding further, not the vents. The test we used in that episode is Seth Godin's Purple Cow. A brown cow in a field goes unseen. A purple one gets talked about. Will the audience notice this, and will they mention it to someone?
+
+HANNAH: Which is also the test for PR.
+
+JAMES: It is. In our PR one-oh-one episode, where we landed was that most PR problems are really product or story problems. A press release won't make a dull helmet remarkable.
+
+HANNAH: And the Muck Rack survey we covered there had the numbers on pitching. Of eight hundred and ninety-seven journalists, eighty-six per cent said at least some of their stories start from PR pitches. And eighty-eight per cent immediately ignore pitches that miss their beat.
+
+JAMES: So the helmet goes to the people who actually cover commuting and road riding, with the reason it matters to their readers in the first lines, and the spokesperson, the data and the pictures ready before anything goes out.
+
+HANNAH: And for a helmet I'd guess reviews matter as much as the press.
+
+JAMES: More, probably. Getting helmets onto the heads of the reviewers and riders people trust, early, is part of the launch plan, not an afterthought. That's earned media, and it's the proof the paid media points to.
+
+HANNAH: And execution?
+
+JAMES: The delivery. The photography, the media, the shop displays, the emails, each on time and on brief. And measure it on its own terms. If you only measure results, a strong idea delivered late looks like a weak idea, and the team learns the wrong lesson.
+
+HANNAH: So that's how it gets out into the world. And the plan that holds it all together?
+
+JAMES: That's SOSTAC, which we gave a whole Basics episode to earlier this month.
 
 HANNAH: Quick reminder for anyone who missed it. SOSTAC is the planning model created by the British marketer PR Smith in the nineteen-nineties. Situation, Objectives, Strategy, Tactics, Action and Control. PR Smith gives the stages plain questions. Where are we now? Where do we want to be? How do we get there? And finally, how do we know we're getting there?
 
@@ -240,15 +296,15 @@ JAMES: Then strategy. Who we're targeting, how we're positioning against the alt
 
 HANNAH: And tactics?
 
-JAMES: The marketing mix in detail. The price. Where it's stocked. The launch content, written with the benefits ladder. The specific campaigns and channels. And that's where owned, paid and earned and the rest of the channel vocabulary comes back in.
+JAMES: The marketing mix in detail. The price. Where it's stocked. And everything we've just talked about, the channel plan, the launch campaign, the creative written from the ladder, and the PR.
 
 HANNAH: And then the two stages people skip.
 
-JAMES: Action and control. Action is who does what, by when, with what budget. For a product with a season, like a helmet, the Lens has a gear launch sequence playbook. It's a twelve-month calendar, starting with the foundation work, then the hero shoot, a quieter phase before the reveal, the public reveal, then proof from riders and races, and then a long stretch of selling through.
+JAMES: Action and control. Action is who does what, by when, with what budget. For a product with a season, like a helmet, that's a launch calendar worked back from the moment you want riders to buy. The photography, a quieter build-up, the public reveal, reviews and proof from real riders, and then a long stretch of selling through.
 
-HANNAH: Twelve months is a long runway.
+HANNAH: That's a long runway for one helmet.
 
-JAMES: It is, and the playbook itself says it's overkill for a product with no athletes and no retail partners. A small brand would run a much leaner version. But the principle holds. Every piece of work has a name next to it and a date.
+JAMES: It can be. A small brand would run a much leaner version. But the principle holds. Every piece of work has a name next to it and a date.
 
 HANNAH: And control?
 
@@ -260,25 +316,23 @@ JAMES: That's what makes it a loop rather than a document.
 
 HANNAH: What would you actually measure for the helmet, step by step?
 
-JAMES: Work back through the chain. For fit, whether the group you aimed at is the group buying, which you can find from a short survey at purchase. For the research, whether the triggers you planned around, the dark evenings, the new bike, show up in why people say they bought. For the message, whether people can play back the core message when you ask them what the helmet's for. And for the business, sales against the objective, and the margin.
+JAMES: Work back through the chain. For fit, whether the group you aimed at is the group buying, which you can find from a short survey at purchase. For the research, whether the triggers you planned around, the dark evenings, the new bike, show up in why people say they bought.
+
+HANNAH: And the message?
+
+JAMES: Whether people can play back the core message when you ask them what the helmet's for. For the channels, whether the paid and earned work is growing the owned audience, the email list and the people who come back. And for the business, sales against the objective, and the margin.
 
 HANNAH: The playback one is underrated. You can run that cheaply.
 
 JAMES: And it tells you whether the hierarchy survived contact with the real channels, which is the thing most launches never check.
 
-HANNAH: Can I make one connection back to an earlier episode? Because a lot of teams blur the words in that plan.
-
-JAMES: Please.
-
-HANNAH: Our Basics episode on strategy, campaign, creative and execution is the one to go back to here. The communication hierarchy is strategy. A launch campaign is a time-bound push that carries it. The benefits ladder feeds the creative, the idea people see. And the gear launch calendar is execution. If a team argues about the wrong one, they end up blaming the idea for a missed deadline.
-
-JAMES: Which is how that episode opened, as I remember. So that's the whole chain. Fit, research, requirements, the hierarchy, the ladder, and a SOSTAC plan to run it. Now AI.
+JAMES: So that's the whole chain. Fit, research, requirements, the hierarchy, the ladder, the channels, the launch, and a SOSTAC plan to run it. Now AI.
 
 HANNAH: Now AI. And the honest answer is that there's work for AI at every step, but the decisions don't move.
 
 JAMES: Take me through where it helps.
 
-HANNAH: In research, summarising reviews, forum threads and interview transcripts, and pulling out the triggers and complaints with the quotes behind them. At the requirements stage, checking that every line in the brief traces back to a finding. In messaging, drafting a benefits ladder for every feature, so the team starts from twenty options rather than a blank page. And at the end, checking whether every ad and email actually leads with the core message.
+HANNAH: In research, summarising reviews, forum threads and interview transcripts, and pulling out the triggers and complaints with the quotes behind them. At the requirements stage, checking that every line in the brief traces back to a finding. In messaging, drafting a benefits ladder for every feature, so the team starts from twenty options rather than a blank page. In the launch, matching the story to the journalists who actually cover it, and checking whether every ad and email leads with the core message.
 
 JAMES: And in our three layers of AI episode, that maps neatly. Chat helps you draft the ladders. An agent can run the research synthesis or check every piece of launch copy against the hierarchy. And orchestration is when those run together as one system.
 
@@ -316,7 +370,11 @@ JAMES: The fourth is a core message that's really a list. Four things joined wit
 
 HANNAH: And the fifth is a ladder that stops at the bottom rung. Spec-sheet copy. Or the opposite, an emotional line nobody in the research ever said, with no feature underneath to prove it.
 
-JAMES: I'd add one more. Treating all of this as a one-off for the launch. The research, the hierarchy and the ladder should be living documents. When control tells you the buyers are different from the people you planned for, the right response is to go back up the chain.
+JAMES: The sixth is on the channel side. Putting everything below the line because it's easy to measure, and harvesting demand you never created.
+
+HANNAH: And a press release standing in for a story nobody would repeat.
+
+JAMES: And one more. Treating all of this as a one-off for the launch. The research, the hierarchy and the ladder should be living documents. When control tells you the buyers are different from the people you planned for, the right response is to go back up the chain.
 
 HANNAH: So it isn't a straight line so much as a loop.
 
@@ -324,9 +382,9 @@ JAMES: It's a loop. And it scales down, by the way. For a small brand or a singl
 
 HANNAH: That's a useful checklist on its own.
 
-JAMES: So the takeaway. Marketing is identifying, anticipating and satisfying what customers need, profitably, and promotion is the last step of it, not the first. Get the market and the message right, and the channels get much easier to choose.
+JAMES: So the takeaway. Marketing is identifying, anticipating and satisfying what customers need, profitably. Promotion is a big part of it, but it sits at the end of the chain, and it works far better when everything before it is right.
 
-HANNAH: And the article has the six steps in one table, and the helmet's benefits ladder written out.
+HANNAH: And the article has all eight steps in one table, and there's a free minibook with the diagrams and a worksheet for every step.
 
 JAMES: It's on manual-focus dot co dot uk, with links to every Basics episode we mentioned. If this was useful, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, so the rest of the series finds you. And if you're working out what AI should be doing in your own marketing, a free working session at manual-focus dot co dot uk is a good place to start, and we'll start from your market, not the tools. Thanks, Hannah.
 

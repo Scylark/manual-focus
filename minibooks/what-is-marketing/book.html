@@ -42,6 +42,7 @@
   li { margin-bottom: 1.4mm; }
   figure { margin: 4mm 0 5mm; break-inside: avoid; }
   figure svg { width: auto; max-width: 100%; height: auto; max-height: 112mm; display: block; margin: 0 auto; }
+  figure.tall svg { max-height: 124mm; }
   figcaption { font-size: 7.5pt; color: var(--muted); margin-top: 1.5mm; }
   .box { background: var(--card); border: 0.6pt solid var(--line); border-radius: 3mm; padding: 4mm 4.5mm 1.5mm; margin: 4mm 0 5mm; break-inside: avoid; }
   .box .kicker { margin-bottom: 2mm; }
@@ -59,7 +60,7 @@
   table.small td { padding: 1.5mm 2mm; }
   tr { break-inside: avoid; }
   .refs li { font-size: 8.4pt; margin-bottom: 1mm; }
-  .tight .lines div { height: 5.6mm; }
+  .tight .lines div { height: 5mm; }
   .tight .lines { margin-bottom: 2mm; }
   .tight .q { margin-top: 2.2mm; }
   th { text-align: left; font: 500 6.8pt var(--mono); letter-spacing: 1pt; text-transform: uppercase; color: var(--sub); padding: 1.6mm 2mm; border-bottom: 0.8pt solid var(--text); }
@@ -98,7 +99,7 @@
 <section class="cover">
   <div class="series">Manual Focus · Basics</div>
   <h1>What is<br><span>marketing?</span></h1>
-  <p class="sub">From product-market fit to a SOSTAC plan, one launch at a time. A minibook that follows a single product from the first question to the last measure.</p>
+  <p class="sub">The whole job, from product-market fit to channels, PR and a SOSTAC plan. A minibook that follows a single product from the first question to the last measure.</p>
   <svg class="rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="none" stroke="#C45A2C" stroke-width="2"/><circle cx="100" cy="100" r="74" fill="none" stroke="#D89B3F" stroke-width="2"/><circle cx="100" cy="100" r="52" fill="none" stroke="#7CA89A" stroke-width="2"/><circle cx="100" cy="100" r="30" fill="#C45A2C"/></svg>
   <div class="foot"><strong>James Vickers</strong><br>Manual Focus · manual-focus.co.uk<br>First edition, October 2026</div>
 </section>
@@ -108,15 +109,14 @@
   <div class="kicker">Before you start</div>
   <h2>About this book</h2>
   <p class="lede">Ask a room of people what marketing is and most of them will describe advertising. Advertising is the visible end of marketing, and it should be the last thing you decide.</p>
-  <p>This minibook joins up the ideas in the Manual Focus Basics series into one answer. It starts with two formal definitions and a softer one, then follows a single product, a new road helmet, from the first question a marketer should ask to the last number they should check.</p>
-  <p>Each chapter covers one step. Each step answers one question and hands its answer to the next. By the end you will have the whole chain, a planning model to run it with, and a clear view of where AI helps and where it doesn't.</p>
+  <p>This minibook joins up the ideas in the Manual Focus Basics series into one answer. It starts with two formal definitions and a softer one, then follows a single product, a new road helmet, through the whole job. That means the market, the research and the product, what to say and how to say it, where and when to say it, the launch campaign and the press, and the plan that measures it all.</p>
   <h3>The helmet is hypothetical</h3>
   <p>The helmet, the brand behind it and its research findings are invented to show how the steps connect. They are not a real launch, and nothing in this book reports real sales, prices or survey results. Where the book cites a fact, it names the source, and the sources are listed at the back.</p>
   <h3>How to use it</h3>
   <ul>
     <li><strong>Read it straight through</strong> to see how the steps depend on each other.</li>
     <li><strong>Use the worksheets</strong> at the end of each chapter on a real product of your own.</li>
-    <li><strong>Hand the AI prompts</strong> in chapter 10 to whichever assistant your company uses.</li>
+    <li><strong>Hand the AI prompts</strong> in chapter 12 to whichever assistant your company uses.</li>
   </ul>
 </section>
 
@@ -132,11 +132,13 @@
     <li><span>05</span>Product requirements</li>
     <li><span>06</span>The communication hierarchy</li>
     <li><span>07</span>The benefits ladder</li>
-    <li><span>08</span>SOSTAC brings it together</li>
-    <li><span>09</span>Where AI fits</li>
-    <li><span>10</span>Get AI on this, three prompts</li>
-    <li><span>11</span>Where people go wrong</li>
-    <li><span>12</span>The one-page plan</li>
+    <li><span>08</span>Channels, where and when to be seen</li>
+    <li><span>09</span>Campaign, creative and PR</li>
+    <li><span>10</span>SOSTAC brings it together</li>
+    <li><span>11</span>Where AI fits</li>
+    <li><span>12</span>Get AI on this, three prompts</li>
+    <li><span>13</span>Where people go wrong</li>
+    <li><span>14</span>The one-page plan</li>
     <li><span>··</span>Glossary, sources and further reading</li>
   </ol>
 </section>
@@ -181,8 +183,8 @@
   <p>The formal definitions tell you what the job covers. Godin's tells you what it is for. Keep both in mind and the helmet in this book stops being about a helmet and starts being about the rider. That idea comes back in chapter 7, where the top rung of the benefits ladder describes the person the buyer wants to become.</p>
 
   <div class="box">
-    <div class="kicker">Where this book sits</div>
-    <p>The Manual Focus Basics series has separate guides on the vocabulary of promotion, including owned, paid and earned media, and above and below the line. This book covers what has to be true before you choose any channel. Get those decisions right and the channel choices get much easier.</p>
+    <div class="kicker">Where promotion sits</div>
+    <p>Promotion is the part of marketing most people see, and this book gives it two full chapters. It comes late in the chain on purpose. Once you know who you are talking to and what you are saying, choosing channels, a campaign and a story for the press gets much easier.</p>
   </div>
 </section>
 
@@ -191,9 +193,9 @@
   <div class="kicker">Chapter 02</div>
   <h2>The common thread</h2>
   <p class="lede">Marketing is one chain of decisions. Each step answers one question and hands its answer to the next.</p>
-  <figure>{{chain}}</figure>
+  <figure class="tall">{{chain}}</figure>
   <p>The order matters. Skip a step and the gap shows up later, usually as a campaign that can't explain why anyone should care. A team that writes the message before the research ends up promoting what the factory can make rather than what buyers need. A team that writes requirements without findings builds features looking for a reason.</p>
-  <p>The chain also maps onto SOSTAC, the planning model the last chapters use to run it. The first two steps are the Situation, the middle steps make up the Objectives, Strategy and Tactics, and the plan and its measures are Action and Control.</p>
+  <p>The first five steps decide what you offer and what you say. The last three take it to market and measure it. The chain also maps onto SOSTAC, the planning model chapter 10 uses to run it. The first two steps are the Situation, the middle steps make up the Objectives, Strategy and Tactics, and the launch and its measures are Action and Control.</p>
 
   <div class="box helmet">
     <div class="kicker">The helmet brief</div>
@@ -201,7 +203,7 @@
     <p>The rest of this book follows that brief from the first question to the last measure. Every name, finding and feature is invented for the example.</p>
   </div>
 
-  <p>The tempting first move is to ask what the launch campaign should look like. This book starts somewhere less glamorous.</p>
+  <p>The tempting first move is to ask what the launch campaign should look like. This book gets there in chapter 9, and starts somewhere less glamorous.</p>
 </section>
 
 <!-- 3 -->
@@ -409,9 +411,90 @@
   </div>
 </section>
 
-<!-- 8 -->
+<!-- 8a -->
 <section class="chapter">
   <div class="kicker">Chapter 08 · Step 6</div>
+  <h2>Channels</h2>
+  <p class="lede">Now the part most people think marketing is. Where, and when, do we say it?</p>
+  <p>There are two common ways to sort channels, and a plan should be clear on both. The first sorts them by who controls them. The second sorts them by how widely they reach and what job they do.</p>
+
+  <h3>Owned, paid and earned</h3>
+  <table>
+    <tr><th></th><th>Owned</th><th>Paid</th><th>Earned</th></tr>
+    <tr><td>What it is</td><td>Channels the brand controls</td><td>Attention the brand buys</td><td>What others choose to say</td></tr>
+    <tr><td>Examples</td><td>Website, email list, app</td><td>Search, social and display ads, outdoor, sponsorship</td><td>Press, reviews, word of mouth, mentions in AI answers</td></tr>
+    <tr><td>Strength</td><td>Lasts, cheap to reuse</td><td>Reach on demand</td><td>Credibility you can't buy</td></tr>
+    <tr><td>Weakness</td><td>Slow to build</td><td>Stops when the money stops</td><td>Can't be controlled</td></tr>
+  </table>
+  <p>The terms became standard with a Forrester report by Sean Corcoran in December 2009, <em>No Media Should Stand Alone</em>. It argued that all three can play specific roles in meeting marketers' objectives, and advised shifting short-term paid media into the role of catalyst while building a solar system of long-term owned touchpoints.</p>
+
+  <figure>{{channels}}</figure>
+
+  <div class="box helmet">
+    <div class="kicker">The helmet, step 6</div>
+    <p>The website and the email list sit at the centre, because every rider who signs up can be reached again without paying. Paid media sends the right riders there. Reviews, press and riders people trust make them believe it.</p>
+    <p>The research triggers set the timing. A crash replacement starts with a search, so search is always on. A new bike happens in a shop, so stockists and fitting matter in spring. The clocks going back is a date, so the dark-evenings push lands in late October.</p>
+  </div>
+
+  <h3>Above and below the line</h3>
+  <p>Above the line is mass media aimed at a broad audience, such as television, radio, press, outdoor and broad online video. Its main job is memory, so that when someone thinks about the category, your brand comes to mind. Below the line is direct and targeted, such as email, events, sampling and point of sale in the shop, aimed at people close to buying. Through the line runs both under one idea, which is how most launches should be planned.</p>
+  <p>The risk is that everything drifts below the line, because it is easy to measure. Les Binet and Peter Field's report for the IPA, <em>The Long and the Short of It</em>, warns that relying on very short-term online metrics as the main measures has dangerous implications for long-term success. For the helmet, the real competitor may be a rider who stays at home in winter. That rider isn't searching for anything yet, so search ads alone will never reach them. Something broader has to make them think about riding in the dark at all.</p>
+
+  <h3>How the channel plan comes together</h3>
+  <p>By this point the channel plan mostly writes itself. The communication hierarchy says what each channel carries. The triggers say when. The objectives say how much each channel is worth. Judge every paid and earned activity partly by how much owned audience it leaves behind.</p>
+
+  <div class="worksheet box">
+    <div class="kicker">Worksheet · Channel plan</div>
+    <table class="write">
+      <tr><th>Trigger</th><th>Channel</th><th>Owned, paid or earned</th><th>When</th></tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <p class="q">What is building memory with people who aren't buying yet?</p><div class="lines"><div></div></div>
+  </div>
+</section>
+
+<!-- 8b -->
+<section class="chapter">
+  <div class="kicker">Chapter 09 · Step 7</div>
+  <h2>Campaign, creative and PR</h2>
+  <p class="lede">The launch is where the strategy meets the world. Four words get mixed up here, and separating them saves arguments.</p>
+
+  <figure>{{launch}}</figure>
+
+  <table>
+    <tr><th>Layer</th><th>What it is</th><th>How to judge it</th></tr>
+    <tr><td>Strategy</td><td>Who you serve, what change you want and why they should choose you</td><td>Did the business results move?</td></tr>
+    <tr><td>Campaign</td><td>A time-bound push with its own objective, budget and dates, carrying part of the strategy</td><td>Did it hit its own objective?</td></tr>
+    <tr><td>Creative</td><td>The idea people see and hear</td><td>Was it noticed, understood and talked about?</td></tr>
+    <tr><td>Execution</td><td>The delivery, the assets, media, owners and checks</td><td>On time, on brief, without errors?</td></tr>
+  </table>
+
+  <h3>The campaign</h3>
+  <p>For the helmet, the strategy is the year-round rider and the helmet for riding all year. The launch campaign is one push that carries it, with its own objective, such as a number of new customers by the end of winter. The brief should name the part of the strategy it serves. If it can't, either the campaign shouldn't run or the strategy has a gap.</p>
+
+  <h3>The creative</h3>
+  <p>The creative idea usually comes from the top rung of the benefits ladder, because that is what people remember. The helmet's launch idea is about getting home on dark evenings or riding further, not about the vents. Seth Godin's <em>Purple Cow</em> gives the test. A brown cow in a field goes unseen, a purple one gets talked about. Will the audience notice this, and will they mention it to someone? Judge creative against the strategy, not taste.</p>
+
+  <h3>PR and reviews</h3>
+  <p>PR mostly works through earned media, where a journalist, creator or reviewer decides whether to cover you. You give up control and gain credibility. Most PR problems are product or story problems, and a press release won't make a dull helmet remarkable.</p>
+  <p>Relevance decides almost everything. Send the story only to people who cover commuting and road riding, say why it matters to their readers in the opening lines, and have the spokesperson, data and pictures ready before anything goes out. For a helmet, reviews may matter as much as the press, so getting helmets to the reviewers and riders people trust, early, belongs in the launch plan rather than after it.</p>
+
+  <h3>Execution</h3>
+  <p>Execution is the photography, the media, the shop displays and the emails, each on time and on brief. Measure it on its own terms. If you only measure results, a strong idea delivered late looks like a weak idea, and the team learns the wrong lesson. When a result disappoints, check from the bottom up. Execution is the cheapest to fix, then the creative, then the campaign, and question the strategy last.</p>
+
+  <div class="worksheet box">
+    <div class="kicker">Worksheet · Launch brief</div>
+    <p class="q">Which line of the strategy does this campaign serve, and what is its own objective?</p><div class="lines"><div></div><div></div></div>
+    <p class="q">What is the creative idea, and which rung of the ladder does it come from?</p><div class="lines"><div></div></div>
+    <p class="q">Who would cover this story, and why would their readers care?</p><div class="lines"><div></div><div></div></div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="chapter">
+  <div class="kicker">Chapter 10 · Step 8</div>
   <h2>SOSTAC brings it together</h2>
   <p class="lede">SOSTAC turns the chain into a plan that a team can run, review and change.</p>
   <p>SOSTAC is the planning model created by the British marketer PR Smith in the 1990s. The letters stand for Situation, Objectives, Strategy, Tactics, Action and Control. PR Smith gives the stages plain questions. Where are we now? Where do we want to be? How do we get there? Tactics are the details of strategy, and actions are the details of tactics. And finally, how do we know we are getting there?</p>
@@ -426,7 +509,7 @@
   <p>Strategy is who you target, how you position the product against the alternatives, and which channels and partners carry it. For the helmet, the audience is the year-round rider, the position is the helmet for riding all year, and the communication hierarchy is the heart of the strategy, because it is the decision about what the brand stands for.</p>
 
   <h3>Tactics</h3>
-  <p>Tactics are the marketing mix in detail. The price, where it is stocked, the launch content written with the benefits ladder, and the specific campaigns and channels. This is where owned, paid and earned media and the rest of the channel vocabulary come back in.</p>
+  <p>Tactics are the marketing mix in detail. The price, where it is stocked, and everything in chapters 8 and 9, the channel plan, the launch campaign, the creative written from the ladder and the PR.</p>
 
   <h3>Action</h3>
   <p>Action is who does what, by when and with what budget. For a product with a season, the Manual Focus Lens has a gear launch sequence playbook built as a twelve-month calendar. It runs from pre-launch foundation work, through the hero shoot, a quieter phase before the reveal and the public reveal, then proof from riders and races, and finally a long stretch of sustained sell-through.</p>
@@ -439,19 +522,16 @@
     <tr><td>Product-market fit</td><td>Whether the group you aimed at is the group buying, from a short survey at purchase</td></tr>
     <tr><td>Research</td><td>Whether the triggers you planned around show up in why people say they bought</td></tr>
     <tr><td>Message</td><td>Whether people can play back the core message when asked what the product is for</td></tr>
+    <tr><td>Channels</td><td>Whether paid and earned activity is growing the owned audience, the email list and returning customers</td></tr>
     <tr><td>Business</td><td>Sales against the objective, and the margin</td></tr>
   </table>
   <p>If the people buying are a different group from the one you planned for, the situation analysis was wrong, and you want to know that early. Control feeds the next Situation, which is what makes SOSTAC a loop rather than a document. The message playback check is cheap to run and tells you whether the hierarchy survived contact with the real channels, which most launches never check.</p>
 
-  <div class="box">
-    <div class="kicker">Words teams mix up</div>
-    <p>The Basics guide to strategy, campaign, creative and execution is worth reading alongside this chapter. The communication hierarchy is strategy. A launch campaign is a time-bound push that carries it. The benefits ladder feeds the creative, the idea people see. The launch calendar is execution. Teams that blur these end up blaming the idea for a missed deadline.</p>
-  </div>
 </section>
 
 <!-- 9 -->
 <section class="chapter">
-  <div class="kicker">Chapter 09</div>
+  <div class="kicker">Chapter 11</div>
   <h2>Where AI fits</h2>
   <p class="lede">There is work for AI at every step of the chain. The decisions don't move.</p>
   <table>
@@ -461,6 +541,8 @@
     <tr><td>Requirements</td><td>Check that every line in the brief traces to a finding</td><td>Trade-offs between requirements, price and margin</td></tr>
     <tr><td>Hierarchy</td><td>Check every ad and email against the core message</td><td>What the core message is</td></tr>
     <tr><td>Benefits ladder</td><td>Draft ladders for every feature, tied to what customers said</td><td>Which lines to back, and what the product can honestly claim</td></tr>
+    <tr><td>Channels</td><td>Model the split between memory and response, and build the weekly channel report</td><td>The budget split</td></tr>
+    <tr><td>Campaign and PR</td><td>Match the story to journalists who cover the beat, and draft variants of the creative</td><td>The creative idea, and what goes out to the press</td></tr>
     <tr><td>SOSTAC</td><td>Build timelines, briefs and recurring reports</td><td>Objectives, strategy and accountability</td></tr>
   </table>
 
@@ -474,7 +556,7 @@
 
 <!-- 10 -->
 <section class="chapter">
-  <div class="kicker">Chapter 10</div>
+  <div class="kicker">Chapter 12</div>
   <h2>Get AI on this</h2>
   <p class="lede">Three jobs from the chain that you can hand to AI. Each prompt works in any capable assistant.</p>
   <p>Replace the bracketed parts with your own brand, product and market, attach what each prompt asks for, and read the output as a first draft. Each prompt tells the model to say what it couldn't check rather than guess.</p>
@@ -530,9 +612,9 @@ If you can't tell which message a piece leads with, say so rather than guessing.
 
 <!-- 11 -->
 <section class="chapter">
-  <div class="kicker">Chapter 11</div>
+  <div class="kicker">Chapter 13</div>
   <h2>Where people go wrong</h2>
-  <p class="lede">Most broken launches fail at one of these links in the chain.</p>
+  <p class="lede">Most broken launches fail at one of these links. The most expensive mistake is treating the chain as a one-off, when Control should send you back up it.</p>
   <table class="small">
     <tr><th>Mistake</th><th>What it looks like</th><th>The fix</th></tr>
     <tr><td>Starting at the end</td><td>Channels and content chosen before anyone checked there's a market</td><td>Answer the step 1 questions first</td></tr>
@@ -542,22 +624,25 @@ If you can't tell which message a piece leads with, say so rather than guessing.
     <tr><td>A core message that is a list</td><td>Four ideas joined with commas, a different one in every channel</td><td>One core message, signed off by one person</td></tr>
     <tr><td>A bottom-rung ladder</td><td>Spec-sheet copy</td><td>Climb each feature to the benefit and the feeling</td></tr>
     <tr><td>A top-rung ladder</td><td>An emotional line no customer said, with nothing to prove it</td><td>Tie every emotional line to a quote and a feature</td></tr>
+    <tr><td>All below the line</td><td>Search and retargeting only, because they are easy to measure</td><td>Give some budget to building memory</td></tr>
+    <tr><td>A press release instead of a story</td><td>Mass pitching something nobody would repeat</td><td>Find the remarkable part first, then pitch the right people</td></tr>
     <tr><td>No Control</td><td>The plan is filed after launch</td><td>Monthly and quarterly reviews that feed the next Situation</td></tr>
   </table>
-  <p>The most expensive mistake is treating all of this as a one-off. The research, hierarchy and ladder should be living documents, and when Control shows different buyers from the ones you planned for, go back up the chain.</p>
 </section>
 
 <!-- 12 -->
 <section class="chapter worksheet tight">
-  <div class="kicker">Chapter 12</div>
+  <div class="kicker">Chapter 14</div>
   <h2>The one-page plan</h2>
-  <p class="lede">The chain scales down. For a small brand or a single campaign, every step can be a paragraph. If any answer is blank, you are not ready to brief.</p>
-  <p class="q">1. Is there a market, and who in it is badly served? What do they do instead?</p><div class="lines"><div></div><div></div></div>
-  <p class="q">2. What did we learn? Write three or four findings, each with its evidence.</p><div class="lines"><div></div><div></div></div>
-  <p class="q">3. What must the product do for them, in their words?</p><div class="lines"><div></div><div></div></div>
+  <p class="lede">For a small brand or a single campaign, every step can be a paragraph. If any answer is blank, you are not ready to brief.</p>
+  <p class="q">1. Is there a market, and who in it is badly served? What do they do instead?</p><div class="lines"><div></div></div>
+  <p class="q">2. What did we learn? Write three or four findings, each with its evidence.</p><div class="lines"><div></div></div>
+  <p class="q">3. What must the product do for them, in their words?</p><div class="lines"><div></div></div>
   <p class="q">4. What is the one thing we say first?</p><div class="lines"><div></div></div>
-  <p class="q">5. Why does it matter to the buyer? Write the top rung of the ladder.</p><div class="lines"><div></div><div></div></div>
-  <p class="q">6. Who does what by when, and how will we know it's working?</p><div class="lines"><div></div></div>
+  <p class="q">5. Why does it matter to the buyer? Write the top rung of the ladder.</p><div class="lines"><div></div></div>
+  <p class="q">6. Where and when will people meet it? Owned, paid and earned.</p><div class="lines"><div></div></div>
+  <p class="q">7. What is the launch campaign, its idea and its story for the press?</p><div class="lines"><div></div></div>
+  <p class="q">8. Who does what by when, and how will we know it's working?</p><div class="lines"><div></div></div>
 </section>
 
 <!-- GLOSSARY -->
@@ -577,6 +662,10 @@ If you can't tell which message a piece leads with, say so rather than guessing.
     <tr><td>Benefits ladder</td><td>Feature, benefit and emotional resonance, climbed for each message</td></tr>
     <tr><td>Laddering</td><td>An interview method set out by Reynolds and Gutman in 1988 that keeps asking why something matters</td></tr>
     <tr><td>SOSTAC</td><td>Situation, Objectives, Strategy, Tactics, Action and Control, PR Smith's planning model</td></tr>
+    <tr><td>Owned, paid and earned</td><td>Channels you control, attention you buy, and what others choose to say about you</td></tr>
+    <tr><td>Above, below and through the line</td><td>Mass media for memory, targeted activity for people near buying, and both under one idea</td></tr>
+    <tr><td>Campaign</td><td>A time-bound push with its own objective, budget and dates, carrying part of the strategy</td></tr>
+    <tr><td>Creative</td><td>The idea and the work the audience meets</td></tr>
     <tr><td>Portability test</td><td>If a sentence would still be true about another company, cut it or make it specific</td></tr>
   </table>
 </section>
@@ -590,8 +679,11 @@ If you can't tell which message a piece leads with, say so rather than guessing.
     <li>Chartered Institute of Marketing, <a href="https://www.cim.co.uk/content-insights/articles/what-is-marketing/">What is marketing?</a> (March 2023)</li>
     <li>American Marketing Association, <a href="https://www.ama.org/the-definition-of-marketing-what-is-marketing/">Definitions of Marketing</a></li>
     <li>Seth Godin, <a href="https://penguinrandomhouse.com/books/600458/this-is-marketing-by-seth-godin">This Is Marketing</a> (Portfolio, 2018)</li>
+    <li>Seth Godin, <a href="https://www.penguin.co.uk/books/54880/purple-cow-by-godin-seth/9780141924861">Purple Cow</a> (Penguin, 2005 edition)</li>
     <li>Marc Andreessen, <a href="https://pmarchive.com/guide_to_startups_part4.html">The only thing that matters</a> (25 June 2007)</li>
     <li>Thomas Reynolds and Jonathan Gutman, "Laddering Theory, Method, Analysis, and Interpretation", Journal of Advertising Research (1988), as discussed in Veludo-de-Oliveira, Ikeda and Campomar, <a href="https://nsuworks.nova.edu/tqr/vol11/iss4/1">Discussing Laddering Application by the Means-End Chain Theory</a>, The Qualitative Report (2006)</li>
+    <li>Sean Corcoran, Forrester, <a href="https://www.forrester.com/report/No-Media-Should-Stand-Alone/RES54869">No Media Should Stand Alone</a> (16 December 2009)</li>
+    <li>Les Binet and Peter Field, IPA, <a href="https://ipa.co.uk/knowledge/publications-reports/the-long-and-the-short-of-it-balancing-short-and-long-term-marketing-strategies">The Long and the Short of It</a></li>
     <li>PR Smith, <a href="https://prsmith.org/sostac/">What is PR Smith's SOSTAC Planning?</a></li>
     <li>PR Smith, <a href="https://www.cim.co.uk/content-insights/articles/sostac-plans-in-the-ai-age/">SOSTAC plans in the AI age</a>, Chartered Institute of Marketing (September 2025)</li>
   </ul>
@@ -602,8 +694,8 @@ If you can't tell which message a piece leads with, say so rather than guessing.
     <li><a href="https://manual-focus.co.uk/blog/strategy-campaign-creative-execution-basics/">Strategy vs campaign vs creative vs execution</a></li>
     <li><a href="https://manual-focus.co.uk/blog/owned-paid-earned-media-basics/">Owned, paid and earned media</a></li>
     <li><a href="https://manual-focus.co.uk/blog/above-the-line-below-the-line-basics/">Above the line vs below the line</a></li>
+    <li><a href="https://manual-focus.co.uk/blog/pr-101-basics/">PR 101</a></li>
     <li><a href="https://manual-focus.co.uk/blog/three-layers-of-ai-basics/">The three layers of AI</a></li>
-    <li><a href="https://manual-focus.co.uk/lens/demand/category-entry-points/">Category Entry Point research</a>, <a href="https://manual-focus.co.uk/lens/brand/message-house-generator/">Message house generator</a> and <a href="https://manual-focus.co.uk/lens/ops/gear-launch-sequence/">Gear launch sequence</a> in the Lens</li>
   </ul>
 </section>
 
