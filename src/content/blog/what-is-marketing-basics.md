@@ -1,8 +1,13 @@
 ---
 title: "What is marketing, a basics guide from market fit to SOSTAC"
-date: 2026-10-26
+date: 2026-10-28
 tags: ["basics", "marketing-strategy", "go-to-market"]
 description: "Marketing is identifying, anticipating and satisfying customer needs profitably. The whole chain, from market fit to channels, PR and SOSTAC, on one helmet."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/what-is-marketing-basics.mp3"
+  duration: 2575
+  bytes: 30898095
+  published: 2026-10-28
 faq:
   - question: "What is the definition of marketing?"
     answer: "The Chartered Institute of Marketing defines marketing as the management process responsible for identifying, anticipating and satisfying customer requirements profitably. The American Marketing Association describes it as the activity and processes for creating, communicating, delivering and exchanging offerings that have value for customers, clients, partners and society. Both definitions cover far more than advertising."
