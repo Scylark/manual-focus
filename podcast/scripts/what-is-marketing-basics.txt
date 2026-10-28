@@ -102,6 +102,18 @@ HANNAH: So what would you do with the helmet?
 
 JAMES: For the sake of the example, I'd look for the thread between them. Both groups want to keep riding when conditions are against them, dark in one case, heat in the other. If the research backs that up, you can build the launch around year-round riding. If it doesn't, pick one and say no to the other, at least for the first season.
 
+HANNAH: Saying no is the part people find hardest, isn't it? It feels like leaving money on the table.
+
+JAMES: It does, and that's where Seth Godin is useful again. We talked about this in the strategy and campaign episode. In This Is Marketing he asks you to find your smallest viable audience, the smallest group you can serve so well that they recommend you. And on his blog he describes that group as a stepping-stone, not a compromise.
+
+HANNAH: So for the helmet, the smallest viable audience might be the commuters who already ride through the winter and hate their current helmet in the dark.
+
+JAMES: Exactly. Win them properly, and they're the ones who tell the riders who are still nervous about the dark. Try to win every cyclist at once, and you end up with a helmet that's slightly better for everyone and remarkable to no one.
+
+HANNAH: And that choice is really the positioning, isn't it? Who it's for, and why it rather than the alternatives.
+
+JAMES: That's the positioning, written down. For these riders, who want to keep riding when the light and the weather turn, this is the helmet built for the whole year, because it was designed around being seen, staying cool and staying comfortable. Every word in that sentence came from the research. That's the test of a positioning statement. If you could swap in a competitor's name and it would still be true, it isn't one yet.
+
 HANNAH: Can I raise one caution on research, since AI comes into it?
 
 JAMES: Go on.
@@ -137,6 +149,18 @@ JAMES: It should be in the brief, because they're requirements too. If the resea
 HANNAH: Which is the seven Ps again, really.
 
 JAMES: It is. The mix only works if all the parts come from the same picture of the buyer.
+
+HANNAH: Can we stay on place for a minute? Because for a helmet brand, shops versus selling direct is a big decision.
+
+JAMES: It's one of the biggest, and it's a marketing decision as much as a sales one. Selling through bike shops gets you the fitting, the advice and the trust of the person behind the counter. You give up margin, and you give up the direct relationship with the rider. Selling direct keeps both, but now your website has to do the shop's job.
+
+HANNAH: So it goes back to the research again. Where do these riders actually buy, and why?
+
+JAMES: Always. If the year-round commuter buys in a shop because they want someone to check the fit, a direct-only launch is fighting the buyer. If they buy online after reading reviews, a shop-only launch hides you from them. Most brands end up with both, but the research tells you which one leads.
+
+HANNAH: And the price follows from that too.
+
+JAMES: It does. Your price has to leave room for the shop's margin if you're in shops, and it has to make sense next to what the rider pays now. Which, remember, might be a cheap helmet and a clip-on light. That's the real price comparison in the buyer's head, not the most expensive helmet in the window.
 
 HANNAH: So that's the product. Then we get to the part most people think marketing is. What do we say?
 
@@ -230,6 +254,18 @@ HANNAH: His picture was paid media as the catalyst, around a solar system of own
 
 JAMES: Which is how I'd plan the helmet. The product page and the email list sit at the centre. Paid media pushes the right riders towards them. And earned media, the reviews and the press, is what makes them believe it.
 
+HANNAH: Why does owned sit in the middle, though? Paid is where the reach is.
+
+JAMES: Because owned is the only part you keep. Every rider who joins the email list can be reached again without paying a platform. In our owned, paid and earned episode we leaned on another Seth Godin idea, permission marketing. He describes it as the privilege of delivering anticipated, personal and relevant messages to people who actually want to get them.
+
+HANNAH: Privilege rather than right.
+
+JAMES: That's his point. A list of riders who asked to hear about the helmet is worth far more than a big list of people who never did. So a good test for any paid or earned activity in the launch is how much owned audience it leaves behind.
+
+HANNAH: And social media? Where does a brand's Instagram account sit?
+
+JAMES: Awkwardly. You control the posts, but the platform controls who sees them, so a lot of marketers call it rented rather than owned. It's useful, but if the platform changes the rules, the audience goes with it. That's another reason the email list matters.
+
 HANNAH: And the triggers from the research tell you when to be there, don't they?
 
 JAMES: That's the link back. The clocks going back is a date you can put in a plan. A new bike is a moment in a bike shop. A crash replacement starts with a search. So each trigger points to a channel and a time. Search for the replacement, the shop and the fitting for the new bike, and a push in late October for the dark evenings.
@@ -277,6 +313,22 @@ JAMES: More, probably. Getting helmets onto the heads of the reviewers and rider
 HANNAH: And execution?
 
 JAMES: The delivery. The photography, the media, the shop displays, the emails, each on time and on brief. And measure it on its own terms. If you only measure results, a strong idea delivered late looks like a weak idea, and the team learns the wrong lesson.
+
+HANNAH: Before we get to the plan, can I ask about something we haven't mentioned? What happens after someone buys the helmet?
+
+JAMES: That's a good question to ask, because a lot of launch plans stop at the sale. But marketing carries on. The rider who bought it is now your best source of proof, your best source of reviews, and quite possibly your next sale.
+
+HANNAH: Next sale in what sense? People don't buy a helmet every month.
+
+JAMES: No, but think about the triggers again. A crash means a replacement. A partner or a friend starts riding. The rider wants a second helmet for a different bike. If you've kept the relationship, through the email list and through a good experience, you're the obvious choice at each of those moments. If you haven't, they're back in a search, comparing you with everyone else.
+
+HANNAH: So after the sale is really back to owned media.
+
+JAMES: Exactly. A follow-up after a few weeks asking how the fit's working. An invitation to leave a review once they've ridden in the dark with it. A reminder about how to tell when a helmet needs replacing. None of it is glamorous, but it's where a lot of the long-term value of a launch actually sits.
+
+HANNAH: And the reviews feed straight back into the paid and earned work.
+
+JAMES: They do. Real riders saying it kept them visible on a dark road is better proof than anything the brand can say about itself. That's the chain looping round on itself again.
 
 HANNAH: So that's how it gets out into the world. And the plan that holds it all together?
 
@@ -381,6 +433,32 @@ HANNAH: So it isn't a straight line so much as a loop.
 JAMES: It's a loop. And it scales down, by the way. For a small brand or a single campaign, every step can be a paragraph. Is there a market, what did we learn, what must it do, what's the one thing we say, why does it matter to the buyer, and how will we know. If any of those is blank, you're not ready to brief.
 
 HANNAH: That's a useful checklist on its own.
+
+JAMES: So let's do it for the helmet, in one go, to show how it holds together.
+
+HANNAH: Go on then. Is there a market?
+
+JAMES: Yes, among riders who keep riding through the winter and the summer heat and feel badly served by helmets made for mild weekends. The alternative they use now is often a cheap helmet and a clip-on light, or not riding after dark at all.
+
+HANNAH: What did we learn?
+
+JAMES: Commuters want to be seen on dark evenings. Road riders overheat on long climbs. Long-distance riders find helmets uncomfortable by the end. And the thread between them is keeping riding when conditions are against you.
+
+HANNAH: What must it do?
+
+JAMES: Be visible from behind on an unlit road, stay cool on a long climb, and stay comfortable for five hours. At a price that makes sense next to a helmet and a light, sold where those riders actually buy.
+
+HANNAH: The one thing we say?
+
+JAMES: The helmet for riding all year. And why it matters, at the top of the ladder, is that you get home and nobody has to worry.
+
+HANNAH: Where and when?
+
+JAMES: The website and email list at the centre. Search always on for crash replacements. Shops and fitting for new bikes in spring. A broader push when the clocks go back. And reviewers and trusted riders wearing it before the launch, not after.
+
+HANNAH: And how will we know?
+
+JAMES: Who's buying, whether they can tell us what it's for, whether the email list is growing, and sales and margin against the objective. Reviewed every month, properly every quarter, and fed back into next year's situation. That's the whole job, on one page.
 
 JAMES: So the takeaway. Marketing is identifying, anticipating and satisfying what customers need, profitably. Promotion is a big part of it, but it sits at the end of the chain, and it works far better when everything before it is right.
 

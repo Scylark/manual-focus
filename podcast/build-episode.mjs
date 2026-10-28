@@ -130,8 +130,9 @@ async function voice(chunk, i) {
     };
   }
   const hash = createHash('sha1').update(url + JSON.stringify(body)).digest('hex').slice(0, 12);
-  const prefix = ENGINE === 'turns' ? 'turn' : 'chunk';
-  const file = join(outDir, `${prefix}-${String(i + 1).padStart(3, '0')}-${hash}.mp3`);
+  // A turn is named by its content alone, so inserting a turn doesn't
+  // re-voice every turn after it.
+  const file = join(outDir, ENGINE === 'turns' ? `turn-${hash}.mp3` : `chunk-${String(i + 1).padStart(2, '0')}-${hash}.mp3`);
   if (existsSync(file)) return file;
 
   const res = request(url, { method: 'POST', json: body, out: file });

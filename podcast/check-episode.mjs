@@ -55,7 +55,7 @@ const notesFront = existsSync(paths.notes)
   : {};
 const long = basics && notesFront.length === 'long';
 if (notesFront.length === 'long' && !basics) fails.push('"length: long" is only for Basics episodes (posts tagged basics)');
-const [hardMin, aimMin, aimMax, hardMax] = long ? [4200, 4700, 6300, 6900]
+const [hardMin, aimMin, aimMax, hardMax] = long ? [4500, 5000, 7400, 7900]
   : basics ? [1600, 1800, 2200, 2500] : [800, 900, 1100, 1300];
 const aim = `aim for ${aimMin.toLocaleString('en-GB')} to ${aimMax.toLocaleString('en-GB')}${long ? ' (long-form Basics episode)' : basics ? ' (Basics episode)' : ''}`;
 const words = turns.reduce((n, t) => n + t.text.replace(/\[[^\]]*\]/g, '').split(/\s+/).filter(Boolean).length, 0);

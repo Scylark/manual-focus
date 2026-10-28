@@ -163,7 +163,8 @@ listener would ask.
 
 Some Basics topics join several earlier episodes into one story ("What is
 marketing?" runs from product-market fit to SOSTAC). These run about 30 to 45
-minutes, roughly 4,700 to 6,300 words of script. Set `length: long` in the
+minutes, roughly 5,000 to 7,400 words of script at the turn-by-turn pace of
+about 165 words a minute. Set `length: long` in the
 show notes' frontmatter and `check-episode.mjs` applies those limits; it's
 only allowed on posts tagged `basics`. Everything in "Basics episode" applies,
 with these changes:
