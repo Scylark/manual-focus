@@ -38,7 +38,8 @@ const opening = body.trim().split(/\n\s*\n/)[0];
 if (opening.startsWith('#')) fails.push('post must open with a paragraph, not a heading');
 const openN = words(opening);
 if (openN < 40 || openN > 60) fails.push(`opening paragraph must be 40-60 words (is ${openN})`);
-const bodyN = words(body.replace(/\]\([^)]*\)/g, ']'));
+// Image alt text isn't prose, so it doesn't count towards the length.
+const bodyN = words(body.replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\]\([^)]*\)/g, ']'));
 const [minBody, maxBody] = article ? [800, 1600] : [700, 1500];
 if (bodyN < minBody || bodyN > maxBody) fails.push(`body should be ${minBody}-${maxBody} words (is ${bodyN})`);
 if (!/Our view at Manual Focus/.test(body)) fails.push('body needs one "Our view at Manual Focus is ..." sentence');
@@ -103,6 +104,11 @@ for (const [, href] of body.matchAll(/!\[[^\]]*\]\((\/[^)#\s]*)/g)) {
 }
 for (const [, href] of body.replace(/!\[[^\]]*\]\([^)]*\)/g, '').matchAll(/\]\((\/[^)#\s]*)/g)) {
   const path = href.split('?')[0];
+  // Downloads (/downloads/x.pdf) are files, so they only need to exist.
+  if (/\.[a-z0-9]+$/i.test(path)) {
+    if (!existsSync(`dist${path}`)) fails.push(`missing file: ${href} (run npm run build first)`);
+    continue;
+  }
   if (!path.endsWith('/')) fails.push(`internal link needs trailing slash: ${href}`);
   if (!existsSync(`dist${path.replace(/\/?$/, '/')}index.html`)) fails.push(`broken internal link: ${href} (run npm run build first)`);
 }
