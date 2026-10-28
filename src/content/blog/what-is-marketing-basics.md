@@ -68,7 +68,7 @@ Promotion is one of the seven Ps, and it is the part most people see. It matters
 
 Each step answers one question and hands its answer to the next. Skip one and the gap shows up later, usually as a campaign that can't explain why anyone should care.
 
-![The eight steps of the chain, each mapped to its SOSTAC stage](/images/what-is-marketing/chain.svg)
+<picture><source media="(min-width: 720px)" srcset="/images/what-is-marketing/chain-wide.svg"><img src="/images/what-is-marketing/chain.svg" alt="The eight steps of the chain, each mapped to its SOSTAC stage" loading="lazy"></picture>
 
 | Step | Question it answers | What it produces | SOSTAC stage |
 |---|---|---|---|
@@ -85,7 +85,7 @@ Each step answers one question and hands its answer to the next. Skip one and th
 
 Take a hypothetical UK cycling brand planning a new road helmet. Andreessen's [2007 essay](https://pmarchive.com/guide_to_startups_part4.html) defined product/market fit as being in a good market with a product that can satisfy that market, and called getting there the only thing that matters for a young company.
 
-![Narrowing from everyone who buys helmets to the market a new helmet can win](/images/what-is-marketing/market.svg)
+<picture><source media="(min-width: 720px)" srcset="/images/what-is-marketing/market-wide.svg"><img src="/images/what-is-marketing/market.svg" alt="Narrowing from everyone who buys helmets to the market a new helmet can win" loading="lazy"></picture>
 
 Riders already buy helmets, so a market exists. The real question is narrower. Which riders are badly served by what they wear now, and would they switch at the price the brand needs? Ask what they do instead, too. For a commuter the alternative might be a clip-on light, or not riding after dark at all.
 
@@ -97,19 +97,19 @@ Research turns "cyclists" into people. It should find out who rides and where, w
 
 A requirements brief written by marketing says what the product must do for the buyer, in the buyer's words. "Visible from behind on an unlit road" is a requirement, and an integrated rear light is one answer to it. Anything that traces to no finding is a feature looking for a reason.
 
-![Each finding becomes a requirement, and each requirement a feature](/images/what-is-marketing/trace.svg)
+<picture><source media="(min-width: 720px)" srcset="/images/what-is-marketing/trace-wide.svg"><img src="/images/what-is-marketing/trace.svg" alt="Each finding becomes a requirement, and each requirement a feature" loading="lazy"></picture>
 
 ## What is a communication hierarchy?
 
 A communication hierarchy ranks what you say. One core message sits at the top, three or four supporting messages sit beneath it, and proof sits under each. Every channel leads with the top and goes as far down as it has room for. For the helmet, the core message might be "the helmet for riding all year", supported by seen on dark evenings, cool on long climbs and comfortable all day.
 
-![The helmet's communication hierarchy and how much of it each channel carries](/images/what-is-marketing/hierarchy.svg)
+<picture><source media="(min-width: 720px)" srcset="/images/what-is-marketing/hierarchy-wide.svg"><img src="/images/what-is-marketing/hierarchy.svg" alt="The helmet's communication hierarchy and how much of it each channel carries" loading="lazy"></picture>
 
 ## How does the benefits ladder work?
 
 The ladder climbs each message from the feature, to the practical benefit, to the emotional reason it matters, which is where Godin's idea shows up in copy. It draws on laddering, an interview method Thomas Reynolds and Jonathan Gutman set out in 1988 and that [researchers still describe](https://nsuworks.nova.edu/tqr/vol11/iss4/1) as a way to understand how consumers translate product attributes into meaningful associations with respect to self.
 
-![The benefits ladder for the helmet's rear light](/images/what-is-marketing/ladder.svg)
+<picture><source media="(min-width: 720px)" srcset="/images/what-is-marketing/ladder-wide.svg"><img src="/images/what-is-marketing/ladder.svg" alt="The benefits ladder for the helmet's rear light" loading="lazy"></picture>
 
 | Feature | Benefit | Emotional resonance |
 |---|---|---|
@@ -121,7 +121,7 @@ The ladder climbs each message from the feature, to the practical benefit, to th
 
 Channels come next. Forrester's [No Media Should Stand Alone](https://www.forrester.com/report/No-Media-Should-Stand-Alone/RES54869) set out the roles of owned, earned and paid media in 2009 and advised using paid media as a catalyst around long-term owned touchpoints. For the helmet, the product page and email list sit at the centre, paid media sends the right riders there, and reviews and press make them believe it. The Basics guides to [owned, paid and earned media](/blog/owned-paid-earned-media-basics/) and [above and below the line](/blog/above-the-line-below-the-line-basics/) cover both ways of sorting channels.
 
-![Owned, paid and earned media for the helmet, and the buying triggers that set the timing](/images/what-is-marketing/channels.svg)
+<picture><source media="(min-width: 720px)" srcset="/images/what-is-marketing/channels-wide.svg"><img src="/images/what-is-marketing/channels.svg" alt="Owned, paid and earned media for the helmet, and the buying triggers that set the timing" loading="lazy"></picture>
 
 The triggers set the timing. A crash replacement starts with a search, a new bike happens in a shop, and the clocks going back is a date in the plan. Watch the balance too. Les Binet and Peter Field's IPA report [The Long and the Short of It](https://ipa.co.uk/knowledge/publications-reports/the-long-and-the-short-of-it-balancing-short-and-long-term-marketing-strategies) warns that relying on very short-term online metrics has dangerous implications for long-term success, and a rider who doesn't ride in winter yet isn't searching for anything.
 
@@ -129,11 +129,11 @@ The triggers set the timing. A crash replacement starts with a search, a new bik
 
 The launch campaign is a time-bound push with its own objective, budget and dates, carrying part of the strategy. The creative idea usually comes from the top rung of the ladder. PR and reviews earn the credibility paid media can't buy, and for a helmet, getting it to trusted reviewers early is part of the plan. The guides to [strategy, campaign, creative and execution](/blog/strategy-campaign-creative-execution-basics/) and [PR 101](/blog/pr-101-basics/) go deeper.
 
-![Strategy, campaign, creative and execution for the helmet launch](/images/what-is-marketing/launch.svg)
+<picture><source media="(min-width: 720px)" srcset="/images/what-is-marketing/launch-wide.svg"><img src="/images/what-is-marketing/launch.svg" alt="Strategy, campaign, creative and execution for the helmet launch" loading="lazy"></picture>
 
 ## Where SOSTAC brings it together
 
-![SOSTAC filled in for the helmet launch, with Control feeding the next Situation](/images/what-is-marketing/sostac.svg)
+<picture><source media="(min-width: 720px)" srcset="/images/what-is-marketing/sostac-wide.svg"><img src="/images/what-is-marketing/sostac.svg" alt="SOSTAC filled in for the helmet launch, with Control feeding the next Situation" loading="lazy"></picture>
 
 [PR Smith's SOSTAC](https://prsmith.org/sostac/) turns the chain into a plan. Fit and research are the Situation, launch targets are the Objectives, and the audience, position and hierarchy are the Strategy. The channel plan, campaign, creative and PR are Tactics, the launch calendar is Action, and Control checks who is buying, whether people can play back the core message, and sales and margin.
 

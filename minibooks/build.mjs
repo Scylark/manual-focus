@@ -4,7 +4,7 @@
 //
 // Usage: node minibooks/build.mjs <name>
 //   reads   minibooks/<name>/diagrams.mjs and minibooks/<name>/book.html
-//   writes  public/images/<name>/<diagram>.svg
+//   writes  public/images/<name>/<diagram>.svg (and <diagram>-wide.svg)
 //           public/downloads/<name>-minibook.pdf
 //
 // Needs Playwright with Chromium (pre-installed in cloud sessions; locally,
@@ -21,7 +21,7 @@ const name = process.argv[2];
 if (!name) throw new Error('Usage: node minibooks/build.mjs <name>');
 
 const dir = join(ROOT, 'minibooks', name);
-const { all } = await import(pathToFileURL(join(dir, 'diagrams.mjs')).href);
+const { all, wide = {} } = await import(pathToFileURL(join(dir, 'diagrams.mjs')).href);
 
 const imgDir = join(ROOT, 'public', 'images', name);
 mkdirSync(imgDir, { recursive: true });
@@ -30,6 +30,12 @@ for (const [key, draw] of Object.entries(all)) {
   svgs[key] = draw();
   writeFileSync(join(imgDir, `${key}.svg`), svgs[key] + '\n');
   console.log(`Wrote public/images/${name}/${key}.svg`);
+}
+// Landscape versions for the article on wider screens, where it serves
+// <key>-wide.svg through a <picture> and falls back to the tall one.
+for (const [key, draw] of Object.entries(wide)) {
+  writeFileSync(join(imgDir, `${key}-wide.svg`), draw() + '\n');
+  console.log(`Wrote public/images/${name}/${key}-wide.svg`);
 }
 
 let html = readFileSync(join(dir, 'book.html'), 'utf8');

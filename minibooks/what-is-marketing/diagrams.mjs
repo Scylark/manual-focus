@@ -27,7 +27,9 @@ const F = {
   body: "Inter,'Helvetica Neue',Helvetica,Arial,sans-serif",
   mono: "'SF Mono',Menlo,'JetBrains Mono',monospace",
 };
-const W = 820;
+// Each diagram sets W first: 820 for the tall layout (phones and the PDF),
+// 1200 for the landscape one (the article on wider screens).
+let W = 820;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -82,6 +84,7 @@ function chip(x, y, label, { fill = C.tealTint, color = '#3F6B5E', size = 17 } =
 
 // 1. The common thread: eight steps, each with its SOSTAC stage.
 export function chain() {
+  W = 820;
   const steps = [
     ['Product-market fit', 'Is there a market that wants this?', 'Situation'],
     ['Market research', 'Who buys, why, and instead of what?', 'Situation'],
@@ -110,6 +113,7 @@ export function chain() {
 
 // 2. Is there a market? Narrowing from the category to the market you can win.
 export function market() {
+  W = 820;
   const bands = [
     ['Riders who buy helmets', 'The category exists. That alone proves nothing.', C.tealTint],
     ['Badly served by what they wear now', 'A need the current choices miss.', C.goldTint],
@@ -139,6 +143,7 @@ export function market() {
 
 // 3. Research to requirements to features, each traceable.
 export function trace() {
+  W = 820;
   const rows = [
     ['Commuters want drivers to see them on dark evenings', 'Visible from behind on an unlit road', 'Integrated rear light'],
     ['Road riders overheat on long summer climbs', 'Stays cool on a long climb', 'Larger vents and internal channels'],
@@ -168,6 +173,7 @@ export function trace() {
 
 // 4. The communication hierarchy, and how far down each channel goes.
 export function hierarchy() {
+  W = 820;
   const top = 168;
   let body = '';
   // Core message.
@@ -206,6 +212,7 @@ export function hierarchy() {
 
 // 5. The benefits ladder, climbed for one feature.
 export function ladder() {
+  W = 820;
   const rungs = [
     ['Emotional resonance', 'You get home, and nobody at home has to worry', C.orange, '#fff'],
     ['Benefit', 'Drivers see you on dark evenings', C.gold, C.text],
@@ -231,6 +238,7 @@ export function ladder() {
 
 // 6. SOSTAC as a loop, filled in for the helmet launch.
 export function sostac() {
+  W = 820;
   const stages = [
     ['S', 'Situation', 'Where are we now?', 'Product-market fit and the research findings'],
     ['O', 'Objectives', 'Where do we want to be?', 'Sales or new customers from the launch, by a date'],
@@ -260,6 +268,7 @@ export function sostac() {
 // 6. Channels: owned at the centre, paid as the catalyst, earned as proof,
 // and the buying triggers that set the timing.
 export function channels() {
+  W = 820;
   const top = 168, cx = W / 2, cy = top + 200;
   let body = '';
   body += `<circle cx="${cx}" cy="${cy}" r="196" fill="${C.goldTint}"/>`;
@@ -287,6 +296,7 @@ export function channels() {
 
 // 7. The launch: strategy, campaign, creative and execution for the helmet.
 export function launch() {
+  W = 820;
   const layers = [
     ['Strategy', 'Who we serve and why us', 'Year-round riders, the helmet for riding all year', C.orange, '#fff'],
     ['Campaign', 'A time-bound push with its own objective', 'Winter launch, new customers by spring', C.gold, C.text],
@@ -309,3 +319,232 @@ export function launch() {
 }
 
 export const all = { chain, market, trace, hierarchy, ladder, channels, launch, sostac };
+
+// Landscape layouts, 1200 wide, for the article on laptop and desktop
+// screens, where the tall versions above fill more than a screen. Same
+// content, laid out across rather than down.
+
+function chainWide() {
+  W = 1200;
+  const steps = [
+    ['Product-market fit', 'Is there a market that wants this?', 'Situation'],
+    ['Market research', 'Who buys, why, and instead of what?', 'Situation'],
+    ['Product requirements', 'What must the product do for them?', 'Objectives · Strategy'],
+    ['Communication hierarchy', 'What do we say first?', 'Strategy'],
+    ['Benefits ladder', 'Why will they care?', 'Tactics'],
+    ['Channels', 'Where and when do we say it?', 'Strategy · Tactics'],
+    ['Campaign, creative and PR', 'How does the launch reach people?', 'Tactics · Action'],
+    ['Measure and learn', 'Is it working, and what changes?', 'Control'],
+  ];
+  const top = 160, rowH = 128, colW = (W - 80 - 32) / 2;
+  let body = '';
+  steps.forEach(([name, q, stage], i) => {
+    const col = i < 4 ? 0 : 1, row = i % 4;
+    const x = 40 + col * (colW + 32), y = top + row * rowH;
+    body += `<rect x="${x}" y="${y}" width="${colW}" height="${rowH - 14}" rx="14" fill="${C.panel}" stroke="${C.cardLine}"/>`;
+    body += `<circle cx="${x + 46}" cy="${y + 57}" r="26" fill="${i >= 5 ? C.teal : C.orange}"/>`;
+    body += text(x + 46, y + 66, String(i + 1), { size: 26, font: F.display, weight: 700, fill: '#fff', anchor: 'middle' });
+    body += text(x + 92, y + 38, name, { size: 27, font: F.display, weight: 700, upper: true });
+    body += text(x + 92, y + 68, q, { size: 20, fill: C.sub });
+    body += `<g transform="translate(${x + 92} ${y + 78})">${chip(0, 0, stage, { size: 15 }).svg}</g>`;
+  });
+  body += text(48, top + rowH * 4 + 22, 'Orange steps decide what you offer and say. Green steps take it to market.', { size: 18, fill: C.muted });
+  return frame('chainw', 'The whole job of marketing in eight steps, each mapped to its SOSTAC stage', 'The whole job', 'Eight steps, one chain', body, top + rowH * 4 + 56);
+}
+
+function marketWide() {
+  W = 1200;
+  const bands = [
+    ['Riders who buy helmets', 'The category exists. That alone proves nothing.', C.tealTint],
+    ['Badly served by what they wear now', 'A need the current choices miss.', C.goldTint],
+    ['Would switch at the price we need', 'Enough of them, at a margin that works.', C.orangeTint],
+  ];
+  const top = 160, L = 740, cx = 40 + L / 2;
+  let body = '';
+  bands.forEach(([label, note, fill], i) => {
+    const inset = i * 36, y = top + i * 104;
+    body += `<rect x="${40 + inset}" y="${y}" width="${L - inset * 2}" height="92" rx="14" fill="${fill}"/>`;
+    body += text(cx, y + 40, label, { size: 25, font: F.display, weight: 700, anchor: 'middle', upper: true });
+    body += text(cx, y + 72, note, { size: 19, fill: C.sub, anchor: 'middle' });
+  });
+  const y4 = top + 3 * 104;
+  body += `<rect x="${40 + 3 * 36}" y="${y4}" width="${L - 6 * 36}" height="72" rx="14" fill="${C.orange}"/>`;
+  body += text(cx, y4 + 46, 'The market you can win', { size: 26, font: F.display, weight: 700, fill: '#fff', anchor: 'middle', upper: true });
+  const rx = 40 + L + 48;
+  body += text(rx, top + 26, 'Instead of what?', { size: 16, font: F.mono, fill: C.orange, spacing: 2.5, upper: true });
+  body += para(rx, top + 64, 'The competition isn’t only other helmets. For a commuter it might be', W - rx - 48, { size: 20, fill: C.sub }).svg;
+  const alts = ['Their current helmet plus a clip-on light', 'Another brand’s helmet', 'Not riding after dark at all'];
+  let ay = top + 150;
+  alts.forEach((a) => {
+    body += `<circle cx="${rx + 8}" cy="${ay - 7}" r="5" fill="${C.orange}"/>`;
+    const b = para(rx + 26, ay, a, W - rx - 74, { size: 20 });
+    body += b.svg;
+    ay += b.height + 16;
+  });
+  return frame('marketw', 'Narrowing from everyone who buys helmets to the market a new helmet can win, and the alternatives it competes with', 'Step 1 · Product-market fit', 'Is there a market you can win?', body, y4 + 112);
+}
+
+function traceWide() {
+  W = 1200;
+  const rows = [
+    ['Commuters want drivers to see them on dark evenings', 'Visible from behind on an unlit road', 'Integrated rear light'],
+    ['Road riders overheat on long summer climbs', 'Stays cool on a long climb', 'Larger vents and internal channels'],
+    ['Long-distance riders find helmets uncomfortable by the end', 'Comfortable on a five-hour ride', 'Adjustable fit system'],
+  ];
+  const cols = [['Finding', C.goldTint], ['Requirement', C.tealTint], ['Feature', C.orangeTint]];
+  const gap = 48, x0 = 48, colW = Math.floor((W - 96 - gap * 2) / 3), top = 160;
+  let body = '';
+  cols.forEach(([h], j) => { body += text(x0 + j * (colW + gap), top, h, { size: 16, font: F.mono, fill: C.orange, spacing: 2.5, upper: true }); });
+  let y = top + 20;
+  rows.forEach((row) => {
+    const blocks = row.map((t) => wrap(t, 20, colW - 28));
+    const h = Math.max(...blocks.map((b) => b.length)) * 26 + 30;
+    row.forEach((t, j) => {
+      const x = x0 + j * (colW + gap);
+      body += `<rect x="${x}" y="${y}" width="${colW}" height="${h}" rx="12" fill="${cols[j][1]}"/>`;
+      body += blocks[j].map((l, k) => text(x + 14, y + 30 + k * 26, l, { size: 20 })).join('');
+      if (j < 2) body += `<line x1="${x + colW + 6}" y1="${y + h / 2}" x2="${x + colW + gap - 8}" y2="${y + h / 2}" stroke="${C.sub}" stroke-width="2.5" marker-end="url(#tracew-arrow)"/>`;
+    });
+    y += h + 16;
+  });
+  body += text(48, y + 26, 'Marketing writes the first two columns in the buyer’s words. Engineering chooses the third.', { size: 19, fill: C.sub });
+  return frame('tracew', 'Each research finding becomes a requirement in the buyer’s words, and each requirement becomes a feature', 'Steps 2 and 3 · Research to requirements', 'Every feature traces back', body, y + 60);
+}
+
+function hierarchyWide() {
+  W = 1200;
+  const top = 160, L = 740, cx = 40 + L / 2;
+  let body = '';
+  body += `<rect x="70" y="${top}" width="${L - 60}" height="88" rx="14" fill="${C.orange}"/>`;
+  body += text(cx, top + 30, 'Core message', { size: 15, font: F.mono, fill: '#FCE6DA', anchor: 'middle', spacing: 2.5, upper: true });
+  body += text(cx, top + 68, 'The helmet for riding all year', { size: 28, font: F.display, weight: 700, fill: '#fff', anchor: 'middle', upper: true });
+  const sup = [['Seen on dark evenings', 'Integrated rear light'], ['Cool on long climbs', 'Larger vents and channels'], ['Comfortable all day', 'Adjustable fit system']];
+  const bw = 228, gap = 18, x0 = 40 + (L - (bw * 3 + gap * 2)) / 2, y2 = top + 120, y3 = y2 + 136;
+  sup.forEach(([m, pr], i) => {
+    const x = x0 + i * (bw + gap);
+    body += `<line x1="${cx}" y1="${top + 88}" x2="${x + bw / 2}" y2="${y2}" stroke="${C.cardLine}" stroke-width="3"/>`;
+    body += `<rect x="${x}" y="${y2}" width="${bw}" height="104" rx="12" fill="${C.goldTint}"/>`;
+    body += text(x + bw / 2, y2 + 28, 'Supporting', { size: 14, font: F.mono, fill: '#8A5A12', anchor: 'middle', spacing: 2, upper: true });
+    body += wrap(m, 22, bw - 20, 0.62).map((l, k) => text(x + bw / 2, y2 + 58 + k * 26, l, { size: 22, font: F.display, weight: 700, anchor: 'middle', upper: true })).join('');
+    body += `<line x1="${x + bw / 2}" y1="${y2 + 104}" x2="${x + bw / 2}" y2="${y3}" stroke="${C.cardLine}" stroke-width="3"/>`;
+    body += `<rect x="${x}" y="${y3}" width="${bw}" height="84" rx="12" fill="${C.tealTint}"/>`;
+    body += text(x + bw / 2, y3 + 26, 'Proof', { size: 14, font: F.mono, fill: '#3F6B5E', anchor: 'middle', spacing: 2, upper: true });
+    body += wrap(pr, 19, bw - 24).map((l, k) => text(x + bw / 2, y3 + 54 + k * 24, l, { size: 19, anchor: 'middle' })).join('');
+  });
+  const rx = 40 + L + 48, rw = W - rx - 48;
+  body += text(rx, top + 26, 'How far each channel goes', { size: 16, font: F.mono, fill: C.orange, spacing: 2, upper: true });
+  const ch = [['Six-second video', 'Core message only', 0.25], ['Poster', 'Core message and one line', 0.45], ['Product page', 'The whole hierarchy', 1]];
+  ch.forEach(([name, note, f], i) => {
+    const y = top + 52 + i * 112;
+    body += text(rx, y + 22, name, { size: 22, weight: 600 });
+    body += `<rect x="${rx}" y="${y + 36}" width="${rw}" height="30" rx="8" fill="${C.panel}" stroke="${C.cardLine}"/>`;
+    body += `<rect x="${rx}" y="${y + 36}" width="${rw * f}" height="30" rx="8" fill="${f === 1 ? C.teal : C.orange}"/>`;
+    body += text(rx, y + 90, note, { size: 18, fill: C.sub });
+  });
+  return frame('hierarchyw', 'A communication hierarchy for the helmet, with one core message, three supporting messages and their proof, and how much of it each channel carries', 'Step 4 · Communication hierarchy', 'One message first, then the rest', body, Math.max(y3 + 124, top + 52 + 2 * 112 + 124));
+}
+
+function ladderWide() {
+  W = 1200;
+  const rungs = [
+    ['Emotional resonance', 'You get home, and nobody at home has to worry', C.orange, '#fff'],
+    ['Benefit', 'Drivers see you on dark evenings', C.gold, C.text],
+    ['Feature', 'Integrated rear light', C.teal, C.text],
+  ];
+  const top = 160, railL = 140, railR = 780, rungH = 136;
+  let body = '';
+  body += `<rect x="${railL - 14}" y="${top - 10}" width="14" height="${rungH * 3 + 4}" rx="7" fill="${C.cardLine}"/>`;
+  body += `<rect x="${railR}" y="${top - 10}" width="14" height="${rungH * 3 + 4}" rx="7" fill="${C.cardLine}"/>`;
+  rungs.forEach(([label, line, fill, ink], i) => {
+    const y = top + i * rungH;
+    body += `<rect x="${railL}" y="${y}" width="${railR - railL}" height="${rungH - 24}" rx="12" fill="${fill}"/>`;
+    body += text(railL + 22, y + 32, label, { size: 15, font: F.mono, fill: ink, spacing: 2.5, upper: true });
+    body += wrap(line, 25, railR - railL - 44, 0.62).map((l, k) => text(railL + 22, y + 64 + k * 28, l, { size: 25, font: F.display, weight: 700, fill: ink, upper: true })).join('');
+  });
+  body += `<line x1="76" y1="${top + rungH * 3 - 40}" x2="76" y2="${top + 14}" stroke="${C.sub}" stroke-width="3" marker-end="url(#ladderw-arrow)"/>`;
+  body += `<text transform="translate(56 ${top + rungH * 1.5}) rotate(-90)" font-family="${F.mono}" font-size="14" fill="${C.sub}" text-anchor="middle" letter-spacing="2">WHY DOES THAT MATTER?</text>`;
+  const rx = railR + 62, rw = W - rx - 48;
+  body += text(rx, top + 20, 'How to use it', { size: 16, font: F.mono, fill: C.orange, spacing: 2.5, upper: true });
+  const notes = ['Research climbs the ladder by asking why that matters to you.', 'Copy leads with the top rung, because that is what people remember.', 'The feature at the bottom proves it. A line you can’t climb down from doesn’t belong in the launch.'];
+  let ny = top + 62;
+  notes.forEach((n) => { const b = para(rx, ny, n, rw, { size: 20, fill: C.sub }); body += b.svg; ny += b.height + 18; });
+  return frame('ladderw', 'The benefits ladder for the helmet’s integrated rear light, from feature to benefit to emotional resonance', 'Step 5 · Benefits ladder', 'Climb from feature to feeling', body, top + rungH * 3 + 30);
+}
+
+function channelsWide() {
+  W = 1200;
+  const top = 160, cx = 270, cy = top + 200;
+  let body = '';
+  body += `<circle cx="${cx}" cy="${cy}" r="196" fill="${C.goldTint}"/>`;
+  body += `<circle cx="${cx}" cy="${cy}" r="132" fill="${C.tealTint}"/>`;
+  body += `<circle cx="${cx}" cy="${cy}" r="84" fill="${C.orange}"/>`;
+  body += text(cx, cy - 6, 'Owned', { size: 26, font: F.display, weight: 700, fill: '#fff', anchor: 'middle', upper: true });
+  body += text(cx, cy + 22, 'Website, email list', { size: 15, fill: '#fff', anchor: 'middle' });
+  body += text(cx, cy - 98, 'Paid · the catalyst', { size: 14, font: F.mono, fill: '#3F6B5E', anchor: 'middle', spacing: 1.5, upper: true });
+  body += text(cx, cy + 108, 'Search, social, outdoor', { size: 17, fill: C.text, anchor: 'middle' });
+  body += text(cx, cy - 162, 'Earned · the proof', { size: 14, font: F.mono, fill: '#8A5A12', anchor: 'middle', spacing: 1.5, upper: true });
+  body += text(cx, cy + 172, 'Reviews, press, riders', { size: 17, fill: C.text, anchor: 'middle' });
+  const tx = 530, tw = W - tx - 40;
+  body += text(tx, top + 40, 'The trigger sets the timing', { size: 16, font: F.mono, fill: C.orange, spacing: 2.5, upper: true });
+  const rows = [['A crash', 'Search', 'Any time'], ['A new bike', 'Bike shop fitting', 'Spring'], ['Clocks go back', 'Outdoor, video, email', 'Late October']];
+  const cols = [tx + 20, tx + 210, tx + 460];
+  ['Trigger', 'Where', 'When'].forEach((h, j) => { body += text(cols[j], top + 92, h, { size: 15, font: F.mono, fill: C.muted, spacing: 1.5, upper: true }); });
+  rows.forEach((row, i) => {
+    const y = top + 112 + i * 64;
+    body += `<rect x="${tx}" y="${y}" width="${tw}" height="52" rx="10" fill="${C.panel}" stroke="${C.cardLine}"/>`;
+    row.forEach((t, j) => { body += text(cols[j], y + 33, t, { size: 20, weight: j === 0 ? 600 : 400 }); });
+  });
+  body += para(tx, top + 340, 'Paid media sends the right riders to the website and email list. Reviews and press make them believe it.', tw, { size: 19, fill: C.sub }).svg;
+  return frame('channelsw', 'Owned media at the centre of the helmet launch, paid media as the catalyst and earned media as the proof, with the buying triggers that set the timing', 'Step 6 · Channels', 'Where and when to be seen', body, cy + 226);
+}
+
+function launchWide() {
+  W = 1200;
+  const layers = [
+    ['Strategy', 'Who we serve and why us', 'Year-round riders, the helmet for riding all year', C.orange, '#fff'],
+    ['Campaign', 'A time-bound push with its own objective', 'Winter launch, new customers by spring', C.gold, C.text],
+    ['Creative', 'The idea people see and hear', 'From the top rung, getting home on dark evenings', C.goldTint, C.text],
+    ['PR and reviews', 'Credibility you can’t buy', 'Trusted reviewers and riders, early', C.tealTint, C.text],
+    ['Execution', 'Delivery, on time and on brief', 'Photography, media, shop displays, emails', C.teal, C.text],
+  ];
+  const top = 160, rowH = 92;
+  let body = '';
+  layers.forEach(([name, what, helmet, fill, ink], i) => {
+    const y = top + i * rowH, inset = i * 16;
+    body += `<rect x="${40 + inset}" y="${y}" width="${W - 80 - inset * 2}" height="${rowH - 12}" rx="12" fill="${fill}"/>`;
+    body += text(64 + inset, y + 36, name, { size: 25, font: F.display, weight: 700, fill: ink, upper: true });
+    body += text(64 + inset, y + 62, what, { size: 16, fill: ink === '#fff' ? '#FCE6DA' : C.sub });
+    body += text(480, y + 48, helmet, { size: 21, fill: ink });
+  });
+  body += text(48, top + rowH * 5 + 22, 'Each layer serves the one above. When a result disappoints, check from the bottom up.', { size: 18, fill: C.muted });
+  return frame('launchw', 'Strategy, campaign, creative, PR and execution for the helmet launch, each serving the layer above', 'Step 7 · Campaign, creative and PR', 'The launch, layer by layer', body, top + rowH * 5 + 56);
+}
+
+function sostacWide() {
+  W = 1200;
+  const stages = [
+    ['S', 'Situation', 'Where are we now?', 'Product-market fit and the research findings'],
+    ['O', 'Objectives', 'Where do we want to be?', 'Sales or new customers from the launch, by a date'],
+    ['S', 'Strategy', 'How do we get there?', 'Year-round riders, the position, the hierarchy'],
+    ['T', 'Tactics', 'The details of strategy', 'Price, stockists, channel plan, campaign, PR'],
+    ['A', 'Action', 'The details of tactics', 'Launch calendar, owners, budgets, briefs'],
+    ['C', 'Control', 'How do we know we’re getting there?', 'Who is buying, message playback, sales, margin'],
+  ];
+  const top = 160, rowH = 84, x0 = 140;
+  let body = '';
+  stages.forEach(([letter, name, q, fill], i) => {
+    const y = top + i * rowH;
+    body += `<rect x="${x0}" y="${y}" width="${W - x0 - 40}" height="${rowH - 12}" rx="12" fill="${C.panel}" stroke="${C.cardLine}"/>`;
+    body += `<rect x="${x0}" y="${y}" width="60" height="${rowH - 12}" rx="12" fill="${i === 0 || i === 5 ? C.teal : C.orange}"/>`;
+    body += text(x0 + 30, y + 48, letter, { size: 32, font: F.display, weight: 700, fill: '#fff', anchor: 'middle' });
+    body += text(x0 + 80, y + 34, name, { size: 24, font: F.display, weight: 700, upper: true });
+    body += text(x0 + 80, y + 58, q, { size: 15, fill: C.muted });
+    body += text(x0 + 420, y + 44, fill, { size: 20 });
+  });
+  const yTop = top + (rowH - 12) / 2, yBot = top + 5 * rowH + (rowH - 12) / 2;
+  body += `<path d="M ${x0 - 6} ${yBot} C 56 ${yBot}, 56 ${yTop}, ${x0 - 10} ${yTop}" fill="none" stroke="${C.teal}" stroke-width="3.5" stroke-dasharray="8 7" marker-end="url(#sostacw-arrow)"/>`;
+  body += `<text transform="translate(62 ${(yTop + yBot) / 2}) rotate(-90)" font-family="${F.mono}" font-size="14" fill="#3F6B5E" text-anchor="middle" letter-spacing="2">CONTROL FEEDS THE NEXT SITUATION</text>`;
+  return frame('sostacw', 'SOSTAC filled in for the helmet launch, with Control feeding back into the next Situation analysis', 'Bringing it together · PR Smith’s SOSTAC', 'The plan is a loop', body, top + rowH * 6 + 24);
+}
+
+export const wide = { chain: chainWide, market: marketWide, trace: traceWide, hierarchy: hierarchyWide, ladder: ladderWide, channels: channelsWide, launch: launchWide, sostac: sostacWide };
