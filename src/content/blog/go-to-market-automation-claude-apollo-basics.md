@@ -3,6 +3,11 @@ title: "Go-to-market automation, a basics guide with Claude and Apollo"
 date: 2026-10-29
 tags: ["basics", "go-to-market", "ai"]
 description: "How a new SaaS company turns its positioning into pipeline with Claude, Apollo and landing pages built in GitHub, and which decisions stay with people."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/go-to-market-automation-claude-apollo-basics.mp3"
+  duration: 1972
+  bytes: 23666356
+  published: 2026-10-29
 faq:
   - question: "How do you use Claude with Apollo for outbound?"
     answer: "Apollo's official connector lets Claude search Apollo's B2B database, enrich contacts with Apollo credits, create and update contacts and add or remove them from sequences, all from a Claude conversation. Apollo launched it in beta on 24 February 2026 and it connects through OAuth. The useful pattern is to let Claude research and score a wide list against your ideal customer profile before anyone is added to a sequence."
