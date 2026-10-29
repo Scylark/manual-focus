@@ -133,6 +133,8 @@ Each step has work AI can take on, from summarising reviews in research, to draf
 
 Our view at Manual Focus is that AI makes this chain cheaper to run properly, so the research at the start and the measurement at the end, the steps teams used to skip, now deserve more attention. The order of the chain stays the same.
 
+The next guide in the series, [Go-to-market automation](/blog/go-to-market-automation-claude-apollo-basics/), picks up where this one stops and takes a plan to real buyers with Claude, Apollo and landing pages built in GitHub.
+
 ## Further reading
 
 - [SOSTAC explained](/blog/sostac-marketing-plan-basics/), for each stage of the plan

@@ -974,5 +974,13 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Go-to-market automation, a long-form Basics guide and episode taking a SaaS positioning to buyers with Claude, Apollo's Claude connector and landing pages built in GitHub, linked to What is marketing",
+    "primary_source": "https://www.apollo.io/newsroom/announcements/apollo-delivers-gtm-outbound-execution-to-claude",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "go-to-market-automation-claude-apollo-basics"
   }
 ]
