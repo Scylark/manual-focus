@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="description" content="The Rider Panel: market research run on 200 AI cyclists with real lives, real weather and real prices. A Manual Focus preview.">
+<meta name="description" content="The Rider Panel tests a product launch on 200 AI cyclists with real lives, real weather and real UK prices. See the first study and what it told a brand to do.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="color-scheme" content="dark light">
 <style>
@@ -143,7 +143,10 @@ table.wxt { border-collapse: collapse; font-size: 13px; width: 100%; min-width: 
 /* ---------- knowledge graph (hero) ---------- */
 .kg { position: relative; height: min(82vh, 820px); min-height: 520px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line);
   background: radial-gradient(120% 90% at 50% 45%, var(--bg-2) 0%, var(--bg) 70%); }
-.kg canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.kg canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
+.kg-nudge { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0; transition: opacity .3s; }
+.kg-nudge span { background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(6px); border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: 14px; color: var(--ink); }
+.kg-nudge.show { opacity: 1; }
 .kg canvas.dragging { cursor: grabbing; }
 .kg-top { position: absolute; left: 14px; right: 14px; top: 14px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: flex-start; pointer-events: none; }
 .kg-top > * { pointer-events: auto; }
@@ -272,7 +275,8 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
         <input class="kg-search" id="kg-search" type="search" placeholder="Find a rider" aria-label="Find a rider by name" list="kg-names"><datalist id="kg-names"></datalist></div>
       <div class="kg-tip" id="kg-tip"></div>
       <div class="kg-card" id="kg-card" hidden></div>
-      <div class="kg-hint">Scroll to zoom · drag to move</div>
+      <div class="kg-hint" id="kg-hint">Pinch or ⌘ + scroll to zoom · drag to move · double-click to zoom in</div>
+      <div class="kg-nudge" id="kg-nudge"><span id="kg-nudge-t">Use ⌘ + scroll or pinch to zoom the graph</span></div>
       <div class="kg-zoom"><button type="button" id="kg-in" aria-label="Zoom in">+</button><button type="button" id="kg-out" aria-label="Zoom out">−</button><button type="button" id="kg-fit" aria-label="Reset view">⤢</button></div>
     </div>
     <div style="display:grid;gap:12px;margin-top:8px">
@@ -699,7 +703,7 @@ document.getElementById("obj-h2").textContent = `Why ${DATA.rej} riders who shor
   function size() { const b = box.getBoundingClientRect(); dpr = Math.min(window.devicePixelRatio || 1, 2); W = b.width; H = b.height; canvas.width = W * dpr; canvas.height = H * dpr; dirty = true; }
   const nbrs = n => { const s = new Set([n]); VL.forEach(l => { if (l.source === n) s.add(l.target); else if (l.target === n) s.add(l.source); }); return s; };
   let NB = null;
-  const sx = n => W / 2 + t.x + n.x * t.k, sy = n => H / 2 + t.y + n.y * t.k;
+  const sx = n => t.x + n.x * t.k, sy = n => t.y + n.y * t.k;
 
   function draw() {
     // ease node alphas towards their targets so focus changes fade
@@ -729,7 +733,7 @@ document.getElementById("obj-h2").textContent = `Why ${DATA.rej} riders who shor
     });
     // labels in screen space
     ctx.textAlign = "center"; ctx.textBaseline = "top";
-    const focus = sel || hover, showRiders = t.k > 1.9 || (focus && focus.cat === "rider") || (focus && focus.cat !== "rider" && focus.deg <= 40);
+    const focus = sel || hover, showRiders = t.k > 3.2 || (focus && focus.cat === "rider") || (focus && focus.cat !== "rider" && focus.deg <= 40);
     nodes.forEach(n => {
       if (n.a < 0.3 || n.x == null) return;
       if (n.cat === "rider" && !(showRiders && (!NB || NB.has(n)) || n === focus)) return;
@@ -745,19 +749,42 @@ document.getElementById("obj-h2").textContent = `Why ${DATA.rej} riders who shor
   }
   (function loop() { if (dirty) { dirty = false; if (draw()) dirty = true; } requestAnimationFrame(loop); })();
 
-  const world = (px, py) => [(px - W / 2 - t.x) / t.k, (py - H / 2 - t.y) / t.k];
+  const world = (px, py) => [(px - t.x) / t.k, (py - t.y) / t.k];
   const pick = (px, py) => { const [x, y] = world(px, py); let best = null, bd = Infinity;
     nodes.forEach(n => { if (!vis(n) || n.x == null) return; const d = Math.hypot(n.x - x, n.y - y), hit = (rad(n) * Math.max(0.6, Math.min(t.k, 2.4)) + 5) / t.k; if (d < hit && d < bd) { bd = d; best = n; } }); return best; };
   const setFocus = () => { const f = sel || hover; NB = f ? nbrs(f) : null; dirty = true; };
 
+  // Zoom like a map: plain scrolling keeps scrolling the page. Pinch, Ctrl/Cmd + scroll,
+  // or scrolling after clicking into the graph zooms it, in small smooth steps.
+  const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  const nudge = document.getElementById("kg-nudge");
+  document.getElementById("kg-nudge-t").textContent = `Use ${isMac ? "⌘" : "Ctrl"} + scroll or pinch to zoom the graph`;
+  document.getElementById("kg-hint").textContent = `Pinch or ${isMac ? "⌘" : "Ctrl"} + scroll to zoom · drag to move · double-click to zoom in`;
+  let active = false, nudgeT;
+  const showNudge = () => { nudge.classList.add("show"); clearTimeout(nudgeT); nudgeT = setTimeout(() => nudge.classList.remove("show"), 1100); };
+  canvas.addEventListener("pointerdown", () => { active = true; });
+  canvas.addEventListener("pointerleave", () => { active = false; });
+  canvas.addEventListener("wheel", e => { if (!(e.ctrlKey || e.metaKey || active)) showNudge(); }, { passive: true });
   const zoom = d3.zoom().scaleExtent([0.35, 8])
-    .filter(e => { if (e.type === "wheel") return true; if (e.button) return false; const p = e.touches ? e.touches[0] : e; if (!p) return true; const b = canvas.getBoundingClientRect(); return !pick(p.clientX - b.left, p.clientY - b.top); })
+    .wheelDelta(e => -e.deltaY * (e.deltaMode === 1 ? 0.04 : e.deltaMode ? 0.8 : 0.0018) * (e.ctrlKey ? 5 : 1))
+    .filter(e => {
+      if (e.type === "wheel") return e.ctrlKey || e.metaKey || active;
+      if (e.type === "dblclick") return false;
+      if (e.button) return false;
+      if (e.touches) { if (e.touches.length < 2 && !active) return false; }
+      const p = e.touches ? e.touches[0] : e; if (!p) return true;
+      const b = canvas.getBoundingClientRect(); return !pick(p.clientX - b.left, p.clientY - b.top);
+    })
     .on("zoom", e => { t = e.transform; dirty = true; });
   const z = d3.select(canvas).call(zoom).on("dblclick.zoom", null);
+  canvas.addEventListener("dblclick", e => {
+    const b = canvas.getBoundingClientRect(), px = e.clientX - b.left, py = e.clientY - b.top;
+    z.transition().duration(reduce ? 0 : 450).ease(d3.easeCubicOut).call(zoom.scaleBy, 1.8, [px, py]);
+  });
   const fit = (ms) => { const ns = nodes.filter(n => vis(n) && n.x != null); if (!ns.length) return;
     const xs = ns.map(n => n.x), ys = ns.map(n => n.y), bw = Math.max(...xs) - Math.min(...xs) + 80, bh = Math.max(...ys) - Math.min(...ys) + 80;
     const k = Math.min(W / bw, (H - 60) / bh, 1.6), cx = (Math.max(...xs) + Math.min(...xs)) / 2, cy = (Math.max(...ys) + Math.min(...ys)) / 2;
-    z.transition().duration(reduce ? 0 : ms).call(zoom.transform, d3.zoomIdentity.translate(-cx * k, -cy * k + 14).scale(k)); };
+    z.transition().duration(reduce ? 0 : ms).call(zoom.transform, d3.zoomIdentity.translate(W / 2 - cx * k, H / 2 - cy * k + 14).scale(k)); };
 
   let drag = null, moved = false;
   canvas.addEventListener("pointermove", e => {
@@ -792,7 +819,7 @@ document.getElementById("obj-h2").textContent = `Why ${DATA.rej} riders who shor
     card.querySelectorAll("[data-node]").forEach(b => b.addEventListener("click", () => { const m = nodes.find(x => x.id === b.dataset.node); if (m && vis(m)) { centre(m); select(m); } }));
     const sb = card.querySelector("[data-story]"); if (sb) sb.addEventListener("click", () => openRider(sb.dataset.story));
   }
-  const centre = n => z.transition().duration(reduce ? 0 : 600).call(zoom.transform, d3.zoomIdentity.translate(-n.x * 1.9, -n.y * 1.9).scale(1.9));
+  const centre = n => z.transition().duration(reduce ? 0 : 600).call(zoom.transform, d3.zoomIdentity.translate(W / 2 - n.x * 1.9, H / 2 - n.y * 1.9).scale(1.9));
 
   const chips = document.getElementById("kg-chips");
   chips.innerHTML = CATS.map(([k, l, v]) => `<button type="button" class="kg-chip" data-cat="${k}" aria-pressed="${on[k]}" style="color:var(${v})"><i style="background:var(${v})"></i><span style="color:var(--ink)">${l}</span></button>`).join("");
@@ -803,8 +830,8 @@ document.getElementById("obj-h2").textContent = `Why ${DATA.rej} riders who shor
   document.getElementById("kg-names").innerHTML = R.map(r => `<option value="${esc(r.name)}">`).join("");
   document.getElementById("kg-search").addEventListener("change", e => { const q = e.target.value.trim().toLowerCase(); if (!q) return;
     const n = nodes.find(x => x.cat === "rider" && x.label.toLowerCase() === q) || nodes.find(x => x.cat === "rider" && x.label.toLowerCase().includes(q)); if (n) { centre(n); select(n); } });
-  document.getElementById("kg-in").addEventListener("click", () => z.transition().duration(250).call(zoom.scaleBy, 1.4));
-  document.getElementById("kg-out").addEventListener("click", () => z.transition().duration(250).call(zoom.scaleBy, 1 / 1.4));
+  document.getElementById("kg-in").addEventListener("click", () => z.transition().duration(reduce ? 0 : 350).ease(d3.easeCubicOut).call(zoom.scaleBy, 1.5, [W / 2, H / 2]));
+  document.getElementById("kg-out").addEventListener("click", () => z.transition().duration(reduce ? 0 : 350).ease(d3.easeCubicOut).call(zoom.scaleBy, 1 / 1.5, [W / 2, H / 2]));
   document.getElementById("kg-fit").addEventListener("click", () => { clear(); fit(500); });
   new ResizeObserver(() => { size(); }).observe(box);
   size(); layout(1); fit(0);
