@@ -197,7 +197,7 @@ a heading when it is the question a reader would type into ChatGPT.
   before you write. Link every primary source inline too.
 - **A `## Further reading` list** at the end with 3 to 5 related Manual
   Focus posts or playbooks, each with a few words on why it's worth
-  reading. Then one plain sentence pointing to `/services/` or `/enquire/`
+  reading. Then one plain sentence pointing to `/services/` or `/contact/`
   for readers who want help. No hard sell.
 
 Target 900 to 1,400 words of body.

@@ -32,7 +32,7 @@ export async function GET(context: APIContext) {
     `- [Light Meter](${site}/light-meter/): AI visibility studies that show which brands AI recommends`,
     `- [About](${site}/about/): James Vickers and the Foundry collective`,
     `- [FAQ](${site}/faq/): how engagements work`,
-    `- [Book a free working session](${site}/enquire/)`,
+    `- [Book a free working session](${site}/contact/)`,
     '',
     '## The Lens (free AI marketing playbooks)',
     '',

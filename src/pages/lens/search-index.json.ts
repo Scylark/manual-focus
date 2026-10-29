@@ -50,7 +50,7 @@ export const GET: APIRoute = async () => {
     { title: 'Services', desc: 'How Manual Focus works with brands.', url: '/services/' },
     { title: 'About', desc: 'Who is behind Manual Focus.', url: '/about/' },
     { title: 'Blog', desc: 'Perspective on AI-era marketing.', url: '/blog/' },
-    { title: 'Enquire', desc: 'Book a working session.', url: '/enquire/' },
+    { title: 'Enquire', desc: 'Book a working session.', url: '/contact/' },
   ].map((p) => ({ type: 'page', stack: 'Page', meta: '', ...p }));
 
   const index = [...playbookEntries, ...skillEntries, ...pageEntries];

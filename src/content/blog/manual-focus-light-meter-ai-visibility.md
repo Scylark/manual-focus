@@ -39,7 +39,7 @@ sources:
 
 On 19 October 2026 Manual Focus launched Manual Focus Light Meter, the instrument behind its AI Shortlist research. It asks six AI engines the questions UK buyers ask and measures which brands they name, with a 95% range, and which sites they cite. Asked one question three times, an engine named the same brands only 20% of the time.
 
-[See what Light Meter measures](/light-meter/), open the [indoor cycling report](/reports/ai-shortlist-indoor-cycling/), or, if your brand is in that study, [request your free AI Shortlist card](/enquire/?offer=ai-shortlist-card).
+[See what Light Meter measures](/light-meter/), open the [indoor cycling report](/reports/ai-shortlist-indoor-cycling/), or, if your brand is in that study, [request your free AI Shortlist card](/contact/?offer=ai-shortlist-card).
 
 ## Key takeaways
 
@@ -113,7 +113,7 @@ For most brands in that category the job is earned media, getting into the buyer
 | Brand Snapshot | Your brand against up to five competitors on the questions that matter to you, with source gaps and a short list of actions | On application |
 | Fix programme | We measure, work on the pages and publications that decide your category, then measure again to show what moved | On application |
 
-Brands in the indoor cycling study can [request their free card now](/enquire/?offer=ai-shortlist-card). The next published edition covers trail running kit, shoes, waterproof jackets, hydration packs and races, in January 2027. The [Light Meter page](/light-meter/) lists the other categories we can build to order.
+Brands in the indoor cycling study can [request their free card now](/contact/?offer=ai-shortlist-card). The next published edition covers trail running kit, shoes, waterproof jackets, hydration packs and races, in January 2027. The [Light Meter page](/light-meter/) lists the other categories we can build to order.
 
 ## Where should a brand team start?
 
@@ -136,4 +136,4 @@ Disclosure. James Vickers has worked with Wahoo and Wattbike, was on the foundin
 - [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/), the search groundwork behind AI visibility.
 - [Category entry points](/lens/demand/category-entry-points/), for mapping the buying moments in your own market.
 
-If you'd like Light Meter run on your category, [tell us what you sell](/enquire/?offer=ai-shortlist-audit).
+If you'd like Light Meter run on your category, [tell us what you sell](/contact/?offer=ai-shortlist-audit).

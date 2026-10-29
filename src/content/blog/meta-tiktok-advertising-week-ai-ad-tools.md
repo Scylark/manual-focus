@@ -134,4 +134,4 @@ Neither company gave a UK date for in-app checkout, Shopping Assistant or the as
 - [Paid-search bidding agent](/lens/demand/paid-search-bidding-agent/), a Lens playbook with bidding guardrails
 - [Lightspeed's AI shopping study](/blog/ai-shopping-assistants-favour-big-retailers/), on why assistants favour big retailers
 
-If you want help setting rules for AI agents in your ad accounts, [get in touch](/enquire/).
+If you want help setting rules for AI agents in your ad accounts, [get in touch](/contact/).
