@@ -49,6 +49,10 @@ and finally a SOSTAC plan to run and measure it. They finish on where AI fits at
 the mistakes that most often break the chain. The helmet and its findings are
 an illustration, not a real launch.
 
+The next long Basics episode, Go-to-market automation, picks up where this one
+stops and takes a finished plan to real buyers with Claude, Apollo and landing
+pages built in GitHub.
+
 ## Get AI on this
 
 **1. Turn your research into findings.** Attach your review exports, a set of

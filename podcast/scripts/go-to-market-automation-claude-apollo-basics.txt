@@ -1,0 +1,367 @@
+JAMES: A plan that never reaches a buyer is a document. And the question that keeps coming up now isn't what marketing is, it's how a small team gets a good plan in front of the right people without hiring a room full of salespeople. I'm James Vickers, this is Manual Focus, and this is another long Basics episode, the second half of a story we started last time.
+
+HANNAH: Hi James. And this time we're not launching a helmet.
+
+JAMES: No. In the last long episode, What is marketing, we followed a hypothetical cycling helmet from the first question, is there a market, all the way to a SOSTAC plan. Today we take a plan like that and do the part that comes next, getting it to real buyers, using AI, a prospecting database and landing pages built in GitHub.
+
+HANNAH: So Claude, Apollo and GitHub, specifically.
+
+JAMES: Those three, because they're the tools people ask about. But the method works with others, and we'll say where it depends on the tool. Here's the route. First, a recap of where the helmet left us. Then a new worked example, a software launch. Then strategy against tactics, because that's where most new companies go wrong. Then the eight steps, from the ideal customer to the measurement. Then the rules, the jobs to hand to AI, and the mistakes.
+
+HANNAH: That's a lot of ground.
+
+JAMES: It is, so we'll keep signposting. Start with the recap.
+
+HANNAH: So the helmet episode ended with three things. A position, which was who the helmet is for and why it wins, riders who ride all year. A communication hierarchy, one core message at the top, the helmet for riding all year, with supporting messages and proof underneath. And a benefits ladder, which climbs each message from the feature, to the practical benefit, to the emotional reason it matters.
+
+JAMES: And all of that sat inside SOSTAC, PR Smith's planning model. Situation, objectives, strategy, tactics, action and control.
+
+HANNAH: Right. And the point we ended on was that the order of the chain doesn't change because of AI. AI makes each step cheaper to run properly.
+
+JAMES: Which is the bridge to today. Because the steps that got cheapest in the last year or so are the ones in the middle of this episode. Building a list, researching every account on it, writing to each segment, and building a page for each one. Those used to take a team weeks. So, the new example.
+
+HANNAH: Go on then. What are we launching?
+
+JAMES: A hypothetical British software start-up. It sells project-profitability software to architecture practices, practices of roughly twenty to two hundred staff. It's software as a service, so a subscription, sold to the business, not to consumers. Nothing about it is real, and we'll give it no numbers we haven't got.
+
+HANNAH: Why architecture practices?
+
+JAMES: Because they're a clear, findable market. You can describe them precisely, by industry, size and location, which matters when we get to the database. And because the problem is easy to picture. Say the start-up's research found that practice directors can't see which projects are losing money until the year-end accounts come in.
+
+HANNAH: By which point it's too late to do anything about it.
+
+JAMES: Exactly. So the core message is, know which projects pay, while you can still change them. And the supporting messages are live project margins, timesheets people actually fill in, and fee proposals priced from real data.
+
+HANNAH: So it's the helmet's hierarchy, in a different market.
+
+JAMES: Same tool, same shape. Core message at the top, three supporting messages, proof under each. And that's the thing I want listeners to hold on to. Everything we do in the next half hour delivers that plan. None of it replaces it.
+
+HANNAH: Then let's do strategy against tactics, because I think that's where this goes wrong first.
+
+JAMES: It is. In a new software company, the tools are exciting and the strategy is hard. So people buy the tools first. They'll set up the database, connect the AI and build a sending sequence, before they've agreed who they're for.
+
+HANNAH: So how do you tell them apart?
+
+JAMES: In SOSTAC terms, strategy is who you serve and how you win. Tactics are the tools that carry the strategy. So which practices are the ideal customer is strategy. What the product is positioned against is strategy. The core message is strategy. Which accounts fit best, the email copy, the landing pages, the timing of the follow-ups, those are tactics.
+
+HANNAH: And the article has that as a table, with who owns each one.
+
+JAMES: It does. The strategy rows belong to the founders and the marketing lead. The tactics rows are where AI and software come in, always with a person approving.
+
+HANNAH: There's a book worth naming here, I think. April Dunford's Obviously Awesome. It's a positioning book that a lot of software founders read, and it breaks positioning into five component pieces.
+
+JAMES: And it's worth reading before you build a list, not after. Because if the position is vague, automation just sends a vague message to more people, faster.
+
+HANNAH: [dryly] Which is efficiency, technically.
+
+JAMES: [dryly] Technically. Before the steps, though, one more thing about strategy that's particular to new software companies.
+
+HANNAH: Go on.
+
+JAMES: In a young SaaS company, the position is usually a hypothesis. You think practice directors on fixed fees feel this pain most, but you don't know yet. So early outbound isn't only a growth tactic. It's also research.
+
+HANNAH: Because every reply, and every silence, tells you something about the position.
+
+JAMES: Exactly. If the practices opening second offices reply and the fast-hiring ones don't, that's a finding. It goes back into the situation, and maybe the hierarchy changes. Which is why I'd want the founders close to it at the start, reading the replies themselves.
+
+HANNAH: So the tactic feeds the strategy.
+
+JAMES: In a new company it has to. Later on, once the position is proven, you scale the tactic. Early on, you use it to find out what's true. And that's where automation can mislead you, because it makes scaling so easy that people scale before they've learned anything.
+
+HANNAH: There's a version of that in emerging categories too, I think. If you're in a category buyers don't have a name for yet, the first job of outreach is explaining the problem, not the product.
+
+JAMES: That's a good point. If a practice director has never heard of project-profitability software, an email about features goes nowhere. An email about finding out about a bad project in the year-end accounts might. You lead with the pain they already recognise, which is the top of the benefits ladder, and the product comes second.
+
+HANNAH: So the newer the category, the higher up the ladder you start.
+
+JAMES: That's a nice way to put it. So that's strategy. Now the eight steps. Step one is the ideal customer profile, and it's the one step that stays entirely with people.
+
+HANNAH: Define it for anyone who hasn't come across the term.
+
+JAMES: An ideal customer profile is a description of the company you're best placed to win and keep. Not a person, a company. Its industry, its size, where it is, how it works, and what's going on inside it that makes your product matter now.
+
+HANNAH: And for our start-up?
+
+JAMES: UK architecture practices in the size band. Then the things the research pointed to. Practices that work on fixed or staged fees, where an overrunning project eats the margin. Practices that are growing, because that's when spreadsheets stop coping. And then a reason to act now, which we'll come back to.
+
+HANNAH: So the profile is written from the research findings, the same way the helmet's requirements were.
+
+JAMES: Same discipline. Every line of the profile should trace back to something the research found. If it doesn't, it's a guess. And this is the part I'd never hand to AI. AI can help you test the profile, it can tell you how many companies match it, but it shouldn't decide who you're for.
+
+HANNAH: Step two, then. The wide list.
+
+JAMES: And this is where Apollo comes in. Explain what Apollo is, because not everyone in marketing will have used it.
+
+HANNAH: Apollo is a business-to-business sales platform with a large prospecting database. Apollo says it holds two hundred and forty million contacts and thirty million companies. You search it for companies and the people who work at them, then build lists, enrich the records with contact details and run email sequences from it.
+
+JAMES: And the Claude part?
+
+HANNAH: On the twenty-fourth of February this year Apollo launched a native connector for Claude, in beta. It uses something called MCP, the Model Context Protocol, which is an open standard for connecting AI assistants to other tools. Once it's connected, you can search Apollo in plain language from a Claude conversation, pull company details, enrich contacts, create and update records, and add people to sequences or take them out.
+
+JAMES: So instead of clicking through filters, you describe the market.
+
+HANNAH: Yes. Apollo's own phrasing is that you describe your target audience and it finds the contacts and companies, then drops them into lists. For our start-up, that's every UK architecture practice in the size band, with the practice director, the finance lead and the operations manager at each.
+
+JAMES: And you start wide on purpose.
+
+HANNAH: Why on purpose?
+
+JAMES: Because the wide list is raw material, not a target list. You want everyone who could plausibly fit, so the research in the next step has something to sort. The mistake is treating the wide list as the send list.
+
+HANNAH: Two details from Apollo's documentation matter here, I think. First, a people search doesn't return email addresses or phone numbers. Getting those is a separate step called enrichment, and enrichment uses credits, which come with your Apollo plan.
+
+JAMES: So the wide list is cheap and the contact details aren't.
+
+HANNAH: That's the shape of it. And second, Apollo itself recommends that you require approval for any action that spends credits. So the AI asks before it spends.
+
+JAMES: [thoughtfully] Which is good practice for any connected tool, not just this one. If an assistant can spend money or send messages, a person approves it.
+
+HANNAH: There's one more thing in their docs that's easy to miss. Free accounts registered with a personal email address can't use the people and company search through the connector. Paid accounts aren't affected. And the docs say to turn off model training in your AI account settings before you connect.
+
+JAMES: Good. So that's step two. Step three is the one I'd call the heart of the method. AI research.
+
+HANNAH: And the one most teams skip.
+
+JAMES: Most teams skip it because it used to be impossible at scale. If you had a list of several hundred practices, nobody was going to read every website, every news story and every job advert. So people emailed the whole list and hoped.
+
+HANNAH: And now?
+
+JAMES: Now you give Claude the ideal customer profile and ask it to research each account against it. The practice's own website, the projects it shows, its job postings, its news. And for each one, it gives back a fit score.
+
+HANNAH: I'd add one condition, and it's the most important thing in this step. The score has to come with the evidence behind it. A link to each source, and a note of anything it couldn't check.
+
+JAMES: Why does that matter so much?
+
+HANNAH: Because a score without evidence can't be audited. If the AI says a practice is a nine out of ten, you need to see why, so you can tell whether it read the right page or misread a project list. With the evidence attached, a person can check the top of the list in minutes.
+
+JAMES: And the reason to act now, the trigger, comes in here.
+
+HANNAH: Yes. Apollo's docs list job postings among the things the connector can retrieve. So a practice that's hiring project architects shows up as growing, and growth is exactly when the spreadsheets stop coping. A new office is another trigger. So is a big project win in the news.
+
+JAMES: So it's the helmet's purchase triggers again. The crash, the new bike, the clocks going back.
+
+HANNAH: Same idea, in a different market. A trigger is the moment the problem stops being tolerable.
+
+JAMES: Can I ask the awkward question about AI research, though?
+
+HANNAH: Go on.
+
+JAMES: How much do you trust it?
+
+HANNAH: About as much as you'd trust a fast, well-read junior researcher on their first week. It's good at reading a lot and summarising. But it can only read what's public. A small practice with a thin website and no news looks like a poor fit, when it might be a perfect one. And it can misread things, so a practice that lists projects from ten years ago can look busier than it is.
+
+JAMES: So the research ranks the list, and a person still reads it.
+
+HANNAH: Which raises the obvious question. How long should the shortlist be?
+
+JAMES: Short enough that a person can read every account on it before anything goes out. That's the only rule I'd give. If the list is too long to read, it's too long to send to, because you're trusting the AI with decisions you haven't checked.
+
+HANNAH: And where does the list live while all this is going on? Because it's easy to end up with a spreadsheet in one place, notes in a chat and contacts somewhere else.
+
+JAMES: That's a real risk. What does Apollo say?
+
+HANNAH: Apollo's announcement says the actions taken through the connector are recorded in Apollo, which it calls the system of record. So the contacts, the lists and the sequences all stay in one place, even when the work happens in a Claude conversation. The research notes are the bit you'd need to decide where to keep.
+
+JAMES: I'd keep them next to the account, wherever the team will actually look. The research is only useful if the person writing the email, or taking the call, can see why the account was chosen.
+
+HANNAH: So the evidence travels with the contact.
+
+JAMES: It has to. Otherwise you've done all that research and the salesperson opens the call with "so, tell me about your business".
+
+HANNAH: Which brings us to step four, the shortlist.
+
+JAMES: Step four is where the funnel narrows. Every practice in the size band at the top. Then the ones that fit the profile on the evidence. Then the ones showing a reason to act now. And at the bottom, the shortlist a person approves.
+
+HANNAH: And the article has that as a diagram, with what the research should record for each account. The score with its evidence, the trigger with a link, and which supporting message suits the account.
+
+JAMES: That last one is the link to step five, the messages.
+
+HANNAH: Which come from the hierarchy.
+
+JAMES: They do, and this is the point where the two episodes really join up. In the helmet episode, every channel led with the core message and went as far down the hierarchy as it had room for. Outreach works the same way. Except now each segment leads with the supporting message its trigger points to.
+
+HANNAH: Give me an example.
+
+JAMES: A practice that's just opened a second office hears about live margins across sites, because that's the pain of running two studios on one spreadsheet. A practice that's hiring fast hears about timesheets people actually fill in, because new staff are where timesheets fall apart. Same core message underneath, a different way in.
+
+HANNAH: And the benefits ladder?
+
+JAMES: Each email climbs it. The feature is live project margins. The benefit is you see an overrun while you can still fix it. And the emotional reason is something like, you stop finding out about a bad year in the accounts.
+
+HANNAH: And Claude drafts these?
+
+JAMES: Claude drafts each version from the hierarchy and the research notes, and a person approves the set. That's the important bit. AI writing from your hierarchy sounds like your company. AI writing from a blank page sounds like everyone else's outreach.
+
+HANNAH: There's a guardrail point here, too. Keep the claims to what the product can prove.
+
+JAMES: We've got a playbook on that, brand guardrails as code, and it applies to outreach as much as to ads. If you write down the claims you can make and the ones you can't, the AI can check its drafts against them.
+
+HANNAH: So that's the messages. Step six is the part I think people are most curious about. The landing pages.
+
+JAMES: It is, and it's the one that's changed most. Start with why they matter.
+
+HANNAH: Because a cold email that sends everyone to the home page wastes all the research. The reader was told something specific, live margins across sites, say, and then lands on a page about everything the product does. A landing page per segment repeats the message they were sent, shows the proof for it, and gives them one next step.
+
+JAMES: And the reason nobody did it before is that building pages was slow.
+
+HANNAH: A small team couldn't build a page for every segment and keep them up to date. That's what Claude Code changes. Claude Code is Anthropic's coding tool. It reads a codebase, edits files, runs commands, and it can open pull requests, which are proposed changes a person reviews before they go live.
+
+JAMES: So walk through how it works for the start-up.
+
+HANNAH: You keep one page template in a GitHub repository. GitHub is where software teams store and manage code. Then for each segment you give Claude Code the message, the proof and the call to action. It builds the page from the template and opens a pull request. Someone on the team looks at the page, asks for changes if they need them, and merges it.
+
+JAMES: And merging publishes it.
+
+HANNAH: Depending on how it's hosted, yes. And that's the part I want to be careful about.
+
+JAMES: [calmly] Go on, because I think this is the bit people skip.
+
+HANNAH: GitHub has a hosting service called GitHub Pages. It hosts static sites, and it supports your own domain. GitHub's docs give the limits. A site can be no larger than one gigabyte, and there's a soft bandwidth limit of a hundred gigabytes a month. But the same page also says Pages isn't intended or allowed to be used as free hosting to run an online business, an e-commerce site, or a site providing commercial software as a service.
+
+JAMES: Which is exactly what our start-up is.
+
+HANNAH: So a campaign page for a SaaS product sits close to that line. The safer set-up keeps the repository and the Claude Code workflow in GitHub, which is where the speed comes from, and publishes through a static host whose terms cover commercial sites.
+
+JAMES: So the method stays the same and only the last link in the chain changes.
+
+HANNAH: Right. Template, pull request, review, merge. Where it's published is a separate decision, and it's worth reading the terms before you make it.
+
+JAMES: Now, before step seven, the sending, we have to do the rules. Because the sending is where you can get into trouble.
+
+HANNAH: This is the UK part, and it matters. There are two sets of rules. PECR, the Privacy and Electronic Communications Regulations, which cover electronic marketing. And UK GDPR, which covers personal data.
+
+JAMES: Start with PECR.
+
+HANNAH: The ICO's guidance on business-to-business marketing says the PECR rule on email marketing doesn't apply to corporate subscribers. Those are companies with their own legal identity, like limited companies and limited liability partnerships. So emailing them doesn't need prior consent under PECR.
+
+JAMES: But.
+
+HANNAH: But sole traders and some partnerships are treated as individuals. And for them, email marketing generally needs consent.
+
+JAMES: Which matters a lot for architecture practices.
+
+HANNAH: Because a practice can trade as a partnership. So the start-up would check each account's legal form before emailing it, and the obvious place to do that is in the research step. It's one more line on the AI's checklist.
+
+JAMES: And UK GDPR?
+
+HANNAH: The ICO is clear that a named work address, a person's name at a company, is still personal data. So UK GDPR applies. Legitimate interests is usually the lawful basis for this kind of marketing, but you still have to do the assessment. You have to give people privacy information, and if the data came from somewhere else, like a database, within a reasonable period and no later than a month. And if someone objects to direct marketing, that's absolute. You stop.
+
+JAMES: And the stakes went up this year.
+
+HANNAH: They did. The Data Use and Access Act changed the ICO's powers. Its statement on the fifth of February this year confirmed it can now fine up to seventeen and a half million pounds, or four per cent of global turnover, for breaches of PECR. And the ICO says its business-to-business guidance is under review because of the Act, so it's worth checking for updates.
+
+JAMES: [thoughtfully] So none of this stops you doing outbound. It just means you do it properly, to fewer people, with an opt-out in every message.
+
+HANNAH: And there's a second set of rules that isn't law but behaves like it. The inbox providers.
+
+JAMES: Google.
+
+HANNAH: Google's email sender guidelines require every sender to set up email authentication for their sending domain, SPF or DKIM. Those are records that prove the email really came from you. And they ask all senders to keep the spam rate their users report below nought point three per cent. Bulk senders, over five thousand messages a day, have stricter rules, including one-click unsubscribe.
+
+JAMES: And Apollo helps with that?
+
+HANNAH: Apollo's docs list checks for SPF, DKIM and DMARC among the connector's tools, so you can ask Claude to check your sending domain is set up before anything goes out.
+
+JAMES: Good. So, step seven. The sequences.
+
+HANNAH: A sequence is a planned series of emails and tasks, sent over days or weeks, that stops when someone replies.
+
+JAMES: And the connector can build them?
+
+HANNAH: Apollo's docs say it can create and refine sequences, write email content for each contact, enrol contacts or remove them, and find the mailboxes you send from. So in principle you can go from shortlist to live sequence inside one conversation.
+
+JAMES: In principle.
+
+HANNAH: In practice, I'd want a person to approve the sequence before anyone's enrolled. Apollo's own announcement says actions follow your plan limits and user permissions, and it doesn't support destructive bulk operations like bulk delete. Which tells you they've thought about an AI doing something large by mistake.
+
+JAMES: And I'd add a practitioner's point on sequences. Fewer touches, each one with a reason. If your third email is "just following up", you've run out of things to say, and the reader can tell. Each follow-up should bring a different supporting message or a different piece of proof.
+
+HANNAH: Which is the hierarchy again.
+
+JAMES: Everything comes back to the hierarchy. That's rather the point of the series. So that's step seven. Step eight is measurement, and it's where this whole method pays back.
+
+HANNAH: Why there especially?
+
+JAMES: Because every segment had its own message and its own page. So when replies come in, and when people visit the pages, you can see which part of the hierarchy landed. Did practices opening second offices respond to live margins? Did the fast-hiring ones respond to timesheets? You learn something about your market from every send.
+
+HANNAH: Whereas one generic email to everyone teaches you almost nothing.
+
+JAMES: It teaches you your open rate. And this is where SOSTAC comes back in. Control feeds the next situation. Which segment replied, and to which message, becomes the starting point for the next round of research.
+
+HANNAH: So let's put the whole thing into SOSTAC, the way we did for the helmet.
+
+JAMES: Go on. You do the first three.
+
+HANNAH: Situation is the research findings and the ideal customer profile. Objectives would be qualified meetings by segment, by a date. And strategy is the segments, the position and the hierarchy.
+
+JAMES: Then tactics. The list, the research, the messages and the landing pages. Action is the sequences, the approvals, who owns each one and the send dates. And control is replies, meetings and page visits, by segment.
+
+HANNAH: And the article's diagram has a line that I think sums it up. The automation sits in T and A.
+
+JAMES: That's the whole episode in five words. The automation sits in the tactics and the action. The situation, the objectives and the strategy are still yours. There's a playbook on our site, the attribution tear-down, that goes deeper on the measurement side.
+
+HANNAH: So that's the eight steps. Now the bit I always look forward to.
+
+JAMES: Get AI on this. Three jobs. First, get AI on the research and scoring.
+
+HANNAH: Give it your ideal customer profile and a list of companies, either an export from your prospecting database or a connected one. It researches each account against the profile and hands back a table with a fit score, the evidence and a link for each score, the trigger if there is one, the account's legal form, and anything it couldn't check. Then a person reads the top and the borderline cases.
+
+JAMES: Second, get AI on the messages.
+
+HANNAH: Give it your communication hierarchy, your benefits ladder, your list of claims you can and can't make, and the research notes for one segment. It drafts an opening email and two follow-ups for that segment, each one leading with a different supporting message, with the proof named. A person approves the set before any of it goes into a sequence.
+
+JAMES: And third, the landing pages.
+
+HANNAH: Give a coding assistant your page template in a repository, and a short brief for each segment, the message, the proof and the one call to action. It builds one page per segment and opens a change for review. Nothing publishes until a person has looked at the page and merged it.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: And they work in whichever AI your company uses, not just one.
+
+JAMES: Then let's finish with where people go wrong. You start.
+
+HANNAH: The most common one is skipping step four. Sending to the whole wide list. It costs credits, it can damage your sending domain's reputation, and it teaches the team nothing, because you can't tell who was a good fit.
+
+JAMES: The second is letting AI write the position as well as the copy. The emails all sound plausible, and none of them sounds like the company. If the hierarchy didn't come from people and research, the AI fills the gap with the average of everything it's read.
+
+HANNAH: The third, I think, is treating the landing pages as a one-off. You build them for launch and never touch them again. When they're the cheapest place you've got to test which message works.
+
+JAMES: And a fourth, from the marketing side. Forgetting that outbound is one channel. In the helmet episode we talked about owned, paid and earned media working together. A cold email that lands on a good page, from a company the reader has seen mentioned somewhere credible, does far better than one that arrives from nowhere.
+
+HANNAH: So outbound works better with a reputation behind it.
+
+JAMES: It does. It's not a substitute for being known.
+
+HANNAH: Can I add one more, on the rules?
+
+JAMES: Please.
+
+HANNAH: Assuming that business-to-business means anything goes. The corporate subscriber rule is useful, but it doesn't cover sole traders or some partnerships, and it doesn't switch off UK GDPR. Build the legal-form check and the opt-out into the workflow from day one, not after the first complaint.
+
+JAMES: Good. So let's do the plan on one page, for the start-up, in one go.
+
+HANNAH: Go on.
+
+JAMES: Situation. Architecture practice directors can't see which projects lose money until the year-end accounts. Our ideal customer is a UK practice of twenty to two hundred staff on fixed or staged fees, and growing. Objective, qualified meetings by segment, by a date we set. Strategy, the position and the hierarchy. Know which projects pay, while you can still change them, with live margins, timesheets and fee proposals underneath.
+
+HANNAH: Tactics. A wide list from Apollo, researched and scored by AI with the evidence attached, narrowed to a shortlist a person approves, with the legal form checked. A message set per segment from the hierarchy. A landing page per segment, built by Claude Code from one template, reviewed and merged.
+
+JAMES: Action. Sequences per segment, approved before anyone's enrolled, with an opt-out in every message and the sending domain checked first. Each approval with a named owner.
+
+HANNAH: And control. Replies, meetings and page visits, by segment and by message, reviewed every fortnight and fed into the next round of research.
+
+JAMES: That's go-to-market automation on one page. And notice what's the same as the helmet. The research at the start, the hierarchy in the middle and the measurement at the end. AI made the middle cheap.
+
+HANNAH: And what's different?
+
+JAMES: [thoughtfully] That a team of two can now do properly what used to need a team of ten, if they're clear about who they're for. Our view is that AI makes outbound worth doing well again. The research that was too slow to do for every account now takes minutes, so the advantage goes to the teams with a clear position and the discipline to send to fewer, better-chosen people.
+
+HANNAH: Which is a long way from "send more emails".
+
+JAMES: The opposite of it, really. So the takeaway. Decide who you're for and what you say first, then let AI and software do the research, the drafting and the building, with a person approving every list, message and page.
+
+HANNAH: The article has the eight steps as a diagram, the strategy and tactics table, and the UK rules with links to the ICO's guidance. It also links back to What is marketing, if you want the first half of the story.
+
+JAMES: It's all on manual-focus dot co dot uk. If you'd like the rest of the Basics series to turn up without you looking for it, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen. And if you want to build this for your own launch, book a free working session with us on the same site, and we'll start from your position before we touch a single tool. Hannah, thank you.
+
+HANNAH: Thanks, James. Check the legal form before you press send.
