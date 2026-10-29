@@ -1,6 +1,6 @@
 ---
 title: "The Rider Panel: testing a product launch on 200 AI cyclists"
-date: 2026-11-17
+date: 2026-11-03
 tags: ["ai", "endurance-sports", "go-to-market"]
 description: "The Rider Panel tests a cycling product launch on 200 AI riders with real lives in real UK weather. Here is what the first study found."
 faq:
