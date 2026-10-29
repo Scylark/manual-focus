@@ -13,7 +13,7 @@ faq:
   - question: "Can you see AI Mode ad performance separately in Google Ads?"
     answer: "Not on its own. Google's help page says impressions, clicks, conversions and cost from ads in AI Overviews and AI Mode are included in aggregate in standard campaign reports, and the queries that trigger them appear in aggregate in the search terms report. Advertisers can't isolate AI Mode spend in Google Ads reporting today."
 sources:
-  - title: "Ads in AI Mode are expanding to new countries"
+  - title: "Ads in AI Mode expand to new markets"
     url: "https://blog.google/products/ads-commerce/ads-in-ai-mode-global/"
     publisher: "Google"
   - title: "About ads in AI-powered experiences in Google Search"
