@@ -56,4 +56,4 @@ For now Google mostly places the summary below your homepage listing, where it i
 
 DemandSphere hasn't said how many branded keywords it tracks or which brands they belong to, and says it is still working on breakdowns by device and market, so there is no UK figure yet. Chris Long's test is a social post, not a published study. Neither source measures clicks, so the traffic effect is unknown. Google hasn't confirmed the change, and a jump this sharp over a few days could be a test it scales back. The brands Long named are large global companies, which may not reflect what a mid-sized company sees.
 
-If you want help auditing what AI search says about your brand, [talk to us](/enquire/).
+If you want help auditing what AI search says about your brand, [talk to us](/contact/).

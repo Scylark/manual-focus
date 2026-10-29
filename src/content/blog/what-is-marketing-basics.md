@@ -141,4 +141,4 @@ Our view at Manual Focus is that AI makes this chain cheaper to run properly, so
 - [PR 101](/blog/pr-101-basics/), for earning coverage
 - [The three layers of AI](/blog/three-layers-of-ai-basics/), for where AI fits
 
-If you want help applying this to your own launch, [book a free working session](/enquire/).
+If you want help applying this to your own launch, [book a free working session](/contact/).

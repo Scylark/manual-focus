@@ -44,7 +44,7 @@ On 19 October 2026 Manual Focus asked six AI engines 309 UK shopping questions a
 
 [![Open the interactive report](/images/ai-shortlist/report-banner.svg)](/reports/ai-shortlist-indoor-cycling/)
 
-Brands in the study can [request a free one-page AI Shortlist card](/enquire/?offer=ai-shortlist-card).
+Brands in the study can [request a free one-page AI Shortlist card](/contact/?offer=ai-shortlist-card).
 
 ## Key takeaways
 
@@ -147,4 +147,4 @@ Disclosure, James Vickers has previously worked with Wahoo and Wattbike and was 
 - [Owned, paid and earned media explained](/blog/owned-paid-earned-media-basics/), for the earned side that AI engines lean on.
 - [Category entry points](/lens/demand/category-entry-points/), for mapping the buying moments in your own market.
 
-If you want to know where your brand sits on the AI shortlist, [talk to us](/enquire/).
+If you want to know where your brand sits on the AI shortlist, [talk to us](/contact/).

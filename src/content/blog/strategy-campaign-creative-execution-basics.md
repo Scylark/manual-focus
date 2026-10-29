@@ -113,4 +113,4 @@ Each layer should trace back to the one above it. Every piece of execution deliv
 - [Positioning audit pipeline](/lens/brand/positioning-audit-pipeline/), for testing whether a strategy makes a real choice
 - [Message house generator](/lens/brand/message-house-generator/), for turning a strategy into the messages each campaign draws on
 
-If you want help separating strategy from tactics in your own plan, [book a free working session](/enquire/).
+If you want help separating strategy from tactics in your own plan, [book a free working session](/contact/).

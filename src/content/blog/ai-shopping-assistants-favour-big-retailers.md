@@ -58,4 +58,4 @@ Our view at Manual Focus is that challenger retailers and DTC brands should stop
 
 Lightspeed commissioned the study, sells software to the smaller retailers it describes and used the release to launch an AI visibility campaign aimed at them, so it has a commercial interest in the finding. The release gives headline figures and a methodology note but no full dataset or category breakdown, and an AI classifier sorted each retailer as large, mid or small. The prompts were set in four North American cities and the survey covers North American shoppers only, so there is no UK figure yet. The results also reflect the versions of each assistant that were live between June and August. None of it explains why a given brand was left out, which only your own prompt tests will show.
 
-If you want help setting up a product-level AI visibility audit, [talk to us](/enquire/).
+If you want help setting up a product-level AI visibility audit, [talk to us](/contact/).

@@ -75,4 +75,4 @@ Good first jobs for either agent are the ones in The Lens productivity stack, su
 
 SpaceXAI hasn't said where Grok Bot's computers run or whether its terms differ for UK customers. It also hasn't published a standalone price, so the cost for a team that doesn't use SuperGrok or Cursor is unknown. On the Hermes side, a self-hosted agent is only as secure as the server it runs on, and Nous offers no service-level agreement for the open-source version. Both products are moving weekly, so treat any comparison, this one included, as a snapshot from late September 2026.
 
-If you want help choosing and setting up an agent for your team, [book a working session](/enquire/).
+If you want help choosing and setting up an agent for your team, [book a working session](/contact/).
