@@ -1,19 +1,19 @@
 ---
-title: "The Rider Panel: testing a product launch on 200 AI cyclists"
+title: "The Rider Panel: testing a product launch on 500 AI cyclists"
 date: 2026-11-03
 tags: ["ai", "endurance-sports", "go-to-market"]
-description: "The Rider Panel tests a cycling product launch on 200 AI riders with real lives in real UK weather. Here is what the first study found."
+description: "The Rider Panel tests a cycling product launch on 500 AI riders with real lives in real UK weather. Here is what the first study found."
 faq:
   - question: "What is the Rider Panel?"
-    answer: "The Rider Panel is a market research tool from Manual Focus. It is a simulated UK cycling market of 200 AI riders. Each rider has a written life story built on UK survey data. Each lives through the Black Friday and Christmas buying season in their own town's real weather, with every rival product at its real UK price. A brand describes a launch and every rider decides whether to buy, then explains why."
+    answer: "The Rider Panel is a market research tool from Manual Focus. It is a simulated UK cycling market of 500 AI riders. Each rider has a written life story built on UK survey data. Each lives through the Black Friday and Christmas buying season in their own town's real weather, with every rival product at its real UK price. A brand describes a launch and every rider decides whether to buy, then explains why."
   - question: "How is the Rider Panel different from a focus group or survey?"
-    answer: "A focus group or survey asks real people what they think they would do. The Rider Panel runs the same buying season several times on the same 200 riders, changing one thing each time, such as the price or the retailers. That shows what each decision changes. It takes an afternoon rather than weeks. It does not replace real customers, but it shows which ideas are worth taking to them."
+    answer: "A focus group or survey asks real people what they think they would do. The Rider Panel runs the same buying season several times on the same 500 riders, changing one thing each time, such as the price or the retailers. That shows what each decision changes. It takes an afternoon rather than weeks. It does not replace real customers, but it shows which ideas are worth taking to them."
   - question: "What did the first Rider Panel study find?"
-    answer: "In the first study, a made-up folding smart trainer called the Northfold DD1 launched at £499 against every real rival on its Black Friday deal. It sold to 11 riders in 200. Riders who nearly bought mostly named price as the reason they didn't. With a £399 Black Friday price, it sold to 22 riders in 200, earning 60% more revenue. Half of those 22 buyers would not have bought any trainer without it."
+    answer: "In the first study, a made-up folding smart trainer called the Northfold DD1 launched at £499 against every real rival on its Black Friday deal. It sold to 19 riders in 500. Riders who nearly bought mostly named price as the reason they didn't. With a £399 Black Friday price, it sold to 46 riders in 500, earning 94% more revenue. Almost half of those 46 buyers would not have bought any trainer without it."
   - question: "Is the Rider Panel accurate?"
-    answer: "It is close on some things and not on others. Its brand choices sit near real UK search shares for Wahoo and Tacx. Its riders buy far more often than real cyclists, about 17% of riders against 2 to 3% a year, so results are read as differences between runs, never as sales forecasts. Manual Focus has registered forecasts for Black Friday 2026 and for the Tacx Nēra launch, to be scored in public."
+    answer: "It is close on some things and not on others. Its brand choices sit near real UK search shares for Wahoo and Tacx. Its riders buy far more often than real cyclists, about 18% of riders against 2 to 3% a year, so results are read as differences between runs, never as sales forecasts. Manual Focus has registered forecasts for Black Friday 2026 and for the Tacx Nēra launch, to be scored in public."
   - question: "What does the Rider Panel predict for Black Friday 2026?"
-    answer: "In the control run, every trainer purchase landed between 27 November and 1 December. Wahoo's KICKR CORE 2 at £399.99 was the most bought trainer, with Tacx's FLUX 2 second. Tacx took 30% of buyers, more than its usual share of searches, because Garmin owners and Halfords shoppers meet it at the point of purchase. Manual Focus will score these forecasts in December."
+    answer: "In the control run we registered on 29 October, every trainer purchase landed between 27 November and 1 December. Wahoo's KICKR CORE 2 at £399.99 was the most bought trainer, with Tacx's FLUX 2 second. Tacx took 30% of buyers, more than its usual share of searches, because Garmin owners and Halfords shoppers meet it at the point of purchase. Manual Focus will score these forecasts in December."
 sources:
   - title: "The Rider Panel, full interactive report"
     url: "https://manual-focus.co.uk/reports/rider-panel/"
@@ -29,7 +29,7 @@ sources:
     publisher: "Open-Meteo"
 ---
 
-The Rider Panel is a market research tool that tests a cycling product launch on 200 AI riders before it happens. Each rider has a written life story and a budget to stick to. In the first study, a new folding smart trainer sold to 11 riders in 200 at £499. With a £399 Black Friday price it sold to 22, with 60% more revenue.
+The Rider Panel is a market research tool that tests a cycling product launch on 500 AI riders before it happens. Each rider has a written life story and a budget to stick to. In the first study, a new folding smart trainer sold to 19 riders in 500 at £499. With a £399 Black Friday price it sold to 46. Revenue nearly doubled.
 
 [![Open the interactive report](/images/rider-panel/report-banner.svg)](/reports/rider-panel/)
 
@@ -37,11 +37,11 @@ Brands can [ask about a Rider Panel study](/contact/?offer=rider-panel-study) fo
 
 ## Key takeaways
 
-- The Rider Panel is a simulated UK cycling market of 200 AI riders. Each rider decides whether to buy and says why.
+- The Rider Panel is a simulated UK cycling market of 500 AI riders. Each rider decides whether to buy and says why.
 - Riders live the Black Friday and Christmas season in their own town's real weather, with every rival at its real UK price.
 - The same season runs several times on the same riders. Only the launch changes, so the difference between runs is what each decision is worth.
-- In the first study, a £399 Black Friday price doubled a new trainer's buyers from 11 to 22 in 200. Half the new buyers wouldn't have bought any trainer without it.
-- Of 65 riders who nearly bought it at £499, 43 named price. 18 wanted more proof the brand would last.
+- In the first study, a £399 Black Friday price took a new trainer from 19 buyers to 46 in 500. Almost half of them wouldn't have bought any trainer without it.
+- Of 165 riders who nearly bought it at £499, 121 named price. 40 wanted more proof the brand would last.
 
 ## What is the Rider Panel?
 
@@ -49,13 +49,13 @@ Market research usually means asking real people what they would do. That takes 
 
 The Rider Panel is the second part of the programme that started with [Light Meter](/light-meter/), our tool for measuring which brands AI recommends. Light Meter shows what AI tells shoppers. The Rider Panel shows what shoppers then do.
 
-Each of the 200 riders is an AI agent. A brand describes a launch, then every rider decides week by week whether to buy it. Each one explains the choice in their own words. Riders who walk away also say what would have changed their mind.
+Each of the 500 riders is an AI agent. A brand describes a launch, then every rider decides week by week whether to buy it. Each one explains the choice in their own words. Riders who walk away also say what would have changed their mind.
 
 ## Who are the riders?
 
 The mix of riders follows UK survey data on who cycles and where they live. Sport England's [Active Lives survey](https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables) sets the shape of the panel. The [English Housing Survey](https://www.gov.uk/government/statistics/chapters-for-english-housing-survey-2023-to-2024-headline-findings-on-demographics-and-household-resilience) decides who rents or owns their home. FCA research sets how many pay in instalments. Where no survey exists, such as how many cyclists own an indoor trainer, the field is marked as our assumption.
 
-Each rider then gets a written life story with something happening this season. Nadia, 42, is an IT worker in Liverpool with a new baby, itching to ride again. Pauline, 74, is a widow in Liverpool chasing her first 100km ride. Neil, 53, has just been made redundant in Sheffield and is riding seven hours a week to lose a stone.
+Each rider then gets a written life story with something happening this season. Riders also know each other. The panel has 1,290 ties between friends and club mates in the same towns. Nadia, 42, is an IT worker in Liverpool with a new baby, itching to ride again. Pauline, 74, is a widow in Liverpool chasing her first 100km ride. Neil, 53, has just been made redundant in Sheffield and is riding seven hours a week to lose a stone.
 
 | Part of a rider's world | Where it comes from |
 |---|---|
@@ -69,7 +69,7 @@ A rider only meets a product the way someone like them would. A Garmin owner see
 
 ## How does a study work?
 
-A study runs the same seven weeks, 14 November to 31 December, several times on the same 200 riders. Each run keeps the riders identical. The weather and every rival price stay the same too. Only the launch changes.
+A study runs the same seven weeks, 14 November to 31 December, several times on the same 500 riders. Each run keeps the riders identical. The weather and every rival price stay the same too. Only the launch changes.
 
 | Run | What's on sale | What it shows |
 |---|---|---|
@@ -77,35 +77,37 @@ A study runs the same seven weeks, 14 November to 31 December, several times on 
 | Run 2 | The launch as planned | What the launch itself did, compared with Run 1 |
 | Run 3 | The launch with one change | What that one decision is worth, compared with Run 2 |
 
+After each run, every rider hears what their friends and club mates bought and what they thought of it. Then each rider can change their mind. In the first study this changed only 9 decisions out of 830. Most riders held back for reasons a friend's new trainer doesn't fix, like money or a lack of space.
+
 ## What did the first study find?
 
 To prove the panel, we invented a brand called Northfold and a folding smart trainer, the DD1. Northfold is not a real company. The DD1 launched at £499 through Sigma Sports, Tredz and Halfords with strong reviews. Every real rival ran its Black Friday price, with Wahoo's KICKR CORE 2 down to £399.99.
 
-| Run | Northfold price | Northfold buyers in 200 | Northfold revenue |
+| Run | Northfold price | Northfold buyers in 500 | Northfold revenue |
 |---|---|---|---|
 | Run 1, the control | Not on sale | 0 | £0 |
-| Run 2 | £499 all season | 11 | £5,489 |
-| Run 3 | £399 on Black Friday | 22 | £8,778 |
+| Run 2 | £499 all season | 19 | £9,481 |
+| Run 3 | £399 on Black Friday | 46 | £18,354 |
 
-At £499, 76 riders put the DD1 on their shortlist and 11 bought it. Most of the rest took a rival's Black Friday deal or bought nothing. The riders who bought it mostly train in a living-room corner or a spare room, where a trainer that folds away matters.
+At £499, 184 riders put the DD1 on their shortlist and 19 bought it. Most of the rest took a rival's Black Friday deal or bought nothing. Over half the riders who bought it train in a living-room corner or a small flat, where a trainer that folds away matters.
 
 ## Why didn't more riders buy it?
 
 Every rider who shortlisted the DD1 and walked away said what would have changed their mind. That turns a sales number into a to-do list.
 
-| Reason given by 65 near-buyers | Riders |
+| Reason given by 165 near-buyers | Riders |
 |---|---|
-| A lower or Black Friday price | 43 |
-| More proof the brand will last | 18 |
-| A reason to ride indoors this season | 13 |
-| A partner agreeing to it | 6 |
-| Spreading the cost with finance | 4 |
+| A lower or Black Friday price | 121 |
+| More proof the brand will last | 40 |
+| A reason to ride indoors this season | 28 |
+| Spreading the cost with finance | 11 |
+| A partner agreeing to it | 10 |
 
-Ten more riders hoped to pay through Cycle to Work. The scheme can't be used for indoor trainers, so finance is the only way to spread the cost.
+Eleven more riders hoped to pay through Cycle to Work. The scheme can't be used for indoor trainers, so finance is the only way to spread the cost.
 
 ## What should the brand do?
 
-The first action came straight from the riders, so we tested it. Run 3 cut the price to £399 for Black Friday and changed nothing else. Buyers doubled from 11 to 22. Revenue rose 60%. Half of the 22 buyers wouldn't have bought any trainer in the control run.
+The first action came straight from the riders, so we tested it. Run 3 cut the price to £399 for Black Friday and changed nothing else. Buyers rose from 19 to 46. Revenue rose 94%. Almost half of the 46 buyers wouldn't have bought any trainer in the control run.
 
 The next actions are still to test:
 
@@ -115,7 +117,7 @@ The next actions are still to test:
 
 ## What does the panel predict for Black Friday 2026?
 
-The control run is also a forecast for the real market. We registered it on 29 October, before Black Friday. We'll score it in December, right or wrong.
+The control run from our first 200 riders is also a forecast for the real market. We registered it on 29 October, before Black Friday. We'll score it in December, right or wrong.
 
 | Forecast | How we'll score it |
 |---|---|
@@ -126,7 +128,9 @@ The control run is also a forecast for the real market. We registered it on 29 O
 
 ## How accurate is it?
 
-It is close on some things and not on others. In the control run, Wahoo took 45% of trainer buyers and Tacx 30%. Real UK searches give Wahoo 59% and Tacx 20%. The riders buy far more often than real cyclists, about 17% of them against 2 to 3% a year, so we read results as differences between runs, never as sales forecasts. Single riders also change their minds between runs, so every number is a total.
+It is close on some things and not on others. In the control run, Wahoo took 46% of trainer buyers and Tacx 24%. Real UK searches give Wahoo 59% and Tacx 20%. The riders buy far more often than real cyclists, about 18% of them against 2 to 3% a year, so we read results as differences between runs, never as sales forecasts. Single riders also change their minds between runs, so every number is a total.
+
+Panel size matters too. Our first 200 riders gave Northfold 44% of the buyers who came across it at £499. Adding 300 more riders brought that to 28%, with a range of 18% to 39%. That's why the panel now has 500 riders.
 
 We're testing it in public. Alongside the Black Friday forecast, we registered a prediction for Garmin's real Tacx Nēra launch in October, to be scored in January 2027.
 
@@ -136,7 +140,7 @@ It can't tell you how many units you'll sell. It doesn't replace talking to real
 
 ## Further reading
 
-- [The Rider Panel, full interactive report](/reports/rider-panel/), with all 200 riders and their life stories
+- [The Rider Panel, full interactive report](/reports/rider-panel/), with all 500 riders and their life stories
 - [Which indoor cycling brands does AI recommend in the UK?](/blog/which-indoor-cycling-brands-does-ai-recommend/)
 - [Light Meter, our AI visibility tool](/light-meter/)
 - [How we work with cycling and endurance brands](/services/)
