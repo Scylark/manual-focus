@@ -1,0 +1,63 @@
+JAMES: Somewhere between now and Christmas, Google will start putting ads inside AI Mode answers in the UK, and there's no switch to keep your campaigns out. Google confirmed it on the twenty-eighth of October. I'm James Vickers, this is Manual Focus, and Hannah's going to help me work out what a paid search team does with a launch that has no date on it.
+
+HANNAH: Hi James. The date is the vague part. Almost everything else is surprisingly specific.
+
+JAMES: Then start with what Google said.
+
+HANNAH: It's a post on Google's Ads and Commerce blog by Shashi Thakur, who runs Search Ads there. Ads in AI Mode, Google's conversational search, are scaling to ten countries now. Australia, Canada, India, Kenya, Malaysia, New Zealand, Nigeria, Pakistan, the Philippines and Singapore. Then more markets in the fourth quarter, and it names three of them, Brazil, Mexico and the United Kingdom.
+
+JAMES: And the other part, the multiturn ads.
+
+HANNAH: That's US only for now. Multiturn means the ads can show on follow-up questions, not just the first one. So if someone asks about running shoes, then asks which ones suit wide feet, an ad can appear on that second answer too. Every ad carries a Sponsored label.
+
+JAMES: [thoughtfully] Did Google give any numbers to back it up?
+
+HANNAH: Two, and both are Google's own US data. AI Mode queries are about three times longer than traditional searches on average. And click-through rates on sponsored and organic product listings in AI Mode are already similar, from two weeks of data between late August and early September. No absolute click-through rate, and no conversion data at all.
+
+JAMES: So here's the question every paid lead will ask. Can I keep my campaigns out of it?
+
+HANNAH: No. Google's Ads help page on AI-powered experiences says existing Search, Shopping and Performance Max campaigns are eligible automatically. You can't opt out of AI Mode or AI Overviews separately from Search, and you can't target them on their own. Negative keywords and brand exclusions still limit where ads show, and those are the only levers it lists.
+
+JAMES: And reporting?
+
+HANNAH: It's all in aggregate. Impressions, clicks, conversions and cost from these placements go into your normal campaign reports, and the queries sit in the search terms report with everything else. So you won't see an AI Mode line.
+
+JAMES: [dryly] Which, in the UK, means it lands in peak trading and hides in the totals.
+
+HANNAH: That's the bit I'd worry about. If it switches on in late November, your Black Friday numbers carry a placement change nobody can separate out.
+
+JAMES: It's the third time this month a platform has made the choice and handed advertisers the controls afterwards. A week ago we covered OpenAI turning on creative enhancements in ChatGPT Ads by default, and before that, Google writing review summaries into Search ads. Same shape.
+
+HANNAH: And it's not the first change to AI Mode this month either. On the fifteenth of October Google moved inline links higher in AI Mode answers, which we wrote about at the time. Now paid listings will sit in the same answers, competing with those links.
+
+JAMES: So who in the team feels it most?
+
+HANNAH: Shopping teams, I'd say. Sponsored product listings sit beside organic ones, and Google says people click them at similar rates. Shopping ads are built from your Merchant Center feed, so titles, attributes, prices and availability are what decide whether you turn up in a long, specific answer.
+
+JAMES: And for search teams, it's the query mix. Three times longer means conversational questions that no keyword list was written for. If broad match and Performance Max are running loose, you'll pay for those queries in a place you can't isolate.
+
+HANNAH: Which is why the article treats this as a measurement problem first.
+
+JAMES: [calmly] Our view is exactly that. Set a baseline in November, so when December moves you can tell whether it was AI Mode or seasonality. And brief finance before peak, so a shift in cost per click doesn't get read as a bad quarter. So, get AI on this. First, get AI on building the baseline.
+
+HANNAH: Give it the last eight weeks of Search, Shopping and Performance Max data by campaign, plus your search terms report. It hands back a table by campaign with spend, clicks, conversions and cost per conversion, and splits your queries into length bands, so you've got a before picture of how long your converting queries are.
+
+JAMES: Second, get AI on the negatives.
+
+HANNAH: Give it the same search terms report with conversions. It sorts out the informational and comparison phrasing that's spent money and never converted, and drafts a negative keyword list with the reasoning for each one. A person still checks it before anything goes into the account.
+
+JAMES: And third, the feed.
+
+HANNAH: Export your top fifty products from Merchant Center. AI checks the titles, key attributes, prices and availability against each product page, and gives you a fix list ranked by revenue. Set it up as a weekly routine through peak, because prices and stock change.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: What we don't know yet. The UK date, beyond the fourth quarter. When multiturn ads come here, if they do. Whether AI Mode will ever get its own line in Google Ads reporting, or its own opt-out. How these ads convert, because Google's only published a two-week click figure for product listings in the US. And how Google picks the ad on a follow-up question, and what that does to the auction for the first one.
+
+JAMES: So the takeaway. Google's bringing ads into AI Mode in the UK before the year's out, you can't opt out, and you won't see it in your reports, so take your baseline now.
+
+HANNAH: And talk to finance before the numbers move, not after.
+
+JAMES: The full article, with the table of where each placement runs today, is on manual-focus dot co dot uk. If you'd like the next one to arrive without thinking about it, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen. And if you want help setting up a baseline and a test plan before the UK launch, book a free working session with us on the same site. Hannah, thanks.
+
+HANNAH: Thanks, James. Export the data before the totals get muddy.

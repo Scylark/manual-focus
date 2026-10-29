@@ -3,6 +3,11 @@ title: "What ads in Google's AI Mode mean for UK paid search teams"
 date: 2026-10-29
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "Google said on 28 October 2026 that ads in AI Mode reach the UK in the fourth quarter. Search, Shopping and PMax campaigns qualify with no separate opt-out."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/google-ai-mode-ads-uk-paid-search.mp3"
+  duration: 422
+  bytes: 5065396
+  published: 2026-10-29
 faq:
   - question: "When will ads in Google AI Mode launch in the UK?"
     answer: "Google said on 28 October 2026 that ads in AI Mode will expand to more locales in the fourth quarter of 2026, naming Brazil, Mexico and the United Kingdom. It gave no exact UK date, so UK advertisers should assume the ads could start serving at any point before the end of December, during peak retail trading."
