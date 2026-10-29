@@ -926,5 +926,53 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "what-is-marketing-basics"
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Google expands ads in AI Mode to ten countries on 28 October 2026, with the UK, Brazil and Mexico in Q4, and launches multiturn ads in the US",
+    "primary_source": "https://blog.google/products/ads-commerce/ads-in-ai-mode-global/",
+    "score": 9,
+    "decision": "published",
+    "slug": "google-ai-mode-ads-uk-paid-search"
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Google launches a preview of its Connected Apps Platform for developers to bring apps into Gemini and Search (28 October, via SER recap)",
+    "primary_source": "https://www.seroundtable.com/recap-10-28-2026-42398.html",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Google AI Mode tests clearer labels separating sponsored and organic shopping results (SEL 28 October, no Google announcement found)",
+    "primary_source": "https://searchengineland.com/latest-posts",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Basis report says 61.4% of marketing and advertising professionals use generative or agentic AI daily in 2026, up from 33.6%",
+    "primary_source": "https://www.martechcube.com/basis-report-finds-ai-adoption-surging-among-marketers/",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Google announces Gemini 4 Carbon on 28 October, initially limited to select cybersecurity defenders (aggregator reports)",
+    "primary_source": "https://aireleasetracker.com/latest",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Alter Agents and Smartly survey of 500 US and UK marketers finds 77% comfortable with AI in advertising when a human has final approval",
+    "primary_source": "https://www.prnewswire.com/news-releases/alter-agents-and-smartly-release-new-research-showing-99-of-marketers-use-ai-with-human-creativity-and-oversight-key-to-its-future-302920296.html",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
