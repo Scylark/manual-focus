@@ -1,0 +1,59 @@
+JAMES: Reddit has told its shareholders it's going logged-in only, and in the same letter it said search is sending it more than a million fewer visits a week. If your brand turns up in search or in AI answers through Reddit threads, that's worth ten minutes of your morning. I'm James Vickers, this is Manual Focus, and Hannah's been reading Reddit's investor letter so I don't have to.
+
+HANNAH: Hi James. It's a long letter, but the important part is about four paragraphs.
+
+JAMES: [dryly] The best letters usually are. Where does it come from?
+
+HANNAH: Reddit's third-quarter results, filed with the SEC on the twenty-ninth of October, and the letter to shareholders from Steve Huffman, the chief executive. The business looks strong. Revenue up fifty-three per cent to eight hundred and ninety-five million dollars, and daily users averaging a hundred and thirty point three million. But US daily users fell two per cent on a year ago.
+
+JAMES: And the logged-in part?
+
+HANNAH: Huffman calls it a key piece of work. He says Reddit is shifting to a logged-in-only experience, and that it's a big one for the company and a big one for him. In the fourth quarter it begins fully testing that in select markets outside the US, and those tests shape the version that goes global.
+
+JAMES: [thoughtfully] Which markets?
+
+HANNAH: It doesn't say. So nobody knows yet whether the UK is one of them.
+
+JAMES: Why is Reddit doing it? Four reasons, from the article.
+
+HANNAH: Logged-in users get more relevant content, Reddit gets more signals for ad targeting, logged-in people engage more, and it protects access to what Huffman calls Reddit's extremely valuable corpus of data. He also says pretty much every major ad-based platform has made the same move.
+
+JAMES: And the search traffic.
+
+HANNAH: The letter says web search is becoming an AI-powered destination itself, and Reddit's search referrals, the visits that arrive from a search result, were down meaningfully in the third quarter and fell faster towards the end. In October they dropped by more than a million a week on average. Logged-out web visitors took the biggest hit, and Reddit warned its daily users could fall by a low double-digit percentage this quarter.
+
+JAMES: That's a site with more than twenty-seven billion posts and comments. If it's losing that many search visits, I'd want to look at my own Google referrals before I blame the season.
+
+HANNAH: Compare September and October with the same weeks last year, by type of page. That's in the article's list.
+
+JAMES: Here's the question for anyone doing GEO, the work of getting cited in AI answers. Do Reddit threads keep turning up in Google and ChatGPT?
+
+HANNAH: Reddit hasn't said what crawlers will see once a market goes logged-in only. What we do know is that Google has had access to Reddit's Data API since February twenty twenty-four, with rights to display and train on that data, from Google's own announcement. So Google's better placed than AI engines without a licence. For those, I'd expect less Reddit over time, but that's a judgement, not something Reddit's confirmed.
+
+JAMES: When we covered AI Overviews hitting eighty-two per cent of tracked brand searches in early October, Reddit threads were one of the places Google could draw on to write about your company. That doesn't vanish for Google. It may shrink everywhere else.
+
+HANNAH: And how much it matters depends on your category. In our indoor cycling study for the Light Meter launch earlier this month, Reddit, YouTube and forums together were three to five per cent of citations. Editorial sites were over half. Other categories could look very different, so measure first.
+
+JAMES: So who in the team feels it?
+
+HANNAH: Brand and content teams first. A thread that matters because it ranks in Google may reach fewer people as logged-out access narrows. Paid teams see the other side. Reddit wants more targeting signals, and it made its Reddit Max campaigns generally available in the third quarter.
+
+JAMES: [calmly] Our view is that Reddit is a community and paid channel now, and you shouldn't count on it as a free route into Google and AI answers. Reddit's told its own shareholders that open access isn't the priority. So, get AI on this. First, measuring how much you depend on Reddit.
+
+HANNAH: Give it your top thirty category and brand terms and a browsing-capable assistant. It checks which Reddit threads rank on page one and how often Reddit appears in AI answers about your category, and hands you a table of term, thread and where it showed up. Run it a few times, because one run per engine isn't enough to judge, which is the point we made about Light Meter.
+
+JAMES: Second, the referral trend.
+
+HANNAH: Give it a weekly export of organic Google sessions by landing page for this autumn and last. It hands back the change by page type, and flags which drops are bigger than your usual seasonal swing. Set that as a monthly routine while Reddit's tests run.
+
+JAMES: And third, moving the proof onto your own pages.
+
+HANNAH: Give it the Reddit threads that do the persuading in your category. It drafts the comparison or the answer page for your own site, in your words, with a list of claims a person has to check before anything's published.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: What we don't know yet. Which markets get the test, and whether the UK's one. When a global switch happens. What search engines and AI crawlers will see, and whether logged-out visitors keep any view of threads. Whether there'll be new licensing deals beyond Google's from twenty twenty-four. And Reddit didn't say how much of that million-a-week drop is classic Google results and how much is AI features.
+
+JAMES: So the takeaway. Reddit's choosing members over visitors, so treat it as a place to talk to people, not a back door into search. The full article, with the table of who can still read Reddit, is on manual-focus dot co dot uk. If you'd like these to arrive without remembering, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen. And if you want to work out how much of your visibility rests on Reddit, there's a free working session to book on the same site. Thanks, Hannah.
+
+HANNAH: Thanks, James. Count your threads before Reddit counts its visitors.

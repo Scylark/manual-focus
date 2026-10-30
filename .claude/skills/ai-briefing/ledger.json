@@ -982,5 +982,53 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "go-to-market-automation-claude-apollo-basics"
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Reddit's Q3 2026 shareholder letter (29 October) says it is shifting to a logged-in-only experience, testing in select markets outside the US in Q4, after search referrals fell by over 1 million a week in October",
+    "primary_source": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm",
+    "score": 8,
+    "decision": "published",
+    "slug": "reddit-logged-in-only-search-referrals-marketers"
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Google's Philipp Schindler says on the Q3 2026 earnings call (28 October) that ads in AI Mode have lower monetisation than traditional search ads (SER 29 October)",
+    "primary_source": "https://www.seroundtable.com/google-ai-mode-ads-earn-less-42417.html",
+    "score": 6,
+    "decision": "skipped-duplicate",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Anthropic launches Smart Reports, employee surveys and pooled budgets showing enterprises what their Claude spend produces (28 October)",
+    "primary_source": "https://claude.com/resources/articles/smart-reports-surveys-pooled-budgets",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Google AI Mode appears to test blending all products with sponsored products in shopping results (SER 29 October, no Google announcement)",
+    "primary_source": "https://www.seroundtable.com/google-ai-mode-all-sponsored-products-42402.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Google Business Profiles AI-powered messaging expands (SER 29 October)",
+    "primary_source": "https://www.seroundtable.com/google-business-profiles-ai-powered-messaging-42419.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Chrome AI-powered autofill can pull details from Gmail to fill out forms (TechCrunch 28 October)",
+    "primary_source": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
