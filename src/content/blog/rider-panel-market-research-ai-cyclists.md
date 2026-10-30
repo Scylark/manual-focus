@@ -35,6 +35,8 @@ The Rider Panel is the market research part of [Light Meter](/light-meter/). It 
 
 For our first mock study, we recruited 500 UK cyclists who are shopping for an indoor trainer this season, from a potentially limitless pool of shoppers the Rider Panel has access to. Five hundred is enough to tell a real change from noise.
 
+One shopper can end the season up to 86 different ways, buying one of 12 trainers or other options in any of seven months, or not buying at all. Five shoppers can end it 4.7 billion ways. For all 500, the count is a number about 970 digits long. Across four launch plans plus our checks, the shoppers lived 2,200 seasons. That's about 9,300 months of shopping, each one written up in the shopper's own diary. We then re-sampled the results 12,000 times to measure how sure we can be.
+
 We gave them a new folding smart trainer at £499. With the big reviews out at launch, 26 of them bought it. Without reviews, 3 did. At £399 for Black Friday, 41 did. Then every one of them told us why.
 
 [![The 500 shoppers as a knowledge graph, linked to the sports they ride, the brands around them and what's going on in their lives](/images/rider-panel/knowledge-graph.webp)](/reports/rider-panel/)
