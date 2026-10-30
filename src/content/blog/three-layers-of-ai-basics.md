@@ -130,4 +130,4 @@ The layers change how work gets done. They do not change what good marketing is.
 - [Evaluation frameworks for marketing AI outputs](/lens/ops/evaluation-frameworks/), for writing the checks agents need
 - [SOSTAC explained](/blog/sostac-marketing-plan-basics/), the planning model the rest of the Basics series builds on
 
-If you want help working out which layer your team should be on, [book a free working session](/enquire/).
+If you want help working out which layer your team should be on, [book a free working session](/contact/).

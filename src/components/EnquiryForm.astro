@@ -1,71 +1,97 @@
 ---
-// Enquiry form submits via mailto for now — no form backend. Submit
-// composes a pre-filled draft to ENQUIRY_EMAIL in the visitor's mail
-// client, so enquiries flow without a third-party dependency.
-const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
+// Enquiry form on /contact/. Posts to Web3Forms with fetch, so nothing
+// opens in the visitor's mail app. The access key lives in
+// src/utils/contact.ts; until it is set, submit shows the error state.
+import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../utils/contact';
 ---
-<form class="enquiry-form" data-enquiry-email={ENQUIRY_EMAIL}>
-  <div class="form-field">
-    <label for="name">Name <span aria-hidden="true">*</span></label>
-    <input type="text" id="name" name="name" required autocomplete="name" />
+<form
+  class="enquiry-form"
+  action={WEB3FORMS_ENDPOINT}
+  method="POST"
+  novalidate
+  data-access-key={WEB3FORMS_ACCESS_KEY}
+>
+  <div class="form-fields">
+    <div class="form-field">
+      <label for="name">Name <span aria-hidden="true">*</span></label>
+      <input type="text" id="name" name="name" required autocomplete="name" aria-describedby="name-error" />
+      <p class="field-error" id="name-error" hidden></p>
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email <span aria-hidden="true">*</span></label>
+      <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-error" />
+      <p class="field-error" id="email-error" hidden></p>
+    </div>
+
+    <div class="form-field">
+      <label for="company">Company <span class="optional">(optional)</span></label>
+      <input type="text" id="company" name="company" autocomplete="organization" />
+    </div>
+
+    <div class="form-field">
+      <label for="offer">What do you need?</label>
+      <select id="offer" name="offer">
+        <option value="">Not sure yet</option>
+        <optgroup label="Ways of working">
+          <option value="strategic-advisor">Strategic Advisor</option>
+          <option value="fractional-cmo">Fractional CMO</option>
+          <option value="build-and-hand-over">Build &amp; Hand Over</option>
+          <option value="manual-focus-ai">Manual Focus AI</option>
+        </optgroup>
+        <optgroup label="Light Meter">
+          <option value="ai-shortlist-card">AI Shortlist brand card (free)</option>
+          <option value="ai-shortlist-data">AI Shortlist dataset (free)</option>
+          <option value="ai-shortlist-audit">Light Meter category audit</option>
+          <option value="ai-shortlist-snapshot">Light Meter Brand Snapshot</option>
+          <option value="ai-shortlist-fix">AI visibility fix programme</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="challenge">What's the challenge? <span aria-hidden="true">*</span></label>
+      <textarea id="challenge" name="message" rows="5" required aria-describedby="challenge-error"></textarea>
+      <p class="field-error" id="challenge-error" hidden></p>
+    </div>
+
+    <div class="form-field">
+      <label for="source">How did you find us?</label>
+      <select id="source" name="source">
+        <option value="">Select one (optional)</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="referral">Referral</option>
+        <option value="search">Search engine</option>
+        <option value="social">Social media</option>
+        <option value="event">Event or conference</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <!-- Honeypot. Hidden from people and screen readers; bots that fill
+         every field get a fake success and nothing is sent. -->
+    <div class="form-trap" aria-hidden="true">
+      <label for="website">Leave this field empty</label>
+      <input type="text" id="website" name="botcheck" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <p class="form-note">
+      Your enquiry goes straight to James. We only use your details to reply.
+    </p>
+
+    <button type="submit" class="btn-cta" data-submit>
+      <span data-submit-label>Send enquiry</span>
+    </button>
   </div>
 
-  <div class="form-field">
-    <label for="company">Company <span aria-hidden="true">*</span></label>
-    <input type="text" id="company" name="company" required autocomplete="organization" />
+  <div class="form-message form-error" role="alert" data-form-error hidden>
+    <p><strong>Your enquiry didn't send.</strong> Check your connection and press send again. Your message is still in the form.</p>
+    <p>If it fails a second time, copy your message and email it to <span class="form-email">{CONTACT_EMAIL}</span>.</p>
   </div>
 
-  <div class="form-field">
-    <label for="email">Email <span aria-hidden="true">*</span></label>
-    <input type="email" id="email" name="email" required autocomplete="email" />
-  </div>
-
-  <div class="form-field">
-    <label for="offer">Which way of working?</label>
-    <select id="offer" name="offer">
-      <option value="">Not sure yet</option>
-      <option value="strategic-advisor">Strategic Advisor</option>
-      <option value="fractional-cmo">Fractional CMO</option>
-      <option value="build-and-hand-over">Build &amp; Hand Over</option>
-      <option value="manual-focus-ai">Manual Focus AI</option>
-      <option value="ai-shortlist-card">AI Shortlist brand card (free)</option>
-      <option value="ai-shortlist-data">AI Shortlist dataset (free)</option>
-      <option value="ai-shortlist-audit">Light Meter category audit</option>
-      <option value="ai-shortlist-snapshot">Light Meter Brand Snapshot</option>
-      <option value="ai-shortlist-fix">AI visibility fix programme</option>
-    </select>
-  </div>
-
-  <div class="form-field">
-    <label for="challenge">What's the challenge? <span aria-hidden="true">*</span></label>
-    <textarea id="challenge" name="challenge" rows="5" required></textarea>
-  </div>
-
-  <div class="form-field">
-    <label for="source">How did you find us?</label>
-    <select id="source" name="source">
-      <option value="">Select one (optional)</option>
-      <option value="linkedin">LinkedIn</option>
-      <option value="referral">Referral</option>
-      <option value="search">Search engine</option>
-      <option value="social">Social media</option>
-      <option value="event">Event or conference</option>
-      <option value="other">Other</option>
-    </select>
-  </div>
-
-  <p class="form-note">
-    This opens a pre-filled email in your mail app. Nothing is sent until
-    you press send. Prefer to write directly? Email
-    <a href={`mailto:${ENQUIRY_EMAIL}`}>{ENQUIRY_EMAIL}</a>.
-  </p>
-
-  <button type="submit" class="btn-cta">Open my email draft</button>
-
-  <div class="form-message form-success" role="status" hidden>
-    Your email app should now be open with your enquiry drafted. Press send
-    when you're ready. If nothing opened, email
-    <a href={`mailto:${ENQUIRY_EMAIL}`}>{ENQUIRY_EMAIL}</a>.
+  <div class="form-message form-success" role="status" tabindex="-1" data-form-success hidden>
+    <p><strong>Thanks. Your enquiry has reached James.</strong></p>
+    <p>He'll reply by email from {CONTACT_EMAIL}.</p>
   </div>
 </form>
 
@@ -76,6 +102,13 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
     flex-direction: column;
     gap: var(--space-md);
   }
+
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .form-fields[hidden] { display: none; }
 
   .form-field {
     display: flex;
@@ -88,6 +121,13 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
     font-size: var(--font-size-sm);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+  }
+
+  .form-field .optional {
+    font-weight: normal;
+    color: var(--color-text-secondary);
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   .form-field input,
@@ -109,8 +149,28 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
     outline-offset: 2px;
   }
 
+  .form-field [aria-invalid="true"] {
+    border-color: #f2643b;
+  }
+
   .form-field textarea {
     resize: vertical;
+  }
+
+  .field-error {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    border-left: 2px solid #f2643b;
+    padding-left: 0.6rem;
+  }
+
+  .form-trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 
   .form-note {
@@ -119,32 +179,45 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
     line-height: 1.5;
     margin: 0;
   }
-  .form-note a { color: var(--color-text); }
+
+  [data-submit][data-state="loading"] {
+    opacity: 0.7;
+    cursor: wait;
+  }
 
   .form-message {
     padding: var(--space-sm);
     border-radius: 0 4px 4px 0;
     line-height: 1.5;
+    color: var(--color-text);
   }
+  .form-message p { margin: 0; }
+  .form-message p + p { margin-top: var(--space-xs); }
 
   .form-success {
-    color: var(--color-text);
     background: rgba(16, 191, 122, 0.08);
     border-left: 2px solid #10bf7a;
   }
+  .form-success:focus { outline: none; }
 
-  .form-success a {
-    color: inherit;
+  .form-error {
+    background: rgba(242, 100, 59, 0.08);
+    border-left: 2px solid #f2643b;
+  }
+
+  .form-email {
+    user-select: all;
+    white-space: nowrap;
   }
 </style>
 
 <script>
-  const form = document.querySelector('.enquiry-form') as HTMLFormElement;
-  const successMsg = form?.querySelector('.form-success') as HTMLElement;
+  const form = document.querySelector<HTMLFormElement>('.enquiry-form');
+  const params = new URLSearchParams(window.location.search);
 
   // Offer cards link here with ?offer=<slug>; pre-select it.
   const offerSelect = form?.querySelector<HTMLSelectElement>('#offer');
-  const offerParam = new URLSearchParams(window.location.search).get('offer');
+  const offerParam = params.get('offer');
   if (offerSelect && offerParam && [...offerSelect.options].some(o => o.value === offerParam)) {
     offerSelect.value = offerParam;
   }
@@ -152,58 +225,139 @@ const ENQUIRY_EMAIL = 'James@manual-focus.co.uk';
   // AI Shortlist research links here with ?offer=ai-shortlist-card&brand=<name>;
   // start the message so the request only needs a name and email.
   const challenge = form?.querySelector<HTMLTextAreaElement>('#challenge');
-  const brandParam = new URLSearchParams(window.location.search).get('brand')?.slice(0, 80);
+  const brandParam = params.get('brand')?.slice(0, 80);
   if (challenge && !challenge.value) {
     if (offerParam === 'ai-shortlist-card') {
       challenge.value = `Please send the AI Shortlist card for ${brandParam || 'our brand'}.`;
     } else if (offerParam === 'ai-shortlist-data') {
       challenge.value = 'Please send the AI Shortlist indoor cycling dataset.';
     } else if (offerParam === 'ai-shortlist-audit') {
-      const category = new URLSearchParams(window.location.search).get('category')?.slice(0, 80);
+      const category = params.get('category')?.slice(0, 80);
       challenge.value = `We'd like a Light Meter category audit${category ? ` for ${category}` : ''}. Please send pricing and timing.`;
     } else if (offerParam === 'ai-shortlist-snapshot') {
       challenge.value = 'We would like a Light Meter Brand Snapshot. Please send pricing and timing.';
     }
   }
 
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
+  if (form) {
+    const fields = form.querySelector<HTMLElement>('.form-fields')!;
+    const submitBtn = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]')!;
+    const errorMsg = form.querySelector<HTMLElement>('[data-form-error]')!;
+    const successMsg = form.querySelector<HTMLElement>('[data-form-success]')!;
+    const originalLabel = submitLabel.textContent;
 
-    const data = new FormData(form);
-    const get = (key: string) => String(data.get(key) ?? '').trim();
-    const name = get('name');
-    const company = get('company');
-    const email = get('email');
-    const source = get('source');
-    const offerLabel = offerSelect?.selectedOptions[0]?.value ? offerSelect.selectedOptions[0].text : '';
+    const checks: [string, (v: string) => string][] = [
+      ['name', (v) => (v ? '' : 'Enter your name.')],
+      ['email', (v) => (!v ? 'Enter your email address so James can reply.'
+        : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? '' : "That email address doesn't look right. Check it and try again.")],
+      ['challenge', (v) => (v ? '' : 'Tell us a little about what you need.')],
+    ];
 
-    const subject = `Enquiry from ${name}, ${company}`;
-    const body = [
-      `Name: ${name}`,
-      `Company: ${company}`,
-      `Email: ${email}`,
-      offerLabel ? `Interested in: ${offerLabel}` : null,
-      source ? `Found us via: ${source}` : null,
-      '',
-      get('challenge'),
-    ].filter((line) => line !== null).join('\n');
+    const setError = (input: HTMLInputElement | HTMLTextAreaElement, message: string) => {
+      const error = form.querySelector<HTMLElement>(`#${input.id}-error`)!;
+      error.textContent = message;
+      error.hidden = !message;
+      if (message) input.setAttribute('aria-invalid', 'true');
+      else input.removeAttribute('aria-invalid');
+    };
 
-    // Reveal the fallback message BEFORE attempting the mailto launch —
-    // if the browser blocks the external-protocol handoff (or the user
-    // has no mail client), the direct address is already on screen.
-    successMsg.hidden = false;
-    // GA4 recommended lead event, marked as a key event in Analytics.
-    (window as any).mfTrack?.('generate_lead', {
-      form: 'enquiry',
-      offer: offerLabel || '(none)',
-      source: source || '(none)',
-    });
+    const validate = () => {
+      let firstInvalid: HTMLInputElement | HTMLTextAreaElement | null = null;
+      for (const [id, check] of checks) {
+        const input = form.querySelector<HTMLInputElement | HTMLTextAreaElement>(`#${id}`)!;
+        const message = check(input.value.trim());
+        setError(input, message);
+        if (message && !firstInvalid) firstInvalid = input;
+      }
+      firstInvalid?.focus();
+      return !firstInvalid;
+    };
 
-    const to = form.dataset.enquiryEmail ?? '';
-    try {
-      window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    } catch {
-      // Blocked external protocol — the on-screen fallback covers it.
+    // Once a field has been flagged, clear its error as soon as it's fixed.
+    for (const [id, check] of checks) {
+      const input = form.querySelector<HTMLInputElement | HTMLTextAreaElement>(`#${id}`)!;
+      input.addEventListener('input', () => {
+        if (input.getAttribute('aria-invalid') === 'true') setError(input, check(input.value.trim()));
+      });
     }
-  });
+
+    const setLoading = (isLoading: boolean) => {
+      if (isLoading) {
+        submitBtn.setAttribute('data-state', 'loading');
+        submitBtn.disabled = true;
+        submitLabel.textContent = 'Sending...';
+      } else {
+        submitBtn.removeAttribute('data-state');
+        submitBtn.disabled = false;
+        submitLabel.textContent = originalLabel;
+      }
+    };
+
+    const showSuccess = () => {
+      fields.hidden = true;
+      errorMsg.hidden = true;
+      successMsg.hidden = false;
+      successMsg.focus();
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMsg.hidden = true;
+      if (!validate()) return;
+
+      const data = new FormData(form);
+      const get = (key: string) => String(data.get(key) ?? '').trim();
+
+      // Honeypot filled: pretend it worked and send nothing.
+      if (get('botcheck')) {
+        showSuccess();
+        return;
+      }
+
+      const offerLabel = offerSelect?.value ? offerSelect.selectedOptions[0].text : '';
+      const source = get('source');
+      const company = get('company');
+
+      setLoading(true);
+      try {
+        const accessKey = form.dataset.accessKey;
+        if (!accessKey) throw new Error('Contact form access key is not set in src/utils/contact.ts');
+
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: `Website enquiry from ${get('name')}${company ? `, ${company}` : ''}`,
+            from_name: 'Manual Focus website',
+            name: get('name'),
+            email: get('email'),
+            replyto: get('email'),
+            company: company || '(not given)',
+            interested_in: offerLabel || 'Not sure yet',
+            found_us_via: source || '(not given)',
+            message: get('message'),
+            botcheck: '',
+          }),
+        });
+        const result = await res.json().catch(() => null);
+        if (!res.ok || !result?.success) throw new Error(result?.message || `HTTP ${res.status}`);
+
+        // GA4 recommended lead event, marked as a key event in Analytics.
+        (window as any).mfTrack?.('generate_lead', {
+          form: 'enquiry',
+          offer: offerLabel || '(none)',
+          source: source || '(none)',
+        });
+        form.reset();
+        showSuccess();
+      } catch (err) {
+        console.warn('Enquiry not sent', err);
+        errorMsg.hidden = false;
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
 </script>

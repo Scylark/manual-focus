@@ -49,7 +49,7 @@ sources:
 
 On 19 October 2026 Manual Focus launched Manual Focus Light Meter. It is an AI visibility tool that shows which brands six AI engines recommend to UK buyers. It also shows which websites those engines cite. Brands can request a free AI Shortlist card or order a category audit, built in five working days. The first study covers indoor cycling.
 
-Start with the [Light Meter page](/light-meter/). If your brand is in the indoor cycling study, [request your free AI Shortlist card](/enquire/?offer=ai-shortlist-card).
+Start with the [Light Meter page](/light-meter/). If your brand is in the indoor cycling study, [request your free AI Shortlist card](/contact/?offer=ai-shortlist-card).
 
 ## Key takeaways
 
@@ -100,8 +100,8 @@ A rank tracker tells you where a page sits in a list of results for a keyword. A
 ## How to order
 
 1. Check the [Light Meter page](/light-meter/) for your category. Indoor cycling is published. Other categories, such as running shoes or GPS watches, are built to order.
-2. If your brand is in a published study, [request your free AI Shortlist card](/enquire/?offer=ai-shortlist-card).
-3. For paid work, request a [category audit](/enquire/?offer=ai-shortlist-audit) or a [Brand Snapshot](/enquire/?offer=ai-shortlist-snapshot) and name your category or competitors. For longer work, ask about the [Fix programme](/enquire/?offer=ai-shortlist-fix). Paid work is by invoice or card.
+2. If your brand is in a published study, [request your free AI Shortlist card](/contact/?offer=ai-shortlist-card).
+3. For paid work, request a [category audit](/contact/?offer=ai-shortlist-audit) or a [Brand Snapshot](/contact/?offer=ai-shortlist-snapshot) and name your category or competitors. For longer work, ask about the [Fix programme](/contact/?offer=ai-shortlist-fix). Paid work is by invoice or card.
 
 ## Example study, indoor cycling
 
@@ -162,4 +162,4 @@ Disclosure. James Vickers has worked with Wahoo and Wattbike. He was on the foun
 - [SEO playbook for premium endurance brands](/blog/seo-playbook-premium-endurance-brands/), the search groundwork behind AI visibility.
 - [Category entry points](/lens/demand/category-entry-points/), for mapping the buying moments in your own market.
 
-To put Light Meter on your category, [request a category audit](/enquire/?offer=ai-shortlist-audit).
+To put Light Meter on your category, [request a category audit](/contact/?offer=ai-shortlist-audit).

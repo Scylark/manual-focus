@@ -726,5 +726,309 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Anthropic announces Claude Duet research preview on 21 October 2026, a proactive agent on Opus 5.5 with 6,000+ connectors (HubSpot, Canva, LinkedIn, Shopify), US Pro and Max waitlist only",
+    "primary_source": "https://claude.com/resources/articles/claude-duet",
+    "score": 7,
+    "decision": "published",
+    "slug": "claude-duet-proactive-agent-marketing-teams"
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "OpenAI expands ChatGPT Ads to 26 more markets (89 total), 100,000+ advertisers since launch (21 October)",
+    "primary_source": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Gemini app adds small-business landing page, marketing skills and Google Ads, Business Profile, Shopify and Canva connectors, rolling out globally (20 October)",
+    "primary_source": "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Apple WebKit blog (19 October) says Safari and WebKit block network access to identity-resolution infrastructure in the iOS, iPadOS, macOS and visionOS 27 releases, not an AI story",
+    "primary_source": "https://webkit.org/blog/18438/blocking-identity-resolution-infrastructure/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Google adds the Search generative AI control (live since 31 August) to its Control what you share docs (21 October)",
+    "primary_source": "https://developers.google.com/search/docs/crawling-indexing/control-what-you-share",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-22",
+    "story": "Performance Max sourced videos become opt-out (PPC News Feed, no Google announcement found)",
+    "primary_source": "https://ppcnewsfeed.com/ppc-news/2026-10/performance-max-sourced-videos-become-opt-out/",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "SISTRIX citation worthiness study (22 October) compares 48,527 cited pages with uncited pages from the same domains, 96,418 URLs across ChatGPT, AI Mode and AI Overviews in DACH, finds table of contents 1.7, Article schema 1.6, no measurable effect from llms.txt",
+    "primary_source": "https://www.sistrix.com/blog/citation-worthiness-study/",
+    "score": 7,
+    "decision": "published",
+    "slug": "sistrix-ai-citation-study-geo-tactics"
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "Google Marketing Platform October Drop, Gemini-curated DV360 Marketplace bundles, new Search Ads 360 Home, LinkedIn CTV in DV360 (22 October)",
+    "primary_source": "https://blog.google/products/marketingplatform/360/google-marketing-platform-drop-october/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "Canva releases Craft, its first image generation model, to all users via Dream Lab and the API (TechCrunch 22 October)",
+    "primary_source": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "Google appears to test AI-generated summaries in AI Overview citation cards (SER 23 October, not confirmed by Google)",
+    "primary_source": "https://www.seroundtable.com/google-ai-overview-citation-ai-summaries-42361.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "Google Ads adds image and video sourcing options to Performance Max, sourced videos toggle (Search Engine Land and SER 23 October, no Google announcement found)",
+    "primary_source": "https://www.seroundtable.com/google-ads-sourced-videos-42365.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-24",
+    "story": "SparkToro asks whether AI visibility is a marketing boondoggle, built on the Haynes, SEO Works and Growth Memo studies (22 October)",
+    "primary_source": "https://sparktoro.com/blog/is-ai-visibility-a-marketing-boondoggle/",
+    "score": 4,
+    "decision": "skipped-duplicate",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Meta delays its updated Commercial Terms and Self-Serve Ad Terms from 30 October to 20 November 2026 (Reuters, 23 October) and has removed 'train' from the crawling clause, licence otherwise unchanged; UK preview still shows 30 October. Material update to the 17 October post",
+    "primary_source": "https://www.facebook.com/legal/commercial_terms_preview",
+    "score": 7,
+    "decision": "published",
+    "slug": "meta-crawling-terms-delay-uk-advertisers"
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Semrush finds AI Overviews on 88% of 400 tracked US desktop commercial keywords in August 2026, up from 45.75% (21 October)",
+    "primary_source": "https://www.semrush.com/blog/ai-overviews-commercial-modifiers-study/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Google Ads expands Smart Bidding Exploration to Performance Max and Shopping campaigns on Target ROAS (help page, PPC News Feed 22 October, SEL 23 October)",
+    "primary_source": "https://support.google.com/google-ads/answer/18743168",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Envoyra study finds ChatGPT, Claude, Gemini and Perplexity disagree on top software brands, with 79% of question-assistant pairs changing over four weeks (SEL 22 October)",
+    "primary_source": "https://searchengineland.com/ai-brand-recommendations-vary-platform-week-497967",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "Google privacy policy (effective 16 October) says connected Personal Intelligence data in Search can shape ads, beta excludes the UK and EEA (Hacker News report 24 October)",
+    "primary_source": "https://thehackernews.com/2026/10/google-says-gmail-and-photos-data.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-25",
+    "story": "OpenAI says it will train frontier models on cached and simulated copies of the web instead of the live internet (TechCrunch 23 October)",
+    "primary_source": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Google Ads help page 'About Review summaries' (first reported 24 October) documents AI-generated, positive-only summaries of online reviews in Search ads, English in the US, UK, Australia and India, no editing and no documented opt-out",
+    "primary_source": "https://support.google.com/google-ads/answer/18760807",
+    "score": 7,
+    "decision": "published",
+    "slug": "google-ads-ai-review-summaries-uk"
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Semrush, SE Ranking and seoClarity data put AI Overviews on more than 80% of Google searches (SER recap 26 October), overlaps the 25 October Semrush skip and the brand-searches post",
+    "primary_source": "https://www.seroundtable.com/recap-10-26-2026-42374.html",
+    "score": 5,
+    "decision": "skipped-duplicate",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Some ChatGPT ads show a new Learn more arrow link and some are served through Amazon DSP (SER 26 October, no OpenAI or Amazon announcement found)",
+    "primary_source": "https://www.seroundtable.com/recap-10-26-2026-42374.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Cloudflare AI reporting tools showing bot crawls, AI referrals and brand appearances in AI answers (SEL 26 October, launch date unclear, dashboard first launched 6 August)",
+    "primary_source": "https://searchengineland.com/cloudflare-upend-ai-visibility-space-498710",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Google Ads AI Max FAQ adds one-click experiment recommendations on eligible accounts (SER 26 October)",
+    "primary_source": "https://www.seroundtable.com/recap-10-26-2026-42374.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-27",
+    "story": "Owners of Elvis Presley's music sue Anthropic for copyright infringement (New York Times via SER recap 26 October)",
+    "primary_source": "https://www.seroundtable.com/recap-10-26-2026-42374.html",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-26",
+    "story": "What is marketing, a long-form Basics guide joining product-market fit, research, requirements, the communication hierarchy, the benefits ladder and SOSTAC through a hypothetical helmet launch",
+    "primary_source": "https://www.cim.co.uk/content-insights/articles/what-is-marketing/",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "what-is-marketing-basics"
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Google expands ads in AI Mode to ten countries on 28 October 2026, with the UK, Brazil and Mexico in Q4, and launches multiturn ads in the US",
+    "primary_source": "https://blog.google/products/ads-commerce/ads-in-ai-mode-global/",
+    "score": 9,
+    "decision": "published",
+    "slug": "google-ai-mode-ads-uk-paid-search"
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Google launches a preview of its Connected Apps Platform for developers to bring apps into Gemini and Search (28 October, via SER recap)",
+    "primary_source": "https://www.seroundtable.com/recap-10-28-2026-42398.html",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Google AI Mode tests clearer labels separating sponsored and organic shopping results (SEL 28 October, no Google announcement found)",
+    "primary_source": "https://searchengineland.com/latest-posts",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Basis report says 61.4% of marketing and advertising professionals use generative or agentic AI daily in 2026, up from 33.6%",
+    "primary_source": "https://www.martechcube.com/basis-report-finds-ai-adoption-surging-among-marketers/",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Google announces Gemini 4 Carbon on 28 October, initially limited to select cybersecurity defenders (aggregator reports)",
+    "primary_source": "https://aireleasetracker.com/latest",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Alter Agents and Smartly survey of 500 US and UK marketers finds 77% comfortable with AI in advertising when a human has final approval",
+    "primary_source": "https://www.prnewswire.com/news-releases/alter-agents-and-smartly-release-new-research-showing-99-of-marketers-use-ai-with-human-creativity-and-oversight-key-to-its-future-302920296.html",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-29",
+    "story": "Go-to-market automation, a long-form Basics guide and episode taking a SaaS positioning to buyers with Claude, Apollo's Claude connector and landing pages built in GitHub, linked to What is marketing",
+    "primary_source": "https://www.apollo.io/newsroom/announcements/apollo-delivers-gtm-outbound-execution-to-claude",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "go-to-market-automation-claude-apollo-basics"
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Reddit's Q3 2026 shareholder letter (29 October) says it is shifting to a logged-in-only experience, testing in select markets outside the US in Q4, after search referrals fell by over 1 million a week in October",
+    "primary_source": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm",
+    "score": 8,
+    "decision": "published",
+    "slug": "reddit-logged-in-only-search-referrals-marketers"
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Google's Philipp Schindler says on the Q3 2026 earnings call (28 October) that ads in AI Mode have lower monetisation than traditional search ads (SER 29 October)",
+    "primary_source": "https://www.seroundtable.com/google-ai-mode-ads-earn-less-42417.html",
+    "score": 6,
+    "decision": "skipped-duplicate",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Anthropic launches Smart Reports, employee surveys and pooled budgets showing enterprises what their Claude spend produces (28 October)",
+    "primary_source": "https://claude.com/resources/articles/smart-reports-surveys-pooled-budgets",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Google AI Mode appears to test blending all products with sponsored products in shopping results (SER 29 October, no Google announcement)",
+    "primary_source": "https://www.seroundtable.com/google-ai-mode-all-sponsored-products-42402.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Google Business Profiles AI-powered messaging expands (SER 29 October)",
+    "primary_source": "https://www.seroundtable.com/google-business-profiles-ai-powered-messaging-42419.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-30",
+    "story": "Chrome AI-powered autofill can pull details from Gmail to fill out forms (TechCrunch 28 October)",
+    "primary_source": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]

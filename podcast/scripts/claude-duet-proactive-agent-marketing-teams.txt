@@ -1,0 +1,63 @@
+JAMES: Anthropic has opened a waitlist for an agent that messages you before you message it. It's called Claude Duet. For a marketing leader the first question isn't what it can do. It's which company apps your people will connect to it. I'm James Vickers. This is Manual Focus. Hannah is here to take it apart with me.
+
+HANNAH: Hi James. It was announced on the twenty-first of October as a research preview. For now it's for US subscribers on Claude's Pro and Max plans, by waitlist. There's no UK date yet.
+
+JAMES: So what is it, in plain terms?
+
+HANNAH: We went through Anthropic's announcement and its product page. Duet is a separate app where Claude works without waiting for a prompt. Each morning it sends you a short brief on what matters across your connected apps. During the day it checks those apps every few hours. It only messages you when something needs you.
+
+JAMES: And it isn't running on my laptop.
+
+HANNAH: No. It runs on Claude Opus five point five on its own cloud computer with its own browser. So it keeps working when your laptop and your phone are off. Anthropic says it works through more than six thousand connectors and plugins. HubSpot and Canva are on the list. So is LinkedIn.
+
+JAMES: [thoughtfully] In our three layers of AI explainer, this is layer two. You hand over a whole request and the AI delivers it. Duet goes a step further, because it decides for itself when to start.
+
+HANNAH: That's the real change. A chat assistant waits for someone to open it. Duet decides when to message you. So the first thing to test is its judgement about what to flag.
+
+JAMES: What stops it doing something daft?
+
+HANNAH: It shows you what it plans to do. Then it waits for approval before it sends a message or makes a payment. The same goes for signing a document or deleting anything. Trading securities is off limits even with approval. So is moving money between accounts.
+
+JAMES: And the gaps?
+
+HANNAH: The approval list says nothing about publishing a post. It doesn't mention editing a live web page either. Changing a HubSpot list isn't named.
+
+JAMES: [dryly] Which happen to be the things a marketing team does all day.
+
+HANNAH: Several of Anthropic's own examples are marketing work. Drafting HubSpot follow-ups. Making social campaigns in Canva. Posting a LinkedIn job once approved. One tester, the brand strategist Mya Dalton, had Duet prepare a brief for a client call. It then offered to move the call when it noticed the slot fell right before her flight.
+
+JAMES: So how does it compare with OpenAI's dots? We wrote about those when they launched at DevDay on the twenty-ninth of September.
+
+HANNAH: Both are background agents with their own computer and browser. Nine to Five Mac reported that dots run on Astra and connect to more than four thousand apps. They come with ChatGPT Pro. Duet claims more than six thousand connectors. It's on a waitlist for US Pro and Max subscribers.
+
+JAMES: Now the part I'd put in front of any marketing director. Who gets it first?
+
+HANNAH: People on individual plans. Team and Enterprise, the plans a company buys and runs centrally, aren't included yet.
+
+JAMES: [calmly] So the first people in your team to use Duet will be on personal accounts that no company admin controls. They'll connect it to company Gmail or Slack with their own logins. Our view at Manual Focus is to treat Duet as a personal tool until it ships for Team and Enterprise. Decide now which company systems a personal agent may connect to. Then the answer comes from a policy rather than a surprise in an audit log.
+
+HANNAH: There's a cost angle too. Duet's background checks spend the same allowance as everything else a person does in Claude. Nine to Five Mac quotes Anthropic warning that users may hit limits sooner than with chat alone.
+
+JAMES: Right. Get AI on this.
+
+HANNAH: Go on.
+
+JAMES: First, get your AI to write the approval rules Anthropic left out. Publishing is the obvious one. So is changing an audience list.
+
+HANNAH: Give it the list of actions your team takes in each tool. It hands back a draft rule for each one, saying who signs it off before an agent can do it.
+
+JAMES: Second, pilot one recurring job. The Monday performance brief is a good start.
+
+HANNAH: Have your AI score every brief against a short checklist for two weeks. Did it flag the right things? Did it miss anything? You get a table showing whether the brief earned your trust.
+
+JAMES: Third, run the same job through both agents when you can.
+
+HANNAH: Give Duet and dots one identical brief. Then have your AI compare what each flagged and what each left out. The decision on which to use stays with you.
+
+JAMES: And one for you, not the AI. Ask your admins whether staff can connect apps to Google Workspace or HubSpot with their own accounts. The prompts for the other three are in the show notes.
+
+HANNAH: [thoughtfully] And what we don't know yet. Anthropic gives no date for the UK. There's no timetable for Team and Enterprise. It doesn't say how much allowance one background check uses. We don't know if a company admin will see what a staff member's Duet has done. Anthropic says it will publish more on its safety design in the coming days.
+
+JAMES: So the takeaway. Duet is a personal agent that acts on its own judgement. Your company apps are what it acts on. Write the rules before your people get the invitation. The full article is on manual-focus dot co dot uk. Follow the show in Apple Podcasts or Spotify so the next episode finds you. If you'd like a hand writing those agent rules, book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James.
