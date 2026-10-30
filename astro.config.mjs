@@ -33,7 +33,7 @@ for (const path of []) unlistedUrls.add(`${SITE}${path}`);
 // lastmod for static research reports (data collection date).
 const reportLastmod = new Map([
   [`${SITE}/reports/ai-shortlist-indoor-cycling/`, '2026-10-19'],
-  [`${SITE}/reports/rider-panel/`, '2026-11-03'],
+  [`${SITE}/reports/rider-panel/`, '2026-11-10'],
 ]);
 
 // lastmod for Lens playbooks (updatedAt ?? publishedAt), keyed by URL.

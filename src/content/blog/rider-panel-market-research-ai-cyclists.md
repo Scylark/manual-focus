@@ -1,23 +1,21 @@
 ---
 title: "The Rider Panel: testing a product launch on 500 AI cyclists"
-date: 2026-11-03
+date: 2026-11-10
 tags: ["ai", "endurance-sports", "go-to-market"]
-description: "The Rider Panel, part of Manual Focus Light Meter, tests a product launch on 500 AI riders with real lives. Here is what its first study, a UK launch, found."
+description: "The Rider Panel, part of Manual Focus Light Meter, tests a launch on 500 AI trainer shoppers. Its first study found reviews make or break a new brand."
 faq:
   - question: "What is the Rider Panel?"
-    answer: "The Rider Panel is the market research part of Light Meter, the research tool from Manual Focus. Its first panel is a simulated UK cycling market of 500 AI riders. Each rider has a written life story built on UK survey data. Each lives through the Black Friday and Christmas buying season in their own town's real weather, with every rival product at its real UK price. A brand describes a launch and every rider decides whether to buy, then explains why."
+    answer: "The Rider Panel is the market research part of Light Meter, the research tool from Manual Focus. Its first panel is 500 UK cyclists who shop for an indoor trainer between September and March. Each is an AI agent with a written life story and a budget. They live the season month by month in their own town's real weather. They choose from the trainers someone like them would actually come across. A brand describes a launch. Each shopper decides whether to buy, then explains why."
+  - question: "Do independent reviews matter for a new cycling brand?"
+    answer: "In the Rider Panel's first study they decided the launch. A new £499 smart trainer sold to 26 shoppers in 500 with reviews from sites like BikeRadar and DC Rainmaker out at launch. Without them it sold to 3. Most buyers found the brand some other way, but 20 of the 26 said the reviews were what made them buy."
+  - question: "Does a Black Friday discount pay for a new brand?"
+    answer: "In the Rider Panel's first study it did. Cutting a new £499 trainer to £399 for Black Friday took it from 26 buyers to 41 in 500, with 38% more revenue. Part of the gain was visibility. Deal lists and deal emails put an unknown brand in front of shoppers who would never have come across it."
+  - question: "Who are the 500 shoppers?"
+    answer: "They are UK cyclists who go shopping for an indoor trainer this season, not every cyclist. Manual Focus simulated 200,000 UK cyclists from survey data, gave each a chance of shopping this season based on what they ride indoors now, then drew 500 from everyone who shops. About 2 in 100 adult cyclists shop for a trainer in a season. Four in ten of the 500 are buying their first."
   - question: "Does the Rider Panel only work in the UK?"
-    answer: "No. The first panel is made of UK cyclists because the first study was a UK launch. For another country, Manual Focus rebuilds every input from that country's own sources, from who cycles there to what the shops charge. The method stays the same, so a brand can test one launch plan in two markets and compare them."
-  - question: "How is the Rider Panel different from a focus group or survey?"
-    answer: "A focus group or survey asks real people what they think they would do. The Rider Panel runs the same buying season several times on the same 500 riders, changing one thing each time, such as the price or the retailers. That shows what each decision changes. It takes an afternoon rather than weeks. It does not replace real customers, but it shows which ideas are worth taking to them."
-  - question: "What did the first Rider Panel study find?"
-    answer: "In the first study, a made-up folding smart trainer called the Northfold DD1 launched at £499 against every real rival on its Black Friday deal. It sold to 19 riders in 500. Riders who nearly bought mostly named price as the reason they didn't. With a £399 Black Friday price, it sold to 46 riders in 500, earning 94% more revenue. Almost half of those 46 buyers would not have bought any trainer without it."
-  - question: "Which marketing channel sells a new cycling brand?"
-    answer: "In the Rider Panel's channel runs, independent reviews did. Without reviews from sites like BikeRadar and DC Rainmaker, a new £499 trainer sold to 6 riders in 500 instead of 20. Selling only direct cut how many riders came across it by 40% but barely changed sales. Being named by AI engines put it in front of many more riders, yet sales rose only from 20 to 25, which is within the panel's noise."
-  - question: "Is the Rider Panel accurate?"
-    answer: "It is close on some things and not on others. Its brand choices sit near real UK search shares for Wahoo and Tacx. Its riders buy far more often than real cyclists, about 18% of riders against 2 to 3% a year, so results are read as differences between runs, never as sales forecasts. Manual Focus has registered forecasts for Black Friday 2026 and for the Tacx Nēra launch, to be scored in public."
-  - question: "What does the Rider Panel predict for Black Friday 2026?"
-    answer: "In the control run we registered on 29 October, every trainer purchase landed between 27 November and 1 December. Wahoo's KICKR CORE 2 at £399.99 was the most bought trainer, with Tacx's FLUX 2 second. Tacx took 30% of buyers, more than its usual share of searches, because Garmin owners and Halfords shoppers meet it at the point of purchase. Manual Focus will score these forecasts in December."
+    answer: "No. The first panel is made of UK shoppers because the first study was a UK launch. For another country, Manual Focus rebuilds every input from that country's own sources, from who cycles there to what the shops charge. The method stays the same, so a brand can test one launch plan in two markets and compare them."
+  - question: "How accurate is the Rider Panel?"
+    answer: "Its checks were written down before the results came in. It passed three. The brand of a shopper's bike computer made no difference beyond normal variation. A field that shouldn't matter changed nothing. Totals held when shoppers were run again. It narrowly missed two. It under-picks Tacx. It also bunches buying into Black Friday week a little too much. Its real-world sales figures rest on an estimate of the UK market, which a brand can replace with its own."
 sources:
   - title: "The Rider Panel, full interactive report"
     url: "https://manual-focus.co.uk/reports/rider-panel/"
@@ -33,7 +31,7 @@ sources:
     publisher: "Open-Meteo"
 ---
 
-The Rider Panel is the market research part of [Light Meter](/light-meter/). It tests a cycling product launch on 500 AI riders before it happens. Each rider has a written life story and a budget to stick to. In the first study, a new folding smart trainer sold to 19 riders in 500 at £499. With a £399 Black Friday price it sold to 46. Revenue nearly doubled. Launched without independent reviews, it sold to just 6.
+The Rider Panel is the market research part of [Light Meter](/light-meter/). It tests a product launch on 500 AI cyclists who are shopping for one this season. In its first study, a new folding smart trainer sold to 26 shoppers in 500 with strong reviews out at launch. Without independent reviews it sold to 3. A £399 Black Friday price took it to 41, with 38% more revenue.
 
 [![Open the interactive report](/images/rider-panel/report-banner.svg)](/reports/rider-panel/)
 
@@ -41,13 +39,13 @@ Brands can [ask about a Rider Panel study](/contact/?offer=rider-panel-study) fo
 
 ## Key takeaways
 
-- The Rider Panel is part of Light Meter. Its first panel is a simulated UK cycling market of 500 AI riders. Each rider decides whether to buy and says why.
+- The Rider Panel is part of Light Meter. Its first panel is 500 UK cyclists who shop for an indoor trainer between September and March.
+- Each shopper is an AI agent with a life story. They only meet the brands someone like them would come across.
+- The same season runs several times on the same shoppers. Only the launch changes, so the difference between runs is what each decision is worth.
+- Reviews make or break a new brand. Without them, a new trainer fell from 26 buyers to 3.
+- A Black Friday price paid. £399 for Black Friday added 15 buyers and 38% more revenue, partly because deal lists put it in front of new shoppers.
+- Being named by AI added a little, from 26 buyers to 33. That's at the edge of the noise.
 - Panels for other countries are built from that country's own data. The method stays the same.
-- Riders live the Black Friday and Christmas season in their own town's real weather, with every rival at its real UK price.
-- The same season runs several times on the same riders. Only the launch changes, so the difference between runs is what each decision is worth.
-- In the first study, a £399 Black Friday price took a new trainer from 19 buyers to 46 in 500. Almost half of them wouldn't have bought any trainer without it.
-- Of 165 riders who nearly bought it at £499, 121 named price. 40 wanted more proof the brand would last.
-- Independent reviews were the channel that sold it. Without them, buyers fell from 20 to 6. Shops and AI answers got it noticed but added few sales.
 
 ## What is the Rider Panel?
 
@@ -55,123 +53,109 @@ Market research usually means asking real people what they would do. That takes 
 
 The Rider Panel is part of [Light Meter](/light-meter/), our research tool. Light Meter's AI visibility studies show what AI tells shoppers. The Rider Panel shows what shoppers then do.
 
-Each of the 500 riders is an AI agent. A brand describes a launch, then every rider decides week by week whether to buy it. Each one explains the choice in their own words. Riders who walk away also say what would have changed their mind.
+Each of the 500 shoppers is an AI agent. A brand describes a launch. Every shopper then lives the season month by month and decides whether to buy. Each one explains the choice in their own words. Shoppers who walk away also say what would have changed their mind.
 
-## Who are the riders?
+## Who are the 500 shoppers?
 
-The mix of riders follows UK survey data on who cycles and where they live. Sport England's [Active Lives survey](https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables) sets the shape of the panel. The [English Housing Survey](https://www.gov.uk/government/statistics/chapters-for-english-housing-survey-2023-to-2024-headline-findings-on-demographics-and-household-resilience) decides who rents or owns their home. FCA research sets how many pay in instalments. Where no survey exists, such as how many cyclists own an indoor trainer, the field is marked as our assumption.
+They're the people who go shopping for an indoor trainer this season, not every cyclist. Most cyclists never think about a trainer in a given year, so a panel of all cyclists would put people in the market who'd never be there.
 
-Each rider then gets a written life story with something happening this season. Riders also know each other. The panel has 1,290 ties between friends and club mates in the same towns. Nadia, 42, is an IT worker in Liverpool with a new baby, itching to ride again. Pauline, 74, is a widow in Liverpool chasing her first 100km ride. Neil, 53, has just been made redundant in Sheffield and is riding seven hours a week to lose a stone.
+We built 200,000 UK cyclists first, using survey data. Sport England's [Active Lives survey](https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables) sets who rides. The [English Housing Survey](https://www.gov.uk/government/statistics/chapters-for-english-housing-survey-2023-to-2024-headline-findings-on-demographics-and-household-resilience) decides who rents or owns their home. Each cyclist then got a chance of shopping this season, based on what they ride indoors now and what's wrong with it. The 500 were drawn from everyone who shops. About 2 in 100 adult cyclists shop for a trainer in a season. Four in ten of the 500 are buying their first.
 
-| Part of a rider's world | Where it comes from |
+| Part of a shopper's world | Where it comes from |
 |---|---|
-| Home, money, family, kit | UK survey data, plus a written life story |
-| Weather | Each town's real daily weather for the same weeks in 2025, from Open-Meteo |
-| Daylight and the calendar | Sunset times by town, pay day, Black Friday, Christmas |
-| Prices and competitors | 10 real rival trainers at real UK prices, with their Black Friday deals |
-| Where they research | Matched to each rider's habits, from ChatGPT to the Halfords shelf |
+| Their life | UK survey data, plus a written life story with a reason to start looking |
+| Their kit | The bike computer they own, how much its brand matters to them, their cassette and app |
+| Weather | Each town's real monthly weather, September 2025 to March 2026, from Open-Meteo |
+| The season | The clocks going back, Black Friday, Christmas costs, the January sales |
+| Prices and rivals | 10 real rival trainers at UK prices, with Black Friday and January deals |
+| What they come across | Set from brand familiarity (UK search share) and each shopper's own shops and apps |
 
-A rider only meets a product the way someone like them would. A Garmin owner sees Tacx in Garmin Connect. A Halfords shopper sees what's on the shelf. Someone who asks ChatGPT hears the brands it names. That matters, because our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-recommend/) found AI engines name Wahoo in 83% of UK smart trainer answers.
+A shopper only knows the trainers someone like them would meet. A Garmin owner sees Tacx in Garmin Connect. A Decathlon shopper sees Van Rysel. Someone who asks ChatGPT hears the brands it names. Our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-recommend/) found AI engines name Wahoo in 83% of UK smart trainer answers.
 
 ## Does the Rider Panel only work in the UK?
 
-No. The first panel is made of UK cyclists because the first study was a UK launch. Every row in the table above is a local input. For another country, we rebuild each one from that country's own sources, from who cycles there to what the shops charge. A German panel would ride through German weather with German prices on its shortlist.
+No. The first panel is made of UK shoppers because the first study was a UK launch. Every row in the table above is a local input. For another country, we rebuild each one from that country's own sources, from who cycles there to what the shops charge. A German panel would shop through German weather with German prices on its shortlist.
 
-The simulation and the method stay the same. A brand can test one launch plan in two markets and compare them.
+The method stays the same. A brand can test one launch plan in two markets and compare them.
 
 ## How does a study work?
 
-A study runs the same seven weeks, 14 November to 31 December, several times on the same 500 riders. Each run keeps the riders identical. The weather and every rival price stay the same too. Only the launch changes.
+A study runs the same season, September to March, several times on the same 500 shoppers. Their lives stay the same between runs. So does the weather and every rival's price. Only the launch changes.
 
-| Run | What's on sale | What it shows |
-|---|---|---|
-| Run 1, the control | The real market, with no new product | Who buys anyway, from which brands |
-| Run 2 | The launch as planned | What the launch itself did, compared with Run 1 |
-| Run 3 | The launch with one change | What that one decision is worth, compared with Run 2 |
+To prove the panel, we invented a brand called Northfold and a folding smart trainer, the DD1. Northfold isn't a real company. The DD1 is quiet and folds flat for small homes. Like its main rivals, it comes with the Zwift Cog and Click. It goes on sale on 16 November at £499. Sigma Sports and Tredz stock it, with a display stand in Halfords.
 
-After each run, every rider hears what their friends and club mates bought and what they thought of it. Then each rider can change their mind. In the first study this changed only 9 decisions out of 830. Most riders held back for reasons a friend's new trainer doesn't fix, like money or a lack of space.
+A brand nobody has heard of can't be better known than an established one in its first season. So Northfold's reach is capped at the awareness of JetBlack, a UK challenger brand. About 1 in 4 shoppers comes across it.
 
 ## What did the first study find?
 
-To prove the panel, we invented a brand called Northfold and a folding smart trainer, the DD1. Northfold is not a real company. The DD1 launched at £499 through Sigma Sports, Tredz and Halfords with strong reviews. Every real rival ran its Black Friday price, with Wahoo's KICKR CORE 2 down to £399.99.
-
-| Run | Northfold price | Northfold buyers in 500 | Northfold revenue |
+| Launch plan | Northfold buyers in 500 | Change vs the £499 launch | Northfold revenue in the panel |
 |---|---|---|---|
-| Run 1, the control | Not on sale | 0 | £0 |
-| Run 2 | £499 all season | 19 | £9,481 |
-| Run 3 | £399 on Black Friday | 46 | £18,354 |
+| £499 all season, strong reviews | 26 | | £12,974 |
+| £399 for Black Friday | 41 | +15, a real change | £17,859 |
+| No independent reviews | 3 | −23, a real change | £1,497 |
+| Named by AI engines | 33 | +7, at the edge of the noise | £16,467 |
 
-At £499, 184 riders put the DD1 on their shortlist and 19 bought it. Most of the rest took a rival's Black Friday deal or bought nothing. Over half the riders who bought it train in a living-room corner or a small flat, where a trainer that folds away matters.
+A change counts as real when its range, from re-sampling the 500 shoppers 4,000 times, stays clear of zero.
 
-## Why didn't more riders buy it?
+**Reviews make or break it.** Without independent reviews from sites like BikeRadar or DC Rainmaker, Northfold sold to 3 shoppers instead of 26. Most buyers found Northfold another way, through the launch film or a bike shop. But 20 of the 26 said the reviews were what made them buy. Without them, the shoppers who came across it couldn't trust a brand they'd never heard of.
 
-Every rider who shortlisted the DD1 and walked away said what would have changed their mind. That turns a sales number into a to-do list.
+**A Black Friday price pays.** At £399 for Black Friday, Northfold sold to 41 shoppers, with 38% more revenue. 26 of them bought in November. Deal lists and deal emails put it in front of shoppers who'd never have come across it. Most of its extra buyers came from the Wahoo KICKR CORE 2, which was on its own deal that week.
 
-| Reason given by 165 near-buyers | Riders |
+**Being named by AI adds a little.** When AI engines name Northfold, 8 of its 33 buyers first hear of it there. Sales rise from 26 to 33, at the edge of the noise. That fits our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-recommend/). Being named gets a brand onto the list. Reviews close the sale.
+
+## Why didn't more shoppers buy it?
+
+65 shoppers weighed Northfold up at £499 and chose something else. Each gave the things that decided it for them.
+
+| Reason given by 65 shoppers who walked away | Shoppers |
 |---|---|
-| A lower or Black Friday price | 121 |
-| More proof the brand will last | 40 |
-| A reason to ride indoors this season | 28 |
-| Spreading the cost with finance | 11 |
-| A partner agreeing to it | 10 |
+| Waiting for a sale | 44 |
+| The price | 40 |
+| Not sure a new brand will last | 32 |
+| Wanted proven accuracy | 10 |
+| Money is tight | 9 |
 
-Eleven more riders hoped to pay through Cycle to Work. The scheme can't be used for indoor trainers, so finance is the only way to spread the cost.
-
-## Which channel sells a new brand?
-
-We ran the £499 launch four more times on the same 500 riders. One run repeated Run 2 exactly, to measure the noise. Each of the other three changed one channel. Every rider also said where they first came across Northfold.
-
-| Run | What changed | Northfold buyers in 500 | Change |
-|---|---|---|---|
-| Run 2 again | Nothing | 20 | |
-| AI names it | AI engines name Northfold in 45% of answers | 25 | +5, within the noise |
-| Direct only | Sold only at northfold.co.uk | 17 | −3, within the noise |
-| No reviews | No independent reviews before January | 6 | −14 |
-
-**Reviews sell it.** Without independent reviews, sales fell from 20 to 6. It was the only change bigger than the noise. In the repeat run, 14 of the 20 buyers first met Northfold in a review.
-
-**Shops get it seen.** Halfords was where 81 riders first saw Northfold, but not one buyer first met it there. Selling only direct cut the riders who came across it by 40%. Sales barely moved.
-
-**AI gets it found.** When AI names Northfold, 179 riders hear of it there first. So do 17 of the 25 buyers. Sales rose from 20 to 25, which is inside the noise. AI changed where buyers first heard of it more than how many bought. That fits our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-recommend/). Being named gets a brand onto the list. Reviews close the sale.
+The buyers gave three main reasons. It folds away (22 of 26). It's quiet (21). The reviews convinced them (20). Most of them would have to put a trainer away after every ride.
 
 ## What should the brand do?
 
-The first action came straight from the riders, so we tested it. Run 3 cut the price to £399 for Black Friday and changed nothing else. Buyers rose from 19 to 46. Revenue rose 94%. Almost half of the 46 buyers wouldn't have bought any trainer in the control run.
-
-The channel runs tested a second action. Get the big independent reviews out by launch day. Without them, sales fell by 70%.
+Three actions were tested by running the season again. Have the big reviews out on launch day. Go to £399 for Black Friday. Work on being named in AI answers, after the reviews rather than instead of them.
 
 The next actions are still to test:
 
 - **Prove the brand will last.** Test a 100-day trial with a five-year warranty on every retailer listing.
-- **Offer 0% finance.** Show the monthly price beside the full price in every ad.
-- **Time ads to the weather.** Run them in each region after its first wet, dark week, when riders said they'd give up on riding outside.
+- **Plan a January offer.** Many shoppers start looking after Christmas. The January sales are the next moment to be on deal lists.
+- **Aim at people with no spare room.** Put the fold in the first second of every video.
 
-## What does the panel predict for Black Friday 2026?
+## What would it mean in real sales?
 
-The control run from our first 200 riders is also a forecast for the real market. We registered it on 29 October, before Black Friday. We'll score it in December, right or wrong.
+Each shopper stands for about 280 real UK shoppers. That's set so the £499 run's trainer sales match the size of the UK market this season, about 120,000 trainers on our estimate. On that basis, the £499 launch sells about 7,400 trainers, 6% of the season. The £399 Black Friday plan sells about 11,700. Without reviews it sells about 900.
 
-| Forecast | How we'll score it |
-|---|---|
-| UK interest in smart trainers peaks in Black Friday week | Google Trends, UK, weekly |
-| The KICKR CORE 2 is the most searched trainer that week | Google Trends comparison with the Tacx FLUX 2 and Elite Rivo |
-| Tacx gains on Wahoo over Black Friday | The FLUX 2 to KICKR CORE ratio against its October average |
-| A Wahoo trainer tops Amazon UK on Cyber Monday | Amazon UK Best Sellers, 30 November |
+Those totals rest on our market estimate, which comes from market revenue data with low confidence. A brand can swap in its own figure. The [interactive report](/reports/rider-panel/) has a slider for it.
 
 ## How accurate is it?
 
-It is close on some things and not on others. In the control run, Wahoo took 46% of trainer buyers and Tacx 24%. Real UK searches give Wahoo 59% and Tacx 20%. The riders buy far more often than real cyclists, about 18% of them against 2 to 3% a year, so we read results as differences between runs, never as sales forecasts. Single riders also change their minds between runs. Running Run 2 a second time gave 20 Northfold buyers against 19, but only 8 were the same riders. So every number is a total.
+We wrote the pass marks down before the results came in. It passed three checks and narrowly missed two.
 
-Panel size matters too. Our first 200 riders gave Northfold 44% of the buyers who came across it at £499. Adding 300 more riders brought that to 28%, with a range of 18% to 39%. That's why the panel now has 500 riders.
+| Check | Result |
+|---|---|
+| Does owning a Garmin or Wahoo computer sway the choice? | No. Swapping it changed choices no more than running the same shopper again (26% against 30%). Passed. |
+| Does a field that shouldn't matter change anything? | No. A shopper's main supermarket made no difference to whether they bought. Passed. |
+| Do totals hold when shoppers are run again? | Yes. 100 shoppers run twice gave 17 then 16 Northfold buyers. Passed. |
+| Brand shares | Wahoo 68% of branded trainer sales. Tacx 9%, just under our 10% floor and below its 19% of searches. Narrow miss. |
+| Timing | Black Friday week carried 45% of the season's sales against our 40% limit. Narrow miss. |
 
-We're testing it in public. Alongside the Black Friday forecast, we registered a prediction for Garmin's real Tacx Nēra launch in October, to be scored in January 2027.
+Brand familiarity is set from real search share, so the brand-share check confirms the calibration rather than testing the panel independently. Single shoppers change their minds between runs, so every number is a total.
+
+We're testing it in public too. Before Black Friday we registered four forecasts for the real market with an earlier version of the panel, to be scored in December. A prediction for Garmin's real Tacx Nēra launch will be scored in January 2027.
 
 ## What can't the Rider Panel tell you?
 
-It can't tell you how many units you'll sell. It doesn't replace talking to real customers. It tells you which launch plans are worth taking to them. It shows what each change is worth. It tells you why people say no.
+It doesn't replace talking to real customers. It tells you which launch plans are worth taking to them. It shows what each change is worth. It shows why people say no. Its sales totals are only as good as the market estimate behind them.
 
 ## Further reading
 
-- [The Rider Panel, full interactive report](/reports/rider-panel/), with all 500 riders and their life stories
+- [The Rider Panel, full interactive report](/reports/rider-panel/), with all 500 shoppers and their life stories
 - [Which indoor cycling brands does AI recommend in the UK?](/blog/which-indoor-cycling-brands-does-ai-recommend/)
 - [Light Meter, our research tool](/light-meter/)
 - [How we work with cycling and endurance brands](/services/)

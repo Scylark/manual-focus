@@ -30,7 +30,7 @@ export async function GET(context: APIContext) {
     '',
     `- [Services](${site}/services/): the four ways to work with us, including Fractional CMO`,
     `- [Light Meter](${site}/light-meter/): AI visibility studies that show which brands AI recommends`,
-    `- [Light Meter Rider Panel](${site}/reports/rider-panel/): market research run on 500 AI cyclists, testing a launch before it happens`,
+    `- [Light Meter Rider Panel](${site}/reports/rider-panel/): market research run on 500 AI trainer shoppers, testing a launch before it happens`,
     `- [About](${site}/about/): James Vickers and the Foundry collective`,
     `- [FAQ](${site}/faq/): how engagements work`,
     `- [Book a free working session](${site}/contact/)`,
