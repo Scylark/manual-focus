@@ -3,9 +3,10 @@ import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { url } from '../utils/paths';
 
-const title = 'Manual Focus Light Meter, an AI visibility tool for brands';
-const description = 'Light Meter is an AI visibility tool from Manual Focus. It shows which brands six AI engines recommend. It also shows which sites they cite.';
+const title = 'Manual Focus Light Meter, AI visibility and launch research for brands';
+const description = 'Light Meter is the research tool from Manual Focus. It shows which brands six AI engines recommend. Its Rider Panel tests how 500 AI buyers respond to a new product or brand.';
 const report = url('/reports/ai-shortlist-indoor-cycling/');
+const panel = url('/reports/rider-panel/');
 const enquire = (offer: string, extra = '') => `${url('/contact/')}?offer=${offer}${extra}`;
 
 // Categories brands can order. Indoor cycling is published; the rest are built to order.
@@ -29,7 +30,7 @@ const ghost = [86, 64, 48, 37, 22];
     <div class="container">
       <div class="eyebrow">NEW · MANUAL FOCUS LIGHT METER</div>
       <h1>Light Meter shows which brands AI recommends</h1>
-      <p class="lead">Manual Focus Light Meter is our new AI visibility tool, launched in October 2026. It puts the questions your buyers ask to six AI engines, including ChatGPT and Google's AI Mode. Each question runs three times. You see which brands the engines name. You also see which websites they cite. Our first study with it, UK indoor cycling, is open to everyone as an example of what you get.</p>
+      <p class="lead">Manual Focus Light Meter is our new AI visibility tool, launched in October 2026. It puts the questions your buyers ask to six AI engines, including ChatGPT and Google's AI Mode. Each question runs three times. You see which brands the engines name. You also see which websites they cite. Our first study with it, UK indoor cycling, is open to everyone as an example of what you get. Light Meter also includes the <a href="#rider-panel">Rider Panel</a>, which tests how buyers respond to a new product or brand before it launches.</p>
       <div class="lm-ctas">
         <a href={enquire('ai-shortlist-card')} class="btn-cta">Get your free AI Shortlist card</a>
         <a href={report} class="btn-ghost">See an example study</a>
@@ -78,7 +79,24 @@ const ghost = [86, 64, 48, 37, 22];
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="rider-panel">
+    <div class="container">
+      <div class="eyebrow">NEW · LIGHT METER RIDER PANEL</div>
+      <h2 class="lm-h2">The Rider Panel tests how buyers respond to a new product or brand</h2>
+      <p class="lm-copy">Light Meter shows what AI tells your buyers. The Rider Panel shows what those buyers then do. It recruits AI shoppers who are in the market for your kind of product this season, from a potentially limitless pool. Our first study used 500. Each one has a written life story and a budget to stick to. A brand describes a launch. Each shopper decides month by month whether to buy, then says why.</p>
+      <p class="lm-copy">The same season runs again on the same shoppers with one change each time, such as the price or the channels. The difference between runs shows what each decision is worth. In the first study, a new smart trainer sold to 26 shoppers in 500 with strong reviews out at launch. Without independent reviews it sold to 3. A £399 Black Friday price took it to 41.</p>
+      <p class="lm-copy">The first panel is made of UK cyclists. For another country we rebuild every input from that country's own sources, from its survey data to its shop prices. Studies are priced on application.</p>
+      <a href={panel} class="lm-shot" aria-label="Open the Rider Panel report">
+        <img src={url('/images/rider-panel/report-banner.svg')} alt="The Rider Panel, market research run on 500 AI cyclists" width="1200" height="300" loading="lazy" decoding="async" />
+      </a>
+      <div class="lm-ctas">
+        <a href={panel} class="btn-cta">Open the Rider Panel report</a>
+        <a href={enquire('rider-panel-study')} class="btn-ghost">Ask about a Rider Panel study</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
     <div class="container">
       <div class="eyebrow">CATEGORY AUDITS</div>
       <h2 class="lm-h2">Category audits you can order</h2>
@@ -109,7 +127,7 @@ const ghost = [86, 64, 48, 37, 22];
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <div class="eyebrow">SERVICES AND PRICES</div>
       <h2 class="lm-h2">Light Meter services and prices</h2>
