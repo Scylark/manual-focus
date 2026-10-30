@@ -3,6 +3,11 @@ title: "Reddit plans a logged-in-only site, what it means for marketers"
 date: 2026-10-30
 tags: ["ai-briefing", "ai", "brand"]
 description: "Reddit said on 29 October 2026 it will test a logged-in-only site this quarter after search referrals fell by over 1 million a week. Plan your Reddit work now."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/reddit-logged-in-only-search-referrals-marketers.mp3"
+  duration: 434
+  bytes: 5209592
+  published: 2026-10-30
 faq:
   - question: "Is Reddit going logged-in only?"
     answer: "Yes, in stages. Reddit's third-quarter 2026 shareholder letter, published on 29 October 2026, says the company is shifting to a logged-in-only experience. It will begin fully testing the change in select markets outside the US during the fourth quarter of 2026, and the results will shape a version for every market. Reddit has named no markets and no global date."
