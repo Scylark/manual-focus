@@ -2,10 +2,12 @@
 title: "The Rider Panel: testing a product launch on 500 AI cyclists"
 date: 2026-11-03
 tags: ["ai", "endurance-sports", "go-to-market"]
-description: "The Rider Panel tests a cycling product launch on 500 AI riders with real lives in real UK weather. Here is what the first study found."
+description: "The Rider Panel, part of Manual Focus Light Meter, tests a product launch on 500 AI riders with real lives. Here is what its first study, a UK launch, found."
 faq:
   - question: "What is the Rider Panel?"
-    answer: "The Rider Panel is a market research tool from Manual Focus. It is a simulated UK cycling market of 500 AI riders. Each rider has a written life story built on UK survey data. Each lives through the Black Friday and Christmas buying season in their own town's real weather, with every rival product at its real UK price. A brand describes a launch and every rider decides whether to buy, then explains why."
+    answer: "The Rider Panel is the market research part of Light Meter, the research tool from Manual Focus. Its first panel is a simulated UK cycling market of 500 AI riders. Each rider has a written life story built on UK survey data. Each lives through the Black Friday and Christmas buying season in their own town's real weather, with every rival product at its real UK price. A brand describes a launch and every rider decides whether to buy, then explains why."
+  - question: "Does the Rider Panel only work in the UK?"
+    answer: "No. The first panel is made of UK cyclists because the first study was a UK launch. For another country, Manual Focus rebuilds every input from that country's own sources, from who cycles there to what the shops charge. The method stays the same, so a brand can test one launch plan in two markets and compare them."
   - question: "How is the Rider Panel different from a focus group or survey?"
     answer: "A focus group or survey asks real people what they think they would do. The Rider Panel runs the same buying season several times on the same 500 riders, changing one thing each time, such as the price or the retailers. That shows what each decision changes. It takes an afternoon rather than weeks. It does not replace real customers, but it shows which ideas are worth taking to them."
   - question: "What did the first Rider Panel study find?"
@@ -31,7 +33,7 @@ sources:
     publisher: "Open-Meteo"
 ---
 
-The Rider Panel is a market research tool that tests a cycling product launch on 500 AI riders before it happens. Each rider has a written life story and a budget to stick to. In the first study, a new folding smart trainer sold to 19 riders in 500 at £499. With a £399 Black Friday price it sold to 46. Revenue nearly doubled. Launched without independent reviews, it sold to just 6.
+The Rider Panel is the market research part of [Light Meter](/light-meter/). It tests a cycling product launch on 500 AI riders before it happens. Each rider has a written life story and a budget to stick to. In the first study, a new folding smart trainer sold to 19 riders in 500 at £499. With a £399 Black Friday price it sold to 46. Revenue nearly doubled. Launched without independent reviews, it sold to just 6.
 
 [![Open the interactive report](/images/rider-panel/report-banner.svg)](/reports/rider-panel/)
 
@@ -39,7 +41,8 @@ Brands can [ask about a Rider Panel study](/contact/?offer=rider-panel-study) fo
 
 ## Key takeaways
 
-- The Rider Panel is a simulated UK cycling market of 500 AI riders. Each rider decides whether to buy and says why.
+- The Rider Panel is part of Light Meter. Its first panel is a simulated UK cycling market of 500 AI riders. Each rider decides whether to buy and says why.
+- Panels for other countries are built from that country's own data. The method stays the same.
 - Riders live the Black Friday and Christmas season in their own town's real weather, with every rival at its real UK price.
 - The same season runs several times on the same riders. Only the launch changes, so the difference between runs is what each decision is worth.
 - In the first study, a £399 Black Friday price took a new trainer from 19 buyers to 46 in 500. Almost half of them wouldn't have bought any trainer without it.
@@ -50,7 +53,7 @@ Brands can [ask about a Rider Panel study](/contact/?offer=rider-panel-study) fo
 
 Market research usually means asking real people what they would do. That takes weeks to recruit and costs thousands of pounds per study, so most brands only do it for their biggest launches. Everything else gets decided on instinct.
 
-The Rider Panel is the second part of the programme that started with [Light Meter](/light-meter/), our tool for measuring which brands AI recommends. Light Meter shows what AI tells shoppers. The Rider Panel shows what shoppers then do.
+The Rider Panel is part of [Light Meter](/light-meter/), our research tool. Light Meter's AI visibility studies show what AI tells shoppers. The Rider Panel shows what shoppers then do.
 
 Each of the 500 riders is an AI agent. A brand describes a launch, then every rider decides week by week whether to buy it. Each one explains the choice in their own words. Riders who walk away also say what would have changed their mind.
 
@@ -69,6 +72,12 @@ Each rider then gets a written life story with something happening this season. 
 | Where they research | Matched to each rider's habits, from ChatGPT to the Halfords shelf |
 
 A rider only meets a product the way someone like them would. A Garmin owner sees Tacx in Garmin Connect. A Halfords shopper sees what's on the shelf. Someone who asks ChatGPT hears the brands it names. That matters, because our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-recommend/) found AI engines name Wahoo in 83% of UK smart trainer answers.
+
+## Does the Rider Panel only work in the UK?
+
+No. The first panel is made of UK cyclists because the first study was a UK launch. Every row in the table above is a local input. For another country, we rebuild each one from that country's own sources, from who cycles there to what the shops charge. A German panel would ride through German weather with German prices on its shortlist.
+
+The simulation and the method stay the same. A brand can test one launch plan in two markets and compare them.
 
 ## How does a study work?
 
@@ -164,6 +173,6 @@ It can't tell you how many units you'll sell. It doesn't replace talking to real
 
 - [The Rider Panel, full interactive report](/reports/rider-panel/), with all 500 riders and their life stories
 - [Which indoor cycling brands does AI recommend in the UK?](/blog/which-indoor-cycling-brands-does-ai-recommend/)
-- [Light Meter, our AI visibility tool](/light-meter/)
+- [Light Meter, our research tool](/light-meter/)
 - [How we work with cycling and endurance brands](/services/)
 - [Ask about a Rider Panel study](/contact/?offer=rider-panel-study)
