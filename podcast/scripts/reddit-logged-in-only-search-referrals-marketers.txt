@@ -1,0 +1,63 @@
+JAMES: Reddit is losing more than a million search referrals a week, and its answer is to start closing the front door. On the twenty-ninth of October it told shareholders it's moving to a logged-in-only site, with tests starting this quarter. I'm James Vickers, this is Manual Focus, and Hannah's here to help me work out what that does to every brand that's been counting on Reddit threads in Google and in AI answers.
+
+HANNAH: Hi James. It's a short section of a long letter, but a very plain one.
+
+JAMES: Then start with the letter.
+
+HANNAH: It's Reddit's third-quarter letter to shareholders, filed with the S E C alongside the results. Steve Huffman, the chief executive, writes that a key piece of work to keep new audiences is shifting Reddit to a logged-in-only experience. He calls it a big one for the company and a big one for him personally.
+
+JAMES: [dryly] That's not the usual tone for a results letter.
+
+HANNAH: And the timing is specific. Reddit will begin fully testing it in select markets outside the US in the fourth quarter, and the results will shape a version for every market. What it hasn't done is name the markets or give a global date.
+
+JAMES: So we don't know if the UK's in the first wave.
+
+HANNAH: Not yet. Huffman gives four reasons. Logged-in users get more relevant content, Reddit gets more signals for ad targeting, logged-in users engage more, and it lets Reddit protect access to what he calls its extremely valuable corpus of data. That's more than twenty-seven billion posts and comments.
+
+JAMES: [thoughtfully] And the reason it's happening now is the search traffic.
+
+HANNAH: Right. The letter says web search is turning from a gateway to the web into an AI-powered destination itself. Reddit's search referrals were down meaningfully in the third quarter, the fall sped up late in the quarter, and in October it was more than a million referrals a week on average. Logged-out web visitors took the biggest hit.
+
+JAMES: And the business itself is doing fine, which is the odd part.
+
+HANNAH: Very fine. Revenue was up fifty-three per cent to eight hundred and ninety-five million dollars. But Reddit also warned that daily users could fall by a low double-digit percentage in the fourth quarter, from a base of about a hundred and thirty million. It's choosing members over visitors with its eyes open.
+
+JAMES: So here's the question a marketing lead will ask. Some brands treat Reddit as a search channel. Answer questions in subreddits, hope the thread ranks for a category term, hope it turns up as an AI citation. What happens to that?
+
+HANNAH: That work assumes an open site any crawler or searcher can read. As logged-out access narrows, a thread that matters because it ranks may reach fewer people. And the letter doesn't say what search or AI crawlers will see once a market switches.
+
+JAMES: Though Google's in a different position from everyone else.
+
+HANNAH: It is. Google announced an expanded partnership with Reddit in February twenty twenty-four, which gave it access to Reddit's Data API, with rights to display and train on that data. So Google's better placed than rival AI engines to keep showing Reddit content. Engines without a licence may well cite it less.
+
+JAMES: [thoughtfully] Which joins up with something we covered earlier this month. When AI Overviews reached eighty-two per cent of tracked brand searches, the point was that Google now writes a paragraph about your company, and a Reddit thread is one of the pages it can draw on.
+
+HANNAH: And how much Reddit matters varies a lot by category. In our Light Meter study of UK indoor cycling, Reddit, YouTube and forums together supplied three to five per cent of AI citations. Editorial sites supplied over half. In some software and consumer categories, the Reddit share could be far higher.
+
+JAMES: So you measure before you move any budget. What about the paid side?
+
+HANNAH: That's the other half of the story. Logged-in and app users already generate over eighty per cent of Reddit's monetisation, and Reddit expects logged-in browsing to feed its ad system more targeting signals. It also made Reddit Max campaigns generally available in the third quarter.
+
+JAMES: Our view at Manual Focus is fairly simple. Treat Reddit as a community and paid channel, and stop counting on it as a free route into Google and AI answers. Reddit has told its own shareholders that open access isn't the priority any more.
+
+HANNAH: And earned coverage on a site where the owner decides who can read it carries more risk than it did a year ago.
+
+JAMES: So what do you hand over to AI here? Get AI on this, first job. Find out how much of your visibility actually rests on Reddit.
+
+HANNAH: Give it your top thirty category and brand terms. It checks which Reddit threads rank on page one and how often Reddit turns up in AI answers about your category, asking each engine several times, because one run per engine isn't enough to judge it. Set that as a monthly routine and it hands you a table you can watch move.
+
+JAMES: Second job. Get AI on this to check your own Google referral trend.
+
+HANNAH: Give it your weekly organic sessions from Google by landing page, for September and October and the same weeks last year. It groups the pages by type and shows you where the fall is, so nobody blames seasonality without looking.
+
+JAMES: And the third. Get AI on this to move the proof onto pages you own.
+
+HANNAH: Give it the Reddit threads doing the persuading in your category. It drafts the comparison, the review summary or the plain answer for your own site. A person still checks every claim before it goes live. The prompts are in the show notes.
+
+JAMES: What's still unknown?
+
+HANNAH: Quite a lot. No test markets named, no date for a global switch. Nothing on what crawlers will see, or whether logged-out visitors keep any view of threads. No word on new licensing deals with AI companies beyond Google's. And Reddit didn't split that million a week between classic Google results and AI features.
+
+JAMES: [calmly] So the takeaway. Reddit is choosing members over visitors, so measure how much you lean on it and put your best proof somewhere you control. The full article is on manual-focus dot co dot uk. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen and the next one will find you. If you'd like a hand working out how exposed your brand is, book a free working session on the same site. Thanks, Hannah.
+
+HANNAH: Thanks, James. Log in before you go looking.
