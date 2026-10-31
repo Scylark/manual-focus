@@ -80,7 +80,7 @@ The draft also says a `User-Agent: *` group never matches the token, so the fami
 
 ## Should a brand block AI training?
 
-For most brands, no. Product pages, pricing, comparisons and category explainers exist to be read and repeated, and a model that learned your positioning is more likely to describe you accurately when it answers without searching. Training and retrieval reward the same pages, as the [SISTRIX citation study](/blog/sistrix-ai-citation-study-geo-tactics/) and [the citation moved off the page](/blog/the-citation-moved-off-the-page/) both set out.
+For most brands, no. Product pages, pricing, comparisons and category explainers exist to be read and repeated, and a model that learned your positioning is more likely to describe you accurately when it answers without searching. The [SISTRIX citation study](/blog/sistrix-ai-citation-study-geo-tactics/) and [the citation moved off the page](/blog/the-citation-moved-off-the-page/) cover what earns those pages a citation once a model goes looking.
 
 The exceptions are content you sell or license. Paid research, member-only guides, licensed photography and customer data deserve a path-level Disallow, and the draft's path matching lets you protect `/research/` while leaving `/products/` open.
 
