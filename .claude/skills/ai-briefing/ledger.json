@@ -1030,5 +1030,53 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-10-31",
+    "story": "Google (Search Central, 30 October) and Microsoft Bing say they will honour one shared robots.txt AI training token, __usage_ai-training, from an IETF draft by Anthropic's Kevin Kelley, with Bing adding a separate AI Grounding preference and a 1 March 2027 NoArchive/NoCache deadline",
+    "primary_source": "https://developers.google.com/search/blog/2026/10/ai-training-control",
+    "score": 8,
+    "decision": "published",
+    "slug": "shared-ai-training-opt-out-robots-txt"
+  },
+  {
+    "run_date": "2026-10-31",
+    "story": "Mistral releases open weights for Mistral Large 4, a trillion-parameter multimodal model aimed at software and defensive cybersecurity (TechCrunch 29 October)",
+    "primary_source": "https://mistral.ai/news/mistral-large-4-oss/",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-31",
+    "story": "Amazon CEO Andy Jassy says third-party shopping agents like Meta's Muse are less convenient than visiting retailers (Fortune 29 October)",
+    "primary_source": "https://fortune.com/2026/10/29/amazon-ceo-says-shopping-agents-like-metas-muse-not-great/",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-31",
+    "story": "OpenAI's Aura safety check can block ChatGPT from browsing sites it flags as risky (Search Engine Journal)",
+    "primary_source": "https://www.searchenginejournal.com/openais-aura-safety-check-can-block-your-site-from-chatgpt-browsing/594322/",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-31",
+    "story": "OpenAI publishes an updated Model Spec built on five principles (30 October)",
+    "primary_source": "https://openai.com/index/updated-model-spec/",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-31",
+    "story": "Canada commits up to C$1.6 billion equity stake in Cohere (Semafor 29 October)",
+    "primary_source": "https://www.semafor.com/article/10/29/2026/canada-to-take-equity-stake-in-ai-firm",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
