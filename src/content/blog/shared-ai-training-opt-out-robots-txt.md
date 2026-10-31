@@ -74,7 +74,7 @@ Microsoft's post warns that choosing DisallowExtended or Disallow "will signific
 
 ## Where an opt-out costs visibility
 
-Google's post attaches a condition to the shared token, saying sites "that specifically allow Google-Extended are eligible to appear in responses and receive clicks via grounding in Gemini Apps", and a token-only opt-out counts as a Google-Extended disallow. A brand that adds one blanket training block could therefore drop out of Gemini answers without meaning to, unless it also writes an explicit Allow group for Google-Extended.
+Google's post attaches a condition to the shared token, saying sites "that specifically allow Google-Extended are eligible to appear in responses and receive clicks via grounding in Gemini Apps", and a token-only opt-out counts as a Google-Extended disallow. A brand that adds one blanket training block could therefore drop out of Gemini answers without meaning to. Google ties Gemini Apps grounding to the same Google-Extended Allow that permits Gemini training, so on any one path a site can't keep Google out of training and stay eligible for that grounding. Keeping the opt-out to the protected paths leaves the rest of the site eligible for both.
 
 The draft also says a `User-Agent: *` group never matches the token, so the familiar catch-all rules say nothing about training. Existing crawler blocks keep working too, so a site that disallowed GPTBot or Meta-ExternalAgent after reading our piece on [Meta's crawling terms](/blog/meta-commercial-terms-crawling-uk-advertisers/) keeps those blocks whatever it writes for the new token.
 
@@ -90,7 +90,7 @@ Our view at Manual Focus is that brand and commercial sites should allow AI trai
 
 1. **Find your old Bing tags.** Search templates and response headers for NoArchive and NoCache. If you use them, decide your training and grounding preferences now, and if you want to keep withholding pages from grounding, record a temporary preference in Bing Webmaster Tools once it opens on 15 December 2026.
 2. **Map which paths carry licensed content.** List the directories with paid, gated or third-party content and draft path-level `__usage_ai-training` Disallow rules for those alone. The [site audit and refresh playbook](/lens/ops/site-audit-and-refresh/) gives a structure for that inventory.
-3. **Add an explicit Google-Extended Allow group** if you opt out of training through the shared token but still want to be eligible for grounding in Gemini Apps.
+3. **Keep Google opt-outs to the protected paths.** An explicit Google-Extended Allow lets Google train on those paths as well as ground Gemini answers in them, so don't add a site-wide one to undo a training block. Disallow the token, or Google-Extended, only on the paths from step 2 and leave everything else allowed.
 4. **Leave grounding on commercial pages at Allow.** Reserve the Bingbot `ai-grounding` Disallow for pages that should never appear in an AI answer, such as account or legal pages.
 5. **Test the file after each change.** A malformed group can block Googlebot or Bingbot from crawling. Treat robots.txt as brand infrastructure with an owner and a change log, as the [brand guardrails as code playbook](/lens/ops/brand-guardrails-as-code/) suggests for other brand rules.
 
