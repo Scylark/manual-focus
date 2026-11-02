@@ -1,65 +1,73 @@
-JAMES: We don't usually turn the microphone on ourselves, but this week we are, because WattPlan, the cycling training app we build at Manual Focus, now runs every line of its copy from one document, and the way we built it is useful whatever you sell. I'm James Vickers, this is Manual Focus, and Hannah's here to keep me honest about our own product.
+JAMES: We don't usually turn the microphone on ourselves, but this week we are, because WattPlan, the cycling training app we build at Manual Focus, now runs every line of its copy from one document. I'm James Vickers, this is Manual Focus, and Hannah's here to keep me honest about our own product.
 
-HANNAH: Hi James. And I'll say it up front, because the article does. This is our app, so it's a worked example from the inside, mistakes included.
+HANNAH: Hi James. And up front, this is our app, so it's a worked example from the inside, mistakes included.
 
-JAMES: So, the document. It's a messaging house, revised on the eleventh of September. Hannah, what's the shape of it?
+JAMES: So, the document. A messaging house, revised on the eleventh of September. Walk us down it.
 
-HANNAH: Five levels, each one proving the one above. A two-word tagline, Train. Adapt. A short description, "a cycling training app built to make you stronger on the bike", which uses sixty-one of the eighty characters Google Play allows. One core claim, that WattPlan builds your training around your goals and the time you have, and adjusts it as things change. Then three benefits, and under each, a row for every supporting feature.
+HANNAH: Six levels, each one proving the one above. Level one is the tagline, the line people remember. Ours is two words, Train. Adapt. Level two is the emotional benefit, the feeling the product should leave, and it stays internal. For WattPlan, confidence that your training is right.
 
-JAMES: The benefits are the week, the Coach and the data. The week leads, because personalising it is the thing we do differently.
+JAMES: Internal because written out, it reads like a performance promise.
 
-HANNAH: And the unusual bit is the bottom row. Every supporting feature names the code that delivers it, the function or the file. If the file moves, someone fixes the reference. If the capability goes, the claim goes the same day.
+HANNAH: Level three is the short description, what it is and what it does for you. "A cycling training app built to make you stronger on the bike", sixty-one of the eighty characters Google Play allows. Level four is the core product claim, the one sentence every benefit has to support. WattPlan builds your training around your goals and the time you have, and adjusts it as things change.
 
-JAMES: [thoughtfully] In the Basics episode on what marketing is, at the end of October, we built a communication hierarchy for a helmet. This is that, applied to a real product, with one rule added. If a line can't trace to a benefit in the document, it doesn't ship.
+JAMES: And then the benefits.
 
-HANNAH: And writing it that way is what found the problems. We wrote the proof column first, against the shipped product, and that turned up five things older documents still said that the product no longer supported.
+HANNAH: Level five. What changes for the cyclist, each a group of features. The week, the Coach and the data. And level six is the features, each naming the code that delivers it, the function or the file. If the file moves, someone fixes the reference. If the capability goes, the claim goes the same day.
 
-JAMES: Go on, embarrass us.
+JAMES: [thoughtfully] It's the communication hierarchy from our Basics episode on what marketing is, applied to a real product, with one rule added. If a line can't trace to a benefit in the document, it doesn't ship.
 
-HANNAH: Older documents said more than a hundred workouts. The code has sixty-seven, so the house says "a structured library across every training zone". Calendar export was in a feature table, and there's no calendar writer in the code at all. Zwift export was listed as Premium, and it's free. So were Garmin and Wahoo workout push. And Ride Review had shipped on the second of September, so the house names the benefit, a Coach review after every ride.
+HANNAH: And we wrote the proof column first, against the shipped product, which turned up five things older documents still said and the product no longer did.
+
+JAMES: Embarrass us.
+
+HANNAH: Older documents said more than a hundred workouts. The code has sixty-seven, so the house says "a structured library across every training zone". Calendar export was in a feature table, and there's no calendar writer in the code. Zwift export was listed as Premium, and it's free. So were Garmin and Wahoo workout push. And Ride Review had shipped on the second of September, so the house names the benefit, a Coach review after every ride.
 
 JAMES: [dryly] Every one of those was a sentence away from a store listing.
 
-HANNAH: Which is the regulatory point. Google Play's Deceptive Behaviour policy requires an accurate description of what an app does in every part of the listing. And the ASA, through the CAP Code, treats an unqualified superlative as a comparison against every competing product. So no "the only", no "most advanced".
+HANNAH: Which is the regulatory point. Google Play's Deceptive Behaviour policy requires an accurate description of what an app does in every part of the listing. And the CAP Code treats an unqualified superlative as a comparison against every competitor. So no "the only".
 
-JAMES: Which brings us to the tagline. Two words is not much room. Why does Train. Adapt. earn its place?
+JAMES: Back to the tagline. Why does Train. Adapt. earn its place?
 
 HANNAH: Four readings in two words. Train is the cyclist doing the work. Adapt, the body, is the sport, because your body adapts through training. Adapt, the plan, is the product, because the plan adapts to what you actually did. And together, train and adapt is the loop that makes you faster.
 
-JAMES: And the product used the word first. The adaptation engine carried "adapt" in the code before anyone wrote a tagline. Two earlier lines were retired, one about a coach that never switches off, because uptime doesn't sell a training app, and one promising real performance improvement, because we can't guarantee performance.
+JAMES: And the product used the word first. The adaptation engine carried "adapt" in the code before anyone wrote a tagline. Two earlier lines were retired, with the reason written down. One about a coach that never switches off, because uptime doesn't sell. One promising performance improvement, because we can't guarantee it.
 
-JAMES: So where does it go? A push notification and a store listing can't carry the same amount.
+JAMES: So where does it go? A notification and a store listing can't carry the same amount.
 
-HANNAH: The house maps a path, attention, interest, desire, action, and says no asset has to walk all of it. Then a routing table says which benefit leads on each surface. The home page gets the tagline and the week. Onboarding leads with the data, because watching the plan fill itself in from a connected Garmin is the fastest proof the product has.
+HANNAH: The house maps a path, attention, interest, desire, action. Attention is the tagline. Interest is the short description. Desire is the three benefits. Action is "start free, upgrade when you're ready". No asset has to walk all of it. Then a routing table says which benefit leads on each surface. The home page gets the tagline and the week. Onboarding leads with the data, because watching the plan fill itself in from a connected Garmin is the fastest proof there is.
 
-JAMES: And behind it sits an internal benefit that never appears in customer copy. Confidence that your training is right. Understood, because the plan takes the hours you actually have. Consistent, because one missed Tuesday doesn't decide the rest of your week.
+JAMES: And behind the routing, the internal benefit breaks into two feelings. Understood and consistent.
 
-HANNAH: Those are product tests, not headlines.
+HANNAH: At every stage. Setting up, it takes your real hours, and builds a week you can actually ride. Mid-week, your ride is already in and scored, and if you miss one the rest still makes sense. After, it saw the personal best before you did, and the block completes instead of collapsing.
 
-JAMES: [calmly] Then the longest section, which is about silence. No medical claims. No promised watts. The Coach is an advisor, not an autopilot, so we can't say "fire your coach". No "trusted by thousands". And no free trial, because there's a permanent free tier instead.
+JAMES: [calmly] Then the longest section, which is about silence. No medical claims. No promised watts. The Coach is an advisor, not an autopilot, so no "fire your coach". No "trusted by thousands". And no free trial, because there's a permanent free tier.
 
-HANNAH: Plus three banned lists. Sport clichés, so no pain cave. Technology filler, so no seamless. And AI filler, so no "AI-powered", because every rival can say it and it tells a rider nothing. And a vocabulary table from the app's own screens. Plan, not programme. Coach, not bot.
+HANNAH: Plus three banned lists. Sport clichés, so no pain cave. Technology filler, so no seamless. AI filler, so no "AI-powered", because every rival can say it. And a vocabulary table from the app's own screens. Plan, not programme. Coach, not bot. Rider, not athlete.
 
-JAMES: Our view at Manual Focus is that a messaging house earns its keep only when every claim traces to something the product does today, because a brand document you can't check against the product drifts from it within a release. So, if you're building one, get AI on this.
+JAMES: And under all of that sits the foundation. A tone of voice, an experienced club rider who knows the science. Product substantiation, the shipped claims and a corrections log. And the claims WattPlan never makes. Everything above it is copy, checked against the foundation.
+
+HANNAH: The house also carries the store limits. Apple allows a name of thirty characters, a subtitle of thirty, promotional text of a hundred and seventy and keywords of a hundred. Google Play allows a name of thirty, a short description of eighty and a full description of four thousand. The house records how much of each limit the approved copy uses.
+
+JAMES: Our view at Manual Focus is that a messaging house earns its keep only when every claim traces to something the product does today, because a brand document you can't check against the product drifts from it within a release. The article gives five steps. Proof column first. Retire lines in writing. Put the channel limits in the document. Route the benefits. Write the silence. Most of that can go to AI, so, get AI on this.
 
 HANNAH: Go on.
 
-JAMES: First, get AI to write the proof column. Give it your feature documentation, or the codebase, and every piece of live copy, and ask it to map each claim to a shipped feature.
+JAMES: First, get AI to write the proof column. Give it your feature documentation, or the codebase, and every piece of live copy, and have it map each claim to a shipped feature.
 
-HANNAH: What comes back is a table of claims with the feature behind each, and a list of orphans, the claims with nothing underneath. That's your corrections log on day one.
+HANNAH: Back comes a table of claims with the feature behind each, and a list of orphans, the claims with nothing underneath. That's your corrections log on day one.
 
-JAMES: Second, audit the copy you already have against the house. Store listing, website, emails, release notes.
+JAMES: Second, audit the copy you already have against the house. Store listing, website, emails.
 
-HANNAH: Give it the house and the copy, and it hands back each line that breaks a rule, which rule, and a rewrite. The decision on each rewrite stays with a person.
+HANNAH: Give it the house and the copy, and it hands back each line that breaks a rule, which rule, and a rewrite. The decision stays with a person.
 
-JAMES: Third, make it a routine. After every release, have AI read the changelog against the house and list the claims to add and the claims to retire.
+JAMES: Third, make it a routine. After every release, have AI read the changelog against the house and list the claims to add and to retire.
 
-HANNAH: Set it to run on release day rather than hoping someone remembers. The five mistakes we found are the kind that build up between reviews.
+HANNAH: Set it to run on release day. Our five mistakes are the kind that build up between reviews.
 
-JAMES: The prompts are in the show notes. Hannah, what hasn't the house settled?
+JAMES: The prompts are in the show notes. What hasn't the house settled?
 
-HANNAH: It ends with open decisions. Garmin and Wahoo push ship free, so the product gate has to change before any Premium claim about them. iOS push stays out of App Store copy until a build passes delivery tests on a physical iPhone. And some product strings still mix British and American spelling.
+HANNAH: It ends with open decisions. Garmin and Wahoo push ship free, so the product gate has to change before any Premium claim. iOS push stays out of App Store copy until a build passes delivery tests on a real iPhone. And some product strings still mix British and American spelling.
 
-JAMES: So the takeaway. One document, five levels, and every claim traced to the code that ships it. The full house, with the diagrams, is on manual-focus dot co dot uk. If you'd like the next episode to find you, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen. And if your own product's copy has drifted from your product, book a free working session with us at manual-focus dot co dot uk and we'll start with the proof column. Thanks, Hannah.
+JAMES: So the takeaway. One document, six levels, every claim traced to the code that ships it. The full house, with the diagrams, is on manual-focus dot co dot uk. If you'd like the next episode to find you, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen. And if your copy has drifted from your product, book a free working session at manual-focus dot co dot uk and we'll start with the proof column. Thanks, Hannah.
 
-HANNAH: Thanks, James. Go and ride.
+HANNAH: Thanks, James.
