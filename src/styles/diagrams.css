@@ -294,6 +294,9 @@
   background: var(--dg-a);
   text-align: center;
 }
+@media (max-width: 640px) {
+  .post-content .dg-house-roof { padding: 2.9rem 1rem 0.9rem; clip-path: polygon(50% 0, 100% 46%, 100% 100%, 0 100%, 0 46%); }
+}
 .post-content .dg-house-roof .dg-label { color: rgba(255, 255, 255, 0.85); }
 .post-content .dg-house-roof .dg-strong { color: #fff; font-size: clamp(1.6rem, 4vw, 2.4rem); }
 .post-content .dg-house-band {
