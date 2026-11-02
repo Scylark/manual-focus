@@ -275,3 +275,102 @@
   .post-content .dg-support > li { grid-template-columns: 1fr 1fr; }
 }
 .post-content .dg-split > * { min-width: 0; }
+
+/* 9. The messaging house (WattPlan post). A roof for the tagline, a band
+   for the emotional benefit, a ridge for the short description, one claim
+   across the top, three benefit pillars of equal width and height with the
+   proof under each, and a foundation of the rules. Every band is the full
+   width of the house. */
+.post-content .dg-house-roof {
+  padding: 1.7rem 1rem 0.9rem;
+  clip-path: polygon(50% 0, 100% 58%, 100% 100%, 0 100%, 0 58%);
+  background: var(--dg-a);
+  text-align: center;
+}
+.post-content .dg-house-roof .dg-label { color: rgba(255, 255, 255, 0.8); }
+.post-content .dg-house-roof .dg-strong { color: #fff; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+.post-content .dg-house-band {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.post-content .dg-house-feel { background: color-mix(in srgb, var(--dg-a) 34%, transparent); }
+.post-content .dg-house-feel .dg-strong { font-size: 1.3rem; }
+.post-content .dg-house-ridge { background: var(--dg-b-tint); }
+.post-content .dg-house-claim { background: var(--color-surface); border: 1px solid var(--color-line); }
+.post-content .dg-house-claim .dg-strong { text-transform: none; font-family: var(--font-family); font-weight: 600; font-size: 1rem; }
+.post-content .dg .dg-pillars { display: grid; gap: 0.5rem; margin-top: 0.5rem; }
+.post-content .dg-pillar { display: grid; gap: 0.5rem; }
+@media (min-width: 640px) {
+  .post-content .dg .dg-pillars { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; }
+  .post-content .dg-pillar { grid-row: span 2; grid-template-rows: subgrid; }
+}
+.post-content .dg-pillar-top { padding: 0.75rem 0.75rem 0.8rem; border-radius: 10px; background: var(--dg-b-tint); text-align: center; }
+.post-content .dg-pillar-top .dg-q { margin-top: 0.3rem; }
+.post-content .dg .dg-pillar .dg-proofs { display: grid; gap: 0.45rem; align-content: start; padding: 0.7rem 0.75rem; border-radius: 10px; background: var(--dg-c-tint); }
+.post-content .dg-pillar .dg-proofs > li { font-size: 0.82rem; line-height: 1.3; }
+.post-content .dg-pillar .dg-proofs .dg-code {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+.post-content .dg .dg-house-base {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+.post-content .dg-house-base .dg-label { color: inherit; opacity: 0.7; margin: 0; }
+.post-content .dg-house-base > li { font-size: 0.85rem; }
+@media (min-width: 640px) { .post-content .dg .dg-house-base { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+
+/* 10. Four readings of two words */
+.post-content .dg-readings { display: grid; gap: 0.5rem; }
+@media (min-width: 560px) { .post-content .dg-readings { grid-template-columns: 1fr 1fr; } }
+.post-content .dg-reading { position: relative; padding: 0.9rem 0.9rem 0.8rem; border-radius: 10px; background: var(--dg-c-tint); }
+.post-content .dg-reading .dg-strong { font-size: 1.35rem; }
+.post-content .dg-reading .dg-q { margin-top: 0.25rem; }
+.post-content .dg-reading .dg-chip { background: var(--color-surface); }
+.post-content .dg-reading.dg-lead { background: var(--dg-a); }
+.post-content .dg-reading.dg-lead .dg-strong,
+.post-content .dg-reading.dg-lead .dg-q { color: #fff; }
+.post-content .dg-reading.dg-lead .dg-q { opacity: 0.9; }
+
+/* 11. The AIDA message path */
+.post-content .dg-aida { display: grid; gap: 0.5rem; counter-reset: aida; }
+@media (min-width: 760px) { .post-content .dg-aida { grid-template-columns: repeat(4, 1fr); } }
+.post-content .dg-aida > li { position: relative; display: grid; gap: 0.3rem; padding: 0.8rem 0.85rem; border-radius: 10px; background: var(--color-surface); border: 1px solid var(--color-line); }
+.post-content .dg-aida .dg-letter { width: 2.4rem; height: 2.4rem; min-height: 0; border-radius: 50%; margin-bottom: 0.2rem; }
+.post-content .dg-aida > li:last-child .dg-letter { background: var(--dg-c); color: var(--color-bg); }
+.post-content .dg-aida .dg-say { display: block; margin: 0.2rem 0; padding: 0.45rem 0.6rem; border-radius: 8px; background: var(--dg-a-tint); font-weight: 600; }
+@media (min-width: 760px) {
+  .post-content .dg-aida > li:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -0.95rem;
+    top: 1.3rem;
+    color: var(--color-text-muted);
+    z-index: 1;
+  }
+}
+
+/* 12. Understood and consistent, at every stage */
+.post-content .dg-feel { display: grid; gap: 0.5rem; }
+.post-content .dg-feel-head { display: none; }
+.post-content .dg-feel-row { display: grid; gap: 0.35rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-line); }
+.post-content .dg-feel-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.post-content .dg-feel-stage { display: flex; align-items: center; font-family: var(--font-display); text-transform: uppercase; font-size: 1.05rem; }
+.post-content .dg-feel .dg-cell .dg-label { margin-bottom: 0.1rem; }
+@media (min-width: 640px) {
+  .post-content .dg-feel-head,
+  .post-content .dg-feel-row { display: grid; grid-template-columns: 7rem 1fr 1fr; gap: 0.6rem; align-items: stretch; }
+  .post-content .dg-feel-row { border-bottom: 0; padding-bottom: 0; }
+  .post-content .dg-feel-head .dg-label { color: var(--dg-a); }
+  .post-content .dg-feel .dg-cell .dg-label { display: none; }
+}

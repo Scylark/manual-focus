@@ -1030,5 +1030,13 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-02",
+    "story": "The WattPlan messaging house, how we built it and what it does (on-demand, James)",
+    "primary_source": "https://wattplan.cc/",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "wattplan-messaging-hierarchy"
   }
 ]

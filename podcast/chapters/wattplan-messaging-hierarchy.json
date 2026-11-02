@@ -1,0 +1,43 @@
+{
+  "version": "1.2.0",
+  "title": "The WattPlan messaging house, how we built it and what it does",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Our own product, for once"
+    },
+    {
+      "startTime": 44.8,
+      "title": "Five levels of the house"
+    },
+    {
+      "startTime": 131.6,
+      "title": "The five claims the code corrected"
+    },
+    {
+      "startTime": 196.5,
+      "title": "Four readings of Train. Adapt."
+    },
+    {
+      "startTime": 245.7,
+      "title": "Where each message goes"
+    },
+    {
+      "startTime": 290,
+      "title": "What the house refuses to say"
+    },
+    {
+      "startTime": 346.2,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 415.3,
+      "title": "What the house hasn't settled"
+    },
+    {
+      "startTime": 435.8,
+      "title": "The takeaway"
+    }
+  ]
+}
