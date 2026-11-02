@@ -276,71 +276,91 @@
 }
 .post-content .dg-split > * { min-width: 0; }
 
-/* 9. The messaging house (WattPlan post). A roof for the tagline, a band
-   for the emotional benefit, a ridge for the short description, one claim
-   across the top, three benefit pillars of equal width and height with the
-   features under each, and a foundation of the rules. The top bands take
-   the theme's full accent colours rather than tints, so the house reads as
-   the strongest thing on the page. Every band is the full width. */
+/* 9. The messaging house (WattPlan post). A stepped pyramid. Each level
+   is a row that widens as it goes down, with a numeral and the level's
+   name on the left and the content on the right. The theme's accent
+   gradient runs from the top row to the bottom. The benefits and features
+   rows split into three aligned columns. On wide screens the figure runs
+   wider than the text column. */
 .post-content .dg-house {
-  /* Room to breathe. On wide screens the house runs wider than the text
-     column; the padding and type inside it are larger than the other
-     diagrams'. */
+  --dg-ink: #141210;
   margin-inline: calc(-1 * clamp(0rem, (100vw - 64rem) / 4, 6rem));
   padding: clamp(1.25rem, 3.5vw, 2.5rem);
   font-size: 1rem;
-  --dg-house-ink: #141210;
-  --dg-house-feel: color-mix(in srgb, var(--dg-a) 62%, var(--dg-b));
-  --dg-pillar-fill: color-mix(in srgb, var(--dg-a) 38%, var(--color-surface));
-  --dg-feature-fill: color-mix(in srgb, var(--dg-c) 30%, var(--color-surface));
 }
-.post-content .dg-house-roof {
-  margin-top: 0.5rem;
-  padding: 2.2rem 1rem 1.3rem;
-  clip-path: polygon(50% 0, 100% 58%, 100% 100%, 0 100%, 0 58%);
-  background: var(--dg-a);
-  text-align: center;
+.post-content .dg .dg-pyr { display: grid; gap: 0.45rem; margin-top: 0.4rem; }
+.post-content .dg-lvl {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  margin-inline: var(--m, 0);
+  padding: 1rem 1.15rem 1.1rem;
+  border-radius: 14px;
+  color: var(--dg-lvl-ink, var(--color-text));
 }
+.post-content .dg-l1 { --m: 19%; background: var(--dg-a); --dg-lvl-ink: #fff; }
+.post-content .dg-l2 { --m: 13%; background: color-mix(in srgb, var(--dg-a) 52%, var(--dg-b)); --dg-lvl-ink: #fff; }
+.post-content .dg-l3 { --m: 7%; background: var(--dg-b); --dg-lvl-ink: var(--color-text); }
+.post-content .dg-l4 { --m: 2.5%; background: color-mix(in srgb, var(--dg-b) 42%, var(--dg-c)); --dg-lvl-ink: var(--dg-ink); }
+.post-content .dg-l5 { background: var(--dg-c); --dg-lvl-ink: var(--dg-ink); }
+.post-content .dg-l6 { background: color-mix(in srgb, var(--dg-c) 26%, var(--color-surface)); border: 1px solid color-mix(in srgb, var(--dg-c) 45%, transparent); }
 @media (max-width: 640px) {
-  .post-content .dg-house-roof { padding: 2.9rem 1rem 0.9rem; clip-path: polygon(50% 0, 100% 46%, 100% 100%, 0 100%, 0 46%); }
+  .post-content .dg-l1 { --m: 5%; }
+  .post-content .dg-l2 { --m: 3.3%; }
+  .post-content .dg-l3 { --m: 1.6%; }
+  .post-content .dg-l4 { --m: 0; }
+  .post-content .dg-lvl { grid-template-columns: 2rem 1fr; gap: 0.7rem; padding: 0.9rem 0.9rem 1rem; }
 }
-.post-content .dg-house-roof .dg-label { color: rgba(255, 255, 255, 0.85); }
-.post-content .dg-house-roof .dg-strong { color: #fff; font-size: clamp(1.9rem, 5vw, 3rem); margin-top: 0.2rem; }
-.post-content .dg-house-band {
-  margin-top: 0.8rem;
-  padding: 1.1rem 1.25rem;
-  border-radius: 12px;
-  text-align: center;
+.post-content .dg-lvl-n {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  line-height: 0.9;
+  opacity: 0.92;
 }
-.post-content .dg-house-band .dg-label { margin-bottom: 0.3rem; }
-.post-content .dg-house-feel { background: var(--dg-house-feel); }
-.post-content .dg-house-feel .dg-label { color: rgba(255, 255, 255, 0.85); }
-.post-content .dg-house-feel .dg-strong { color: #fff; font-size: clamp(1.4rem, 3vw, 1.8rem); }
-.post-content .dg-house-ridge { background: var(--dg-b); }
-.post-content .dg-house-ridge .dg-label { color: var(--color-text); opacity: 0.85; }
-.post-content .dg-house-ridge .dg-strong { color: var(--color-text); font-size: clamp(1.2rem, 2.6vw, 1.5rem); }
-.post-content .dg-house-claim { background: var(--dg-c); }
-.post-content .dg-house-claim .dg-label { color: var(--dg-house-ink); opacity: 0.75; }
-.post-content .dg-house-claim .dg-strong { color: var(--dg-house-ink); text-transform: none; font-family: var(--font-family); font-weight: 600; font-size: 1.08rem; line-height: 1.35; }
-.post-content .dg-house-row { margin-top: 1.1rem; }
-.post-content .dg .dg-pillars { display: grid; gap: 0.8rem; margin-top: 0.4rem; }
-.post-content .dg-pillar { display: grid; gap: 0.8rem; }
-@media (min-width: 640px) {
-  .post-content .dg .dg-pillars { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; }
-  .post-content .dg-pillar { grid-row: span 2; grid-template-rows: subgrid; }
-}
-.post-content .dg-pillar-top { padding: 1rem 1rem 1.1rem; border-radius: 12px; background: var(--dg-pillar-fill); text-align: center; }
-.post-content .dg-pillar-top .dg-strong { font-size: 1.25rem; margin: 0.2rem 0; }
-.post-content .dg-pillar-top .dg-q { margin-top: 0.3rem; color: var(--color-text); opacity: 0.85; font-size: 0.92rem; }
-.post-content .dg .dg-pillar .dg-proofs { display: grid; gap: 0.7rem; align-content: start; padding: 1rem; border-radius: 12px; background: var(--dg-feature-fill); }
-.post-content .dg .dg-pillar .dg-proofs > li { font-size: 0.9rem; line-height: 1.35; }
-.post-content .dg .dg-pillar .dg-proofs > li.dg-proofs-head { margin-bottom: 0.15rem; }
-.post-content .dg .dg-pillar .dg-proofs > li.dg-proofs-head .dg-label { color: var(--color-text); opacity: 0.8; margin: 0; }
-.post-content .dg-pillar .dg-proofs .dg-code {
+.post-content .dg-lvl-body { display: grid; gap: 0.35rem; min-width: 0; }
+.post-content .dg-lvl-name {
   display: block;
   font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.post-content .dg-lvl-name em {
+  font-style: normal;
+  font-family: var(--font-family);
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-left: 0.5rem;
+  opacity: 0.85;
+}
+.post-content .dg-lvl-val {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.post-content .dg-lvl-big { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 0.95; }
+.post-content .dg-lvl-sentence { font-family: var(--font-family); font-weight: 600; font-size: 1.1rem; line-height: 1.35; text-transform: none; }
+.post-content .dg .dg-lvl-cols { display: grid; gap: 0.9rem; margin-top: 0.25rem; }
+@media (min-width: 640px) {
+  .post-content .dg .dg-lvl-cols { grid-template-columns: repeat(3, 1fr); }
+  .post-content .dg .dg-lvl-cols > li:not(:first-child) { padding-left: 0.9rem; border-left: 1px solid color-mix(in srgb, currentColor 22%, transparent); }
+}
+.post-content .dg .dg-lvl-cols > li { min-width: 0; }
+.post-content .dg-l5 .dg-lvl-val { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
+.post-content .dg-l5 .dg-q { color: inherit; opacity: 0.85; margin-top: 0.3rem; font-size: 0.88rem; }
+.post-content .dg .dg-feats { display: grid; gap: 0.6rem; }
+.post-content .dg .dg-feats > li { font-size: 0.9rem; line-height: 1.35; }
+.post-content .dg .dg-feats .dg-code {
+  display: block;
   margin-top: 0.15rem;
-  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   color: var(--color-text-muted);
   letter-spacing: 0.02em;
 }
