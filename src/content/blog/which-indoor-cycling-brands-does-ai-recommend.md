@@ -12,7 +12,7 @@ faq:
   - question: "Which smart trainer does ChatGPT recommend in the UK?"
     answer: "In the Manual Focus study run on 19 October 2026, ChatGPT named Wahoo in 94% of its answers to unbranded UK smart trainer questions, followed by Tacx in 77% and Elite in 42%. It also named Van Rysel, Decathlon's own brand, in 37% of answers, far more often than Google AI Mode did at 5%."
   - question: "Which indoor cycling app does AI recommend most?"
-    answer: "Zwift appeared in 88% of answers across six AI engines in the Manual Focus study of 90 unbranded UK app questions. Rouvy (71%) and MyWhoosh (69%) followed. The leader changes by buying moment, with Rouvy named in 97% of answers about scenery and MyWhoosh in 87% of answers about value."
+    answer: "Zwift appeared in 88% of answers across six AI engines in the Manual Focus study of 90 unbranded UK app questions. Rouvy (71%) and MyWhoosh (69%) followed. The leader changes by buying moment, with Rouvy named in 97% of answers about scenery and TrainerRoad in 84% of answers about performance training."
   - question: "Which smart bike does AI recommend in the UK?"
     answer: "Wahoo appeared in 64% of answers to unbranded UK smart bike questions across six AI engines in the Manual Focus study, with Wattbike close behind at 58% and Zwift Ride at 49%. Wahoo led performance questions at 89%, while Peloton was named most often for beginner questions, at 67%."
   - question: "Do different AI engines recommend the same brands?"
@@ -49,7 +49,7 @@ Brands in the study can [request a free one-page AI Shortlist card](/contact/?of
 ## Key takeaways
 
 - Wahoo is AI's default smart trainer, named in 83% of unbranded trainer answers and placed first by all six engines.
-- Zwift leads training apps at 88%, but Rouvy wins scenery questions (97%), MyWhoosh wins value questions (87%) and TrainerRoad leads performance training (84%).
+- Zwift leads training apps at 88%, but Rouvy wins scenery questions (97%) and TrainerRoad leads performance training (84%). On value, MyWhoosh runs Zwift close, 87% to 89%.
 - Smart bikes are close, with Wahoo named in 64% of answers and Wattbike in 58%.
 - Challenger brands depend on the engine, as JetBlack ranged from 47% of Claude's trainer answers to 11% of Google AI Mode's.
 - Editorial sites supplied 51% to 56% of citations, while Reddit, YouTube and forums supplied 3% to 5%.
