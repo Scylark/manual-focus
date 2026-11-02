@@ -283,13 +283,20 @@
    the theme's full accent colours rather than tints, so the house reads as
    the strongest thing on the page. Every band is the full width. */
 .post-content .dg-house {
+  /* Room to breathe. On wide screens the house runs wider than the text
+     column; the padding and type inside it are larger than the other
+     diagrams'. */
+  margin-inline: calc(-1 * clamp(0rem, (100vw - 64rem) / 4, 6rem));
+  padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  font-size: 1rem;
   --dg-house-ink: #141210;
   --dg-house-feel: color-mix(in srgb, var(--dg-a) 62%, var(--dg-b));
   --dg-pillar-fill: color-mix(in srgb, var(--dg-a) 38%, var(--color-surface));
   --dg-feature-fill: color-mix(in srgb, var(--dg-c) 30%, var(--color-surface));
 }
 .post-content .dg-house-roof {
-  padding: 1.7rem 1rem 0.9rem;
+  margin-top: 0.5rem;
+  padding: 2.2rem 1rem 1.3rem;
   clip-path: polygon(50% 0, 100% 58%, 100% 100%, 0 100%, 0 58%);
   background: var(--dg-a);
   text-align: center;
@@ -298,39 +305,42 @@
   .post-content .dg-house-roof { padding: 2.9rem 1rem 0.9rem; clip-path: polygon(50% 0, 100% 46%, 100% 100%, 0 100%, 0 46%); }
 }
 .post-content .dg-house-roof .dg-label { color: rgba(255, 255, 255, 0.85); }
-.post-content .dg-house-roof .dg-strong { color: #fff; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+.post-content .dg-house-roof .dg-strong { color: #fff; font-size: clamp(1.9rem, 5vw, 3rem); margin-top: 0.2rem; }
 .post-content .dg-house-band {
-  margin-top: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
+  margin-top: 0.8rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 12px;
   text-align: center;
 }
+.post-content .dg-house-band .dg-label { margin-bottom: 0.3rem; }
 .post-content .dg-house-feel { background: var(--dg-house-feel); }
 .post-content .dg-house-feel .dg-label { color: rgba(255, 255, 255, 0.85); }
-.post-content .dg-house-feel .dg-strong { color: #fff; font-size: 1.3rem; }
+.post-content .dg-house-feel .dg-strong { color: #fff; font-size: clamp(1.4rem, 3vw, 1.8rem); }
 .post-content .dg-house-ridge { background: var(--dg-b); }
 .post-content .dg-house-ridge .dg-label { color: var(--color-text); opacity: 0.85; }
-.post-content .dg-house-ridge .dg-strong { color: var(--color-text); }
+.post-content .dg-house-ridge .dg-strong { color: var(--color-text); font-size: clamp(1.2rem, 2.6vw, 1.5rem); }
 .post-content .dg-house-claim { background: var(--dg-c); }
 .post-content .dg-house-claim .dg-label { color: var(--dg-house-ink); opacity: 0.75; }
-.post-content .dg-house-claim .dg-strong { color: var(--dg-house-ink); text-transform: none; font-family: var(--font-family); font-weight: 600; font-size: 1rem; }
-.post-content .dg-house-row { margin-top: 0.7rem; }
-.post-content .dg .dg-pillars { display: grid; gap: 0.5rem; margin-top: 0.3rem; }
-.post-content .dg-pillar { display: grid; gap: 0.5rem; }
+.post-content .dg-house-claim .dg-strong { color: var(--dg-house-ink); text-transform: none; font-family: var(--font-family); font-weight: 600; font-size: 1.08rem; line-height: 1.35; }
+.post-content .dg-house-row { margin-top: 1.1rem; }
+.post-content .dg .dg-pillars { display: grid; gap: 0.8rem; margin-top: 0.4rem; }
+.post-content .dg-pillar { display: grid; gap: 0.8rem; }
 @media (min-width: 640px) {
   .post-content .dg .dg-pillars { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; }
   .post-content .dg-pillar { grid-row: span 2; grid-template-rows: subgrid; }
 }
-.post-content .dg-pillar-top { padding: 0.75rem 0.75rem 0.8rem; border-radius: 10px; background: var(--dg-pillar-fill); text-align: center; }
-.post-content .dg-pillar-top .dg-q { margin-top: 0.3rem; color: var(--color-text); opacity: 0.85; }
-.post-content .dg .dg-pillar .dg-proofs { display: grid; gap: 0.45rem; align-content: start; padding: 0.7rem 0.75rem; border-radius: 10px; background: var(--dg-feature-fill); }
-.post-content .dg .dg-pillar .dg-proofs > li { font-size: 0.82rem; line-height: 1.3; }
-.post-content .dg .dg-pillar .dg-proofs > li.dg-proofs-head { margin-bottom: 0.1rem; }
+.post-content .dg-pillar-top { padding: 1rem 1rem 1.1rem; border-radius: 12px; background: var(--dg-pillar-fill); text-align: center; }
+.post-content .dg-pillar-top .dg-strong { font-size: 1.25rem; margin: 0.2rem 0; }
+.post-content .dg-pillar-top .dg-q { margin-top: 0.3rem; color: var(--color-text); opacity: 0.85; font-size: 0.92rem; }
+.post-content .dg .dg-pillar .dg-proofs { display: grid; gap: 0.7rem; align-content: start; padding: 1rem; border-radius: 12px; background: var(--dg-feature-fill); }
+.post-content .dg .dg-pillar .dg-proofs > li { font-size: 0.9rem; line-height: 1.35; }
+.post-content .dg .dg-pillar .dg-proofs > li.dg-proofs-head { margin-bottom: 0.15rem; }
 .post-content .dg .dg-pillar .dg-proofs > li.dg-proofs-head .dg-label { color: var(--color-text); opacity: 0.8; margin: 0; }
 .post-content .dg-pillar .dg-proofs .dg-code {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
   color: var(--color-text-muted);
   letter-spacing: 0.02em;
 }
