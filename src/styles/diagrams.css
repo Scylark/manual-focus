@@ -279,15 +279,22 @@
 /* 9. The messaging house (WattPlan post). A roof for the tagline, a band
    for the emotional benefit, a ridge for the short description, one claim
    across the top, three benefit pillars of equal width and height with the
-   proof under each, and a foundation of the rules. Every band is the full
-   width of the house. */
+   features under each, and a foundation of the rules. The top bands take
+   the theme's full accent colours rather than tints, so the house reads as
+   the strongest thing on the page. Every band is the full width. */
+.post-content .dg-house {
+  --dg-house-ink: #141210;
+  --dg-house-feel: color-mix(in srgb, var(--dg-a) 62%, var(--dg-b));
+  --dg-pillar-fill: color-mix(in srgb, var(--dg-a) 38%, var(--color-surface));
+  --dg-feature-fill: color-mix(in srgb, var(--dg-c) 30%, var(--color-surface));
+}
 .post-content .dg-house-roof {
   padding: 1.7rem 1rem 0.9rem;
   clip-path: polygon(50% 0, 100% 58%, 100% 100%, 0 100%, 0 58%);
   background: var(--dg-a);
   text-align: center;
 }
-.post-content .dg-house-roof .dg-label { color: rgba(255, 255, 255, 0.8); }
+.post-content .dg-house-roof .dg-label { color: rgba(255, 255, 255, 0.85); }
 .post-content .dg-house-roof .dg-strong { color: #fff; font-size: clamp(1.6rem, 4vw, 2.4rem); }
 .post-content .dg-house-band {
   margin-top: 0.5rem;
@@ -295,21 +302,28 @@
   border-radius: 10px;
   text-align: center;
 }
-.post-content .dg-house-feel { background: color-mix(in srgb, var(--dg-a) 34%, transparent); }
-.post-content .dg-house-feel .dg-strong { font-size: 1.3rem; }
-.post-content .dg-house-ridge { background: var(--dg-b-tint); }
-.post-content .dg-house-claim { background: var(--color-surface); border: 1px solid var(--color-line); }
-.post-content .dg-house-claim .dg-strong { text-transform: none; font-family: var(--font-family); font-weight: 600; font-size: 1rem; }
-.post-content .dg .dg-pillars { display: grid; gap: 0.5rem; margin-top: 0.5rem; }
+.post-content .dg-house-feel { background: var(--dg-house-feel); }
+.post-content .dg-house-feel .dg-label { color: rgba(255, 255, 255, 0.85); }
+.post-content .dg-house-feel .dg-strong { color: #fff; font-size: 1.3rem; }
+.post-content .dg-house-ridge { background: var(--dg-b); }
+.post-content .dg-house-ridge .dg-label { color: var(--color-text); opacity: 0.85; }
+.post-content .dg-house-ridge .dg-strong { color: var(--color-text); }
+.post-content .dg-house-claim { background: var(--dg-c); }
+.post-content .dg-house-claim .dg-label { color: var(--dg-house-ink); opacity: 0.75; }
+.post-content .dg-house-claim .dg-strong { color: var(--dg-house-ink); text-transform: none; font-family: var(--font-family); font-weight: 600; font-size: 1rem; }
+.post-content .dg-house-row { margin-top: 0.7rem; }
+.post-content .dg .dg-pillars { display: grid; gap: 0.5rem; margin-top: 0.3rem; }
 .post-content .dg-pillar { display: grid; gap: 0.5rem; }
 @media (min-width: 640px) {
   .post-content .dg .dg-pillars { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; }
   .post-content .dg-pillar { grid-row: span 2; grid-template-rows: subgrid; }
 }
-.post-content .dg-pillar-top { padding: 0.75rem 0.75rem 0.8rem; border-radius: 10px; background: var(--dg-b-tint); text-align: center; }
-.post-content .dg-pillar-top .dg-q { margin-top: 0.3rem; }
-.post-content .dg .dg-pillar .dg-proofs { display: grid; gap: 0.45rem; align-content: start; padding: 0.7rem 0.75rem; border-radius: 10px; background: var(--dg-c-tint); }
-.post-content .dg-pillar .dg-proofs > li { font-size: 0.82rem; line-height: 1.3; }
+.post-content .dg-pillar-top { padding: 0.75rem 0.75rem 0.8rem; border-radius: 10px; background: var(--dg-pillar-fill); text-align: center; }
+.post-content .dg-pillar-top .dg-q { margin-top: 0.3rem; color: var(--color-text); opacity: 0.85; }
+.post-content .dg .dg-pillar .dg-proofs { display: grid; gap: 0.45rem; align-content: start; padding: 0.7rem 0.75rem; border-radius: 10px; background: var(--dg-feature-fill); }
+.post-content .dg .dg-pillar .dg-proofs > li { font-size: 0.82rem; line-height: 1.3; }
+.post-content .dg .dg-pillar .dg-proofs > li.dg-proofs-head { margin-bottom: 0.1rem; }
+.post-content .dg .dg-pillar .dg-proofs > li.dg-proofs-head .dg-label { color: var(--color-text); opacity: 0.8; margin: 0; }
 .post-content .dg-pillar .dg-proofs .dg-code {
   display: block;
   font-family: var(--font-mono);
@@ -326,8 +340,8 @@
   background: var(--color-text);
   color: var(--color-bg);
 }
-.post-content .dg-house-base .dg-label { color: inherit; opacity: 0.7; margin: 0; }
-.post-content .dg-house-base > li { font-size: 0.85rem; }
+.post-content .dg .dg-house-base .dg-label { color: inherit; opacity: 0.7; margin: 0; }
+.post-content .dg .dg-house-base > li { font-size: 0.85rem; }
 @media (min-width: 640px) { .post-content .dg .dg-house-base { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
 
 /* 10. Four readings of two words */
