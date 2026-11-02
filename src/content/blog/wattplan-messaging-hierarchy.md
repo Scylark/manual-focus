@@ -4,9 +4,9 @@ date: 2026-11-02
 tags: ["brand", "ai", "endurance-sports"]
 description: "WattPlan's messaging house puts one tagline over one claim, three benefits and the code that proves each feature. How we built it and how to copy the method."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/wattplan-messaging-hierarchy-20261102101515.mp3"
-  duration: 481
-  bytes: 5772270
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/wattplan-messaging-hierarchy.mp3"
+  duration: 542
+  bytes: 6502340
   published: 2026-11-02
 faq:
   - question: "What is a messaging house?"

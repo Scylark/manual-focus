@@ -4,8 +4,8 @@ title: "The WattPlan messaging house, how we built it and what it does"
 chapters:
   - title: "Our own product, for once"
     at: "We don't usually turn the microphone on ourselves"
-  - title: "Five levels of the house"
-    at: "Five levels, each one proving the one above"
+  - title: "Six levels of the house"
+    at: "Six levels, each one proving the one above"
   - title: "The five claims the code corrected"
     at: "Older documents said more than a hundred workouts"
   - title: "Four readings of Train. Adapt."
@@ -14,21 +14,21 @@ chapters:
     at: "The house maps a path"
   - title: "What the house refuses to say"
     at: "Then the longest section, which is about silence"
+  - title: "The foundation and the store limits"
+    at: "And under all of that sits the foundation"
   - title: "Get AI on this"
     at: "get AI on this"
-  - title: "What the house hasn't settled"
+  - title: "Open decisions and the takeaway"
     at: "It ends with open decisions"
-  - title: "The takeaway"
-    at: "So the takeaway. One document"
 ---
 
 James and Hannah go inside the messaging house for WattPlan, the cycling
-training app Manual Focus builds. It has five levels, from the two-word
-tagline Train. Adapt. down to a proof row for every feature that names the
-code behind it, and writing it that way caught five stale claims before they
-reached a store listing. They cover the four readings of the tagline, the
-routing table that decides which benefit leads on each surface, the three
-banned vocabulary lists, and three jobs to hand to AI if you are building a
+training app Manual Focus builds. It has six levels, from the two-word
+tagline Train. Adapt. down to the features, each naming the code behind it, and writing it that way caught five stale claims before they
+reached a store listing. They walk each level with its definition, the four readings of the tagline,
+the message path and routing table, the understood and consistent test, the
+three banned lists, the foundation, the App Store and Google Play limits, and
+three jobs to hand to AI if you are building a
 house for your own product.
 
 ## Get AI on this
