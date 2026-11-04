@@ -1,0 +1,75 @@
+JAMES: Until now, telling AI companies not to train on your website meant writing a separate rule for each of them. On the thirtieth of October, Google and Microsoft both said they'll honour one shared rule instead, and Microsoft added a second switch that decides whether your pages show up in AI answers at all. I'm James Vickers, this is Manual Focus, and Hannah's with me to work out which of those switches a brand should touch.
+
+HANNAH: Hi James. It's one of those announcements where the small print matters more than the headline.
+
+JAMES: [dryly] They usually are. Start with the rule itself.
+
+HANNAH: It lives in robots.txt, the file on your site that tells crawlers what they can and can't visit. Normally each line names a crawler. This one names what's called a policy token instead, underscore underscore usage ai-training, and the allow and disallow lines underneath say which parts of your site can be used to train AI models.
+
+JAMES: And who wrote it?
+
+HANNAH: Kevin Kelley of Anthropic, as an Internet-Draft at the I E T F, the body that writes a lot of the web's technical standards. It went up on the thirtieth of October, and in his note to the working group he wrote that Anthropic has already started implementing support. It's an individual draft though, so it has no formal standing yet, and it expires in May next year unless it's updated.
+
+JAMES: So what did Google commit to?
+
+HANNAH: John Mueller posted on Google's Search Central blog that Google aims to support it in twenty twenty-seven, and Google's crawler documentation says early twenty twenty-seven. If a site uses the shared token to opt out and doesn't mention Google-Extended, which is Google's own AI training control, Google will treat it as if the site had blocked Google-Extended.
+
+JAMES: And Microsoft?
+
+HANNAH: Microsoft goes further. From the first of February twenty twenty-seven, Bing will honour the shared training rule and a new grounding preference. Grounding means using your page as a source when an AI writes an answer, with a link back to you. That's separate from training, which changes what the model itself has learned.
+
+JAMES: [thoughtfully] So training is what the model knows, and grounding is what it reads when someone asks.
+
+HANNAH: That's the split. And Microsoft says so plainly. Restricting grounding will significantly reduce your content's visibility in AI-generated experiences, while your eligibility for normal Bing results stays the same.
+
+JAMES: Here's where I'd worry. A brand hears "opt out of AI training", feels protective, and adds one blanket block. What does that cost them?
+
+HANNAH: With Google, possibly more than they meant. Google's post says sites that specifically allow Google-Extended are eligible to appear in Gemini app answers and get clicks from them. And a shared-token opt-out counts as blocking Google-Extended. So one tidy line across the whole site could take you out of Gemini answers too.
+
+JAMES: Can't you just add an allow for Google-Extended to get that back?
+
+HANNAH: Not without giving something up. Google-Extended is the same switch for Gemini training and for that grounding, so allowing it on a path lets Google train on that path as well. On any one path you can't keep Google out of training and still be eligible for those answers. The answer is to keep the opt-out narrow, only on the paths you're protecting.
+
+JAMES: And the other trap?
+
+HANNAH: The old catch-all rule, user-agent star, doesn't count. The draft says it never matches the token. So if you've got no group naming the token, you haven't said anything about training at all.
+
+JAMES: And the blocks people already have, say on Meta's crawlers?
+
+HANNAH: They keep working. When we covered Meta's new crawling terms earlier in October, the advice was to block Meta-ExternalAgent on domains with licensed content. Nothing in this changes that.
+
+JAMES: So should a brand block AI training?
+
+HANNAH: The article's answer is, for most brands, no.
+
+JAMES: I'd agree. Your product pages, pricing and comparisons exist to be read and repeated. If a model has learned your positioning, it's more likely to describe you properly when it answers without searching. The exceptions are the things you sell or license. Paid research, member-only guides, licensed photography.
+
+HANNAH: And the draft lets you do it by path, so you can protect slash research and leave slash products open. Our view is allow training by default, block only the paths with content you sell or license, and leave grounding on for every page you want in AI answers.
+
+JAMES: [pause] It also connects to Reddit closing its doors, which we talked about the day before. Owners are deciding who gets to read their content. The difference is a brand usually wants to be read.
+
+HANNAH: Exactly. And the person editing robots.txt rarely knows which content is licensed, so SEO, legal and brand need to write the policy together.
+
+JAMES: Right, so what do you hand over? Get AI on this. First, the inventory of which parts of the site carry paid, gated or licensed content.
+
+HANNAH: Give it your sitemap or a crawl export and a short note on what you sell or license, and it hands back a list of directories with a draft path-level rule for each one. A person still checks it against the contracts.
+
+JAMES: Second, get AI on the old Bing tags.
+
+HANNAH: Give it your page templates and a sample of response headers, and it finds every NoArchive and NoCache tag. Microsoft stops reading those as AI preferences after the first of March, so you need that list before then.
+
+JAMES: And third, testing the file.
+
+HANNAH: Give it your current robots.txt and the proposed one, and it explains in plain English what each crawler and the new token can and can't do under both, and flags anything that would block Googlebot or Bingbot by accident, or a site-wide Google-Extended allow that undoes your training block. Run it every time someone touches the file. The prompts are in the show notes.
+
+JAMES: What's still open?
+
+HANNAH: A fair amount. The draft isn't a standard, and Nate Hake told Search Engine Roundtable that significant areas of dispute remain, including an exemption for actions a user starts. OpenAI's timing isn't in either Google's or Microsoft's announcement. Neither says an opt-out removes content already gathered for existing models, and Microsoft talks about future training. Google doesn't say how AI Overviews and AI Mode relate to the token. And Microsoft says no setting guarantees inclusion, traffic or payment.
+
+JAMES: [calmly] So the takeaway. Leave training on for the pages you want people to find, block it only where you sell the content, and never switch grounding off on a commercial page by accident.
+
+HANNAH: And keep every opt-out to the paths that need it.
+
+JAMES: The full article, with the table of every control and when it starts, is on manual-focus dot co dot uk. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and the next episode will be waiting. If you want help writing that policy for your own site, book a free working session at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James. Read your robots file before someone else does.

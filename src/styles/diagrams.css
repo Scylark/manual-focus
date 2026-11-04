@@ -275,3 +275,162 @@
   .post-content .dg-support > li { grid-template-columns: 1fr 1fr; }
 }
 .post-content .dg-split > * { min-width: 0; }
+
+/* 9. The messaging house (WattPlan post). A stepped pyramid. Each level
+   is a row that widens as it goes down, with a numeral and the level's
+   name on the left and the content on the right. The theme's accent
+   gradient runs from the top row to the bottom. The benefits and features
+   rows split into three aligned columns. On wide screens the figure runs
+   wider than the text column. */
+.post-content .dg-house {
+  --dg-ink: #141210;
+  margin-inline: calc(-1 * clamp(0rem, (100vw - 64rem) / 4, 6rem));
+  padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  font-size: 1rem;
+}
+.post-content .dg .dg-pyr { display: grid; gap: 0.45rem; margin-top: 0.4rem; }
+.post-content .dg-lvl {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  margin-inline: var(--m, 0);
+  padding: 1rem 1.15rem 1.1rem;
+  border-radius: 14px;
+  color: var(--dg-lvl-ink, var(--color-text));
+}
+.post-content .dg-l1 { --m: 19%; background: var(--dg-a); --dg-lvl-ink: #fff; }
+.post-content .dg-l2 { --m: 13%; background: color-mix(in srgb, var(--dg-a) 52%, var(--dg-b)); --dg-lvl-ink: #fff; }
+.post-content .dg-l3 { --m: 7%; background: var(--dg-b); --dg-lvl-ink: var(--color-text); }
+.post-content .dg-l4 { --m: 2.5%; background: color-mix(in srgb, var(--dg-b) 42%, var(--dg-c)); --dg-lvl-ink: var(--dg-ink); }
+.post-content .dg-l5 { background: var(--dg-c); --dg-lvl-ink: var(--dg-ink); }
+.post-content .dg-l6 { background: color-mix(in srgb, var(--dg-c) 26%, var(--color-surface)); border: 1px solid color-mix(in srgb, var(--dg-c) 45%, transparent); }
+@media (max-width: 640px) {
+  .post-content .dg-l1 { --m: 5%; }
+  .post-content .dg-l2 { --m: 3.3%; }
+  .post-content .dg-l3 { --m: 1.6%; }
+  .post-content .dg-l4 { --m: 0; }
+  .post-content .dg-lvl { grid-template-columns: 2rem 1fr; gap: 0.7rem; padding: 0.9rem 0.9rem 1rem; }
+}
+.post-content .dg-lvl-n {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  line-height: 0.9;
+  opacity: 0.92;
+}
+.post-content .dg-lvl-body { display: grid; gap: 0.35rem; min-width: 0; }
+.post-content .dg-lvl-name {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.post-content .dg-lvl-name em {
+  font-style: normal;
+  font-family: var(--font-family);
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-left: 0.5rem;
+  opacity: 0.85;
+}
+.post-content .dg-lvl-val {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.post-content .dg-lvl-big { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 0.95; }
+.post-content .dg-lvl-sentence { font-family: var(--font-family); font-weight: 600; font-size: 1.1rem; line-height: 1.35; text-transform: none; }
+.post-content .dg .dg-lvl-cols { display: grid; gap: 0.9rem; margin-top: 0.25rem; }
+@media (min-width: 640px) {
+  .post-content .dg .dg-lvl-cols { grid-template-columns: repeat(3, 1fr); }
+  .post-content .dg .dg-lvl-cols > li:not(:first-child) { padding-left: 0.9rem; border-left: 1px solid color-mix(in srgb, currentColor 22%, transparent); }
+}
+.post-content .dg .dg-lvl-cols > li { min-width: 0; }
+.post-content .dg-l5 .dg-lvl-val { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
+.post-content .dg-l5 .dg-q { color: inherit; opacity: 0.85; margin-top: 0.3rem; font-size: 0.88rem; }
+.post-content .dg-lvl-grp {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0.4rem 0 0.4rem;
+}
+@media (max-width: 639px) {
+  .post-content .dg-lvl-grp { display: block; }
+  .post-content .dg .dg-lvl-cols > li:not(:first-child) .dg-lvl-grp { margin-top: 0.9rem; padding-top: 0.7rem; border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent); }
+}
+.post-content .dg .dg-feats { display: grid; gap: 0.6rem; }
+.post-content .dg .dg-feats > li { font-size: 0.9rem; line-height: 1.35; }
+.post-content .dg .dg-feats .dg-code {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+.post-content .dg .dg-house-base {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+.post-content .dg .dg-house-base .dg-label { color: inherit; opacity: 0.7; margin: 0; }
+.post-content .dg .dg-house-base > li { font-size: 0.85rem; }
+@media (min-width: 640px) { .post-content .dg .dg-house-base { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+
+/* 10. Four readings of two words */
+.post-content .dg-readings { display: grid; gap: 0.5rem; }
+@media (min-width: 560px) { .post-content .dg-readings { grid-template-columns: 1fr 1fr; } }
+.post-content .dg-reading { position: relative; padding: 0.9rem 0.9rem 0.8rem; border-radius: 10px; background: var(--dg-c-tint); }
+.post-content .dg-reading .dg-strong { font-size: 1.35rem; }
+.post-content .dg-reading .dg-q { margin-top: 0.25rem; }
+.post-content .dg-reading .dg-chip { background: var(--color-surface); }
+.post-content .dg-reading.dg-lead { background: var(--dg-a); }
+.post-content .dg-reading.dg-lead .dg-strong,
+.post-content .dg-reading.dg-lead .dg-q { color: #fff; }
+.post-content .dg-reading.dg-lead .dg-q { opacity: 0.9; }
+
+/* 11. The AIDA message path */
+.post-content .dg-aida { display: grid; gap: 0.5rem; counter-reset: aida; }
+@media (min-width: 760px) { .post-content .dg-aida { grid-template-columns: repeat(4, 1fr); } }
+.post-content .dg-aida > li { position: relative; display: grid; gap: 0.3rem; padding: 0.8rem 0.85rem; border-radius: 10px; background: var(--color-surface); border: 1px solid var(--color-line); }
+.post-content .dg-aida .dg-letter { width: 2.4rem; height: 2.4rem; min-height: 0; border-radius: 50%; margin-bottom: 0.2rem; }
+.post-content .dg-aida > li:last-child .dg-letter { background: var(--dg-c); color: var(--color-bg); }
+.post-content .dg-aida .dg-say { display: block; margin: 0.2rem 0; padding: 0.45rem 0.6rem; border-radius: 8px; background: var(--dg-a-tint); font-weight: 600; }
+@media (min-width: 760px) {
+  .post-content .dg-aida > li:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -0.95rem;
+    top: 1.3rem;
+    color: var(--color-text-muted);
+    z-index: 1;
+  }
+}
+
+/* 12. Understood and consistent, at every stage */
+.post-content .dg-feel { display: grid; gap: 0.5rem; }
+.post-content .dg-feel-head { display: none; }
+.post-content .dg-feel-row { display: grid; gap: 0.35rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-line); }
+.post-content .dg-feel-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.post-content .dg-feel-stage { display: flex; align-items: center; font-family: var(--font-display); text-transform: uppercase; font-size: 1.05rem; }
+.post-content .dg-feel .dg-cell .dg-label { margin-bottom: 0.1rem; }
+@media (min-width: 640px) {
+  .post-content .dg-feel-head,
+  .post-content .dg-feel-row { display: grid; grid-template-columns: 7rem 1fr 1fr; gap: 0.6rem; align-items: stretch; }
+  .post-content .dg-feel-row { border-bottom: 0; padding-bottom: 0; }
+  .post-content .dg-feel-head .dg-label { color: var(--dg-a); }
+  .post-content .dg-feel .dg-cell .dg-label { display: none; }
+}
