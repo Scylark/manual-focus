@@ -3,6 +3,11 @@ title: "What the first ChatGPT ads returns study means for paid teams"
 date: 2026-11-04
 tags: ["ai-briefing", "ai", "go-to-market"]
 description: "A working paper published in October 2026 finds a paid ChatGPT visit earns $0.89 against $2.45 from paid Google Search. Cap ChatGPT bids and test for lift."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/chatgpt-ads-returns-vs-google-search-study.mp3"
+  duration: 444
+  bytes: 5332159
+  published: 2026-11-04
 faq:
   - question: "Do ChatGPT ads perform as well as Google Search ads?"
     answer: "Not on current evidence. A working paper by Maximilian Kaiser and Christian Schulze, dated October 2026, found that in US traffic a paid ChatGPT visit generated $0.89 in revenue against $2.45 for a paid Google Search visit, a 64% shortfall. Paid ChatGPT visitors converted at 0.37% against 1.17% for paid search, and their orders were smaller."
