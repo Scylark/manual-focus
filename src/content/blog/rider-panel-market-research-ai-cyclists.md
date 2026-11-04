@@ -79,10 +79,6 @@ We built 200,000 UK cyclists first, using survey data. Sport England's [Active L
 | Prices and rivals | 10 real rival trainers at UK prices, with Black Friday and January deals |
 | What they come across | Brand familiarity from UK search share, plus each agent's own shops and apps |
 
-[![All 500 agents by name, coloured by how they ride](/images/rider-panel/shopper-wall.webp)](/reports/rider-panel/)
-
-*All 500 agents by name, coloured by how they ride. In the [interactive report](/reports/rider-panel/), each name opens that agent's life story.*
-
 Gwen Holroyd is 72, retired from nursing, with a Morzine trip coming up and neighbours below her small flat in Stockport. Ife Okonkwo is a GP in Islington whose old trainer wakes his toddler. Lee Hocking drives deliveries in Plymouth and was let down by the last new brand he bought.
 
 An agent only knows the trainers someone like them would meet. A Garmin owner sees Tacx in Garmin Connect. An agent who shops at Decathlon sees Van Rysel. Someone who asks ChatGPT hears the brands it names. Our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-recommend/) found AI engines name Wahoo in 83% of UK smart trainer answers.
