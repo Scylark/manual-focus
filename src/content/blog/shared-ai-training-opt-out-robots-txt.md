@@ -3,6 +3,11 @@ title: "What the shared AI training opt-out means for brand websites"
 date: 2026-10-31
 tags: ["ai-briefing", "ai", "brand"]
 description: "Google and Microsoft said on 30 October 2026 they will honour one robots.txt token for AI training. Opt out by path and keep AI grounding switched on."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/shared-ai-training-opt-out-robots-txt.mp3"
+  duration: 489
+  bytes: 5869445
+  published: 2026-11-04
 faq:
   - question: "What is the __usage_ai-training token in robots.txt?"
     answer: "It is a shared policy token defined in an IETF Internet-Draft by Kevin Kelley of Anthropic, published on 30 October 2026. A site writes a robots.txt group with User-Agent set to the token and Disallow or Allow paths to say whether its content may be used to train generative AI models. It is a preference about use and does not stop crawling."
