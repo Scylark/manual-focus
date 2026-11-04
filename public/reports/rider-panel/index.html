@@ -588,13 +588,13 @@ document.getElementById("dlg").addEventListener("click", e => { if (e.target.id 
   const rows = ["R", "C", "N", "AI"];
   document.getElementById("plan-table").innerHTML = `<thead><tr><th>Launch plan</th><th>Agents who came across Northfold</th><th>Northfold buyers in ${DATA.n}</th><th>Change vs the £499 launch</th><th>Revenue</th></tr></thead><tbody>` +
     rows.map(k => { const x = P[k], real = k !== "R" && (x.dlo > 0 || x.dhi < 0);
-      return `<tr><td>${PLAN[k]}</td><td>${x.met}</td><td class="us">${x.nf} (${x.lo} to ${x.hi})</td><td${real ? ' class="us"' : ""}>${k === "R" ? "The launch as planned" : `${sign(x.diff)} (${sign(x.dlo)} to ${sign(x.dhi)})${real ? "" : ", within the noise"}`}</td><td>£${fmt(x.rev)}</td></tr>`; }).join("") + `</tbody>`;
+      return `<tr><td>${PLAN[k]}</td><td>${x.met}</td><td class="us">${x.nf} (${x.lo} to ${x.hi})</td><td${real ? ' class="us"' : ""}>${k === "R" ? "The launch as planned" : `${sign(x.diff)} (${sign(x.dlo)} to ${sign(x.dhi)})${real ? "" : ", within the margin of error"}`}</td><td>£${fmt(x.rev)}</td></tr>`; }).join("") + `</tbody>`;
   const revUp = Math.round((P.C.rev / P.R.rev - 1) * 100), bfNov = P.C.months["2026-11"] || 0, bfDeal = P.C.first.deal_email_or_list || 0;
   const fromCore = (P.C.from.kickr_core2 || 0);
   document.getElementById("find-cards").innerHTML = [
     ["The importance of independent reviews", `Without independent reviews, Northfold sold to ${P.N.nf} agents instead of ${P.R.nf}. The few who came across it walked away because they couldn't trust a brand they'd never heard of. It's the biggest effect in the study.`],
     ["The effect of a Black Friday price", `At £399 for Black Friday, Northfold sold to ${P.C.nf} agents, with ${revUp}% more revenue. ${bfNov} of them bought in November. Deal lists and deal emails put it in front of agents who'd never have come across it. Most of its extra buyers came from the KICKR CORE 2. This result depends on how many agents a new brand reaches. Before we capped Northfold's reach, when it met 65% of agents, the £399 price added only 5% to revenue.`],
-    ["The effect of being named by AI", `When AI engines name Northfold, ${P.AI.first.ai_chat || 0} of its ${P.AI.nf} buyers first hear of it there. Sales rise from ${P.R.nf} to ${P.AI.nf}, at the edge of the noise. AI gets a new brand onto shortlists. Reviews still close the sale.`]
+    ["The effect of being named by AI", `When AI engines name Northfold, ${P.AI.first.ai_chat || 0} of its ${P.AI.nf} buyers first hear of it there. Sales rise from ${P.R.nf} to ${P.AI.nf}, within the margin of error. AI gets a new brand onto shortlists. Reviews still close the sale.`]
   ].map(([h, p]) => `<div class="card"><h3>${h}</h3><p>${p}</p></div>`).join("");
 }
 
@@ -687,7 +687,7 @@ diary(0);
   const A = [
     ["tested", "Tested", `${P.N.nf} → ${P.R.nf}`, "Have the big reviews out on launch day", `Without independent reviews from sites like BikeRadar or DC Rainmaker, agents who met Northfold couldn't find proof it was any good.`, `Tested: with reviews out at launch, ${P.R.nf} agents bought a Northfold. Without them, ${P.N.nf} did.`],
     ["tested", "Tested", `${P.R.nf} → ${P.C.nf}`, "Cut the price to £399 for Black Friday", `${wait} of the ${DATA.near} agents who weighed Northfold up were waiting for a sale.`, `Tested: buyers rose from ${P.R.nf} to ${P.C.nf}. Revenue rose ${Math.round((P.C.rev / P.R.rev - 1) * 100)}%, partly because the deal put Northfold on lists that new agents read.`],
-    ["tested", "Tested", `${P.R.nf} → ${P.AI.nf}`, "Get named in AI answers", `Agents who ask ChatGPT or Google's AI only hear the brands it names.`, `Tested: when AI names Northfold, buyers rise from ${P.R.nf} to ${P.AI.nf}, at the edge of the noise. Worth doing after reviews, not instead of them.`],
+    ["tested", "Tested", `${P.R.nf} → ${P.AI.nf}`, "Get named in AI answers", `Agents who ask ChatGPT or Google's AI only hear the brands it names.`, `Tested: when AI names Northfold, buyers rise from ${P.R.nf} to ${P.AI.nf}, within the margin of error. Worth doing after reviews, not instead of them.`],
     ["", "Next test", `${trust}`, "Offer a 100-day trial and a 5-year warranty", `${trust} near-buyers didn't trust a new brand to be around in three years.`, "Test next: a 100-day trial plus a 5-year warranty, shown on every retailer listing."],
     ["", "Next test", `${wait}`, "Test £449 through the January sales", "Many agents start looking after Christmas. The January sales are the next big moment to be on deal lists.", "Test next: £449 through the January sales, with the Black Friday price kept."],
     ["", "Targeting", `${DATA.putAway} of ${P.R.nf}`, "Target ads at shoppers with no spare room", "Buyers were mostly people who'd have to put a trainer away after every ride. Folding was the top reason they chose it.", "Act now: target ads at flat dwellers and renters, with the fold in the first second of every video."]

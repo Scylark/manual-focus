@@ -119,7 +119,7 @@ Each agent keeps a diary. Here's Lee's season at £499, month by month:
 | £499 all season, reviews out at launch | 26 | | £12,974 |
 | £399 for Black Friday | 41 | +15, a real change | £17,859 |
 | No independent reviews | 3 | −23, a real change | £1,497 |
-| Named by AI engines | 33 | +7, at the edge of the noise | £16,467 |
+| Named by AI engines | 33 | +7, within the margin of error | £16,467 |
 
 A change counts as real when it's bigger than the panel's own noise. The rest of this article takes each plan in turn, starting with the people who bought.
 
