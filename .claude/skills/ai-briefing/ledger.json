@@ -1038,5 +1038,53 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "wattplan-messaging-hierarchy"
+  },
+  {
+    "run_date": "2026-11-04",
+    "story": "Kaiser and Schulze working paper (October 2026, SEJ 2 November) finds a paid ChatGPT visit earns $0.89 vs $2.45 for paid Google Search in US traffic, parity CPC about $0.26",
+    "primary_source": "https://ecommerceresearch.org/chatgpt-ads/",
+    "score": 7,
+    "decision": "published",
+    "slug": "chatgpt-ads-returns-vs-google-search-study"
+  },
+  {
+    "run_date": "2026-11-04",
+    "story": "OpenAI's Adam Fry says ChatGPT search-like query volume is about one fifth of Google's, weekly users 1.2 billion (Big Technology, 3 November)",
+    "primary_source": "https://www.bigtechnology.com/p/openai-chatgpt-search-is-about-20",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-04",
+    "story": "Google moves brand AI Overviews to the right column on desktop (SER 2 November, X posts, no Google confirmation)",
+    "primary_source": "https://www.seroundtable.com/google-ai-overviews-brands-right-42440.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-04",
+    "story": "Google Ads PMax help page adds that PMax may filter out navigational and brand queries for Search campaigns (SER 3 November)",
+    "primary_source": "https://support.google.com/google-ads/answer/13810170?hl=en",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-04",
+    "story": "Google says no AI click reporting news yet ahead of the CMA's 3 December publisher conduct deadline (SEJ 2 November)",
+    "primary_source": "https://www.searchenginejournal.com/google-ai-click-reporting-uk-deadline/595663/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-04",
+    "story": "OpenAI to merge ChatGPT's Chat and Work tabs for select users (TechCrunch 2 November, no OpenAI post)",
+    "primary_source": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
