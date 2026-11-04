@@ -13,7 +13,7 @@ faq:
   - question: "Why do shoppers walk away from a new trainer brand?"
     answer: "In the Rider Panel's first study, 65 agents considered the new £499 trainer and bought something else. 44 were waiting for a sale. 40 named the price. 32 didn't trust a brand they'd never heard of to last. The ones who bought it chose it because it folds away and is quiet, with independent reviews to back the claims."
   - question: "Who are the 500 agents?"
-    answer: "They are UK cyclists who go shopping for an indoor trainer this season, not every cyclist. Manual Focus simulated 200,000 UK cyclists from survey data. It gave each a chance of shopping this season based on what they ride indoors now, then drew 500 from everyone who shops. About 2 in 100 adult cyclists shop for a trainer in a season. Four in ten of the 500 are buying their first."
+    answer: "They are UK cyclists who go shopping for an indoor trainer this season, not every cyclist. Manual Focus simulated 200,000 UK cyclists from survey data. It gave each a chance of shopping this season based on what they ride indoors now, then drew 500 from everyone who shops. About 2 in 100 adult cyclists shop for a trainer in a season, on our estimate. Four in ten of the 500 are buying their first, which is our assumption."
   - question: "Does the Rider Panel only work in the UK?"
     answer: "No. The first panel simulates UK cyclists because the first study was a UK launch. For another country, Manual Focus rebuilds every input from that country's own sources, from who cycles there to what the shops charge. The method stays the same, so a brand can test one launch plan in two markets and compare them."
 sources:
@@ -68,7 +68,7 @@ The panel has no fixed size. We can recruit as many agents as a question needs f
 
 They're the people who go shopping for an indoor trainer this season, not every cyclist. Most cyclists never think about a trainer in a given year. A panel of all cyclists would put people in the market who'd never be there.
 
-We built 200,000 UK cyclists first, using survey data. Sport England's [Active Lives survey](https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables) sets who rides. The [English Housing Survey](https://www.gov.uk/government/statistics/chapters-for-english-housing-survey-2023-to-2024-headline-findings-on-demographics-and-household-resilience) decides who rents or owns their home. Each cyclist then got a chance of shopping this season, based on what they ride indoors now and what's wrong with it. We recruited the 500 from everyone who shops. About 2 in 100 adult cyclists shop for a trainer in a season.
+We built 200,000 UK cyclists first, using survey data. Sport England's [Active Lives survey](https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables) sets who rides. The [English Housing Survey](https://www.gov.uk/government/statistics/chapters-for-english-housing-survey-2023-to-2024-headline-findings-on-demographics-and-household-resilience) decides who rents or owns their home. Each cyclist then got a chance of shopping this season, based on what they ride indoors now and what's wrong with it. We recruited the 500 from everyone who shops. About 2 in 100 adult cyclists shop for a trainer in a season, on our estimate. The report gives the [sources and working](/reports/rider-panel/#market-sources) for every market figure.
 
 | Part of an agent's world | Where it comes from |
 |---|---|
@@ -87,7 +87,7 @@ An agent only knows the trainers someone like them would meet. A Garmin owner se
 
 To prove the panel, we invented a brand called Northfold and a folding smart trainer, the DD1. Northfold isn't a real company. The DD1 is quiet and folds flat to 14cm deep. Like its main rivals, it comes with the Zwift Cog and Click. It goes on sale on 16 November at £499. Sigma Sports and Tredz stock it, with a display stand in Halfords.
 
-A new brand can't be better known than an established one in its first season. So we capped Northfold's reach at the awareness of JetBlack, a UK challenger brand. About 110 of the 500 agents come across it. We added this cap after the full runs, when Northfold had met 65% of agents and taken 16% of the season's sales. The 142 agents it affected decided again, with no full rerun.
+A new brand can't be better known than an established one in its first season. So we capped Northfold's reach at the awareness of JetBlack, a UK challenger brand, as modelled in our panel. About 110 of the 500 agents come across it. We added this cap after the full runs, when Northfold had met 65% of agents and taken 16% of the season's sales. The 142 agents it affected decided again, with no full rerun.
 
 Then we ran the season four times on the same 500 agents. Their lives stayed the same. So did the weather and every rival's price.
 
@@ -209,7 +209,7 @@ Still to test:
 
 ## What the results mean in real sales
 
-Each of the 500 agents stands for about 284 real UK shoppers. That's set so the £499 run's trainer sales match the size of the UK market this season, about 120,000 trainers on our estimate. On that basis, the £499 launch sells about 7,400 trainers, 6% of the season. The £399 Black Friday plan sells about 11,700. Without reviews it sells about 900.
+Each of the 500 agents stands for about 284 real UK shoppers. That's set so the £499 run's trainer sales match the size of the UK market this season, about 120,000 trainers on our estimate. No published UK sales figure exists that we could find, so we [worked it out from market revenue](/reports/rider-panel/#market-sources) and confidence is low. On that basis, the £499 launch sells about 7,400 trainers, 6% of the season. The £399 Black Friday plan sells about 11,700. Without reviews it sells about 900.
 
 Those totals rest on our market estimate, which comes from market revenue data with low confidence. Allowing for that, the £499 launch could sell anywhere from about 2,900 to 14,400. A brand can swap in its own market figure. The [interactive report](/reports/rider-panel/) has a slider for it.
 

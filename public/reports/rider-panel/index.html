@@ -225,6 +225,9 @@ table.wxt { border-collapse: collapse; font-size: 13px; width: 100%; min-width: 
 .flow .t i { display: block; height: 100%; background: var(--accent); }
 .flow b { font-family: var(--f-mono); font-weight: 500; color: var(--ink); text-align: right; }
 
+.diary-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 16px; align-items: start; }
+.market-sources { margin-top: 48px; display: grid; gap: 16px; }
+.market-sources .src { font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); }
 .diary-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .diary { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
 .diary li { display: grid; grid-template-columns: 110px 170px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); align-items: start; }
@@ -266,6 +269,7 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
   .hub .core { grid-column: 1 / -1; grid-row: auto; order: -1; }
   .grid4, .steps, .checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid3, .winters { grid-template-columns: minmax(0, 1fr); }
+  .diary-grid { grid-template-columns: minmax(0, 1fr); }
   .diary li { grid-template-columns: 90px minmax(0, 1fr); }
   .diary .wx { grid-column: 2; }
   .diary .entry { grid-column: 1 / -1; }
@@ -356,7 +360,7 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
         <button type="button" class="btn ghost" data-dr="2" aria-pressed="false" id="dr2"></button>
         <button type="button" class="btn ghost" data-dr="3" aria-pressed="false" id="dr3"></button>
       </div>
-      <div class="grid2" style="grid-template-columns:minmax(0,1fr) minmax(0,2fr);align-items:start">
+      <div class="diary-grid">
         <div class="card person" id="dr-person"></div>
         <div style="display:grid;gap:16px"><ol class="diary" id="diary"></ol><div class="outcome" id="dr-out"></div></div>
       </div>
@@ -368,7 +372,7 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
       <div class="eyebrow">Who the 500 are</div>
       <h2>Who the 500 agents are</h2>
       <div class="body">
-        <p>The panel isn't every cyclist. Most cyclists never think about an indoor trainer in a given year. These 500 are the ones who go shopping for one this season. We built 200,000 UK cyclists from survey data first. Then we gave each of them a chance of shopping this season based on what they ride indoors now and what's wrong with it. The 500 were drawn from everyone who shops, so their mix follows from the real population. About 2 in every 100 adult cyclists shop for a trainer in a season. Four in ten of these agents are buying their first. Five hundred was our choice for a first study. The pool has no limit, so a brand's study can be as large as its question needs.</p>
+        <p>The panel isn't every cyclist. Most cyclists never think about an indoor trainer in a given year. These 500 are the ones who go shopping for one this season. We built 200,000 UK cyclists from survey data first. Then we gave each of them a chance of shopping this season based on what they ride indoors now and what's wrong with it. The 500 were drawn from everyone who shops, so their mix follows from the simulated population. About 2 in every 100 adult cyclists shop for a trainer in a season, on our estimate. Four in ten of these agents are buying their first, which is our assumption. The <a href="#market-sources" style="color:inherit">sources and working</a> are further down this report. Five hundred was our choice for a first study. The pool has no limit, so a brand's study can be as large as its question needs.</p>
         <p>Each agent is a simulated person, not a persona on a slide. Their life story covers work and family. Their profile records the bike computer they own and how much its brand matters to them. It also records the cassette on their bike and where a trainer would live at home. Their kit never appears in their life story, so it can't take over the plot. This first panel is set in the UK. For another country, every input comes from that country instead.</p>
       </div>
       <div class="hub">
@@ -424,14 +428,28 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
           <div class="field">
             <label for="c-market">Indoor trainers sold in the UK, September to March: <span class="val" id="c-market-v"></span></label>
             <input type="range" id="c-market" min="60000" max="180000" step="5000" value="120000">
-            <span class="note">Our estimate is about 185,000 indoor trainers a year, worked out from market revenue, with low confidence. September to March carries 65% of a year's UK trainer searches, which gives about 120,000.</span>
+            <span class="note">Our estimate is about 185,000 indoor trainers a year, worked out from market revenue, with low confidence. September to March carries 65% of a year's UK trainer searches, which gives about 120,000. <a href="#market-sources" style="color:inherit">See the working</a>.</span>
           </div>
-          <p class="hint">Northfold's first-season reach is capped at the awareness of JetBlack, an established UK challenger brand. A new brand can't be better known than that in its first season.</p>
+          <p class="hint">Northfold's first-season reach is capped at the awareness of JetBlack, an established UK challenger brand. A new brand can't be better known than that in its first season. That awareness comes from our panel, not a survey, as the <a href="#market-sources" style="color:inherit">working</a> shows.</p>
         </form>
         <div class="card out" aria-live="polite">
           <span class="hint">Northfold DD1 sales, September to March</span>
           <dl id="c-dl"></dl>
           <p class="hint">Ranges come from the panel only. They don't include doubt about the market's size.</p>
+        </div>
+      </div>
+      <div class="market-sources" id="market-sources">
+        <h2>Sources and working for the market figures</h2>
+        <p class="lede">We found no published figure for UK trainer sales or ownership, which means several numbers in this report are our own estimates. Each card gives the source or the sum, so you can check it or swap in better data.</p>
+        <div class="grid2">
+          <div class="card"><h3>The number of adult cyclists</h3><p>About 7.4 million. Sport England counted 7.42 million adults who cycled at least twice in 28 days, in the 12 months to November 2025. That's 15.5% of adults in England. The count covers England only because we found no matching UK figure.</p><span class="src"><a href="https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables" style="color:inherit">Sport England Active Lives, Table 6</a></span></div>
+          <div class="card"><h3>Indoor trainers sold in a year</h3><p>About 185,000, with low confidence. We found no published UK sales figure, so we worked it out from revenue. Dataintelo puts Europe's trainer market at $0.46bn in 2025. We assumed the UK is 12.5% of that, which is about £44m at $1.30 to the pound. An assumed average price of £225 makes about 196,000 trainers. Taking off 10% for repeat buyers and gifts leaves about 176,000 buyers, or 2.4% of 7.4 million cyclists. We rounded that to 2.5%, which is about 185,000. Our low and high assumptions gave 126,000 to 239,000. We widened that to 110,000 to 260,000 because the inputs are weak. Dataintelo's own growth figures don't quite add up, so treat its revenue as rough.</p><span class="src"><a href="https://dataintelo.com/report/global-smart-and-classic-indoor-trainers-market" style="color:inherit">Dataintelo market report</a> · UK share, price and repeat buying are our assumptions</span></div>
+          <div class="card"><h3>Indoor trainers sold this season</h3><p>About 120,000, with a range of 71,000 to 169,000. September to March carried 65% of a year's UK Google searches for five generic trainer terms, measured from October 2025 to September 2026. Applying that to the yearly figure gives 185,000 × 65%, which is about 120,000. Searches stand in for sales because we found no monthly sales data.</p><span class="src">DataForSEO search volume · Five generic trainer terms</span></div>
+          <div class="card"><h3>The share of cyclists who shop in a season</h3><p>About 2 in every 100. In the £499 run, the 500 agents bought 422 trainers. Dividing 120,000 by 422 means each agent stands for about 284 real shoppers, so the 500 stand for about 142,000. That's 1.9% of 7.4 million. The sales figure is for the UK while the cyclist count is for England, so the true UK share is a little lower. The rules we used to build the panel had 3.0% shopping, or 5,905 of 200,000. We set those chances ourselves, so we quote the figure tied to the market estimate.</p><span class="src">Our working · Panel results with the estimates above</span></div>
+          <div class="card"><h3>The share buying their first trainer</h3><p>Four in ten, or 200 of the 500. These agents have no trainer or smart bike at home now. This is our assumption, not a measurement. We set each cyclist's chance of shopping so about 40% of shoppers would be first-time buyers, because we found no UK survey of trainer ownership.</p><span class="src">Our assumption · No UK ownership survey found</span></div>
+          <div class="card"><h3>Brand familiarity</h3><p>Each brand's share of UK Google searches across the five trainer brands in an average month, measured in October 2026. Wahoo has 58%, Tacx 19%, JetBlack 15%, Elite 5% and Van Rysel 3%. Searches show how often people look for a name. They don't measure sales.</p><span class="src">DataForSEO search volume · October 2026</span></div>
+          <div class="card"><h3>The awareness of JetBlack</h3><p>119 of the 500 agents have JetBlack on their shortlist. That number comes from our panel, not a brand awareness survey. We set the chance of knowing JetBlack at 35% for keen riders and 12% for everyone else, with its search share as a guide. We then scaled Northfold's reach so a strong launch could meet about 120 agents. A brand's own tracking data or media plan can replace this.</p><span class="src">Our assumption · Guided by DataForSEO search share</span></div>
+          <div class="card"><h3>Who the simulated cyclists are</h3><p>Sex and riding purpose follow Active Lives. Regions in England follow DfT weekly cycling rates multiplied by ONS adult populations. Outdoor space and renting follow the English Housing Survey. Buy now pay later use follows the FCA's Financial Lives survey. Most of these sources cover England only. Scotland and Wales, age, income, riding type and indoor setup are our own assumptions, informed by DfT travel surveys where we could.</p><span class="src"><a href="https://www.sportengland.org/research-and-data/data/active-lives/active-lives-data-tables" style="color:inherit">Active Lives</a> · <a href="https://assets.publishing.service.gov.uk/media/66ceee82a7256f1cd83a8993/cw0302.ods" style="color:inherit">DfT CW0302</a> · <a href="https://assets.publishing.service.gov.uk/media/6930595d4bedc0e762303ffa/2024-25_EHS_Headline_Report.pdf" style="color:inherit">English Housing Survey</a> · <a href="https://fca.org.uk/news/press-releases/protections-help-buy-now-pay-later-borrowers-navigate-financial-lives" style="color:inherit">FCA Financial Lives</a></span></div>
         </div>
       </div>
     </div>
@@ -450,7 +468,7 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
     <div class="wrap">
       <div class="eyebrow">Why it matters</div>
       <h2>How the Rider Panel compares with focus groups and surveys</h2>
-      <p class="lede">Asking real customers is slow and expensive, so most brands only do it for their biggest launches. Everything else gets decided on instinct. The Rider Panel makes testing a launch cheap enough to do every time, before you spend money on stock and campaigns.</p>
+      <p class="lede">In our experience, asking real customers is slow and expensive, so most brands only do it for their biggest launches. Everything else gets decided on instinct. The Rider Panel makes testing a launch cheap enough to do every time, before you spend money on stock and campaigns.</p>
       <div class="cmp-wrap"><table class="cmp">
         <thead><tr><th></th><th>Focus groups and surveys</th><th>The Rider Panel</th></tr></thead>
         <tbody>
