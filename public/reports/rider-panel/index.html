@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Light Meter's Rider Panel tests a product launch on 500 AI cyclists living real lives. See what its first study, a UK launch, told the brand to do.">
+<meta name="description" content="Light Meter's Rider Panel tests a product launch in a simulated world of 500 AI agents. See what its first study, a UK launch, told the brand to do.">
 <link rel="canonical" href="https://manual-focus.co.uk/reports/rider-panel/">
-<meta property="og:title" content="The Light Meter Rider Panel: market research run on 500 AI cyclists | Manual Focus">
-<meta property="og:description" content="Light Meter's Rider Panel tests a product launch on 500 AI cyclists living real lives. See what its first study, a UK launch, told the brand to do.">
+<meta property="og:title" content="The Light Meter Rider Panel: market research in a simulated world of 500 AI agents | Manual Focus">
+<meta property="og:description" content="Light Meter's Rider Panel tests a product launch in a simulated world of 500 AI agents. See what its first study, a UK launch, told the brand to do.">
 <meta property="og:url" content="https://manual-focus.co.uk/reports/rider-panel/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Manual Focus">
@@ -288,19 +288,19 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
   <div class="wrap">
     <div class="eyebrow"><a href="/" style="color:inherit;text-decoration:none">Manual Focus</a> · <a href="/light-meter/" style="color:inherit;text-decoration:none">Light Meter</a> · Rider Panel</div>
     <div class="hero-grid">
-      <h1>The Rider Panel: <span class="grad">500 AI cyclists shopping for a smart trainer</span></h1>
+      <h1>The Rider Panel: <span class="grad">a simulated world of 500 AI agents</span></h1>
       <div style="display:grid;gap:16px">
-        <p class="lede">The Rider Panel tests how buyers respond to a new product before it launches. For this first study we recruited 500 UK cyclists who will shop for an indoor trainer between September and March, from a potentially limitless pool of shoppers the Rider Panel can draw on. Each one is an AI agent with a written life story and a budget to stick to. They live the season month by month in their own town's real weather. They choose from the trainers someone like them would actually come across, at real UK prices.</p>
-        <p class="lede">One shopper can end the season up to 86 different ways, buying one of 12 trainers or other options in any of seven months, or not buying at all. Five shoppers can end it 4.7 billion ways. For all 500, the number of possible outcomes is about 970 digits long.</p>
+        <p class="lede">The Rider Panel tests how buyers respond to a new product before it launches. For this first study we recruited 500 UK cyclists who will shop for an indoor trainer between September and March, from a potentially limitless pool of agents the Rider Panel can draw on. Each one has a life your launch has to fit into, with a family or a flat to think about, kit they already own and a budget to stick to. They live the season month by month. They choose from the trainers someone like them would actually come across, at real UK prices.</p>
+        <p class="lede">One agent can end the season up to 86 different ways, buying one of 12 trainers or other options in any of seven months, or not buying at all. Five agents can end it 4.7 billion ways. For all 500, the number of possible outcomes is about 970 digits long.</p>
         <p class="lede"><strong id="hero-result"></strong></p>
       </div>
     </div>
     <div class="stats" id="stats"></div>
-    <div class="kg-cap"><h2>500 shoppers as a knowledge graph, connected by what they have in common</h2><span class="hint">Hover over a dot to see who it is. Click to see their connections.</span></div>
+    <div class="kg-cap"><h2>500 agents as a knowledge graph, connected by what they have in common</h2><span class="hint">Hover over a dot to see who it is. Click to see their connections.</span></div>
     <div class="kg" id="kg">
-      <canvas id="kg-canvas" aria-label="Knowledge graph of 500 shoppers and the sports, brands and life events they share"></canvas>
+      <canvas id="kg-canvas" aria-label="Knowledge graph of 500 agents and the sports, brands and life events they share"></canvas>
       <div class="kg-top"><div class="kg-chips" id="kg-chips" role="group" aria-label="Choose which connections to show"></div>
-        <input class="kg-search" id="kg-search" type="search" placeholder="Find a shopper" aria-label="Find a shopper by name" list="kg-names"><datalist id="kg-names"></datalist></div>
+        <input class="kg-search" id="kg-search" type="search" placeholder="Find an agent" aria-label="Find an agent by name" list="kg-names"><datalist id="kg-names"></datalist></div>
       <div class="kg-tip" id="kg-tip"></div>
       <div class="kg-card" id="kg-card" hidden></div>
       <div class="kg-hint" id="kg-hint">Pinch or ⌘ + scroll to zoom · drag to move · double-click to zoom in</div>
@@ -308,9 +308,9 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
       <div class="kg-zoom"><button type="button" id="kg-in" aria-label="Zoom in">+</button><button type="button" id="kg-out" aria-label="Zoom out">−</button><button type="button" id="kg-fit" aria-label="Reset view">⤢</button></div>
     </div>
     <div style="display:grid;gap:12px;margin-top:8px">
-      <div class="kg-cap"><h2>All 500 shoppers, by name</h2><span class="hint">Pick a riding type, or show everyone. Choose any name to read their life story.</span></div>
-      <div class="kg-chips" id="wall-key" role="group" aria-label="Show shoppers by how they ride"></div>
-      <div class="wall" id="wall" aria-label="Shoppers in the panel. Choose a name to read their story."></div>
+      <div class="kg-cap"><h2>All 500 agents, by name</h2><span class="hint">Pick a riding type, or show everyone. Choose any name to read their life story.</span></div>
+      <div class="kg-chips" id="wall-key" role="group" aria-label="Show agents by how they ride"></div>
+      <div class="wall" id="wall" aria-label="Agents in the panel. Choose a name to read their story."></div>
       <button type="button" class="btn ghost" id="wall-more" style="justify-self:start"></button>
     </div>
   </div>
@@ -323,34 +323,34 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
       <h2>The results of four launch plans for a new smart trainer</h2>
       <div class="body">
         <p>We invented a brand called <strong>Northfold</strong> and a folding smart trainer, the <strong>DD1</strong>. Northfold isn't a real company. The DD1 turns your own bike into an indoor exercise bike. It's quiet and accurate. It folds flat to 14cm deep for small homes. Like its main rivals, it comes with the Zwift Cog and Click. It goes on sale on 16 November at £499. Sigma Sports and Tredz stock it, with a display stand in Halfords.</p>
-        <p>We ran the same season four times on the same 500 shoppers. Their lives stayed the same between runs. So did the weather and every rival's price. <strong>Only the Northfold launch changed</strong>, so any difference in what they bought comes from that one decision.</p>
+        <p>We ran the same season four times on the same 500 agents. Their lives stayed the same between runs. So did the weather and every rival's price. <strong>Only the Northfold launch changed</strong>, so any difference in what they bought comes from that one decision.</p>
       </div>
       <div class="cmp-wrap"><table class="cmp" id="plan-table"></table></div>
-      <p class="hint">Ranges come from re-sampling the 500 shoppers 4,000 times. A change counts when its range stays clear of zero. Revenue is Northfold's revenue from the 500 shoppers.</p>
+      <p class="hint">Ranges come from re-sampling the 500 agents 4,000 times. A change counts when its range stays clear of zero. Revenue is Northfold's revenue from the 500 agents.</p>
       <div class="grid3" id="find-cards" style="margin-top:16px"></div>
     </div>
   </section>
 
   <section class="band" id="reasons">
     <div class="wrap">
-      <div class="eyebrow">Why shoppers decided</div>
+      <div class="eyebrow">Why agents decided</div>
       <h2 id="obj-h2"></h2>
-      <p class="lede">Every shopper gives the two or three things that decided it for them, in their own words. For a brand, this turns a sales number into a to-do list.</p>
+      <p class="lede">Every agent gives the two or three things that decided it for them, in their own words. For a brand, this turns a sales number into a to-do list.</p>
       <div class="grid2" style="align-items:start">
-        <div class="card"><h3>Why shoppers bought the Northfold</h3><div class="flows" id="buy-why"></div></div>
-        <div class="card"><h3>Why shoppers walked away</h3><div class="flows" id="objs"></div></div>
+        <div class="card"><h3>Why agents bought the Northfold</h3><div class="flows" id="buy-why"></div></div>
+        <div class="card"><h3>Why agents walked away</h3><div class="flows" id="objs"></div></div>
       </div>
       <div class="grid2" id="obj-quotes" style="margin-top:16px"></div>
-      <p class="hint">From the £499 launch. A shopper can give more than one reason.</p>
+      <p class="hint">From the £499 launch. An agent can give more than one reason.</p>
     </div>
   </section>
 
   <section class="band alt" id="diaries">
     <div class="wrap">
-      <div class="eyebrow">Shopper diaries</div>
-      <h2>Four shoppers' diaries through the season</h2>
-      <p class="lede">Every shopper keeps a diary from the month they start looking. Each month includes the real weather in their town. Compare a shopper who bought at £499 with one who waited for Black Friday.</p>
-      <div class="diary-head" role="group" aria-label="Choose a shopper">
+      <div class="eyebrow">Agent diaries</div>
+      <h2>Four agents' diaries through the season</h2>
+      <p class="lede">Every agent keeps a diary from the month they start looking. Each month includes the real weather in their town. Compare an agent who bought at £499 with one who waited for Black Friday.</p>
+      <div class="diary-head" role="group" aria-label="Choose an agent">
         <button type="button" class="btn ghost" data-dr="0" aria-pressed="true" id="dr0"></button>
         <button type="button" class="btn ghost" data-dr="1" aria-pressed="false" id="dr1"></button>
         <button type="button" class="btn ghost" data-dr="2" aria-pressed="false" id="dr2"></button>
@@ -366,28 +366,28 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
   <section class="band" id="what">
     <div class="wrap">
       <div class="eyebrow">Who the 500 are</div>
-      <h2>Who the 500 shoppers are</h2>
+      <h2>Who the 500 agents are</h2>
       <div class="body">
-        <p>The panel isn't every cyclist. Most cyclists never think about an indoor trainer in a given year. These 500 are the ones who go shopping for one this season. We built 200,000 UK cyclists from survey data first. Then we gave each of them a chance of shopping this season based on what they ride indoors now and what's wrong with it. The 500 were drawn from everyone who shops, so their mix follows from the real population. About 2 in every 100 adult cyclists shop for a trainer in a season. Four in ten of these shoppers are buying their first. Five hundred was our choice for a first study. The pool has no limit, so a brand's study can be as large as its question needs.</p>
-        <p>Each shopper is an AI agent, not a persona on a slide. Their life story covers work and family. Their profile records the bike computer they own and how much its brand matters to them. It also records the cassette on their bike and where a trainer would live at home. Their kit never appears in their life story, so it can't take over the plot. This first panel is set in the UK. For another country, every input comes from that country instead.</p>
+        <p>The panel isn't every cyclist. Most cyclists never think about an indoor trainer in a given year. These 500 are the ones who go shopping for one this season. We built 200,000 UK cyclists from survey data first. Then we gave each of them a chance of shopping this season based on what they ride indoors now and what's wrong with it. The 500 were drawn from everyone who shops, so their mix follows from the real population. About 2 in every 100 adult cyclists shop for a trainer in a season. Four in ten of these agents are buying their first. Five hundred was our choice for a first study. The pool has no limit, so a brand's study can be as large as its question needs.</p>
+        <p>Each agent is a simulated person, not a persona on a slide. Their life story covers work and family. Their profile records the bike computer they own and how much its brand matters to them. It also records the cassette on their bike and where a trainer would live at home. Their kit never appears in their life story, so it can't take over the plot. This first panel is set in the UK. For another country, every input comes from that country instead.</p>
       </div>
       <div class="hub">
-        <div class="node"><h3>Life story and household</h3><p>Who they are follows UK survey data. Each shopper also has a written life story with a reason to start looking this season.</p><span class="src">Sport England Active Lives · English Housing Survey · FCA Financial Lives</span></div>
-        <div class="node"><h3>Real weather in their town</h3><p>Every shopper lives the actual weather their town had in the same months last year. Rain on the commute. Frost on the roads. Dark before most people finish work.</p><span class="src">Open-Meteo weather archive · 51 UK towns · September to March</span></div>
+        <div class="node"><h3>Life story and household</h3><p>Who they are follows UK survey data. Each agent also has a written life story with a reason to start looking this season.</p><span class="src">Sport England Active Lives · English Housing Survey · FCA Financial Lives</span></div>
+        <div class="node"><h3>Real weather in their town</h3><p>Every agent lives the actual weather their town had in the same months last year. Rain on the commute. Frost on the roads. Dark before most people finish work.</p><span class="src">Open-Meteo weather archive · 51 UK towns · September to March</span></div>
         <div class="node"><h3>Retail calendar, September to March</h3><p>The clocks going back. Black Friday from 20 to 30 November. Christmas costs. The January sales. Spring arriving in March.</p><span class="src">UK retail calendar · search seasonality</span></div>
         <div class="node"><h3>10 real rival trainers at UK prices</h3><p>Ten real rival trainers at their UK price on the day, with their Black Friday and January deals. Nobody knows a sale price before it starts.</p><span class="src">UK retailer pages · 28 October 2026</span></div>
-        <div class="core"><b class="grad">500</b><span>in-market shoppers, each deciding for themselves</span></div>
-        <div class="node"><h3>Which trainers each shopper knows</h3><p>Each shopper only knows the trainers someone like them would meet. A Garmin owner sees Tacx in Garmin Connect. A Decathlon shopper sees Van Rysel. Brand familiarity follows real UK search share.</p><span class="src">Set in code from what each shopper owns and where they shop</span></div>
-        <div class="node you"><h3>Your launch plan</h3><p>Your price and where it's sold. Your reviews. How many shoppers your launch reaches, capped at what an established challenger brand achieves.</p><span class="src">The only thing that changes between runs</span></div>
+        <div class="core"><b class="grad">500</b><span>in-market agents, each deciding for themselves</span></div>
+        <div class="node"><h3>Which trainers each agent knows</h3><p>Each agent only knows the trainers someone like them would meet. A Garmin owner sees Tacx in Garmin Connect. An agent who shops at Decathlon sees Van Rysel. Brand familiarity follows real UK search share.</p><span class="src">Set in code from what each agent owns and where they shop</span></div>
+        <div class="node you"><h3>Your launch plan</h3><p>Your price and where it's sold. Your reviews. How many agents your launch reaches, capped at what an established challenger brand achieves.</p><span class="src">The only thing that changes between runs</span></div>
       </div>
     </div>
   </section>
 
   <section class="band alt" id="riders">
     <div class="wrap">
-      <div class="eyebrow">Meet the shoppers</div>
-      <h2>Eight of the 500 shoppers</h2>
-      <p class="lede">These eight are a sample. Every shopper in the panel has the same depth: a written life story, a reason to start looking and a worry this season. Choose a card to read the full story.</p>
+      <div class="eyebrow">Meet the agents</div>
+      <h2>Eight of the 500 agents</h2>
+      <p class="lede">These eight are a sample. Every agent in the panel has the same depth: a written life story, a reason to start looking and a worry this season. Choose a card to read the full story.</p>
       <div class="grid4" id="featured"></div>
     </div>
   </section>
@@ -397,10 +397,10 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
       <div class="eyebrow">How a study works</div>
       <h2>How a Rider Panel study works, in four steps</h2>
       <ol class="steps">
-        <li><h3>Draw 500 shoppers from survey data</h3><p>Draw the people who shop for your category this season from a simulated population built on survey data.</p></li>
+        <li><h3>Draw 500 agents from survey data</h3><p>Draw the people who shop for your category this season from a simulated population built on survey data.</p></li>
         <li><h3>Load the real market</h3><p>Load each town's real weather with the retail calendar. Add every rival at its real price.</p></li>
         <li><h3>Write each launch plan</h3><p>Your product and price. Your shops and reviews. Write each version of the launch you want to compare.</p></li>
-        <li><h3>Run the season once per plan</h3><p>Every shopper lives the season month by month and keeps a diary. The difference between runs is what your decision changes.</p></li>
+        <li><h3>Run the season once per plan</h3><p>Every agent lives the season month by month and keeps a diary. The difference between runs is what your decision changes.</p></li>
       </ol>
     </div>
   </section>
@@ -418,7 +418,7 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
     <div class="wrap">
       <div class="eyebrow">Sales in real units</div>
       <h2>What the results mean in real sales</h2>
-      <p class="lede">Each shopper stands for about <span id="w-each"></span> real UK shoppers. That's set so the £499 run's trainer sales match the size of the UK market this season. Our market figure is an estimate, so put in your own if you have one.</p>
+      <p class="lede">Each agent stands for about <span id="w-each"></span> real UK shoppers. That's set so the £499 run's trainer sales match the size of the UK market this season. Our market figure is an estimate, so put in your own if you have one.</p>
       <div class="calc">
         <form class="card" id="calc-form" aria-label="Market size">
           <div class="field">
@@ -441,7 +441,7 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
     <div class="wrap">
       <div class="eyebrow">What to do next</div>
       <h2>What Northfold should do next</h2>
-      <p class="lede">Each action comes from what the shoppers did and said. Three were tested by running the season again. The others are next in line.</p>
+      <p class="lede">Each action comes from what the agents did and said. Three were tested by running the season again. The others are next in line.</p>
       <div class="grid3" id="action-cards"></div>
     </div>
   </section>
@@ -457,8 +457,8 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
           <tr><td>Time to an answer</td><td>Weeks to recruit and run</td><td class="us">A few days</td></tr>
           <tr><td>Testing what-ifs</td><td>One version per study. Each change means a new study.</td><td class="us">Change the price or a channel, then rerun the same season on the same people</td></tr>
           <tr><td>Competitors</td><td>Hard to show a realistic market in a room</td><td class="us">Every rival at its real price, including its Black Friday deal</td></tr>
-          <tr><td>Timing</td><td>People guess what they'd do in three months</td><td class="us">Shoppers live the season month by month, in real weather</td></tr>
-          <tr><td>Why people decide</td><td>What people say in front of others</td><td class="us">Each shopper's own reasons, plus what would change their mind</td></tr>
+          <tr><td>Timing</td><td>People guess what they'd do in three months</td><td class="us">Agents live the season month by month, in real weather</td></tr>
+          <tr><td>Why people decide</td><td>What people say in front of others</td><td class="us">Each agent's own reasons, plus what would change their mind</td></tr>
           <tr><td>Real customers</td><td class="us">Yes</td><td>No. It tells you which plans are worth taking to them.</td></tr>
         </tbody>
       </table></div>
@@ -469,7 +469,7 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
     <div class="wrap">
       <div class="eyebrow">Run it on your product</div>
       <h2>Run a Rider Panel study on your next launch</h2>
-      <p class="lede">Rider Panel studies are part of <a href="https://manual-focus.co.uk/light-meter/" style="color:inherit">Light Meter</a>. We run them for cycling brands in the UK. We can build a panel for any other country on request. Send us the product with the plans you're choosing between. You get back what each plan does against the real competition. Every shopper's reasons come in their own words, along with what would change their mind.</p>
+      <p class="lede">Rider Panel studies are part of <a href="https://manual-focus.co.uk/light-meter/" style="color:inherit">Light Meter</a>. We run them for cycling brands in the UK. We can build a panel for any other country on request. Send us the product with the plans you're choosing between. You get back what each plan does against the real competition. Every agent's reasons come in their own words, along with what would change their mind.</p>
       <div class="cta-row"><a class="btn" href="https://manual-focus.co.uk/contact/?offer=rider-panel-study" style="text-decoration:none">Talk to us about a Rider Panel study →</a></div>
     </div>
   </section>
@@ -479,7 +479,7 @@ footer .wrap { padding-block: 36px 56px; font-size: 13px; color: var(--ink-3); d
 
 <footer>
   <div class="wrap">
-    <p>Light Meter Rider Panel method v1.0 · Manual Focus, Sheffield. Shoppers are simulated. Everything they say is written by AI agents in character, not by real people. Northfold is a fictional brand made up for this study. Weather is the real monthly weather for each town from September 2025 to March 2026 (Open-Meteo), replayed as 2026 to 2027. Rival prices come from UK retailer pages on 28 October 2026. Black Friday and January prices other than Wahoo's KICKR CORE 2 and the Zwift Ride are estimates. Brand familiarity is each brand's share of UK trainer searches (DataForSEO).</p>
+    <p>Light Meter Rider Panel method v1.0 · Manual Focus, Sheffield. The agents are simulated. Everything they say is written by AI in character, not by real people. Northfold is a fictional brand made up for this study. Weather is the real monthly weather for each town from September 2025 to March 2026 (Open-Meteo), replayed as 2026 to 2027. Rival prices come from UK retailer pages on 28 October 2026. Black Friday and January prices other than Wahoo's KICKR CORE 2 and the Zwift Ride are estimates. Brand familiarity is each brand's share of UK trainer searches (DataForSEO).</p>
   </div>
 </footer>
 
@@ -502,17 +502,17 @@ const sign = n => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n);
 const isBuy = c => !["put_off", "nothing", "other_indoor"].includes(c);
 
 /* ---------- hero ---------- */
-document.getElementById("hero-result").textContent = `Our first study tested a new trainer brand four ways. Without independent reviews it sold to ${P.N.nf} shoppers in ${DATA.n}. With them it sold to ${P.R.nf}. A £399 Black Friday price took it to ${P.C.nf}.`;
+document.getElementById("hero-result").textContent = `Our first study tested a new trainer brand four ways. Without independent reviews it sold to ${P.N.nf} agents in ${DATA.n}. With them it sold to ${P.R.nf}. A £399 Black Friday price took it to ${P.C.nf}.`;
 const diaryN = ["R", "C", "N", "AI"].reduce((a, k) => a + R.reduce((b, r) => b + r[k].diary.length, 0), 0);
 document.getElementById("stats").innerHTML = [
-  [String(DATA.n), "trainer shoppers, each with a written life story"],
+  [String(DATA.n), "agents shopping for a trainer, each with a written life story"],
   ["4.7 billion", "ways just five of them can end their season"],
-  ["2,200", "shopper seasons lived across four launch plans and our checks"],
+  ["2,200", "agent seasons lived across four launch plans and our checks"],
   ["9,300", "months of shopping, each written up in a diary"],
   ["12,000", "re-samples of the results to measure how sure we can be"]
 ].map(([b, s]) => `<div class="stat"><b class="grad">${b}</b><span>${s}</span></div>`).join("");
 
-/* ---------- shopper story dialog ---------- */
+/* ---------- agent story dialog ---------- */
 const wxRow = (w, i) => `<tr><td>${MONTHS[i]}</td><td><span class="rain-bar" style="width:${Math.min(w[1] / 2, 80)}px"></span>${w[1]} mm</td><td>${w[0]}</td><td>${w[2]}</td><td>${w[3]}° to ${w[4]}°</td><td>${w[5]} km/h</td><td>${w[6]}</td></tr>`;
 function openRider(id) {
   const r = byId[id];
@@ -543,7 +543,7 @@ function openRider(id) {
 }
 document.getElementById("dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
 
-/* ---------- all shoppers: sample first, filter, then show all ---------- */
+/* ---------- all agents: sample first, filter, then show all ---------- */
 {
   const wall = document.getElementById("wall"), more = document.getElementById("wall-more"), key = document.getElementById("wall-key");
   const SAMPLE = 40;
@@ -572,7 +572,7 @@ document.getElementById("dlg").addEventListener("click", e => { if (e.target.id 
       b.classList.toggle("hide", !ok);
     });
     more.hidden = match.length <= SAMPLE;
-    more.textContent = open ? "Show fewer" : `Show all ${match.length} shoppers`;
+    more.textContent = open ? "Show fewer" : `Show all ${match.length} agents`;
   }
   key.querySelectorAll("[data-seg]").forEach(b => b.addEventListener("click", () => {
     seg = b.dataset.seg; open = false;
@@ -586,20 +586,20 @@ document.getElementById("dlg").addEventListener("click", e => { if (e.target.id 
 /* ---------- what the study found ---------- */
 {
   const rows = ["R", "C", "N", "AI"];
-  document.getElementById("plan-table").innerHTML = `<thead><tr><th>Launch plan</th><th>Shoppers who came across Northfold</th><th>Northfold buyers in ${DATA.n}</th><th>Change vs the £499 launch</th><th>Revenue</th></tr></thead><tbody>` +
+  document.getElementById("plan-table").innerHTML = `<thead><tr><th>Launch plan</th><th>Agents who came across Northfold</th><th>Northfold buyers in ${DATA.n}</th><th>Change vs the £499 launch</th><th>Revenue</th></tr></thead><tbody>` +
     rows.map(k => { const x = P[k], real = k !== "R" && (x.dlo > 0 || x.dhi < 0);
       return `<tr><td>${PLAN[k]}</td><td>${x.met}</td><td class="us">${x.nf} (${x.lo} to ${x.hi})</td><td${real ? ' class="us"' : ""}>${k === "R" ? "The launch as planned" : `${sign(x.diff)} (${sign(x.dlo)} to ${sign(x.dhi)})${real ? "" : ", within the noise"}`}</td><td>£${fmt(x.rev)}</td></tr>`; }).join("") + `</tbody>`;
   const revUp = Math.round((P.C.rev / P.R.rev - 1) * 100), bfNov = P.C.months["2026-11"] || 0, bfDeal = P.C.first.deal_email_or_list || 0;
   const fromCore = (P.C.from.kickr_core2 || 0);
   document.getElementById("find-cards").innerHTML = [
-    ["The importance of independent reviews", `Without independent reviews, Northfold sold to ${P.N.nf} shoppers instead of ${P.R.nf}. The few who came across it walked away because they couldn't trust a brand they'd never heard of. It's the biggest effect in the study.`],
-    ["The effect of a Black Friday price", `At £399 for Black Friday, Northfold sold to ${P.C.nf} shoppers, with ${revUp}% more revenue. ${bfNov} of them bought in November. Deal lists and deal emails put it in front of shoppers who'd never have come across it. Most of its extra buyers came from the KICKR CORE 2. This result depends on how many shoppers a new brand reaches. Before we capped Northfold's reach, when it met 65% of shoppers, the £399 price added only 5% to revenue.`],
+    ["The importance of independent reviews", `Without independent reviews, Northfold sold to ${P.N.nf} agents instead of ${P.R.nf}. The few who came across it walked away because they couldn't trust a brand they'd never heard of. It's the biggest effect in the study.`],
+    ["The effect of a Black Friday price", `At £399 for Black Friday, Northfold sold to ${P.C.nf} agents, with ${revUp}% more revenue. ${bfNov} of them bought in November. Deal lists and deal emails put it in front of agents who'd never have come across it. Most of its extra buyers came from the KICKR CORE 2. This result depends on how many agents a new brand reaches. Before we capped Northfold's reach, when it met 65% of agents, the £399 price added only 5% to revenue.`],
     ["The effect of being named by AI", `When AI engines name Northfold, ${P.AI.first.ai_chat || 0} of its ${P.AI.nf} buyers first hear of it there. Sales rise from ${P.R.nf} to ${P.AI.nf}, at the edge of the noise. AI gets a new brand onto shortlists. Reviews still close the sale.`]
   ].map(([h, p]) => `<div class="card"><h3>${h}</h3><p>${p}</p></div>`).join("");
 }
 
 /* ---------- reasons ---------- */
-document.getElementById("obj-h2").textContent = "Why shoppers bought the Northfold or walked away";
+document.getElementById("obj-h2").textContent = "Why agents bought the Northfold or walked away";
 {
   const fl = (pairs, tot) => pairs.map(([k, n]) => `<div class="flow"><span>${esc(k)}</span><div class="t"><i style="width:${n / tot * 100}%"></i></div><b>${n}</b></div>`).join("");
   document.getElementById("buy-why").innerHTML = fl(Object.entries(P.R.fac).slice(0, 6).map(([k, n]) => [FAC[k] || k, n]), P.R.nf);
@@ -612,7 +612,7 @@ document.getElementById("obj-h2").textContent = "Why shoppers bought the Northfo
 }
 
 /* ---------- diaries ---------- */
-const DR = DATA.dr, DRL = ["Bought at £499", "Waited for a deal", "The same shopper at £399", "Didn't trust a new brand"];
+const DR = DATA.dr, DRL = ["Bought at £499", "Waited for a deal", "The same agent at £399", "Didn't trust a new brand"];
 function diary(k) {
   const [id, plan] = DR[k], r = byId[id], x = r[plan], start = MONTHS.indexOf(r.start);
   const buyM = x.d ? (+x.d.slice(5, 7) + 12 - 9) % 12 : -1;
@@ -635,7 +635,7 @@ document.querySelectorAll("[data-dr]").forEach(b => b.addEventListener("click", 
 }));
 diary(0);
 
-/* ---------- featured shoppers ---------- */
+/* ---------- featured agents ---------- */
 {
   const pick = [], segs = Object.keys(SEGC);
   segs.forEach(s => { const r = R.find(x => x.seg === s && !pick.includes(x.id) && x.R.c === "northfold") || R.find(x => x.seg === s && !pick.includes(x.id)); if (r) pick.push(r.id); });
@@ -655,13 +655,13 @@ diary(0);
 {
   const c = DATA.checks, pc = x => Math.round(x * 100) + "%";
   document.getElementById("checks-grid").innerHTML = [
-    ["Passed", "Swapping a shopper's Garmin for a Wahoo didn't change their choice", `We reran 100 shoppers with their bike computer swapped between Garmin and Wahoo. Their choices moved ${pc(c.swap.swap_changes)} of the time, against ${pc(c.swap.rerun_changes)} when the same shoppers were simply run again. The computer brand made no difference beyond normal variation.`],
-    ["Passed", "A shopper's supermarket made no difference to buying", `Every shopper has a main supermarket. It made no difference to whether they bought a trainer (p = ${c.control.p.toFixed(2)}). That shows the AI isn't treating every fact in a profile as a reason to act.`],
-    ["Passed", "Totals held when 100 shoppers were run again", "Rerunning 100 shoppers gave 16 Northfold buyers against 17. Trainer buyers came to 88 against 89. Individual shoppers change their minds, so read the totals."],
-    ["Passed", `${pc(c.buying.share_buying)} of shoppers bought a trainer`, "These people are actively looking, so most buy something. The rest wait for next season or give up, which matches a real shopping funnel."],
-    ["Calibrated", "Northfold's reach is capped at JetBlack's awareness", "Northfold's first-season reach is capped at the awareness of JetBlack, a UK challenger brand. Without the cap, a brand nobody had heard of took 16% of the season's sales. With it, Northfold takes about 6%. We added the cap after the full runs, so it wasn't one of our pass marks. The 142 shoppers it affected decided again, with no full rerun. It changed the Black Friday finding. Before the cap, the £399 price added 5% to revenue. After it, the price added 38%. A brand's own media plan can replace the cap."],
+    ["Passed", "Swapping an agent's Garmin for a Wahoo didn't change their choice", `We reran 100 agents with their bike computer swapped between Garmin and Wahoo. Their choices moved ${pc(c.swap.swap_changes)} of the time, against ${pc(c.swap.rerun_changes)} when the same agents were simply run again. The computer brand made no difference beyond normal variation.`],
+    ["Passed", "An agent's supermarket made no difference to buying", `Every agent has a main supermarket. It made no difference to whether they bought a trainer (p = ${c.control.p.toFixed(2)}). That shows the AI isn't treating every fact in a profile as a reason to act.`],
+    ["Passed", "Totals held when 100 agents were run again", "Rerunning 100 agents gave 16 Northfold buyers against 17. Trainer buyers came to 88 against 89. Individual agents change their minds, so read the totals."],
+    ["Passed", `${pc(c.buying.share_buying)} of agents bought a trainer`, "These people are actively looking, so most buy something. The rest wait for next season or give up, which matches a real shopping funnel."],
+    ["Calibrated", "Northfold's reach is capped at JetBlack's awareness", "Northfold's first-season reach is capped at the awareness of JetBlack, a UK challenger brand. Without the cap, a brand nobody had heard of took 16% of the season's sales. With it, Northfold takes about 6%. We added the cap after the full runs, so it wasn't one of our pass marks. The 142 agents it affected decided again, with no full rerun. It changed the Black Friday finding. Before the cap, the £399 price added 5% to revenue. After it, the price added 38%. A brand's own media plan can replace the cap."],
     ["Narrow miss", `Tacx took ${pc(c.brand.tacx)} of branded sales, below the 10% floor`, `Brand familiarity is set from real UK search share, so this checks the calibration took. Wahoo took ${pc(c.brand.wahoo)} of branded trainer sales. Tacx took ${pc(c.brand.tacx)}, just under our 10% floor and below its 19% of searches. The panel under-picks Tacx.`],
-    ["Narrow miss", `Black Friday week took ${pc(c.timing.max_month_share)} of sales, above the 40% limit`, `Black Friday week carried ${pc(c.timing.max_month_share)} of the season's trainer sales against our 40% limit. January carried ${pc(c.timing.jan_share)}. The panel bunches buying into Black Friday a little more than real shoppers do.`],
+    ["Narrow miss", `Black Friday week took ${pc(c.timing.max_month_share)} of sales, above the 40% limit`, `Black Friday week carried ${pc(c.timing.max_month_share)} of the season's trainer sales against our 40% limit. January carried ${pc(c.timing.jan_share)}. The panel bunches buying into Black Friday a little more than real agents do.`],
     ["On the record", "Forecasts registered for scoring in December and January", "Four Black Friday forecasts were registered on 29 October with an earlier version of the panel, to be scored in December. A forecast for Garmin's Tacx Nēra launch will be scored in January 2027, right or wrong."]
   ].map(([t, h, p]) => `<div class="check"><span class="tag">${t}</span><h3>${h}</h3><p>${p}</p></div>`).join("");
 }
@@ -685,11 +685,11 @@ diary(0);
 {
   const trust = (DATA.obj.find(o => o.key === "trust_in_brand") || { n: 0 }).n, wait = (DATA.obj.find(o => o.key === "sale_timing") || { n: 0 }).n;
   const A = [
-    ["tested", "Tested", `${P.N.nf} → ${P.R.nf}`, "Have the big reviews out on launch day", `Without independent reviews from sites like BikeRadar or DC Rainmaker, shoppers who met Northfold couldn't find proof it was any good.`, `Tested: with reviews out at launch, ${P.R.nf} shoppers bought a Northfold. Without them, ${P.N.nf} did.`],
-    ["tested", "Tested", `${P.R.nf} → ${P.C.nf}`, "Cut the price to £399 for Black Friday", `${wait} of the ${DATA.near} shoppers who weighed Northfold up were waiting for a sale.`, `Tested: buyers rose from ${P.R.nf} to ${P.C.nf}. Revenue rose ${Math.round((P.C.rev / P.R.rev - 1) * 100)}%, partly because the deal put Northfold on lists that new shoppers read.`],
-    ["tested", "Tested", `${P.R.nf} → ${P.AI.nf}`, "Get named in AI answers", `Shoppers who ask ChatGPT or Google's AI only hear the brands it names.`, `Tested: when AI names Northfold, buyers rise from ${P.R.nf} to ${P.AI.nf}, at the edge of the noise. Worth doing after reviews, not instead of them.`],
+    ["tested", "Tested", `${P.N.nf} → ${P.R.nf}`, "Have the big reviews out on launch day", `Without independent reviews from sites like BikeRadar or DC Rainmaker, agents who met Northfold couldn't find proof it was any good.`, `Tested: with reviews out at launch, ${P.R.nf} agents bought a Northfold. Without them, ${P.N.nf} did.`],
+    ["tested", "Tested", `${P.R.nf} → ${P.C.nf}`, "Cut the price to £399 for Black Friday", `${wait} of the ${DATA.near} agents who weighed Northfold up were waiting for a sale.`, `Tested: buyers rose from ${P.R.nf} to ${P.C.nf}. Revenue rose ${Math.round((P.C.rev / P.R.rev - 1) * 100)}%, partly because the deal put Northfold on lists that new agents read.`],
+    ["tested", "Tested", `${P.R.nf} → ${P.AI.nf}`, "Get named in AI answers", `Agents who ask ChatGPT or Google's AI only hear the brands it names.`, `Tested: when AI names Northfold, buyers rise from ${P.R.nf} to ${P.AI.nf}, at the edge of the noise. Worth doing after reviews, not instead of them.`],
     ["", "Next test", `${trust}`, "Offer a 100-day trial and a 5-year warranty", `${trust} near-buyers didn't trust a new brand to be around in three years.`, "Test next: a 100-day trial plus a 5-year warranty, shown on every retailer listing."],
-    ["", "Next test", `${wait}`, "Test £449 through the January sales", "Many shoppers start looking after Christmas. The January sales are the next big moment to be on deal lists.", "Test next: £449 through the January sales, with the Black Friday price kept."],
+    ["", "Next test", `${wait}`, "Test £449 through the January sales", "Many agents start looking after Christmas. The January sales are the next big moment to be on deal lists.", "Test next: £449 through the January sales, with the Black Friday price kept."],
     ["", "Targeting", `${DATA.putAway} of ${P.R.nf}`, "Target ads at shoppers with no spare room", "Buyers were mostly people who'd have to put a trainer away after every ride. Folding was the top reason they chose it.", "Act now: target ads at flat dwellers and renters, with the fold in the first second of every video."]
   ];
   document.getElementById("action-cards").innerHTML = A.map(([cls, tag, n, h, ev, res]) =>
@@ -841,7 +841,7 @@ diary(0);
     const n = pick(px, py);
     if (n !== hover) { hover = n; setFocus(); }
     if (n) { tip.style.opacity = 1; tip.style.left = Math.min(px + 14, W - 260) + "px"; tip.style.top = Math.min(py + 14, H - 70) + "px";
-      tip.innerHTML = n.cat === "rider" ? `<b>${esc(n.label)}</b> · ${n.r.age} · ${esc(n.r.town)}<br><span style="color:var(--ink-2)">${esc(n.r.headline)}</span>` : `<b>${esc(n.label)}</b><br><span style="color:var(--ink-2)">${n.deg} shoppers</span>`; }
+      tip.innerHTML = n.cat === "rider" ? `<b>${esc(n.label)}</b> · ${n.r.age} · ${esc(n.r.town)}<br><span style="color:var(--ink-2)">${esc(n.r.headline)}</span>` : `<b>${esc(n.label)}</b><br><span style="color:var(--ink-2)">${n.deg} agents</span>`; }
     else tip.style.opacity = 0;
   });
   canvas.addEventListener("pointerleave", () => { hover = null; tip.style.opacity = 0; setFocus(); });
@@ -860,7 +860,7 @@ diary(0);
         <button type="button" class="open" data-story="${r.id}">Read ${esc(r.name.split(" ")[0])}'s story →</button>`;
     } else {
       const rs = VL.filter(l => l.target === n && l.cat !== "ties").map(l => l.source);
-      card.innerHTML = `<button class="x" type="button" aria-label="Close">×</button><h3>${esc(n.label)}</h3><p>${rs.length} of ${R.length} shoppers</p>
+      card.innerHTML = `<button class="x" type="button" aria-label="Close">×</button><h3>${esc(n.label)}</h3><p>${rs.length} of ${R.length} agents</p>
         <ul>${rs.slice(0, 48).map(x => `<li><button type="button" data-node="${x.id}">${esc(x.label)}</button></li>`).join("")}</ul>${rs.length > 48 ? `<p>and ${rs.length - 48} more</p>` : ""}`;
     }
     card.querySelector(".x").addEventListener("click", clear);
