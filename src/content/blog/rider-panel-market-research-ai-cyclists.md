@@ -9,7 +9,7 @@ faq:
   - question: "Do independent reviews matter for a new cycling brand?"
     answer: "In the Rider Panel's first study they decided the launch. A new £499 smart trainer sold to 26 shoppers in 500 with reviews from sites like BikeRadar and DC Rainmaker out at launch. Without them it sold to 3. Of the 23 buyers it lost, 12 bought a Wahoo KICKR CORE 2 instead. As one shopper put it, they didn't want to be the guinea pig."
   - question: "Does a Black Friday discount pay for a new brand?"
-    answer: "In the Rider Panel's first study it did. Cutting a new £499 trainer to £399 for Black Friday took it from 26 buyers to 41 in 500, with 38% more revenue. 44 of the 65 shoppers who had considered it at £499 were waiting for a sale. The deal also put an unknown brand on deal lists that new shoppers read."
+    answer: "In the Rider Panel's first study it did. Cutting a new £499 trainer to £399 for Black Friday took it from 26 buyers to 41 in 500, with 38% more revenue. 44 of the 65 shoppers who had considered it at £499 were waiting for a sale. The deal also put an unknown brand on deal lists that new shoppers read. The result depends on the brand's reach, which the study capped. Before the cap, the same price added 5% to revenue."
   - question: "Why do shoppers walk away from a new trainer brand?"
     answer: "In the Rider Panel's first study, 65 shoppers considered the new £499 trainer and bought something else. 44 were waiting for a sale. 40 named the price. 32 didn't trust a brand they'd never heard of to last. The ones who bought it chose it because it folds away and is quiet, with independent reviews to back the claims."
   - question: "Who are the 500 shoppers?"
@@ -91,7 +91,7 @@ A shopper only knows the trainers someone like them would meet. A Garmin owner s
 
 To prove the panel, we invented a brand called Northfold and a folding smart trainer, the DD1. Northfold isn't a real company. The DD1 is quiet and folds flat to 14cm deep. Like its main rivals, it comes with the Zwift Cog and Click. It goes on sale on 16 November at £499. Sigma Sports and Tredz stock it, with a display stand in Halfords.
 
-A new brand can't be better known than an established one in its first season. So we capped Northfold's reach at the awareness of JetBlack, a UK challenger brand. About 110 of the 500 shoppers come across it.
+A new brand can't be better known than an established one in its first season. So we capped Northfold's reach at the awareness of JetBlack, a UK challenger brand. About 110 of the 500 shoppers come across it. We added this cap after the full runs, when Northfold had met 65% of shoppers and taken 16% of the season's sales. The 142 shoppers it affected decided again, with no full rerun.
 
 Then we ran the season four times on the same 500 shoppers. Their lives stayed the same. So did the weather and every rival's price.
 
@@ -170,6 +170,8 @@ The first action came straight from the shoppers, so we tested it. 44 of the 65 
 Sales rose from 26 to 41. Revenue rose 38%, even after the price cut. 20 shoppers who hadn't bought it at £499 bought it at £399. A few of the £499 buyers went elsewhere, which is the panel's normal variation showing through. 26 of the 41 bought in November. Most of the new buyers would otherwise have bought a Wahoo KICKR CORE 2, which was on its own deal that week.
 
 Part of the gain was visibility. 9 of the 41 buyers first heard of Northfold through a deal list or a deal email. For a brand nobody knows, being on the Black Friday lists puts it in front of shoppers who'd never have come across it.
+
+This result depends on the reach cap. Before we added the cap, the £399 price added only 5% to revenue. A better-known brand should expect something closer to that, because it has fewer new shoppers to reach.
 
 > "The noise is the whole problem. The quiet Wahoo and Tacx cost £600, and DC Rainmaker called the Northfold genuinely quiet at £399 and it folds away in our tiny flat." Ife Okonkwo, 30, GP, Islington. At £499 he bought a Wahoo KICKR V6.
 
