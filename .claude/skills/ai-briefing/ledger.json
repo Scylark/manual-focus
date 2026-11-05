@@ -1134,5 +1134,53 @@
     "score": 4,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-05",
+    "story": "Microsoft adds an Agent Activity dashboard and agent simulation assessments to its free Clarity analytics, and extends Brand Agents product discovery into Copilot, Bing and MSN (4 November 2026)",
+    "primary_source": "https://clarity.microsoft.com/blog/clarity-connects-agents-LLMs-people/",
+    "score": 7,
+    "decision": "published",
+    "slug": "microsoft-clarity-agent-analytics-marketers"
+  },
+  {
+    "run_date": "2026-11-05",
+    "story": "EU Advocate General Szpunar's opinion in C-250/25 Like Company v Google (3 November) says chatbot answers can infringe press publishers' rights, training falls under the TDM exception and robots.txt opt-outs count",
+    "primary_source": "https://ppc.land/googles-gemini-can-infringe-press-rights-in-2-ways-eu-court-adviser-says/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-05",
+    "story": "Google AI Mode shows up to four ads in one response (SER 4 November, from a Search Engine Watch screenshot, no Google announcement)",
+    "primary_source": "https://www.seroundtable.com/google-ai-mode-four-ads-42443.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-05",
+    "story": "Reddit begins testing ads in its search results (TechCrunch and Search Engine Land, 3 November)",
+    "primary_source": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-05",
+    "story": "OpenAI releases ChatGPT Images 2.6 with animated GIFs, reusable reference images and two API models (4 November)",
+    "primary_source": "https://community.openai.com/t/images-upgraded-introducing-chatgpt-images-2-6/1412901",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-05",
+    "story": "Supermetrics extends its Claude integration to create and edit paused campaigns on six ad platforms (3 November press release)",
+    "primary_source": "https://www.prnewswire.com/news-releases/supermetrics-advances-marketing-ai-from-analysis-to-approved-campaign-action-through-claude-302927039.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
