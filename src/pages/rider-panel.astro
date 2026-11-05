@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+import { url } from '../utils/paths';
+
+const title = 'Manual Focus Rider Panel, test a product launch in a simulated world of AI agents';
+const description = 'The Rider Panel from Manual Focus tests a cycling product launch in a simulated world of AI agents before you commit the budget. Change the price or a channel, then see what each decision is worth.';
+const report = url('/reports/rider-panel/');
+const enquire = `${url('/contact/')}?offer=rider-panel-study`;
+
+// Results from Rider Panel method v1.0, rider-panel/test-10/FINDINGS.md.
+const plans = [
+  { plan: '£499 all season, strong reviews', buyers: '26', range: '17 to 36', revenue: '£12,974' },
+  { plan: '£399 for Black Friday', buyers: '41', range: '29 to 53', revenue: '£17,859' },
+  { plan: 'Named by AI engines', buyers: '33', range: '23 to 44', revenue: '£16,467' },
+  { plan: 'No independent reviews', buyers: '3', range: '0 to 7', revenue: '£1,497' },
+];
+---
+<Base title={title} description={description}>
+  <SEOHead slot="seo" type="website" title={title} description={description} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Light Meter', url: '/light-meter/' }, { name: 'Rider Panel', url: '/rider-panel/' }]} />
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">NEW · LIGHT METER RIDER PANEL</div>
+      <h1>The Rider Panel tests a product launch in a simulated world of AI agents</h1>
+      <p class="lead">The Rider Panel is market research for brands planning a launch. We build a simulated world around your category, then fill it with AI agents from a potentially limitless pool. Each one lives a life your launch has to fit into. One has a partner who gets a say on big spends, another is facing a winter of money worries. They already own kit, train on an app they know and have a shop they usually use. Month by month, each agent decides whether to buy and tells us why. We can then change the price or a channel and run the same season with the same agents, so you can compare plans before you spend on one.</p>
+      <div class="rp-ctas">
+        <a href={enquire} class="btn-cta">Ask about a Rider Panel study</a>
+        <a href={report} class="btn-ghost">Open the first study</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">WHAT IT TESTS</div>
+      <h2 class="rp-h2">The launch decisions a brand can test</h2>
+      <div class="rp-stats">
+        <div class="rp-stat"><h3>Price</h3><p>Compare a launch price with a Black Friday or January deal. A £399 Black Friday price took our test trainer from 26 buyers to 41.</p></div>
+        <div class="rp-stat"><h3>Reviews</h3><p>Run the launch with and without independent reviews. Our test trainer sold to 26 agents with them and 3 without them.</p></div>
+        <div class="rp-stat"><h3>Channels</h3><p>Change where it's sold or how agents hear about it. Being named by AI engines took our test trainer to 33 buyers, within the margin of error.</p></div>
+        <div class="rp-stat"><h3>Markets</h3><p>Try one plan in two countries. We rebuild the panel from each country's own data, from who cycles there to what the shops charge.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">HOW IT WORKS</div>
+      <h2 class="rp-h2">How a Rider Panel study works</h2>
+      <ol class="rp-steps">
+        <li><strong>You describe the launch.</strong> Tell us the product, its price, where it's sold and what reviews you expect. If you have a media plan, we use it to set how many agents your launch reaches.</li>
+        <li><strong>We build the agents.</strong> We simulate a population from survey data, then draw the people likely to shop for your kind of product this season. Each agent gets more than 40 facts about their life, from who they live with to the kit they own, then a written life story. Our first study used 500, but yours can be larger.</li>
+        <li><strong>The agents live the season.</strong> Philippa Hallam, one of the first 500, is a 55-year-old architect who cut back to three days a week after her children left home. Her husband has an equal say in anything costly. She has waited ten years to ride the Fred Whitton. Agents like her go through the season month by month with all of that going on, choosing from the products someone like them would come across at current prices.</li>
+        <li><strong>We change one thing and run it again.</strong> The same agents go through the same season with one thing changed, then we compare the results.</li>
+        <li><strong>You get the report.</strong> It compares your launch plans with a 95% range on each result. You can also read each agent's reasons for buying or walking away.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">THE FIRST STUDY</div>
+      <h2 class="rp-h2">The first study of a new smart trainer launch</h2>
+      <p class="rp-copy">We built 500 AI agents, each a simulated UK cyclist shopping for an indoor trainer this season, then tested a made-up folding smart trainer against its rivals at current UK prices. Every plan below ran on the same 500 agents. Just five agents can end a season 4.7 billion different ways. For all 500, the number is about 970 digits long. Across the plans plus our checks, the agents lived 2,200 seasons, about 9,300 months of shopping, each written up in the agent's own diary.</p>
+      <div class="rp-table-wrap">
+        <table class="rp-table">
+          <thead>
+            <tr><th scope="col">Launch plan</th><th scope="col">Buyers of 500</th><th scope="col">95% range</th><th scope="col">Revenue from the panel</th></tr>
+          </thead>
+          <tbody>
+            {plans.map((p) => (
+              <tr><th scope="row">{p.plan}</th><td class="mono">{p.buyers}</td><td class="mono">{p.range}</td><td class="mono">{p.revenue}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="rp-copy">Reviews made the biggest difference. Of the 26 buyers at £499, 20 said the reviews were what made them buy. The £399 Black Friday price brought 38% more revenue. Nine of its 41 buyers first heard of the brand from a deal list or deal email. Most of the 26 buyers at £499 said they chose it because it folds away or because it's quiet. The most common reason for walking away was waiting for a sale, given by 44 agents.</p>
+      <a href={report} class="rp-shot" aria-label="Open the Rider Panel report">
+        <img src={url('/images/rider-panel/report-banner.svg')} alt="The Rider Panel, market research in a simulated world of 500 AI agents" width="1200" height="300" loading="lazy" decoding="async" />
+      </a>
+      <div class="rp-ctas">
+        <a href={report} class="btn-cta">Open the full report</a>
+        <a href={url('/blog/rider-panel-market-research-ai-cyclists/')} class="btn-ghost">Read the article on the findings</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">LIMITS</div>
+      <h2 class="rp-h2">The limits of the Rider Panel</h2>
+      <p class="rp-copy">The results are simulated and haven't been compared with real sales. Use them to decide which plans to take to real customers.</p>
+      <ul class="rp-steps rp-list">
+        <li><strong>Pass marks.</strong> We wrote them down before the results came in. The first study narrowly missed two, picking too few Tacx trainers and putting too much buying in Black Friday week.</li>
+        <li><strong>Reach.</strong> A new brand's first-season reach is a set input, capped at the awareness of JetBlack, an established UK challenger. We added the cap after the full runs. Before it, the £399 price added 5% to revenue. After it, the price added 38%. Your own media plan can replace the cap. That awareness comes from our panel, not a survey, as the <a href={`${report}#market-sources`}>report's working</a> shows.</li>
+        <li><strong>Forecasts.</strong> We've registered four forecasts for UK trainer buying this Black Friday and will publish the scores in December. We'll score a prediction for Garmin's Tacx Nēra launch in January 2027.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">STUDIES</div>
+      <h2 class="rp-h2">Rider Panel studies and prices</h2>
+      <p class="rp-copy">We can build a panel for any country from that country's own data. Studies are priced on application. The Rider Panel is part of <a href={url('/light-meter/')}>Light Meter</a>, which also shows which brands AI recommends to your buyers.</p>
+      <div class="rp-ctas">
+        <a href={enquire} class="btn-cta">Ask about a Rider Panel study</a>
+        <a href={url('/light-meter/')} class="btn-ghost">See Light Meter</a>
+      </div>
+      <p class="rp-note">James Vickers has worked with Wahoo and Wattbike. He was on the founding team at RGT Cycling. He works with Ribble Cycles now. Northfold, the brand in the first study, is fictional. We don't change results on request.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .rp-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); }
+  .rp-h2 { margin-top: var(--space-sm); max-width: 900px; }
+  .rp-copy { margin-top: var(--space-md); color: var(--color-text-secondary); font-size: var(--font-size-lg); line-height: 1.6; max-width: 760px; }
+
+  .rp-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-sm); margin-top: var(--space-md); }
+  .rp-stat { border: 1px solid var(--color-line); border-radius: 6px; padding: var(--space-md); min-width: 0; }
+  .rp-stat h3 { font-size: 1.2rem; }
+  .rp-stat p { margin-top: var(--space-xs); color: var(--color-text-secondary); line-height: 1.5; font-size: var(--font-size-sm); }
+  @media (max-width: 900px) { .rp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .rp-stats { grid-template-columns: minmax(0, 1fr); } }
+
+  .rp-steps { margin-top: var(--space-md); padding-left: 1.25rem; max-width: 760px; display: flex; flex-direction: column; gap: var(--space-sm); color: var(--color-text-secondary); line-height: 1.6; }
+  .rp-steps strong { color: var(--color-text); }
+  .rp-list { list-style: disc; }
+
+  .rp-table-wrap { margin-top: var(--space-md); max-width: 900px; overflow-x: auto; }
+  .rp-table { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); }
+  .rp-table th, .rp-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-line); text-align: left; }
+  .rp-table thead th { color: var(--color-text-secondary); font-weight: 600; }
+  .rp-table tbody th { font-weight: 600; color: var(--color-text); }
+  .rp-table td { color: var(--color-text); white-space: nowrap; }
+
+  .rp-shot { display: block; margin-top: var(--space-md); max-width: 900px; border-radius: 12px; overflow: hidden; }
+  .rp-shot img { display: block; width: 100%; height: auto; }
+
+  .rp-note { margin-top: var(--space-md); color: var(--color-text-secondary); font-size: var(--font-size-sm); max-width: 760px; line-height: 1.55; }
+</style>
