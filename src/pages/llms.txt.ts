@@ -33,6 +33,7 @@ export async function GET(context: APIContext) {
     `- [About](${site}/about/): James Vickers and the Foundry collective`,
     `- [FAQ](${site}/faq/): how engagements work`,
     `- [Book a free working session](${site}/contact/)`,
+    `- [Website and brand brief](${site}/brief/): six questions for anyone planning a new website or a rebrand`,
     '',
     '## The Lens (free AI marketing playbooks)',
     '',
