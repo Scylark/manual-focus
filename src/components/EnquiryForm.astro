@@ -3,6 +3,7 @@
 // opens in the visitor's mail app. The access key lives in
 // src/utils/contact.ts; until it is set, submit shows the error state.
 import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../utils/contact';
+import { url } from '../utils/paths';
 ---
 <form
   class="enquiry-form"
@@ -48,6 +49,7 @@ import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../util
           <option value="rider-panel-study">Light Meter Rider Panel study</option>
         </optgroup>
       </select>
+      <p class="form-note" data-brief-hint hidden>Planning a website or a rebrand? <a href={url('/brief/')}>The six-question brief</a> gets you a written view from James first.</p>
     </div>
 
     <div class="form-field">
@@ -180,6 +182,7 @@ import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../util
     line-height: 1.5;
     margin: 0;
   }
+  .form-note a { color: var(--color-text); }
 
   [data-submit][data-state="loading"] {
     opacity: 0.7;
@@ -222,6 +225,14 @@ import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../util
   if (offerSelect && offerParam && [...offerSelect.options].some(o => o.value === offerParam)) {
     offerSelect.value = offerParam;
   }
+
+  // Build & Hand Over visitors also get a pointer to the shorter brief.
+  const briefHint = form?.querySelector<HTMLElement>('[data-brief-hint]');
+  const syncBriefHint = () => {
+    if (briefHint && offerSelect) briefHint.hidden = offerSelect.value !== 'build-and-hand-over';
+  };
+  offerSelect?.addEventListener('change', syncBriefHint);
+  syncBriefHint();
 
   // AI Shortlist research links here with ?offer=ai-shortlist-card&brand=<name>;
   // start the message so the request only needs a name and email.
