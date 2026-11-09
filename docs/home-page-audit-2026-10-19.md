@@ -66,7 +66,7 @@ screens for four lines).
    with".
 4. **Proof is thin and late.** There are no case studies or testimonials
    anywhere on the site. The logos are typed names in mixed fonts, which read
-   as placeholders. The only hard outcome is RGT going from 19k to 350k users.
+   as placeholders. The only hard outcome was an RGT user figure, since removed as commercially sensitive.
    Two of the four stats are inputs (47 playbooks, 50+ years), and the other
    two carry an "at best" disclaimer that undercuts them.
    *Fix:* two or three short case studies with numbers, one named quote, real
