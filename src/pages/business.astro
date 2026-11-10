@@ -17,11 +17,11 @@ const description = 'Manual Focus brings senior sales and marketing leadership t
 const contact = (offer = '') => (offer ? `${url('/contact/')}?offer=${offer}` : url('/contact/'));
 
 const record = [
-  { value: '£150M+', label: 'in assets under management, in a qualified B2B pipeline James built from cold outreach' },
+  { value: '£150M+', label: 'in assets under management in a qualified B2B pipeline, from a funnel James designed' },
   { value: 'Millions', word: true, label: 'in partnership revenue, from high-profile fintech partnerships James negotiated and closed' },
   { value: '$400M', label: 'digital asset project, with James leading the marketing' },
   { value: 'Acquired', word: true, label: 'the technology company James co-founded, bought by global fitness brand Wahoo' },
-  { value: '1.5M+', label: 'end users behind the financial institutions that signed letters of intent in a pipeline James ran' },
+  { value: '1.5M+', label: 'end users behind the financial institutions that signed letters of intent, through a funnel James designed' },
   { value: '109M', label: 'potential audience for one product launch, picked up by 119 outlets including the Associated Press' },
   { value: '100+', label: 'brand partnerships behind a single growth model' },
   { prefix: '−65 →', value: '+45', label: 'net promoter score, in a brand turnaround' },
@@ -33,10 +33,10 @@ const cases = [
   {
     tag: '01 · B2B PROSPECTING',
     name: 'Motif',
-    title: 'A B2B pipeline for an AI wealth advisory.',
-    body: 'Motif is a Swiss AI wealth advisory backed by Liminal, the venture group founded by Temasek. James runs its marketing and its B2B pipeline as fractional CMO. He took the company into B2B outreach with AI supporting the work, then launched its Clarity system on the wire to 119 outlets, the Associated Press among them.',
+    title: 'A B2B sales funnel for an AI wealth advisory.',
+    body: 'Motif is a Swiss AI wealth advisory backed by Liminal, the venture group founded by Temasek. James runs its marketing as fractional CMO. He designed its B2B sales funnel and started the cold outreach, then colleagues took the conversations forward. He also launched its Clarity system on the wire to 119 outlets, the Associated Press among them.',
     stats: [
-      { n: '1,000+', l: 'fintech organisations contacted' },
+      { n: '1,000+', l: 'fintech organisations reached by the outreach' },
       { n: '£150M+', l: 'in assets under management under negotiation' },
       { n: '1.5M+', l: 'end users behind signed letters of intent' },
       { n: '109M', l: 'potential audience for the launch' },
@@ -90,8 +90,8 @@ const cases = [
           </h1>
           <p class="scene-lead">
             Manual Focus is a senior sales and marketing team led by James Vickers. He has
-            built multi-million dollar sales pipelines and closed high-profile fintech
-            partnerships worth millions in revenue. The technology company he co-founded was
+            designed the funnels behind multi-million dollar sales pipelines and closed
+            high-profile fintech partnerships worth millions in revenue. The technology company he co-founded was
             bought by a global brand. We bring that record to your company, with AI doing the
             research and the process work.
           </p>
@@ -157,8 +157,8 @@ const cases = [
       <p class="biz-copy reveal">
         James Vickers has spent 15+ years leading sales and marketing inside technology
         companies, most recently in AI and fintech. He is a member of the Chartered Institute
-        of Marketing and of the Chartered Institute of Public Relations. He built these
-        pipelines himself, which is who you get on the call.
+        of Marketing and of the Chartered Institute of Public Relations. He designed the
+        funnels behind these figures, which is who you get on the call.
       </p>
       <div class="numbers-grid stagger">
         {record.map((r) => (
@@ -269,9 +269,67 @@ const cases = [
         Demand and lifecycle then run against it.
       </p>
 
-      <div class="post-content biz-figure reveal">
-        <figure class="dg dg-hier"><div class="dg-head"><span class="dg-kicker">Corporate sales and marketing · the message house</span><span class="dg-title">One claim, three supporting messages</span></div><div class="dg-split"><div><div class="dg-core"><span class="dg-label">Core claim</span><span class="dg-strong">The one sentence your sales deck and your website both make</span></div><ul class="dg-list dg-support"><li><span class="dg-sup"><span class="dg-label">Supporting</span><span class="dg-strong">What changes for the buyer</span></span><span class="dg-proof"><span class="dg-label">Proof</span>A measured result</span></li><li><span class="dg-sup"><span class="dg-label">Supporting</span><span class="dg-strong">Why act now</span></span><span class="dg-proof"><span class="dg-label">Proof</span>A dated trigger</span></li><li><span class="dg-sup"><span class="dg-label">Supporting</span><span class="dg-strong">Why choose you</span></span><span class="dg-proof"><span class="dg-label">Proof</span>A reference customer</span></li></ul></div><div><span class="dg-label">How far each channel goes</span><ul class="dg-list dg-bars"><li><span class="dg-bar-name">Cold email</span><span class="dg-bar" style="--f:35%"></span><span class="dg-q">One supporting message, chosen by segment</span></li><li><span class="dg-bar-name">Sales deck</span><span class="dg-bar" style="--f:70%"></span><span class="dg-q">The core claim with its proof</span></li><li><span class="dg-bar-name">Website</span><span class="dg-bar" style="--f:100%"></span><span class="dg-q">The whole house</span></li></ul></div></div><div class="dg-note">Outreach takes the supporting message its segment points to. The website carries the whole house. Both get checked against the same document before they ship.</div></figure>
-      </div>
+      <figure class="mh">
+        <figcaption class="mh-head reveal">
+          <span class="mh-kicker mono">The message house · worked example</span>
+          <span class="mh-title">The message house behind this page</span>
+        </figcaption>
+        <div class="mh-roof reveal">
+          <span class="mh-label mono">Core claim</span>
+          <p class="mh-claim">Senior sales and marketing for B2B companies, with AI doing the heavy lifting</p>
+        </div>
+        <ol class="mh-pillars stagger">
+          <li class="mh-pillar">
+            <span class="mh-num">01</span>
+            <span class="mh-label mono">Supporting message</span>
+            <p class="mh-msg">Pipeline built from a cold start</p>
+            <div class="mh-proof">
+              <span class="mh-label mono">Proof</span>
+              <p><strong>£150M+</strong> in assets under management, in a qualified pipeline at Motif</p>
+            </div>
+          </li>
+          <li class="mh-pillar">
+            <span class="mh-num">02</span>
+            <span class="mh-label mono">Supporting message</span>
+            <p class="mh-msg">Partnerships negotiated and closed</p>
+            <div class="mh-proof">
+              <span class="mh-label mono">Proof</span>
+              <p><strong>Millions</strong> in partnership revenue from high-profile fintech partnerships</p>
+            </div>
+          </li>
+          <li class="mh-pillar">
+            <span class="mh-num">03</span>
+            <span class="mh-label mono">Supporting message</span>
+            <p class="mh-msg">AI that answers to written rules</p>
+            <div class="mh-proof">
+              <span class="mh-label mono">Proof</span>
+              <p><strong>41</strong> automated test files hold a company-wide AI assistant to read-only rules at Pyramid</p>
+            </div>
+          </li>
+        </ol>
+        <div class="mh-base reveal">
+          <span class="mh-label mono">Foundation · who it is for</span>
+          <p>B2B and corporate companies with no senior sales and marketing leader in the room</p>
+        </div>
+        <ul class="mh-reach stagger">
+          <li>
+            <span class="mh-reach-name">Cold email</span>
+            <span class="mh-bar" style="--f:34%"></span>
+            <span class="mh-reach-q">Carries one supporting message, chosen by segment</span>
+          </li>
+          <li>
+            <span class="mh-reach-name">Sales deck</span>
+            <span class="mh-bar" style="--f:67%"></span>
+            <span class="mh-reach-q">Carries the core claim with its proof</span>
+          </li>
+          <li>
+            <span class="mh-reach-name">Website</span>
+            <span class="mh-bar" style="--f:100%"></span>
+            <span class="mh-reach-q">Carries the whole house</span>
+          </li>
+        </ul>
+        <p class="mh-note reveal">Every line on this page traces back to one of these three messages. We build yours the same way, starting from a positioning brief.</p>
+      </figure>
 
       <div class="ways-grid stagger">
         <article class="way-card">
@@ -632,6 +690,165 @@ const cases = [
   }
   .biz-figure { margin-top: var(--space-lg); max-width: 1000px; }
   .biz-figure :global(.dg) { margin: 0; }
+
+  /* ============================
+     MESSAGE HOUSE. A gabled roof for the core claim, three pillars for
+     the supporting messages with their proof at the base, then the
+     foundation. All colour comes from the theme tokens.
+     ============================ */
+  .mh {
+    margin: var(--space-lg) 0 0;
+    max-width: 1100px;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    background: var(--color-bg);
+    position: relative;
+    z-index: 2;
+  }
+  .mh p { margin: 0; }
+  .mh-head { display: grid; gap: 0.4rem; }
+  .mh-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-cta-start);
+  }
+  .mh-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-text);
+  }
+  .mh-label {
+    display: block;
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  .mh-roof {
+    margin-top: var(--space-md);
+    padding: clamp(3.5rem, 6.4vw, 5rem) 1.5rem clamp(1.1rem, 2vw, 1.6rem);
+    text-align: center;
+    background: var(--color-cta-gradient);
+    clip-path: polygon(50% 0, 100% 40%, 100% 100%, 0 100%, 0 40%);
+  }
+  .mh-roof .mh-label { color: rgba(255, 255, 255, 0.85); }
+  .mh .mh-claim {
+    margin: 0.5rem auto 0;
+    max-width: 30ch;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.9vw, 2.4rem);
+    line-height: 1.04;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  /* The pillars sit inside the roof line, so the roof overhangs. */
+  .mh-pillars {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 0.75rem 0 0;
+    padding: 0 clamp(0.5rem, 3.5vw, 3rem);
+  }
+  .mh-pillar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    min-height: 14.5rem;
+    padding: 1.25rem 1.15rem 1.15rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    transition: border-color 0.3s ease, translate 0.3s ease;
+  }
+  .mh-pillar:hover { border-color: var(--color-cta-start); translate: 0 -3px; }
+  .mh-num {
+    font-family: var(--font-display);
+    font-size: 2.75rem;
+    line-height: 0.9;
+    margin-bottom: 0.5rem;
+    align-self: flex-start;
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .mh-msg {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 1.9vw, 1.6rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: var(--color-text);
+    padding-bottom: 1rem;
+  }
+  .mh-proof {
+    margin-top: auto;
+    padding: 0.85rem 0.95rem;
+    border-left: 2px solid var(--color-cta-end);
+    border-radius: 0 4px 4px 0;
+    background: color-mix(in srgb, var(--color-cta-end) 11%, transparent);
+  }
+  .mh-proof p {
+    margin-top: 0.35rem;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: var(--color-text-secondary);
+  }
+  .mh-proof strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    color: var(--color-text);
+  }
+  .mh-base {
+    margin-top: 0.75rem;
+    padding: 1.1rem 1.25rem;
+    text-align: center;
+    border-radius: 4px;
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+  .mh-base .mh-label { color: inherit; opacity: 0.7; }
+  .mh-base p { margin-top: 0.3rem; font-weight: 600; line-height: 1.35; }
+  .mh-reach {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin: var(--space-md) 0 0;
+    padding: 0;
+  }
+  .mh-reach li { display: grid; gap: 0.35rem; align-content: start; }
+  .mh-reach-name { font-weight: 600; color: var(--color-text); }
+  .mh-bar {
+    display: block;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--color-cta-start) var(--f), var(--color-line) var(--f));
+  }
+  .mh-reach-q { font-size: 0.88rem; line-height: 1.4; color: var(--color-text-secondary); }
+  .mh-note {
+    margin-top: var(--space-md) !important;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    max-width: 70ch;
+  }
+  @media (max-width: 720px) {
+    .mh-roof {
+      padding-top: 3.75rem;
+      clip-path: polygon(50% 0, 100% 24%, 100% 100%, 0 100%, 0 24%);
+    }
+    .mh-pillars { grid-template-columns: 1fr; padding: 0 0.75rem; }
+    .mh-pillar { min-height: 0; }
+    .mh-reach { grid-template-columns: 1fr; gap: 1rem; }
+  }
 
   /* ============================
      EXAMPLES. Way-cards with a client name and a row of figures.
