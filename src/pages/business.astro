@@ -1,13 +1,14 @@
 ---
-// Landing page for companies outside endurance sport. Three strands, one
-// loop: the pipeline, the process behind it and the position both run on.
-// Composed from the site's existing pieces (dwell-pin stages, FocusObject
-// rings, way-cards, the diagram figures from diagrams.css). No new fonts,
-// colours or components.
+// Landing page for B2B and corporate companies. One idea carries it: the
+// agency is called Manual Focus, so the page pulls focus. The opening scene
+// is a pinned canvas of out-of-focus dots (every company that could buy).
+// Scrolling sharpens the ones that fit, stacks them into a pipeline, then
+// sets them running as two rings, the Manual Focus mark. Each beat introduces
+// one strand of the work. The detail sections below reuse the site's cards,
+// tables and diagram figures. Colours and fonts come from the theme tokens.
 import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import FocusObject from '../components/FocusObject.astro';
-import JumpNav from '../components/JumpNav.astro';
 import { url } from '../utils/paths';
 import '../styles/diagrams.css';
 
@@ -15,70 +16,184 @@ const title = 'Sales and marketing for B2B and corporate companies';
 const description = 'Manual Focus brings senior sales and marketing leadership to B2B and corporate companies, with AI built into prospecting and business process.';
 const contact = (offer = '') => (offer ? `${url('/contact/')}?offer=${offer}` : url('/contact/'));
 
-const jump = [
-  { id: 'prospecting', label: 'B2B prospecting' },
-  { id: 'executives', label: 'AI for executives' },
-  { id: 'leadership', label: 'Sales and marketing' },
-  { id: 'record', label: 'Track record' },
-  { id: 'start', label: 'How to start' },
+const record = [
+  { value: '£150M+', label: 'in assets under management, in a qualified B2B pipeline James built from cold outreach' },
+  { value: 'Millions', word: true, label: 'in partnership revenue, from high-profile fintech partnerships James negotiated and closed' },
+  { value: '$400M', label: 'crypto project, with James leading the marketing' },
+  { value: 'Acquired', word: true, label: 'RGT Cycling by Wahoo Fitness, with James on the founding team' },
+  { prefix: '−65 →', value: '+45', label: 'net promoter score, in a brand turnaround' },
+  { value: '160+', label: 'media placements from a single product launch' },
+];
+
+// One example per strand. Every figure comes from James's own record.
+const cases = [
+  {
+    tag: '01 · B2B PROSPECTING',
+    name: 'Motif',
+    title: 'A B2B pipeline for an AI wealth advisory.',
+    body: 'Motif is a Swiss AI wealth advisory that sells to financial institutions. James runs its marketing and its B2B pipeline as fractional CMO. He moved the company to B2B outreach, with AI supporting the work, so a small team could cover the whole market.',
+    stats: [
+      { n: '1,000+', l: 'fintech organisations contacted' },
+      { n: '7', l: 'entities in negotiation' },
+      { n: '30', l: 'active prospects in the pipeline' },
+    ],
+    href: '#prospecting',
+    link: 'How the prospecting works',
+  },
+  {
+    tag: '02 · SALES AND MARKETING LEADERSHIP',
+    name: 'Haven',
+    title: 'Marketing leadership for a privacy-focused crypto project.',
+    body: 'Haven is a privacy-focused crypto project worth $400M. James led its marketing, in a category where buyers need the product explained before they will trust it.',
+    stats: [
+      { n: '$400M', l: 'project value' },
+    ],
+    href: '#leadership',
+    link: 'How we lead the function',
+  },
+  {
+    tag: '03 · AI FOR EXECUTIVES AND BUSINESS PROCESS',
+    name: 'Pyramid',
+    title: 'A company memory the whole business can ask.',
+    body: "Pyramid is a UK motorcycle accessory brand founded in 1986. Its staff ask the Oracle a question in Slack and get an answer from live Shopify and Odoo data. Pyramid's own developer built much of it and owns the repository, so nothing depends on us.",
+    stats: [
+      { n: '1 day', l: 'from nothing to answering real questions' },
+      { n: '6', l: 'data sources loading every night' },
+      { n: '5', l: 'live dashboards' },
+    ],
+    href: '#executives',
+    link: 'How the AI programmes run',
+  },
 ];
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} hideNavUntilScroll>
   <SEOHead slot="seo" type="service" title={title} description={description} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'For business', url: '/business/' }]} />
 
-  <!-- HERO -->
-  <section class="section biz-hero dwell-pin">
-    <div class="dwell-pin-stage">
-      <FocusObject size={420} tiltX={62} tiltY={-18} spin={140} scrollSpin={-80} style="top: 4%; right: -6%;" enterFrom="right" />
-      <FocusObject size={240} tiltX={55} tiltY={20} spin={-110} scrollSpin={90} style="bottom: -8%; left: -8%;" enterFrom="left" />
+  <!-- THE SCENE. Hero plus the three strands, on one pinned stage. Without
+       JavaScript or with reduced motion the panels stack as plain sections. -->
+  <section class="scene" data-scene>
+    <div class="scene-stage">
+      <canvas class="scene-canvas" aria-hidden="true"></canvas>
 
-      <div class="container biz-hero-inner">
-        <div class="eyebrow reveal">MANUAL FOCUS · SHEFFIELD · FOR BUSINESS</div>
-        <h1 class="biz-headline reveal">
-          Sales and marketing<br/>
-          for <span class="gradient-text">B2B and corporate</span> companies
-        </h1>
-        <p class="biz-lead reveal">
-          Manual Focus is best known in endurance sport. Before that, James Vickers spent 15
-          years leading sales and marketing inside companies in AI and fintech. The method
-          carries across. This page is for companies outside sport that need senior sales
-          and marketing hands, with AI built into the work.
-        </p>
-        <div class="biz-ctas reveal">
-          <a href={contact()} class="btn-cta">Book a free working session</a>
-          <a href="#start" class="btn-ghost">How to start</a>
+      <div class="container scene-inner">
+        <div class="scene-panel scene-panel-hero" data-beat="0">
+          <div class="eyebrow">MANUAL FOCUS · SHEFFIELD · B2B</div>
+          <h1 class="scene-headline">
+            Senior sales and marketing<br/>
+            for B2B companies<br/>
+            <em class="gradient-text">with AI doing the heavy lifting.</em>
+          </h1>
+          <p class="scene-lead">
+            Manual Focus is a Sheffield team of senior operators. James Vickers has built
+            multi-million dollar sales pipelines and closed high-profile fintech partnerships
+            worth millions in revenue. We bring that to your company, with AI doing the
+            research and the process work.
+          </p>
+          <div class="scene-ctas">
+            <a href={contact()} class="btn-cta">Book a free working session</a>
+            <a href="#record" class="btn-ghost">See the track record</a>
+          </div>
         </div>
-        <p class="biz-meta mono reveal">B2B PROSPECTING · AI FOR EXECUTIVES · SALES AND MARKETING LEADERSHIP</p>
+
+        <div class="scene-panel" data-beat="1">
+          <div class="eyebrow">01 · B2B PROSPECTING</div>
+          <h2 class="scene-h2">Finding the accounts that fit</h2>
+          <p class="scene-copy">
+            Your market is every company that could buy from you. AI researches each one
+            against your ideal customer profile, so your sales team only contacts the
+            accounts with a reason to act now.
+          </p>
+          <a href="#prospecting" class="scene-link">How the prospecting works</a>
+        </div>
+
+        <div class="scene-panel" data-beat="2">
+          <div class="eyebrow">02 · SALES AND MARKETING LEADERSHIP</div>
+          <h2 class="scene-h2">Turning the shortlist into signed deals</h2>
+          <p class="scene-copy">
+            A shortlist becomes pipeline when sales and marketing say the same thing. We
+            write the one message house both teams use, then run the outreach and the
+            partnership conversations against it.
+          </p>
+          <a href="#leadership" class="scene-link">How we lead the function</a>
+        </div>
+
+        <div class="scene-panel" data-beat="3">
+          <div class="eyebrow">03 · AI FOR EXECUTIVES AND BUSINESS PROCESS</div>
+          <h2 class="scene-h2">Running the process every week</h2>
+          <p class="scene-copy">
+            The pipeline keeps moving when nobody has to remember to update it. We put AI
+            into the reporting and the follow-up, with the governance written in code, so
+            your executives get answers from live data.
+          </p>
+          <a href="#executives" class="scene-link">How the AI programmes run</a>
+        </div>
       </div>
+
+      <div class="scene-scale mono" aria-hidden="true">
+        <span class="scene-scale-track"><span class="scene-scale-fill"></span></span>
+        <ol>
+          <li>Noise</li>
+          <li>Shortlist</li>
+          <li>Pipeline</li>
+          <li>Loop</li>
+        </ol>
+      </div>
+      <div class="scene-hint mono" aria-hidden="true">Scroll to pull focus</div>
     </div>
   </section>
 
-  <JumpNav items={jump} />
+  <!-- TRACK RECORD -->
+  <section class="section section-alt biz-record" id="record-section">
+    <FocusObject size={300} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 4%; right: -3%;" enterFrom="right" />
+    <div class="container">
+      <div class="eyebrow">TRACK RECORD</div>
+      <h2 id="record" class="biz-h2 reveal">Track record</h2>
+      <p class="biz-copy reveal">
+        James Vickers has spent 15+ years leading sales and marketing from inside companies
+        in AI and fintech. He built these pipelines himself, which is who you get on the
+        call.
+      </p>
+      <div class="numbers-grid stagger">
+        {record.map((r) => (
+          <div class="number-card">
+            <div class="number-value">
+              {r.prefix && <span class="num-prefix">{r.prefix}</span>}
+              <span class:list={['num-main', { 'num-word': r.word }]}>{r.value}</span>
+            </div>
+            <div class="number-label">{r.label}</div>
+          </div>
+        ))}
+      </div>
+      <p class="biz-note reveal">
+        James now advises companies that use AI to manage people's wealth, while Manual Focus
+        runs AI efficiency programmes inside SMEs. <a href={url('/about/')}>See the full track record</a>
+      </p>
+    </div>
+  </section>
 
-  <!-- THE IDEA -->
-  <section class="section section-alt dwell-pin">
-    <div class="dwell-pin-stage">
-      <FocusObject size={320} tiltX={60} tiltY={-22} spin={150} scrollSpin={-70} style="top: 8%; right: 4%;" enterFrom="right" />
-      <div class="container">
-        <div class="eyebrow">001 · THE IDEA</div>
-        <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-          Sales and marketing<br/>
-          <span class="gradient-text">run as one process</span>,<br/>
-          with AI inside it.
-        </h2>
-        <div class="biz-grid">
-          <p class="reveal">
-            In most companies the pipeline lives in sales while the position lives in
-            marketing. The AI sits in a pilot nobody owns. Each part gets reviewed on its
-            own, so nobody notices the outreach selling a message the website dropped a
-            year ago.
-          </p>
-          <p class="reveal">
-            We take the whole loop. One senior operator owns the list as well as the message
-            it carries, so a reply from a prospect changes next week's positioning. AI does
-            the research and the drafting inside that loop, while people keep the decisions.
-          </p>
-        </div>
+  <!-- EXAMPLES -->
+  <section class="section biz-cases" id="examples-section">
+    <div class="container">
+      <div class="eyebrow">EXAMPLES</div>
+      <h2 id="examples" class="biz-h2 reveal">Three examples of the work</h2>
+      <div class="ways-grid stagger">
+        {cases.map((c) => (
+          <article class="way-card case-card">
+            <div class="way-num mono">{c.tag}</div>
+            <p class="case-name">{c.name}</p>
+            <h3>{c.title}</h3>
+            <p class="case-body">{c.body}</p>
+            <dl class="case-stats">
+              {c.stats.map((st) => (
+                <div>
+                  <dt>{st.n}</dt>
+                  <dd>{st.l}</dd>
+                </div>
+              ))}
+            </dl>
+            <a href={c.href} class="scene-link case-link">{c.link}</a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -87,7 +202,7 @@ const jump = [
   <section class="section biz-strand" id="prospecting-section">
     <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 4%; right: 2%;" enterFrom="right" />
     <div class="container">
-      <div class="eyebrow">002 · B2B PROSPECTING</div>
+      <div class="eyebrow">01 · B2B PROSPECTING</div>
       <h2 id="prospecting" class="biz-h2 reveal">B2B prospecting with AI research in the loop</h2>
       <p class="biz-copy reveal">
         Outbound stopped working when every company could send ten thousand emails. It works
@@ -133,86 +248,18 @@ const jump = [
     </div>
   </section>
 
-  <!-- STRAND 2 · AI FOR EXECUTIVES AND BUSINESS PROCESS -->
-  <section class="section section-alt biz-strand" id="executives-section">
-    <FocusObject size={300} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 6%; left: -4%;" enterFrom="left" />
-    <div class="container">
-      <div class="eyebrow">003 · AI FOR EXECUTIVES AND BUSINESS PROCESS</div>
-      <h2 id="executives" class="biz-h2 reveal">AI for executives and business process</h2>
-      <p class="biz-copy reveal">
-        Manual Focus runs AI efficiency programmes inside SMEs. The work is phased and priced
-        with a decision gate at each phase, so the board decides what the next phase is worth
-        once the last one has shipped. We start with the questions executives ask every week,
-        then build the process that answers them.
-      </p>
-
-      <div class="post-content biz-figure reveal">
-        <figure class="dg dg-trace-fig"><div class="dg-head"><span class="dg-kicker">AI for executives · how a programme runs</span><span class="dg-title">From the question to the process</span></div><div class="dg-trace"><div class="dg-trace-head"><span class="dg-label">The question an exec asks</span><span class="dg-label">The process underneath</span><span class="dg-label">What we install</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>What sold this week, by channel?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>A weekly report assembled by hand from three systems</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>An assistant in Slack that answers from the live data, read only</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Where did last quarter go?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Five status reports in five formats</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A quarterly synthesis the board reads, in two hours instead of two days</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Can we trust what the AI says?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Nobody owns the rules</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>Governance in code. Read-only access, with no AI approving its own change</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Which process do we automate first?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Whichever vendor demoed last</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A 90-day plan that rebuilds two workflows, measured weekly</span></div></div><div class="dg-note">Every row starts from a question an executive already asks, which is where the first phase of a programme begins.</div></figure>
-      </div>
-
-      <div class="biz-grid biz-grid-wide">
-        <div class="reveal">
-          <h3 class="biz-h3">Governance written in code</h3>
-          <p class="biz-body">
-            In the programme we run for an SME retailer, an assistant answers sales questions
-            in Slack from live store data. Its access is a read-only allowlist written in code,
-            with tests against it. It sees aggregates rather than customer records, while whatever it retrieves gets
-            treated as untrusted. It can't approve a change to its own rules. The client's
-            own engineer owns the repository, so the rules stay the client's.
-          </p>
-        </div>
-        <div class="reveal">
-          <h3 class="biz-h3">Briefings for the leadership team</h3>
-          <p class="biz-body">
-            A new model ships most weeks. We brief leadership teams on which tools matter this
-            quarter, mapped to the processes you already run. The brief ends with the two
-            workflows worth rebuilding first and the one to leave alone. Start with the
-            <a href={url('/blog/the-90-day-ai-integration-plan/')}>90-day AI integration plan</a>
-            and <a href={url('/blog/evaluating-ai-tools-without-falling-for-the-demo/')}>how to evaluate AI tools without falling for the demo</a>.
-          </p>
-        </div>
-      </div>
-
-      <h3 class="biz-h3 biz-table-title reveal">Where AI goes in the business</h3>
-      <div class="biz-table-wrap reveal">
-        <table class="biz-table">
-          <thead>
-            <tr><th>The work</th><th>Who does it</th><th>Why</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Research on an account or a market</td><td>AI, with a link to every source</td><td>It used to be too slow to do for every account</td></tr>
-            <tr><td>First drafts of proposals and board papers</td><td>AI in your voice, a person approves</td><td>The voice is checkable but the facts need a person</td></tr>
-            <tr><td>The position and the core claim</td><td>People</td><td>AI writes a plausible position for anyone, which is the problem</td></tr>
-            <tr><td>Pricing and the trust pages</td><td>People</td><td>Read <a href={url('/blog/when-not-to-use-ai-in-marketing/')}>when not to use AI in marketing</a></td></tr>
-            <tr><td>Anything that spends money or reaches a customer</td><td>A person approves each one</td><td>The approval is the control, so it stays visible</td></tr>
-            <tr><td>The rules for what AI can read</td><td>Written in code, with tests</td><td>Rules in a PDF drift, so we write them in code where a broken one fails loudly</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <ul class="biz-links stagger">
-        <li><a href={url('/lens/productivity/quarterly-okr-synthesis/')}>Quarterly OKR synthesis</a>, five team reports into a board narrative</li>
-        <li><a href={url('/lens/productivity/document-drafting-partner/')}>Document drafting partner</a>, outline to a board paper in your voice</li>
-        <li><a href={url('/lens/ops/evaluation-frameworks/')}>Evaluation frameworks</a>, how to score AI output before a person sees it</li>
-        <li><a href={url('/lens/ops/brand-guardrails-as-code/')}>Brand guardrails as code</a>, the check that runs before anything ships</li>
-        <li><a href={url('/blog/the-hidden-cost-of-ai-adoption/')}>The hidden cost of AI adoption</a>, why rollouts stall on people rather than tools</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- STRAND 3 · CORPORATE SALES AND MARKETING -->
-  <section class="section biz-strand" id="leadership-section">
+  <!-- STRAND 2 · SALES AND MARKETING LEADERSHIP -->
+  <section class="section section-alt biz-strand" id="leadership-section">
     <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 3%;" enterFrom="right" />
     <div class="container">
-      <div class="eyebrow">004 · CORPORATE SALES AND MARKETING</div>
+      <div class="eyebrow">02 · SALES AND MARKETING LEADERSHIP</div>
       <h2 id="leadership" class="biz-h2 reveal">Corporate sales and marketing leadership</h2>
       <p class="biz-copy reveal">
-        James has led marketing from inside the company rather than from an agency desk. He
-        was on the founding team at RGT Cycling, which Wahoo Fitness later bought, then led
-        marketing for a privacy-focused crypto project worth $400M. Now he advises companies
-        that use AI to manage people's wealth. In every category the work starts with one
-        position, written as a message house that sales and marketing both use. Demand and
-        lifecycle then run against it.
+        James has led sales and marketing from inside the company rather than from an agency
+        desk. In fintech he negotiated and closed high-profile partnerships himself, which is
+        why the message house below gets written for the room as well as the website. In
+        every category the work starts with one position that sales and marketing both use.
+        Demand and lifecycle then run against it.
       </p>
 
       <div class="post-content biz-figure reveal">
@@ -254,46 +301,78 @@ const jump = [
     </div>
   </section>
 
-  <!-- TRACK RECORD -->
-  <section class="section section-alt biz-record dwell-pin" id="record-section">
-    <div class="dwell-pin-stage">
-      <FocusObject size={320} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 6%; right: -4%;" enterFrom="right" />
-      <div class="container">
-        <div class="eyebrow">005 · TRACK RECORD</div>
-        <h2 id="record" class="biz-h2 reveal">The track record behind this page</h2>
-        <div class="ways-grid stagger">
-          <article class="way-card">
-            <div class="way-num mono">RGT CYCLING · ACQUISITION</div>
-            <p class="result-stat">Acquired</p>
-            <h3>by Wahoo Fitness.</h3>
-            <p class="way-for">James was on the founding team at RGT Cycling, a virtual cycling platform.</p>
-          </article>
-          <article class="way-card">
-            <div class="way-num mono">BRAND · TURNAROUND</div>
-            <p class="result-stat">−65 → +45</p>
-            <h3>net promoter score.</h3>
-            <p class="way-for">Customers went from mostly unwilling to recommend the brand to recommending it.</p>
-          </article>
-          <article class="way-card">
-            <div class="way-num mono">PR · PRODUCT LAUNCH</div>
-            <p class="result-stat">160+</p>
-            <h3>media placements from a single launch.</h3>
-            <p class="way-for">You can book a launch like this as a Build &amp; Hand Over project.</p>
-          </article>
-        </div>
-        <p class="biz-note reveal">
-          The record also includes a conversion rate lifted from 20% to 45% and prompted brand
-          recall taken from 0 to 95. The same person who ran that work is the person on your
-          call. <a href={url('/about/')}>See the full track record</a>
-        </p>
+  <!-- STRAND 3 · AI FOR EXECUTIVES AND BUSINESS PROCESS -->
+  <section class="section biz-strand" id="executives-section">
+    <FocusObject size={300} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 6%; left: -4%;" enterFrom="left" />
+    <div class="container">
+      <div class="eyebrow">03 · AI FOR EXECUTIVES AND BUSINESS PROCESS</div>
+      <h2 id="executives" class="biz-h2 reveal">AI for executives and business process</h2>
+      <p class="biz-copy reveal">
+        Manual Focus runs AI efficiency programmes inside SMEs. The work is phased and priced
+        with a decision gate between phases, so you can stop at any point and keep everything
+        built so far. We start with the questions executives ask every week,
+        then build the process that answers them.
+      </p>
+
+      <div class="post-content biz-figure reveal">
+        <figure class="dg dg-trace-fig"><div class="dg-head"><span class="dg-kicker">AI for executives · how a programme runs</span><span class="dg-title">From the question to the process</span></div><div class="dg-trace"><div class="dg-trace-head"><span class="dg-label">The question an exec asks</span><span class="dg-label">The process underneath</span><span class="dg-label">What we install</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>What sold this week, by channel?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>A weekly report assembled by hand from three systems</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>An assistant in Slack that answers from the live data, read only</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Where did last quarter go?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Five status reports in five formats</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A quarterly synthesis the board reads, in two hours instead of two days</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Can we trust what the AI says?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Nobody owns the rules</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>Governance in code. Read-only access, with no AI approving its own change</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Which process do we automate first?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Whichever vendor demoed last</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A 90-day plan that rebuilds two workflows, measured weekly</span></div></div><div class="dg-note">Every row starts from a question an executive already asks, which is where the first phase of a programme begins.</div></figure>
       </div>
+
+      <div class="biz-grid biz-grid-wide">
+        <div class="reveal">
+          <h3 class="biz-h3">Governance written in code</h3>
+          <p class="biz-body">
+            The Oracle at Pyramid can only read. Its Odoo calls are limited to read-only
+            methods, while the code rejects any Shopify credential whose scope goes beyond
+            read. Tests prove a write gets refused before any request is sent. It stores
+            aggregates rather than customer records. Whatever it retrieves counts as
+            evidence, never as instruction. No AI assistant can approve or merge its own
+            change, because Pyramid's own developer owns the repository.
+          </p>
+        </div>
+        <div class="reveal">
+          <h3 class="biz-h3">Briefings for the leadership team</h3>
+          <p class="biz-body">
+            A new model ships most weeks. We brief leadership teams on which tools matter this
+            quarter, mapped to the processes you already run. The brief ends with the two
+            workflows worth rebuilding first and the one to leave alone. Start with the
+            <a href={url('/blog/the-90-day-ai-integration-plan/')}>90-day AI integration plan</a>
+            and <a href={url('/blog/evaluating-ai-tools-without-falling-for-the-demo/')}>how to evaluate AI tools without falling for the demo</a>.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="biz-h3 biz-table-title reveal">Where AI goes in the business</h3>
+      <div class="biz-table-wrap reveal">
+        <table class="biz-table">
+          <thead>
+            <tr><th>The work</th><th>Who does it</th><th>Why</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Research on an account or a market</td><td>AI, with a link to every source</td><td>It used to be too slow to do for every account</td></tr>
+            <tr><td>First drafts of proposals and board papers</td><td>AI in your voice, a person approves</td><td>The voice is checkable but the facts need a person</td></tr>
+            <tr><td>The position and the core claim</td><td>People</td><td>AI writes a plausible position for anyone, which is the problem</td></tr>
+            <tr><td>Pricing and the trust pages</td><td>People</td><td>Read <a href={url('/blog/when-not-to-use-ai-in-marketing/')}>when not to use AI in marketing</a></td></tr>
+            <tr><td>Anything that spends money or reaches a customer</td><td>A person approves each one</td><td>The approval is the control, so it stays visible</td></tr>
+            <tr><td>The rules for what AI can read</td><td>Written in code, with tests</td><td>Rules in a PDF drift, so we write them in code where a broken one fails loudly</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="biz-links stagger">
+        <li><a href={url('/lens/productivity/quarterly-okr-synthesis/')}>Quarterly OKR synthesis</a>, five team reports into a board narrative</li>
+        <li><a href={url('/lens/productivity/document-drafting-partner/')}>Document drafting partner</a>, outline to a board paper in your voice</li>
+        <li><a href={url('/lens/ops/evaluation-frameworks/')}>Evaluation frameworks</a>, how to score AI output before a person sees it</li>
+        <li><a href={url('/lens/ops/brand-guardrails-as-code/')}>Brand guardrails as code</a>, the check that runs before anything ships</li>
+        <li><a href={url('/blog/the-hidden-cost-of-ai-adoption/')}>The hidden cost of AI adoption</a>, why rollouts stall on people rather than tools</li>
+      </ul>
     </div>
   </section>
 
   <!-- HOW TO START -->
-  <section class="section biz-start" id="start-section">
+  <section class="section section-alt biz-start" id="start-section">
     <div class="container">
-      <div class="eyebrow">006 · HOW TO START</div>
+      <div class="eyebrow">HOW TO START</div>
       <h2 id="start" class="biz-h2 reveal">How to start</h2>
       <p class="biz-copy reveal">
         Our recommendation for most companies reading this page is a 90-day programme, run as
@@ -346,69 +425,164 @@ const jump = [
 
 <style>
   /* ============================
-     HERO. Same pattern as the Lens hero: a dwell-pinned stage with
-     two rings, copy lifted above them.
+     THE SCENE
+     Static by default: the panels stack as ordinary blocks. The script
+     adds .is-live, which makes the section tall, pins the stage and lets
+     the canvas and the panels follow the scroll.
      ============================ */
-  .biz-hero-inner .reveal { opacity: 1; transform: none; }
-  .biz-hero-inner { position: relative; z-index: 3; }
-  .biz-headline {
-    font-size: clamp(2.5rem, 7vw, 6rem);
+  .scene { position: relative; background: var(--color-bg); }
+  .scene-stage { position: relative; }
+  .scene-canvas { display: none; }
+  .scene-inner { position: relative; z-index: 2; padding-block: var(--space-xl); display: grid; gap: var(--space-xl); }
+  .scene-scale, .scene-hint { display: none; }
+
+  .scene-headline {
+    font-size: clamp(2.1rem, 4.9vw, 4.5rem);
     line-height: 1.02;
     letter-spacing: -0.02em;
     margin-top: var(--space-sm);
-    color: var(--color-text);
   }
-  .biz-lead {
+  .scene-headline em { font-style: italic; }
+  .scene-lead {
+    margin-top: var(--space-md);
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    color: var(--color-text);
+    max-width: 58ch;
+  }
+  .scene-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); }
+  .scene-h2 { font-size: clamp(2rem, 4.6vw, 4.25rem); line-height: 0.98; max-width: 14ch; }
+  .scene-copy {
+    margin-top: var(--space-md);
     font-size: var(--font-size-lg);
     line-height: 1.5;
     color: var(--color-text-secondary);
-    max-width: 60ch;
-    margin-top: var(--space-md);
+    max-width: 44ch;
   }
-  .biz-ctas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+  .scene-link {
+    display: inline-block;
     margin-top: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-cta-start);
+    text-underline-offset: 0.4em;
   }
-  .biz-meta {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
+  .scene-link::after { content: ' ↓'; }
+
+  .scene.is-live { height: 460vh; }
+  .scene.is-live .scene-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+  .scene.is-live .scene-canvas {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .scene.is-live .scene-inner { position: absolute; inset: 0; padding-block: 0; display: block; }
+  .scene.is-live .scene-panel {
+    --base: -50%;
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    width: min(46%, 620px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, calc(var(--base) + var(--dy, 0px)), 0);
+    will-change: opacity, transform;
+  }
+  .scene.is-live .scene-panel-hero { width: min(82%, 1040px); opacity: 1; pointer-events: auto; }
+
+  .scene.is-live .scene-scale {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    left: var(--space-md);
+    right: var(--space-md);
+    bottom: 1.5rem;
+    max-width: calc(var(--max-width) - 2 * var(--space-md));
+    margin-inline: auto;
+  }
+  .scene-scale-track { display: block; height: 1px; background: var(--color-line); }
+  .scene-scale-fill { display: block; height: 1px; width: 0; background: var(--color-cta-gradient); }
+  .scene-scale ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0.6rem 0 0;
+    padding: 0;
+  }
+  .scene-scale li {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+  }
+  .scene-scale li.is-active { color: var(--color-text); }
+  .scene.is-live .scene-hint {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    right: var(--space-md);
+    bottom: 4.5rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
     color: var(--color-text-secondary);
-    margin-top: var(--space-md);
+  }
+
+  @media (max-width: 767px) {
+    .scene.is-live { height: 420vh; }
+    .scene-headline { font-size: clamp(1.9rem, 8.6vw, 3rem); }
+    .scene-lead { font-size: 1.0625rem; }
+    .scene-copy { font-size: 1.0625rem; }
+    .scene-h2 { font-size: clamp(1.75rem, 8vw, 2.6rem); max-width: none; }
+    .scene.is-live .scene-panel {
+      --base: 0%;
+      left: 1.25rem;
+      right: 1.25rem;
+      width: auto;
+      top: auto;
+      bottom: 5.25rem;
+    }
+    .scene.is-live .scene-panel-hero { --base: -50%; top: 50%; bottom: auto; width: auto; }
+    .scene.is-live .scene-scale { left: 1.25rem; right: 1.25rem; bottom: 1rem; }
+    .scene-scale li { font-size: 0.55rem; letter-spacing: 0.12em; }
+    .scene.is-live .scene-hint { display: none; }
+  }
+  @media (max-height: 760px) and (min-width: 768px) {
+    .scene-headline { font-size: clamp(1.8rem, 6.4vh, 3.5rem); }
+    .scene-lead { font-size: clamp(0.95rem, 2.5vh, 1.2rem); }
   }
 
   /* ============================
-     STATEMENTS AND COPY
+     COPY BLOCKS
      ============================ */
-  .big-statement {
-    font-size: clamp(2.5rem, 8vw, 7rem);
-    line-height: 0.95;
-    max-width: 1100px;
-    position: relative;
-    z-index: 2;
-  }
   .biz-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md);
     margin-top: var(--space-md);
-    max-width: 90ch;
     position: relative;
     z-index: 2;
   }
-  .biz-grid p {
-    font-size: var(--font-size-body);
-    line-height: 1.55;
-    color: var(--color-text-secondary);
-  }
-  .biz-grid-wide { max-width: none; margin-top: var(--space-lg); }
+  .biz-grid-wide { margin-top: var(--space-lg); }
   @media (min-width: 768px) {
     .biz-grid { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
   }
-
-  .biz-strand { overflow: hidden; }
-  .biz-strand > .container { position: relative; z-index: 2; }
+  .biz-strand, .biz-record { overflow: hidden; }
+  .biz-strand > .container, .biz-record > .container { position: relative; z-index: 2; }
   .biz-h2 {
     font-size: clamp(2rem, 5vw, 4rem);
     max-width: 1000px;
@@ -445,11 +619,103 @@ const jump = [
     max-width: 760px;
     line-height: 1.6;
   }
-
-  /* Diagram figures reuse diagrams.css. The wrapper carries the
-     .post-content hook the stylesheet keys off. */
   .biz-figure { margin-top: var(--space-lg); max-width: 1000px; }
   .biz-figure :global(.dg) { margin: 0; }
+
+  /* ============================
+     EXAMPLES. Way-cards with a client name and a row of figures.
+     ============================ */
+  .case-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4.4vw, 4rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-sm);
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    align-self: flex-start;
+  }
+  .case-body {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-md);
+    flex: 1;
+  }
+  .case-stats {
+    display: grid;
+    gap: var(--space-sm);
+    margin: 0;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-line);
+  }
+  .case-stats div { display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--space-sm); align-items: baseline; }
+  .case-stats dt {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--color-text);
+  }
+  .case-stats dd { margin: 0; color: var(--color-text-secondary); font-size: var(--font-size-sm); line-height: 1.4; }
+  .case-link { margin-top: var(--space-md); align-self: flex-start; }
+
+  /* ============================
+     TRACK RECORD. The number cards from the About page.
+     ============================ */
+  .numbers-grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    position: relative;
+    z-index: 2;
+  }
+  .number-card {
+    padding: var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-card-bg);
+    backdrop-filter: blur(4px);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .number-card:hover { border-color: var(--color-text); transform: translateY(-3px); }
+  .number-value {
+    font-family: var(--font-display);
+    line-height: 0.95;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .num-prefix {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    color: var(--color-text-muted);
+    letter-spacing: -0.02em;
+  }
+  .num-main {
+    font-size: clamp(2.75rem, 4.5vw, 4rem);
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .num-word { font-size: clamp(2.25rem, 3.6vw, 3.25rem); text-transform: uppercase; }
+  .number-label {
+    margin-top: var(--space-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+    line-height: 1.4;
+  }
+  @media (min-width: 640px) {
+    .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+  }
+  @media (min-width: 1024px) {
+    .numbers-grid { grid-template-columns: repeat(3, 1fr); }
+  }
 
   /* ============================
      CARDS. The home page's way-card grid.
@@ -539,20 +805,6 @@ const jump = [
   @media (min-width: 1024px) {
     .ways-grid { grid-template-columns: repeat(3, 1fr); }
   }
-
-  /* Results cards, as on the home page */
-  .biz-record .ways-grid { margin-top: var(--space-md); }
-  .result-stat {
-    font-family: var(--font-display);
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
-    line-height: 1;
-    margin-bottom: var(--space-xs);
-    background: var(--color-cta-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .biz-record .way-for { flex: 0; margin-bottom: 0; }
 
   /* ============================
      TABLES. The situation table from The Lens start page.
@@ -692,10 +944,10 @@ const jump = [
     background: var(--color-bg-alt, var(--color-bg));
   }
 
+
   @media (max-width: 768px) {
     .section { overflow-x: clip; }
     .section.dwell-pin::after { height: 80vh; }
-    .big-statement { font-size: clamp(1.875rem, 9vw, 3rem); }
     .biz-h2 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
     .cta-headline { font-size: clamp(1.75rem, 8vw, 3rem); }
     .biz-copy { font-size: 1rem; }
@@ -704,7 +956,335 @@ const jump = [
     .way-cta { padding: 0.6rem 1.2rem; }
   }
   @media (min-width: 769px) and (max-width: 1100px) {
-    .big-statement { font-size: clamp(2.25rem, 6vw, 3.5rem); }
     .cta-headline { font-size: clamp(2rem, 5.5vw, 3.25rem); }
   }
 </style>
+
+<script>
+  // The focus scene. One canvas of dots, driven by scroll position.
+  //   Beat 0  noise      every dot out of focus, drifting
+  //   Beat 1  shortlist  the dots that fit sharpen and gather, the rest fade
+  //   Beat 2  pipeline   the shortlist stacks into five stages
+  //   Beat 3  loop       the pipeline runs as two rings, the Manual Focus mark
+  // Colours come from the theme tokens and follow the light and dark toggle.
+  // With reduced motion the script never starts and the panels stay stacked.
+  const scene = document.querySelector<HTMLElement>('[data-scene]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (scene && !reduceMotion) {
+    const stage = scene.querySelector<HTMLElement>('.scene-stage')!;
+    const canvas = scene.querySelector<HTMLCanvasElement>('.scene-canvas')!;
+    const ctx = canvas.getContext('2d');
+    const panels = Array.from(scene.querySelectorAll<HTMLElement>('.scene-panel'));
+    const ticks = Array.from(scene.querySelectorAll<HTMLElement>('.scene-scale li'));
+    const fill = scene.querySelector<HTMLElement>('.scene-scale-fill');
+    const hint = scene.querySelector<HTMLElement>('.scene-hint');
+
+    if (ctx) {
+      scene.classList.add('is-live');
+
+      type RGB = [number, number, number];
+      type Dot = {
+        nx: number; ny: number; ax: number; ay: number;
+        depth: number; phase: number; delay: number; u: number; jitter: number;
+        col: number; slot: number; ring: number; ringPos: number;
+        noise: RGB; rgb: RGB;
+      };
+
+      // Seeded, so the field looks the same on every visit.
+      let seed = 20261110;
+      const rnd = () => {
+        seed = (seed + 0x6d2b79f5) | 0;
+        let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+
+      const STAGES = ['Research', 'Contact', 'Meeting', 'Proposal', 'Signed'];
+      const CAPTIONS = ['Every company that could buy', 'The accounts that fit', 'The pipeline', 'The weekly loop'];
+      const SHARE = [0.4, 0.26, 0.17, 0.11, 0.06];
+      const COUNT = window.innerWidth < 768 ? 340 : 900;
+      const colCounts = [0, 0, 0, 0, 0];
+      const dots: Dot[] = [];
+      for (let i = 0; i < COUNT; i++) {
+        let col = -1;
+        let slot = 0;
+        if (rnd() < 0.34) {
+          const r = rnd();
+          let acc = 0;
+          col = 4;
+          for (let c = 0; c < SHARE.length; c++) {
+            acc += SHARE[c];
+            if (r < acc) { col = c; break; }
+          }
+          slot = colCounts[col]++;
+        }
+        dots.push({
+          nx: rnd(), ny: rnd(), ax: (rnd() + rnd()) / 2, ay: (rnd() + rnd()) / 2,
+          depth: 0.25 + rnd() * 0.75, phase: rnd() * Math.PI * 2, delay: rnd() * 0.35,
+          u: rnd(), jitter: rnd() - 0.5, col, slot, ring: 0, ringPos: 0,
+          noise: [0, 0, 0], rgb: [0, 0, 0],
+        });
+      }
+      const fits = dots.filter((d) => d.col >= 0);
+      const perRing = Math.ceil(fits.length / 2);
+      fits.forEach((d, i) => { d.ring = i % 2; d.ringPos = Math.floor(i / 2) / perRing; });
+
+      // Theme colours.
+      let cA: RGB = [255, 45, 120];
+      let cB: RGB = [192, 38, 211];
+      let cC: RGB = [0, 229, 255];
+      let cMuted: RGB = [134, 129, 122];
+      let cText: RGB = [242, 237, 230];
+      const hex = (v: string, fallback: RGB): RGB => {
+        const m = v.trim().match(/^#([0-9a-f]{6})$/i);
+        if (!m) return fallback;
+        const n = parseInt(m[1], 16);
+        return [n >> 16, (n >> 8) & 255, n & 255];
+      };
+      const mix = (a: RGB, b: RGB, t: number): RGB => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+      const grad = (u: number): RGB => (u < 0.5 ? mix(cA, cB, u * 2) : mix(cB, cC, (u - 0.5) * 2));
+      const readColours = () => {
+        const cs = getComputedStyle(document.documentElement);
+        cA = hex(cs.getPropertyValue('--color-cta-start'), cA);
+        cB = hex(cs.getPropertyValue('--color-cta-mid'), cB);
+        cC = hex(cs.getPropertyValue('--color-cta-end'), cC);
+        cMuted = hex(cs.getPropertyValue('--color-text-muted'), cMuted);
+        cText = hex(cs.getPropertyValue('--color-text'), cText);
+        for (const d of dots) {
+          d.noise = grad(d.u);
+          d.rgb = d.col >= 0 ? grad((d.col / 4) * 0.85 + d.u * 0.15) : cMuted;
+        }
+      };
+      readColours();
+      new MutationObserver(readColours).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+      // Geometry. The action sits right of the copy on wide screens and
+      // above it on phones.
+      let W = 0;
+      let H = 0;
+      let dpr = 1;
+      let narrow = false;
+      let ready = false;
+      const box = { x0: 0, y0: 0, x1: 0, y1: 0 };
+      const resize = () => {
+        const r = stage.getBoundingClientRect();
+        W = r.width;
+        H = r.height;
+        narrow = W < 768;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(W * dpr);
+        canvas.height = Math.round(H * dpr);
+        if (narrow) {
+          box.x0 = W * 0.09; box.x1 = W * 0.91; box.y0 = H * 0.12; box.y1 = H * 0.42;
+        } else {
+          box.x0 = W * 0.55; box.x1 = Math.min(W * 0.94, W - 40); box.y0 = H * 0.2; box.y1 = H * 0.78;
+        }
+        // Sizing a canvas clears it, so repaint straight away.
+        if (ready) draw(performance.now());
+      };
+      resize();
+      new ResizeObserver(resize).observe(stage);
+
+      const clamp = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
+      const seg = (p: number, a: number, b: number) => clamp((p - a) / (b - a));
+      const ease = (t: number) => t * t * (3 - 2 * t);
+      const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
+      let target = 0;
+      let smooth = 0;
+      let pos = 0;
+      const measure = () => {
+        const r = scene.getBoundingClientRect();
+        const travel = r.height - window.innerHeight;
+        target = travel > 0 ? clamp(-r.top / travel) : 0;
+      };
+
+      // Keyboard users tab into panels that are faded out. Bring the
+      // matching beat on screen when one takes focus.
+      const HOLDS = [0, 0.38, 0.68, 0.96];
+      panels.forEach((el, i) => {
+        el.addEventListener('focusin', () => {
+          if (Math.abs(pos - i) < 0.4) return;
+          const r = scene.getBoundingClientRect();
+          window.scrollTo({ top: window.scrollY + r.top + HOLDS[i] * (r.height - window.innerHeight), behavior: 'instant' as ScrollBehavior });
+        });
+      });
+
+      const corner = (x: number, y: number, dx: number, dy: number, len: number) => {
+        ctx.beginPath();
+        ctx.moveTo(x + dx * len, y);
+        ctx.lineTo(x, y);
+        ctx.lineTo(x, y + dy * len);
+        ctx.stroke();
+      };
+
+      let running = false;
+      let raf = 0;
+      let last = 0;
+      const frame = (now: number) => {
+        if (!running) return;
+        raf = requestAnimationFrame(frame);
+        draw(now);
+      };
+      const draw = (now: number) => {
+        measure();
+        // Ease towards the scroll position by elapsed time, so the motion
+        // feels the same at any frame rate.
+        const dt = last ? Math.min((now - last) / 1000, 1) : 1;
+        last = now;
+        smooth += (target - smooth) * (1 - Math.exp(-dt * 9));
+        if (Math.abs(target - smooth) < 0.0004) smooth = target;
+
+        const t = now / 1000;
+        const t1 = seg(smooth, 0.13, 0.31);
+        const t2 = seg(smooth, 0.43, 0.61);
+        const t3 = seg(smooth, 0.73, 0.9);
+        pos = t1 + t2 + t3;
+
+        // Copy panels cross-fade around their beat.
+        panels.forEach((el, i) => {
+          const d = pos - i;
+          const o = clamp(1 - Math.abs(d) * 2.4);
+          el.style.opacity = o.toFixed(3);
+          el.style.setProperty('--dy', `${(-d * 44).toFixed(1)}px`);
+          el.style.pointerEvents = o > 0.6 ? 'auto' : 'none';
+        });
+        const active = Math.round(pos);
+        ticks.forEach((el, i) => el.classList.toggle('is-active', i === active));
+        if (fill) fill.style.width = `${(smooth * 100).toFixed(2)}%`;
+        if (hint) hint.style.opacity = clamp(1 - t1 * 3).toFixed(2);
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+
+        const bw = box.x1 - box.x0;
+        const bh = box.y1 - box.y0;
+        const gap = narrow ? 10 : Math.max(9, Math.min(12, bw / 42));
+        const perRow = narrow ? 5 : 6;
+        const colW = bw / 5;
+        const baseY = box.y1 - (narrow ? 22 : 34);
+        const cx = box.x0 + bw / 2;
+        const cy = box.y0 + bh / 2;
+        const R = Math.min(bw * 0.34, bh * 0.27);
+        const bokeh = narrow ? 9 : 15;
+        // Soft dots sit quieter behind the copy than beside it.
+        const quiet = (x: number) => (narrow ? 0.55 : 0.32 + 0.68 * ease(clamp((x - W * 0.42) / (W * 0.3))));
+
+        for (const d of dots) {
+          const e1 = ease(clamp(t1 * 1.35 - d.delay));
+          const x0 = d.nx * W;
+          const y0 = d.ny * H;
+          const drift = 14 * d.depth;
+          let x: number;
+          let y: number;
+          let radius: number;
+          let alpha: number;
+          let rgb: RGB;
+          const soft = 0.07 + d.depth * 0.13;
+
+          if (d.col < 0) {
+            // Not a fit. Stays soft, drifts out and fades.
+            const e2 = ease(clamp(t2 * 1.35 - d.delay));
+            x = x0 + (x0 - W / 2) * 0.08 * e1 + Math.sin(t * 0.25 + d.phase) * drift;
+            y = y0 + (y0 - H / 2) * 0.08 * e1 + Math.cos(t * 0.21 + d.phase) * drift;
+            radius = 3 + d.depth * bokeh;
+            alpha = soft * quiet(x) * (1 - 0.6 * e1) * (1 - 0.7 * e2);
+            rgb = mix(d.noise, cMuted, e1);
+          } else {
+            const e2 = ease(clamp(t2 * 1.35 - d.delay));
+            const e3 = ease(clamp(t3 * 1.35 - d.delay));
+            const x1 = box.x0 + (0.06 + 0.88 * d.ax) * bw;
+            const y1 = box.y0 + (0.1 + 0.8 * d.ay) * bh;
+            const x2 = box.x0 + colW * (d.col + 0.5) + ((d.slot % perRow) - (perRow - 1) / 2) * gap;
+            const y2 = baseY - Math.floor(d.slot / perRow) * gap;
+            const dir = d.ring ? -1 : 1;
+            const ang = d.ringPos * Math.PI * 2 + t * 0.2 * dir;
+            const rr = R + d.jitter * 7;
+            const x3 = cx + Math.cos(ang) * rr;
+            const y3 = cy + (d.ring ? R * 0.57 : -R * 0.57) + Math.sin(ang) * rr;
+            const calm = 1 - 0.75 * e1 - 0.25 * e2;
+            x = lerp(lerp(lerp(x0, x1, e1), x2, e2), x3, e3) + Math.sin(t * 0.25 + d.phase) * drift * calm;
+            y = lerp(lerp(lerp(y0, y1, e1), y2, e2), y3, e3) + Math.cos(t * 0.21 + d.phase) * drift * calm;
+            const sharp = narrow ? (d.col === 4 ? 2.8 : 2.1) : d.col === 4 ? 3.4 : 2.6;
+            radius = lerp(3 + d.depth * bokeh, sharp, e1);
+            alpha = lerp(soft * quiet(x), 0.95, e1);
+            rgb = mix(d.noise, d.rgb, e1);
+          }
+
+          if (alpha < 0.006) continue;
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${rgb[0] | 0},${rgb[1] | 0},${rgb[2] | 0},${alpha.toFixed(3)})`;
+          ctx.fill();
+          if (radius > 6) {
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = `rgba(${rgb[0] | 0},${rgb[1] | 0},${rgb[2] | 0},${(alpha * 1.4).toFixed(3)})`;
+            ctx.stroke();
+          }
+        }
+
+        // Viewfinder brackets. They frame the whole stage at first, then
+        // close on the action as the focus pulls.
+        const eb = ease(t1);
+        const pad = narrow ? 14 : 22;
+        const inset = narrow ? 14 : 28;
+        const bx0 = lerp(inset, box.x0 - pad, eb);
+        const by0 = lerp(inset, box.y0 - pad, eb);
+        const bx1 = lerp(W - inset, box.x1 + pad, eb);
+        const by1 = lerp(H - inset, box.y1 + pad, eb);
+        const len = narrow ? 12 : 18;
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = `rgba(${cText[0]},${cText[1]},${cText[2]},${lerp(0.22, 0.5, eb).toFixed(2)})`;
+        corner(bx0, by0, 1, 1, len);
+        corner(bx1, by0, -1, 1, len);
+        corner(bx0, by1, 1, -1, len);
+        corner(bx1, by1, -1, -1, len);
+
+        // Captions and stage labels, set in the site's mono face.
+        const mono = getComputedStyle(document.documentElement).getPropertyValue('--font-mono') || 'monospace';
+        const size = narrow ? 8.5 : 11;
+        ctx.font = `500 ${size}px ${mono}`;
+        (ctx as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing = narrow ? '1px' : '2.4px';
+        ctx.textBaseline = 'top';
+        ctx.textAlign = 'left';
+        CAPTIONS.forEach((label, i) => {
+          if (i === 0) return;
+          const o = clamp(1 - Math.abs(pos - i) * 2.2);
+          if (o <= 0.01) return;
+          ctx.fillStyle = `rgba(${cText[0]},${cText[1]},${cText[2]},${(o * 0.75).toFixed(2)})`;
+          ctx.fillText(label.toUpperCase(), bx0 + len + 6, by0 + 1);
+        });
+        const lo = clamp(1 - Math.abs(pos - 2) * 2.2);
+        if (lo > 0.01) {
+          ctx.textAlign = 'center';
+          ctx.strokeStyle = `rgba(${cText[0]},${cText[1]},${cText[2]},${(lo * 0.18).toFixed(2)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(box.x0, baseY + gap);
+          ctx.lineTo(box.x1, baseY + gap);
+          ctx.stroke();
+          STAGES.forEach((label, c) => {
+            const on = c === 4;
+            ctx.fillStyle = on
+              ? `rgba(${cC[0]},${cC[1]},${cC[2]},${lo.toFixed(2)})`
+              : `rgba(${cText[0]},${cText[1]},${cText[2]},${(lo * 0.6).toFixed(2)})`;
+            ctx.fillText(label.toUpperCase(), box.x0 + colW * (c + 0.5), baseY + gap + (narrow ? 7 : 10));
+          });
+        }
+      };
+
+      ready = true;
+      draw(performance.now());
+      const start = () => { if (!running) { running = true; last = 0; raf = requestAnimationFrame(frame); } };
+      const stop = () => { running = false; cancelAnimationFrame(raf); };
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => (e.isIntersecting && !document.hidden ? start() : stop()));
+      }, { rootMargin: '10% 0px 10% 0px' }).observe(scene);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop();
+        else if (scene.getBoundingClientRect().bottom > 0 && scene.getBoundingClientRect().top < window.innerHeight) start();
+      });
+    }
+  }
+</script>
