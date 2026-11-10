@@ -572,6 +572,9 @@ const cases = [
   @media (max-height: 760px) and (min-width: 768px) {
     .scene-headline { font-size: clamp(1.8rem, 6.4vh, 3.5rem); }
     .scene-lead { font-size: clamp(0.95rem, 2.5vh, 1.2rem); }
+    .scene-h2 { font-size: clamp(1.6rem, 6vh, 3.25rem); }
+    .scene-copy { font-size: clamp(0.95rem, 2.5vh, 1.2rem); margin-top: var(--space-sm); }
+    .scene-link { margin-top: var(--space-sm); }
   }
 
   /* ============================
@@ -989,7 +992,35 @@ const cases = [
     const hint = scene.querySelector<HTMLElement>('.scene-hint');
 
     if (ctx) {
-      scene.classList.add('is-live');
+      // The pinned layout only goes live when every panel fits the stage.
+      // On a short screen (a small phone, a phone on its side) a panel
+      // would be clipped, so the scene stays as plain stacked sections.
+      let live = false;
+      const fitsStage = () => {
+        scene.classList.add('is-live');
+        const h = stage.clientHeight;
+        const slim = stage.clientWidth < 768;
+        const ok = panels.every((el, i) => {
+          // Centred panels need room for the scale below them. On phones
+          // the strand panels sit under the canvas action instead.
+          const room = i === 0 || !slim ? h - 112 : h - (h * 0.42 + 14) - 92;
+          return el.offsetHeight <= room;
+        });
+        scene.classList.toggle('is-live', ok);
+        return ok;
+      };
+      const applyFit = () => {
+        const ok = fitsStage();
+        if (ok === live) return;
+        live = ok;
+        if (!live) {
+          panels.forEach((el) => {
+            el.style.opacity = '';
+            el.style.pointerEvents = '';
+            el.style.removeProperty('--dy');
+          });
+        }
+      };
 
       type RGB = [number, number, number];
       type Dot = {
@@ -1076,6 +1107,7 @@ const cases = [
       let ready = false;
       const box = { x0: 0, y0: 0, x1: 0, y1: 0 };
       const resize = () => {
+        applyFit();
         const r = stage.getBoundingClientRect();
         W = r.width;
         H = r.height;
@@ -1113,7 +1145,7 @@ const cases = [
       const HOLDS = [0, 0.38, 0.68, 0.96];
       panels.forEach((el, i) => {
         el.addEventListener('focusin', () => {
-          if (Math.abs(pos - i) < 0.4) return;
+          if (!live || Math.abs(pos - i) < 0.4) return;
           const r = scene.getBoundingClientRect();
           window.scrollTo({ top: window.scrollY + r.top + HOLDS[i] * (r.height - window.innerHeight), behavior: 'instant' as ScrollBehavior });
         });
@@ -1136,6 +1168,7 @@ const cases = [
         draw(now);
       };
       const draw = (now: number) => {
+        if (!live) return;
         measure();
         // Ease towards the scroll position by elapsed time, so the motion
         // feels the same at any frame rate.
