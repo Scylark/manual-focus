@@ -247,6 +247,14 @@
     .hero-content > :global(*) { max-width: 100%; }
   }
 
+  /* Short windows, such as a browser sharing the screen with other
+     apps, or a phone with its toolbars showing. The stage takes the
+     viewport height instead of its minimum, so the copy and the
+     buttons stay on the first screen. */
+  @media (max-height: 640px) {
+    .hero-scroll-sticky { min-height: 0; }
+  }
+
   /* Reduced-motion: hold the resting state, no scroll animation. */
   @media (prefers-reduced-motion: reduce) {
     .hero-scroll { height: 100svh; min-height: 560px; }

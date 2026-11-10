@@ -7,6 +7,7 @@ import HeroCyclist from '../components/HeroCyclist.astro';
 import { url } from '../utils/paths';
 import { readingTime, isListed } from '../utils/blog';
 import { getCollection } from 'astro:content';
+import '../styles/diagrams.css';
 
 const posts = (await getCollection('blog', isListed))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
@@ -29,8 +30,10 @@ const heroWords = heroPunchline.split(' ').map((word) => {
 <Base title={pageTitle} description={pageDescription} hideNavUntilScroll>
   <SEOHead slot="seo" type="website" title={pageTitle} description={pageDescription} />
 
-  <!-- HERO — the message is on screen from the first frame; the rings and
-       wordmark sequence runs as the hand-off into the rest of the page. -->
+  <!-- HERO. The message is on screen from the first frame; the rings and
+       wordmark sequence runs as the hand-off into the rest of the page.
+       One idea carries the page: most campaigns stop working when launch
+       week ends, so we build marketing that keeps working after it. -->
   <HeroCyclist>
     <div class="hero-inner">
       <div class="hero-eyebrow">
@@ -52,10 +55,18 @@ const heroWords = heroPunchline.split(' ').map((word) => {
 
       <div class="hero-meta">
         <p class="hero-sub">
-          Manual Focus is a Sheffield team of senior marketing operators. We can lead
-          your marketing as a fractional CMO or advise the team you have. We also build
-          what you need and hand it over. There are <strong>no account managers or
-          juniors</strong>, so the people on the call are the people doing the work.
+          <span class="lead-full">
+            Manual Focus is a Sheffield team of senior marketing operators led by James
+            Vickers, from the founding team at RGT Cycling, which Wahoo Fitness later
+            bought. We build marketing that keeps working after launch week. There are
+            <strong>no account managers or juniors</strong>, so the people on the call are
+            the people doing the work.
+          </span>
+          <span class="lead-short">
+            Senior marketing operators led by James Vickers, from the founding team at RGT
+            Cycling. We build marketing that keeps working after launch week, with
+            <strong>no account managers or juniors</strong>.
+          </span>
         </p>
         <div class="hero-ctas">
           <a href={url('/contact/')} class="btn-cta">Book a free working session</a>
@@ -71,7 +82,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     </div>
   </HeroCyclist>
 
-  <!-- PROOF — brands first, straight after the hero. Not pinned: it's a
+  <!-- PROOF. Brands first, straight after the hero. Not pinned: it's a
        strip, not a statement. -->
   <section class="section section-alt logos-section">
     <div class="container">
@@ -90,14 +101,15 @@ const heroWords = heroPunchline.split(' ').map((word) => {
       </div>
       <p class="logos-note reveal">
         Outside endurance, we've run marketing in AI and fintech. We've also worked in hardware and digital assets.
+        If you're a B2B or corporate company outside sport, read <a href={url('/business/')}>how we work with businesses</a>.
       </p>
     </div>
   </section>
 
-  <!-- PROBLEM -->
+  <!-- THE PROBLEM. The idea, stated once, pinned. -->
   <section class="section problem-section dwell-pin">
     <div class="dwell-pin-stage">
-      <FocusObject size={320} tiltX={70} tiltY={25} spin={140} scrollSpin={90} style="top: 6%; right: 4%;" enterFrom="right" />
+      <FocusObject size={260} tiltX={70} tiltY={25} spin={140} scrollSpin={90} style="top: 62%; right: 3%;" enterFrom="right" />
 
       <div class="container">
         <div class="eyebrow">002 · THE PROBLEM</div>
@@ -121,6 +133,81 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     </div>
   </section>
 
+  <!-- THE METHOD. The three things that keep working after launch week,
+       with the channel figure from the marketing basics guide and three
+       playbooks from The Lens. Plain section, so the figure and the cards
+       read at their own pace. -->
+  <section class="section section-alt method-section" id="method-section">
+    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 96px; right: 2%;" enterFrom="right" />
+    <div class="container">
+      <div class="eyebrow">003 · WHAT KEEPS WORKING</div>
+      <h2 id="method" class="method-h2 reveal">What keeps working after launch week</h2>
+      <p class="method-copy reveal">
+        A campaign is a sprint. The marketing around it has to last the season. We build
+        three things that keep working once the launch is over, then put AI into the
+        repetitive work so a small team can run all three. The owned channels hold what the
+        campaign earned. The earned ones make the next campaign believable. The calendar
+        decides when each one fires.
+      </p>
+
+      <div class="post-content method-figure reveal">
+        <figure class="dg dg-channels">
+          <div class="dg-head"><span class="dg-kicker">The channels · how they fit together</span><span class="dg-title">Owned at the centre, earned around it</span></div>
+          <div class="dg-split">
+            <div class="dg-rings">
+              <div class="dg-ring dg-earned"><span class="dg-label">Earned · the proof</span><div class="dg-ring dg-paid"><span class="dg-label">Paid · the catalyst</span><div class="dg-ring dg-owned"><span class="dg-strong">Owned</span><span>Website, email list, content</span></div><span>Search, social, race-day media</span></div><span>Reviews, press, riders, AI answers</span></div>
+            </div>
+            <div>
+              <span class="dg-label">The season sets the timing</span>
+              <table>
+                <thead><tr><th>Trigger</th><th>Where</th><th>When</th></tr></thead>
+                <tbody>
+                  <tr><td>A race entry</td><td>Search, email</td><td>12 weeks out</td></tr>
+                  <tr><td>A crash</td><td>Search</td><td>Any time</td></tr>
+                  <tr><td>A new bike</td><td>Bike shop fitting</td><td>Spring</td></tr>
+                  <tr><td>Clocks go back</td><td>Outdoor, video, email</td><td>Late October</td></tr>
+                </tbody>
+              </table>
+              <div class="dg-note">Paid media sends the right riders to the website and the email list. Reviews and press make them believe it. So do the AI answers. The owned channels keep what the campaign earned.</div>
+            </div>
+          </div>
+        </figure>
+      </div>
+
+      <div class="ways-grid stagger">
+        <article class="way-card">
+          <div class="way-num mono">/01 · OWNED CHANNELS</div>
+          <h3>A website that runs like a product.</h3>
+          <p class="way-for">Pages ship and get tested every week, built to be cited by AI engines as well as read. The topic architecture and the cadence are set first, so the content compounds through the flat early months.</p>
+          <p class="way-shape mono">Playbook · ships in 2 working weeks</p>
+          <a href={url('/lens/ops/brief-to-ship-pipeline/')} class="btn-ghost way-cta">Read the playbook</a>
+        </article>
+        <article class="way-card">
+          <div class="way-num mono">/02 · EARNED REACH</div>
+          <h3>The proof other people give you.</h3>
+          <p class="way-for">Journalists use AI now, so earned media compounds through original data and senior opinion. Light Meter shows which brands six AI engines name in your category and which sites they cite.</p>
+          <p class="way-shape mono">Playbook · ships in 1 working week</p>
+          <a href={url('/lens/content/earned-media-pitch-generator/')} class="btn-ghost way-cta">Read the playbook</a>
+        </article>
+        <article class="way-card">
+          <div class="way-num mono">/03 · THE SEASON</div>
+          <h3>Demand timed to the calendar.</h3>
+          <p class="way-for">The race calendar sets the buying moments, from the spring classics to the trail ultras. We build a twelve-month plan around it, so each launch lands when riders are already looking.</p>
+          <p class="way-shape mono">Playbook · ships in 1 working week</p>
+          <a href={url('/lens/demand/race-day-demand-pipeline/')} class="btn-ghost way-cta">Read the playbook</a>
+        </article>
+      </div>
+
+      <p class="method-note reveal">
+        The method is written up in The Lens, free to read. The basics are in
+        <a href={url('/blog/owned-channels-website-to-platform/')}>owned channels in the AI era</a> and
+        <a href={url('/blog/earned-channels-pr-in-the-ai-era/')}>earned channels in the AI era</a>.
+        The compounding is explained in
+        <a href={url('/blog/building-content-engines-that-compound/')}>building content engines that compound</a>.
+      </p>
+    </div>
+  </section>
+
   <!-- THREE WAYS TO WORK TOGETHER -->
   <section class="section ways-section" id="ways">
     <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 6%; right: 3%;" enterFrom="right" />
@@ -131,10 +218,10 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     <div class="dwell-pin ways-headline-pin">
       <div class="dwell-pin-stage">
         <div class="container">
-          <div class="eyebrow">003 · HOW WE WORK TOGETHER</div>
+          <div class="eyebrow">004 · HOW WE WORK TOGETHER</div>
           <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-            Start with the problem<br/>
-            you <span class="gradient-text">actually have</span>.
+            Three ways<br/>
+            to <span class="gradient-text">work together</span>.
           </h2>
         </div>
       </div>
@@ -194,23 +281,46 @@ const heroWords = heroPunchline.split(' ').map((word) => {
       </div>
     </div>
 
+    <!-- One recommendation, then the situation table from the business
+         page, so a visitor can match their situation to a way of working. -->
     <div class="container">
+      <h3 class="home-h3 home-table-title reveal">Which way of working fits</h3>
+      <p class="method-copy reveal">
+        Our recommendation for most brands reading this page is the Fractional CMO, one or
+        two days a week for a three-month minimum. The first month sets the thesis and a
+        90-day plan. The next two ship it, with AI inside the workflows your team already
+        runs.
+      </p>
+      <div class="home-table-wrap reveal">
+        <table class="home-table">
+          <thead>
+            <tr><th>Your situation</th><th>Way of working</th><th>Shape</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>No senior marketer in the room, or one between hires</td><td data-label="Way of working"><strong>Fractional CMO</strong>, our recommendation</td><td data-label="Shape">1–2 days a week, three-month minimum</td></tr>
+            <tr><td>A marketing team with nobody senior steering it</td><td data-label="Way of working">Strategic Advisor</td><td data-label="Shape">1–2 days a month, on a day rate or retainer</td></tr>
+            <tr><td>One piece of work to ship, such as a launch or a new site</td><td data-label="Way of working">Build &amp; Hand Over</td><td data-label="Shape">Fixed price for a fixed scope, most builds 4–12 weeks</td></tr>
+            <tr><td>The output of the AI workflows, with no tool to learn</td><td data-label="Way of working">Manual Focus AI</td><td data-label="Shape">Monthly retainer, three-month minimum</td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="services-cta reveal">
-        <p class="services-note">If you'd rather we ran the AI workflows for you, that's <strong>Manual Focus AI</strong>. We plan and produce the content, wireframes included. It arrives in your brand on an agreed schedule, for a monthly retainer.</p>
+        <p class="services-note">With <strong>Manual Focus AI</strong> we run the AI workflows for you. We plan and produce the content, wireframes included. It arrives in your brand on an agreed schedule.</p>
         <a href={url('/services')} class="btn-ghost">Read the detail</a>
       </div>
     </div>
   </section>
 
-  <!-- RESULTS — the published track record (the same figures as the About
-       page). Named client case studies and a client quote slot in here
-       once they're cleared to use. -->
-  <section class="section section-alt results-section dwell-pin">
+  <!-- RESULTS. The published track record (the same figures as the About
+       page). Three cards carry the headline results, three number cards
+       carry the rest. Named client case studies and a client quote slot
+       in here once they're cleared to use. -->
+  <section class="section section-alt results-section dwell-pin" id="results-section">
     <div class="dwell-pin-stage">
       <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">004 · RESULTS</div>
-        <h2 class="reveal results-headline">The marketing kept <span class="gradient-text">working</span> after launch.</h2>
+        <div class="eyebrow">005 · RESULTS</div>
+        <h2 id="results" class="reveal results-headline">The <span class="gradient-text">track record</span>.</h2>
         <div class="ways-grid stagger">
           <article class="way-card">
             <div class="way-num mono">RGT CYCLING · ACQUISITION</div>
@@ -231,10 +341,23 @@ const heroWords = heroPunchline.split(' ').map((word) => {
             <p class="way-for">You can book a launch like this as a Build &amp; Hand Over project.</p>
           </article>
         </div>
+        <div class="numbers-grid stagger">
+          <div class="number-card">
+            <div class="number-value"><span class="num-prefix">20% →</span><span class="num-main">45%</span></div>
+            <div class="number-label">conversion rate</div>
+          </div>
+          <div class="number-card">
+            <div class="number-value"><span class="num-prefix">0 →</span><span class="num-main">95</span></div>
+            <div class="number-label">prompted brand recall</div>
+          </div>
+          <div class="number-card">
+            <div class="number-value"><span class="num-main">2.2M+</span></div>
+            <div class="number-label">sessions driven to one platform</div>
+          </div>
+        </div>
         <p class="results-more reveal">
-          The track record also includes a conversion rate lifted from 20% to 45%. Prompted
-          brand recall went from 0 to 95. The work drove more than 2.2 million sessions to
-          one platform. <a href={url('/about/')}>See the full track record</a>
+          Every figure comes from work James led from inside the company.
+          <a href={url('/about/')}>See the full track record</a>
         </p>
       </div>
     </div>
@@ -248,17 +371,18 @@ const heroWords = heroPunchline.split(' ').map((word) => {
       <div class="container">
         <div class="credibility-grid">
           <div class="credibility-copy">
-            <div class="eyebrow">005 · WHO YOU'LL WORK WITH</div>
+            <div class="eyebrow">006 · THE PEOPLE</div>
             <h2 class="reveal">
-              We've run marketing<br/>
-              <span class="gradient-text">from the inside.</span>
+              Who you'll<br/>
+              <span class="gradient-text">work with.</span>
             </h2>
             <p class="reveal">
               James Vickers leads Manual Focus. He has spent 15+ years running brand and
               growth in emerging tech, from fintech to sports tech. He was on the founding team
-              at RGT Cycling. He works with the Foundry, a collective of senior operators
-              with marketing CVs of their own. They share AI tooling so new models reach
-              client work soon after they ship.
+              at RGT Cycling. He is a member of the Chartered Institute of Marketing and of the
+              Chartered Institute of Public Relations. He works with the Foundry, a collective
+              of senior operators with marketing CVs of their own. They share AI tooling so new
+              models reach client work soon after they ship.
             </p>
             <a href={url('/about/')} class="btn-ghost reveal">More about James</a>
           </div>
@@ -282,15 +406,15 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     </div>
   </section>
 
-  <!-- FREE, IN THE OPEN — Light Meter (and its free indoor cycling study) and The Lens -->
+  <!-- FREE, IN THE OPEN. Light Meter (and its free indoor cycling study) and The Lens -->
   <section class="section section-alt open-section dwell-pin">
     <div class="dwell-pin-stage">
       <FocusObject size={320} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 6%; right: -4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">006 · FREE, IN THE OPEN</div>
+        <div class="eyebrow">007 · FREE, IN THE OPEN</div>
         <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-          We work<br/>
-          <span class="gradient-text">in the open.</span>
+          Free tools<br/>
+          <span class="gradient-text">and playbooks.</span>
         </h2>
         <div class="ways-grid ways-grid-2 stagger">
           <article class="way-card">
@@ -312,13 +436,14 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     </div>
   </section>
 
-  <!-- BLOG / PERSPECTIVE -->
-  <section class="section dwell-pin">
+  <!-- BLOG / PERSPECTIVE. The ring sits on the right, clear of the
+       headline. On the left it sat over the heading text. -->
+  <section class="section blog-section dwell-pin">
     <div class="dwell-pin-stage">
-      <FocusObject size={320} tiltX={56} tiltY={-15} spin={140} scrollSpin={-120} style="top: 5%; left: 3%;" enterFrom="left" />
+      <FocusObject size={320} tiltX={56} tiltY={-15} spin={140} scrollSpin={-120} style="top: 5%; right: 3%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">007 · PERSPECTIVE</div>
-        <h2 class="reveal">Read what we're learning from the work.</h2>
+        <div class="eyebrow">008 · PERSPECTIVE</div>
+        <h2 class="reveal blog-headline">What we're learning from the work.</h2>
         <div class="blog-grid stagger">
           {posts.map(post => (
             <BlogCard
@@ -335,7 +460,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     </div>
   </section>
 
-  <!-- MANIFESTO — single sticky stage with absolutely-positioned lines that
+  <!-- MANIFESTO. Single sticky stage with absolutely-positioned lines that
        cross-fade as you scroll. Spacers below the stage create the scroll
        distance for the JS to drive the line index. -->
   <section class="manifesto-section" aria-label="Manifesto" data-manifesto>
@@ -351,7 +476,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     <div class="manifesto-spacer manifesto-spacer-final"></div>
   </section>
 
-  <!-- CTA CLOSE — with what happens after the click -->
+  <!-- CTA CLOSE. With what happens after the click -->
   <section class="section cta-close dwell-pin">
     <div class="dwell-pin-stage">
       <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -100px; left: -120px;" enterFrom="left" />
@@ -362,7 +487,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
           Got a problem or a brief?<br/>
           Or a <span class="gradient-text">vague feeling</span> something's off?
         </h2>
-        <p class="cta-sub reveal">Bring it and we'll work out the shape of the work together.</p>
+        <p class="cta-sub reveal">Bring it and we'll work out the shape of the work in 30 minutes.</p>
         <ol class="cta-steps stagger">
           <li><span class="mono">01</span> We meet for a free 30-minute working session</li>
           <li><span class="mono">02</span> You get a written scope with the cost before anything starts</li>
@@ -429,7 +554,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
   }
   .hero-sub {
     color: var(--color-text-secondary);
-    max-width: 540px;
+    max-width: 640px;
   }
   .hero-eyebrow {
     color: var(--color-text-secondary);
@@ -551,29 +676,6 @@ const heroWords = heroPunchline.split(' ').map((word) => {
   @keyframes scrollHint {
     0%, 100% { transform: translateY(0); opacity: 0.6; }
     50% { transform: translateY(8px); opacity: 1; }
-  }
-
-  /* Short-viewport guard. The hero block (5-line headline + sub +
-     CTAs) lives inside a 100svh stage with overflow:hidden. The
-     headline is sized off vw, so a short-but-wide window (laptop
-     with docked browser, external ultrawide) blows the block past
-     the stage edge and clips the CTAs. Below 860px of height the
-     headline keys off vh instead, shrinking the whole block to fit. */
-  @media (max-height: 860px) {
-    .hero-headline {
-      font-size: clamp(1.5rem, 5vh, 3.25rem);
-    }
-    .hero-sub {
-      font-size: clamp(0.95rem, 2.3vh, 1.15rem);
-    }
-    .hero-meta {
-      margin-top: var(--space-sm);
-    }
-  }
-  @media (max-height: 700px) {
-    .hero-headline {
-      font-size: clamp(1.35rem, 4.6vh, 2.6rem);
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -926,6 +1028,12 @@ const heroWords = heroPunchline.split(' ').map((word) => {
   /* ============================
      BLOG
      ============================ */
+  .blog-headline {
+    font-size: clamp(2rem, 5vw, 4rem);
+    max-width: 1000px;
+    position: relative;
+    z-index: 2;
+  }
   .blog-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1099,7 +1207,21 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     .hero-headline { font-size: clamp(2.25rem, 11vw, 3.5rem); }
     .hero-sub { font-size: 1rem; line-height: 1.55; }
     .hero-scroll-hint { display: none; }
-    .hero-ctas { gap: var(--space-sm); }
+    /* The second button becomes a text link, as on the business page,
+       so both calls to action fit the first screen of a phone with its
+       toolbars showing. */
+    .hero-ctas { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
+    .hero-ctas .btn-ghost {
+      border: 0;
+      padding: 0.25rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-decoration: underline;
+      text-decoration-color: var(--color-cta-start);
+      text-underline-offset: 0.4em;
+    }
 
     /* Italic char padding — the right-edge crop fix pushes the trailing period
        onto a new line at narrow viewports. Reduce overhang and zero out
@@ -1132,10 +1254,22 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     .problem-copy { font-size: 1rem; }
   }
 
+  /* Short phones, such as a 375 by 553 screen with the browser
+     toolbars showing. The headline and the lead come down so both
+     calls to action stay on the first screen. */
+  @media (max-width: 768px) and (max-height: 620px) {
+    .hero-headline { font-size: 1.75rem; }
+    .hero-sub { font-size: 0.95rem; line-height: 1.5; }
+    .hero-meta { margin-top: var(--space-sm); }
+  }
+
   /* Even tighter on the smallest phones */
   @media (max-width: 380px) {
     .container { padding-inline: var(--space-sm); }
     .hero-headline { font-size: clamp(2rem, 10vw, 3rem); }
+  }
+  @media (max-width: 380px) and (max-height: 620px) {
+    .hero-headline { font-size: 1.75rem; }
   }
 
   /* ============================
@@ -1160,6 +1294,238 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     /* Way-cards stay 3-column but with tighter padding so the cards
        don't feel stretched on a narrower viewport. */
     .way-card { padding: var(--space-md); }
+  }
+
+  /* Short-viewport guard. The hero block (headline + sub + CTAs)
+     lives inside a 100svh stage with overflow:hidden. The headline is
+     sized off vw, so a short-but-wide window (laptop with docked
+     browser, external ultrawide) blows the block past the stage edge
+     and clips the CTAs. Below 860px of height the headline keys off
+     vh instead, shrinking the whole block to fit. These rules sit
+     after the tablet band above, which otherwise outranks them on a
+     window such as 1000 by 545. Phones have their own rules above.
+     Short windows also take the short lead, as on the business page. */
+  @media (max-height: 860px) and (min-width: 769px) {
+    .hero-headline {
+      font-size: clamp(1.5rem, 5vh, 3.25rem);
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.3vh, 1.15rem);
+    }
+    .hero-meta {
+      margin-top: var(--space-sm);
+    }
+  }
+  @media (max-height: 700px) and (min-width: 769px) {
+    .hero-headline {
+      font-size: clamp(1.5rem, 6.4vh, 2.6rem);
+    }
+    .hero-ctas .btn-cta, .hero-ctas .btn-ghost { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+  }
+
+  /* ============================
+     THE METHOD. The business page's strand layout: a lead, a figure
+     from the diagram system, three way-cards, a note. Plain section.
+     ============================ */
+  .method-section { overflow: hidden; position: relative; }
+  .method-section > .container { position: relative; z-index: 2; }
+  .method-h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    max-width: 1000px;
+    position: relative;
+    z-index: 2;
+  }
+  .home-h3 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    margin-bottom: var(--space-xs);
+  }
+  .method-copy {
+    margin-top: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    max-width: 760px;
+    position: relative;
+    z-index: 2;
+  }
+  .method-note {
+    margin-top: var(--space-md);
+    color: var(--color-text-secondary);
+    max-width: 760px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+  }
+  .method-note a,
+  .logos-note a,
+  .home-table a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-cta-start);
+    text-underline-offset: 0.2em;
+  }
+  .method-figure { margin-top: var(--space-lg); max-width: 1000px; position: relative; z-index: 2; }
+  .method-figure :global(.dg) { margin: 0; }
+  /* The figure's own table. The blog layout styles post tables, so the
+     same rules come along here. */
+  .method-figure :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    line-height: 1.45;
+  }
+  .method-figure :global(th),
+  .method-figure :global(td) {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-line);
+    color: color-mix(in srgb, var(--color-text) 86%, transparent);
+  }
+  .method-figure :global(thead th) {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    border-bottom-color: color-mix(in srgb, var(--color-text) 45%, transparent);
+  }
+  .method-figure :global(tbody td:first-child) { font-weight: 600; color: var(--color-text); }
+  .method-section .ways-grid { margin-top: var(--space-lg); }
+  .method-section .way-for { flex: 1; }
+  .method-section .way-card:hover { background: var(--color-bg); }
+
+  /* ============================
+     TABLES. The situation table from the business page, with the
+     contrast lift: full text colour, bold first column, mono header.
+     ============================ */
+  .home-table-title { margin-top: var(--space-lg); position: relative; z-index: 2; }
+  .home-table-wrap { max-width: 1000px; overflow-x: auto; position: relative; z-index: 2; }
+  .home-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-sm) 0 0;
+    font-size: var(--font-size-body);
+  }
+  .home-table th,
+  .home-table td {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 16%, transparent);
+    padding: 0.85rem 0.75rem;
+    text-align: left;
+    color: color-mix(in srgb, var(--color-text) 86%, transparent);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+  .home-table th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 45%, transparent);
+    padding-bottom: 0.65rem;
+  }
+  .home-table td:first-child { color: var(--color-text); font-weight: 600; }
+  .home-table strong { color: var(--color-text); }
+
+  /* ============================
+     NUMBER CARDS. The About page's figures, compact, under the three
+     result cards.
+     ============================ */
+  .numbers-grid {
+    margin-top: var(--space-md);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    position: relative;
+    z-index: 2;
+  }
+  .number-card {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-card-bg);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.35rem var(--space-sm);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .number-card:hover { border-color: var(--color-text); transform: translateY(-3px); }
+  .number-value {
+    font-family: var(--font-display);
+    line-height: 0.95;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .num-prefix {
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    color: var(--color-text-muted);
+    letter-spacing: -0.02em;
+  }
+  .num-main {
+    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .number-label {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+  }
+  @media (min-width: 640px) {
+    .numbers-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+  }
+
+  /* The short lead shows on phones and short desktop windows, so the
+     hero fits the first screen. */
+  .lead-short { display: none; }
+  @media (max-width: 768px), (max-height: 700px) {
+    .lead-full { display: none; }
+    .lead-short { display: inline; }
+  }
+
+  /* The rings in the detail sections only show where there is clear
+     space beside the copy. On anything narrower they would sit behind
+     the text and wash it out. The hero and the closing section keep
+     theirs at every size. */
+  @media (max-width: 1399px) {
+    .method-section > :global(.focus-object),
+    .ways-section > :global(.focus-object),
+    .problem-section :global(.focus-object),
+    .blog-section :global(.focus-object) { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .method-h2 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+    .method-copy { font-size: 1rem; }
+    .number-card { padding: 0.85rem 0.9rem; }
+
+    /* Tables read as stacked entries, each cell under its own label. */
+    .home-table-wrap { overflow: visible; }
+    .home-table thead { display: none; }
+    .home-table, .home-table tbody, .home-table tr, .home-table td { display: block; }
+    .home-table tr { padding: 0.95rem 0; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 16%, transparent); }
+    .home-table td { border: 0; padding: 0; font-size: 0.95rem; line-height: 1.45; }
+    .home-table td:first-child { color: var(--color-text); font-weight: 600; font-size: 1rem; }
+    .home-table td[data-label] { margin-top: 0.55rem; }
+    .home-table td[data-label]::before {
+      content: attr(data-label);
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: 0.1rem;
+    }
   }
 
   /* ============================
