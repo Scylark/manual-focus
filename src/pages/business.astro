@@ -89,11 +89,18 @@ const cases = [
             <em class="gradient-text">with AI doing the heavy lifting.</em>
           </h1>
           <p class="scene-lead">
-            Manual Focus is a senior sales and marketing team led by James Vickers. He has
-            designed the funnels behind multi-million dollar sales pipelines and closed
-            high-profile fintech partnerships worth millions in revenue. The technology company he co-founded was
-            bought by a global brand. We bring that record to your company, with AI doing the
-            research and the process work.
+            <span class="lead-full">
+              Manual Focus is a senior sales and marketing team led by James Vickers. He has
+              designed the funnels behind multi-million dollar sales pipelines and closed
+              high-profile fintech partnerships worth millions in revenue. The technology
+              company he co-founded was bought by a global brand. We bring that record to your
+              company, with AI doing the research and the process work.
+            </span>
+            <span class="lead-short">
+              James Vickers has designed the funnels behind multi-million dollar sales
+              pipelines and closed high-profile fintech partnerships. We bring that record to
+              your company.
+            </span>
           </p>
           <div class="scene-ctas">
             <a href={contact()} class="btn-cta">Book a free working session</a>
@@ -415,12 +422,12 @@ const cases = [
             <tr><th>The work</th><th>Who does it</th><th>Why</th></tr>
           </thead>
           <tbody>
-            <tr><td>Research on an account or a market</td><td>AI, with a link to every source</td><td>It used to be too slow to do for every account</td></tr>
-            <tr><td>First drafts of proposals and board papers</td><td>AI in your voice, a person approves</td><td>The voice is checkable but the facts need a person</td></tr>
-            <tr><td>The position and the core claim</td><td>People</td><td>AI writes a plausible position for anyone, which is the problem</td></tr>
-            <tr><td>Pricing and the trust pages</td><td>People</td><td>Read <a href={url('/blog/when-not-to-use-ai-in-marketing/')}>when not to use AI in marketing</a></td></tr>
-            <tr><td>Anything that spends money or reaches a customer</td><td>A person approves each one</td><td>The approval is the control, so it stays visible</td></tr>
-            <tr><td>The rules for what AI can read</td><td>Written in code, with tests</td><td>Rules in a PDF drift, so we write them in code where a broken one fails loudly</td></tr>
+            <tr><td>Research on an account or a market</td><td data-label="Who does it">AI, with a link to every source</td><td data-label="Why">It used to be too slow to do for every account</td></tr>
+            <tr><td>First drafts of proposals and board papers</td><td data-label="Who does it">AI in your voice, a person approves</td><td data-label="Why">The voice is checkable but the facts need a person</td></tr>
+            <tr><td>The position and the core claim</td><td data-label="Who does it">People</td><td data-label="Why">AI writes a plausible position for anyone, which is the problem</td></tr>
+            <tr><td>Pricing and the trust pages</td><td data-label="Who does it">People</td><td data-label="Why">Read <a href={url('/blog/when-not-to-use-ai-in-marketing/')}>when not to use AI in marketing</a></td></tr>
+            <tr><td>Anything that spends money or reaches a customer</td><td data-label="Who does it">A person approves each one</td><td data-label="Why">The approval is the control, so it stays visible</td></tr>
+            <tr><td>The rules for what AI can read</td><td data-label="Who does it">Written in code, with tests</td><td data-label="Why">Rules in a PDF drift, so we write them in code where a broken one fails loudly</td></tr>
           </tbody>
         </table>
       </div>
@@ -456,10 +463,10 @@ const cases = [
             <tr><th>Your situation</th><th>Way of working</th><th>Shape</th></tr>
           </thead>
           <tbody>
-            <tr><td>No senior marketer in the room, or one between hires</td><td><strong>Fractional CMO</strong>, our recommendation</td><td>1–2 days a week, three-month minimum</td></tr>
-            <tr><td>A marketing team with nobody senior steering it</td><td>Strategic Advisor</td><td>1–2 days a month, on a day rate or retainer</td></tr>
-            <tr><td>One piece of work to ship, such as the prospecting pipeline</td><td>Build &amp; Hand Over</td><td>Fixed price for a fixed scope, most builds 4–12 weeks</td></tr>
-            <tr><td>The output of the AI workflows, with no tool to learn</td><td>Manual Focus AI</td><td>Monthly retainer, three-month minimum</td></tr>
+            <tr><td>No senior marketer in the room, or one between hires</td><td data-label="Way of working"><strong>Fractional CMO</strong>, our recommendation</td><td data-label="Shape">1–2 days a week, three-month minimum</td></tr>
+            <tr><td>A marketing team with nobody senior steering it</td><td data-label="Way of working">Strategic Advisor</td><td data-label="Shape">1–2 days a month, on a day rate or retainer</td></tr>
+            <tr><td>One piece of work to ship, such as the prospecting pipeline</td><td data-label="Way of working">Build &amp; Hand Over</td><td data-label="Shape">Fixed price for a fixed scope, most builds 4–12 weeks</td></tr>
+            <tr><td>The output of the AI workflows, with no tool to learn</td><td data-label="Way of working">Manual Focus AI</td><td data-label="Shape">Monthly retainer, three-month minimum</td></tr>
           </tbody>
         </table>
       </div>
@@ -608,24 +615,50 @@ const cases = [
     color: var(--color-text-secondary);
   }
 
+  .lead-short { display: none; }
+
+  /* Phones. Everything is sized to fit the short screen a phone browser
+     leaves once its toolbars are showing, so the scene still pins. */
   @media (max-width: 767px) {
     .scene.is-live { height: 420vh; }
-    .scene-headline { font-size: clamp(1.9rem, 8.6vw, 3rem); }
-    .scene-lead { font-size: 1.0625rem; }
-    .scene-copy { font-size: 1.0625rem; }
-    .scene-h2 { font-size: clamp(1.75rem, 8vw, 2.6rem); max-width: none; }
+    .lead-full { display: none; }
+    .lead-short { display: inline; }
+    .scene .eyebrow { font-size: 0.62rem; letter-spacing: 0.14em; margin-bottom: 0.75rem; }
+    .scene .eyebrow::before { width: 1.5rem; }
+    .scene-headline { font-size: clamp(1.6rem, 7.5vw, 2.6rem); margin-top: 0; }
+    .scene-lead { font-size: 1rem; margin-top: var(--space-sm); }
+    .scene-ctas { flex-direction: column; align-items: flex-start; gap: 0.85rem; margin-top: 1.25rem; }
+    .scene-ctas .btn-ghost {
+      border: 0;
+      padding: 0.25rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-decoration: underline;
+      text-decoration-color: var(--color-cta-start);
+      text-underline-offset: 0.4em;
+    }
+    .scene-h2 { font-size: clamp(1.5rem, 6.8vw, 2.2rem); max-width: none; }
+    .scene-copy { font-size: 0.95rem; margin-top: var(--space-sm); }
+    .scene-link { margin-top: var(--space-sm); font-size: 0.7rem; }
     .scene.is-live .scene-panel {
       --base: 0%;
       left: 1.25rem;
       right: 1.25rem;
       width: auto;
       top: auto;
-      bottom: 5.25rem;
+      bottom: 4rem;
     }
     .scene.is-live .scene-panel-hero { --base: -50%; top: 50%; bottom: auto; width: auto; }
     .scene.is-live .scene-scale { left: 1.25rem; right: 1.25rem; bottom: 1rem; }
     .scene-scale li { font-size: 0.55rem; letter-spacing: 0.12em; }
     .scene.is-live .scene-hint { display: none; }
+  }
+  @media (max-width: 767px) and (max-height: 620px) {
+    .scene-headline { font-size: 1.5rem; }
+    .scene-h2 { font-size: 1.35rem; }
+    .scene-copy { font-size: 0.9rem; line-height: 1.45; }
   }
   @media (max-height: 760px) and (min-width: 768px) {
     .scene-headline { font-size: clamp(1.8rem, 6.4vh, 3.5rem); }
@@ -1060,10 +1093,6 @@ const cases = [
     font-size: 0.85rem;
   }
   .biz-table strong { color: var(--color-text); }
-  @media (max-width: 768px) {
-    .biz-table th,
-    .biz-table td { padding: 0.6rem 0.4rem; font-size: 0.85rem; }
-  }
 
   /* Link list for the second strand */
   .biz-links {
@@ -1182,6 +1211,42 @@ const cases = [
     .way-num { flex-wrap: wrap; row-gap: 0.5rem; }
     .btn-cta, .btn-ghost { padding: 0.85rem 1.4rem; font-size: 0.85rem; }
     .way-cta { padding: 0.6rem 1.2rem; }
+
+    /* Track record, two figures to a row. */
+    .numbers-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .number-card { padding: 0.95rem 0.9rem 1rem; }
+    .number-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .num-main { font-size: clamp(1.7rem, 8.4vw, 2.3rem); }
+    .num-word { font-size: clamp(1.25rem, 6.2vw, 1.7rem); }
+    .num-prefix { font-size: 0.95rem; }
+    .number-label { margin-top: 0.5rem; font-size: 0.82rem; line-height: 1.4; }
+
+    /* The rings sit behind dense copy on a phone, so they go. The scene
+       above carries the motion. */
+    .biz-strand :global(.focus-object),
+    .biz-record :global(.focus-object) { display: none; }
+
+    /* Tables read as stacked entries, each cell under its own label. */
+    .biz-table-wrap { overflow: visible; }
+    .biz-table thead { display: none; }
+    .biz-table, .biz-table tbody, .biz-table tr, .biz-table td { display: block; }
+    .biz-table tr { padding: 0.95rem 0; border-bottom: 1px solid var(--color-line); }
+    .biz-table td { border: 0; padding: 0; font-size: 0.95rem; line-height: 1.45; }
+    .biz-table td:first-child { color: var(--color-text); font-weight: 600; font-size: 1rem; }
+    .biz-table td[data-label] { margin-top: 0.55rem; }
+    .biz-table td[data-label]::before {
+      content: attr(data-label);
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .case-name { font-size: 2.4rem; }
+    .way-card { padding: 1.5rem 1.25rem; }
   }
   @media (min-width: 769px) and (max-width: 1100px) {
     .cta-headline { font-size: clamp(2rem, 5.5vw, 3.25rem); }
@@ -1213,16 +1278,22 @@ const cases = [
       // On a short screen (a small phone, a phone on its side) a panel
       // would be clipped, so the scene stays as plain stacked sections.
       let live = false;
+      // On phones the canvas action sits in a band under the nav. The band
+      // takes whatever height the tallest strand panel leaves free.
+      const SLIM_TOP = 92;
+      let slimBottom = SLIM_TOP + 140;
       const fitsStage = () => {
         scene.classList.add('is-live');
         const h = stage.clientHeight;
-        const slim = stage.clientWidth < 768;
-        const ok = panels.every((el, i) => {
-          // Centred panels need room for the scale below them. On phones
-          // the strand panels sit under the canvas action instead.
-          const room = i === 0 || !slim ? h - 112 : h - (h * 0.42 + 14) - 92;
-          return el.offsetHeight <= room;
-        });
+        let ok: boolean;
+        if (stage.clientWidth >= 768) {
+          // Centred panels need room for the scale below them.
+          ok = panels.every((el) => el.offsetHeight <= h - 112);
+        } else {
+          const tallest = Math.max(...panels.slice(1).map((el) => el.offsetHeight));
+          slimBottom = Math.min(h - 64 - tallest - 38, SLIM_TOP + h * 0.42);
+          ok = panels[0].offsetHeight <= h - 96 && slimBottom - SLIM_TOP >= 118;
+        }
         scene.classList.toggle('is-live', ok);
         return ok;
       };
@@ -1333,7 +1404,7 @@ const cases = [
         canvas.width = Math.round(W * dpr);
         canvas.height = Math.round(H * dpr);
         if (narrow) {
-          box.x0 = W * 0.09; box.x1 = W * 0.91; box.y0 = H * 0.12; box.y1 = H * 0.42;
+          box.x0 = W * 0.09; box.x1 = W * 0.91; box.y0 = SLIM_TOP; box.y1 = slimBottom;
         } else {
           box.x0 = W * 0.55; box.x1 = Math.min(W * 0.94, W - 40); box.y0 = H * 0.2; box.y1 = H * 0.78;
         }
@@ -1418,13 +1489,17 @@ const cases = [
 
         const bw = box.x1 - box.x0;
         const bh = box.y1 - box.y0;
-        const gap = narrow ? 10 : Math.max(9, Math.min(12, bw / 42));
-        const perRow = narrow ? 5 : 6;
+        const perRow = narrow ? 4 : 6;
         const colW = bw / 5;
-        const baseY = box.y1 - (narrow ? 22 : 34);
+        // On phones the dot spacing stays well inside a column, so the five
+        // stacks read as five.
+        const gap = narrow ? Math.max(8, Math.min(12, bh / 15, colW / 5.6)) : Math.max(9, Math.min(12, bw / 42));
+        // On phones the stack sits in the middle of its band.
+        const rows = Math.ceil(Math.max(...colCounts) / perRow);
+        const baseY = narrow ? Math.min(box.y1 - 22, box.y0 + bh / 2 + (rows * gap) / 2 - 6) : box.y1 - 34;
         const cx = box.x0 + bw / 2;
         const cy = box.y0 + bh / 2;
-        const R = Math.min(bw * 0.34, bh * 0.27);
+        const R = Math.min(bw * 0.34, bh * (narrow ? 0.3 : 0.27));
         const bokeh = narrow ? 9 : 15;
         // Soft dots sit quieter behind the copy than beside it.
         const quiet = (x: number) => (narrow ? 0.55 : 0.32 + 0.68 * ease(clamp((x - W * 0.42) / (W * 0.3))));
