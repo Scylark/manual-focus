@@ -1,0 +1,710 @@
+---
+// Landing page for companies outside endurance sport. Three strands, one
+// loop: the pipeline, the process behind it and the position both run on.
+// Composed from the site's existing pieces (dwell-pin stages, FocusObject
+// rings, way-cards, the diagram figures from diagrams.css). No new fonts,
+// colours or components.
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+import FocusObject from '../components/FocusObject.astro';
+import JumpNav from '../components/JumpNav.astro';
+import { url } from '../utils/paths';
+import '../styles/diagrams.css';
+
+const title = 'Sales and marketing for B2B and corporate companies';
+const description = 'Manual Focus brings senior sales and marketing leadership to B2B and corporate companies, with AI built into prospecting and business process.';
+const contact = (offer = '') => (offer ? `${url('/contact/')}?offer=${offer}` : url('/contact/'));
+
+const jump = [
+  { id: 'prospecting', label: 'B2B prospecting' },
+  { id: 'executives', label: 'AI for executives' },
+  { id: 'leadership', label: 'Sales and marketing' },
+  { id: 'record', label: 'Track record' },
+  { id: 'start', label: 'How to start' },
+];
+---
+<Base title={title} description={description}>
+  <SEOHead slot="seo" type="service" title={title} description={description} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'For business', url: '/business/' }]} />
+
+  <!-- HERO -->
+  <section class="section biz-hero dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={420} tiltX={62} tiltY={-18} spin={140} scrollSpin={-80} style="top: 4%; right: -6%;" enterFrom="right" />
+      <FocusObject size={240} tiltX={55} tiltY={20} spin={-110} scrollSpin={90} style="bottom: -8%; left: -8%;" enterFrom="left" />
+
+      <div class="container biz-hero-inner">
+        <div class="eyebrow reveal">MANUAL FOCUS · SHEFFIELD · FOR BUSINESS</div>
+        <h1 class="biz-headline reveal">
+          Sales and marketing<br/>
+          for <span class="gradient-text">B2B and corporate</span> companies
+        </h1>
+        <p class="biz-lead reveal">
+          Manual Focus is best known in endurance sport. Before that, James Vickers spent 15
+          years leading sales and marketing inside companies in AI and fintech. The method
+          carries across. This page is for companies outside sport that need senior sales
+          and marketing hands, with AI built into the work.
+        </p>
+        <div class="biz-ctas reveal">
+          <a href={contact()} class="btn-cta">Book a free working session</a>
+          <a href="#start" class="btn-ghost">How to start</a>
+        </div>
+        <p class="biz-meta mono reveal">B2B PROSPECTING · AI FOR EXECUTIVES · SALES AND MARKETING LEADERSHIP</p>
+      </div>
+    </div>
+  </section>
+
+  <JumpNav items={jump} />
+
+  <!-- THE IDEA -->
+  <section class="section section-alt dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={320} tiltX={60} tiltY={-22} spin={150} scrollSpin={-70} style="top: 8%; right: 4%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">001 · THE IDEA</div>
+        <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+          Sales and marketing<br/>
+          <span class="gradient-text">run as one process</span>,<br/>
+          with AI inside it.
+        </h2>
+        <div class="biz-grid">
+          <p class="reveal">
+            In most companies the pipeline lives in sales while the position lives in
+            marketing. The AI sits in a pilot nobody owns. Each part gets reviewed on its
+            own, so nobody notices the outreach selling a message the website dropped a
+            year ago.
+          </p>
+          <p class="reveal">
+            We take the whole loop. One senior operator owns the list as well as the message
+            it carries, so a reply from a prospect changes next week's positioning. AI does
+            the research and the drafting inside that loop, while people keep the decisions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRAND 1 · B2B PROSPECTING -->
+  <section class="section biz-strand" id="prospecting-section">
+    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 4%; right: 2%;" enterFrom="right" />
+    <div class="container">
+      <div class="eyebrow">002 · B2B PROSPECTING</div>
+      <h2 id="prospecting" class="biz-h2 reveal">B2B prospecting with AI research in the loop</h2>
+      <p class="biz-copy reveal">
+        Outbound stopped working when every company could send ten thousand emails. It works
+        again when the research that used to be too slow gets done for every account, so
+        fewer, better-chosen people hear a message that fits them. We build that pipeline on
+        Apollo and Claude, then hand it to your sales team with the approvals built in.
+      </p>
+
+      <div class="post-content biz-figure reveal">
+        <figure class="dg dg-chain"><div class="dg-head"><span class="dg-kicker">B2B prospecting · the workflow</span><span class="dg-title">From the profile to the pipeline</span></div><ol class="dg-list dg-steps"><li class="dg-step dg-card"><span class="dg-num">1</span><span><span class="dg-strong">Ideal customer profile</span><span class="dg-q">Who exactly are we for?</span><span class="dg-chip">Strategy · people</span></span></li><li class="dg-step dg-card"><span class="dg-num">2</span><span><span class="dg-strong">The wide list</span><span class="dg-q">Every company that could fit</span><span class="dg-chip">Apollo</span></span></li><li class="dg-step dg-card"><span class="dg-num">3</span><span><span class="dg-strong">AI research</span><span class="dg-q">What does each account show?</span><span class="dg-chip">Claude</span></span></li><li class="dg-step dg-card"><span class="dg-num">4</span><span><span class="dg-strong">The shortlist</span><span class="dg-q">Who fits best right now?</span><span class="dg-chip">Claude · people approve</span></span></li><li class="dg-step dg-card"><span class="dg-num">5</span><span><span class="dg-strong">Messages per segment</span><span class="dg-q">Which message leads?</span><span class="dg-chip">Claude · people approve</span></span></li><li class="dg-step dg-card dg-go"><span class="dg-num">6</span><span><span class="dg-strong">Landing pages</span><span class="dg-q">Where does the click land?</span><span class="dg-chip">Claude Code · GitHub</span></span></li><li class="dg-step dg-card dg-go"><span class="dg-num">7</span><span><span class="dg-strong">Sequences</span><span class="dg-q">Who hears what, when?</span><span class="dg-chip">Apollo</span></span></li><li class="dg-step dg-card dg-go"><span class="dg-num">8</span><span><span class="dg-strong">Measure and learn</span><span class="dg-q">Which segment replied?</span><span class="dg-chip">Control</span></span></li></ol><div class="dg-note">Step 1 is strategy and stays with people. Steps 2 to 7 run on AI and software with a person approving every send. Step 8 feeds the next round.</div></figure>
+      </div>
+
+      <div class="ways-grid stagger">
+        <article class="way-card">
+          <div class="way-num mono">/01 · MEETING PREP STACK</div>
+          <h3>A context pack before every sales meeting.</h3>
+          <p class="way-for">The pack is built from the CRM history and the inbox, with the attendees' recent posts, so the rep walks in informed after ten minutes of work instead of forty.</p>
+          <p class="way-shape mono">Playbook · ships in 1 working day</p>
+          <a href={url('/lens/productivity/meeting-prep-stack/')} class="btn-ghost way-cta">Read the playbook</a>
+        </article>
+        <article class="way-card">
+          <div class="way-num mono">/02 · CALL FOLLOW-UP LOOP</div>
+          <h3>The call becomes the CRM update.</h3>
+          <p class="way-for">After the call, the transcript becomes the CRM update and a follow-up email in your voice, with the tasks logged the same afternoon.</p>
+          <p class="way-shape mono">Playbook · ships in 1 working day</p>
+          <a href={url('/lens/productivity/call-follow-up-loop/')} class="btn-ghost way-cta">Read the playbook</a>
+        </article>
+        <article class="way-card">
+          <div class="way-num mono">/03 · WEEKLY PIPELINE ROLLUP</div>
+          <h3>CRM data into a status the board can read.</h3>
+          <p class="way-for">The rollup takes twenty minutes from the CRM export to a delivered status, with the narrative written for the people who read it. It works with HubSpot or Salesforce.</p>
+          <p class="way-shape mono">Playbook · ships in 1 working day</p>
+          <a href={url('/lens/productivity/weekly-pipeline-rollup/')} class="btn-ghost way-cta">Read the playbook</a>
+        </article>
+      </div>
+
+      <p class="biz-note reveal">
+        The ideal customer profile stays with people. So does the approval before every send,
+        because a named work address is still personal data under UK GDPR. The full method,
+        with the UK rules on B2B email, is in the
+        <a href={url('/blog/go-to-market-automation-claude-apollo-basics/')}>go-to-market automation guide</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- STRAND 2 · AI FOR EXECUTIVES AND BUSINESS PROCESS -->
+  <section class="section section-alt biz-strand" id="executives-section">
+    <FocusObject size={300} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 6%; left: -4%;" enterFrom="left" />
+    <div class="container">
+      <div class="eyebrow">003 · AI FOR EXECUTIVES AND BUSINESS PROCESS</div>
+      <h2 id="executives" class="biz-h2 reveal">AI for executives and business process</h2>
+      <p class="biz-copy reveal">
+        Manual Focus runs AI efficiency programmes inside SMEs. The work is phased and priced
+        with a decision gate at each phase, so the board decides what the next phase is worth
+        once the last one has shipped. We start with the questions executives ask every week,
+        then build the process that answers them.
+      </p>
+
+      <div class="post-content biz-figure reveal">
+        <figure class="dg dg-trace-fig"><div class="dg-head"><span class="dg-kicker">AI for executives · how a programme runs</span><span class="dg-title">From the question to the process</span></div><div class="dg-trace"><div class="dg-trace-head"><span class="dg-label">The question an exec asks</span><span class="dg-label">The process underneath</span><span class="dg-label">What we install</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>What sold this week, by channel?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>A weekly report assembled by hand from three systems</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>An assistant in Slack that answers from the live data, read only</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Where did last quarter go?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Five status reports in five formats</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A quarterly synthesis the board reads, in two hours instead of two days</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Can we trust what the AI says?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Nobody owns the rules</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>Governance in code. Read-only access, with no AI approving its own change</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Which process do we automate first?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Whichever vendor demoed last</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A 90-day plan that rebuilds two workflows, measured weekly</span></div></div><div class="dg-note">Every row starts from a question an executive already asks, which is where the first phase of a programme begins.</div></figure>
+      </div>
+
+      <div class="biz-grid biz-grid-wide">
+        <div class="reveal">
+          <h3 class="biz-h3">Governance written in code</h3>
+          <p class="biz-body">
+            In the programme we run for an SME retailer, an assistant answers sales questions
+            in Slack from live store data. Its access is a read-only allowlist written in code,
+            with tests against it. It sees aggregates rather than customer records, while whatever it retrieves gets
+            treated as untrusted. It can't approve a change to its own rules. The client's
+            own engineer owns the repository, so the rules stay the client's.
+          </p>
+        </div>
+        <div class="reveal">
+          <h3 class="biz-h3">Briefings for the leadership team</h3>
+          <p class="biz-body">
+            A new model ships most weeks. We brief leadership teams on which tools matter this
+            quarter, mapped to the processes you already run. The brief ends with the two
+            workflows worth rebuilding first and the one to leave alone. Start with the
+            <a href={url('/blog/the-90-day-ai-integration-plan/')}>90-day AI integration plan</a>
+            and <a href={url('/blog/evaluating-ai-tools-without-falling-for-the-demo/')}>how to evaluate AI tools without falling for the demo</a>.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="biz-h3 biz-table-title reveal">Where AI goes in the business</h3>
+      <div class="biz-table-wrap reveal">
+        <table class="biz-table">
+          <thead>
+            <tr><th>The work</th><th>Who does it</th><th>Why</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Research on an account or a market</td><td>AI, with a link to every source</td><td>It used to be too slow to do for every account</td></tr>
+            <tr><td>First drafts of proposals and board papers</td><td>AI in your voice, a person approves</td><td>The voice is checkable but the facts need a person</td></tr>
+            <tr><td>The position and the core claim</td><td>People</td><td>AI writes a plausible position for anyone, which is the problem</td></tr>
+            <tr><td>Pricing and the trust pages</td><td>People</td><td>Read <a href={url('/blog/when-not-to-use-ai-in-marketing/')}>when not to use AI in marketing</a></td></tr>
+            <tr><td>Anything that spends money or reaches a customer</td><td>A person approves each one</td><td>The approval is the control, so it stays visible</td></tr>
+            <tr><td>The rules for what AI can read</td><td>Written in code, with tests</td><td>Rules in a PDF drift, so we write them in code where a broken one fails loudly</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="biz-links stagger">
+        <li><a href={url('/lens/productivity/quarterly-okr-synthesis/')}>Quarterly OKR synthesis</a>, five team reports into a board narrative</li>
+        <li><a href={url('/lens/productivity/document-drafting-partner/')}>Document drafting partner</a>, outline to a board paper in your voice</li>
+        <li><a href={url('/lens/ops/evaluation-frameworks/')}>Evaluation frameworks</a>, how to score AI output before a person sees it</li>
+        <li><a href={url('/lens/ops/brand-guardrails-as-code/')}>Brand guardrails as code</a>, the check that runs before anything ships</li>
+        <li><a href={url('/blog/the-hidden-cost-of-ai-adoption/')}>The hidden cost of AI adoption</a>, why rollouts stall on people rather than tools</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STRAND 3 · CORPORATE SALES AND MARKETING -->
+  <section class="section biz-strand" id="leadership-section">
+    <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 3%;" enterFrom="right" />
+    <div class="container">
+      <div class="eyebrow">004 · CORPORATE SALES AND MARKETING</div>
+      <h2 id="leadership" class="biz-h2 reveal">Corporate sales and marketing leadership</h2>
+      <p class="biz-copy reveal">
+        James has led marketing from inside the company rather than from an agency desk. He
+        was on the founding team at RGT Cycling, which Wahoo Fitness later bought, then led
+        marketing for a privacy-focused crypto project worth $400M. Now he advises companies
+        that use AI to manage people's wealth. In every category the work starts with one
+        position, written as a message house that sales and marketing both use. Demand and
+        lifecycle then run against it.
+      </p>
+
+      <div class="post-content biz-figure reveal">
+        <figure class="dg dg-hier"><div class="dg-head"><span class="dg-kicker">Corporate sales and marketing · the message house</span><span class="dg-title">One claim, three supporting messages</span></div><div class="dg-split"><div><div class="dg-core"><span class="dg-label">Core claim</span><span class="dg-strong">The one sentence your sales deck and your website both make</span></div><ul class="dg-list dg-support"><li><span class="dg-sup"><span class="dg-label">Supporting</span><span class="dg-strong">What changes for the buyer</span></span><span class="dg-proof"><span class="dg-label">Proof</span>A measured result</span></li><li><span class="dg-sup"><span class="dg-label">Supporting</span><span class="dg-strong">Why act now</span></span><span class="dg-proof"><span class="dg-label">Proof</span>A dated trigger</span></li><li><span class="dg-sup"><span class="dg-label">Supporting</span><span class="dg-strong">Why choose you</span></span><span class="dg-proof"><span class="dg-label">Proof</span>A reference customer</span></li></ul></div><div><span class="dg-label">How far each channel goes</span><ul class="dg-list dg-bars"><li><span class="dg-bar-name">Cold email</span><span class="dg-bar" style="--f:35%"></span><span class="dg-q">One supporting message, chosen by segment</span></li><li><span class="dg-bar-name">Sales deck</span><span class="dg-bar" style="--f:70%"></span><span class="dg-q">The core claim with its proof</span></li><li><span class="dg-bar-name">Website</span><span class="dg-bar" style="--f:100%"></span><span class="dg-q">The whole house</span></li></ul></div></div><div class="dg-note">Outreach takes the supporting message its segment points to. The website carries the whole house. Both get checked against the same document before they ship.</div></figure>
+      </div>
+
+      <div class="ways-grid stagger">
+        <article class="way-card">
+          <div class="way-num mono">/01 · POSITIONING AUDIT</div>
+          <h3>What you say against what you show.</h3>
+          <p class="way-for">We run your public surface through a six-pass audit and rank the contradictions by severity. You get a sharpened positioning brief in a working day.</p>
+          <p class="way-shape mono">Playbook · ships in 1 working day</p>
+          <a href={url('/lens/brand/positioning-audit-pipeline/')} class="btn-ghost way-cta">Read the playbook</a>
+        </article>
+        <article class="way-card way-card-featured">
+          <div class="way-num mono"><span>/02 · MESSAGE HOUSE</span><span class="way-flag">START HERE</span></div>
+          <h3>One document sales and marketing both use.</h3>
+          <p class="way-for">We turn a positioning brief into a four-tier message house in a day, with a rebuttal sheet for the twelve hardest pushbacks your sales team hears.</p>
+          <p class="way-shape mono">Playbook · ships in 1 working day</p>
+          <a href={url('/lens/brand/message-house-generator/')} class="btn-cta way-cta">Read the playbook</a>
+        </article>
+        <article class="way-card">
+          <div class="way-num mono">/03 · LIFECYCLE JOURNEY</div>
+          <h3>Every touchpoint drafted in your voice.</h3>
+          <p class="way-for">We map a multi-segment lifecycle journey and route it by behaviour signal. It ships in a working week, in place of three weeks of agency work.</p>
+          <p class="way-shape mono">Playbook · ships in 1 working week</p>
+          <a href={url('/lens/demand/lifecycle-journey-builder/')} class="btn-ghost way-cta">Read the playbook</a>
+        </article>
+      </div>
+
+      <p class="biz-note reveal">
+        As a fractional CMO we set the marketing thesis and a 90-day plan in the first month,
+        then lead the team you have one or two days a week, with reporting to the CEO and
+        board. You can see the message house method worked through on our own product in
+        <a href={url('/blog/wattplan-messaging-hierarchy/')}>the WattPlan messaging house</a>.
+        The research behind it is in the
+        <a href={url('/lens/demand/category-entry-points/')}>category entry point playbook</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- TRACK RECORD -->
+  <section class="section section-alt biz-record dwell-pin" id="record-section">
+    <div class="dwell-pin-stage">
+      <FocusObject size={320} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 6%; right: -4%;" enterFrom="right" />
+      <div class="container">
+        <div class="eyebrow">005 · TRACK RECORD</div>
+        <h2 id="record" class="biz-h2 reveal">The track record behind this page</h2>
+        <div class="ways-grid stagger">
+          <article class="way-card">
+            <div class="way-num mono">RGT CYCLING · ACQUISITION</div>
+            <p class="result-stat">Acquired</p>
+            <h3>by Wahoo Fitness.</h3>
+            <p class="way-for">James was on the founding team at RGT Cycling, a virtual cycling platform.</p>
+          </article>
+          <article class="way-card">
+            <div class="way-num mono">BRAND · TURNAROUND</div>
+            <p class="result-stat">−65 → +45</p>
+            <h3>net promoter score.</h3>
+            <p class="way-for">Customers went from mostly unwilling to recommend the brand to recommending it.</p>
+          </article>
+          <article class="way-card">
+            <div class="way-num mono">PR · PRODUCT LAUNCH</div>
+            <p class="result-stat">160+</p>
+            <h3>media placements from a single launch.</h3>
+            <p class="way-for">You can book a launch like this as a Build &amp; Hand Over project.</p>
+          </article>
+        </div>
+        <p class="biz-note reveal">
+          The record also includes a conversion rate lifted from 20% to 45% and prompted brand
+          recall taken from 0 to 95. The same person who ran that work is the person on your
+          call. <a href={url('/about/')}>See the full track record</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO START -->
+  <section class="section biz-start" id="start-section">
+    <div class="container">
+      <div class="eyebrow">006 · HOW TO START</div>
+      <h2 id="start" class="biz-h2 reveal">How to start</h2>
+      <p class="biz-copy reveal">
+        Our recommendation for most companies reading this page is a 90-day programme, run as
+        a Fractional CMO engagement at one or two days a week. The first month audits the
+        pipeline and the position, then sets the plan. Months two and three rebuild two
+        processes with AI inside them, measured from the first week. At the end you have a
+        pipeline that runs and a message house your sales team uses, with the governance
+        written down.
+      </p>
+
+      <h3 class="biz-h3 biz-table-title reveal">Which way of working fits</h3>
+      <div class="biz-table-wrap reveal">
+        <table class="biz-table">
+          <thead>
+            <tr><th>Your situation</th><th>Way of working</th><th>Shape</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>No senior marketer in the room, or one between hires</td><td><strong>Fractional CMO</strong>, our recommendation</td><td>1–2 days a week, three-month minimum</td></tr>
+            <tr><td>A marketing team with nobody senior steering it</td><td>Strategic Advisor</td><td>1–2 days a month, on a day rate or retainer</td></tr>
+            <tr><td>One piece of work to ship, such as the prospecting pipeline</td><td>Build &amp; Hand Over</td><td>Fixed price for a fixed scope, most builds 4–12 weeks</td></tr>
+            <tr><td>The output of the AI workflows, with no tool to learn</td><td>Manual Focus AI</td><td>Monthly retainer, three-month minimum</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="biz-note reveal">The four ways of working are described in full on the <a href={url('/services/')}>services page</a>.</p>
+    </div>
+  </section>
+
+  <!-- CTA CLOSE -->
+  <section class="section cta-close dwell-pin">
+    <div class="dwell-pin-stage">
+      <FocusObject size={520} tiltX={60} tiltY={-20} spin={160} scrollSpin={100} style="top: -100px; left: -120px;" enterFrom="left" />
+      <FocusObject size={360} tiltX={50} tiltY={25} spin={-130} scrollSpin={-90} style="bottom: -80px; right: -60px;" enterFrom="right" />
+      <div class="container cta-close-inner">
+        <h2 class="cta-headline reveal">
+          Book a free<br/>
+          <span class="gradient-text">working session</span>
+        </h2>
+        <p class="cta-sub reveal">Bring it and we'll work out the shape of the work in 30 minutes.</p>
+        <ol class="cta-steps stagger">
+          <li><span class="mono">01</span> We meet for a free 30-minute working session</li>
+          <li><span class="mono">02</span> You get a written scope with the cost before anything starts</li>
+          <li><span class="mono">03</span> Work starts, with a plan in the first month</li>
+        </ol>
+        <a href={contact('fractional-cmo')} class="btn-cta reveal">Book a free working session</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ============================
+     HERO. Same pattern as the Lens hero: a dwell-pinned stage with
+     two rings, copy lifted above them.
+     ============================ */
+  .biz-hero-inner .reveal { opacity: 1; transform: none; }
+  .biz-hero-inner { position: relative; z-index: 3; }
+  .biz-headline {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-top: var(--space-sm);
+    color: var(--color-text);
+  }
+  .biz-lead {
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    max-width: 60ch;
+    margin-top: var(--space-md);
+  }
+  .biz-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+  .biz-meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    margin-top: var(--space-md);
+  }
+
+  /* ============================
+     STATEMENTS AND COPY
+     ============================ */
+  .big-statement {
+    font-size: clamp(2.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    max-width: 1100px;
+    position: relative;
+    z-index: 2;
+  }
+  .biz-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    max-width: 90ch;
+    position: relative;
+    z-index: 2;
+  }
+  .biz-grid p {
+    font-size: var(--font-size-body);
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+  .biz-grid-wide { max-width: none; margin-top: var(--space-lg); }
+  @media (min-width: 768px) {
+    .biz-grid { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+  }
+
+  .biz-strand { overflow: hidden; }
+  .biz-strand > .container { position: relative; z-index: 2; }
+  .biz-h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    max-width: 1000px;
+    position: relative;
+    z-index: 2;
+  }
+  .biz-h3 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    margin-bottom: var(--space-xs);
+  }
+  .biz-copy {
+    margin-top: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .biz-body {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+  .biz-body a,
+  .biz-note a,
+  .biz-table a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-cta-start);
+    text-underline-offset: 0.2em;
+  }
+  .biz-note {
+    margin-top: var(--space-md);
+    color: var(--color-text-secondary);
+    max-width: 760px;
+    line-height: 1.6;
+  }
+
+  /* Diagram figures reuse diagrams.css. The wrapper carries the
+     .post-content hook the stylesheet keys off. */
+  .biz-figure { margin-top: var(--space-lg); max-width: 1000px; }
+  .biz-figure :global(.dg) { margin: 0; }
+
+  /* ============================
+     CARDS. The home page's way-card grid.
+     ============================ */
+  .ways-grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  .way-card {
+    position: relative;
+    padding: var(--space-md);
+    background: var(--color-bg);
+    transition: background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .section-alt .way-card { background: var(--color-bg-alt); }
+  .way-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 50% at 0% 0%, rgba(255, 45, 120, 0.08), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .way-card:hover::before { opacity: 1; }
+  .way-card:hover .way-cta { transform: translateX(4px); }
+  .way-cta { transition: transform 0.3s ease; }
+  .way-card > * { position: relative; z-index: 1; }
+  .way-flag {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-cta-start);
+    color: var(--color-cta-start);
+    border-radius: 999px;
+    background: rgba(255, 45, 120, 0.06);
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .way-num {
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.12em;
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+  .way-card h3 {
+    font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+    margin-bottom: var(--space-xs);
+  }
+  .way-for {
+    color: var(--color-text);
+    font-size: var(--font-size-body);
+    font-style: italic;
+    margin-bottom: var(--space-md);
+    flex: 1;
+  }
+  .way-shape {
+    color: var(--color-text);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .way-cta {
+    margin-top: var(--space-sm);
+    align-self: flex-start;
+    font-size: 0.75rem;
+    padding: 0.5rem 1.1rem;
+  }
+  @media (min-width: 1024px) {
+    .ways-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Results cards, as on the home page */
+  .biz-record .ways-grid { margin-top: var(--space-md); }
+  .result-stat {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+    background: var(--color-cta-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .biz-record .way-for { flex: 0; margin-bottom: 0; }
+
+  /* ============================
+     TABLES. The situation table from The Lens start page.
+     ============================ */
+  .biz-table-title { margin-top: var(--space-lg); }
+  .biz-table-wrap { max-width: 1000px; overflow-x: auto; }
+  .biz-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-sm) 0 0;
+    font-size: var(--font-size-body);
+  }
+  .biz-table th,
+  .biz-table td {
+    border-bottom: 1px solid var(--color-line);
+    padding: 0.75rem;
+    text-align: left;
+    color: var(--color-text-secondary);
+    vertical-align: top;
+  }
+  .biz-table th {
+    color: var(--color-text);
+    font-weight: 600;
+    background: var(--color-bg-alt);
+    font-size: 0.85rem;
+  }
+  .biz-table strong { color: var(--color-text); }
+  @media (max-width: 768px) {
+    .biz-table th,
+    .biz-table td { padding: 0.6rem 0.4rem; font-size: 0.85rem; }
+  }
+
+  /* Link list for the second strand */
+  .biz-links {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) 0 0;
+    max-width: 760px;
+    display: grid;
+    gap: var(--space-xs);
+  }
+  .biz-links li {
+    color: var(--color-text-secondary);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .biz-links li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--color-cta-start);
+    font-weight: 700;
+  }
+  .biz-links a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-cta-start);
+    text-underline-offset: 0.2em;
+  }
+
+  /* ============================
+     CTA CLOSE, as on the home page
+     ============================ */
+  .cta-close {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .cta-close-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    position: relative;
+    z-index: 2;
+  }
+  .cta-headline {
+    font-size: clamp(2rem, 6vw, 5rem);
+    max-width: 1100px;
+    line-height: 1;
+  }
+  .cta-sub {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    max-width: 540px;
+  }
+  .cta-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-xs);
+    text-align: left;
+  }
+  .cta-steps li {
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+  }
+  .cta-steps .mono {
+    color: var(--color-cta-start);
+    margin-right: var(--space-xs);
+  }
+
+  /* ============================
+     DWELL-PIN. The same sticky stage the home page uses: the section
+     is the stage's height plus a trailer, the stage pins for the
+     length of the trailer, then releases.
+     ============================ */
+  .section.dwell-pin,
+  .dwell-pin {
+    padding-block: 0;
+    position: relative;
+    background: var(--color-bg);
+    overflow: visible;
+  }
+  .dwell-pin::after {
+    content: "";
+    display: block;
+    height: 50vh;
+    background: inherit;
+  }
+  .dwell-pin-stage {
+    position: sticky;
+    top: 0;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-lg);
+    width: 100%;
+    background: var(--color-bg);
+    overflow: hidden;
+  }
+  .dwell-pin-stage > .container { width: 100%; }
+  .section.section-alt.dwell-pin,
+  .section.section-alt.dwell-pin .dwell-pin-stage {
+    background: var(--color-bg-alt, var(--color-bg));
+  }
+
+  @media (max-width: 768px) {
+    .section { overflow-x: clip; }
+    .section.dwell-pin::after { height: 80vh; }
+    .big-statement { font-size: clamp(1.875rem, 9vw, 3rem); }
+    .biz-h2 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+    .cta-headline { font-size: clamp(1.75rem, 8vw, 3rem); }
+    .biz-copy { font-size: 1rem; }
+    .way-num { flex-wrap: wrap; row-gap: 0.5rem; }
+    .btn-cta, .btn-ghost { padding: 0.85rem 1.4rem; font-size: 0.85rem; }
+    .way-cta { padding: 0.6rem 1.2rem; }
+  }
+  @media (min-width: 769px) and (max-width: 1100px) {
+    .big-statement { font-size: clamp(2.25rem, 6vw, 3.5rem); }
+    .cta-headline { font-size: clamp(2rem, 5.5vw, 3.25rem); }
+  }
+</style>
