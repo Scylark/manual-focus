@@ -19,10 +19,13 @@ const contact = (offer = '') => (offer ? `${url('/contact/')}?offer=${offer}` : 
 const record = [
   { value: '£150M+', label: 'in assets under management, in a qualified B2B pipeline James built from cold outreach' },
   { value: 'Millions', word: true, label: 'in partnership revenue, from high-profile fintech partnerships James negotiated and closed' },
-  { value: '$400M', label: 'crypto project, with James leading the marketing' },
-  { value: 'Acquired', word: true, label: 'RGT Cycling by Wahoo Fitness, with James on the founding team' },
+  { value: '$400M', label: 'digital asset project, with James leading the marketing' },
+  { value: 'Acquired', word: true, label: 'the technology company James co-founded, bought by global fitness brand Wahoo' },
+  { value: '1.5M+', label: 'end users behind the financial institutions that signed letters of intent in a pipeline James ran' },
+  { value: '109M', label: 'potential audience for one product launch, picked up by 119 outlets including the Associated Press' },
+  { value: '100+', label: 'brand partnerships behind a single growth model' },
   { prefix: '−65 →', value: '+45', label: 'net promoter score, in a brand turnaround' },
-  { value: '160+', label: 'media placements from a single product launch' },
+  { value: '$4.5M', label: 'funding round, supported by the go-to-market James built' },
 ];
 
 // One example per strand. Every figure comes from James's own record.
@@ -31,11 +34,12 @@ const cases = [
     tag: '01 · B2B PROSPECTING',
     name: 'Motif',
     title: 'A B2B pipeline for an AI wealth advisory.',
-    body: 'Motif is a Swiss AI wealth advisory that sells to financial institutions. James runs its marketing and its B2B pipeline as fractional CMO. He moved the company to B2B outreach, with AI supporting the work, so a small team could cover the whole market.',
+    body: 'Motif is a Swiss AI wealth advisory backed by Liminal, the venture group founded by Temasek. James runs its marketing and its B2B pipeline as fractional CMO. He took the company into B2B outreach with AI supporting the work, then launched its Clarity system on the wire to 119 outlets, the Associated Press among them.',
     stats: [
       { n: '1,000+', l: 'fintech organisations contacted' },
-      { n: '7', l: 'entities in negotiation' },
-      { n: '30', l: 'active prospects in the pipeline' },
+      { n: '£150M+', l: 'in assets under management under negotiation' },
+      { n: '1.5M+', l: 'end users behind signed letters of intent' },
+      { n: '109M', l: 'potential audience for the launch' },
     ],
     href: '#prospecting',
     link: 'How the prospecting works',
@@ -43,8 +47,8 @@ const cases = [
   {
     tag: '02 · SALES AND MARKETING LEADERSHIP',
     name: 'Haven',
-    title: 'Marketing leadership for a privacy-focused crypto project.',
-    body: 'Haven is a privacy-focused crypto project worth $400M. James led its marketing, in a category where buyers need the product explained before they will trust it.',
+    title: 'Marketing leadership for a $400M digital asset project.',
+    body: 'Haven is a privacy-focused digital asset project worth $400M. James led its marketing, in a category where buyers need the product explained before they will trust it.',
     stats: [
       { n: '$400M', l: 'project value' },
     ],
@@ -54,12 +58,13 @@ const cases = [
   {
     tag: '03 · AI FOR EXECUTIVES AND BUSINESS PROCESS',
     name: 'Pyramid',
-    title: 'A company memory the whole business can ask.',
-    body: "Pyramid is a UK motorcycle accessory brand founded in 1986. Its staff ask the Oracle a question in Slack and get an answer from live Shopify and Odoo data. Pyramid's own developer built much of it and owns the repository, so nothing depends on us.",
+    title: 'A company-wide AI assistant on live data.',
+    body: "Pyramid is a global motorcycle retailer with more than 25,000 products. Its staff ask the Oracle, a company-wide AI assistant, a question in their internal messaging app. It answers from live store and ERP data. Pyramid's own developer built much of it and owns the repository, so nothing depends on us.",
     stats: [
       { n: '1 day', l: 'from nothing to answering real questions' },
       { n: '6', l: 'data sources loading every night' },
       { n: '5', l: 'live dashboards' },
+      { n: '41', l: 'automated test files behind its rules' },
     ],
     href: '#executives',
     link: 'How the AI programmes run',
@@ -84,9 +89,10 @@ const cases = [
             <em class="gradient-text">with AI doing the heavy lifting.</em>
           </h1>
           <p class="scene-lead">
-            Manual Focus is a Sheffield team of senior operators. James Vickers has built
-            multi-million dollar sales pipelines and closed high-profile fintech partnerships
-            worth millions in revenue. We bring that to your company, with AI doing the
+            Manual Focus is a senior sales and marketing team led by James Vickers. He has
+            built multi-million dollar sales pipelines and closed high-profile fintech
+            partnerships worth millions in revenue. The technology company he co-founded was
+            bought by a global brand. We bring that record to your company, with AI doing the
             research and the process work.
           </p>
           <div class="scene-ctas">
@@ -149,9 +155,10 @@ const cases = [
       <div class="eyebrow">TRACK RECORD</div>
       <h2 id="record" class="biz-h2 reveal">Track record</h2>
       <p class="biz-copy reveal">
-        James Vickers has spent 15+ years leading sales and marketing from inside companies
-        in AI and fintech. He built these pipelines himself, which is who you get on the
-        call.
+        James Vickers has spent 15+ years leading sales and marketing inside technology
+        companies, most recently in AI and fintech. He is a member of the Chartered Institute
+        of Marketing and of the Chartered Institute of Public Relations. He built these
+        pipelines himself, which is who you get on the call.
       </p>
       <div class="numbers-grid stagger">
         {record.map((r) => (
@@ -166,7 +173,7 @@ const cases = [
       </div>
       <p class="biz-note reveal">
         James now advises companies that use AI to manage people's wealth, while Manual Focus
-        runs AI efficiency programmes inside SMEs. <a href={url('/about/')}>See the full track record</a>
+        runs an AI efficiency programme for a global motorcycle retailer. <a href={url('/about/')}>See the full track record</a>
       </p>
     </div>
   </section>
@@ -308,22 +315,23 @@ const cases = [
       <div class="eyebrow">03 · AI FOR EXECUTIVES AND BUSINESS PROCESS</div>
       <h2 id="executives" class="biz-h2 reveal">AI for executives and business process</h2>
       <p class="biz-copy reveal">
-        Manual Focus runs AI efficiency programmes inside SMEs. The work is phased and priced
+        Manual Focus runs AI efficiency programmes, including one for a global motorcycle
+        retailer. The work is phased and priced
         with a decision gate between phases, so you can stop at any point and keep everything
         built so far. We start with the questions executives ask every week,
         then build the process that answers them.
       </p>
 
       <div class="post-content biz-figure reveal">
-        <figure class="dg dg-trace-fig"><div class="dg-head"><span class="dg-kicker">AI for executives · how a programme runs</span><span class="dg-title">From the question to the process</span></div><div class="dg-trace"><div class="dg-trace-head"><span class="dg-label">The question an exec asks</span><span class="dg-label">The process underneath</span><span class="dg-label">What we install</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>What sold this week, by channel?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>A weekly report assembled by hand from three systems</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>An assistant in Slack that answers from the live data, read only</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Where did last quarter go?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Five status reports in five formats</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A quarterly synthesis the board reads, in two hours instead of two days</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Can we trust what the AI says?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Nobody owns the rules</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>Governance in code. Read-only access, with no AI approving its own change</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Which process do we automate first?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Whichever vendor demoed last</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A 90-day plan that rebuilds two workflows, measured weekly</span></div></div><div class="dg-note">Every row starts from a question an executive already asks, which is where the first phase of a programme begins.</div></figure>
+        <figure class="dg dg-trace-fig"><div class="dg-head"><span class="dg-kicker">AI for executives · how a programme runs</span><span class="dg-title">From the question to the process</span></div><div class="dg-trace"><div class="dg-trace-head"><span class="dg-label">The question an exec asks</span><span class="dg-label">The process underneath</span><span class="dg-label">What we install</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>What sold this week, by channel?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>A weekly report assembled by hand from three systems</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>An assistant in your internal messaging app that answers from the live data, read only</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Where did last quarter go?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Five status reports in five formats</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A quarterly synthesis the board reads, in two hours instead of two days</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Can we trust what the AI says?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Nobody owns the rules</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>Governance in code. Read-only access, with no AI approving its own change</span></div><div class="dg-trace-row"><span class="dg-cell dg-t1"><span class="dg-label">The question</span>Which process do we automate first?</span><span class="dg-cell dg-t2"><span class="dg-label">The process</span>Whichever vendor demoed last</span><span class="dg-cell dg-t3"><span class="dg-label">What we install</span>A 90-day plan that rebuilds two workflows, measured weekly</span></div></div><div class="dg-note">Every row starts from a question an executive already asks, which is where the first phase of a programme begins.</div></figure>
       </div>
 
       <div class="biz-grid biz-grid-wide">
         <div class="reveal">
           <h3 class="biz-h3">Governance written in code</h3>
           <p class="biz-body">
-            The Oracle at Pyramid can only read. Its Odoo calls are limited to read-only
-            methods, while the code rejects any Shopify credential whose scope goes beyond
+            The Oracle at Pyramid can only read. Its calls to the ERP are limited to read-only
+            methods, while the code rejects any store credential whose scope goes beyond
             read. Tests prove a write gets refused before any request is sent. It stores
             aggregates rather than customer records. Whatever it retrieves counts as
             evidence, never as instruction. No AI assistant can approve or merge its own
