@@ -29,6 +29,7 @@ export async function GET(context: APIContext) {
     '## Working with Manual Focus',
     '',
     `- [Services](${site}/services/): the four ways to work with us, including Fractional CMO`,
+    `- [For business](${site}/business/): sales and marketing leadership for B2B and corporate companies outside sport, with AI built into prospecting and business process`,
     `- [Light Meter](${site}/light-meter/): AI visibility studies that show which brands AI recommends`,
     `- [About](${site}/about/): James Vickers and the Foundry collective`,
     `- [FAQ](${site}/faq/): how engagements work`,
