@@ -157,7 +157,7 @@ const cases = [
 
   <!-- TRACK RECORD -->
   <section class="section section-alt biz-record" id="record-section">
-    <FocusObject size={300} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 4%; right: -3%;" enterFrom="right" />
+    <FocusObject size={220} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 40px; right: 1%;" enterFrom="right" />
     <div class="container">
       <div class="eyebrow">TRACK RECORD</div>
       <h2 id="record" class="biz-h2 reveal">Track record</h2>
@@ -214,7 +214,7 @@ const cases = [
 
   <!-- STRAND 1 · B2B PROSPECTING -->
   <section class="section biz-strand" id="prospecting-section">
-    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 4%; right: 2%;" enterFrom="right" />
+    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 96px; right: 2%;" enterFrom="right" />
     <div class="container">
       <div class="eyebrow">01 · B2B PROSPECTING</div>
       <h2 id="prospecting" class="biz-h2 reveal">B2B prospecting with AI research in the loop</h2>
@@ -264,7 +264,7 @@ const cases = [
 
   <!-- STRAND 2 · SALES AND MARKETING LEADERSHIP -->
   <section class="section section-alt biz-strand" id="leadership-section">
-    <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 3%;" enterFrom="right" />
+    <FocusObject size={260} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 96px; right: 2%;" enterFrom="right" />
     <div class="container">
       <div class="eyebrow">02 · SALES AND MARKETING LEADERSHIP</div>
       <h2 id="leadership" class="biz-h2 reveal">Corporate sales and marketing leadership</h2>
@@ -375,7 +375,7 @@ const cases = [
 
   <!-- STRAND 3 · AI FOR EXECUTIVES AND BUSINESS PROCESS -->
   <section class="section biz-strand" id="executives-section">
-    <FocusObject size={300} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 6%; left: -4%;" enterFrom="left" />
+    <FocusObject size={260} tiltX={58} tiltY={-12} spin={180} scrollSpin={60} style="top: 96px; right: 2%;" enterFrom="right" />
     <div class="container">
       <div class="eyebrow">03 · AI FOR EXECUTIVES AND BUSINESS PROCESS</div>
       <h2 id="executives" class="biz-h2 reveal">AI for executives and business process</h2>
@@ -666,6 +666,16 @@ const cases = [
     .scene-h2 { font-size: clamp(1.6rem, 6vh, 3.25rem); }
     .scene-copy { font-size: clamp(0.95rem, 2.5vh, 1.2rem); margin-top: var(--space-sm); }
     .scene-link { margin-top: var(--space-sm); }
+  }
+  /* Short desktop windows, such as a browser sharing the screen with
+     other apps. The hero takes the short lead so the scene still pins. */
+  @media (max-height: 700px) and (min-width: 768px) {
+    .lead-full { display: none; }
+    .lead-short { display: inline; }
+    .scene .eyebrow { margin-bottom: var(--space-sm); }
+    .scene-lead { margin-top: var(--space-sm); }
+    .scene-ctas { margin-top: 1.25rem; }
+    .scene-ctas .btn-cta, .scene-ctas .btn-ghost { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
   }
 
   /* ============================
@@ -1080,18 +1090,26 @@ const cases = [
   }
   .biz-table th,
   .biz-table td {
-    border-bottom: 1px solid var(--color-line);
-    padding: 0.75rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 16%, transparent);
+    padding: 0.85rem 0.75rem;
     text-align: left;
-    color: var(--color-text-secondary);
+    /* Full text colour, a touch softened. The secondary grey was too dim
+       for a table people read line by line. */
+    color: color-mix(in srgb, var(--color-text) 86%, transparent);
+    line-height: 1.5;
     vertical-align: top;
   }
   .biz-table th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     color: var(--color-text);
-    font-weight: 600;
-    background: var(--color-bg-alt);
-    font-size: 0.85rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 45%, transparent);
+    padding-bottom: 0.65rem;
   }
+  .biz-table td:first-child { color: var(--color-text); font-weight: 600; }
   .biz-table strong { color: var(--color-text); }
 
   /* Link list for the second strand */
@@ -1221,16 +1239,12 @@ const cases = [
     .num-prefix { font-size: 0.95rem; }
     .number-label { margin-top: 0.5rem; font-size: 0.82rem; line-height: 1.4; }
 
-    /* The rings sit behind dense copy on a phone, so they go. The scene
-       above carries the motion. */
-    .biz-strand :global(.focus-object),
-    .biz-record :global(.focus-object) { display: none; }
 
     /* Tables read as stacked entries, each cell under its own label. */
     .biz-table-wrap { overflow: visible; }
     .biz-table thead { display: none; }
     .biz-table, .biz-table tbody, .biz-table tr, .biz-table td { display: block; }
-    .biz-table tr { padding: 0.95rem 0; border-bottom: 1px solid var(--color-line); }
+    .biz-table tr { padding: 0.95rem 0; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 16%, transparent); }
     .biz-table td { border: 0; padding: 0; font-size: 0.95rem; line-height: 1.45; }
     .biz-table td:first-child { color: var(--color-text); font-weight: 600; font-size: 1rem; }
     .biz-table td[data-label] { margin-top: 0.55rem; }
@@ -1241,12 +1255,19 @@ const cases = [
       font-size: 0.6rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--color-text-muted);
+      color: var(--color-text-secondary);
       margin-bottom: 0.1rem;
     }
 
     .case-name { font-size: 2.4rem; }
     .way-card { padding: 1.5rem 1.25rem; }
+  }
+  /* The rings in the detail sections only show where there is clear
+     space beside the copy. On anything narrower they would sit behind the
+     text and wash it out. */
+  @media (max-width: 1399px) {
+    .biz-strand :global(.focus-object),
+    .biz-record :global(.focus-object) { display: none; }
   }
   @media (min-width: 769px) and (max-width: 1100px) {
     .cta-headline { font-size: clamp(2rem, 5.5vw, 3.25rem); }
