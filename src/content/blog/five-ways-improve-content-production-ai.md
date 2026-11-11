@@ -1,81 +1,144 @@
 ---
 title: "Five practical ways to improve content production with AI"
 date: 2026-04-23
-updated: 2026-09-27
+updated: 2026-11-11
 tags: ["ai", "productivity", "marketing-strategy"]
-description: "Use AI for research, an operational brand-voice prompt, briefs before drafts, built-in repurposing and a weekly feedback loop to lift content output."
+description: "Five workflow changes for AI content production, from moving research to the model to a weekly feedback loop, with the brand-voice prompt built first."
+howToName: "Improve content production with AI"
+howToSteps:
+  - name: "Move research to the model"
+    text: "Have the model fill a reusable research template with the sources and the views that contradict your angle. Spend the time saved on the angle, which stays with a person."
+  - name: "Build an operational voice prompt"
+    text: "Write a brand-voice prompt built on three on-brand paragraphs and three annotated near misses. Add the words your team bans, then paste it into every brief."
+  - name: "Brief before anyone drafts"
+    text: "Use the model to write a brief that fixes the angle and the structure. A person or a second model then drafts against that brief."
+  - name: "Build repurposing into production"
+    text: "Ship every long-form piece with five to ten short-form versions in the same week. Give each format its own template and QA checklist."
+  - name: "Review performance weekly"
+    text: "Pull traffic and conversion data on every piece into one view each week. The model summarises the patterns and a senior person decides what changes."
+faq:
+  - question: "How can AI improve content production for a marketing team?"
+    answer: "AI helps most when a marketing team rebuilds its content workflow around the model. The model handles the research at the front of each piece and drafts the brief, while people keep the angle and the final edit. Repurposing every long-form piece into short formats and reviewing performance weekly turn the extra output into a better programme."
+  - question: "What should a brand-voice prompt include?"
+    answer: "A working brand-voice prompt includes three paragraphs of on-brand writing the team is proud of and three close-but-not-quite drafts annotated with what's wrong. Add the specific words and punctuation your team bans, plus the structural patterns you do use, such as opening with the counter-take. Adjectives like \"confident and clear\" give a model nothing to work with, so examples do the work."
+  - question: "Should AI write the first draft or the brief?"
+    answer: "Use AI to write the brief first. A brief that fixes the angle and the structure gives whoever drafts, a person or a second model with its own prompt, something specific to write against. That cuts editing time because the draft no longer starts from a one-line request. It also lets several drafters work from one brief at once without pulling in different directions."
+  - question: "How many pieces should one blog post be repurposed into?"
+    answer: "Plan for five to ten short-form versions of every long-form piece, shipped in the same week. Typical formats include a LinkedIn breakdown and a 90-second video script, each built from its own template with a voice prompt and a QA checklist. The model drafts each version from the finished post in minutes, then an editor checks the brand fit before anything ships."
+  - question: "Does Google penalise content made with AI?"
+    answer: "Google says appropriate use of AI or automation is not against its guidelines. Its February 2023 guidance on AI-generated content says Google focuses on the quality of content rather than how it is produced, while content generated mainly to manipulate rankings breaks its spam policies. A workflow where people own the angle and the final edit fits that guidance."
+sources:
+  - title: "Google Search's guidance about AI-generated content"
+    url: "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+    publisher: "Google Search Central"
+  - title: "Gemini Deep Research, your personal research assistant"
+    url: "https://gemini.google/overview/deep-research/"
+    publisher: "Google"
+  - title: "Claude takes research to new places"
+    url: "https://claude.com/blog/research"
+    publisher: "Anthropic"
 ---
 
-Most "AI for content" advice is junk. It either treats the model like a magic blog-writer (which it isn't) or buries the practical bit under hype about agentic workflows (which mostly aren't real yet either). This is the middle ground, five workflow changes that are specific and hands-on and built around the fact that you still have to ship work that doesn't look like everyone else's.
+You improve content production with AI by changing the workflow around the model, so it handles the research and the repurposing while people keep the angle and the final edit. Five changes cover it, from research to a weekly feedback loop. Build the brand-voice prompt first, because the other four depend on drafts that sound like you.
 
-Treat them as operating changes rather than tips. If you take them seriously, your content function looks different inside a quarter.
+## Key takeaways
 
-## 1. Move the research load to the model, keep the synthesis with humans
+- Give the research at the front of each piece to the model and keep the angle with a person, because choosing it is the editorial judgement a model can't make.
+- A usable brand-voice prompt pairs three on-brand paragraphs with three annotated near misses, which turns a tone-of-voice document into something every brief enforces.
+- Briefing with AI before anyone drafts cuts editing time, because the draft is written against a fixed angle and structure instead of a one-line request.
+- Every long-form piece should ship with five to ten short-form versions in the same week, each built from its own template.
+- A weekly performance review, with the model summarising and a senior person deciding, replaces a quarterly review whose lessons arrive too late.
 
-The slowest part of most content production is the research at the front. Reading the white papers, summarising the competitive set, pulling together the data, finding the quotes. That work used to eat a large share of the time on any decent piece.
+Most "AI for content" advice is junk, because it either treats the model like a magic blog-writer or buries the practical part under hype about agents. These five changes sit between the two, built for teams that still have to ship work that doesn't look like everyone else's. If you treat them as operating changes rather than tips, your content function looks different inside a quarter.
 
-AI is genuinely good at this layer. Tools like Claude, Gemini, ChatGPT and the deeper-research variants can read dozens of sources in minutes and surface the relevant claims, contradictions and gaps. What they're not good at is deciding what the piece is actually about, which is the synthesis layer, the editorial judgement that turns a pile of research into a point of view.
+## Move research to the model
 
-So the move is, the model does the research and the human does the angle. That can cut the front of every piece to a fraction of the time, and the quality of the angle gets better because the human is starting from a richer pile of inputs.
+The slowest part of most content production is the research at the front, reading the white papers and summarising the competitive set. That work used to eat a large share of the time on any decent piece.
 
-What this looks like in practice. Set up a research template you reuse (brief, sources, competitive context, contradicting opinions). Have the model pull all of that before you sit down to write or brief. Spend the time you saved on the harder editorial calls, the actual argument, the pull-quote, the headline.
+AI is good at this layer. Google says [Gemini Deep Research](https://gemini.google/overview/deep-research/) can browse hundreds of websites and turn them into a multi-page report in minutes, while [Claude's Research mode](https://claude.com/blog/research) runs searches that build on each other and cites what it finds. These tools are poor at deciding what the piece is about, which is the synthesis layer, the editorial judgement that turns a pile of research into a point of view.
 
-Teams that get this right are producing genuinely sharper content faster rather than generic content faster, because the output looks different when the input is different.
+So the model does the research and the human does the angle. That can cut the front of every piece to a fraction of the time. The angle gets better too, because the human starts from a richer pile of inputs.
 
-## 2. Build a brand-voice prompt that your team actually uses
+In practice, set up a reusable research template that covers the sources and the views that contradict your angle. Have the model fill it before you sit down to write or brief, then spend the time you saved on the harder editorial calls, such as the argument and the headline.
 
-Every brand has a tone of voice doc and almost no team uses it. AI changes the economics here because you can encode the voice in a prompt that gets pasted into every brief, and suddenly the doc is enforced by default.
+Teams that get this right produce sharper content faster, because the output looks different when the input is different.
 
-The trick is the prompt has to be operational, not theoretical. "Our voice is confident and clear" is useless. The prompt that works includes three positive examples (paragraphs of actual on-brand content the team is proud of), three negative examples (close-but-not-quite drafts annotated with what's wrong), specific bans (em dashes, "delve", "leverage" as a verb, whatever your team's tells are) and specific structural patterns you do use, like "we open with the counter-take, then the substance".
+## How do you build a brand-voice prompt?
 
-Get this prompt right once and every piece of AI-assisted drafting starts from a stronger floor. You'll still need a human edit at the end, but the gap between draft and finished version shrinks dramatically.
+Most brands have a tone of voice document that almost no one on the team uses. AI changes the economics because you can encode the voice in a prompt that goes into every brief, so the document is enforced by default.
 
-Worth saying out loud, this only works if the brand voice is actually distinctive, because if your voice is just "professional and helpful" you have a positioning problem, not a content problem. (The [brand voice extraction](/lens/brand/brand-voice-extraction/) playbook in The Lens builds this prompt, and a scoring rubric, from your best writing.)
+The prompt has to be operational. A line like "Our voice is confident and clear" gives a model nothing to work with. The prompt that works includes four things.
 
-## 3. Stop drafting first, brief first
+- Three positive examples, paragraphs of on-brand content the team is proud of.
+- Three negative examples, close-but-not-quite drafts annotated with what's wrong.
+- Specific bans for your team's tells, such as em dashes or a stock word like "seamless".
+- The structural patterns you do use, like "we open with the counter-take, then the substance".
+
+Get this prompt right once and every piece of AI-assisted drafting starts from a stronger floor. You'll still need a human edit at the end, which suits Google's [guidance on AI-generated content](https://developers.google.com/search/blog/2023/02/google-search-and-ai-content) that quality counts for more than how a piece was made. The gap between draft and finished version shrinks a long way.
+
+This only works if the brand voice is distinctive. If your voice is "professional and helpful", you have a positioning problem to solve before a content one. The [brand voice extraction](/lens/brand/brand-voice-extraction/) playbook in The Lens builds this prompt and a scoring rubric from your best writing.
+
+## Briefs before drafts
 
 Most teams use AI to draft a piece, then edit. The better order is to use AI to brief the piece, then have a human (or a different model with a different prompt) draft.
 
-A good AI-generated brief includes the angle, the structure, the must-include points, the audience, the calls to action, the success metric, the related links and the SEO/AEO frame. That brief is then drafted from, by whoever, human or model, but the drafting is constrained by a real brief rather than a vibe.
+A good AI-generated brief fixes the angle and the structure before anyone writes a word. Whoever drafts from it, human or model, works against a real brief rather than a vibe.
 
-This change alone can cut editing time sharply, because the draft is being produced against something specific instead of "write me a blog post about X". It also makes parallel production work, because multiple drafters can work from the same brief at the same time without going in different directions.
+This change alone can cut editing time sharply, because the draft is written against something specific instead of "write me a blog post about X". It also lets several drafters work from one brief at once without going in different directions. The [eval-gated drafting](/lens/content/eval-gated-drafting/) playbook starts from a structured brief like this and scores each draft before an editor sees it.
 
 Your senior people should be writing briefs more than they're editing drafts, because the marginal value of their time is higher there.
 
-## 4. Treat repurposing as a first-class workflow, not an afterthought
+## Build repurposing into production
 
-Every piece of long-form content should ship with five to ten short-form derivatives in the same week. One blog post becomes a LinkedIn breakdown thread, a 90-second video script, an email newsletter version, a series of standalone graphics, a podcast talking-point doc, a sales enablement one-pager, an FAQ entry on the site.
+Every piece of long-form content should ship with five to ten short-form derivatives in the same week. One blog post might become a LinkedIn breakdown and a 90-second video script, with more formats behind them.
 
-Without AI this is genuinely expensive to do well, but with AI it's table stakes. The piece is already written so the model can produce drafts of all of these in minutes, and a human editor takes them to ship-ready in hours.
+Without AI this is expensive to do well. With AI it's table stakes, because the model drafts every version from the finished piece in minutes and a human editor takes them to ship-ready in hours.
 
-The teams getting compounding return out of content aren't writing more content, they're writing the same content and shipping it into more places in more shapes. Repurposing should not be a thing your team does when there's spare time, it should be in the production workflow by default, with templates for each format.
+The teams getting a compounding return from content write the same amount and ship each piece into more places in more shapes. Repurposing belongs in the production workflow by default, with a template for each format, rather than in whatever spare time the team has.
 
-What the templates look like in practice. Each format has its own brand-voice prompt (see point 2), its own structural pattern, and its own QA checklist. The model handles the transform and the human checks the brand fit. (The [social content factory](/lens/content/social-content-factory/) playbook sets up per-channel templates and checks like these.)
+Each format gets its own brand-voice prompt and QA checklist. The model handles the transform and the human checks the brand fit. The [social content factory](/lens/content/social-content-factory/) playbook sets up per-channel templates and checks like these.
 
-## 5. Build the feedback loop into the workflow, not the quarterly review
+## How often should you review content?
 
-AI lets you produce more but the bottleneck moves to "which of this is working". Most content teams check performance quarterly, by which time the lessons are stale. With AI in the production loop you can check weekly without it being a workload.
+Review every piece weekly. AI lets you produce more, so the bottleneck moves to knowing which of it is working. Most content teams check performance quarterly, by which time the lessons are stale, but with AI in the loop a weekly check stops being a workload.
 
-The minimum.
+The minimum loop has three parts.
 
-Pull traffic, engagement and conversion data on every piece weekly into one view (Looker, a Notion DB, a spreadsheet, pick anything that's actually maintained).
+1. Pull traffic and conversion data on every piece into one view each week, in any tool the team keeps up to date.
+2. Tag each piece by format and topic.
+3. Have the model summarise what's working and what should change, then let the senior person read the summary and make the call.
 
-Tag each piece by format, topic and structural pattern.
+This loop is the difference between a team that compounds and one that only produces. Six weeks in, you're writing the content that works for your audience instead of the content everyone else writes.
 
-Each week the model summarises what's working, what's not, and what should change next, and the senior person reads the summary and makes the call.
+## What changes if you do all five?
 
-This loop, run weekly, is what separates teams that compound from teams that just produce. The model handles the data aggregation and pattern-spotting and the human handles the strategic adjustment. Six weeks in you're not writing the same content as everyone else, you're writing the content that works for your specific audience.
+A team that ships these five changes can end the quarter producing much more content than it did at the start, at the same or better brand quality and in less time per piece. How much more depends on where you start. [Building content engines that compound](/blog/building-content-engines-that-compound/) sets out the wider system this workflow sits inside.
 
-## What changes if you do all five
+The model and the team split the work like this.
 
-A team that ships these five changes can end the quarter producing much more content than it did at the start, at the same or better brand quality, with better attribution and less time per piece, though how much more depends on where you start. (For the wider system this production workflow sits inside, see [building content engines that compound](/blog/building-content-engines-that-compound/), because the engine is what turns higher production into compounding return.)
+| Change | The model does | People do |
+|---|---|---|
+| Research | Reads the sources and finds gaps | Choose the angle |
+| Voice prompt | Applies it to every draft | Pick the examples and bans |
+| Briefs | Drafts the brief | Edit it and own the argument |
+| Repurposing | Drafts each format | Check the brand fit |
+| Feedback | Summarises the week's data | Decide what changes |
 
-The trap most teams fall into is doing one of these and calling it AI adoption. The compounding effect is in the combination. The research speeds up, the briefs sharpen, the drafts come in cleaner, the repurposing multiplies the surface area and the feedback loop steers the whole engine towards what's working.
+Most teams fall into the trap of doing one of these and calling it AI adoption, but the compounding effect comes from the combination. Faster research makes for sharper briefs and cleaner drafts, while the weekly loop steers the whole engine towards what's working.
 
-The teams losing right now are the ones using AI to do the same content faster, while the teams winning are the ones using AI to do different content, sharper, more numerous, better-distributed, better-attributed.
+The teams losing right now use AI to make the same content faster, while the teams winning use it to make different content that is sharper and better distributed.
 
-Most teams won't get there because setting up the workflow takes a quarter and they don't have the bandwidth, which is why some bring in people who run these workflows full-time. (If you're a marketing leader trying to find the bandwidth, [the 90-day AI integration plan](/blog/the-90-day-ai-integration-plan/) is the week-by-week version of how to get there.)
+Most teams won't get there because setting up the workflow takes a quarter of bandwidth they don't have, which is why some bring in people who run these workflows full-time. If you're a marketing leader trying to find the bandwidth, [the 90-day AI integration plan](/blog/the-90-day-ai-integration-plan/) sets out the week-by-week version.
 
-## One more thing
+## Start with the voice prompt
 
-Don't ship any of this without the brand-voice prompt nailed first. AI-produced content without a real voice screen reads exactly like AI-produced content, and the voice is what stops the engine from making your brand sound like everyone else's. Spend a week on point 2 before you build the rest, because everything else compounds off it.
+Our view at Manual Focus is that the brand-voice prompt has to be right before you ship any of this. AI-produced content without a real voice screen reads exactly like AI-produced content, because nothing stops the engine making your brand sound like everyone else's. Spend a week on the voice prompt before you build the rest, since everything else compounds off it.
+
+## Further reading
+
+- [Building content engines that compound](/blog/building-content-engines-that-compound/), on the system this production workflow feeds
+- [The 90-day AI integration plan for marketing leaders](/blog/the-90-day-ai-integration-plan/), for a week-by-week rollout of these changes
+- [Brand voice extraction and prompt library](/lens/brand/brand-voice-extraction/), a playbook that builds the voice prompt and its scoring rubric
+- [When not to use AI in marketing](/blog/when-not-to-use-ai-in-marketing/), on the lines that should stay human-written whatever the prompt
+
+If you want help setting up a content workflow like this, our [services page](/services/) explains how Manual Focus works with marketing teams.
