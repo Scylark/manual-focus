@@ -3,6 +3,11 @@ title: "Which websites does AI cite for indoor cycling kit?"
 date: 2026-11-11
 tags: ["ai", "endurance-sports", "marketing-strategy"]
 description: "In 4,379 AI answers to UK indoor cycling questions, BikeRadar's smart trainer guide was cited in 55% of trainer answers. Which pages AI cites, engine by engine."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/which-websites-does-ai-cite-indoor-cycling.mp3"
+  duration: 443
+  bytes: 5316485
+  published: 2026-11-11
 faq:
   - question: "Which website does AI cite most for smart trainers?"
     answer: "In the Manual Focus AI Shortlist study of October 2026, BikeRadar's best smart trainer guide was cited in 55% of AI answers to unbranded UK smart trainer questions. The Cyclingnews guide to the best turbo trainers came second at 49%. Perplexity cited the BikeRadar page in 71% of its trainer answers and Google AI Mode in 4%."
