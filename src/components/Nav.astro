@@ -361,10 +361,9 @@ const currentPath = Astro.url.pathname;
   }
 
   // Show header on scroll (only when hide-until-scroll is set).
-  // Clean hero on open, nav slides in after 50px of scroll. The
-  // hero content carries its own top clearance (see HeroCyclist
-  // .hero-content padding) so the nav never overlaps the headline
-  // while the hero is pinned.
+  // Clean hero on open, nav slides in after 50px of scroll. The home
+  // and business scenes centre their hero copy on the stage, which
+  // keeps the headline clear of the nav while the scene is pinned.
   const header = document.querySelector('.nav-header[data-hide-until-scroll]') as HTMLElement;
   if (header) {
     window.addEventListener('scroll', () => {
