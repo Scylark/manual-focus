@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import SEOHead from '../components/SEOHead.astro';
 import BlogCard from '../components/BlogCard.astro';
 import FocusObject from '../components/FocusObject.astro';
-import HeroCyclist from '../components/HeroCyclist.astro';
 import { url } from '../utils/paths';
 import { readingTime, isListed } from '../utils/blog';
 import { getCollection } from 'astro:content';
@@ -29,47 +28,107 @@ const heroWords = heroPunchline.split(' ').map((word) => {
 <Base title={pageTitle} description={pageDescription} hideNavUntilScroll>
   <SEOHead slot="seo" type="website" title={pageTitle} description={pageDescription} />
 
-  <!-- HERO — the message is on screen from the first frame; the rings and
-       wordmark sequence runs as the hand-off into the rest of the page. -->
-  <HeroCyclist>
-    <div class="hero-inner">
-      <div class="hero-eyebrow">
-        <span class="dot"></span>
-        <span class="mono">MANUAL FOCUS · SHEFFIELD</span>
-      </div>
+  <!-- The page has one job, which is to introduce Manual Focus as a
+       marketing agency. The opening scene does it in one picture. The
+       sections after it answer who has used us, whether it works, who
+       you'd work with and how to buy. -->
 
-      <h1 class="hero-headline" data-parallax>
-        <span class="hero-line hero-line-1">Senior marketing for</span>
-        <span class="hero-line hero-line-1">endurance and sports brands</span>
-        <span class="hero-line hero-line-2">
-          <em class="hero-italic">
-            {heroWords.map((chars) => (
-              <><span class="word">{chars.map(({ ch, i }) => <span class="char" style={`--i: ${i}`}>{ch}</span>)}</span>{' '}</>
-            ))}
-          </em>
-        </span>
-      </h1>
+  <!-- THE SCENE. One pinned canvas of dots, driven by scroll. The two
+       rings of the mark break into everyone in the sport, out of focus.
+       The brand pulls sharp, launch week spikes, then the season fills.
+       Each beat carries one kind of work. Without JavaScript or with
+       reduced motion the panels stack as plain sections. -->
+  <section class="scene" data-scene>
+    <div class="scene-stage">
+      <canvas class="scene-canvas" aria-hidden="true"></canvas>
 
-      <div class="hero-meta">
-        <p class="hero-sub">
-          Manual Focus is a Sheffield team of senior marketing operators. We can lead
-          your marketing as a fractional CMO or advise the team you have. We also build
-          what you need and hand it over. There are <strong>no account managers or
-          juniors</strong>, so the people on the call are the people doing the work.
-        </p>
-        <div class="hero-ctas">
-          <a href={url('/contact/')} class="btn-cta">Book a free working session</a>
-          <a href="#ways" class="btn-ghost">How we work together</a>
+      <div class="container scene-inner">
+        <div class="scene-panel scene-panel-hero" data-beat="0">
+          <div class="hero-inner">
+            <div class="hero-eyebrow">
+              <span class="dot"></span>
+              <span class="mono">MANUAL FOCUS · SHEFFIELD</span>
+            </div>
+
+            <h1 class="hero-headline" data-parallax>
+              <span class="hero-line hero-line-1">Senior marketing for</span>
+              <span class="hero-line hero-line-1">endurance and sports brands</span>
+              <span class="hero-line hero-line-2">
+                <em class="hero-italic">
+                  {heroWords.map((chars) => (
+                    <><span class="word">{chars.map(({ ch, i }) => <span class="char" style={`--i: ${i}`}>{ch}</span>)}</span>{' '}</>
+                  ))}
+                </em>
+              </span>
+            </h1>
+
+            <div class="hero-meta">
+              <p class="hero-sub">
+                <span class="lead-full">
+                  Manual Focus is a marketing agency in Sheffield for endurance and sports
+                  brands. We sharpen your brand and launch your products, then keep the
+                  marketing working long after launch week. There are <strong>no account
+                  managers or juniors</strong>, so the people on the call are the people doing
+                  the work.
+                </span>
+                <span class="lead-short">
+                  A Sheffield marketing agency for endurance and sports brands, with
+                  <strong>no account managers or juniors</strong> between you and the work.
+                </span>
+              </p>
+              <div class="hero-ctas">
+                <a href={url('/contact/')} class="btn-cta">Book a free working session</a>
+                <a href="#ways" class="btn-ghost">How we work together</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-panel" data-beat="1">
+          <div class="eyebrow">01 · BRAND</div>
+          <h2 class="scene-h2">Get the brand in focus</h2>
+          <p class="scene-copy">
+            Most people in your sport have seen your name without knowing what you stand
+            for. We sharpen the position and the message, so the right people know you and
+            remember you.
+          </p>
+          <a href={url('/services/')} class="scene-link">See the brand work</a>
+        </div>
+
+        <div class="scene-panel" data-beat="2">
+          <div class="eyebrow">02 · LAUNCHES AND CAMPAIGNS</div>
+          <h2 class="scene-h2">Launch it so the sport notices</h2>
+          <p class="scene-copy">
+            We set the launch strategy and run the campaign, with the PR plan your team or
+            agency works from. Then comes the part most brands skip, because most campaigns
+            stop working when launch week ends.
+          </p>
+          <a href={url('/services/')} class="scene-link">See the launch work</a>
+        </div>
+
+        <div class="scene-panel" data-beat="3">
+          <div class="eyebrow">03 · GROWTH</div>
+          <h2 class="scene-h2">Keep it working all season</h2>
+          <p class="scene-copy">
+            We build the website and the email programme that keep selling after the launch.
+            AI does the repetitive work, so a small team ships as much as a big one.
+          </p>
+          <a href="#ways" class="scene-link">See how we work together</a>
         </div>
       </div>
 
+      <div class="scene-scale mono" aria-hidden="true">
+        <span class="scene-scale-track"><span class="scene-scale-fill"></span></span>
+        <ol>
+          <li>The field</li>
+          <li>Your brand</li>
+          <li>Launch week</li>
+          <li>The season</li>
+        </ol>
+      </div>
+      <div class="scene-hint mono" aria-hidden="true">Scroll to pull focus</div>
     </div>
-
-    <div slot="hint" class="hero-scroll-hint" aria-hidden="true">
-      <span class="mono">SCROLL</span>
-      <span class="scroll-arrow"></span>
-    </div>
-  </HeroCyclist>
+  </section>
 
   <!-- PROOF — brands first, straight after the hero. Not pinned: it's a
        strip, not a statement. -->
@@ -90,115 +149,8 @@ const heroWords = heroPunchline.split(' ').map((word) => {
       </div>
       <p class="logos-note reveal">
         Outside endurance, we've run marketing in AI and fintech. We've also worked in hardware and digital assets.
+        If you're a B2B company outside sport, read <a href={url('/business/')}>how we work with businesses</a>.
       </p>
-    </div>
-  </section>
-
-  <!-- PROBLEM -->
-  <section class="section problem-section dwell-pin">
-    <div class="dwell-pin-stage">
-      <FocusObject size={320} tiltX={70} tiltY={25} spin={140} scrollSpin={90} style="top: 6%; right: 4%;" enterFrom="right" />
-
-      <div class="container">
-        <div class="eyebrow">002 · THE PROBLEM</div>
-        <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-          Most campaigns stop working<br/>
-          <span class="gradient-text">when launch week ends.</span>
-        </h2>
-        <div class="problem-grid">
-          <p class="problem-copy reveal">
-            Most brands still launch the way they did a decade ago. There's a six-week
-            campaign with a burst of content. A paid push follows. Then everyone hopes
-            something sticks. A better brief won't change that. Neither will a bigger budget.
-          </p>
-          <p class="problem-copy reveal">
-            We build marketing that keeps working after launch week. We wire your owned
-            channels into your earned and paid ones. We hand the repetitive work to AI.
-            Each campaign builds on the last, so a small team ships as much as a big one.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THREE WAYS TO WORK TOGETHER -->
-  <section class="section ways-section" id="ways">
-    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 6%; right: 3%;" enterFrom="right" />
-
-    <!-- Headline gets the dwell-pin treatment so the section's key
-         message anchors and holds while the visitor scrolls into the
-         cards. -->
-    <div class="dwell-pin ways-headline-pin">
-      <div class="dwell-pin-stage">
-        <div class="container">
-          <div class="eyebrow">003 · HOW WE WORK TOGETHER</div>
-          <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
-            Start with the problem<br/>
-            you <span class="gradient-text">actually have</span>.
-          </h2>
-        </div>
-      </div>
-    </div>
-
-    <!-- Three way-cards, dwell-pinned so they hold while you scroll
-         through them -->
-    <div class="dwell-pin ways-cards-pin">
-      <div class="dwell-pin-stage">
-        <FocusObject size={220} tiltX={48} tiltY={-22} spin={170} scrollSpin={-120} style="top: 8%; left: 2%;" enterFrom="left" />
-        <div class="container">
-          <div class="ways-grid stagger">
-            <article class="way-card">
-              <div class="way-num mono">/01 · STRATEGIC ADVISOR</div>
-              <h3>Your team ships work without anyone steering.</h3>
-              <p class="way-for">A senior marketer joins you one or two days a month, so each week's work adds up to a strategy instead of a backlog.</p>
-              <ul class="way-list">
-                <li>A weekly or fortnightly working session where we decide the next most important thing</li>
-                <li>Reviews of work in progress before it ships</li>
-                <li>Advice on which AI tools to adopt, mapped to how your team works</li>
-                <li>Help with hiring and team shape from someone who has done it before</li>
-              </ul>
-              <p class="way-shape mono">1–2 days a month, on a day rate or monthly retainer</p>
-              <a href={`${url('/contact/')}?offer=strategic-advisor`} class="btn-ghost way-cta">Book a free working session</a>
-            </article>
-
-            <article class="way-card way-card-featured">
-              <div class="way-num mono"><span>/02 · FRACTIONAL CMO</span><span class="way-flag">RECOMMENDED</span></div>
-              <h3>You need a part-time CMO.</h3>
-              <p class="way-for">A senior marketer joins your leadership team one or two days a week. They set the thesis and run the team. Then they ship the plan, with AI doing the heavy lifting.</p>
-              <ul class="way-list">
-                <li>A marketing thesis and a 90-day plan in the first month</li>
-                <li>We lead and grow your existing team and hold it to a standard</li>
-                <li>We build AI into the workflows your team already runs, instead of adding another tool to the pile</li>
-                <li>We ship the key pieces of the plan ourselves</li>
-              </ul>
-              <p class="way-shape mono">1–2 days a week, three-month minimum</p>
-              <a href={`${url('/contact/')}?offer=fractional-cmo`} class="btn-cta way-cta">Book a free working session</a>
-            </article>
-
-            <article class="way-card">
-              <div class="way-num mono">/03 · BUILD &amp; HAND OVER</div>
-              <h3>You know what you need built.</h3>
-              <p class="way-for">We scope it and build it in weeks, with AI wired in from the start. Then we hand it back with docs and training, so you don't depend on us afterwards.</p>
-              <ul class="way-list">
-                <li>Launches and brand refreshes</li>
-                <li>SEO programmes and content engines</li>
-                <li>Headless and rapid web builds on Shopify and BigCommerce, or WooCommerce on WordPress</li>
-                <li>AI built in from day one</li>
-                <li>A fixed price for a fixed scope, handed back with docs and training</li>
-              </ul>
-              <p class="way-shape mono">Project-based, with most builds taking 4–12 weeks</p>
-              <a href={`${url('/contact/')}?offer=build-and-hand-over`} class="btn-ghost way-cta">Book a free working session</a>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="services-cta reveal">
-        <p class="services-note">If you'd rather we ran the AI workflows for you, that's <strong>Manual Focus AI</strong>. We plan and produce the content, wireframes included. It arrives in your brand on an agreed schedule, for a monthly retainer.</p>
-        <a href={url('/services')} class="btn-ghost">Read the detail</a>
-      </div>
     </div>
   </section>
 
@@ -207,10 +159,12 @@ const heroWords = heroPunchline.split(' ').map((word) => {
        once they're cleared to use. -->
   <section class="section section-alt results-section dwell-pin">
     <div class="dwell-pin-stage">
-      <FocusObject size={280} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} style="top: 6%; right: 4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">004 · RESULTS</div>
-        <h2 class="reveal results-headline">The marketing kept <span class="gradient-text">working</span> after launch.</h2>
+        <div class="sec-head">
+          <div class="eyebrow">002 · RESULTS</div>
+          <div class="ring-slot"><FocusObject size={240} tiltX={50} tiltY={20} spin={-160} scrollSpin={100} enterFrom="right" /></div>
+          <h2 class="reveal results-headline">The marketing kept <span class="gradient-text">working</span> after launch.</h2>
+        </div>
         <div class="ways-grid stagger">
           <article class="way-card">
             <div class="way-num mono">RGT CYCLING · ACQUISITION</div>
@@ -228,7 +182,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
             <div class="way-num mono">PR · PRODUCT LAUNCH</div>
             <p class="result-stat">160+</p>
             <h3>media placements from a single launch.</h3>
-            <p class="way-for">You can book a launch like this as a Build &amp; Hand Over project.</p>
+            <p class="way-for">We plan launches like this one with your team or PR agency.</p>
           </article>
         </div>
         <p class="results-more reveal">
@@ -248,7 +202,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
       <div class="container">
         <div class="credibility-grid">
           <div class="credibility-copy">
-            <div class="eyebrow">005 · WHO YOU'LL WORK WITH</div>
+            <div class="eyebrow">003 · WHO YOU'LL WORK WITH</div>
             <h2 class="reveal">
               We've run marketing<br/>
               <span class="gradient-text">from the inside.</span>
@@ -282,12 +236,74 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     </div>
   </section>
 
+  <!-- THREE WAYS TO WORK TOGETHER -->
+  <section class="section ways-section" id="ways">
+    <FocusObject size={260} tiltX={50} tiltY={15} spin={-130} scrollSpin={-110} style="top: 6%; right: 3%;" enterFrom="right" />
+
+    <!-- Headline gets the dwell-pin treatment so the section's key
+         message anchors and holds while the visitor scrolls into the
+         cards. -->
+    <div class="dwell-pin ways-headline-pin">
+      <div class="dwell-pin-stage">
+        <div class="container">
+          <div class="eyebrow">004 · HOW WE WORK TOGETHER</div>
+          <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
+            Start with the problem<br/>
+            you <span class="gradient-text">actually have</span>.
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Three way-cards, dwell-pinned so they hold while you scroll
+         through them -->
+    <div class="dwell-pin ways-cards-pin">
+      <div class="dwell-pin-stage">
+        <FocusObject size={220} tiltX={48} tiltY={-22} spin={170} scrollSpin={-120} style="top: 8%; left: 2%;" enterFrom="left" />
+        <div class="container">
+          <div class="ways-grid stagger">
+            <article class="way-card">
+              <div class="way-num mono">/01 · STRATEGIC ADVISOR</div>
+              <h3>Your team ships work without anyone steering.</h3>
+              <p class="way-for">A senior marketer joins you one or two days a month, so each week's work adds up to a strategy instead of a backlog.</p>
+              <p class="way-shape mono">1–2 days a month, on a day rate or monthly retainer</p>
+              <a href={`${url('/contact/')}?offer=strategic-advisor`} class="btn-ghost way-cta">Book a free working session</a>
+            </article>
+
+            <article class="way-card way-card-featured">
+              <div class="way-num mono"><span>/02 · FRACTIONAL CMO</span><span class="way-flag">RECOMMENDED</span></div>
+              <h3>You need a part-time CMO.</h3>
+              <p class="way-for">A senior marketer joins your leadership team one or two days a week. They set the thesis and run the team. Then they ship the plan, with AI doing the heavy lifting.</p>
+              <p class="way-shape mono">1–2 days a week, three-month minimum</p>
+              <a href={`${url('/contact/')}?offer=fractional-cmo`} class="btn-cta way-cta">Book a free working session</a>
+            </article>
+
+            <article class="way-card">
+              <div class="way-num mono">/03 · BUILD &amp; HAND OVER</div>
+              <h3>You know what you need built.</h3>
+              <p class="way-for">We scope it and build it in weeks, with AI wired in from the start. Then we hand it back with docs and training, so you don't depend on us afterwards.</p>
+              <p class="way-shape mono">Project-based, with most builds taking 4–12 weeks</p>
+              <a href={`${url('/contact/')}?offer=build-and-hand-over`} class="btn-ghost way-cta">Book a free working session</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="services-cta reveal">
+        <p class="services-note">If you'd rather we ran the AI workflows for you, that's <strong>Manual Focus AI</strong>. We plan and produce the content, wireframes included. It arrives in your brand on an agreed schedule, for a monthly retainer.</p>
+        <a href={url('/services')} class="btn-ghost">Read the detail</a>
+      </div>
+    </div>
+  </section>
+
   <!-- FREE, IN THE OPEN — Light Meter (and its free indoor cycling study) and The Lens -->
   <section class="section section-alt open-section dwell-pin">
     <div class="dwell-pin-stage">
       <FocusObject size={320} tiltX={58} tiltY={18} spin={-140} scrollSpin={90} style="top: 6%; right: -4%;" enterFrom="right" />
       <div class="container">
-        <div class="eyebrow">006 · FREE, IN THE OPEN</div>
+        <div class="eyebrow">005 · FREE, IN THE OPEN</div>
         <h2 class="big-statement reveal" data-scroll-scale style="transform-origin: left center;">
           We work<br/>
           <span class="gradient-text">in the open.</span>
@@ -313,12 +329,14 @@ const heroWords = heroPunchline.split(' ').map((word) => {
   </section>
 
   <!-- BLOG / PERSPECTIVE -->
-  <section class="section dwell-pin">
+  <section class="section blog-section dwell-pin">
     <div class="dwell-pin-stage">
-      <FocusObject size={320} tiltX={56} tiltY={-15} spin={140} scrollSpin={-120} style="top: 5%; left: 3%;" enterFrom="left" />
       <div class="container">
-        <div class="eyebrow">007 · PERSPECTIVE</div>
-        <h2 class="reveal">Read what we're learning from the work.</h2>
+        <div class="sec-head">
+          <div class="eyebrow">006 · PERSPECTIVE</div>
+          <div class="ring-slot"><FocusObject size={240} tiltX={56} tiltY={-15} spin={140} scrollSpin={-120} enterFrom="right" /></div>
+          <h2 class="reveal">Read what we're learning from the work.</h2>
+        </div>
         <div class="blog-grid stagger">
           {posts.map(post => (
             <BlogCard
@@ -333,22 +351,6 @@ const heroWords = heroPunchline.split(' ').map((word) => {
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- MANIFESTO — single sticky stage with absolutely-positioned lines that
-       cross-fade as you scroll. Spacers below the stage create the scroll
-       distance for the JS to drive the line index. -->
-  <section class="manifesto-section" aria-label="Manifesto" data-manifesto>
-    <div class="manifesto-stage">
-      <p class="manifesto-line is-active" data-i="0"><span class="manifesto-text">We sharpen brands with AI.</span></p>
-      <p class="manifesto-line" data-i="1"><span class="manifesto-text">Demand comes faster than the old playbook allowed.</span></p>
-      <p class="manifesto-line" data-i="2"><span class="manifesto-text">Then the growth compounds.</span></p>
-      <p class="manifesto-line manifesto-line-final" data-i="3"><span class="manifesto-text"><span class="gradient-text">Senior operators</span> who say what they think.</span></p>
-    </div>
-    <div class="manifesto-spacer"></div>
-    <div class="manifesto-spacer"></div>
-    <div class="manifesto-spacer"></div>
-    <div class="manifesto-spacer manifesto-spacer-final"></div>
   </section>
 
   <!-- CTA CLOSE — with what happens after the click -->
@@ -586,7 +588,6 @@ const heroWords = heroPunchline.split(' ').map((word) => {
   /* ============================
      PROBLEM
      ============================ */
-  .problem-section { overflow: hidden; position: relative; }
   .big-statement {
     font-size: clamp(2.5rem, 8vw, 7rem);
     line-height: 0.95;
@@ -594,48 +595,226 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     position: relative;
     z-index: 2;
   }
-  .strike {
-    position: relative;
-    color: var(--color-text-muted);
+  .mono { font-family: var(--font-mono); }
+
+  /* ============================
+     THE SCENE
+     Static by default: the panels stack as ordinary blocks. The script
+     adds .is-live, which makes the section tall, pins the stage and lets
+     the canvas and the panels follow the scroll.
+     ============================ */
+  .scene { position: relative; background: var(--color-bg); }
+  .scene-stage { position: relative; }
+  .scene-canvas { display: none; }
+  .scene-inner { position: relative; z-index: 2; padding-block: var(--space-xl); display: grid; gap: var(--space-xl); }
+  .scene-scale, .scene-hint { display: none; }
+  .lead-short { display: none; }
+
+  .scene-h2 { font-size: clamp(2rem, 4.6vw, 4.25rem); line-height: 0.98; max-width: 14ch; }
+  .scene-copy {
+    margin-top: var(--space-md);
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    max-width: 44ch;
   }
-  .strike::after {
-    content: '';
+  .scene-link {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-cta-start);
+    text-underline-offset: 0.4em;
+  }
+  .scene-link::after { content: ' ↓'; }
+
+  .scene.is-live { height: 460vh; }
+  .scene.is-live .scene-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+  .scene.is-live .scene-canvas {
+    display: block;
     position: absolute;
-    left: -5%;
-    right: -5%;
-    top: 50%;
-    height: 0.18em;
-    background: var(--color-cta-gradient);
-    transform: rotate(-3deg);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
   }
-  .problem-grid {
-    margin-top: var(--space-lg);
+  .scene.is-live .scene-inner { position: absolute; inset: 0; padding-block: 0; display: block; }
+  .scene.is-live .scene-panel {
+    --base: -50%;
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    width: min(46%, 620px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, calc(var(--base) + var(--dy, 0px)), 0);
+    will-change: opacity, transform;
+  }
+  .scene.is-live .scene-panel-hero { width: min(62%, 780px); opacity: 1; pointer-events: auto; }
+  /* The headline shares the stage with the mark, so it is sized to keep
+     each of its three lines whole beside it, at any window shape. */
+  @media (min-width: 768px) {
+    .scene .hero-headline { font-size: clamp(1.5rem, min(3.6vw, 5.6vh), 3.5rem); }
+  }
+
+  .scene.is-live .scene-scale {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    left: var(--space-md);
+    right: var(--space-md);
+    bottom: 1.5rem;
+    max-width: calc(var(--max-width) - 2 * var(--space-md));
+    margin-inline: auto;
+  }
+  .scene-scale-track { display: block; height: 1px; background: var(--color-line); }
+  .scene-scale-fill { display: block; height: 1px; width: 0; background: var(--color-cta-gradient); }
+  .scene-scale ol {
+    list-style: none;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0.6rem 0 0;
+    padding: 0;
+  }
+  .scene-scale li {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+  }
+  .scene-scale li.is-active { color: var(--color-text); }
+  .scene.is-live .scene-hint {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    right: var(--space-md);
+    bottom: 4.5rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+
+  /* Phones. Everything is sized to fit the short screen a phone browser
+     leaves once its toolbars are showing, so the scene still pins. */
+  @media (max-width: 767px) {
+    .scene.is-live { height: 420vh; }
+    .lead-full { display: none; }
+    .lead-short { display: inline; }
+    .scene .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.14em; }
+    .scene .hero-headline { font-size: clamp(1.6rem, 7.6vw, 2.6rem); margin-top: 0.25rem; }
+    .scene .hero-meta { margin-top: var(--space-sm); }
+    .scene .hero-sub { font-size: 1rem; line-height: 1.5; }
+    .scene .hero-ctas { flex-direction: column; align-items: flex-start; gap: 0.85rem; margin-top: 1.1rem; }
+    .scene .hero-ctas .btn-ghost {
+      border: 0;
+      padding: 0.25rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-decoration: underline;
+      text-decoration-color: var(--color-cta-start);
+      text-underline-offset: 0.4em;
+    }
+    .scene .eyebrow { font-size: 0.62rem; letter-spacing: 0.14em; margin-bottom: 0.75rem; }
+    .scene .eyebrow::before { width: 1.5rem; }
+    .scene-h2 { font-size: clamp(1.5rem, 6.8vw, 2.2rem); max-width: none; }
+    .scene-copy { font-size: 0.95rem; margin-top: var(--space-sm); }
+    .scene-link { margin-top: var(--space-sm); font-size: 0.7rem; }
+    .scene.is-live .scene-panel {
+      --base: 0%;
+      left: 1.25rem;
+      right: 1.25rem;
+      width: auto;
+      top: auto;
+      bottom: 4rem;
+    }
+    .scene.is-live .scene-panel-hero { --base: -50%; top: 50%; bottom: auto; width: auto; }
+    .scene.is-live .scene-scale { left: 1.25rem; right: 1.25rem; bottom: 1rem; }
+    .scene-scale li { font-size: 0.55rem; letter-spacing: 0.12em; }
+    .scene.is-live .scene-hint { display: none; }
+  }
+  @media (max-width: 767px) and (max-height: 620px) {
+    .scene .hero-headline { font-size: 1.5rem; }
+    .scene-h2 { font-size: 1.35rem; }
+    .scene-copy { font-size: 0.9rem; line-height: 1.45; }
+  }
+  @media (max-height: 760px) and (min-width: 768px) {
+    .scene-h2 { font-size: clamp(1.6rem, 6vh, 3.25rem); }
+    .scene-copy { font-size: clamp(0.95rem, 2.5vh, 1.2rem); margin-top: var(--space-sm); }
+    .scene-link { margin-top: var(--space-sm); }
+  }
+  /* Short desktop windows, such as a browser sharing the screen with
+     other apps. The hero takes the short lead so the scene still pins. */
+  @media (max-height: 640px) and (min-width: 768px), (min-width: 768px) and (max-width: 1024px) and (max-height: 760px) {
+    .lead-full { display: none; }
+    .lead-short { display: inline; }
+    .scene .hero-ctas .btn-cta, .scene .hero-ctas .btn-ghost { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+  }
+
+
+  /* ============================
+     SECTION HEADS WITH A RING SLOT
+     The copy sits on the left. The spinning rings get a slot of their
+     own on the right, inside the content column, so they line up with
+     the cards below and never cross the text. On phones the slot
+     shrinks and shares the eyebrow's row.
+     ============================ */
+  .sec-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "eyebrow ring"
+      "h2      ring"
+      "copy    ring";
+    column-gap: var(--space-md);
     align-items: start;
-    gap: var(--space-md);
-    max-width: 920px;
     position: relative;
     z-index: 2;
   }
-  .problem-grid .problem-copy { margin: 0; }
-  .problem-copy {
-    font-size: var(--font-size-lg);
-    color: var(--color-text);
+  .sec-head > .eyebrow { grid-area: eyebrow; justify-self: start; }
+  .sec-head > h2 { grid-area: h2; }
+  .sec-head > p { grid-area: copy; }
+  .ring-slot {
+    grid-area: ring;
+    align-self: center;
+    position: relative;
+    width: clamp(140px, 15vw, 220px);
+    aspect-ratio: 1;
   }
-  .problem-copy strong {
-    background: var(--color-cta-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
+  .dwell-pin-stage .ring-slot { width: clamp(110px, 10.5vw, 150px); }
+  .ring-slot :global(.focus-object) { inset: 0; width: 100%; transform: translate(0, 30px); }
+  /* A slotted ring fades up into place. The component's slide in from
+     the side would start it outside a narrow window, where it never
+     registers as on screen and so never appears. */
+  .ring-slot :global(.focus-object.has-entered) { transform: translate(0, 0); }
+  /* The site-wide scroll drift would carry a ring out of its slot, so
+     these keep the spin and the scroll rotation only. */
+  .ring-slot :global(.focus-object__scroll) { transform: rotateZ(var(--scroll-rot, 0deg)); }
+  @media (max-width: 767px) {
+    .sec-head {
+      grid-template-areas:
+        "eyebrow ring"
+        "h2      h2"
+        "copy    copy";
+      column-gap: var(--space-sm);
+    }
+    .sec-head > .eyebrow { align-self: end; }
+    .ring-slot,
+    .dwell-pin-stage .ring-slot { width: 84px; align-self: end; margin-bottom: 0.4rem; }
   }
-
-  @media (min-width: 768px) {
-    .problem-grid { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
-  }
-
-  .mono { font-family: var(--font-mono); }
 
   /* ============================
      THREE WAYS TO WORK TOGETHER
@@ -834,6 +1013,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     position: relative;
     z-index: 2;
   }
+  .logos-note a { color: var(--color-text); }
   .logo-bar {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -942,106 +1122,6 @@ const heroWords = heroPunchline.split(' ').map((word) => {
   }
 
   /* ============================
-     MANIFESTO — single sticky stage with cross-fading lines
-     Four full-height spacers create the scroll distance. The stage stays
-     sticky at the top of the viewport while you scroll, and the JS picks
-     which line is active based on scroll progress through the section.
-     Each line slides + blurs in from the right, settles, then slides out
-     left as the next one takes over.
-     ============================ */
-  .manifesto-section {
-    position: relative;
-    border-top: 1px solid var(--color-line);
-    background: var(--color-bg);
-  }
-  .manifesto-stage {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-inline: var(--space-md);
-    overflow: hidden;
-    /* Perspective on the stage gives each line real depth — they
-       fly through space, not slide across a flat plane. */
-    perspective: 1200px;
-    perspective-origin: 50% 50%;
-  }
-  /* The spacers set the scroll distance the four pledges share. 55vh
-     each plus a longer final spacer gives every pledge ~60vh of slot,
-     ~40vh of it a static hold, so the whole manifesto takes about 3.4
-     screens. It was 220vh/260vh (10 screens, 28% of the page), which
-     the October 2026 audit flagged as the page's biggest dead stretch. */
-  .manifesto-spacer { height: 55vh; }
-  /* Trailing extra spacer that gives the senior operators line
-     more time on screen — it's the final read of the manifesto,
-     deserves the longest hold. */
-  .manifesto-spacer.manifesto-spacer-final { height: 75vh; }
-  /* The outer .manifesto-line is just a centering container for the
-     absolutely-positioned slot in the sticky stage. The opacity, transform
-     and blur are driven directly from scroll position by JS per frame, so
-     the line glides smoothly with the scroll rather than transitioning at
-     thresholds. No CSS transitions on those properties for that reason. */
-  .manifesto-line {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding-inline: var(--space-md);
-    pointer-events: none;
-    opacity: 0;
-    will-change: opacity, transform, filter;
-  }
-  .manifesto-text {
-    display: block;
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 9vw, 8rem);
-    line-height: 0.95;
-    letter-spacing: -0.01em;
-    color: var(--color-text);
-    text-transform: uppercase;
-    text-align: center;
-    max-width: 18ch;
-  }
-  .manifesto-line-final .manifesto-text {
-    font-family: var(--font-family);
-    font-weight: 600;
-    font-size: clamp(1.5rem, 4.5vw, 3.5rem);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    max-width: 24ch;
-    text-transform: none;
-  }
-  .manifesto-line-final .gradient-text {
-    background: var(--color-cta-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  @media (max-width: 768px) {
-    .manifesto-stage { height: 70vh; }
-    /* Mobile: 50vh per pledge, 65vh for the final one. The 70vh stage
-       eats into the scroll range, so this still gives each pledge a
-       full thumb-swipe of hold. */
-    .manifesto-spacer { height: 50vh; }
-    .manifesto-spacer.manifesto-spacer-final { height: 65vh; }
-    /* Smaller type on mobile so the longer pledges wrap inside the
-       viewport instead of running off the edges. Cap with a max-width
-       in ch units so the eye doesn't have to track too far. */
-    .manifesto-text {
-      font-size: clamp(1.75rem, 9vw, 3rem);
-      max-width: 14ch;
-    }
-    .manifesto-line-final .manifesto-text {
-      font-size: clamp(1.1rem, 4.5vw, 1.75rem);
-      max-width: 22ch;
-    }
-  }
-
-  /* ============================
      CTA CLOSE
      ============================ */
   .cta-close {
@@ -1127,9 +1207,6 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     /* Bigger touch targets on buttons */
     .btn-cta, .btn-ghost { padding: 0.85rem 1.4rem; font-size: 0.85rem; }
     .way-cta { padding: 0.6rem 1.2rem; }
-
-    /* Problem section — single column reads better on mobile */
-    .problem-copy { font-size: 1rem; }
   }
 
   /* Even tighter on the smallest phones */
@@ -1164,7 +1241,7 @@ const heroWords = heroPunchline.split(' ').map((word) => {
 
   /* ============================
      DWELL-PIN — sections that should hold the visitor's eye briefly
-     as they scroll past. Same pattern as the hero and manifesto:
+     as they scroll past. Same pattern as the opening scene:
      the section is tall, the content inside is sticky-pinned at the
      top of the viewport for the duration of the pin. Combined with
      the scroll-driven reveal in Base.astro, the visitor sees the
@@ -1227,6 +1304,44 @@ const heroWords = heroPunchline.split(' ').map((word) => {
   .section.section-alt.dwell-pin .dwell-pin-stage {
     background: var(--color-bg-alt, var(--color-bg));
   }
+  /* SHORT LAPTOP SCREENS. A pinned stage has to fit the window, or its
+     last lines sit below the fold for the whole hold. Under 820px of
+     height the big type keys off the window's height instead of its
+     width, with the gaps under it one step tighter. */
+  @media (min-width: 1025px) and (max-height: 820px) {
+    .dwell-pin-stage { padding-block: var(--space-lg) var(--space-md); }
+    .big-statement { font-size: clamp(2.5rem, 10.5vh, 7rem); }
+    .open-section .big-statement { font-size: clamp(2.5rem, 9vh, 7rem); }
+    .open-section .ways-grid { margin-top: var(--space-md); }
+    .results-headline { font-size: clamp(2rem, 7vh, 4rem); }
+    .results-more { margin-top: var(--space-sm); }
+    .credibility-copy h2 { font-size: clamp(2.5rem, 9vh, 5.5rem); }
+    .credibility-copy p { margin-block: var(--space-sm); }
+    .blog-section h2 { font-size: clamp(3rem, 10vh, 6rem); }
+    .blog-section .blog-grid { margin-top: var(--space-md); }
+  }
+  /* Shorter still, such as a 768px-high laptop once the browser's own
+     bars are taken off. The cards and the closing block tighten a step. */
+  @media (min-width: 1025px) and (max-height: 690px) {
+    .dwell-pin-stage .way-card { padding: 1.25rem var(--space-md); }
+    .dwell-pin-stage .way-num { margin-bottom: var(--space-sm); }
+    .cta-close-inner { gap: var(--space-sm); }
+    .cta-headline { font-size: clamp(2rem, 9vh, 5rem); }
+  }
+  /* The same fit for a tablet on its side, where the type is already
+     one step smaller. */
+  @media (min-width: 769px) and (max-width: 1024px) and (max-height: 820px) {
+    .dwell-pin-stage { padding-block: var(--space-lg) var(--space-md); }
+    .results-headline { font-size: clamp(1.75rem, 6vh, 2.75rem); }
+    .results-more { margin-top: var(--space-sm); }
+    .credibility-copy h2 { font-size: clamp(2rem, 7.5vh, 3.5rem); }
+    .credibility-copy p { margin-block: var(--space-sm); font-size: var(--font-size-body); }
+    .open-section .big-statement { font-size: clamp(2rem, 8vh, 3.5rem); }
+    .open-section .ways-grid { margin-top: var(--space-md); }
+    .blog-section h2 { font-size: clamp(2.25rem, 8vh, 3.5rem); }
+    .blog-section .blog-grid { margin-top: var(--space-md); }
+  }
+
   @media (max-width: 768px) {
     /* ============================
        MOBILE — dwell-pin sticky pattern mirrors desktop using the
@@ -1274,75 +1389,444 @@ const heroWords = heroPunchline.split(' ').map((word) => {
     }, { passive: true });
   }
 
-  // Manifesto — scroll-scrubbed animation. Each line owns 1/total of the
-  // scrollable section. We compute that line's "slot progress" (-∞..+∞,
-  // 0 = perfectly centred) and drive opacity, X translation and blur
-  // directly from that value every frame, so the motion glides with the
-  // scroll rather than triggering at thresholds.
-  const manifestoSection = document.querySelector<HTMLElement>('[data-manifesto]');
-  const manifestoLines = document.querySelectorAll<HTMLElement>('.manifesto-line');
-  if (manifestoSection && manifestoLines.length) {
-    const total = manifestoLines.length;
-    // Reduced motion: lines still cross-fade on scroll, without the blur,
-    // depth and skew.
-    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let manifestoPending = false;
-    const updateManifesto = () => {
-      const rect = manifestoSection.getBoundingClientRect();
-      const scrollable = rect.height - window.innerHeight;
-      const progress = scrollable > 0
-        ? Math.max(0, Math.min(1, -rect.top / scrollable))
-        : 0;
-      manifestoLines.forEach((line, i) => {
-        // slot = where this pledge sits in scroll progress.
-        // slot < -HOLD_BAND: entering from far away
-        // -HOLD_BAND <= slot <= HOLD_BAND: HOLDING at sharp focus,
-        //   no transform, full opacity — true dwell
-        // slot > HOLD_BAND: exiting toward camera
-        const slot = progress * total - i - 0.5;
-        const clamped = Math.max(-1.2, Math.min(1.2, slot));
+  // The focus scene. One canvas of dots, driven by scroll position.
+  //   Beat 0  the mark     the two rings, drawn in dots, beside the headline
+  //           the field    the rings break into everyone in the sport
+  //   Beat 1  your brand   the people who know you pull sharp into a disc
+  //   Beat 2  launch week  the disc becomes twelve weeks, one tall column
+  //   Beat 3  the season   the empty weeks fill, left to right
+  // Colours come from the theme tokens and follow the light and dark toggle.
+  // With reduced motion the script never starts and the panels stay stacked.
+  const scene = document.querySelector<HTMLElement>('[data-scene]');
+  const sceneCalm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // 70% of each pledge's slot is the hold zone where it sits
-        // sharp + static. 15% on each side is enter/exit transition.
-        const HOLD_BAND = 0.35;
+  if (scene && !sceneCalm) {
+    const stage = scene.querySelector<HTMLElement>('.scene-stage')!;
+    const inner = scene.querySelector<HTMLElement>('.scene-inner')!;
+    const canvas = scene.querySelector<HTMLCanvasElement>('.scene-canvas')!;
+    const ctx = canvas.getContext('2d');
+    const panels = Array.from(scene.querySelectorAll<HTMLElement>('.scene-panel'));
+    const ticks = Array.from(scene.querySelectorAll<HTMLElement>('.scene-scale li'));
+    const fill = scene.querySelector<HTMLElement>('.scene-scale-fill');
+    const hint = scene.querySelector<HTMLElement>('.scene-hint');
 
-        // Phase: -1 (far behind) ... 0 (in hold) ... +1 (far past)
-        let phase = 0;
-        if (clamped < -HOLD_BAND) {
-          phase = (clamped + HOLD_BAND) / (1 - HOLD_BAND);
-        } else if (clamped > HOLD_BAND) {
-          phase = (clamped - HOLD_BAND) / (1 - HOLD_BAND);
+    if (ctx) {
+      // The pinned layout only goes live when every panel fits the stage.
+      // On a short screen (a small phone, a phone on its side) a panel
+      // would be clipped, so the scene stays as plain stacked sections.
+      let live = false;
+      // On phones the canvas action sits in a band under the nav. The band
+      // takes whatever height the tallest beat panel leaves free.
+      const SLIM_TOP = 92;
+      let slimBottom = SLIM_TOP + 140;
+      const fitsStage = () => {
+        scene.classList.add('is-live');
+        const h = stage.clientHeight;
+        let ok: boolean;
+        if (stage.clientWidth >= 768) {
+          // Centred panels need room for the scale below them.
+          ok = panels.every((el) => el.offsetHeight <= h - 112);
+        } else {
+          const tallest = Math.max(...panels.slice(1).map((el) => el.offsetHeight));
+          slimBottom = Math.min(h - 64 - tallest - 38, SLIM_TOP + h * 0.42);
+          ok = panels[0].offsetHeight <= h - 96 && slimBottom - SLIM_TOP >= 118;
         }
-        const absPhase = Math.abs(phase);
+        scene.classList.toggle('is-live', ok);
+        return ok;
+      };
+      const applyFit = () => {
+        const ok = fitsStage();
+        if (ok === live) return;
+        live = ok;
+        if (!live) {
+          panels.forEach((el) => {
+            el.style.opacity = '';
+            el.style.pointerEvents = '';
+            el.style.removeProperty('--dy');
+          });
+        }
+      };
 
-        // Opacity holds at 1 through the hold zone, drops smoothly
-        // in the transitions.
-        const opacity = 1 - absPhase * absPhase * (3 - 2 * absPhase);
+      type RGB = [number, number, number];
+      type Dot = {
+        g: 'A' | 'B' | 'N';
+        nx: number; ny: number; depth: number; phase: number; delay: number; u: number; jitter: number;
+        idx: number; col: number; slot: number; ringed: boolean; ring: number; ringPos: number;
+        noise: RGB; discRGB: RGB; colRGB: RGB;
+      };
 
-        // Phase drives ALL motion. During hold (phase=0) every value
-        // is 0 = pledge sits perfectly still at the focal point.
-        const x = -phase * 30;
-        const z = phase * 500;
-        const rotX = phase * -12;
-        const skew = -phase * 1.5;
-        const blur = absPhase * 16;
+      // Seeded, so the field looks the same on every visit.
+      let seed = 20261111;
+      const rnd = () => {
+        seed = (seed + 0x6d2b79f5) | 0;
+        let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
 
-        line.style.opacity = opacity.toFixed(3);
-        if (calm) return;
-        line.style.transform =
-          `translate3d(${x.toFixed(1)}px, 0, ${z.toFixed(1)}px)` +
-          ` rotateX(${rotX.toFixed(2)}deg) skewX(${skew.toFixed(2)}deg)`;
-        line.style.filter = `blur(${blur.toFixed(1)}px)`;
+      const slim0 = window.innerWidth < 768;
+      const GOLDEN = Math.PI * (3 - Math.sqrt(5));
+      const CAPTIONS = ['Everyone in your sport', 'The people who know your brand', 'A campaign that stops', 'Marketing that keeps working'];
+      // Twelve weeks. Launch week is tall, then the campaign stops.
+      const SPIKE = slim0 ? [3, 48, 18, 9, 6, 3, 3, 3, 3, 3, 0, 0] : [8, 96, 36, 20, 12, 8, 4, 4, 4, 4, 0, 0];
+      // The same weeks once the marketing keeps working. Each column is a
+      // whole number of rows, so the stacks have clean tops.
+      const SEASON = slim0 ? [3, 48, 21, 24, 27, 30, 33, 36, 39, 45, 48, 54] : [8, 96, 44, 48, 52, 60, 64, 72, 80, 88, 96, 104];
+      const PER_ROW = slim0 ? 3 : 4;
+      const MAX_ROWS = Math.max(...SEASON) / PER_ROW;
+      const A = SPIKE.reduce((n, c) => n + c, 0);
+      const NOISE = slim0 ? 150 : 320;
+
+      const dots: Dot[] = [];
+      const base = () => ({
+        nx: rnd(), ny: rnd(), depth: 0.25 + rnd() * 0.75, phase: rnd() * Math.PI * 2,
+        delay: rnd() * 0.35, u: rnd(), jitter: rnd() - 0.5, ring: -1, ringPos: 0,
+        noise: [0, 0, 0] as RGB, discRGB: [0, 0, 0] as RGB, colRGB: [0, 0, 0] as RGB,
       });
-      manifestoPending = false;
-    };
-    window.addEventListener('scroll', () => {
-      if (!manifestoPending) {
-        manifestoPending = true;
-        requestAnimationFrame(updateManifesto);
+      let col = 0;
+      let colSlot = 0;
+      for (let i = 0; i < A; i++) {
+        while (colSlot >= SPIKE[col]) { col++; colSlot = 0; }
+        dots.push({ ...base(), g: 'A', idx: i, col, slot: colSlot++, ringed: true });
       }
-    }, { passive: true });
-    updateManifesto();
+      let extra = 0;
+      for (let c = 0; c < 12; c++) {
+        for (let sl = SPIKE[c]; sl < SEASON[c]; sl++) {
+          const d: Dot = { ...base(), g: 'B', idx: 0, col: c, slot: sl, ringed: extra % 3 === 0 };
+          // The season fills week by week, left to right.
+          d.delay = (c / 11) * 0.5 + rnd() * 0.14;
+          dots.push(d);
+          extra++;
+        }
+      }
+      for (let i = 0; i < NOISE; i++) dots.push({ ...base(), g: 'N', idx: 0, col: 0, slot: 0, ringed: false });
+      const ringed = dots.filter((d) => d.ringed);
+      const perRing = Math.ceil(ringed.length / 2);
+      ringed.forEach((d, i) => { d.ring = i % 2; d.ringPos = Math.floor(i / 2) / perRing; });
+
+      // Theme colours.
+      let cA: RGB = [255, 45, 120];
+      let cB: RGB = [192, 38, 211];
+      let cC: RGB = [0, 229, 255];
+      let cMuted: RGB = [134, 129, 122];
+      let cText: RGB = [242, 237, 230];
+      const hex = (v: string, fallback: RGB): RGB => {
+        const m = v.trim().match(/^#([0-9a-f]{6})$/i);
+        if (!m) return fallback;
+        const n = parseInt(m[1], 16);
+        return [n >> 16, (n >> 8) & 255, n & 255];
+      };
+      const mix = (a: RGB, b: RGB, t: number): RGB => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+      const grad = (u: number): RGB => (u < 0.5 ? mix(cA, cB, u * 2) : mix(cB, cC, (u - 0.5) * 2));
+      const rgba = (c: RGB, a: number) => `rgba(${c[0] | 0},${c[1] | 0},${c[2] | 0},${a.toFixed(3)})`;
+      const readColours = () => {
+        const cs = getComputedStyle(document.documentElement);
+        cA = hex(cs.getPropertyValue('--color-cta-start'), cA);
+        cB = hex(cs.getPropertyValue('--color-cta-mid'), cB);
+        cC = hex(cs.getPropertyValue('--color-cta-end'), cC);
+        cMuted = hex(cs.getPropertyValue('--color-text-muted'), cMuted);
+        cText = hex(cs.getPropertyValue('--color-text'), cText);
+        for (const d of dots) {
+          d.noise = grad(d.u);
+          if (d.g === 'A') d.discRGB = grad((d.idx / A) * 0.9 + d.u * 0.1);
+          if (d.g !== 'N') d.colRGB = grad((d.col / 11) * 0.9 + d.u * 0.1);
+        }
+      };
+      readColours();
+      new MutationObserver(readColours).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+      // Geometry. The action sits right of the copy on wide screens and
+      // above it on phones. It is measured from the content column, so the
+      // frame lines up with the nav and the scale at every window width.
+      let W = 0;
+      let H = 0;
+      let dpr = 1;
+      let narrow = false;
+      let ready = false;
+      let colL = 0;
+      let colR = 0;
+      const FRAME_PAD = 22;
+      const box = { x0: 0, y0: 0, x1: 0, y1: 0 };
+      const resize = () => {
+        applyFit();
+        const r = stage.getBoundingClientRect();
+        W = r.width;
+        H = r.height;
+        narrow = W < 768;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(W * dpr);
+        canvas.height = Math.round(H * dpr);
+        const ir = inner.getBoundingClientRect();
+        const gutter = parseFloat(getComputedStyle(inner).paddingLeft) || 0;
+        colL = ir.left - r.left + gutter;
+        colR = ir.right - r.left - gutter;
+        if (narrow) {
+          box.x0 = W * 0.09; box.x1 = W * 0.91; box.y0 = SLIM_TOP; box.y1 = slimBottom;
+        } else {
+          box.x0 = colL + (colR - colL) * 0.56 + FRAME_PAD; box.x1 = colR - FRAME_PAD; box.y0 = H * 0.2; box.y1 = H * 0.78;
+        }
+        // Sizing a canvas clears it, so repaint straight away.
+        if (ready) draw(performance.now());
+      };
+
+      const clamp = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
+      const seg = (p: number, a: number, b: number) => clamp((p - a) / (b - a));
+      const ease = (t: number) => t * t * (3 - 2 * t);
+      const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
+      let target = 0;
+      let smooth = 0;
+      let pos = 0;
+      const measure = () => {
+        const r = scene.getBoundingClientRect();
+        const travel = r.height - window.innerHeight;
+        target = travel > 0 ? clamp(-r.top / travel) : 0;
+      };
+
+      // Keyboard users tab into panels that are faded out. Bring the
+      // matching beat on screen when one takes focus.
+      const HOLDS = [0, 0.44, 0.69, 0.96];
+      panels.forEach((el, i) => {
+        el.addEventListener('focusin', () => {
+          if (!live || Math.abs(pos - i) < 0.4) return;
+          const r = scene.getBoundingClientRect();
+          window.scrollTo({ top: window.scrollY + r.top + HOLDS[i] * (r.height - window.innerHeight), behavior: 'instant' as ScrollBehavior });
+        });
+      });
+
+      const corner = (x: number, y: number, dx: number, dy: number, len: number) => {
+        ctx.beginPath();
+        ctx.moveTo(x + dx * len, y);
+        ctx.lineTo(x, y);
+        ctx.lineTo(x, y + dy * len);
+        ctx.stroke();
+      };
+
+      let running = false;
+      let raf = 0;
+      let last = 0;
+      const frame = (now: number) => {
+        if (!running) return;
+        raf = requestAnimationFrame(frame);
+        draw(now);
+      };
+      const draw = (now: number) => {
+        if (!live) return;
+        measure();
+        // Ease towards the scroll position by elapsed time, so the motion
+        // feels the same at any frame rate.
+        const dt = last ? Math.min((now - last) / 1000, 1) : 1;
+        last = now;
+        smooth += (target - smooth) * (1 - Math.exp(-dt * 9));
+        if (Math.abs(target - smooth) < 0.0004) smooth = target;
+
+        const t = now / 1000;
+        const a = seg(smooth, 0.06, 0.19);   // the rings break into the field
+        const b = seg(smooth, 0.24, 0.38);   // the brand pulls into focus
+        const c = seg(smooth, 0.5, 0.64);    // the disc becomes twelve weeks
+        const d = seg(smooth, 0.74, 0.9);    // the empty weeks fill
+        pos = b + c + d;
+        const eb0 = ease(b);
+        const ec0 = ease(c);
+
+        // Copy panels cross-fade around their beat.
+        panels.forEach((el, i) => {
+          const k = pos - i;
+          const o = clamp(1 - Math.abs(k) * 2.4);
+          el.style.opacity = o.toFixed(3);
+          el.style.setProperty('--dy', `${(-k * 44).toFixed(1)}px`);
+          el.style.pointerEvents = o > 0.6 ? 'auto' : 'none';
+        });
+        const active = Math.round(pos);
+        ticks.forEach((el, i) => el.classList.toggle('is-active', i === active));
+        if (fill) fill.style.width = `${(smooth * 100).toFixed(2)}%`;
+        if (hint) hint.style.opacity = clamp(1 - a * 3).toFixed(2);
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+
+        const bw = box.x1 - box.x0;
+        const bh = box.y1 - box.y0;
+        const bokeh = narrow ? 9 : 15;
+        const colSpan = colR - colL;
+        // Soft dots sit quieter behind the copy than beside it.
+        const quiet = (x: number) => (narrow ? 0.5 : 0.3 + 0.7 * ease(clamp((x - (colL + colSpan * 0.4)) / (colSpan * 0.34))));
+        // The mark. Beside the copy on a wide screen, faded behind it on a phone.
+        const rcx = narrow ? W / 2 : box.x0 + bw / 2;
+        const rcy = narrow ? H * 0.5 : box.y0 + bh / 2;
+        const R = narrow ? Math.min(W * 0.3, H * 0.19) : Math.min(bw * 0.3, bh * 0.27);
+        const ringAlpha = narrow ? 0.24 : 0.95;
+        // Beat 1. A disc packed the way a sunflower packs its seeds.
+        const dcx = box.x0 + bw / 2;
+        const dcy = box.y0 + bh / 2 + (narrow ? 6 : 0);
+        const Rd = Math.min(bw * 0.34, bh * (narrow ? 0.34 : 0.36));
+        const turn = t * 0.05;
+        // Beats 2 and 3. Twelve columns on one baseline.
+        const colW = bw / 12;
+        const stackRoom = narrow ? bh - 46 : bh - 80;
+        const gap = Math.max(3.6, Math.min(colW / (PER_ROW + 1.1), stackRoom / MAX_ROWS));
+        const baseY = box.y1 - (narrow ? 24 : 34);
+        const fieldIn = lerp(0.3, 1, ease(a));
+
+        for (const o of dots) {
+          const fx = o.nx * W;
+          const fy = o.ny * H;
+          const drift = 14 * o.depth;
+          const wobX = Math.sin(t * 0.25 + o.phase) * drift;
+          const wobY = Math.cos(t * 0.21 + o.phase) * drift;
+          const soft = 0.07 + o.depth * 0.13;
+          let x: number;
+          let y: number;
+          let radius: number;
+          let alpha: number;
+          let rgb: RGB;
+          // Where the dot starts: on a ring of the mark, or loose in the field.
+          const ea = ease(clamp(a * 1.35 - (o.g === 'B' ? o.u * 0.35 : o.delay)));
+          let sx = fx;
+          let sy = fy;
+          if (o.ringed) {
+            const ang = o.ringPos * Math.PI * 2 + t * 0.2 * (o.ring ? -1 : 1);
+            const rr = R + o.jitter * 6;
+            sx = lerp(rcx + Math.cos(ang) * rr, fx, ea);
+            sy = lerp(rcy + (o.ring ? R * 0.57 : -R * 0.57) + Math.sin(ang) * rr, fy, ea);
+          }
+          const ringSharp = o.ringed ? 1 - ea : 0;
+
+          if (o.g === 'N') {
+            // The rest of the sport. Stays soft and fades back.
+            x = fx + wobX;
+            y = fy + wobY;
+            radius = 3 + o.depth * bokeh;
+            alpha = soft * quiet(x) * fieldIn * (1 - 0.55 * eb0) * (1 - 0.5 * ec0);
+            rgb = mix(o.noise, cMuted, eb0);
+          } else if (o.g === 'A') {
+            const eb = ease(clamp(b * 1.35 - o.delay));
+            const ec = ease(clamp(c * 1.35 - o.delay));
+            const dr = Math.sqrt((o.idx + 0.5) / A) * Rd;
+            const da = o.idx * GOLDEN + turn;
+            const bx = dcx + Math.cos(da) * dr;
+            const by = dcy + Math.sin(da) * dr;
+            const cx = box.x0 + colW * (o.col + 0.5) + ((o.slot % PER_ROW) - (PER_ROW - 1) / 2) * gap;
+            const cy = baseY - Math.floor(o.slot / PER_ROW) * gap;
+            const held = Math.max(ringSharp, eb);
+            x = lerp(lerp(sx, bx, eb), cx, ec) + wobX * (1 - held);
+            y = lerp(lerp(sy, by, eb), cy, ec) + wobY * (1 - held);
+            const sharp = lerp(narrow ? 2 : 2.7, lerp(Math.min(narrow ? 2.6 : 3.6, Rd * 0.026), Math.min(3, gap * 0.34), ec), eb);
+            radius = lerp(3 + o.depth * bokeh, sharp, held);
+            alpha = lerp(soft * quiet(x) * fieldIn, lerp(ringAlpha, 0.95, eb), held);
+            rgb = mix(mix(o.noise, o.discRGB, eb), o.colRGB, ec);
+          } else {
+            const ed = ease(clamp(d * 1.7 - o.delay));
+            const cx = box.x0 + colW * (o.col + 0.5) + ((o.slot % PER_ROW) - (PER_ROW - 1) / 2) * gap;
+            const cy = baseY - Math.floor(o.slot / PER_ROW) * gap;
+            const held = Math.max(ringSharp, ed);
+            x = lerp(sx, cx, ed) + wobX * (1 - held);
+            y = lerp(sy, cy, ed) + wobY * (1 - held);
+            radius = lerp(3 + o.depth * bokeh, lerp(narrow ? 2 : 2.7, Math.min(3, gap * 0.34), ed), held);
+            const softA = soft * quiet(x) * fieldIn * (1 - 0.55 * eb0 * (1 - ed)) * (1 - 0.5 * ec0 * (1 - ed));
+            alpha = lerp(softA, lerp(ringAlpha, 0.95, ed), held);
+            rgb = mix(mix(o.noise, cMuted, eb0 * (1 - ed) * (1 - ringSharp)), o.colRGB, ed);
+          }
+
+          if (alpha < 0.006) continue;
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = rgba(rgb, alpha);
+          ctx.fill();
+          if (radius > 6) {
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = rgba(rgb, Math.min(1, alpha * 1.4));
+            ctx.stroke();
+          }
+        }
+
+        // Viewfinder brackets. They frame the whole stage at first, then
+        // close on the action as the focus pulls.
+        const eb = ease(b);
+        const pad = narrow ? 12 : FRAME_PAD;
+        const inset = narrow ? 14 : 28;
+        const len = narrow ? 12 : 18;
+        const bx0 = lerp(inset, box.x0 - pad, eb);
+        const by0 = lerp(inset, box.y0 - pad, eb);
+        const bx1 = lerp(W - inset, box.x1 + pad, eb);
+        const by1 = lerp(H - inset, box.y1 + pad, eb);
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = rgba(cText, lerp(0.2, 0.5, eb));
+        corner(bx0, by0, 1, 1, len);
+        corner(bx1, by0, -1, 1, len);
+        corner(bx0, by1, 1, -1, len);
+        corner(bx1, by1, -1, -1, len);
+
+        // Captions and labels, set in the site's mono face.
+        const mono = getComputedStyle(document.documentElement).getPropertyValue('--font-mono') || 'monospace';
+        const size = narrow ? 8.5 : 11;
+        ctx.font = `500 ${size}px ${mono}`;
+        (ctx as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing = narrow ? '1px' : '2.2px';
+        ctx.textBaseline = 'top';
+        ctx.textAlign = 'left';
+        CAPTIONS.forEach((label, i) => {
+          const o = i === 0 ? ease(seg(a, 0.5, 1)) * clamp(1 - pos * 2.4) : clamp(1 - Math.abs(pos - i) * 2.2);
+          if (o <= 0.01) return;
+          ctx.fillStyle = rgba(cText, o * 0.78);
+          ctx.fillText(label.toUpperCase(), bx0 + len + 6, by0 + 1);
+        });
+
+        // A lens focus ring around the disc. It turns as the focus pulls.
+        const lb = clamp(1 - Math.abs(pos - 1) * 2.2);
+        if (lb > 0.01) {
+          const fr = Rd + (narrow ? 10 : 20);
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = rgba(cText, lb * 0.22);
+          ctx.beginPath();
+          ctx.arc(dcx, dcy, fr, 0, Math.PI * 2);
+          ctx.stroke();
+          const spin = smooth * 9;
+          for (let k = 0; k < 72; k++) {
+            const ang = (k / 72) * Math.PI * 2 + spin;
+            const long = k % 6 === 0;
+            const r1 = fr + 4;
+            const r2 = fr + (long ? (narrow ? 9 : 12) : narrow ? 6 : 7);
+            ctx.strokeStyle = long ? rgba(cC, lb * 0.8) : rgba(cText, lb * 0.3);
+            ctx.beginPath();
+            ctx.moveTo(dcx + Math.cos(ang) * r1, dcy + Math.sin(ang) * r1);
+            ctx.lineTo(dcx + Math.cos(ang) * r2, dcy + Math.sin(ang) * r2);
+            ctx.stroke();
+          }
+        }
+
+        // The week axis under the columns.
+        const lo = pos >= 2 ? 1 : clamp(1 - (2 - pos) * 2.2);
+        if (lo > 0.01) {
+          ctx.strokeStyle = rgba(cText, lo * 0.18);
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(box.x0, baseY + gap);
+          ctx.lineTo(box.x1, baseY + gap);
+          ctx.stroke();
+          ctx.textBaseline = 'top';
+          ctx.textAlign = narrow ? 'left' : 'center';
+          ctx.fillStyle = rgba(cA, lo);
+          ctx.fillText('LAUNCH WEEK', narrow ? box.x0 : box.x0 + colW * 1.5, baseY + gap + (narrow ? 7 : 10));
+          ctx.textAlign = 'right';
+          ctx.fillStyle = rgba(cText, lo * 0.6);
+          ctx.fillText('WEEK 12', box.x1, baseY + gap + (narrow ? 7 : 10));
+        }
+      };
+
+      resize();
+      new ResizeObserver(resize).observe(stage);
+      ready = true;
+      draw(performance.now());
+      const start = () => { if (!running) { running = true; last = 0; raf = requestAnimationFrame(frame); } };
+      const stop = () => { running = false; cancelAnimationFrame(raf); };
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => (e.isIntersecting && !document.hidden ? start() : stop()));
+      }, { rootMargin: '10% 0px 10% 0px' }).observe(scene);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop();
+        else if (scene.getBoundingClientRect().bottom > 0 && scene.getBoundingClientRect().top < window.innerHeight) start();
+      });
+    }
   }
 
   // Scroll-scale headlines — grow as they approach centre of viewport
