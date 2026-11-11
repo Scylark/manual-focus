@@ -93,7 +93,7 @@ const organizationSchema = {
     height: 512,
   },
   description:
-    'Manual Focus is a Sheffield marketing agency for endurance and sports brands, run by senior operators. They work as a fractional CMO or a strategic advisor. They also take on fixed-price builds, with AI doing the heavy lifting.',
+    'Manual Focus is a marketing agency based in Sheffield, at the intersection of endurance sport and marketing. It gets endurance and sports brands in focus before launch, then keeps the marketing working all season. It uses disruptive technology to understand the audience, with marketing automations alongside traditional marketing services.',
   slogan: 'Senior marketing, with AI doing the heavy lifting.',
   foundingDate: '2025',
   inLanguage: 'en-GB',
@@ -106,7 +106,8 @@ const organizationSchema = {
     'SEO and answer engine optimisation',
     'Endurance and sports brand marketing',
     'Headless web development',
-    'Ecommerce on Shopify, BigCommerce and WooCommerce',
+    'Ecommerce on Shopify or BigCommerce',
+    'WooCommerce and WordPress builds',
     'Brand strategy',
     'Demand generation',
   ],
@@ -151,16 +152,17 @@ const profileSchema =
           jobTitle: 'Founder, Manual Focus',
           image: jamesImage,
           description:
-            'James Vickers has spent 15+ years running brand and growth in emerging tech. He was on the founding team at RGT Cycling, which Wahoo Fitness bought. He now leads Manual Focus.',
+            'James Vickers leads Manual Focus, a marketing agency in Sheffield where endurance sport meets marketing. He has spent 15+ years running brand and growth. He was on the founding team at RGT Cycling, which Wahoo Fitness bought.',
           worksFor: { '@id': `${siteUrl}/#organization` },
           sameAs: [JAMES_LINKEDIN],
           knowsAbout: [
-            'Marketing strategy',
-            'Fractional CMO',
-            'Brand strategy',
             'Endurance sports marketing',
-            'AI in marketing',
+            'Brand strategy',
+            'Marketing strategy',
+            'Product launches',
             'Growth strategy',
+            'Fractional CMO',
+            'AI in marketing',
           ],
         },
       }
@@ -236,7 +238,7 @@ const serviceSchemas =
           provider: { '@id': `${siteUrl}/#organization` },
           name: 'Strategic Advisor',
           description:
-            'Senior marketing input for teams without a CMO. It runs 1–2 days a month on a day rate or monthly retainer.',
+            'Senior marketing input for endurance and sports brands whose teams have no CMO. It runs 1–2 days a month on a day rate or monthly retainer.',
           areaServed: 'Worldwide',
           url: `${siteUrl}/services/`,
         },
@@ -258,7 +260,7 @@ const serviceSchemas =
           provider: { '@id': `${siteUrl}/#organization` },
           name: 'Build and Hand Over',
           description:
-            'Project-based marketing builds such as launches or SEO programmes. Each one has a fixed price for a fixed scope. Most builds take 4–12 weeks.',
+            'Fixed-price marketing projects such as a brand refresh or a product launch, handed over to your team at the end. Most take 4–12 weeks.',
           areaServed: 'Worldwide',
           url: `${siteUrl}/services/`,
         },
@@ -269,7 +271,7 @@ const serviceSchemas =
           provider: { '@id': `${siteUrl}/#organization` },
           name: 'Manual Focus AI',
           description:
-            'Manual Focus runs the AI workflows for the client. Content planning and production arrive on an agreed schedule. It is a monthly retainer.',
+            'Manual Focus plans and produces content for the client in the client\'s brand, delivered on an agreed schedule. It is a monthly retainer.',
           areaServed: 'Worldwide',
           url: `${siteUrl}/services/`,
         },
