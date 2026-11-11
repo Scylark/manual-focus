@@ -226,11 +226,45 @@ const faqSchema =
       }
     : null;
 
-// Service schema — marks up the four engagement tiers / product so each
-// one can be surfaced as a distinct service offering in rich results.
+// Service schema — marks up the three kinds of work (brand, launches,
+// growth) and the four ways to buy them, so each one can be surfaced as a
+// distinct service offering in rich results.
 const serviceSchemas =
   type === 'service'
     ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Brand strategy',
+          provider: { '@id': `${siteUrl}/#organization` },
+          name: 'Brand',
+          description:
+            'Positioning and messaging for endurance and sports brands, built on research into how buyers see the brand.',
+          areaServed: 'Worldwide',
+          url: `${siteUrl}/services/#brand`,
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Product launches and campaigns',
+          provider: { '@id': `${siteUrl}/#organization` },
+          name: 'Launches and campaigns',
+          description:
+            'Launch strategy and campaigns for endurance and sports brands, with a PR plan for the client\'s own team or PR agency to run.',
+          areaServed: 'Worldwide',
+          url: `${siteUrl}/services/#launches`,
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Growth marketing',
+          provider: { '@id': `${siteUrl}/#organization` },
+          name: 'Growth',
+          description:
+            'Websites and email programmes that keep an endurance or sports brand selling all season after launch.',
+          areaServed: 'Worldwide',
+          url: `${siteUrl}/services/#growth`,
+        },
         {
           '@context': 'https://schema.org',
           '@type': 'Service',
