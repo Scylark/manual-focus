@@ -31,7 +31,10 @@ const unlistedUrls = new Set(
 for (const path of []) unlistedUrls.add(`${SITE}${path}`);
 
 // lastmod for static research reports (data collection date).
-const reportLastmod = new Map([[`${SITE}/reports/ai-shortlist-indoor-cycling/`, '2026-10-19']]);
+const reportLastmod = new Map([
+  [`${SITE}/reports/ai-shortlist-indoor-cycling/`, '2026-10-19'],
+  [`${SITE}/reports/rider-panel/`, '2026-11-10'],
+]);
 
 // lastmod for Lens playbooks (updatedAt ?? publishedAt), keyed by URL.
 const lensLastmod = new Map(
@@ -62,7 +65,7 @@ export default defineConfig({
     sitemap({
       // Static research reports in public/ aren't Astro pages, so list the
       // indexable ones here. The gravel report is noindex and stays out.
-      customPages: [`${SITE}/reports/ai-shortlist-indoor-cycling/`],
+      customPages: [`${SITE}/reports/ai-shortlist-indoor-cycling/`, `${SITE}/reports/rider-panel/`],
       filter: (page) => !unlistedUrls.has(page),
       serialize(item) {
         const date = blogLastmod.get(item.url) ?? lensLastmod.get(item.url) ?? reportLastmod.get(item.url);
