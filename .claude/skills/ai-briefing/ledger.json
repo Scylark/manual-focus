@@ -1134,5 +1134,53 @@
     "score": 4,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "OpenAI launches Businesses in ChatGPT in beta (10 November 2026), Business Hub profile claiming with mention, click and discovery topic insights wherever ChatGPT is available, and Business Agents for eligible US ecommerce and online service businesses, sponsorable as ChatGPT Ads destinations",
+    "primary_source": "https://openai.com/index/introducing-businesses-chatgpt/",
+    "score": 9,
+    "decision": "published",
+    "slug": "businesses-in-chatgpt-business-hub-brands"
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "Google November 2026 core update begins rolling out (Search Status Dashboard, 10 November)",
+    "primary_source": "https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "ChatGPT visual ads rolling out (Search Engine Land, 11 November)",
+    "primary_source": "https://www.seroundtable.com/recap-11-11-2026-42509.html",
+    "score": 6,
+    "decision": "skipped-duplicate",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "Gemini 4 Carbon available to subscribers in Google AI Mode (11 November)",
+    "primary_source": "https://www.seroundtable.com/recap-11-11-2026-42509.html",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "Google Ads pay-per-lead goals terms requiring advertiser opt-in (Search Engine Land, 11 November)",
+    "primary_source": "https://www.seroundtable.com/recap-11-11-2026-42509.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "Google shows definition AI Overviews fully expanded by default (SER 11 November, no Google confirmation)",
+    "primary_source": "https://www.seroundtable.com/google-expanding-definitions-42514.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
   }
 ]
