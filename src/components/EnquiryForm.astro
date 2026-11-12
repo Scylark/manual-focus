@@ -46,6 +46,7 @@ import { url } from '../utils/paths';
           <option value="ai-shortlist-audit">Light Meter category audit</option>
           <option value="ai-shortlist-snapshot">Light Meter Brand Snapshot</option>
           <option value="ai-shortlist-fix">AI visibility fix programme</option>
+          <option value="rider-panel-study">Light Meter Rider Panel study</option>
         </optgroup>
       </select>
       <p class="form-note" data-brief-hint hidden>Planning a website or a rebrand? <a href={url('/brief/')}>The six-question brief</a> gets you a written view from James first.</p>
@@ -247,6 +248,8 @@ import { url } from '../utils/paths';
       challenge.value = `We'd like a Light Meter category audit${category ? ` for ${category}` : ''}. Please send pricing and timing.`;
     } else if (offerParam === 'ai-shortlist-snapshot') {
       challenge.value = 'We would like a Light Meter Brand Snapshot. Please send pricing and timing.';
+    } else if (offerParam === 'rider-panel-study') {
+      challenge.value = 'We would like a Light Meter Rider Panel study. Please send pricing and timing.';
     }
   }
 

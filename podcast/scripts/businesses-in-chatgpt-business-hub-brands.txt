@@ -1,0 +1,71 @@
+JAMES: Somewhere in ChatGPT there's already a description of your business, and on the tenth of November OpenAI gave you a way to correct it and count it, with Businesses in ChatGPT. I'm James Vickers, this is Manual Focus, and Hannah's going to tell me whether it's a dashboard worth opening or a form worth ignoring.
+
+HANNAH: Hi James. It's worth opening. But I'd read the small print before trusting the numbers.
+
+JAMES: [dryly] There's always small print. What did OpenAI announce?
+
+HANNAH: Two things, in beta. The first is Business Hub, where a company claims its profile in ChatGPT. Once verified, it can update its details and add product feeds with prices and availability. The second is Business Agents, so a shopper can chat with the brand inside ChatGPT. We read OpenAI's announcement and the two policies it published alongside.
+
+JAMES: Who can claim a profile? Because most of our listeners are in the UK.
+
+HANNAH: Any eligible business located where ChatGPT is available, so a UK brand can claim today. Existing advertisers go through their OpenAI representative. Shopify merchants can connect from the Shopify admin, and OpenAI says eligible Shopify products are already in ChatGPT through Shopify Catalog.
+
+JAMES: Which is the same route we talked about in September, when the ChatGPT Ads app for Shopify came out.
+
+HANNAH: Same plumbing. Agents are different. They're only for eligible ecommerce and online service businesses in the United States for now, and OpenAI gives no date for anywhere else.
+
+JAMES: [thoughtfully] So the bit a marketing lead will want first is the data. What does Business Hub actually count?
+
+HANNAH: Mentions, meaning how often the business comes up in ChatGPT, and website clicks. Then discovery topics, which OpenAI describes as the common themes across conversations where your website is cited. The dashboard picture also shows profile views.
+
+JAMES: And conversations? Can I read what people asked?
+
+HANNAH: No. OpenAI says it doesn't share users' conversations or agent chats with businesses. The numbers are aggregated and only appear above a threshold OpenAI hasn't published, so a small brand might see nothing for a while.
+
+JAMES: Do the numbers hold up?
+
+HANNAH: PPC Land looked at two live dashboards on launch day and found clicks of about three and a half per cent of mentions, with the data a day behind. And OpenAI hasn't defined a mention. We don't know if a brand named twice in one chat counts twice.
+
+JAMES: [calmly] Until now we've estimated ChatGPT visibility by running prompts and counting. This is OpenAI's own count, and it joins Bing's Topics Portfolio, which we covered in October, so each engine now reports on itself.
+
+HANNAH: And only on you. Nothing in the announcement suggests you'll see competitors, which is why you still want an independent measure across engines, the way Light Meter does it.
+
+JAMES: Let's talk about the profile itself. Why does claiming it matter if I can't see the conversations?
+
+HANNAH: Because of one line in the policy. It says a profile may also include information from other sources. So ChatGPT can describe your business whether you claim it or not. And the policy says OpenAI doesn't verify every detail or resolve every factual dispute, so getting it right is your job.
+
+JAMES: [dryly] That sounds like a Google Business Profile with a different logo.
+
+HANNAH: Close enough, and it should sit with the same person. Only the owner or someone authorised can manage it, and misleading claims about prices or availability are banned.
+
+JAMES: Our view, then, is to claim it this month and give it one named owner, and treat the mention count as a signal rather than a target until OpenAI says what it counts. Now the agents. What changes for a US brand?
+
+HANNAH: When a business appears in an answer, a shopper can click through to its profile and, if there's an agent, start a chat with it. OpenAI's example is someone comparing two products and asking which one fits. The chat is labelled and kept separate from ChatGPT's own answers.
+
+JAMES: And the ad angle?
+
+HANNAH: A business can sponsor its agent as the destination for ChatGPT Ads, so the click lands in a conversation instead of on a landing page. The rules are strict. The agent must say it's an AI representing the business, with no false urgency, no pushing after a no, and no asking for health details or government IDs. It can't book or buy for the user without explicit say-so.
+
+JAMES: [thoughtfully] Which matters, because the returns study we covered last week found a paid ChatGPT visit brought in about a third of a paid search visit. I would test a sponsored agent against what you run now before moving budget.
+
+HANNAH: Agreed. Test it, don't assume it.
+
+JAMES: So what do you hand over? Get AI on this, first job. Audit what the profile says against your own site.
+
+HANNAH: Give it the details from your Business Hub profile and your product feed, plus your site's contact, hours and pricing pages. It hands back a table of every mismatch, from wrong opening hours to a price that's out of date, with the correct value and where it found it.
+
+JAMES: Second job. Turn the numbers into a weekly baseline.
+
+HANNAH: Set it as a weekly routine. Each week, give it the Business Hub figures, the AI referral sessions from your analytics and Bing's AI report, and it gives you one trend table. It should also flag when Hub clicks and real sessions drift apart.
+
+JAMES: And third, for the content team. Use discovery topics as a brief.
+
+HANNAH: Give it your top discovery topics and your sitemap. It tells you which of your pages each topic probably relies on, and which topics have no strong page at all, ranked by mentions. A person still decides what to write.
+
+JAMES: The prompts are in the show notes. Hannah, what don't we know?
+
+HANNAH: What a mention is, where the thresholds sit, and whether claiming a profile changes how often ChatGPT mentions you. OpenAI doesn't say that it does. There's no price for agents, no date outside the US, and no process for contesting a claim made by someone who shouldn't have made it. And it's a beta, so all of that could change.
+
+JAMES: [calmly] So the takeaway. ChatGPT can already describe your business, and now you can correct it and count it, so claim the profile, give it an owner and keep your own measure alongside. The full article is on manual-focus dot co dot uk. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and if you'd like help claiming and auditing your own profile, book a free working session on the same site. Thanks, Hannah.
+
+HANNAH: Thanks, James. Go and see what it says about you.
