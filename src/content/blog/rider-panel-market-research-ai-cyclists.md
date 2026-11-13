@@ -4,9 +4,9 @@ date: 2026-11-13
 tags: ["ai", "endurance-sports", "go-to-market"]
 description: "We tested a smart trainer launch in a simulated world of 500 AI agents. With reviews it sold to 26. Without them it sold to 3. Here's why."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/rider-panel-market-research-ai-cyclists-20261113085314.mp3"
-  duration: 406
-  bytes: 4876061
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/rider-panel-market-research-ai-cyclists.mp3"
+  duration: 409
+  bytes: 4905214
   published: 2026-11-13
 faq:
   - question: "What is the Rider Panel?"
@@ -16,7 +16,7 @@ faq:
   - question: "Does a Black Friday discount pay for a new brand?"
     answer: "In the Rider Panel's first study it did. Cutting a new £499 trainer to £399 for Black Friday took it from 26 buyers to 41 in 500, with 38% more revenue. 44 of the 65 agents who had considered it at £499 were waiting for a sale. The deal also put an unknown brand on deal lists that new agents read. Revenue isn't profit, though. Sold direct, the discount only adds profit if the brand keeps at least £144 of the £416 each £499 sale brings in after VAT. The result also depends on the brand's reach, which the study capped."
   - question: "Why do shoppers walk away from a new trainer brand?"
-    answer: "In the Rider Panel's first study, 65 agents considered the new £499 trainer and bought something else. 44 were waiting for a sale. 40 named the price. 32 didn't trust a brand they'd never heard of to last. The ones who bought it chose it because it folds away and is quiet, with independent reviews to back the claims."
+    answer: "In the Rider Panel's first study, 65 agents considered the new £499 trainer and bought something else. 44 were waiting for a sale. 40 named the price. 32 didn't trust a brand they'd never heard of to last. The ones who bought it chose it because it folds flat and is quiet, with independent reviews to back the claims."
   - question: "Who are the 500 agents?"
     answer: "They are UK cyclists who go shopping for an indoor trainer this season, not every cyclist. Manual Focus simulated 200,000 UK cyclists from survey data. It gave each a chance of shopping this season based on what they ride indoors now, then drew 500 from everyone who shops. About 2 in 100 adult cyclists shop for a trainer in a season, on our estimate. Four in ten of the 500 are buying their first, which is our assumption."
   - question: "Does the Rider Panel only work in the UK?"
@@ -55,7 +55,7 @@ Brands can [ask about a Rider Panel study](/contact/?offer=rider-panel-study) fo
 - Without independent reviews, a new trainer brand sold to 3 agents in 500 instead of 26. Nobody wanted to be the guinea pig.
 - A £399 Black Friday price took it to 41 buyers with 38% more revenue. The agents had asked for it.
 - Being named by AI engines added a little, from 26 buyers to 33.
-- Buyers chose it because it folds away and it's quiet. Most of them had nowhere to keep a trainer.
+- Buyers chose it because it folds flat to 14cm and it's quiet. Most of them had nowhere to keep a trainer.
 - Agents who walked away were waiting for a sale or didn't trust a brand they'd never heard of.
 - The 500 agents were recruited from a potentially limitless pool. A brand's study can be as big as the question needs.
 
@@ -130,9 +130,9 @@ A change counts as real when it's bigger than the panel's own noise. The rest of
 
 ## Why agents bought the Northfold
 
-22 of the 26 buyers chose Northfold because it folds away. 21 chose it for being quiet. 20 said the independent reviews convinced them. Most of them would have to put a trainer away after every ride.
+22 of the 26 buyers named folding or space as a reason. 21 chose it for being quiet. 20 said the independent reviews convinced them. Most of them would have to put a trainer away after every ride.
 
-> "My trouble is space, and nothing else here folds. A three-year warranty and 30-day free returns let me back a new brand." Jonty Ellerby, 37, police officer, York
+> "A three-year warranty and 30-day free returns let me back a new brand." Jonty Ellerby, 37, police officer, York
 
 > "It's genuinely quiet and folds away, and £499 is far less than the Neo or V6 even in the sale. DC Rainmaker's review sold me on the accuracy." Jamal Rowe, 23, Reading
 
@@ -210,7 +210,7 @@ Still to test:
 
 - **Prove the brand will last.** 32 of the agents who walked away didn't trust a new brand. Test a 100-day trial with a five-year warranty on every retailer listing.
 - **Plan a January offer.** Lee bought his trainer in the January sales. Test £449 through January.
-- **Aim at people with no spare room.** Most buyers had to put a trainer away after every ride. Put the fold in the first second of every video.
+- **Aim at people with no spare room.** Most buyers had to put a trainer away after every ride. Show how flat it folds, to 14cm, in the first second of every video.
 
 ## What the results mean in real sales
 
