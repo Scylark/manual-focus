@@ -1182,5 +1182,13 @@
     "score": 5,
     "decision": "skipped-unverifiable",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-11",
+    "story": "Follow-up to the AI Shortlist indoor cycling study, which websites AI cites, by page and engine",
+    "primary_source": "https://manual-focus.co.uk/reports/ai-shortlist-indoor-cycling/",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "which-websites-does-ai-cite-indoor-cycling"
   }
 ]
