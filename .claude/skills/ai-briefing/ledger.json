@@ -1182,5 +1182,53 @@
     "score": 5,
     "decision": "skipped-unverifiable",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Google makes Gemini 4 Hydrogen available globally in Google Search for all users on 12 November 2026, calling it the biggest model upgrade to Search yet, with wider query fan-out and more links",
+    "primary_source": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+    "score": 9,
+    "decision": "published",
+    "slug": "gemini-4-hydrogen-google-search-seo-teams"
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "ChatGPT Ads renames Autobid to intelligent bidding, adds Target CPA and Target CPC, retires Max Bid and Max CPC on 1 January 2027 (weekly email, SER 12 November)",
+    "primary_source": "https://help.openai.com/en/articles/20001634-bidding-strategies-and-how-pricing-works-in-chatgpt-ads",
+    "score": 7,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Google Search Central adds a help page on identifying Google Search traffic in analytics and server logs (SER 12 November), folded into the Hydrogen post",
+    "primary_source": "https://developers.google.com/search/docs/monitor-debug/identify-google-search-traffic",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Search Console generative AI performance report undercounted impressions 9 to 11 November 2026 because of a logging error, folded into the Hydrogen post",
+    "primary_source": "https://support.google.com/webmasters/answer/6211453?hl=en",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Google appears to place source icons at the bottom of AI Overviews (SER 11 November, no Google confirmation)",
+    "primary_source": "https://www.seroundtable.com/google-ai-overview-source-icons-bottom-42519.html",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Google launches the Gemini Decisions API for fast yes or no, multiple-choice and scoring calls (12 November)",
+    "primary_source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
