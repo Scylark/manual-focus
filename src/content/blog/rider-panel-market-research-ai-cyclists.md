@@ -1,9 +1,13 @@
 ---
-title: "The Rider Panel: testing a product launch in a simulated world of 500 AI agents"
-date: 2026-11-10
-unlisted: true
+title: "The Rider Panel, testing a product launch in a simulated world of 500 AI agents"
+date: 2026-11-13
 tags: ["ai", "endurance-sports", "go-to-market"]
 description: "We tested a smart trainer launch in a simulated world of 500 AI agents. With reviews it sold to 26. Without them it sold to 3. Here's why."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/rider-panel-market-research-ai-cyclists.mp3"
+  duration: 405
+  bytes: 4866970
+  published: 2026-11-13
 faq:
   - question: "What is the Rider Panel?"
     answer: "The Rider Panel is the market research part of Light Meter, the research tool from Manual Focus. It builds a simulated world of AI agents who are in the market for that product. Each one has a written life story, from who they live with to the kit they already own. They live the buying season month by month. They choose from the products someone like them would actually come across. Each decides whether to buy, then explains why. For the first study Manual Focus built 500 UK agents from a potentially limitless pool, so a study can be as big as the question needs."
