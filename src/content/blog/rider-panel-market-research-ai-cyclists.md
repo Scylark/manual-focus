@@ -4,9 +4,9 @@ date: 2026-11-13
 tags: ["ai", "endurance-sports", "go-to-market"]
 description: "We tested a smart trainer launch in a simulated world of 500 AI agents. With reviews it sold to 26. Without them it sold to 3. Here's why."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/rider-panel-market-research-ai-cyclists.mp3"
-  duration: 405
-  bytes: 4866970
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/rider-panel-market-research-ai-cyclists-20261113085314.mp3"
+  duration: 406
+  bytes: 4876061
   published: 2026-11-13
 faq:
   - question: "What is the Rider Panel?"
@@ -84,7 +84,7 @@ We built 200,000 UK cyclists first, using survey data. Sport England's [Active L
 | Prices and rivals | 10 real rival trainers at UK prices, with Black Friday and January deals |
 | What they come across | Brand familiarity from UK search share, plus each agent's own shops and apps |
 
-Gwen Holroyd is 72, retired from nursing, with a Morzine trip coming up and neighbours below her small flat in Stockport. Ife Okonkwo is a GP in Islington whose old trainer wakes his toddler. Lee Hocking drives deliveries in Plymouth and was let down by the last new brand he bought.
+Jonty Ellerby is a police officer in York with two young children and a rented house that has no spare room. Ife Okonkwo is a GP in Islington whose old trainer wakes his toddler. Lee Hocking drives deliveries in Plymouth and was let down by the last new brand he bought.
 
 An agent only knows the trainers someone like them would meet. A Garmin owner sees Tacx in Garmin Connect. An agent who shops at Decathlon sees Van Rysel. Someone who asks ChatGPT hears the brands it names. Our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-recommend/) found AI engines name Wahoo in 83% of UK smart trainer answers.
 
@@ -131,8 +131,6 @@ A change counts as real when it's bigger than the panel's own noise. The rest of
 ## Why agents bought the Northfold
 
 22 of the 26 buyers chose Northfold because it folds away. 21 chose it for being quiet. 20 said the independent reviews convinced them. Most of them would have to put a trainer away after every ride.
-
-> "The small flat, the neighbours below and the hall all pointed to something that folds flat and is quiet. The reviews and the 30-day returns eased my worry about a new brand." Gwen Holroyd, 72, Stockport
 
 > "My trouble is space, and nothing else here folds. A three-year warranty and 30-day free returns let me back a new brand." Jonty Ellerby, 37, police officer, York
 
