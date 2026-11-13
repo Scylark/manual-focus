@@ -14,7 +14,7 @@ faq:
   - question: "Do independent reviews matter for a new cycling brand?"
     answer: "In the Rider Panel's first study they decided the launch. A new £499 smart trainer sold to 26 agents in 500 with reviews from sites like BikeRadar and DC Rainmaker out at launch. Without them it sold to 3. Of the 23 buyers it lost, 12 bought a Wahoo KICKR CORE 2 instead. As one agent put it, they didn't want to be the guinea pig."
   - question: "Does a Black Friday discount pay for a new brand?"
-    answer: "In the Rider Panel's first study it did. Cutting a new £499 trainer to £399 for Black Friday took it from 26 buyers to 41 in 500, with 38% more revenue. 44 of the 65 agents who had considered it at £499 were waiting for a sale. The deal also put an unknown brand on deal lists that new agents read. The result depends on the brand's reach, which the study capped. Before the cap, the same price added 5% to revenue."
+    answer: "In the Rider Panel's first study it did. Cutting a new £499 trainer to £399 for Black Friday took it from 26 buyers to 41 in 500, with 38% more revenue. 44 of the 65 agents who had considered it at £499 were waiting for a sale. The deal also put an unknown brand on deal lists that new agents read. Revenue isn't profit, though. Sold direct, the discount only adds profit if the brand keeps at least £144 of the £416 each £499 sale brings in after VAT. The result also depends on the brand's reach, which the study capped."
   - question: "Why do shoppers walk away from a new trainer brand?"
     answer: "In the Rider Panel's first study, 65 agents considered the new £499 trainer and bought something else. 44 were waiting for a sale. 40 named the price. 32 didn't trust a brand they'd never heard of to last. The ones who bought it chose it because it folds away and is quiet, with independent reviews to back the claims."
   - question: "Who are the 500 agents?"
@@ -170,6 +170,8 @@ Sales rose from 26 to 41. Revenue rose 38%, even after the price cut. 20 agents 
 
 Part of the gain was visibility. 9 of the 41 buyers first heard of Northfold through a deal list or a deal email. For a brand nobody knows, being on the Black Friday lists puts it in front of agents who'd never have come across it.
 
+Revenue isn't profit. Sold direct, the £399 plan only beats £499 all season if Northfold keeps at least £144 of the £416 it receives per trainer after VAT, which is a 35% margin.
+
 This result depends on the reach cap. Before we added the cap, the £399 price added only 5% to revenue. A better-known brand should expect something closer to that, because it has fewer new shoppers to reach.
 
 > "The noise is the whole problem. The quiet Wahoo and Tacx cost £600, and DC Rainmaker called the Northfold genuinely quiet at £399 and it folds away in our tiny flat." Ife Okonkwo, 30, GP, Islington. At £499 he bought a Wahoo KICKR V6.
@@ -201,7 +203,7 @@ That fits our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-rec
 Tested by running the season again:
 
 1. **Have the big reviews out on launch day.** It's the difference between 3 buyers and 26.
-2. **Go to £399 for Black Friday.** It added 15 buyers and 38% more revenue.
+2. **Model Black Friday at £399 against your margin.** In the panel it added 15 buyers and 38% more revenue. Sold direct, each £499 trainer brings Northfold £416 after VAT. The £399 plan only adds profit if Northfold keeps at least £144 of that once every cost per trainer is paid. Through a retailer taking 40%, Northfold receives £250 per trainer and needs to keep at least £87. Below those figures, the extra sales don't cover the discount.
 3. **Work on being named in AI answers**, after the reviews rather than instead of them.
 
 Still to test:
