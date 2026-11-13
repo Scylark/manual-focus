@@ -1,0 +1,39 @@
+{
+  "version": "1.2.0",
+  "title": "The Rider Panel, testing a product launch in a simulated world of 500 AI agents",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Cold open"
+    },
+    {
+      "startTime": 24.7,
+      "title": "What the Rider Panel is"
+    },
+    {
+      "startTime": 61.2,
+      "title": "Who the agents are"
+    },
+    {
+      "startTime": 134.4,
+      "title": "The power of reviews"
+    },
+    {
+      "startTime": 185.4,
+      "title": "Black Friday and AI"
+    },
+    {
+      "startTime": 291,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 341.2,
+      "title": "What it can't tell us"
+    },
+    {
+      "startTime": 363.9,
+      "title": "The takeaway"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+JAMES: Most brands only test a launch on real customers when the launch is big enough to justify the cost. Everything else goes on instinct. Today we're launching something that changes that, the Rider Panel. I'm James Vickers, this is Manual Focus, and Hannah's here to take it apart with me.
+
+HANNAH: Thanks, James. So, in one breath. The Rider Panel is the market research part of Light Meter, our research tool. It builds a simulated world of AI agents who are in the market for a product. A brand describes its launch, and each agent lives the season month by month, decides whether to buy, and says why.
+
+JAMES: And a disclosure, as with our AI Shortlist study last month. I used to work at Wahoo and Wattbike, and I was on the founding team at RGT Cycling, which Wahoo acquired. Wahoo comes up a lot today, so you should know that.
+
+HANNAH: Noted. Let me introduce one of the agents, because they're the point. Philippa Hallam is a fifty-five-year-old architect who cut back to three days a week after her children left home. Her husband has an equal say in anything costly. She's waited ten years to ride the Fred Whitton.
+
+JAMES: [thoughtfully] So she's not a persona on a slide. She's got a household and a reason to buy, or not.
+
+HANNAH: Exactly. Each agent already owns kit, trains on an app they know and has a shop they usually use. They see every rival at its real UK price, with its real Black Friday deal. And they only come across the brands someone like them would meet. A Garmin owner sees Tacx in Garmin Connect. A Decathlon shopper sees Van Rysel.
+
+JAMES: Who are the five hundred?
+
+HANNAH: UK cyclists shopping for an indoor trainer this season, not every cyclist. We simulated two hundred thousand UK cyclists from survey data, including Sport England's Active Lives survey, then drew five hundred from everyone who shops. About two in a hundred adult cyclists shop for a trainer in a season, on our estimate.
+
+JAMES: So what did we put in front of them?
+
+HANNAH: A brand we invented, Northfold, with a folding smart trainer at four hundred and ninety-nine pounds. It's quiet and folds flat. Then we ran the same season four times on the same five hundred agents, changing one thing each time.
+
+JAMES: And the headline?
+
+HANNAH: With the big reviews out at launch, twenty-six of the five hundred bought it. With no independent reviews, three did.
+
+JAMES: [pause] Three.
+
+HANNAH: Three. Of the twenty-three buyers it lost, twelve bought a Wahoo KICKR CORE two instead. One agent, Folasade, a project manager in Hackney, put it simply. Northfold looked interesting, but she didn't want to be the guinea pig.
+
+JAMES: That's the line I'd put in front of any challenger brand's board. What about price?
+
+HANNAH: The agents asked for it. Sixty-five considered Northfold at four ninety-nine and bought something else. Forty-four of them were waiting for a sale. So we ran the season again at three ninety-nine for Black Friday. Buyers went from twenty-six to forty-one, and revenue rose thirty-eight per cent, even after the price cut.
+
+JAMES: [dryly] Which is not what most finance directors expect from a discount.
+
+HANNAH: And part of the reason is visibility. Nine of the forty-one first heard of Northfold through a deal list or a deal email. But I'd add the caveat the report makes. We capped a new brand's reach at JetBlack's awareness. Before that cap, the same price added only five per cent to revenue. A better-known brand should expect something closer to that.
+
+JAMES: Good, say it plainly. And being named by AI?
+
+HANNAH: When AI engines name Northfold in forty-five per cent of answers, buyers go from twenty-six to thirty-three. That's within the margin of error. It fits what our AI Shortlist study found last month. Being named gets a brand onto the list. Reviews close the sale.
+
+JAMES: [calmly] Our view at Manual Focus is that a brand should test its launch plans before it spends on them, then take the best one to real customers. The Rider Panel doesn't replace those customers. It tells you which plans are worth their time.
+
+HANNAH: And the "why" is where the value is. Twenty-two of the twenty-six buyers chose it because it folds away. Gwen, a seventy-two-year-old retired nurse in Stockport with neighbours below her small flat, said everything pointed to something quiet that folds flat.
+
+JAMES: So, what do you hand to AI?
+
+HANNAH: Go on.
+
+JAMES: Get AI on this. First, the objections list. Take the reasons people give for not buying your product, from reviews, returns notes and sales calls, and have AI sort them.
+
+HANNAH: Give it the raw comments. It hands back a ranked table of reasons, how often each comes up, and a quote for each. Then you compare it with what the agents said, waiting for a sale, the price, not trusting a new brand.
+
+JAMES: Second, the review plan. Have AI list the reviewers and buyer's guides your buyers read, and draft a launch-day review schedule.
+
+HANNAH: The pitches and the samples stay with a person. But the list and the timeline are a good first draft for AI. The prompts are in the show notes.
+
+JAMES: What can't it tell us?
+
+HANNAH: It's simulated, and we haven't compared it with real sales yet. The sales totals are only as good as the market estimate behind them, and our confidence in that estimate is low. Two of our pass marks were narrow misses, which the report publishes. We've registered forecasts for this Black Friday and will score them in December.
+
+JAMES: So the takeaway is that a new brand can test its launch in days, and read why each agent bought or walked away, before the budget's committed. The full article and the interactive report, with all five hundred agents, are on manual-focus dot co dot uk. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and if you've got a launch coming, book a free working session with us at manual-focus dot co dot uk.
+
+HANNAH: Speak soon.
