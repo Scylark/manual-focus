@@ -17,6 +17,8 @@ interface Props {
   modifiedTime?: Date;
   /** Keep the page out of search results (404 and similar). */
   noindex?: boolean;
+  /** Also tell crawlers not to follow the page's links. */
+  nofollow?: boolean;
 }
 
 const {
@@ -28,6 +30,7 @@ const {
   publishedTime,
   modifiedTime,
   noindex = false,
+  nofollow = false,
 } = Astro.props;
 // Snippet-length description, cut at a sentence where possible.
 const description = fitDescription(rawDescription);
@@ -42,7 +45,7 @@ const fullTitle = brandTitle(title);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
-  {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalUrl} />}
+  {noindex ? <meta name="robots" content={nofollow ? 'noindex, nofollow' : 'noindex'} /> : <link rel="canonical" href={canonicalUrl} />}
 
   {/* Theme bootstrap — runs before the body paints so the right theme is
       applied without a flash. ALWAYS lands in dark mode on page load —

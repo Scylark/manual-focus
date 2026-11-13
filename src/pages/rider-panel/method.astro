@@ -1,0 +1,446 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url } from '../../utils/paths';
+
+// Method page for Rider Panel v1.0. Unlisted: noindex, nofollow, out of the sitemap, linked from nowhere.
+// Sources: rider-panel/test-10 (DESIGN.md, make_cohort.py, make_inputs.py, sim-instructions.md, market.md).
+const title = 'How the Rider Panel works';
+const description = 'The Rider Panel method, from the synthetic population and the agents it produces to the channels that decide what each agent meets, the counterfactual runs and how a brand’s own data sharpens it.';
+const enquire = `${url('/contact/')}?offer=rider-panel-study`;
+
+const layers = [
+  { n: '01', name: 'Population', note: '200,000 UK cyclists' },
+  { n: '02', name: 'In-market cohort', note: 'Who shops this season' },
+  { n: '03', name: 'Agent record', note: '45 fields per agent' },
+  { n: '04', name: 'Life story', note: 'Written from the record' },
+  { n: '05', name: 'The world', note: 'Weather, calendar, market' },
+  { n: '06', name: 'Channels', note: 'Set in code' },
+  { n: '07', name: 'Decision', note: 'Made by the agent' },
+  { n: '08', name: 'Counterfactuals', note: 'One change per run' },
+  { n: '09', name: 'Measurement', note: 'Ranges and gates' },
+];
+
+const funnel = [
+  { label: 'Population', who: 'Public data', w: 100 },
+  { label: 'In the market this season', who: 'Code', w: 68 },
+  { label: 'Drawn into the panel', who: 'Random draw', w: 50 },
+  { label: 'Come across the launch', who: 'Code, from channels', w: 34 },
+  { label: 'Consider it', who: 'The agent', w: 20 },
+  { label: 'Buy it', who: 'The agent', w: 10 },
+];
+
+const sources = [
+  ['Who rides and why', 'National participation surveys, such as Sport England’s Active Lives', 'Riding type and frequency'],
+  ['Where they live', 'Transport statistics with official population estimates', 'Regional weights by town'],
+  ['Their home', 'National housing surveys', 'Renting or owning, space for the product'],
+  ['How they pay', 'Financial regulator surveys of consumer credit', 'Use of finance and buy now, pay later'],
+  ['When they start looking', 'Monthly search volume for the category', 'The month each agent enters the market'],
+  ['Which brands they know', 'Share of search across the category’s brands', 'Brand familiarity and shortlists'],
+  ['Their weather', 'Historical weather archives', 'Each town’s real season, replayed'],
+  ['The shelf', 'Retailer pages, checked before the runs', 'Every rival at full and sale prices'],
+  ['A control', 'Grocery market shares', 'A field that should change nothing'],
+];
+
+const record = [
+  ['Life', [['age', '37'], ['job', 'police officer'], ['household', 'kids aged 5–16'], ['town', 'York']]],
+  ['Riding', [['segment', 'Fitness road rider'], ['hours a week', '6.5'], ['goal', 'first sportive in 2027']]],
+  ['Indoors now', [['setup', 'direct-drive smart trainer'], ['complaint', 'takes up space'], ['starts looking', 'October']]],
+  ['Home', [['renter', 'yes'], ['where it would go', 'garage']]],
+  ['Money', [['spare cash', 'a bit'], ['deal hunter', 'yes']]],
+  ['Shopping', [['usual shop', 'local bike shop'], ['researches on', 'BikeRadar and road.cc'], ['asks AI', 'no']]],
+] as const;
+
+const routes = [
+  ['Review sites', 'Agents who read the titles that review the category', 'The review plan and each title’s reach among those readers'],
+  ['Video reviews', 'Agents who watch reviews before buying', 'Which creators cover the launch'],
+  ['Retail stores', 'Agents who shop at a stockist', 'Ranging and in-store display'],
+  ['Specialist retailers online', 'Agents whose usual shop stocks it', 'Listings and merchandising'],
+  ['Independent shops', 'Agents who use a local shop', 'Dealer network and staff advocacy'],
+  ['AI assistants', 'Agents who ask AI when shopping', 'How often AI engines name the product, measured by Light Meter'],
+  ['Forums and communities', 'Agents who read forums or Reddit', 'Organic discussion and seeding'],
+  ['Deal emails and lists', 'Deal hunters, plus a few others', 'Promotions and deal placements'],
+  ['Social media', 'Anyone', 'Paid and organic social'],
+  ['Friends and clubs', 'Club members and group riders', 'Word of mouth, which builds slowly'],
+  ['Launch film', 'Anyone', 'Media spend behind it'],
+];
+
+const runs = [
+  ['Baseline', 'The launch as planned', 'The reference every other run is compared with'],
+  ['Price', 'A different launch price, or a sale at a set moment', 'What a price or discount is worth'],
+  ['Channel', 'A stockist added or removed, or more spend on one route', 'What each channel is worth'],
+  ['Earned media', 'Reviews or creator coverage switched on or off', 'What independent coverage is worth'],
+  ['AI visibility', 'AI engines name the product more or less often', 'What being named by AI is worth'],
+  ['Rerun', 'A sample of agents run again with nothing changed', 'The panel’s own noise'],
+  ['Swap', 'The same sample with one irrelevant fact swapped', 'Whether a detail sways choices when it shouldn’t'],
+];
+
+const gates = [
+  ['Irrelevant facts change nothing', 'Swap a fact that shouldn’t matter, such as the brand of an agent’s watch', 'Choices move no more than on a plain rerun'],
+  ['A control field stays neutral', 'Every record carries a field with no bearing on the purchase', 'No difference in buying beyond chance'],
+  ['In-market agents behave like shoppers', 'The share of agents who buy something in the season', 'Inside a band set before the runs'],
+  ['Brand shares look like the market', 'Shares of sales among established brands', 'Inside ranges set from real market data'],
+  ['Buying follows the calendar', 'How purchases spread across the months', 'No month above a set limit, with peaks where the market peaks'],
+];
+
+const brandData = [
+  ['Customer records', 'Population and cohort', 'Reweights the agents to match the brand’s real customers'],
+  ['Sales by month and retailer', 'Timing and channels', 'Sets when buying happens and through which shops. Held back, it becomes a test the panel has to pass.'],
+  ['Media plan and delivered reach', 'Channels', 'Replaces the assumed reach on each route with what the plan will actually buy'],
+  ['Brand tracking and branded search', 'Familiarity and shortlists', 'Sets how well known the brand and its rivals are with each kind of rider'],
+  ['Retail ranging and display', 'Channels', 'Puts the product in the right shops and on the right shelves for each agent'],
+  ['Reviews and returns', 'Agent behaviour', 'Gives agents the doubts and reassurances real buyers voice about the brand'],
+  ['Post-purchase surveys', 'Measurement', 'Checks the reasons agents give against the reasons real buyers give'],
+  ['Pricing history and promotions', 'The world', 'Gives the market file real price moves, including the brand’s own past deals'],
+  ['A past launch', 'Validation', 'Replays a launch the brand already knows the answer to, before the panel is trusted on the next one'],
+];
+---
+<Base title={title} description={description} noindex nofollow>
+
+  <section class="section rm-hero">
+    <div class="container">
+      <div class="eyebrow">RIDER PANEL · METHOD v1.0</div>
+      <h1>How the Rider Panel works</h1>
+      <p class="lead rm-lead">The Rider Panel is a simulated market. It builds a population from public data, draws the people who are shopping this season, gives each one a life, then lets every agent live the buying season month by month. A launch is tested by running that same season again with one thing changed.</p>
+      <div class="rm-principle" data-reveal>
+        <p class="rm-principle-k">The design principle</p>
+        <p class="rm-principle-v">Code decides what each agent can come across. <span>The agent decides what to do about it.</span></p>
+        <p class="rm-principle-note">Language models are generous with attention. Left alone, they let a brand nobody has heard of reach almost everyone. So what an agent can come across is set in code from data. The model is only asked the question it answers well, which is what this person would do next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">ARCHITECTURE</div>
+      <h2 class="rm-h2">Nine layers from population to result</h2>
+      <ol class="rm-stack" aria-label="The nine layers of the Rider Panel">
+        {layers.map((l, i) => (
+          <li class={`rm-layer ${l.n === '04' || l.n === '07' ? 'rm-layer-key' : ''}`} data-reveal style={`--d:${i * 60}ms`}>
+            <a href={`#layer-${l.n}`}>
+              <span class="rm-layer-n">{l.n}</span>
+              <span class="rm-layer-name">{l.name}</span>
+              <span class="rm-layer-note">{l.note}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <p class="rm-legend"><span class="rm-dot rm-dot-code"></span>Set in code from data <span class="rm-dot rm-dot-model"></span>Written or decided by the model</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">THE FUNNEL</div>
+      <h2 class="rm-h2">How a market narrows to a buyer</h2>
+      <p class="rm-copy">Every study narrows the same way. The early steps come from data and code. Only the last two belong to the agents.</p>
+      <div class="rm-funnel">
+        {funnel.map((f, i) => (
+          <div class="rm-funnel-row" data-reveal style={`--d:${i * 90}ms`}>
+            <div class="rm-funnel-label">{f.label}</div>
+            <div class="rm-funnel-track"><div class={`rm-funnel-bar ${f.who === 'The agent' ? 'rm-bar-model' : ''}`} style={`--w:${f.w}%`}></div></div>
+            <div class="rm-funnel-value mono">{f.who}</div>
+          </div>
+        ))}
+      </div>
+      <p class="rm-legend">Bar widths are illustrative.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="layer-01">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">01</span><span class="rm-stage-tag rm-tag-code">Code</span></div>
+      <h2 class="rm-h2">The synthetic population</h2>
+      <p class="rm-copy">Every study starts with a population far larger than the panel, typically hundreds of thousands of people, each drawn from weighted distributions taken from public surveys. Where no source exists, the weight is labelled as an assumption in the code and reported. Every draw uses a fixed seed, so the same population can be rebuilt exactly.</p>
+      <div class="rm-table-wrap" data-reveal>
+        <table class="rm-table">
+          <thead><tr><th scope="col">What it sets</th><th scope="col">Source</th><th scope="col">Used for</th></tr></thead>
+          <tbody>{sources.map(([a, b, c]) => <tr><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="layer-02">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">02</span><span class="rm-stage-tag rm-tag-code">Code</span></div>
+      <h2 class="rm-h2">The in-market cohort</h2>
+      <p class="rm-copy">Most cyclists never think about a trainer in a given year. A panel of all cyclists would put people in the market who were never going to be there, which is the most common way synthetic research inflates demand. So each simulated cyclist gets a chance of shopping this season based on what they ride indoors now and what is wrong with it. A rider whose wheel-on trainer chews through tyres is far more likely to shop than one who has never ridden indoors.</p>
+      <p class="rm-copy">The panel is then drawn at random from everyone who shops, so its mix follows from the population rather than being chosen. A panel can be as large as the question needs. Each agent enters the market in a month weighted by real search volume for the category, so the panel fills up as the real market does.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="layer-03">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">03</span><span class="rm-stage-tag rm-tag-code">Code</span></div>
+      <h2 class="rm-h2">The agent record</h2>
+      <p class="rm-copy">In a cycling panel, each agent carries 45 fields. Some describe the person, from their household to whether a partner has a say on big spends. Others describe their kit, their home or how they shop. Two rules keep the record honest. Owning a product is recorded separately from caring about its brand, because most riders who own a bike computer never think about who made it. Each record also carries a control field, the agent’s main supermarket, which should change nothing. If it does, the panel is reading noise into the record.</p>
+      <div class="rm-record" data-reveal>
+        <div class="rm-record-head">
+          <span class="mono">Agent record</span>
+          <span>An example</span>
+          <span class="rm-record-sub">17 of 45 fields shown</span>
+        </div>
+        <div class="rm-record-grid">
+          {record.map(([group, fields]) => (
+            <div class="rm-record-group">
+              <p class="rm-record-k">{group}</p>
+              <dl>{fields.map(([k, v]) => <div><dt>{k}</dt><dd class="mono">{v}</dd></div>)}</dl>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="layer-04">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">04</span><span class="rm-stage-tag rm-tag-model">Model</span></div>
+      <h2 class="rm-h2">The life story</h2>
+      <p class="rm-copy">A list of facts doesn’t behave like a person. So the model turns every record into a short written life. Each agent gets a name and a cycling history, plus a reason to start looking this winter. The writer works under strict rules. Every fact in the record must stay true. No kit brand may appear, so a story can never nudge an agent towards a product. The story may not say what the agent will buy, or whether they’ll buy at all.</p>
+      <blockquote class="rm-quote" data-reveal>
+        <p>York police officer and dad, fitting winter training into a rented house with no spare room.</p>
+        <cite>An example headline, written from the record above</cite>
+      </blockquote>
+      <p class="rm-copy">Names are checked for repeats after writing, because writers working in parallel drift towards the same ones. The result reads like a magazine profile, which is what lets a brand manager read an agent’s reasoning and recognise a customer.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="layer-05">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">05</span><span class="rm-stage-tag rm-tag-code">Code</span></div>
+      <h2 class="rm-h2">The world the agents live in</h2>
+      <div class="rm-grid3">
+        <div class="rm-card" data-reveal>
+          <p class="rm-card-k">Weather</p>
+          <p>Each agent lives their own town’s real weather, month by month, taken from the most recent real season and replayed. A frosty January in Aberdeen is not a mild one in Plymouth.</p>
+        </div>
+        <div class="rm-card" data-reveal style="--d:80ms">
+          <p class="rm-card-k">Calendar</p>
+          <p>Every agent lives through the clocks going back and the Black Friday rush. December brings Christmas costs before the January sales arrive.</p>
+        </div>
+        <div class="rm-card" data-reveal style="--d:160ms">
+          <p class="rm-card-k">Market</p>
+          <p>Every real rival at current prices, with its expected sale prices. Nobody knows a sale price in advance. Only deal hunters hold out for one.</p>
+        </div>
+      </div>
+      <p class="rm-copy">Brand familiarity is part of the world too. It comes from each brand’s share of UK searches. AI answers come from Light Meter’s own AI Shortlist study, so an agent who asks AI hears what UK engines really say.</p>
+    </div>
+  </section>
+
+  <section class="section" id="layer-06">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">06</span><span class="rm-stage-tag rm-tag-code">Code</span></div>
+      <h2 class="rm-h2">Channels and exposure</h2>
+      <p class="rm-copy">This is the layer that makes the panel credible. Before any agent thinks, the code decides two things. First, which rival trainers this agent knows of. Second, through which channels, if any, they come across the new product. Both follow from the agent’s own habits.</p>
+
+      <h3 class="rm-h3">Shortlists</h3>
+      <p class="rm-copy">Awareness of each rival starts from its share of UK searches, then moves with the kit an agent owns and where they shop. A Garmin owner is more likely to know Tacx, because Garmin Connect suggests it. A Decathlon shopper almost always knows Van Rysel. An agent never considers a trainer outside their shortlist.</p>
+
+      <h3 class="rm-h3">Routes to the new product</h3>
+      <p class="rm-copy">The new product reaches an agent only through routes that fit how that person shops. Each route has a reach among the agents it applies to, set from the launch plan. Total reach is then capped, so a new brand can’t become better known in its first season than an established challenger.</p>
+      <div class="rm-table-wrap" data-reveal>
+        <table class="rm-table">
+          <thead><tr><th scope="col">Route</th><th scope="col">Who it can reach</th><th scope="col">What sets its reach</th></tr></thead>
+          <tbody>{routes.map(([a, b, c]) => <tr><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="rm-copy">Every agent’s random draw on every route is fixed once and shared across all runs. When a run switches off reviews, the agents who lose the product are exactly those whose only route was a review. Nothing else moves, so the difference between runs is the effect of the change and not a reshuffle.</p>
+
+      <h3 class="rm-h3">The brief each agent receives</h3>
+      <p class="rm-copy">Each brief starts from context every agent shares, such as the launch being tested and the season’s calendar. On top of that sits everything specific to the agent, from their record and life story to the channels set for them in code. The behavioural rules are written to stop the model’s habits passing for findings.</p>
+      <ul class="rm-rules" data-reveal>
+        <li><strong>The profile is a list of facts, not reasons.</strong> A real shopper weighs two or three things that matter to them and ignores the rest.</li>
+        <li><strong>Most people end up with a name they see everywhere.</strong> A less familiar brand wins only when the familiar options don’t fit.</li>
+        <li><strong>The new product’s longer description carries no weight.</strong> It is longer only because it’s new.</li>
+        <li><strong>Meeting a product isn’t considering it.</strong> Plenty of people scroll past a new brand.</li>
+      </ul>
+      <p class="rm-copy">Answers come back in a fixed structure. Reasons are picked from 17 named factors and channels from 12 named routes, so every answer can be counted and compared across runs.</p>
+      <pre class="rm-code" data-reveal><code>{`{
+  "diary": ["One line per month, in their own voice"],
+  "considered": ["options from their shortlist"],
+  "choice": "option",
+  "price_paid": "the price on the day",
+  "date": "the day they bought, or null",
+  "deciding_factors": ["one to three of 17 named factors"],
+  "why": "one or two sentences",
+  "would_change_my_mind": "one sentence",
+  "first_heard": "one of 12 named routes"
+}`}</code></pre>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="layer-07">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">07</span><span class="rm-stage-tag rm-tag-model">Model</span></div>
+      <h2 class="rm-h2">The decision</h2>
+      <p class="rm-copy">From the month they start looking until the end of March, each agent keeps a diary. Every month they react to what the weather and the calendar bring. Then they decide whether to buy now or keep waiting, which can end in giving up. They pay the price for the day they buy. Alongside the choice, each agent says why in their own words, plus what would have changed their mind. That last answer turns a sales figure into a list of things a brand could test next.</p>
+      <p class="rm-copy">Agents are voiced five to a brief, with separate model sessions for every run, so no agent ever sees two versions of the same launch. Showing one person several prices at once makes them far more price-sensitive than any real shopper, which is one of the lessons from earlier versions of the panel.</p>
+    </div>
+  </section>
+
+  <section class="section" id="layer-08">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">08</span><span class="rm-stage-tag rm-tag-code">Code</span></div>
+      <h2 class="rm-h2">Counterfactual runs</h2>
+      <p class="rm-copy">A Rider Panel result is always a comparison. The same agents live the same season. Their weather stays the same, as do the prices and every random draw. One thing changes per run. Two extra runs measure the panel itself.</p>
+      <div class="rm-table-wrap" data-reveal>
+        <table class="rm-table">
+          <thead><tr><th scope="col">Run</th><th scope="col">What changes</th><th scope="col">What it measures</th></tr></thead>
+          <tbody>{runs.map(([a, b, c]) => <tr><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="layer-09">
+    <div class="container">
+      <div class="rm-stage"><span class="rm-stage-n">09</span><span class="rm-stage-tag rm-tag-code">Code</span></div>
+      <h2 class="rm-h2">Measurement and validation</h2>
+      <p class="rm-copy">Single agents change their minds between runs, just as real people would on a different day. So every result is a total over the panel. Each total carries a 95% range from re-sampling the agents 4,000 times. A change counts as real only when it is bigger than the panel’s own noise.</p>
+      <p class="rm-copy">Pass marks were written down before any result existed. If one failed, we fixed its cause once and repeated the run. Anything still missing after that is published, not tuned away.</p>
+      <div class="rm-table-wrap" data-reveal>
+        <table class="rm-table rm-gates">
+          <thead><tr><th scope="col">Check</th><th scope="col">What it tests</th><th scope="col">How it passes</th></tr></thead>
+          <tbody>{gates.map(([a, b, c]) => <tr><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="rm-copy">To turn agents into units, each agent is weighted so the baseline run’s sales match the size of the real market this season. Where the market size is uncertain, the report gives a range and lets a brand enter its own figure. Forecasts for real market events are registered in advance and scored in public.</p>
+    </div>
+  </section>
+
+  <section class="section rm-brand">
+    <div class="container">
+      <div class="eyebrow">WITH A BRAND’S OWN DATA</div>
+      <h2 class="rm-h2">Sharpening the panel with what a brand already knows</h2>
+      <p class="rm-copy">A panel can run on public data alone. A brand knows things no public source does, about its own customers and how its past launches sold. That knowledge enters the panel in three ways. It can replace an assumption with a fact. It can become a target the panel has to hit. Held back, it becomes a test the panel has to pass on data it has never seen.</p>
+      <div class="rm-modes" data-reveal>
+        <div><p class="rm-card-k">Replace</p><p>An assumed reach or awareness figure becomes the brand’s measured one.</p></div>
+        <div><p class="rm-card-k">Calibrate</p><p>Real sales by month and shop become the shares the panel must reproduce.</p></div>
+        <div><p class="rm-card-k">Validate</p><p>A past launch is replayed blind. The panel is then scored against what happened.</p></div>
+      </div>
+      <div class="rm-table-wrap" data-reveal>
+        <table class="rm-table">
+          <thead><tr><th scope="col">Brand data</th><th scope="col">Layer it improves</th><th scope="col">What changes</th></tr></thead>
+          <tbody>{brandData.map(([a, b, c]) => <tr><th scope="row">{a}</th><td class="rm-layer-ref">{b}</td><td>{c}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="rm-copy">Brand data shapes the distributions the agents are drawn from. It never becomes an agent. No customer’s record is copied into the panel, so the agents stay synthetic and the data can stay aggregated.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">LIMITS</div>
+      <h2 class="rm-h2">What the method can and can’t claim</h2>
+      <p class="rm-copy">The Rider Panel compares launch plans and explains why people buy or walk away. It doesn’t replace real customers. It tells a brand which plans are worth taking to them. Its unit totals are only as good as the market estimate behind them. Each study is scored against real outcomes where they exist, which is how the method earns trust over time.</p>
+      <div class="rm-ctas">
+        <a href={enquire} class="btn-cta">Ask about a study</a>
+        <a href={url('/rider-panel/')} class="btn-ghost">See the Rider Panel</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('[data-reveal]');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach((el) => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    els.forEach((el) => io.observe(el));
+  }
+</script>
+
+<style>
+  .rm-h2 { margin-top: var(--space-sm); max-width: 900px; }
+  .rm-h3 { margin-top: var(--space-lg); font-size: clamp(1.25rem, 2.4vw, 1.75rem); }
+  .rm-copy { margin-top: var(--space-md); color: var(--color-text-secondary); font-size: 1.125rem; line-height: 1.65; max-width: 760px; }
+  .rm-lead { max-width: 820px; }
+  .rm-ctas { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md); }
+
+  [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s ease; transition-delay: var(--d, 0ms); }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+
+  /* Principle */
+  .rm-principle { margin-top: var(--space-lg); max-width: 900px; padding: var(--space-md); border: 1px solid var(--color-line); border-radius: 14px; background: var(--color-surface); position: relative; overflow: hidden; }
+  .rm-principle::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--color-cta-gradient); }
+  .rm-principle-k, .rm-card-k, .rm-record-k { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-secondary); }
+  .rm-principle-v { margin-top: var(--space-xs); font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.2; font-weight: 600; color: var(--color-text); }
+  .rm-principle-v span { background: var(--color-cta-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .rm-principle-note { margin-top: var(--space-sm); color: var(--color-text-secondary); line-height: 1.6; max-width: 720px; }
+
+  /* Layer stack */
+  .rm-stack { list-style: none; padding: 0; margin-top: var(--space-md); display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; }
+  .rm-layer a { display: flex; flex-direction: column; gap: 0.35rem; height: 100%; padding: 1rem 0.75rem; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-surface); text-decoration: none; position: relative; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .rm-layer a::after { content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: 0; height: 2px; background: var(--color-text-secondary); opacity: 0.35; border-radius: 2px; }
+  .rm-layer-key a::after { background: var(--color-cta-gradient); opacity: 1; }
+  .rm-layer a:hover { border-color: var(--color-text-secondary); transform: translateY(-2px); }
+  .rm-layer-n { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-secondary); }
+  .rm-layer-name { font-weight: 600; color: var(--color-text); line-height: 1.2; }
+  .rm-layer-note { font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.35; }
+  .rm-legend { margin-top: var(--space-sm); font-size: var(--font-size-sm); color: var(--color-text-secondary); display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; }
+  .rm-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 0.4rem; vertical-align: -1px; }
+  .rm-dot-code { background: var(--color-text-secondary); }
+  .rm-dot-model { background: var(--color-cta-gradient); }
+  @media (max-width: 1100px) { .rm-stack { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .rm-stack { grid-template-columns: minmax(0, 1fr); } .rm-layer a { flex-direction: row; align-items: baseline; gap: 0.75rem; } .rm-layer-note { margin-left: auto; text-align: right; } }
+
+  /* Funnel */
+  .rm-funnel { margin-top: var(--space-md); max-width: 960px; display: flex; flex-direction: column; gap: 0.9rem; }
+  .rm-funnel-row { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr) 9.5rem; align-items: center; gap: var(--space-sm); }
+  .rm-funnel-label { color: var(--color-text); font-size: 0.95rem; line-height: 1.3; }
+  .rm-funnel-track { height: 12px; border-radius: 999px; background: var(--color-line); overflow: hidden; }
+  .rm-funnel-bar { height: 100%; width: 0; border-radius: 999px; background: var(--color-text-secondary); transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: calc(var(--d, 0ms) + 150ms); }
+  .rm-funnel-row.is-in .rm-funnel-bar { width: var(--w); }
+  .rm-funnel-value { text-align: right; color: var(--color-text-secondary); font-size: 0.8rem; }
+  .rm-bar-model { background: var(--color-cta-gradient); }
+  @media (max-width: 640px) { .rm-funnel-row { grid-template-columns: minmax(0, 1fr) auto; } .rm-funnel-track { grid-column: 1 / -1; grid-row: 2; } }
+
+  /* Stage headers */
+  .rm-stage { display: flex; align-items: center; gap: 0.75rem; }
+  .rm-stage-n { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem); line-height: 0.9; background: var(--color-cta-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .rm-stage-tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.3rem 0.6rem; border-radius: 999px; border: 1px solid var(--color-line); color: var(--color-text-secondary); }
+  .rm-tag-model { border-color: transparent; background: var(--color-cta-gradient); color: #fff; }
+
+  /* Tables */
+  .rm-table-wrap { margin-top: var(--space-md); max-width: 1000px; overflow-x: auto; }
+  .rm-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  .rm-table th, .rm-table td { padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--color-line); text-align: left; vertical-align: top; line-height: 1.45; }
+  .rm-table thead th { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-secondary); font-weight: 500; }
+  .rm-table tbody th { font-weight: 600; color: var(--color-text); min-width: 9rem; }
+  .rm-table td { color: var(--color-text-secondary); }
+  .rm-table td.mono { color: var(--color-text); white-space: nowrap; }
+  .rm-layer-ref { white-space: nowrap; color: var(--color-text) !important; }
+  .rm-verdict { display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+  .rm-pass { border: 1px solid var(--color-cta-end); color: var(--color-cta-end); }
+  .rm-near { border: 1px solid var(--color-cta-mid); color: var(--color-cta-mid); }
+
+  /* Agent record */
+  .rm-record { margin-top: var(--space-md); max-width: 1000px; border: 1px solid var(--color-line); border-radius: 14px; background: var(--color-surface); overflow: hidden; }
+  .rm-record-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--color-line); font-weight: 600; }
+  .rm-record-head .mono { color: var(--color-text-secondary); }
+  .rm-record-sub { margin-left: auto; font-weight: 400; font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+  .rm-record-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rm-record-group { padding: 1rem 1.25rem; border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+  .rm-record-group dl { margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .rm-record-group dl div { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.9rem; }
+  .rm-record-group dt { color: var(--color-text-secondary); }
+  .rm-record-group dd { margin: 0; color: var(--color-text); text-align: right; }
+  @media (max-width: 900px) { .rm-record-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .rm-record-grid { grid-template-columns: minmax(0, 1fr); } .rm-record-sub { margin-left: 0; width: 100%; } }
+
+  /* Quote, cards, rules, code */
+  .rm-quote { margin: var(--space-md) 0 0; max-width: 760px; padding-left: var(--space-md); border-left: 2px solid var(--color-cta-start); }
+  .rm-quote p { font-size: clamp(1.3rem, 2.6vw, 1.8rem); line-height: 1.3; color: var(--color-text); }
+  .rm-quote cite { display: block; margin-top: 0.6rem; font-style: normal; font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+  .rm-grid3, .rm-modes { margin-top: var(--space-md); max-width: 1000px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-sm); }
+  .rm-card, .rm-modes > div { border: 1px solid var(--color-line); border-radius: 12px; padding: 1.25rem; background: var(--color-surface); }
+  .rm-card p:not(.rm-card-k), .rm-modes p:not(.rm-card-k) { margin-top: 0.5rem; color: var(--color-text-secondary); line-height: 1.55; font-size: 0.95rem; }
+  @media (max-width: 800px) { .rm-grid3, .rm-modes { grid-template-columns: minmax(0, 1fr); } }
+  .rm-rules { margin-top: var(--space-md); max-width: 760px; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .rm-rules li { padding: 0.9rem 1.1rem; border: 1px solid var(--color-line); border-radius: 10px; color: var(--color-text-secondary); line-height: 1.55; }
+  .rm-rules strong { color: var(--color-text); display: block; }
+  .rm-code { margin-top: var(--space-md); max-width: 760px; padding: 1.25rem; border-radius: 12px; border: 1px solid var(--color-line); background: var(--color-bg); overflow-x: auto; font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; color: var(--color-text); }
+</style>
