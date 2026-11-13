@@ -1,0 +1,63 @@
+JAMES: If your search report looks odd this week, Google gave you three reasons for it in one week. On the twelfth of November Google put a new model, Gemini four Hydrogen, into Search for everyone, two days after a core update started. I'm James Vickers, this is Manual Focus, and Hannah's here to untangle which change did what.
+
+HANNAH: Hi James. Some of it can't be untangled yet, so I'll say where the line is.
+
+JAMES: Start with what Google said.
+
+HANNAH: We read two Google posts from the twelfth. Robby Stein, who runs product for Google Search, called Hydrogen the biggest model upgrade to Search yet, and said it's available globally in Search for all users, not only subscribers. The second post, from Google DeepMind, launched the model itself and calls it their daily driver for agentic work, built for speed, while its frontier models, Carbon and Argon, handle the long reasoning.
+
+JAMES: What does Google say changes for someone typing a search?
+
+HANNAH: Four things. It reads complex, multi-part and typo-filled questions better. It widens what Google calls query fan-out. More images, structured answers and comparison tables. And more nuanced answers in every language AI Mode supports. What it doesn't give you is a single number on links, clicks or traffic.
+
+JAMES: Explain fan-out for anyone who hasn't met it.
+
+HANNAH: You ask one question, and Google quietly splits it into several smaller searches, runs them at the same time and writes the answer from what comes back. So a question about waterproof running shoes for wide feet on muddy trails under a hundred and fifty pounds could become searches on fit, terrain, waterproofing and price. Google says Hydrogen does more of that, and links to a broader range of sites, including ones people might not have found before.
+
+JAMES: Which is the mechanism we talked about in The citation moved off the page, back in June. Rankings stopped predicting who got quoted, because the answer was built from searches you never saw.
+
+HANNAH: Same mechanism, turned up. And it builds on the link changes we covered in mid October, when Google moved inline links higher in AI Mode.
+
+JAMES: [thoughtfully] So, the so what for a content team. If the answer is assembled from subtopics, a brand needs a page, or at least a clear section, for each one.
+
+HANNAH: That's the read. One long guide that buries fit advice in paragraph nine gives Google less to cite than a page with a proper section on fit. And Google says it's showing more comparison tables, which ties in with the SISTRIX study we covered in October, where tables with a proper header row went with more AI citations.
+
+JAMES: Does it help a mid-sized brand or hurt it?
+
+HANNAH: Both. A wider fan-out means more links per answer, so more chances for a brand that didn't rank on the head term. But more links also means any one link is less secure. That's our reasoning. Google hasn't published anything that measures it.
+
+JAMES: And which searches move?
+
+HANNAH: Google only confirms AI Mode in its Search post. It doesn't mention AI Overviews at all, so I'd treat AI Overviews as likely but unconfirmed. Our guess is the long questions a buyer asks before choosing a brand change most, and short head terms least.
+
+JAMES: Now the measurement problem, because that's what lands on a marketing director's desk on Monday.
+
+HANNAH: Three things overlap. The November core update started on the tenth. Hydrogen came on the twelfth. And Google's own data anomalies page says a logging error lowered impressions in Search Console's generative AI report from the ninth to the eleventh. Google says that one affected data only, so a dip on those days is a logging fault, not lost visibility.
+
+JAMES: Can analytics tell the AI traffic apart?
+
+HANNAH: Not on its own. Google published a help page this week on spotting Search traffic in your analytics or server logs. It says Google sends only the site address, google dot co dot uk for example, with no search query, and it describes no separate value for AI Mode. It also explains why Search Console clicks and analytics visits never quite match. Search Console counts the click, and analytics counts the visit only once your page loads and the tag fires.
+
+JAMES: Our view at Manual Focus is that the twelfth of November is a new baseline. Rebuild the tracking around the multi-part questions buyers actually ask, because the model writing the answers has changed.
+
+HANNAH: And mark the three dates in your reports first, so nobody reads a logging dip as a ranking loss.
+
+JAMES: So what do you hand over? Get AI on this, first job. Rebuild your prompt set and check it every week.
+
+HANNAH: Give it your product range, your market and your main competitors, and it writes twenty to thirty multi-part buyer questions with budget, fit and use case in them. Then set it as a weekly routine, running each one in AI Mode from a UK location and logging which brands and pages are cited.
+
+JAMES: Second, map the fan-out gaps.
+
+HANNAH: Give it those questions and your sitemap. It lists the subtopics Google would likely search for each one, and marks which have a page or clear section on your site and which have nothing.
+
+JAMES: Third, find the missing tables.
+
+HANNAH: Give it your top twenty product and guide pages. It tells you which ones have specs, sizes, prices or comparisons sitting in paragraphs, and drafts each as a plain table for the content team to check.
+
+JAMES: The prompts are in the show notes. Hannah, what don't we know?
+
+HANNAH: How many more links Hydrogen shows, how often it cites sites outside the top results, or whether clicks went up or down. Whether AI Overviews run on it for every query or only some. How it sits with ads in AI Mode, which Google is bringing to the UK this quarter. And when we last looked, Search Console's generative AI report showed impressions but no clicks, so it can't tell you whether those extra links send anyone your way.
+
+JAMES: [calmly] So the takeaway. Google changed the model that writes its AI answers, in the same week as a core update and a reporting glitch, so annotate the dates, reset your baseline and make sure every question your buyers ask has a page that answers it. The full article is on manual-focus dot co dot uk. If this was useful, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and if you want a hand rebuilding your own baseline, book a free working session on the site.
+
+HANNAH: Thanks, James. And maybe don't panic about the ninth to the eleventh.
