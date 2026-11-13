@@ -1,4 +1,4 @@
-JAMES: If you've ever typed your category into ChatGPT, seen your brand in the answer and felt relieved, I'd ask you to type it again. Today we're talking about the tool we built to measure that properly, Manual Focus Light Meter. I'm James Vickers, this is Manual Focus, and Hannah's here to check I don't oversell it.
+JAMES: Today we're launching something of our own, Manual Focus Light Meter, a tool that measures which brands AI recommends to UK buyers. If you've ever typed your category into ChatGPT and felt relieved to see your brand, it's for you. I'm James Vickers, this is Manual Focus, and Hannah's here to check I don't oversell it.
 
 HANNAH: Hi James. I'll start with what it does. Light Meter takes the questions UK buyers ask, usually somewhere between a hundred and three hundred of them, and puts each one to six AI engines. ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews and Google AI Mode, all from a UK location, three times each.
 
@@ -8,7 +8,7 @@ HANNAH: Two things. Which brands each answer names, and which websites each engi
 
 JAMES: Before we go on, the same disclosure as in our indoor cycling episode. I've worked with Wahoo and Wattbike, I was on the founding team at RGT Cycling, and I currently work with Ribble Cycles. The audits run on the same method whoever orders them, and we don't change results on request.
 
-HANNAH: And the evidence for all of this is our first study, on UK indoor cycling. Three hundred and nine questions, five thousand five hundred and sixty-two answers.
+HANNAH: And our worked example is the first study we ran with it, UK indoor cycling. Three hundred and nine questions, five thousand five hundred and sixty-two answers, and the report is free to read.
 
 JAMES: [thoughtfully] So start with the obvious objection. Most marketing teams already have a rank tracker. Why isn't that enough?
 
@@ -62,10 +62,18 @@ JAMES: The prompts are in the show notes.
 
 HANNAH: [thoughtfully] And what Light Meter can't tell you. It counts whether an engine names a brand, not whether it praises it, and not whether anyone buys. Logged-in users with chat history may see different answers. Perplexity and Claude are measured through their APIs, which can differ from the apps. And each study is a snapshot of one month, so a category needs repeat editions before it shows a trend.
 
-JAMES: Which is why the next edition matters. Trail running kit, in January twenty twenty-seven.
+JAMES: So what can a brand actually order?
 
-HANNAH: And if your brand is already in the indoor cycling study, there's a free one-page AI Shortlist card you can ask for.
+HANNAH: If you're in a published study, a free one-page AI Shortlist card, with your rate on each engine and the sites that cite your rivals but not you. Beyond that, a category audit built to order in five working days, a Brand Snapshot against up to five competitors, or a Fix programme, where we measure, do the work and measure again.
 
-JAMES: So the takeaway. Measuring AI visibility means asking more than once, reading each engine on its own, and knowing which gaps are real before you act on them. The full article and the Light Meter page are on manual-focus dot co dot uk. If you want the next study when it lands, follow the show in Apple Podcasts, Spotify or wherever you listen. And if you'd like to work out what this means for your own brand, book a free working session with us on the site. Thanks, Hannah.
+JAMES: [calmly] The paid ones are priced on application, and you order through the enquiry form on the site.
+
+HANNAH: And the next published study is trail running kit, in January twenty twenty-seven.
+
+JAMES: So the takeaway. Light Meter tells you whether your brand makes the AI shortlist, engine by engine, with ranges that show which gaps are real. The full article and the Light Meter page are on manual-focus dot co dot uk.
+
+HANNAH: And if your brand's in the indoor cycling study, start with the free card.
+
+JAMES: If you want the next study when it lands, follow the show in Apple Podcasts, Spotify or wherever you listen. And if you'd like to work out what this means for your own brand, book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
 
 HANNAH: Thanks, James. Until next time.
