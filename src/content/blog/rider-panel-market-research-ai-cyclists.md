@@ -1,7 +1,6 @@
 ---
-title: "The Rider Panel: testing a product launch in a simulated world of 500 AI agents"
-date: 2026-11-10
-unlisted: true
+title: "The Rider Panel, testing a product launch in a simulated world of 500 AI agents"
+date: 2026-11-13
 tags: ["ai", "endurance-sports", "go-to-market"]
 description: "We tested a smart trainer launch in a simulated world of 500 AI agents. With reviews it sold to 26. Without them it sold to 3. Here's why."
 faq:
