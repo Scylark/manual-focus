@@ -4,9 +4,9 @@ date: 2026-11-13
 tags: ["ai", "endurance-sports", "go-to-market"]
 description: "We tested a smart trainer launch in a simulated world of 500 AI agents. With reviews it sold to 26. Without them it sold to 3. Here's why."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/rider-panel-market-research-ai-cyclists.mp3"
-  duration: 409
-  bytes: 4905214
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/rider-panel-market-research-ai-cyclists-20261113093344.mp3"
+  duration: 445
+  bytes: 5341876
   published: 2026-11-13
 faq:
   - question: "What is the Rider Panel?"

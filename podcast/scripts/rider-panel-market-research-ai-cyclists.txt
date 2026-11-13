@@ -34,7 +34,11 @@ JAMES: [dryly] Which is not what most finance directors expect from a discount.
 
 HANNAH: And part of the reason is visibility. Nine of the forty-one first heard of Northfold through a deal list or a deal email. But I'd add the caveat the report makes. We capped a new brand's reach at JetBlack's awareness. Before that cap, the same price added only five per cent to revenue. A better-known brand should expect something closer to that.
 
-JAMES: Good, say it plainly. And being named by AI?
+JAMES: Good, say it plainly. And any finance director will ask about margin.
+
+HANNAH: They should. That thirty-eight per cent is revenue. After VAT, each four ninety-nine sale brings the brand four hundred and sixteen pounds. Sold direct, the Black Friday price only adds profit if the brand keeps at least a hundred and forty-four pounds of that once every cost is paid. That's a thirty-five per cent margin. Through a retailer taking forty per cent, it's eighty-seven pounds out of two hundred and fifty.
+
+JAMES: [dryly] So model it against your own margin before you copy it. And being named by AI?
 
 HANNAH: When AI engines name Northfold in forty-five per cent of answers, buyers go from twenty-six to thirty-three. That's within the margin of error. It fits what our AI Shortlist study found last month. Being named gets a brand onto the list. Reviews close the sale.
 
