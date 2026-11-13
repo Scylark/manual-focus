@@ -8,17 +8,24 @@ const title = 'How the Rider Panel works';
 const description = 'The Rider Panel method, from the synthetic population and the agents it produces to the channels that decide what each agent meets, the counterfactual runs and how a brand’s own data sharpens it.';
 const enquire = `${url('/contact/')}?offer=rider-panel-study`;
 
-const layers = [
-  { n: '01', name: 'Population', note: '200,000 UK cyclists' },
-  { n: '02', name: 'In-market cohort', note: 'Who shops this season' },
-  { n: '03', name: 'Agent record', note: '45 fields per agent' },
-  { n: '04', name: 'Life story', note: 'Written from the record' },
-  { n: '05', name: 'The world', note: 'Weather, calendar, market' },
-  { n: '06', name: 'Channels', note: 'Set in code' },
-  { n: '07', name: 'Decision', note: 'Made by the agent' },
-  { n: '08', name: 'Counterfactuals', note: 'One change per run' },
-  { n: '09', name: 'Measurement', note: 'Ranges and gates' },
+const phases = [
+  { name: 'Build the market', range: '01 to 03', layers: [
+    { n: '01', name: 'Population', by: 'Public data', what: 'A large synthetic population drawn from national surveys.', guard: 'Every weight is sourced, or flagged in the code as an assumption.', fpd: true },
+    { n: '02', name: 'In-market cohort', by: 'Code', what: 'Only the people genuinely shopping this season.', guard: 'Stops the panel inflating demand with people who would never buy.', fpd: true },
+    { n: '03', name: 'Agent record', by: 'Code', what: 'Around 45 facts about each agent’s life.', guard: 'A control field that should change nothing, checked in every study.', fpd: false },
+  ] },
+  { name: 'Set the scene', range: '04 to 06', layers: [
+    { n: '04', name: 'Life story', by: 'Model', what: 'A written life built from the record.', guard: 'No brand names and no hint of what the agent will buy.', fpd: false },
+    { n: '05', name: 'The world', by: 'Code', what: 'Each town’s real weather, with every rival at current prices.', guard: 'Nobody knows a sale price before the sale begins.', fpd: true },
+    { n: '06', name: 'Channels', by: 'Code', what: 'Which products each agent knows, and how they meet the new one.', guard: 'Reach is capped, so a new brand can’t outrun an established one.', fpd: true },
+  ] },
+  { name: 'Run and measure', range: '07 to 09', layers: [
+    { n: '07', name: 'Decision', by: 'Model', what: 'Each agent lives the season month by month and decides.', guard: 'Each agent sees one version of a launch, never two side by side.', fpd: false },
+    { n: '08', name: 'Counterfactual runs', by: 'Code', what: 'The same season again with one thing changed.', guard: 'Everything else is held fixed, down to the random draws.', fpd: false },
+    { n: '09', name: 'Measurement', by: 'Code', what: 'Totals with 95% ranges, scaled to the real market.', guard: 'Pass marks are set before any result is seen.', fpd: true },
+  ] },
 ];
+const fpdLayers = phases.flatMap((p) => p.layers).filter((l) => l.fpd);
 
 const funnel = [
   { label: 'Population', who: 'Public data', w: 100 },
@@ -112,19 +119,45 @@ const brandData = [
   <section class="section section-alt">
     <div class="container">
       <div class="eyebrow">ARCHITECTURE</div>
-      <h2 class="rm-h2">Nine layers from population to result</h2>
-      <ol class="rm-stack" aria-label="The nine layers of the Rider Panel">
-        {layers.map((l, i) => (
-          <li class={`rm-layer ${l.n === '04' || l.n === '07' ? 'rm-layer-key' : ''}`} data-reveal style={`--d:${i * 60}ms`}>
-            <a href={`#layer-${l.n}`}>
-              <span class="rm-layer-n">{l.n}</span>
-              <span class="rm-layer-name">{l.name}</span>
-              <span class="rm-layer-note">{l.note}</span>
-            </a>
-          </li>
+      <h2 class="rm-h2">Nine layers, each with its own safeguard</h2>
+      <p class="rm-copy">Each layer does one job and carries one check. A result can always be traced back to the input that produced it.</p>
+      <div class="rm-arch">
+        {phases.map((ph, pi) => (
+          <div class="rm-phase" data-reveal style={`--d:${pi * 120}ms`}>
+            <div class="rm-phase-head">
+              <span class="rm-phase-k mono">Phase {pi + 1}</span>
+              <span class="rm-phase-name">{ph.name}</span>
+            </div>
+            <ol class="rm-phase-list">
+              {ph.layers.map((l) => (
+                <li>
+                  <a class="rm-node" href={`#layer-${l.n}`}>
+                    <div class="rm-node-top">
+                      <span class="rm-node-n">{l.n}</span>
+                      <span class="rm-node-name">{l.name}</span>
+                      <span class={`rm-by ${l.by === 'Model' ? 'rm-by-model' : ''}`}>{l.by}</span>
+                    </div>
+                    <p class="rm-node-what">{l.what}</p>
+                    <p class="rm-node-guard"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 2.5 3.6v4c0 3.2 2.3 5.9 5.5 6.9 3.2-1 5.5-3.7 5.5-6.9v-4Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="m5.6 8.1 1.7 1.7 3.2-3.4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>{l.guard}</span></p>
+                    {l.fpd && <span class="rm-node-fpd">Accepts first-party data</span>}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
         ))}
-      </ol>
-      <p class="rm-legend"><span class="rm-dot rm-dot-code"></span>Set in code from data <span class="rm-dot rm-dot-model"></span>Written or decided by the model</p>
+      </div>
+      <div class="rm-fpd" data-reveal>
+        <div class="rm-fpd-text">
+          <p class="rm-fpd-k mono">Optional input</p>
+          <p class="rm-fpd-title">Your first-party data</p>
+          <p class="rm-fpd-copy">Every study runs on public data. A brand’s own first-party data can replace those estimates at five layers, so the panel starts from what the brand already knows about its customers.</p>
+        </div>
+        <ul class="rm-fpd-chips">
+          {fpdLayers.map((l) => <li><a href={`#layer-${l.n}`}><span class="mono">{l.n}</span>{l.name}</a></li>)}
+        </ul>
+        <a class="rm-fpd-link" href="#first-party-data">How first-party data is used</a>
+      </div>
     </div>
   </section>
 
@@ -308,11 +341,11 @@ const brandData = [
     </div>
   </section>
 
-  <section class="section rm-brand">
+  <section class="section rm-brand" id="first-party-data">
     <div class="container">
-      <div class="eyebrow">WITH A BRAND’S OWN DATA</div>
-      <h2 class="rm-h2">Sharpening the panel with what a brand already knows</h2>
-      <p class="rm-copy">A panel can run on public data alone. A brand knows things no public source does, about its own customers and how its past launches sold. That knowledge enters the panel in three ways. It can replace an assumption with a fact. It can become a target the panel has to hit. Held back, it becomes a test the panel has to pass on data it has never seen.</p>
+      <div class="eyebrow">FIRST-PARTY DATA</div>
+      <h2 class="rm-h2">Adding a brand’s first-party data</h2>
+      <p class="rm-copy">A panel can run on public data alone. First-party data is what a brand holds about its own customers and sales, which no public source can match. It enters the panel in three ways. It can replace an assumption with a fact. It can become a target the panel has to hit. Held back, it becomes a test the panel has to pass on data it has never seen.</p>
       <div class="rm-modes" data-reveal>
         <div><p class="rm-card-k">Replace</p><p>An assumed reach or awareness figure becomes the brand’s measured one.</p></div>
         <div><p class="rm-card-k">Calibrate</p><p>Real sales by month and shop become the shares the panel must reproduce.</p></div>
@@ -320,11 +353,11 @@ const brandData = [
       </div>
       <div class="rm-table-wrap" data-reveal>
         <table class="rm-table">
-          <thead><tr><th scope="col">Brand data</th><th scope="col">Layer it improves</th><th scope="col">What changes</th></tr></thead>
+          <thead><tr><th scope="col">First-party data</th><th scope="col">Layer it improves</th><th scope="col">What changes</th></tr></thead>
           <tbody>{brandData.map(([a, b, c]) => <tr><th scope="row">{a}</th><td class="rm-layer-ref">{b}</td><td>{c}</td></tr>)}</tbody>
         </table>
       </div>
-      <p class="rm-copy">Brand data shapes the distributions the agents are drawn from. It never becomes an agent. No customer’s record is copied into the panel, so the agents stay synthetic and the data can stay aggregated.</p>
+      <p class="rm-copy">First-party data shapes the distributions the agents are drawn from. It never becomes an agent. No customer’s record is copied into the panel, so the agents stay synthetic and the data can stay aggregated.</p>
     </div>
   </section>
 
@@ -371,21 +404,40 @@ const brandData = [
   .rm-principle-v span { background: var(--color-cta-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .rm-principle-note { margin-top: var(--space-sm); color: var(--color-text-secondary); line-height: 1.6; max-width: 720px; }
 
-  /* Layer stack */
-  .rm-stack { list-style: none; padding: 0; margin-top: var(--space-md); display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; }
-  .rm-layer a { display: flex; flex-direction: column; gap: 0.35rem; height: 100%; padding: 1rem 0.75rem; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-surface); text-decoration: none; position: relative; transition: border-color 0.2s ease, transform 0.2s ease; }
-  .rm-layer a::after { content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: 0; height: 2px; background: var(--color-text-secondary); opacity: 0.35; border-radius: 2px; }
-  .rm-layer-key a::after { background: var(--color-cta-gradient); opacity: 1; }
-  .rm-layer a:hover { border-color: var(--color-text-secondary); transform: translateY(-2px); }
-  .rm-layer-n { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-secondary); }
-  .rm-layer-name { font-weight: 600; color: var(--color-text); line-height: 1.2; }
-  .rm-layer-note { font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.35; }
-  .rm-legend { margin-top: var(--space-sm); font-size: var(--font-size-sm); color: var(--color-text-secondary); display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; }
-  .rm-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 0.4rem; vertical-align: -1px; }
-  .rm-dot-code { background: var(--color-text-secondary); }
-  .rm-dot-model { background: var(--color-cta-gradient); }
-  @media (max-width: 1100px) { .rm-stack { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  @media (max-width: 520px) { .rm-stack { grid-template-columns: minmax(0, 1fr); } .rm-layer a { flex-direction: row; align-items: baseline; gap: 0.75rem; } .rm-layer-note { margin-left: auto; text-align: right; } }
+  /* Architecture */
+  .rm-arch { margin-top: var(--space-md); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-sm); align-items: stretch; }
+  .rm-phase { display: flex; flex-direction: column; border: 1px solid var(--color-line); border-radius: 16px; padding: 1rem; background: color-mix(in srgb, var(--color-surface) 60%, transparent); }
+  .rm-phase-head { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.25rem 0.25rem 0.9rem; }
+  .rm-phase-k { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-secondary); }
+  .rm-phase-name { font-family: var(--font-display); font-size: 1.6rem; line-height: 1; text-transform: uppercase; color: var(--color-text); }
+  .rm-phase-list { flex: 1; list-style: none; padding: 0; margin: 0; display: grid; grid-auto-rows: 1fr; gap: 0.6rem; }
+  .rm-phase-list li, .rm-node { height: 100%; }
+  .rm-node { display: block; padding: 1rem 1.1rem; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-surface); text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .rm-node:hover { border-color: var(--color-text-secondary); transform: translateY(-2px); }
+  .rm-node-top { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+  .rm-node-n { font-family: var(--font-mono); font-size: 0.8rem; background: var(--color-cta-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .rm-node-name { font-weight: 600; font-size: 1.05rem; color: var(--color-text); }
+  .rm-by { margin-left: auto; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 999px; border: 1px solid var(--color-line); color: var(--color-text-secondary); white-space: nowrap; }
+  .rm-by-model { border-color: transparent; background: var(--color-cta-gradient); color: #fff; }
+  .rm-node-what { margin-top: 0.45rem; color: var(--color-text-secondary); font-size: 0.92rem; line-height: 1.5; }
+  .rm-node-guard { margin-top: 0.7rem; padding-top: 0.7rem; border-top: 1px dashed var(--color-line); display: flex; gap: 0.5rem; align-items: flex-start; color: var(--color-text); font-size: 0.88rem; line-height: 1.45; }
+  .rm-node-guard svg { flex: none; width: 16px; height: 16px; margin-top: 0.1rem; color: var(--color-cta-end); }
+  .rm-node-fpd { display: inline-block; margin-top: 0.7rem; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-cta-mid); }
+  .rm-node-fpd::before { content: '+ '; }
+  @media (max-width: 1000px) { .rm-arch { grid-template-columns: minmax(0, 1fr); } }
+
+  .rm-fpd { margin-top: var(--space-sm); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--space-sm) var(--space-md); align-items: center; padding: 1.5rem; border-radius: 16px; position: relative; background: var(--color-surface); }
+  .rm-fpd::before { content: ''; position: absolute; inset: 0; border-radius: 16px; padding: 1px; background: var(--color-cta-gradient); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+  .rm-fpd-k { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-secondary); }
+  .rm-fpd-title { margin-top: 0.3rem; font-family: var(--font-display); font-size: 1.8rem; line-height: 1; text-transform: uppercase; color: var(--color-text); }
+  .rm-fpd-copy { margin-top: 0.6rem; color: var(--color-text-secondary); line-height: 1.55; }
+  .rm-fpd-chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .rm-fpd-chips a { display: inline-flex; gap: 0.45rem; align-items: baseline; padding: 0.45rem 0.8rem; border-radius: 999px; border: 1px solid var(--color-line); text-decoration: none; font-size: 0.9rem; color: var(--color-text); }
+  .rm-fpd-chips .mono { font-size: 0.75rem; color: var(--color-text-secondary); }
+  .rm-fpd-link { grid-column: 1 / -1; font-size: 0.9rem; color: var(--color-text-secondary); }
+  @media (max-width: 800px) { .rm-fpd { grid-template-columns: minmax(0, 1fr); } }
+
+  .rm-legend { margin-top: var(--space-sm); font-size: var(--font-size-sm); color: var(--color-text-secondary); }
 
   /* Funnel */
   .rm-funnel { margin-top: var(--space-md); max-width: 960px; display: flex; flex-direction: column; gap: 0.9rem; }
