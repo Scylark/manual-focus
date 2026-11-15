@@ -1,0 +1,43 @@
+{
+  "version": "1.2.0",
+  "title": "What ChatGPT Wallet means for ecommerce checkout teams",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Cold open"
+    },
+    {
+      "startTime": 39.8,
+      "title": "What OpenAI launched"
+    },
+    {
+      "startTime": 65.6,
+      "title": "How a Wallet purchase works"
+    },
+    {
+      "startTime": 116.2,
+      "title": "Why the work moves to security"
+    },
+    {
+      "startTime": 157.9,
+      "title": "What the agent looks like to a firewall"
+    },
+    {
+      "startTime": 215.7,
+      "title": "Who owns it in the team"
+    },
+    {
+      "startTime": 291.7,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 352.7,
+      "title": "What we don't know"
+    },
+    {
+      "startTime": 381.5,
+      "title": "The takeaway"
+    }
+  ]
+}
