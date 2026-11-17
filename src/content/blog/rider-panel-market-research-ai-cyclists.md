@@ -1,18 +1,22 @@
 ---
-title: "The Rider Panel: testing a product launch in a simulated world of 500 AI agents"
-date: 2026-11-10
-unlisted: true
+title: "The Rider Panel, testing a product launch in a simulated world of 500 AI agents"
+date: 2026-11-13
 tags: ["ai", "endurance-sports", "go-to-market"]
 description: "We tested a smart trainer launch in a simulated world of 500 AI agents. With reviews it sold to 26. Without them it sold to 3. Here's why."
+podcast:
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/rider-panel-market-research-ai-cyclists-20261113093440.mp3"
+  duration: 448
+  bytes: 5380433
+  published: 2026-11-13
 faq:
   - question: "What is the Rider Panel?"
     answer: "The Rider Panel is the market research part of Light Meter, the research tool from Manual Focus. It builds a simulated world of AI agents who are in the market for that product. Each one has a written life story, from who they live with to the kit they already own. They live the buying season month by month. They choose from the products someone like them would actually come across. Each decides whether to buy, then explains why. For the first study Manual Focus built 500 UK agents from a potentially limitless pool, so a study can be as big as the question needs."
   - question: "Do independent reviews matter for a new cycling brand?"
     answer: "In the Rider Panel's first study they decided the launch. A new £499 smart trainer sold to 26 agents in 500 with reviews from sites like BikeRadar and DC Rainmaker out at launch. Without them it sold to 3. Of the 23 buyers it lost, 12 bought a Wahoo KICKR CORE 2 instead. As one agent put it, they didn't want to be the guinea pig."
   - question: "Does a Black Friday discount pay for a new brand?"
-    answer: "In the Rider Panel's first study it did. Cutting a new £499 trainer to £399 for Black Friday took it from 26 buyers to 41 in 500, with 38% more revenue. 44 of the 65 agents who had considered it at £499 were waiting for a sale. The deal also put an unknown brand on deal lists that new agents read. The result depends on the brand's reach, which the study capped. Before the cap, the same price added 5% to revenue."
+    answer: "In the Rider Panel's first study it did. Cutting a new £499 trainer to £399 for Black Friday took it from 26 buyers to 41 in 500, with 38% more revenue. 44 of the 65 agents who had considered it at £499 were waiting for a sale. The deal also put an unknown brand on deal lists that new agents read. Revenue isn't profit, though. Sold direct, the discount only adds profit if the brand keeps at least £144 of the £416 each £499 sale brings in after VAT. The result also depends on the brand's reach, which the study capped."
   - question: "Why do shoppers walk away from a new trainer brand?"
-    answer: "In the Rider Panel's first study, 65 agents considered the new £499 trainer and bought something else. 44 were waiting for a sale. 40 named the price. 32 didn't trust a brand they'd never heard of to last. The ones who bought it chose it because it folds away and is quiet, with independent reviews to back the claims."
+    answer: "In the Rider Panel's first study, 65 agents considered the new £499 trainer and bought something else. 44 were waiting for a sale. 40 named the price. 32 didn't trust a brand they'd never heard of to last. The ones who bought it chose it because it folds flat and is quiet, with independent reviews to back the claims."
   - question: "Who are the 500 agents?"
     answer: "They are UK cyclists who go shopping for an indoor trainer this season, not every cyclist. Manual Focus simulated 200,000 UK cyclists from survey data. It gave each a chance of shopping this season based on what they ride indoors now, then drew 500 from everyone who shops. About 2 in 100 adult cyclists shop for a trainer in a season, on our estimate. Four in ten of the 500 are buying their first, which is our assumption."
   - question: "Does the Rider Panel only work in the UK?"
@@ -51,7 +55,7 @@ Brands can [ask about a Rider Panel study](/contact/?offer=rider-panel-study) fo
 - Without independent reviews, a new trainer brand sold to 3 agents in 500 instead of 26. Nobody wanted to be the guinea pig.
 - A £399 Black Friday price took it to 41 buyers with 38% more revenue. The agents had asked for it.
 - Being named by AI engines added a little, from 26 buyers to 33.
-- Buyers chose it because it folds away and it's quiet. Most of them had nowhere to keep a trainer.
+- Buyers chose it because it folds flat to 14cm and it's quiet. Most of them had nowhere to keep a trainer.
 - Agents who walked away were waiting for a sale or didn't trust a brand they'd never heard of.
 - The 500 agents were recruited from a potentially limitless pool. A brand's study can be as big as the question needs.
 
@@ -80,7 +84,7 @@ We built 200,000 UK cyclists first, using survey data. Sport England's [Active L
 | Prices and rivals | 10 real rival trainers at UK prices, with Black Friday and January deals |
 | What they come across | Brand familiarity from UK search share, plus each agent's own shops and apps |
 
-Gwen Holroyd is 72, retired from nursing, with a Morzine trip coming up and neighbours below her small flat in Stockport. Ife Okonkwo is a GP in Islington whose old trainer wakes his toddler. Lee Hocking drives deliveries in Plymouth and was let down by the last new brand he bought.
+Jonty Ellerby is a police officer in York with two young children and a rented house that has no spare room. Ife Okonkwo is a GP in Islington whose old trainer wakes his toddler. Lee Hocking drives deliveries in Plymouth and was let down by the last new brand he bought.
 
 An agent only knows the trainers someone like them would meet. A Garmin owner sees Tacx in Garmin Connect. An agent who shops at Decathlon sees Van Rysel. Someone who asks ChatGPT hears the brands it names. Our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-recommend/) found AI engines name Wahoo in 83% of UK smart trainer answers.
 
@@ -126,11 +130,9 @@ A change counts as real when it's bigger than the panel's own noise. The rest of
 
 ## Why agents bought the Northfold
 
-22 of the 26 buyers chose Northfold because it folds away. 21 chose it for being quiet. 20 said the independent reviews convinced them. Most of them would have to put a trainer away after every ride.
+22 of the 26 buyers named folding or space as a reason. 21 chose it for being quiet. 20 said the independent reviews convinced them. Most of them would have to put a trainer away after every ride.
 
-> "The small flat, the neighbours below and the hall all pointed to something that folds flat and is quiet. The reviews and the 30-day returns eased my worry about a new brand." Gwen Holroyd, 72, Stockport
-
-> "My trouble is space, and nothing else here folds. A three-year warranty and 30-day free returns let me back a new brand." Jonty Ellerby, 37, police officer, York
+> "A three-year warranty and 30-day free returns let me back a new brand." Jonty Ellerby, 37, police officer, York
 
 > "It's genuinely quiet and folds away, and £499 is far less than the Neo or V6 even in the sale. DC Rainmaker's review sold me on the accuracy." Jamal Rowe, 23, Reading
 
@@ -168,6 +170,8 @@ Sales rose from 26 to 41. Revenue rose 38%, even after the price cut. 20 agents 
 
 Part of the gain was visibility. 9 of the 41 buyers first heard of Northfold through a deal list or a deal email. For a brand nobody knows, being on the Black Friday lists puts it in front of agents who'd never have come across it.
 
+Revenue isn't profit. Sold direct, the £399 plan only beats £499 all season if Northfold keeps at least £144 of the £416 it receives per trainer after VAT, which is a 35% margin.
+
 This result depends on the reach cap. Before we added the cap, the £399 price added only 5% to revenue. A better-known brand should expect something closer to that, because it has fewer new shoppers to reach.
 
 > "The noise is the whole problem. The quiet Wahoo and Tacx cost £600, and DC Rainmaker called the Northfold genuinely quiet at £399 and it folds away in our tiny flat." Ife Okonkwo, 30, GP, Islington. At £499 he bought a Wahoo KICKR V6.
@@ -199,14 +203,14 @@ That fits our [AI Shortlist study](/blog/which-indoor-cycling-brands-does-ai-rec
 Tested by running the season again:
 
 1. **Have the big reviews out on launch day.** It's the difference between 3 buyers and 26.
-2. **Go to £399 for Black Friday.** It added 15 buyers and 38% more revenue.
+2. **Model Black Friday at £399 against your margin.** In the panel it added 15 buyers and 38% more revenue. Sold direct, each £499 trainer brings Northfold £416 after VAT. The £399 plan only adds profit if Northfold keeps at least £144 of that once every cost per trainer is paid. Through a retailer taking 40%, Northfold receives £250 per trainer and needs to keep at least £87. Below those figures, the extra sales don't cover the discount.
 3. **Work on being named in AI answers**, after the reviews rather than instead of them.
 
 Still to test:
 
 - **Prove the brand will last.** 32 of the agents who walked away didn't trust a new brand. Test a 100-day trial with a five-year warranty on every retailer listing.
 - **Plan a January offer.** Lee bought his trainer in the January sales. Test £449 through January.
-- **Aim at people with no spare room.** Most buyers had to put a trainer away after every ride. Put the fold in the first second of every video.
+- **Aim at people with no spare room.** Most buyers had to put a trainer away after every ride. Show how flat it folds, to 14cm, in the first second of every video.
 
 ## What the results mean in real sales
 
