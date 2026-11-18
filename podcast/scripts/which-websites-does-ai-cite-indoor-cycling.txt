@@ -1,0 +1,67 @@
+JAMES: If you sell smart trainers in the UK, one page on BikeRadar turns up in more than half the AI answers your buyers read. That's from the second cut of our own indoor cycling research. I'm James Vickers, this is Manual Focus, and Hannah's back to go through where AI gets its cycling advice.
+
+HANNAH: Thanks, James. In October we asked six AI engines three hundred and nine UK questions about indoor cycling, three times each. Last time we covered which brands they named. This time it's the websites they cited.
+
+JAMES: And a disclosure before we start. I used to work at Wahoo and Wattbike, and I was on the founding team at RGT Cycling, which Wahoo acquired. No brand paid for this research or saw it before it went out.
+
+HANNAH: So, the headline. Across four thousand three hundred and seventy-nine answers to questions that don't name a brand, ninety-two per cent cited at least one website. The engines cited over eleven hundred different sites between them.
+
+JAMES: Which sounds spread out.
+
+HANNAH: It isn't, really. One or two buyer's guides turned up in about half the answers in each category. BikeRadar's best smart trainers guide was cited in fifty-five per cent of trainer answers. For training apps, the Cyclingnews guide was in sixty-four per cent. For smart bikes, Cyclingnews again, at fifty-three.
+
+JAMES: [thoughtfully] So for a trainer brand, that one BikeRadar page is close to a single point of failure. If your product isn't in it, you're missing from the page most of these answers lean on. When BikeBiz covered the first results, they asked me what it all meant for brands, and that was my answer. So, do all six engines read the same pages?
+
+HANNAH: No, and that's the most useful part. Perplexity cites the most, nearly eight sites per answer, and ninety per cent of its answers cite at least one of the big three titles, so Cyclingnews, BikeRadar or Cycling Weekly. Gemini is at eighty-three per cent. Google AI Mode is at twenty-six.
+
+JAMES: Why is AI Mode so far behind?
+
+HANNAH: We can't say why, only what it does. A quarter of its answers cite no website at all, and it averages about two sites per answer. Its favourite source is Cyclist, not any of the big three. That BikeRadar trainer guide Perplexity cited in seventy-one per cent of trainer answers? AI Mode cited it in four.
+
+JAMES: [dryly] So being in the BikeRadar guide matters a lot for Perplexity and very little for AI Mode.
+
+HANNAH: Pretty much. Then there's YouTube. In the first study, video and forum sites were only three to five per cent of citations. But that average hides a split. Google's AI Overviews cited YouTube in sixty-five per cent of the overviews we saw. ChatGPT cited it twice in seven hundred and eighty answers. Claude and Perplexity, never.
+
+JAMES: So if Google is the engine you care about, honest video reviews of your product matter. If it's Claude or Perplexity, the written guides do the work.
+
+HANNAH: That's the read. Reddit sits in the same place, mostly inside Google Search, which matters given Reddit's plan for a logged-in-only site that we covered a couple of weeks ago.
+
+JAMES: Can a brand's own website get cited, or is it all media?
+
+HANNAH: It can, and ChatGPT is the engine most likely to do it. Brand websites were forty-one per cent of what ChatGPT cited. It cited Zwift's site in thirty-seven per cent of its answers and Wahoo's UK site in a quarter. Claude went the other way, at ten per cent.
+
+JAMES: And Rouvy?
+
+HANNAH: Rouvy was the most cited brand site in the whole study. Pages on its blog were cited in thirty per cent of training app answers, more often than Cyclist or road dot cc. The most cited one reads like a buyer's guide. It compares Rouvy with rivals like Zwift and TrainerRoad.
+
+JAMES: Does that page win Rouvy the recommendation?
+
+HANNAH: [thoughtfully] We can't prove it. Rouvy was named in eighty-nine per cent of app answers that cited its blog, against sixty-eight per cent of the ones that didn't. But an engine that already likes Rouvy might also pick its pages. It's a correlation.
+
+JAMES: And retailers?
+
+HANNAH: They come in at the till. For most kinds of question, retailers were three to twelve per cent of what got cited. Ask where to buy in the UK and it jumps to thirty-one per cent, with Fitshop, Decathlon, Tredz and Sigma Sports cited most.
+
+JAMES: [calmly] Our view at Manual Focus is that an indoor cycling brand should treat a short list of buyer's guides as its most important AI channel. The top guides appear in more answers than any brand site or retailer. So, what do you hand to AI?
+
+HANNAH: Go on.
+
+JAMES: Get AI on this. First, the guide audit. Make a list of the buyer's guides the engines cite for your category, and have AI check whether your current models and prices are in each one.
+
+HANNAH: Give it the page list from the report and your current range with prices. It hands back a table of each guide, whether you're in it, which model it shows, and what's out of date. The pitch to the editor stays with a person.
+
+JAMES: Second, the comparison page. If you're going to publish one, have AI draft it from your own spec sheets and your rivals' public pages.
+
+HANNAH: And tell it to be fair to the rivals, because the page that got cited in this study compared real competitors. You check every claim before it goes up.
+
+JAMES: Third, a monthly engine check. Your top ten buyer questions, run through each engine, with the brands and cited sites logged.
+
+HANNAH: That needs a tool that can browse and run on a schedule, so set it up as a monthly routine. The prompts are in the show notes.
+
+JAMES: What don't we know?
+
+HANNAH: Why any engine picks a source, for a start. We see what gets cited, not the reasoning. We don't know whether a citation changes what a rider buys. Logged-in users may see different sources, and we measured Perplexity and Claude through their APIs, which can differ from the apps. And a buyer's guide can be rewritten next month, so this is October twenty twenty-six.
+
+JAMES: So the takeaway is that the AI shortlist for cycling kit leans on a few buyer's guides, and which ones depends on the engine. The full article, with the page-by-page tables, is on manual-focus dot co dot uk. Follow Manual Focus in Apple Podcasts, Spotify or wherever you're listening, and if you want to see which pages shape the answers in your own category, book a free working session with us at manual-focus dot co dot uk.
+
+HANNAH: See you next time.
