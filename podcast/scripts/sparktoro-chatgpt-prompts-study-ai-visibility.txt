@@ -1,0 +1,59 @@
+JAMES: If your AI visibility plan treats ChatGPT like a second Google, a new study says you might be over-investing. SparkToro looked at more than a hundred and eighteen thousand real ChatGPT prompts and found fewer than one in fourteen were about researching something to buy. I'm James Vickers, this is Manual Focus, and with me is Hannah, who's read the methodology so I don't have to.
+
+HANNAH: Hi James. Twice. The method matters here.
+
+JAMES: [calmly] Start with who did it and where the data came from.
+
+HANNAH: Rand Fishkin at SparkToro published it on the seventeenth of November. The data comes from a company called Verso, which runs an opt-in panel of American ChatGPT users who agreed to share their chat history. So that's a hundred and eighteen thousand, one hundred and sixty-three prompts, from twelve thousand, three hundred and twenty-one people, sent between January and late October this year.
+
+JAMES: And how did they decide what each conversation was about?
+
+HANNAH: An AI model labelled every conversation against a written codebook, thirty-four intents grouped into twelve categories, one label per conversation based on its main goal. A second labeller re-coded a sample and agreed on ninety per cent of the labels. And they dropped the heaviest users, one per cent of the panel sending a fifth of all the prompts.
+
+JAMES: Sensible. So what are Americans actually asking ChatGPT?
+
+HANNAH: Images and visual design come first, at about sixteen per cent of use per user, then information, everyday admin and writing. Shopping, brands and local services comes eighth of twelve, at five point seven per cent.
+
+JAMES: [thoughtfully] Eighth. That's lower than I'd have guessed.
+
+HANNAH: And the sharper number is this one. Only six point nine per cent of prompts showed any research into a brand to buy from. Fishkin compares that with a SparkToro study of three hundred and thirty-two million Google queries from two years ago, where more than fifteen per cent met the same definition. He reckons Google gets purchase-journey queries at sixteen times the rate, or more.
+
+JAMES: But brands do still turn up in the answers.
+
+HANNAH: They do. Twelve point one per cent of responses named at least one brand, product or company. And Fishkin says ChatGPT recommended a brand a little more often than people asked for one. So some brand mentions arrive in conversations that didn't start as shopping.
+
+JAMES: [dryly] That's the number people will quote. Let me put the budget question. If I'm a head of marketing who's spent this year building prompt tracking for ChatGPT, what do I do with this?
+
+HANNAH: Fishkin's line is that ChatGPT isn't a search engine. He compares it to Bing, real but a fraction of the size, and says it's Google's AI Overviews and AI Mode that make AI visibility matter.
+
+JAMES: [thoughtfully] That's roughly where we've landed. Our view is that most brands should put the larger share of AI visibility budget on Google's AI answers, and run ChatGPT as a smaller, tracked channel, sized the way you'd size Bing. And it fits what we covered earlier this month on the first ChatGPT ads returns study, where a paid ChatGPT visit earned eighty-nine cents against two dollars forty-five for a paid Google Search visit.
+
+HANNAH: I'd add two exceptions. If your category lives inside ChatGPT's big use cases, health, personal finance, everyday admin, buyers might meet you there in a conversation that starts as advice. And if you've got locations or a service business, claiming your profile through Businesses in ChatGPT, which we talked about last week, is still cheap and gives you OpenAI's own mention and click numbers.
+
+JAMES: [thoughtfully] Then the obvious question. If I move effort towards Google's AI answers, how do I know it's working?
+
+HANNAH: You measure each engine on its own, and more than once. When we launched Light Meter in October, our tool that asks six AI engines the questions UK buyers ask, the indoor cycling study found an engine named the same brands across three runs of a question only twenty per cent of the time. For ChatGPT it was thirteen per cent, and for AI Overviews twelve.
+
+JAMES: So one check tells you very little.
+
+HANNAH: Almost nothing. And the engines disagree below the leaders. Van Rysel, Decathlon's own brand, was in forty-three per cent of Claude's smart trainer answers and five per cent of Google AI Mode's. That's one category in one market, but it's why we'd never report AI as a single channel.
+
+JAMES: [dryly] Noted. So what do you hand over? Get AI on this. First job, rebuilding the prompt set you track so it reflects how people actually use the assistant.
+
+HANNAH: Give it your current tracked prompts, a line on your category and the twelve categories from the study, and it hands you a new set that swaps some of the "best X" prompts for advice-led questions in your nearest large use case, with a column for whether the answer named a brand nobody asked about.
+
+JAMES: Second job, the reporting. Get AI on this. Put AI referrals next to Google in one table.
+
+HANNAH: Attach your analytics export by source, and ask for one table with AI assistant referrals beside Google organic and paid, each as a share of the total. Set it as a monthly routine.
+
+JAMES: And the third, splitting the tracking budget.
+
+HANNAH: Give it your current spend on AI visibility tools and hours by engine, and it gives you back a split weighted towards Google's AI answers, with the assumptions written out so a person can argue with them. The final call stays with you. The prompts are in the show notes.
+
+JAMES: Hannah, where does the study run out?
+
+HANNAH: It's US only, and the panel skews younger, female and lower-income. It's mostly phones, so work use is likely underrepresented, and API traffic isn't in there at all. The Google comparison is from a study two years old, not a matched sample. And there's no breakdown of brand mentions by category, so you can't yet tell whether health or money conversations name brands more often than average.
+
+JAMES: [calmly] So the takeaway. ChatGPT is big, but buyers still do most of their research on Google, so weight your AI visibility work towards Google's answers and keep ChatGPT honest in your reporting. The full article is on manual-focus dot co dot uk. If this was useful, follow the show in Apple Podcasts, Spotify or wherever you listen, and if you want to work out the right split for your own team, book a free working session with us on the site.
+
+HANNAH: And measure it before you move the money. See you next time, James.
