@@ -1,13 +1,13 @@
 ---
 title: "What three new AI traffic studies mean for your GEO budget"
-date: 2026-10-23
+date: 2026-11-18
 tags: ["ai-briefing", "ai", "marketing-strategy"]
 description: "Three studies out in the week to 22 October 2026 find AI assistants send a sliver of Google's organic traffic. Size AI search budgets to match."
 podcast:
   audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/ai-referral-traffic-studies-geo-budget-20261023062609.mp3"
   duration: 493
   bytes: 5918660
-  published: 2026-10-23
+  published: 2026-11-18
 faq:
   - question: "How much traffic does ChatGPT send compared with Google?"
     answer: "Very little, in the studies published in October 2026. Marie Haynes found ChatGPT sent 0.62% as many sessions as Google organic search across 100 websites and over 145 million GA4 sessions. The SEO Works found AI assistants together sent 2.6% of organic search traffic across 95 websites between September 2025 and August 2026, so organic search sent 39 times more."
