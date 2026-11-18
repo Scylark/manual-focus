@@ -107,4 +107,4 @@ Our view at Manual Focus is that most brands under-invest in owned media because
 - [Earned channels in the AI era](/blog/earned-channels-pr-in-the-ai-era/), on how PR works when journalists use AI
 - [PR 101](/blog/pr-101-basics/), the Basics guide to public relations
 
-If you want help rebalancing your media mix, [book a free working session](/enquire/).
+If you want help rebalancing your media mix, [book a free working session](/contact/).

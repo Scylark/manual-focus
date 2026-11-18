@@ -1,0 +1,59 @@
+JAMES: Your next Google search ad in the UK might carry a line about your business that nobody on your team wrote, pulled from reviews on sites you don't own. Google's now documented AI review summaries in Search ads, and the UK's one of the four markets. I'm James Vickers, this is Manual Focus, and Hannah's read the small print with me.
+
+HANNAH: Hi James. The small print's about a page long, which is part of the story.
+
+JAMES: [dryly] Short pages from Google are rarely good news. What does it say?
+
+HANNAH: It's a Google Ads help page called About Review summaries. It says Google's AI aggregates online reviews from across the web and writes short commentary that appears as part of your Search ad. The summaries are positive only, and Google shows one when it predicts the ad will perform better. The page has no date on it, but PPC News Feed spotted it on the twenty-fourth of October and Search Engine Roundtable wrote it up on the twenty-sixth.
+
+JAMES: And where does it run?
+
+HANNAH: Search campaigns, every ad position on Google dot com, all devices, in English in the US, the UK, Australia and India. Every vertical qualifies except sensitive categories, and pharmaceuticals is the only one Google names.
+
+JAMES: Can I change what it says?
+
+HANNAH: No. Google says advertisers can't edit or customise the text, because it represents user feedback. And the page describes no opt-out. It links to Google's page on account-level automated assets, which are the extras Google adds to ads on its own, but it doesn't say whether that setting covers review summaries.
+
+JAMES: [thoughtfully] So it's been coming for a while, I'd guess. This doesn't feel like a surprise launch.
+
+HANNAH: It isn't. PPC Land tracked the tests. Review excerpts in mostly ecommerce ads from December last year, AI summaries under ad descriptions in July with a "can make mistakes" disclaimer, then a "What customers love" block on a sponsored Semrush ad in September. The help page turns that into a documented feature, and the disclaimer from July isn't on it.
+
+JAMES: Last week we talked about OpenAI switching on creative enhancements in ChatGPT Ads by default, so ads get rewritten without anyone approving each version. This is the second platform this month putting words in ads the brand never signed off.
+
+HANNAH: With one difference. OpenAI works from your own ad and landing page. Google works from other people's reviews, which you can't fix the night before.
+
+JAMES: Which is where the UK rules come in. Who's responsible for a line Google wrote?
+
+HANNAH: The CAP Code, the rulebook the Advertising Standards Authority enforces, says primary responsibility sits with the marketer. And rule three point four six covers consumer reviews directly. You mustn't publish them, or information derived from them, in a misleading way, and the Code's own examples include showing the positive ones while leaving out the negative ones.
+
+JAMES: And a positive-only summary is, by definition, the positive ones.
+
+HANNAH: That's the question. The ASA hasn't ruled on anything like this, so nobody can tell you the answer yet. There's also rule three point four seven, which asks marketers to hold evidence that a testimonial is genuine, and that's hard when Google doesn't say which reviews it read.
+
+JAMES: [calmly] So for a brand team, the practical shift is that reviews stop being a customer service job and start being ad copy.
+
+HANNAH: Your Trustpilot page, your Google reviews, marketplace ratings. They're all source material now. We made a similar point in our piece on earned channels, that third-party coverage shapes what AI says about you. This is the same idea arriving in paid search.
+
+JAMES: And for paid teams it muddies the numbers. If click-through goes up in November, was it your new copy or a summary you never saw?
+
+HANNAH: And the help page describes no report showing when a summary ran. So the article suggests marking the twenty-fourth of October in your reporting as a change date.
+
+JAMES: Our view is simple enough. Treat these summaries as copy you're answerable for, and get the control question settled with Google in writing now. Regulated or claims-heavy categories first. So, get AI on this. First, get AI on reading your reviews the way Google will.
+
+HANNAH: Give it six months of reviews from the sites that rank for your brand name, as exports or pasted text. It hands back the positive themes most likely to turn up in a summary, each one marked with whether it's a claim you'd be comfortable making in an ad.
+
+JAMES: Second, get AI on the two letters, one to your Google rep and one to legal.
+
+HANNAH: Give it the help page and the CAP Code rules on reviews. It drafts the questions for Google, on the off switch, the review sources and reporting, and a one-page brief for legal on rule three point four six. A person still sends both and reads the answers.
+
+JAMES: And third, a weekly check.
+
+HANNAH: Someone in the UK searches your top brand and category terms each week and screenshots any ad with a summary. Set AI up as a weekly routine to log each one, compare the wording with your no-go claims list, and flag anything new.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: What we don't know yet. When summaries started serving in the UK, how often they appear, and which review sites Google reads. Whether you can dispute a summary that gets your reviews wrong, and what Google means by grounding standards. Whether this spreads to Performance Max or AI Max. And the page says Google dot com, so it's not clear what that means for google dot co dot uk.
+
+JAMES: So the takeaway. Your reviews are now part of your ad copy, and you didn't get a vote. Ask Google who controls it, brief legal, and read your reviews this week. The full article, with the list of what Google's page leaves out, is on manual-focus dot co dot uk. If this helped, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and if you'd like to work through your own review profile with us, there's a free working session to book on the same site. Thanks, Hannah.
+
+HANNAH: Thanks, James. Go and read your two-star reviews.

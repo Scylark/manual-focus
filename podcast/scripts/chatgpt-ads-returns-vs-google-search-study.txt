@@ -1,0 +1,67 @@
+JAMES: What's a click in ChatGPT actually worth to the business paying for it? Until this week the only answers came from OpenAI and the case studies it picked. Now two academics have measured it from the outside. This is Manual Focus, I'm James Vickers, and Hannah's read the whole paper so I don't have to.
+
+HANNAH: Hi James. Appendices included.
+
+JAMES: [dryly] Brave. Who wrote it, and what did they look at?
+
+HANNAH: Maximilian Kaiser, at the Vienna University of Economics and Business, and Christian Schulze, at the Frankfurt School of Finance and Management. It's a working paper dated October, still under review, and Search Engine Journal covered it on the second of November. The data comes from Grips Intelligence and covers around nineteen hundred online shops. Grips gave it free, and the authors say it had no say in the research.
+
+JAMES: And the clever part is how they used the rollout.
+
+HANNAH: Right. OpenAI switched ads on country by country. The US on the ninth of February, the UK on the fourth of June, and the EU only on the twenty-fourth of August, after their data window closed. So Europe becomes the comparison group, and they can see what changed when ads arrived somewhere.
+
+JAMES: So give me the number a head of paid search will care about.
+
+HANNAH: In US traffic, a paid ChatGPT visit brought in eighty-nine cents of revenue. A paid Google Search visit on the same kinds of sites brought in two dollars forty-five. That's a sixty-four per cent shortfall. Conversion rate was nought point three seven per cent for ChatGPT against one point one seven for paid search, and the orders were smaller too.
+
+JAMES: [thoughtfully] That's about a third of the value. Is one big advertiser dragging it around?
+
+HANNAH: They checked. The biggest one had sixty-six per cent of all the paid ChatGPT purchases, and taking it out made the gap wider, not narrower. Of eighty-seven advertisers buying both channels, seventy-three had no ChatGPT sale at all, from more than eighteen thousand paid visits.
+
+JAMES: Which brings us to price. What should a click cost?
+
+HANNAH: They work out what they call a parity price, the price at which a ChatGPT click pays back as well as a search click. Their advertisers paid a median of seventy-two cents for a search click, so a ChatGPT click is worth about twenty-six cents on the same terms. The largest public account they could find paid one dollar seventy-two. More than six times parity.
+
+JAMES: So here's what I'd do with that on Monday. Don't use their twenty-six cents, work out your own. Take what your search clicks cost, multiply by what a ChatGPT visit earns you divided by what a search visit earns you, and that's your ceiling.
+
+HANNAH: And on the post's example, if search costs ninety pence a click and returns three pounds, a ChatGPT click is worth about thirty-three pence. Anything above that is losing money against search on the tracked sale.
+
+JAMES: The obvious pushback is that last click misses things. Someone sees the ad, then buys through Google a week later.
+
+HANNAH: They tested that. They compared each advertiser's sales in the channels they didn't buy, before and after the first paid ChatGPT week, and found no detectable lift. The authors say that rules out only large indirect effects, not small ones.
+
+JAMES: When we covered OpenAI's measurement update in early October, our line was keep it at test budget until a holdout on your own account proves it. This is the first outside evidence for that.
+
+HANNAH: And OpenAI also gave a scale number this week. Adam Fry, who leads ChatGPT's consumer product, told a dinner in New York that ChatGPT's search-like queries are about a fifth of Google's. Big Technology reported it. He didn't say which Google figure he meant.
+
+JAMES: [calmly] A fifth of Google is a lot of people. But a big audience doesn't change what each click returns, so it shouldn't set the bid. What about the brand and SEO side?
+
+HANNAH: Smaller effect. Organic referrals from ChatGPT, the free links in the answer, fell an estimated six to eight per cent once ads launched in a market. But the people who still clicked converted just as before, about two point two per cent. And organic ChatGPT now converts roughly as well as organic search.
+
+JAMES: So being in the answer is still worth more than paying for the card underneath it.
+
+HANNAH: On this data, yes.
+
+JAMES: Right, so what do you hand to AI? First one. Get AI on this, working out your parity price.
+
+HANNAH: Give it your paid search export and your analytics channel report, revenue and sessions for both channels. It works out revenue per visit for each and gives you a bid ceiling per campaign, flagging any where the sample's too small to trust.
+
+JAMES: Second, a weekly check so the new channel can't hide inside a blended total.
+
+HANNAH: Set it as a weekly routine. It reads the channel report, pulls those ads out on their own line, and gives you sessions, sales and cost per sale against paid search, with a warning if spend rises while sales stay at zero.
+
+JAMES: And third, the holdout plan.
+
+HANNAH: Give it your regional sales for the last six months and your ad spend by region. It proposes which regions to pause for four weeks and which to keep running, and drafts the success threshold for you to agree with finance. The decision to pause stays with a person. The prompts are in the show notes.
+
+JAMES: What can't this paper tell us?
+
+HANNAH: The data stops on the twenty-second of August. So it's before OpenAI's new attribution partners, before the visual ad test, and before creative enhancements went on by default. It's last click only, with no view of prompts or impressions. Advertisers chose to buy, so it describes them rather than proving cause. The UK had under three months in the window, and the headline numbers are American. And it's still going through peer review.
+
+JAMES: [thoughtfully] So the takeaway. The first independent look at ChatGPT ads says a click returns about a third of a search click, so cap your bids at your own parity price and prove the lift before you scale.
+
+HANNAH: The full article, with the table, is on the website.
+
+JAMES: Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen and the next episode will turn up on its own. And if you'd like help setting bid caps and a holdout for your own account, book a free working session at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James. Do the sum before the auction does it for you.

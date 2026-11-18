@@ -1,0 +1,469 @@
+JAMES: Ask a room of people what marketing is and most of them will describe advertising. Posts, emails, a billboard, maybe a clever video. That's the visible end of it, and it matters, but it comes late in the chain. I'm James Vickers, this is Manual Focus, and this is a longer Basics episode than usual, because Hannah and I are going to pull the whole series together into one answer to a plain question. What is marketing?
+
+HANNAH: Hi James. And we're going to do it by launching something, aren't we?
+
+JAMES: We are. A hypothetical one. We'll take an imaginary British cycling brand that wants to launch a new road helmet, and follow it from the very first question, is there a market for this, through research, the product brief, and what you say and how you say it. Then the channels, the launch campaign and the press, and finally a plan using SOSTAC that tells you whether it's working. The whole job, start to finish, and every step hands something to the next one.
+
+HANNAH: So if you've heard our earlier Basics episodes, this is the thread that runs through all of them.
+
+JAMES: That's the idea. And if you've come to this because you're wondering what AI means for your marketing, it's the right place to start, because you can't work out where AI fits until you know what the job is. We'll get to AI properly near the end.
+
+HANNAH: Then let's define the job. There are two definitions most people are taught. The Chartered Institute of Marketing, the professional body here in the UK, defines marketing as the management process responsible for identifying, anticipating and satisfying customer requirements profitably.
+
+JAMES: Every word in that is doing something.
+
+HANNAH: It is. Identifying is finding out what people need now. Anticipating is spotting what they'll need next. Satisfying is actually meeting the need. And profitably is the bit that stops it being a charity.
+
+JAMES: [dryly] Which some marketing plans could do with being reminded of.
+
+HANNAH: Which of the four do you think teams are worst at?
+
+JAMES: Anticipating, by a distance. Most teams are fairly good at reacting to what customers said last year. Very few build in time to ask what will be different next year, and that's usually where a competitor gets in.
+
+HANNAH: And profitably is the one that gets forgotten in a launch, I'd guess. Everyone's excited about the product, and nobody's checked the margin at the price the market will pay.
+
+HANNAH: And the American Marketing Association's version is broader. They describe marketing as the activity, institutions and processes for creating, communicating, delivering and exchanging offerings that have value for customers, clients, partners and society at large.
+
+JAMES: And there's a softer one I like just as much, from Seth Godin, in his book This Is Marketing. He frames marketing as helping people become who they want to be. And he argues that great marketers use marketing to solve other people's problems, not their company's.
+
+HANNAH: That's a very different emphasis from the institute's.
+
+JAMES: It is, and I think you need both. The institute tells you what the job covers. Godin tells you what it's for. Keep his version in your head and the helmet launch stops being about a helmet and starts being about the rider.
+
+HANNAH: Hold on to that, because I think it comes back when we get to the benefits ladder.
+
+JAMES: What I like about the institute's definition is the bit that comes after it. On the same page they spell out what marketing decides. What the company will produce. What it'll charge. How it gets the product or service to the customer. And how it tells the customer about it.
+
+HANNAH: The marketing mix.
+
+JAMES: The seven Ps, in the institute's version. Product, price, place, promotion, people, process and physical evidence. And notice where promotion sits. It's one of seven. Most people meet marketing from the promotion end, so that's where most plans start.
+
+HANNAH: And promotion has its own vocabulary that we've covered. Owned, paid and earned media, and above and below the line.
+
+JAMES: Two ways of sorting the same channels, and we'll come to both properly, once we know who we're talking to and what we're saying. Pick the channels first and you end up choosing where to shout before you know what to say.
+
+HANNAH: So, to the helmet. Where does it start?
+
+JAMES: With the least glamorous question in marketing. Is there a market for this, and can we win it? The term people use is product-market fit.
+
+HANNAH: The definition most people quote comes from Marc Andreessen. In June two thousand and seven he wrote an essay on his blog called "The only thing that matters", and his definition was short. Product-market fit means being in a good market with a product that can satisfy that market.
+
+JAMES: And the title tells you how much weight he put on it.
+
+HANNAH: He argued that getting to product-market fit is the only thing that matters for a young company. He was writing about start-ups, but the logic carries. If the market isn't there, nothing downstream fixes it.
+
+JAMES: Which is why I think marketing has to be in the room for this question, not handed the product afterwards and told to sell it. In most companies you'll find the product decision made first and marketing brought in at launch. By then the expensive choices are locked.
+
+HANNAH: So for our helmet. Is there a market?
+
+JAMES: In the broad sense, obviously yes. Cyclists already buy helmets. But that's the trap, because a market existing isn't the same as a market existing for you. The real question is much narrower. Which riders are badly served by what they wear now? Roughly how many of them are there? And would they switch at the price we'd need to charge?
+
+HANNAH: And if the answer to the first one is nobody in particular?
+
+JAMES: Then the launch should stop there. That's a hard thing to say inside a company that's already designed the product, but it's the cheapest moment to say it. Every step after this costs more.
+
+HANNAH: There's a question hiding in there that people skip. What are those riders doing instead? Because the competition isn't only other helmets.
+
+JAMES: That's right, and it's one of the most useful questions in marketing. Instead of what? For a rider who wants to be seen on a dark evening, the alternative might be their current helmet with a cheap clip-on light. Or it might be not riding after dark at all. Those are very different competitors.
+
+HANNAH: And the second one's the interesting one, because that person isn't in anyone's market share figures.
+
+JAMES: No. If the real alternative is staying at home, your job is to give them a reason to ride, not a reason to switch brands. That changes the whole launch.
+
+HANNAH: What I'd add from the research side is that you rarely get a clean yes or no at this stage. You get a hypothesis. We think year-round riders are badly served. And the next step is there to test it.
+
+JAMES: That's fair. So call the output of step one a go or no-go on whether it's worth finding out more. Which takes us to research.
+
+HANNAH: And this is where cyclists stop being a category and start being people.
+
+JAMES: Right. For the helmet, the research needs to find out a handful of things. Who rides, and where. What they wear now, and why they chose it. What they complain about. Where they buy. And what triggers a purchase in the first place.
+
+HANNAH: The triggers are the interesting part. The Ehrenberg-Bass Institute calls them category entry points, the moments and needs that bring someone into a category in the first place.
+
+JAMES: And for a helmet you can guess at a few. A crash, so the old one has to be replaced. A new bike. Starting to commute. The clocks going back and the evenings getting dark. Each of those is a different person with a different worry, and a launch that knows which ones it's going after will spend its money much better.
+
+HANNAH: You can find a lot of them in search data, reviews and forum threads. But I'd always want a small set of interviews too, with people who bought recently.
+
+JAMES: Which sounds like a lot of effort for a helmet.
+
+HANNAH: Compared with the cost of a launch aimed at the wrong person, it's cheap.
+
+JAMES: Then what should come out of it? Because the most common failure I see in research is the same one we talked about in the SOSTAC episode. A long deck of charts with no conclusions.
+
+HANNAH: Three or four findings, each with its evidence. So in our hypothetical, say the research found two things that matter. Year-round commuters want to be seen by drivers on dark evenings. And road riders overheat on long climbs in summer. Add a third if you like, that people riding for hours find most helmets uncomfortable by the end.
+
+JAMES: And those findings shape everything after them. Hold on to them, because we'll use all three.
+
+HANNAH: Although they're not the same people, are they? The commuter on a dark evening and the road rider on a long summer climb.
+
+JAMES: They're often not, and that's a real decision. You can build a helmet for one of them and do it brilliantly, or try to serve both and risk serving neither. In a lot of launches this is the point where the team quietly avoids choosing.
+
+HANNAH: So what would you do with the helmet?
+
+JAMES: For the sake of the example, I'd look for the thread between them. Both groups want to keep riding when conditions are against them, dark in one case, heat in the other. If the research backs that up, you can build the launch around year-round riding. If it doesn't, pick one and say no to the other, at least for the first season.
+
+HANNAH: Saying no is the part people find hardest, isn't it? It feels like leaving money on the table.
+
+JAMES: It does, and that's where Seth Godin is useful again. We talked about this in the strategy and campaign episode. In This Is Marketing he asks you to find your smallest viable audience, the smallest group you can serve so well that they recommend you. And on his blog he describes that group as a stepping-stone, not a compromise.
+
+HANNAH: So for the helmet, the smallest viable audience might be the commuters who already ride through the winter and hate their current helmet in the dark.
+
+JAMES: Exactly. Win them properly, and they're the ones who tell the riders who are still nervous about the dark. Try to win every cyclist at once, and you end up with a helmet that's slightly better for everyone and remarkable to no one.
+
+HANNAH: And that choice is really the positioning, isn't it? Who it's for, and why it rather than the alternatives.
+
+JAMES: That's the positioning, written down. For these riders, who want to keep riding when the light and the weather turn, this is the helmet built for the whole year, because it was designed around being seen, staying cool and staying comfortable. Every word in that sentence came from the research. That's the test of a positioning statement. If you could swap in a competitor's name and it would still be true, it isn't one yet.
+
+HANNAH: Can I raise one caution on research, since AI comes into it?
+
+JAMES: Go on.
+
+HANNAH: AI is very good at summarising a pile of reviews or forum threads. But it can only summarise what's in the pile. Reviews come from people who bought something and felt strongly enough to write. So you'll hear a lot from existing buyers of other helmets and very little from people who don't ride in the winter because they don't feel safe. Those people might be your best market, and they're not in the data.
+
+JAMES: That's a good point, and it's exactly why the interviews matter. Some of the most useful people to talk to are the ones who aren't buying yet.
+
+HANNAH: So that's the research. Now the brief?
+
+JAMES: Now the brief. Product requirements. And this is the step where marketing most often gets left out, which is odd, because product is the first of the seven Ps.
+
+HANNAH: What does a requirements brief look like when marketing writes it?
+
+JAMES: It describes what the product has to do for the buyer, in the buyer's words, and it leaves engineering to decide how. So from our first finding, a requirement might be, visible from behind to drivers on an unlit road. That's a requirement. An integrated rear light is one answer to it. There might be others, a reflective shell, a light mount. That's the engineers' call.
+
+HANNAH: So the requirement is the problem and the feature is a solution.
+
+JAMES: Exactly. And every requirement should trace back to a research finding. Cool on a long climb traces to the second finding. Comfortable on a five-hour ride traces to the third. If there's anything in the brief that doesn't trace back to something, it's a feature looking for a reason.
+
+HANNAH: [chuckles] I like that phrase.
+
+JAMES: It's a useful test in a product meeting. Somebody wants to add a feature, and the question is, which finding is that for? If nobody can answer, it probably shouldn't be there, or at least it shouldn't be in the launch story.
+
+HANNAH: And the reverse is true as well, isn't it? If there's a finding with no requirement against it, the product is ignoring something the market told you.
+
+JAMES: Yes. And that's often where the competitive advantage sits, the thing everyone in the category knows riders complain about and nobody's fixed.
+
+HANNAH: Does the brief cover price and where it's sold? Or is that a separate conversation?
+
+JAMES: It should be in the brief, because they're requirements too. If the research says most riders buy their helmet in a bike shop where someone helps with the fit, then being stocked and fitted in shops is a requirement, and it changes the margin you need. If they buy online, the fit system has to work without help. Price, place and product are one decision, made from the same findings.
+
+HANNAH: Which is the seven Ps again, really.
+
+JAMES: It is. The mix only works if all the parts come from the same picture of the buyer.
+
+HANNAH: Can we stay on place for a minute? Because for a helmet brand, shops versus selling direct is a big decision.
+
+JAMES: It's one of the biggest, and it's a marketing decision as much as a sales one. Selling through bike shops gets you the fitting, the advice and the trust of the person behind the counter. You give up margin, and you give up the direct relationship with the rider. Selling direct keeps both, but now your website has to do the shop's job.
+
+HANNAH: So it goes back to the research again. Where do these riders actually buy, and why?
+
+JAMES: Always. If the year-round commuter buys in a shop because they want someone to check the fit, a direct-only launch is fighting the buyer. If they buy online after reading reviews, a shop-only launch hides you from them. Most brands end up with both, but the research tells you which one leads.
+
+HANNAH: And the price follows from that too.
+
+JAMES: It does. Your price has to leave room for the shop's margin if you're in shops, and it has to make sense next to what the rider pays now. Which, remember, might be a cheap helmet and a clip-on light. That's the real price comparison in the buyer's head, not the most expensive helmet in the window.
+
+HANNAH: So that's the product. Then we get to the part most people think marketing is. What do we say?
+
+JAMES: And there are two tools here that I use on nearly every launch plan I write. The communication hierarchy, and the benefits ladder. The hierarchy first.
+
+HANNAH: Take me through it.
+
+JAMES: A communication hierarchy ranks what you say. At the top there's one core message. One. The single thing you want a buyer to remember if they remember nothing else. Under it sit three or four supporting messages. And under each supporting message sits the proof.
+
+HANNAH: And why does the ranking matter? Why not just list the messages?
+
+JAMES: Because every channel has a different amount of room. A six-second video can carry one thing. A poster can carry one thing and maybe a line under it. A product page can carry the whole hierarchy. So each channel leads with the top and goes as far down as it has room for. If you haven't ranked the messages, every channel picks its own favourite, and the launch says six different things.
+
+HANNAH: So for the helmet, what's the core message?
+
+JAMES: Working from our findings, something like, the helmet for riding all year. Then the supporting messages follow the research. Seen on dark evenings. Cool on long climbs. Comfortable all day. And the proof under each one is the specification. The light, the vents, the fit system.
+
+HANNAH: Before you sign it off, I'd test it against the hardest questions a sceptic would ask. For a helmet, the obvious one is, why should I pay more than I do now?
+
+JAMES: And if your hierarchy can't answer that, it isn't ready.
+
+HANNAH: Where does the hierarchy usually go wrong?
+
+JAMES: The most common one is a core message that's really four messages joined with commas. Light, cool, comfortable and great value. That's not a hierarchy, it's a list. The second is a core message nobody could disagree with. Quality you can trust. Every helmet brand would say that, so it tells the buyer nothing.
+
+HANNAH: There's a portability test we use on the blog. If a sentence would still be true about a different company, cut it or make it specific.
+
+JAMES: Same test. The helmet for riding all year is a choice. It says we're for the people who ride in the dark and the cold, and by implication not for the person who rides twice a summer.
+
+HANNAH: Who owns the hierarchy in a team? Is it brand, product marketing, the agency?
+
+JAMES: In most teams it sits with whoever owns positioning, usually brand or product marketing. But the important thing is that one person signs it off and everyone else works from it. The agency writing the ads, the person writing the emails and the retail team briefing shops should all have the same page. If each of them is writing their own version, you'll hear it in the launch.
+
+HANNAH: And it goes in every brief?
+
+JAMES: Every brief, at the top. A brief that doesn't say which message it's carrying will get back whatever the writer found most interesting.
+
+HANNAH: And then the benefits ladder sits under that.
+
+JAMES: It does. And it's the tool I come back to more than any other in launch work, because it fixes the most common problem in launch copy. Most launch copy is a spec sheet.
+
+HANNAH: So how does the ladder work?
+
+JAMES: Three rungs. At the bottom, the feature. In the middle, the practical benefit, what the feature does for you. At the top, the emotional resonance, why that benefit matters to you as a person. You take each supporting message and climb it.
+
+HANNAH: Do one for the helmet.
+
+JAMES: The integrated rear light. That's the feature. The benefit is that drivers see you on dark evenings. And the emotional rung is something like, you get home, and nobody at home has to worry about you.
+
+HANNAH: That's a long way from "integrated rear light".
+
+JAMES: It is, and that's the point. That top rung is Godin's definition at work, the rider they want to become. Second one. Larger vents and internal channels. Benefit, you stay cooler on long climbs. Emotional rung, you ride further and feel strong doing it. Third. An adjustable fit system. Benefit, it's comfortable on a five-hour ride. Emotional rung, you forget you're wearing it and enjoy the ride.
+
+HANNAH: Where does the ladder come from? Because it has a research history.
+
+JAMES: Go on, this is your side.
+
+HANNAH: It draws on something called laddering, an interview method that two researchers, Thomas Reynolds and Jonathan Gutman, set out in a paper in nineteen eighty-eight. Researchers still describe it as an in-depth, one-to-one interview technique for understanding how people translate the attributes of a product into meaningful associations with themselves. The interviewer keeps asking, why does that matter to you, and the answers climb from the product to the person.
+
+JAMES: So research climbs the ladder by asking why. And copy uses the answers.
+
+HANNAH: That's a nice way to put it. And it means the emotional rung shouldn't be invented in a meeting. It should come from what people actually said in the interviews.
+
+JAMES: That's the discipline. A lot of brand copy reaches for an emotional line that no customer would recognise. If the research says riders worry about being seen in the dark, the copy can talk about getting home safely, because they told you so.
+
+HANNAH: I'd add a caution, though, especially with a safety product. The emotional rung can't promise more than the product does. Helping drivers see you is a fair claim. Implying a helmet keeps you safe from anything is not.
+
+JAMES: Agreed. The proof at the bottom has to hold up the promise at the top. That's why the ladder starts with the feature. Features prove a claim, benefits explain it, and the emotional rung is usually what people remember.
+
+HANNAH: So how do the hierarchy and the ladder fit together?
+
+JAMES: The hierarchy decides what you say and in what order. The ladder decides how you say each one. In practice, your core message often lives near the top of the ladder, because it's about the rider, not the helmet. The supporting messages sit in the middle, at the benefit rung. And the proof points are the features at the bottom. So a short ad leads with the emotional line, and a product page can climb all the way down to the spec.
+
+HANNAH: Is there a risk of going the other way, though? All top rung and no substance?
+
+JAMES: There is, and it's the mirror image of the spec sheet. A launch film that's all feeling, with no clue about what the product does. People enjoy it and can't tell you what it was for. The ladder keeps you honest in both directions, because every emotional line has to stand on a benefit and a feature.
+
+HANNAH: So the test is whether you can climb down from any line to the thing that proves it.
+
+JAMES: That's the test.
+
+HANNAH: So that's the message. Now the part most people think marketing is. Where do we say it?
+
+JAMES: The channels. And this is where two of our earlier Basics episodes come in, owned, paid and earned media, and above and below the line.
+
+HANNAH: Quick version of the first. Owned media is the channels you control, your website, your email list, your app. Paid media is attention you buy, ads and sponsorship. Earned media is what other people choose to say about you, press coverage, reviews, word of mouth, and these days what AI assistants say when someone asks about the category.
+
+JAMES: And the terms go back to a Forrester report by Sean Corcoran in December two thousand and nine, called No Media Should Stand Alone. The point was in the title. The three work best together.
+
+HANNAH: His picture was paid media as the catalyst, around a solar system of owned media that lasts.
+
+JAMES: Which is how I'd plan the helmet. The product page and the email list sit at the centre. Paid media pushes the right riders towards them. And earned media, the reviews and the press, is what makes them believe it.
+
+HANNAH: Why does owned sit in the middle, though? Paid is where the reach is.
+
+JAMES: Because owned is the only part you keep. Every rider who joins the email list can be reached again without paying a platform. In our owned, paid and earned episode we leaned on another Seth Godin idea, permission marketing. He describes it as the privilege of delivering anticipated, personal and relevant messages to people who actually want to get them.
+
+HANNAH: Privilege rather than right.
+
+JAMES: That's his point. A list of riders who asked to hear about the helmet is worth far more than a big list of people who never did. So a good test for any paid or earned activity in the launch is how much owned audience it leaves behind.
+
+HANNAH: And social media? Where does a brand's Instagram account sit?
+
+JAMES: Awkwardly. You control the posts, but the platform controls who sees them, so a lot of marketers call it rented rather than owned. It's useful, but if the platform changes the rules, the audience goes with it. That's another reason the email list matters.
+
+HANNAH: And the triggers from the research tell you when to be there, don't they?
+
+JAMES: That's the link back. The clocks going back is a date you can put in a plan. A new bike is a moment in a bike shop. A crash replacement starts with a search. So each trigger points to a channel and a time. Search for the replacement, the shop and the fitting for the new bike, and a push in late October for the dark evenings.
+
+HANNAH: And the other way of sorting channels, above and below the line?
+
+JAMES: Above the line is mass media aimed at a broad audience. Television, radio, press, outdoor, broad online video. Its job is mostly memory, so that when someone thinks about the category, your brand comes to mind. Below the line is direct and targeted. Email, events, sampling, point of sale in the shop. It's aimed at people close to buying.
+
+HANNAH: And through the line is both, under one idea.
+
+JAMES: Which is how most launches should be planned. The risk for a helmet brand is that everything drifts below the line, because it's measurable. Search ads and retargeting, all harvesting people who were already looking.
+
+HANNAH: Binet and Field's report for the IPA, The Long and the Short of It, is the one people cite on that. They warned that relying on very short-term online metrics as your main measures has dangerous implications for long-term success.
+
+JAMES: And here's why it matters for this launch. If the real competitor is the rider staying at home in winter, nobody's searching for your helmet yet. Something has to make them think about riding in the dark at all. That's the job of the broader, slower work.
+
+HANNAH: So the channel plan comes straight out of what we've already done.
+
+JAMES: It does. The hierarchy says what each channel carries. The triggers say when. And the objectives say how much each one is worth.
+
+HANNAH: Then the launch itself. The campaign, the creative, the press.
+
+JAMES: Our Basics episode on strategy, campaign, creative and execution is the one to go back to here. Strategy is who you serve and why they should choose you. A campaign is a time-bound push, with its own objective, budget and dates, that carries part of the strategy. Creative is the idea people see and hear. And execution is the delivery.
+
+HANNAH: So for the helmet, the strategy is the year-round rider and the helmet for riding all year. And the launch campaign is one push that carries it.
+
+JAMES: With its own objective. Say, a number of new customers by the end of the winter. And the brief should name the part of the strategy it serves. If it can't, either the campaign shouldn't run or the strategy has a gap.
+
+HANNAH: And the creative comes off the ladder.
+
+JAMES: The top rung, usually. The idea people remember is about getting home, or riding further, not the vents. The test we used in that episode is Seth Godin's Purple Cow. A brown cow in a field goes unseen. A purple one gets talked about. Will the audience notice this, and will they mention it to someone?
+
+HANNAH: Which is also the test for PR.
+
+JAMES: It is. In our PR one-oh-one episode, where we landed was that most PR problems are really product or story problems. A press release won't make a dull helmet remarkable.
+
+HANNAH: And the Muck Rack survey we covered there had the numbers on pitching. Of eight hundred and ninety-seven journalists, eighty-six per cent said at least some of their stories start from PR pitches. And eighty-eight per cent immediately ignore pitches that miss their beat.
+
+JAMES: So the helmet goes to the people who actually cover commuting and road riding, with the reason it matters to their readers in the first lines, and the spokesperson, the data and the pictures ready before anything goes out.
+
+HANNAH: And for a helmet I'd guess reviews matter as much as the press.
+
+JAMES: More, probably. Getting helmets onto the heads of the reviewers and riders people trust, early, is part of the launch plan, not an afterthought. That's earned media, and it's the proof the paid media points to.
+
+HANNAH: And execution?
+
+JAMES: The delivery. The photography, the media, the shop displays, the emails, each on time and on brief. And measure it on its own terms. If you only measure results, a strong idea delivered late looks like a weak idea, and the team learns the wrong lesson.
+
+HANNAH: Before we get to the plan, can I ask about something we haven't mentioned? What happens after someone buys the helmet?
+
+JAMES: That's a good question to ask, because a lot of launch plans stop at the sale. But marketing carries on. The rider who bought it is now your best source of proof, your best source of reviews, and quite possibly your next sale.
+
+HANNAH: Next sale in what sense? People don't buy a helmet every month.
+
+JAMES: No, but think about the triggers again. A crash means a replacement. A partner or a friend starts riding. The rider wants a second helmet for a different bike. If you've kept the relationship, through the email list and through a good experience, you're the obvious choice at each of those moments. If you haven't, they're back in a search, comparing you with everyone else.
+
+HANNAH: So after the sale is really back to owned media.
+
+JAMES: Exactly. A follow-up after a few weeks asking how the fit's working. An invitation to leave a review once they've ridden in the dark with it. A reminder about how to tell when a helmet needs replacing. None of it is glamorous, but it's where a lot of the long-term value of a launch actually sits.
+
+HANNAH: And the reviews feed straight back into the paid and earned work.
+
+JAMES: They do. Real riders saying it kept them visible on a dark road is better proof than anything the brand can say about itself. That's the chain looping round on itself again.
+
+HANNAH: So that's how it gets out into the world. And the plan that holds it all together?
+
+JAMES: That's SOSTAC, which we gave a whole Basics episode to earlier this month.
+
+HANNAH: Quick reminder for anyone who missed it. SOSTAC is the planning model created by the British marketer PR Smith in the nineteen-nineties. Situation, Objectives, Strategy, Tactics, Action and Control. PR Smith gives the stages plain questions. Where are we now? Where do we want to be? How do we get there? And finally, how do we know we're getting there?
+
+JAMES: And the reason it fits so well here is that we've already done half of it without saying so. Product-market fit and the research are the Situation. That's where are we now, and who's out there.
+
+HANNAH: Then objectives.
+
+JAMES: What the launch has to achieve, by when. Sales, or new customers, or a share of a particular group of riders, with a date. Tied to a business result, as we said in the SOSTAC episode, not to activity. "Launch the helmet with a big splash" isn't an objective.
+
+HANNAH: [laughs] I've seen that one.
+
+JAMES: Then strategy. Who we're targeting, how we're positioning against the alternatives, and which channels and partners carry it. For the helmet, the audience is the year-round rider, the position is the helmet for riding all year, and the communication hierarchy is the heart of the strategy, because it's the decision about what we stand for.
+
+HANNAH: And tactics?
+
+JAMES: The marketing mix in detail. The price. Where it's stocked. And everything we've just talked about, the channel plan, the launch campaign, the creative written from the ladder, and the PR.
+
+HANNAH: And then the two stages people skip.
+
+JAMES: Action and control. Action is who does what, by when, with what budget. For a product with a season, like a helmet, that's a launch calendar worked back from the moment you want riders to buy. The photography, a quieter build-up, the public reveal, reviews and proof from real riders, and then a long stretch of selling through.
+
+HANNAH: That's a long runway for one helmet.
+
+JAMES: It can be. A small brand would run a much leaner version. But the principle holds. Every piece of work has a name next to it and a date.
+
+HANNAH: And control?
+
+JAMES: The measures you review, against each objective, on a rhythm. In most teams I'd want a short monthly look and a proper quarterly review where you're allowed to change the tactics. And for a launch, control should go right back to the start. Did we reach the riders the research pointed to? Are they the ones buying? If the people buying are a different group, the situation analysis was wrong, and you want to know that early.
+
+HANNAH: So the loop closes back on step one.
+
+JAMES: That's what makes it a loop rather than a document.
+
+HANNAH: What would you actually measure for the helmet, step by step?
+
+JAMES: Work back through the chain. For fit, whether the group you aimed at is the group buying, which you can find from a short survey at purchase. For the research, whether the triggers you planned around, the dark evenings, the new bike, show up in why people say they bought.
+
+HANNAH: And the message?
+
+JAMES: Whether people can play back the core message when you ask them what the helmet's for. For the channels, whether the paid and earned work is growing the owned audience, the email list and the people who come back. And for the business, sales against the objective, and the margin.
+
+HANNAH: The playback one is underrated. You can run that cheaply.
+
+JAMES: And it tells you whether the hierarchy survived contact with the real channels, which is the thing most launches never check.
+
+JAMES: So that's the whole chain. Fit, research, requirements, the hierarchy, the ladder, the channels, the launch, and a SOSTAC plan to run it. Now AI.
+
+HANNAH: Now AI. And the honest answer is that there's work for AI at every step, but the decisions don't move.
+
+JAMES: Take me through where it helps.
+
+HANNAH: In research, summarising reviews, forum threads and interview transcripts, and pulling out the triggers and complaints with the quotes behind them. At the requirements stage, checking that every line in the brief traces back to a finding. In messaging, drafting a benefits ladder for every feature, so the team starts from twenty options rather than a blank page. In the launch, matching the story to the journalists who actually cover it, and checking whether every ad and email leads with the core message.
+
+JAMES: And in our three layers of AI episode, that maps neatly. Chat helps you draft the ladders. An agent can run the research synthesis or check every piece of launch copy against the hierarchy. And orchestration is when those run together as one system.
+
+HANNAH: But whether there's a market, which finding matters most, and what the core message should be, those are judgements.
+
+JAMES: They are. And PR Smith said something similar about SOSTAC, writing for the Chartered Institute of Marketing last year, that any plan AI produces should be treated as a first draft only.
+
+HANNAH: So what's the Manual Focus view?
+
+JAMES: Our view is that AI makes this whole chain cheaper to run properly. The steps teams used to skip because they didn't have the time, the research at the start and the measurement at the end, are exactly the ones AI makes affordable. So they deserve more attention now, not less. And the order doesn't change. You still start with whether there's a market.
+
+HANNAH: Which brings us to the jobs.
+
+JAMES: Get AI on this. First, the research synthesis. That's the one that takes the most hours.
+
+HANNAH: Give it your review exports, a set of forum threads and your interview transcripts, and ask for the purchase triggers and the complaints, each with the quotes behind it and how often it came up. It hands back three or four findings with the evidence under each, and a list of the groups the data doesn't cover, like the people who aren't riding yet.
+
+JAMES: Second, get AI to build the benefits ladders.
+
+HANNAH: Give it the product spec, the research findings and, most importantly, the interview transcripts. For each feature it drafts the benefit and two or three emotional lines, each tied to something a customer actually said. And it flags any line that promises more than the feature can prove.
+
+JAMES: And third, the hierarchy check across everything you're about to launch.
+
+HANNAH: Paste in the communication hierarchy and every piece of launch copy, the ads, the emails, the product page. It reports which message each piece leads with, which pieces lead with something that isn't in the hierarchy, and which supporting messages never appear at all. Run it again before every phase goes live. The prompts are in the show notes.
+
+JAMES: Then let's finish with where people go wrong. Because there are a few.
+
+HANNAH: The first one is starting at the end. Picking channels and making content before anyone's checked there's a market or what it needs.
+
+JAMES: The second is research that ends in charts rather than findings. If the research doesn't change a decision, it was a report, not research.
+
+HANNAH: The third is a requirements brief written in features, so nobody can tell which problem each feature solves.
+
+JAMES: The fourth is a core message that's really a list. Four things joined with commas, and no channel carrying the same one.
+
+HANNAH: And the fifth is a ladder that stops at the bottom rung. Spec-sheet copy. Or the opposite, an emotional line nobody in the research ever said, with no feature underneath to prove it.
+
+JAMES: The sixth is on the channel side. Putting everything below the line because it's easy to measure, and harvesting demand you never created.
+
+HANNAH: And a press release standing in for a story nobody would repeat.
+
+JAMES: And one more. Treating all of this as a one-off for the launch. The research, the hierarchy and the ladder should be living documents. When control tells you the buyers are different from the people you planned for, the right response is to go back up the chain.
+
+HANNAH: So it isn't a straight line so much as a loop.
+
+JAMES: It's a loop. And it scales down, by the way. For a small brand or a single campaign, every step can be a paragraph. Is there a market, what did we learn, what must it do, what's the one thing we say, why does it matter to the buyer, and how will we know. If any of those is blank, you're not ready to brief.
+
+HANNAH: That's a useful checklist on its own.
+
+JAMES: So let's do it for the helmet, in one go, to show how it holds together.
+
+HANNAH: Go on then. Is there a market?
+
+JAMES: Yes, among riders who keep riding through the winter and the summer heat and feel badly served by helmets made for mild weekends. The alternative they use now is often a cheap helmet and a clip-on light, or not riding after dark at all.
+
+HANNAH: What did we learn?
+
+JAMES: Commuters want to be seen on dark evenings. Road riders overheat on long climbs. Long-distance riders find helmets uncomfortable by the end. And the thread between them is keeping riding when conditions are against you.
+
+HANNAH: What must it do?
+
+JAMES: Be visible from behind on an unlit road, stay cool on a long climb, and stay comfortable for five hours. At a price that makes sense next to a helmet and a light, sold where those riders actually buy.
+
+HANNAH: The one thing we say?
+
+JAMES: The helmet for riding all year. And why it matters, at the top of the ladder, is that you get home and nobody has to worry.
+
+HANNAH: Where and when?
+
+JAMES: The website and email list at the centre. Search always on for crash replacements. Shops and fitting for new bikes in spring. A broader push when the clocks go back. And reviewers and trusted riders wearing it before the launch, not after.
+
+HANNAH: And how will we know?
+
+JAMES: Who's buying, whether they can tell us what it's for, whether the email list is growing, and sales and margin against the objective. Reviewed every month, properly every quarter, and fed back into next year's situation. That's the whole job, on one page.
+
+JAMES: So the takeaway. Marketing is identifying, anticipating and satisfying what customers need, profitably. Promotion is a big part of it, but it sits at the end of the chain, and it works far better when everything before it is right.
+
+HANNAH: And the article has all eight steps in one table, and there's a free minibook with the diagrams and a worksheet for every step.
+
+JAMES: It's on manual-focus dot co dot uk, with links to every Basics episode we mentioned. If this was useful, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, so the rest of the series finds you. And if you're working out what AI should be doing in your own marketing, a free working session at manual-focus dot co dot uk is a good place to start, and we'll start from your market, not the tools. Thanks, Hannah.
+
+HANNAH: Thanks, James. Good luck with the helmet.

@@ -159,6 +159,28 @@ Turns can run a little longer when Hannah is explaining a concept, but keep
 each under about 30 seconds and let James interrupt with the question a
 listener would ask.
 
+### Long-form Basics episode
+
+Some Basics topics join several earlier episodes into one story ("What is
+marketing?" runs from product-market fit to SOSTAC). These run about 30 to 45
+minutes, roughly 5,000 to 7,400 words of script at the turn-by-turn pace of
+about 165 words a minute. Set `length: long` in the
+show notes' frontmatter and `check-episode.mjs` applies those limits; it's
+only allowed on posts tagged `basics`. Everything in "Basics episode" applies,
+with these changes:
+
+- **One thread, worked through.** Carry a single worked example (a
+  hypothetical product launch, say) through every section, so the listener
+  hears each idea applied rather than defined. Say on air that it's
+  hypothetical, and give it no numbers the post doesn't have.
+- **Signpost the route.** In the cold open, James says where the episode is
+  going in a sentence. At each new section, one line says where they are
+  ("So that's the research. Now the brief.").
+- **Lean on the series.** Name the earlier Basics episodes where they go
+  deeper, so the long episode works as the front door to the rest.
+- **More chapters.** One per section, so listeners can jump to the part
+  they need. Turn lengths and every other rule stay the same.
+
 ## Get AI on this
 
 It's model-agnostic: we say "AI" or "your AI" on air, never one brand,
@@ -249,8 +271,12 @@ order. `chapters.mjs` times the plan once the episode is published.
 
 ## Delivery cues
 
-Episodes are voiced with ElevenLabs' v3 dialogue model, which reads audio tags
-in square brackets as performance directions. Use them sparingly, where a
+Episodes are voiced turn by turn with ElevenLabs' v4 text-to-speech model, the
+same set-up as the WattPlan podcast, so each host's voice stays the same for
+the whole episode. It reads audio tags in square brackets as performance
+directions. Because each turn is voiced on its own, a cut-off at the end of
+one turn and the reply in the next don't overlap, so write interruptions as a
+complete short turn rather than relying on timing. Use them sparingly, where a
 real host would do it, at most one every few turns:
 
 - reactions: `[laughs]`, `[chuckles]`, `[sighs]`

@@ -100,4 +100,4 @@ ATL and BTL describe reach and purpose. Paid, owned and earned describe who cont
 - [Channel-mix simulator](/lens/demand/channel-mix-simulator/), for modelling the split between memory and action
 - [SOSTAC explained](/blog/sostac-marketing-plan-basics/), for where channel choices sit in a plan
 
-If you want help balancing brand and response spend, [book a free working session](/enquire/).
+If you want help balancing brand and response spend, [book a free working session](/contact/).

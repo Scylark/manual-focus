@@ -1,0 +1,63 @@
+JAMES: Google Maps in the UK is about to start planning people's days out for them. On the sixteenth of November Google said Ask Maps, the Gemini chat inside Maps, is coming to thirty European countries including Britain, and in America it'll now phone businesses to book appointments. I'm James Vickers, this is Manual Focus, and Hannah's here to tell me what a brand with shops or branches should do before Christmas.
+
+HANNAH: Hi James. Mostly boring things. First, what Google said.
+
+JAMES: [calmly] Go on then. What actually changed?
+
+HANNAH: Ask Maps launched back in March, in the US and India. You type a question in plain language and Maps answers it, drawing on more than three hundred million places and reviews from over five hundred million contributors, according to Google's launch post. The new post, from Maz Khorasani on the Maps team, takes it to thirty countries in Europe, including Spain, Germany and the UK, and more than two hundred countries and territories in all.
+
+JAMES: And the new features?
+
+HANNAH: Four that matter here. Trip itineraries, so a day of Christmas shopping or a coastal road trip over several days comes back as a schedule with numbered stops. Live help once you're on the way, showing traffic, whether each stop is open and what the next one's like. Searching your saved places against live availability, so Google's example is which saved spots can seat five people within half an hour. And then the agentic part, appointment finding.
+
+JAMES: Which of those reach the UK first?
+
+HANNAH: Itineraries and saved-list search work everywhere Ask Maps is offered, so those come with it. Appointment finding, and new route tips for parking and tolls, launch first in the US, with other regions to follow.
+
+JAMES: [thoughtfully] Tell me about the booking, because that's the bit that sounds like an agent.
+
+HANNAH: It is. In the US, Ask Maps can find open slots at beauty, pet care, auto repair and home repair businesses, and call local businesses on the user's behalf. Google's Business Profile help page fills in the rest. It says Google may phone a business to book an appointment or check prices and availability, and if the business uses an online booking provider, Google may book through that instead.
+
+JAMES: Can a business say no?
+
+HANNAH: A verified one can. In Business Profile, under advanced settings, there's a toggle called Bookings and inquiries from customers. Staff can also ask a Google caller to stop. What Google's Maps post doesn't say is whether Ask Maps calls follow that toggle.
+
+JAMES: So here's the question a head of marketing with forty branches will ask. How does Ask Maps decide which of my branches to mention?
+
+HANNAH: Google hasn't said. It names the inputs, which are places data, community reviews and the user's own searches and saved places. It doesn't say how one business gets picked over another. So the levers you've got are your listing and your reviews.
+
+JAMES: [dryly] Which is local SEO with a chat window on the front.
+
+HANNAH: Partly. The customer asks for an outcome, a four o'clock nail appointment or a day out, and gets one plan back. If your branch isn't in it, they never saw a list with you on it.
+
+JAMES: And we've seen how that tends to go. When we covered the Lightspeed study in September, AI assistants picked the national chain over a smaller rival up to ninety-four per cent of the time in head-to-head comparisons.
+
+HANNAH: And nothing in Google's posts says Maps will treat independents differently. The other thread is last week, when OpenAI opened Businesses in ChatGPT. That turned the ChatGPT profile into source material for an AI answer, and Google's posts don't name Business Profiles, but the details Ask Maps shows, like whether a place is open, are the ones you set there.
+
+JAMES: [thoughtfully] So our view is that a UK brand with physical locations should treat Business Profile accuracy as a December priority. Google launched itineraries for holiday trips, and they show whether each stop is open, so wrong Christmas hours cost you a place in the plan as well as a wasted journey for the customer.
+
+HANNAH: And the booking calls are a preview for UK teams. The time to decide on booking partners and call settings is before Google switches it on here.
+
+JAMES: What about stock? If I'm a retailer, is Google going to ring the shop floor asking if something's in?
+
+HANNAH: The help page says Google calls to check in-demand inventory, but if you share product details through Merchant Center, it uses that data instead of calling.
+
+JAMES: So what do you hand over? Get AI on this, first job. Audit every location's hours and details before Christmas.
+
+HANNAH: Give it an export of your Business Profile locations and your store finder page, plus your Christmas and New Year opening plan. It hands back a table of every location where the listing, the site and the plan disagree, with the correct value to set.
+
+JAMES: Second job. Find out what Ask Maps says about you once it's on UK phones.
+
+HANNAH: Give it ten to twenty requests a customer would make in your category and towns, and the answers you collect from Maps. It sorts them into which of your locations appeared, which competitors did, and anything Maps said about you that's wrong. Run it fortnightly. A person still types the requests on a phone.
+
+JAMES: And third, the reviews.
+
+HANNAH: Give it the last few months of reviews for each location. It tells you which details customers mention, things like parking, group space or wait times, which ones they never mention, and drafts replies where a review gets a fact wrong. Someone still checks each reply before it goes up.
+
+JAMES: The prompts are in the show notes. Hannah, what don't we know?
+
+HANNAH: The UK date, the full list of thirty countries and when booking leaves the US. How Ask Maps ranks businesses, whether ads appear in its answers and whether its calls follow the call setting. And Google hasn't said whether Business Profile reports will separate Ask Maps visits from ordinary Maps searches, so for now you can't measure what the chat sends you.
+
+JAMES: [calmly] So the takeaway. Maps is turning into a conversation that hands back one plan, and it plans with your listing and your reviews, so get the holiday hours right this month. The full article is on manual-focus dot co dot uk. Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen, and if you want a hand checking how your locations show up in Maps and AI answers, book a free working session on the site. Thanks, Hannah.
+
+HANNAH: Thanks, James. Check those Christmas hours.

@@ -1,0 +1,39 @@
+{
+  "version": "1.2.0",
+  "title": "What Anthropic's Claude Duet agent means for marketing teams",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Cold open"
+    },
+    {
+      "startTime": 36.6,
+      "title": "What Anthropic launched"
+    },
+    {
+      "startTime": 102.6,
+      "title": "What it asks before acting"
+    },
+    {
+      "startTime": 158.6,
+      "title": "Duet against OpenAI's dots"
+    },
+    {
+      "startTime": 185,
+      "title": "Why the plan type matters"
+    },
+    {
+      "startTime": 242.7,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 313.2,
+      "title": "What we don't know yet"
+    },
+    {
+      "startTime": 335.8,
+      "title": "The takeaway"
+    }
+  ]
+}

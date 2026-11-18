@@ -1,0 +1,67 @@
+JAMES: A week ago we told you Meta's new crawling terms would switch on for every UK advertiser on the thirtieth of October. They won't, at least not then. Meta's pushed the date back to the twentieth of November and changed one important word, so this is the update. I'm James Vickers, this is Manual Focus, and Hannah's back to go through what moved.
+
+HANNAH: Hi James. So on Friday the twenty-third of October, a Meta spokesperson told Reuters it was extending the effective date of its updated Commercial Terms and Self-Serve Ad Terms to the twentieth of November. The reason they gave was more time to explain to partners and stakeholders what's changing and what's not.
+
+JAMES: [dryly] What's changing and what's not. That's doing a lot of work.
+
+HANNAH: It is. Reuters also reported that publishers and digital advertisers had complained to EU and UK antitrust authorities, saying the terms gave Meta an unlimited right to use their content for its AI services. Meta rejects that.
+
+JAMES: And it wasn't only the regulators.
+
+HANNAH: No. The Next Web reported that the News/Media Alliance, which represents more than two thousand US publishers, wrote to Mark Zuckerberg the day before demanding the terms be withdrawn. And it says Britain's competition watchdog has asked Meta to explain them.
+
+JAMES: Here's the bit that confuses things. Isn't the UK page still showing the thirtieth?
+
+HANNAH: It does. We read both English previews on the twenty-fifth. The US edition shows the twentieth of November. The UK edition still showed the thirtieth of October, two days after the Reuters statement. Meta hasn't said which page governs a UK account while they disagree.
+
+JAMES: [calmly] So the first job for a UK legal team is boring but real. Get the date confirmed for your own accounts, in writing.
+
+HANNAH: Yes. Don't guess.
+
+JAMES: Now the word. When we covered this on the seventeenth, the headline for UK listeners was that the UK edition said Meta could use your content to train its products, and the US edition didn't.
+
+HANNAH: That's gone. Meta removed the word train after publishers objected. Both English editions now say Meta may use the content to provide, develop, improve, research and maintain advertising and business products, plus integrity and security. So the UK and US purpose sentences match now, which closes the gap we flagged a week ago.
+
+JAMES: So that's good news.
+
+HANNAH: Partly. The licence itself didn't shrink. Meta can still use crawlers, scrapers, bots, and test credentials, to access, index, cache and collect from any site associated with your products. It can still pull updates periodically. And develop and research are still in the list. The terms don't say either way whether those cover training a model.
+
+JAMES: [thoughtfully] So they took out the word that made headlines and left the permission behind it.
+
+HANNAH: That's a fair reading of the text. And The Next Web, citing Fast Company, says the disputed wording hasn't changed since train came out, and Meta still plans to go ahead.
+
+JAMES: Then robots.txt. Does that advice change?
+
+HANNAH: Not at all. Robots.txt is the file on your site that tells crawlers what they can visit. Meta says, according to The Next Web, that site owners can still use it to state their preferences, but that promise is in a press statement, not in the terms. Neither English edition mentions robots.txt.
+
+JAMES: Remind people which crawler is which.
+
+HANNAH: Meta's own documentation lists Meta-ExternalAgent as the crawler for things like training foundation AI models. Meta-WebIndexer is the one that helps Meta AI cite and link to your content. The other two, the fetcher for user requests and the Facebook link previewer, may bypass robots.txt in some cases. And Meta says its crawlers can cache your robots file for up to twenty-four hours, so any rule takes a day to bite.
+
+JAMES: Our view at Manual Focus is that the delay changes the deadline and nothing else. Finish the plan you started for the thirtieth. Block ExternalAgent on domains with licensed or customer content, keep WebIndexer allowed so Meta AI can still cite you, and get Meta's answers in writing before the twentieth of November.
+
+HANNAH: And the extra weeks help brand teams most. Whether you can let Meta collect licensed photography, creator content and reviews off your product pages needs legal review, and thirteen days wasn't much. Twenty-six is enough to check the licences behind your busiest pages.
+
+JAMES: [calmly] And paid teams can deal with the OpenAI ads default we covered on the twenty-first first, then come back to Meta in November.
+
+HANNAH: One deadline at a time.
+
+JAMES: Right. Get AI on this. First job, the robots.txt check across every domain linked to your Meta ads.
+
+HANNAH: Give it the list of domains from your Meta ads, catalogues and Business Suite. It reads each site's robots.txt and tells you, site by site, whether Meta-ExternalAgent is blocked and whether WebIndexer and the link previewer are still allowed, then drafts the lines you're missing. Someone on the web team decides and deploys them.
+
+JAMES: Second, get AI on the legal re-brief.
+
+HANNAH: Give it the old UK wording from our first piece, the new wording and your licence types, photography, creator and reviews. It hands back a one-page note for legal showing what changed, what didn't, and the questions to ask about develop and research. Legal makes the call.
+
+JAMES: And third, set AI on a watch. Have it check both of Meta's English previews every few days until the twentieth, and tell you if the date or the wording moves.
+
+HANNAH: That needs an assistant that can open web pages on a schedule. It compares the date and the purpose sentence with the last check and flags any change.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: What we don't know yet. Whether Meta will change any more wording before the twentieth or only explain it. Whether a robots.txt block narrows the licence at all. What test credentials can reach behind a login or a paywall. What Britain's competition watchdog asked, and whether it'll act. And there's still no partial opt-out short of stopping business use of Meta.
+
+JAMES: So, same plan, new date. Confirm which date applies to you and ship the robots rules this week. The full article, with the old and new wording side by side, is on manual-focus dot co dot uk. Follow the show wherever you listen and the next update arrives on its own, and if you want a hand with a crawler policy, book a free working session at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Happy to, James. See you on the twentieth, probably.

@@ -62,4 +62,4 @@ The CMO has a separate decision to make about dots. An agent that drafts social 
 
 OpenAI hasn't published how it ranks or recommends plugins, whether paid placement will ever sit next to them, or how often a plugin surfaces without the user asking for it. The dots announcement doesn't name the eligible markets, so UK availability needs checking, and OpenAI says teams will later be able to add more dots and scale their output without saying what that will cost. Specialist dots, which OpenAI says it has tested internally on email marketing and customer support, are limited to enterprise pilots for now.
 
-If you want help deciding whether a plugin belongs in next year's plan, [talk to us](/enquire/).
+If you want help deciding whether a plugin belongs in next year's plan, [talk to us](/contact/).

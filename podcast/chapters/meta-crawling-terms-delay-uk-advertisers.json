@@ -1,0 +1,43 @@
+{
+  "version": "1.2.0",
+  "title": "Meta's crawling terms delay, what UK advertisers should do now",
+  "podcastName": "Manual Focus",
+  "chapters": [
+    {
+      "startTime": 0,
+      "title": "Cold open"
+    },
+    {
+      "startTime": 29.7,
+      "title": "What Meta announced"
+    },
+    {
+      "startTime": 91.9,
+      "title": "Which date applies in the UK"
+    },
+    {
+      "startTime": 128.1,
+      "title": "The word Meta removed"
+    },
+    {
+      "startTime": 209.5,
+      "title": "Robots.txt and Meta's crawlers"
+    },
+    {
+      "startTime": 268.9,
+      "title": "Our view, and who gains time"
+    },
+    {
+      "startTime": 319.5,
+      "title": "Get AI on this"
+    },
+    {
+      "startTime": 394.6,
+      "title": "What we don't know"
+    },
+    {
+      "startTime": 421.1,
+      "title": "The takeaway"
+    }
+  ]
+}

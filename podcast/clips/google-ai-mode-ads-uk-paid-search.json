@@ -1,0 +1,33 @@
+{
+  "slug": "google-ai-mode-ads-uk-paid-search",
+  "title": "What ads in Google's AI Mode mean for UK paid search teams",
+  "url": "https://manual-focus.co.uk/blog/google-ai-mode-ads-uk-paid-search/",
+  "clips": [
+    {
+      "from": "9.1",
+      "to": "12.3",
+      "why": "It opens on the question every paid lead asks, and the answers on opt-out, controls and reporting come with plain explanations from both voices.",
+      "hook": "Give AI eight weeks of campaign data and it returns a before picture of spend, conversions and query length.",
+      "youtube": {
+        "title": "Can you opt out of ads in Google AI Mode in the UK",
+        "description": "Google says ads in AI Mode reach the UK in the fourth quarter. James and Hannah cover why existing campaigns are eligible automatically, which controls are left and how the results are reported.\n\nFull episode and article: https://manual-focus.co.uk/blog/google-ai-mode-ads-uk-paid-search/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI eight weeks of campaign data and it returns a before picture of spend, conversions and query length.\n\nGoogle has confirmed that ads in AI Mode reach the UK in the fourth quarter. Existing campaigns are eligible automatically, there is no opt-out, and the results sit inside your normal totals.\n\nIn this clip Hannah and I cover what that means for a paid search lead. The job for AI is to take your last eight weeks of campaign data and search terms and give you a baseline to compare December against.\n\nThe podcast voices are AI-generated, and mine is a clone of my own voice.\n\nFull episode and article at https://manual-focus.co.uk/blog/google-ai-mode-ads-uk-paid-search/",
+      "words": 115,
+      "text": "So here's the question every paid lead will ask. Can I keep my campaigns out of it? No. Google's Ads help page on AI-powered experiences says existing Search, Shopping and Performance Max campaigns are eligible automatically. You can't opt out of AI Mode or AI Overviews separately from Search, and you can't target them on their own. Negative keywords and brand exclusions still limit where ads show, and those are the only levers it lists. And reporting? It's all in aggregate. Impressions, clicks, conversions and cost from these placements go into your normal campaign reports, and the queries sit in the search terms report with everything else. So you won't see an AI Mode line."
+    },
+    {
+      "from": "21.2",
+      "to": "22.2",
+      "why": "It starts on a plain instruction to set a baseline and then gives the exact job to hand to AI and what comes back, in a clean exchange between both voices.",
+      "hook": "Give AI eight weeks of campaign data and it returns a before picture of spend, conversions and query length.",
+      "youtube": {
+        "title": "Build a paid search baseline before AI Mode ads arrive",
+        "description": "James and Hannah explain why a baseline matters before ads in AI Mode reach the UK. They cover the campaign data to hand to AI and the tables it sends back.\n\nFull episode and article: https://manual-focus.co.uk/blog/google-ai-mode-ads-uk-paid-search/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI eight weeks of campaign data and it returns a before picture of spend, conversions and query length.\n\nAds in AI Mode reach the UK in the fourth quarter, you cannot opt out, and Google reports the results only in aggregate. A baseline taken before peak is how you tell AI Mode from seasonality when December moves.\n\nIn this clip Hannah and I go through the job. Give AI the last eight weeks of Search, Shopping and Performance Max data plus your search terms report. It hands back a table by campaign with spend, clicks, conversions and cost per conversion, and splits your queries into length bands.\n\nThe podcast voices are AI-generated, and mine is a clone of my own voice.\n\nFull episode and article at https://manual-focus.co.uk/blog/google-ai-mode-ads-uk-paid-search/",
+      "words": 105,
+      "text": "Set a baseline in November, so when December moves you can tell whether it was AI Mode or seasonality. And brief finance before peak, so a shift in cost per click doesn't get read as a bad quarter. So, get AI on this. First, get AI on building the baseline. Give it the last eight weeks of Search, Shopping and Performance Max data by campaign, plus your search terms report. It hands back a table by campaign with spend, clicks, conversions and cost per conversion, and splits your queries into length bands, so you've got a before picture of how long your converting queries are."
+    }
+  ]
+}

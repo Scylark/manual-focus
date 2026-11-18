@@ -113,4 +113,4 @@ Count outcomes, not volume. Useful measures include coverage in the outlets your
 - [Earned-media pitch generator](/lens/content/earned-media-pitch-generator/), for matching stories to the right journalists
 - [Founder and institutional voice](/lens/brand/founder-and-institutional-voice/), for deciding who speaks for the brand
 
-If you want help finding the story worth pitching, [book a free working session](/enquire/).
+If you want help finding the story worth pitching, [book a free working session](/contact/).

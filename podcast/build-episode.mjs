@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 // Turns a two-host script (podcast/scripts/<slug>.txt) into an MP3 episode.
 //
-// The script is voiced with ElevenLabs Text to Dialogue (eleven_v3), which
-// performs a run of turns together so the hosts react to each other rather
-// than each line being read cold. The API takes about 2,000 characters per
-// request, so turns are grouped into chunks under that and ffmpeg joins the
-// chunks and normalises loudness. Chunks are cached in podcast/out/<slug>/, so editing
-// one line only re-voices its chunk.
+// Each turn is voiced on its own with ElevenLabs text to speech (eleven_v4)
+// in that host's voice and settings, the way the WattPlan podcast does it,
+// and ffmpeg joins the turns and normalises loudness. Voicing turn by turn
+// keeps each voice the same from the first minute to the last. The old way,
+// Text to Dialogue (eleven_v3) in ~2,000-character chunks, let the hosts react
+// to each other but drifted between chunks, which James heard on the 30-minute
+// "What is marketing" episode (October 2026). PODCAST_ENGINE=dialogue still
+// builds that way. Turns (or chunks) are cached in podcast/out/<slug>/, so
+// editing one line only re-voices that line.
 //
 // Every episode uses the same music, podcast/music/road-at-dawn.mp3: the
 // track's opening plays alone for a few seconds, then dips under James's cold
@@ -29,13 +32,24 @@ import { fileURLToPath } from 'node:url';
 import { request } from './http.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const MODEL = 'eleven_v3';
-const CHUNK_CHARS = 1800; // headroom under the API's 2,000-character limit
-const SEED = 1162; // fixed, so re-voicing an unchanged chunk sounds the same
-const PAUSE_SECONDS = 0.25; // between chunks only; the model paces turns itself
-// eleven_v3 stability: 0 is the most expressive, 0.5 natural, 1 the steadiest.
-// Kept on the steady side so James doesn't come across over-excited.
+const ENGINE = process.env.PODCAST_ENGINE === 'dialogue' ? 'dialogue' : 'turns';
+const SEED = 1162; // fixed, so re-voicing an unchanged line sounds the same
+// Turn by turn: eleven_v4 text to speech with WattPlan's settings for the same
+// two voices. Higher similarity holds each voice to its source; James is a
+// little steadier than Hannah so he stays measured.
+const TTS_MODEL = 'eleven_v4';
+const TTS_SETTINGS = {
+  JAMES: { stability: 0.55, similarity_boost: 0.8 },
+  HANNAH: { stability: 0.4, similarity_boost: 0.8 },
+};
+const TURN_GAP = 0.4; // seconds between turns
+// Dialogue (PODCAST_ENGINE=dialogue): eleven_v3 in chunks under the API's
+// ~2,000-character limit. Stability 0 is the most expressive, 1 the steadiest.
+const DIALOGUE_MODEL = 'eleven_v3';
+const CHUNK_CHARS = 1800;
+const CHUNK_GAP = 0.25; // between chunks only; the model paces turns itself
 const STABILITY = Number(process.env.PODCAST_STABILITY ?? 0.5);
+const PAUSE_SECONDS = ENGINE === 'turns' ? TURN_GAP : CHUNK_GAP;
 
 // Music, in seconds within road-at-dawn.mp3 and on the episode timeline.
 const MUSIC = join(ROOT, 'music', 'road-at-dawn.mp3');
@@ -68,11 +82,12 @@ const turns = script
     return { speaker: m[1], text: m[2].replace(/\s+/g, ' ') };
   });
 
-// Group whole turns into chunks under the character limit.
+// Turn by turn, every turn is its own request. For dialogue, group whole turns
+// into chunks under the character limit.
 const chunks = [];
 let current = [];
 let size = 0;
-for (const turn of turns) {
+for (const turn of ENGINE === 'turns' ? [] : turns) {
   if (turn.text.length > CHUNK_CHARS) throw new Error(`A ${turn.speaker} turn is over ${CHUNK_CHARS} characters; split it.`);
   if (size + turn.text.length > CHUNK_CHARS && current.length) {
     chunks.push(current);
@@ -83,6 +98,7 @@ for (const turn of turns) {
   size += turn.text.length;
 }
 if (current.length) chunks.push(current);
+if (ENGINE === 'turns') chunks.push(...turns.map((t) => [t]));
 
 if (dryRun) {
   for (const [i, chunk] of chunks.entries()) {
@@ -90,7 +106,7 @@ if (dryRun) {
     console.log(`Chunk ${i + 1}/${chunks.length}: ${chunk.length} turns, ${chars} chars`);
   }
   const chars = turns.reduce((n, t) => n + t.text.length, 0);
-  console.log(`Dry run: ${turns.length} turns, ${chars} characters to voice. Nothing sent to ElevenLabs.`);
+  console.log(`Dry run (${ENGINE === 'turns' ? `${TTS_MODEL}, turn by turn` : `${DIALOGUE_MODEL} dialogue`}): ${turns.length} turns, ${chars} characters to voice. Nothing sent to ElevenLabs.`);
   process.exit(0);
 }
 
@@ -98,20 +114,28 @@ const outDir = join(ROOT, 'out', slug);
 mkdirSync(outDir, { recursive: true });
 
 async function voice(chunk, i) {
-  const body = {
-    model_id: MODEL,
-    inputs: chunk.map((t) => ({ text: t.text, voice_id: VOICES[t.speaker] })),
-    seed: SEED,
-    settings: { stability: STABILITY },
-  };
-  const hash = createHash('sha1').update(JSON.stringify(body)).digest('hex').slice(0, 12);
-  const file = join(outDir, `chunk-${String(i + 1).padStart(2, '0')}-${hash}.mp3`);
+  let url, body;
+  if (ENGINE === 'turns') {
+    const [t] = chunk;
+    // The streaming endpoint, so audio arrives before the cloud proxy's ~30s upstream timeout.
+    url = `https://api.elevenlabs.io/v1/text-to-speech/${VOICES[t.speaker]}/stream?output_format=mp3_44100_128`;
+    body = { text: t.text, model_id: TTS_MODEL, language_code: 'en', seed: SEED, voice_settings: TTS_SETTINGS[t.speaker] };
+  } else {
+    url = 'https://api.elevenlabs.io/v1/text-to-dialogue/stream?output_format=mp3_44100_128';
+    body = {
+      model_id: DIALOGUE_MODEL,
+      inputs: chunk.map((t) => ({ text: t.text, voice_id: VOICES[t.speaker] })),
+      seed: SEED,
+      settings: { stability: STABILITY },
+    };
+  }
+  const hash = createHash('sha1').update(url + JSON.stringify(body)).digest('hex').slice(0, 12);
+  // A turn is named by its content alone, so inserting a turn doesn't
+  // re-voice every turn after it.
+  const file = join(outDir, ENGINE === 'turns' ? `turn-${hash}.mp3` : `chunk-${String(i + 1).padStart(2, '0')}-${hash}.mp3`);
   if (existsSync(file)) return file;
 
-  // The streaming endpoint, so audio arrives before the cloud proxy's ~30s upstream timeout.
-  const res = request('https://api.elevenlabs.io/v1/text-to-dialogue/stream?output_format=mp3_44100_128', {
-    method: 'POST', json: body, out: file,
-  });
+  const res = request(url, { method: 'POST', json: body, out: file });
   if (res.status !== 200) throw new Error(`ElevenLabs failed on chunk ${i + 1} (${res.status}): ${res.body.toString().slice(0, 500)}`);
   return file;
 }
@@ -119,7 +143,7 @@ async function voice(chunk, i) {
 const files = [];
 for (const [i, chunk] of chunks.entries()) {
   const chars = chunk.reduce((n, t) => n + t.text.length, 0);
-  process.stdout.write(`Voicing chunk ${i + 1}/${chunks.length} (${chunk.length} turns, ${chars} chars)\n`);
+  process.stdout.write(`Voicing ${ENGINE === 'turns' ? 'turn' : 'chunk'} ${i + 1}/${chunks.length} (${chunk.length} turns, ${chars} chars)\n`);
   files.push(await voice(chunk, i));
 }
 

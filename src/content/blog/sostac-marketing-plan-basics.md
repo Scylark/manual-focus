@@ -120,4 +120,4 @@ For a single campaign, give each stage two or three lines. State the situation f
 - [The three layers of AI](/blog/three-layers-of-ai-basics/), for where AI fits in each stage
 - [Quarterly planning ritual](/lens/ops/quarterly-planning-ritual/), for running the Control loop every quarter
 
-If you want a second pair of eyes on your plan, [book a free working session](/enquire/).
+If you want a second pair of eyes on your plan, [book a free working session](/contact/).

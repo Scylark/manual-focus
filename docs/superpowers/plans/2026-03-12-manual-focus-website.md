@@ -1332,7 +1332,7 @@ After the services section in `index.astro`, add:
   <section class="section section-alt">
     <div class="container">
       <h2 class="section-headline">Built by an operator,<br />not a consultant.</h2>
-      <p class="section-body">James Vickers has spent over a decade in the trenches — co-founding a virtual cycling platform acquired by Wahoo Fitness, growing registered users from 19k to 350k, turning an NPS score from -65 to +45, and securing 160+ media placements for a single product launch. He's been CMO, Head of Marketing, and Fractional CMO across cycling, fintech, Web3, and AI. He doesn't theorise. He builds.</p>
+      <p class="section-body">James Vickers has spent over a decade in the trenches — co-founding a virtual cycling platform acquired by Wahoo Fitness, turning an NPS score from -65 to +45, and securing 160+ media placements for a single product launch. He's been CMO, Head of Marketing, and Fractional CMO across cycling, fintech, Web3, and AI. He doesn't theorise. He builds.</p>
       <a href="/about" class="btn-cta" style="margin-top: var(--space-md);">Read the full story</a>
     </div>
   </section>
@@ -1559,12 +1559,11 @@ import SEOHead from '../components/SEOHead.astro';
   <section class="section">
     <div class="container prose">
       <h2>The operator behind the focus</h2>
-      <p>James Vickers has spent over a decade at the intersection of marketing and emerging technology. From co-founding a virtual cycling platform that grew to 350,000 users and was acquired by Wahoo Fitness, to leading marketing for a $200M privacy-focused stablecoin, to advising AI-powered wealth managers — he's consistently been early to where marketing meets disruption.</p>
+      <p>James Vickers has spent over a decade at the intersection of marketing and emerging technology. From co-founding a virtual cycling platform that was acquired by Wahoo Fitness, to leading marketing for a $200M privacy-focused stablecoin, to advising AI-powered wealth managers — he's consistently been early to where marketing meets disruption.</p>
       <p>He's not a consultant who theorises from the sidelines. He's an operator who's built teams, launched products, turned around brands, and driven measurable growth across cycling, endurance sports, fintech, Web3, and AI.</p>
 
       <h2>The numbers</h2>
       <ul class="stats-list">
-        <li><strong>19k → 350k</strong> registered users at RGT Cycling</li>
         <li><strong>NPS: -65 → +45</strong> brand turnaround</li>
         <li><strong>160+</strong> media placements for a single product launch</li>
         <li><strong>Brand recall: 0 → 95</strong> (prompted)</li>

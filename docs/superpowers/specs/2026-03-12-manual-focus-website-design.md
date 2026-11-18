@@ -83,7 +83,7 @@ Sections in order:
 ### About
 - Opens with brand philosophy — bringing focus to the noise, the two-circles story
 - James's narrative: endurance sports to fintech to Web3 to AI — always early to what matters
-- Key credibility numbers: 350k users grown, 160+ media placements, NPS -65 to +45, brand recall 0 to 95, conversions 20% to 45%
+- Key credibility numbers: 160+ media placements, NPS -65 to +45, brand recall 0 to 95, conversions 20% to 45%
 - Closes with CTA
 
 ### Services

@@ -1,0 +1,67 @@
+JAMES: If you've been sold a checklist for getting cited by AI, this week SISTRIX tested a lot of those tactics against almost a hundred thousand web pages, and some showed no effect at all. I'm James Vickers, this is Manual Focus, and Hannah has been through the study with me.
+
+HANNAH: Hi James. It's a good one to have read, because the method is better than most of what gets published on this.
+
+JAMES: Start there. What did they actually do?
+
+HANNAH: SISTRIX, the search data company, published it on the twenty-second of October. They took forty-eight thousand five hundred pages that ChatGPT, Google's AI Mode or AI Overviews had cited, from Germany, Austria and Switzerland in the second quarter. Then they paired each one with a page from the same website that wasn't cited, and checked forty-three features on every page.
+
+JAMES: Why does the pairing matter?
+
+HANNAH: Because it takes the size of the website out of it. A big publisher gets cited more whatever it does. Comparing two pages from the same site shows you what the page itself is doing.
+
+JAMES: So what came out on top?
+
+HANNAH: A table of contents scored one point seven, where one point oh means no difference. Article schema, the code that tells a search engine a page is an article, scored one point six. FAQ schema and tables with a proper header row were one point five. An author box with a photo was one point four.
+
+JAMES: [thoughtfully] And the pages that did most of it?
+
+HANNAH: Pages meeting many of eleven features were cited about twice as often as barely optimised pages. Two point one times. But only ten per cent of cited pages manage that.
+
+JAMES: Now the one everyone's asking about. llms.txt, the file some sites add to guide AI crawlers.
+
+HANNAH: No measurable effect. Domains with the file supplied eleven point seven per cent of cited pages, against fourteen per cent of all the domains in the sample. SISTRIX says it shouldn't be a priority. And Google's own Search Central documentation says you don't need AI text files or special markup to appear in its AI features.
+
+JAMES: [dryly] So sites with the file come out slightly behind.
+
+HANNAH: Slightly, and SISTRIX is careful with it. It's a comparison between domains, so other differences between those sites could be in there. But nothing in the data says to put it on the roadmap.
+
+JAMES: There's a title finding that I suspect will be misused.
+
+HANNAH: There is. Pages with twenty twenty-five or twenty twenty-six in the title scored two point seven. Pages with only an older year scored nought point seven. SISTRIX reads that as a sign the content is fresh, and says it can't confirm that changing the year alone does anything.
+
+JAMES: So if your team edits the year on a stale page, you get a misleading title and nothing the data backs up. Refresh the page, then change the date.
+
+HANNAH: That's how I'd read it.
+
+JAMES: What about online shops? A lot of our listeners run ecommerce.
+
+HANNAH: Product pages did badly. For shops, Product schema scored nought point six. In Google's AI Overviews, product pages scored nought point five. Advice and how-to content made up nearly half of all cited pages, forty-eight point seven per cent. So SISTRIX's advice to shops is to build an advice section with Article schema, rather than keep working on product pages.
+
+JAMES: [thoughtfully] That fits something we wrote back in June, in the piece on the citation moving off the page. The overlap between Google's top links and the sources AI answers cite had dropped from around seventy per cent to under twenty. This study goes some way to explaining why. The engines want a different kind of page.
+
+HANNAH: And it measures citations, not recommendations. A page can be cited without the engine recommending your brand. So structure decides whether it can lift your answer, and you still need to track whether buyers see you.
+
+JAMES: Our view is that this lets content teams stop paying for AI-only extras and put the hours into page craft Google Search rewards anyway. Clear sections, real tables, named authors, honest update dates. None of that needs its own budget line.
+
+HANNAH: And SISTRIX has one more warning that's worth hearing. They ran the FAQ schema test on three sample sizes. At eight hundred and thirty-three pages it looked negative. At four thousand six hundred it was positive. The direction only settled from about five thousand pages.
+
+JAMES: So the next GEO study with three hundred pages in it goes in the bin.
+
+HANNAH: [chuckles] They'd put it more politely, but yes.
+
+JAMES: Right, so what do we hand over? Get AI on this. First, score your twenty most important advice pages against the study's list.
+
+HANNAH: Give your AI the URL list and the features to check, a table of contents, five or more section headings, a question as a heading, a table with a header row, an author box with a photo and a visible update date. It hands you a grid of which pages have what, and the fixes ranked by how many features each page is missing.
+
+JAMES: Second, find the questions where rivals get cited and you don't.
+
+HANNAH: Export the Top Opportunity Queries from Bing's Topics Portfolio report, which we covered a couple of weeks ago, and give it your page list. It matches each query to the page that should answer it, or flags that you haven't got one.
+
+JAMES: And for the shops, get AI on drafting the advice section. Give it your product range and your customer questions, and it hands you a list of guide pages and an outline for each. Whether they're worth writing stays with you. The prompts are in the show notes.
+
+HANNAH: And what we don't know. It's a correlation study, and SISTRIX says so. The data is from Germany, Austria and Switzerland in one quarter, so UK results could differ. Perplexity, Claude and the Gemini app weren't included, though a follow-up is planned. And the title findings are labelled initial indications.
+
+JAMES: So the takeaway. Make your advice pages easy to lift and clearly owned by a real person, and take llms.txt off the list. The full article, with the table of every tactic and its score, is on manual-focus dot co dot uk. If this was useful, follow the show in Apple Podcasts, Spotify or wherever you listen. And if you'd like help working out which pages to rebuild first, book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James. Go and check your tables of contents.

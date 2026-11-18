@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import SEOHead from '../components/SEOHead.astro';
+import BriefForm from '../components/BriefForm.astro';
+import { url } from '../utils/paths';
+import { CONTACT_EMAIL } from '../utils/contact';
+
+const title = 'Website and brand brief';
+const description = 'Planning a new website or a rebrand? Answer six questions and James Vickers will reply with a short written view on what to fix first.';
+---
+<Base title={title} description={description}>
+  <SEOHead slot="seo" type="website" title={title} description={description} breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Website and brand brief', url: '/brief/' }]} />
+
+  <section class="section">
+    <div class="container brief-grid">
+      <div>
+        <h1>Website and brand brief</h1>
+        <p class="lead">Planning a new website or a rebrand? Answer six questions. It takes about three minutes. James reads every brief and replies with a short written view on what to fix first.</p>
+        <BriefForm />
+      </div>
+      <aside class="next-steps" aria-labelledby="next-steps-heading">
+        <h2 id="next-steps-heading" class="next-steps-title mono">WHAT HAPPENS NEXT</h2>
+        <ol>
+          <li><strong>A written view from James.</strong> What to fix first, based on your answers.</li>
+          <li><strong>A free 30-minute working session, if you want one.</strong> You and James talk through your answers.</li>
+          <li><strong>A fixed price up front, if it's a fit.</strong> You get a written scope with the cost before anything starts.</li>
+        </ol>
+        <p class="next-steps-alt">Rather talk first? <a href={`${url('/contact/')}?offer=build-and-hand-over`}>Book a free working session</a>.</p>
+        <p class="next-steps-alt">Form not working? Email James at <span class="next-steps-email">{CONTACT_EMAIL}</span>.</p>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-lg);
+    max-width: var(--max-width-prose);
+  }
+  .brief-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+  }
+  .next-steps {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    align-self: start;
+  }
+  .next-steps-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-transform: none;
+    margin-bottom: var(--space-sm);
+  }
+  .next-steps ol {
+    padding-left: 1.2rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .next-steps strong { color: var(--color-text); }
+  .next-steps-alt {
+    margin-top: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+  }
+  .next-steps-alt a { color: var(--color-text); }
+  .next-steps-alt + .next-steps-alt { margin-top: var(--space-sm); }
+  .next-steps-email { color: var(--color-text); user-select: all; }
+  @media (min-width: 1024px) {
+    .brief-grid {
+      grid-template-columns: minmax(0, 1fr) 340px;
+    }
+    .next-steps {
+      margin-top: 7rem;
+    }
+  }
+</style>

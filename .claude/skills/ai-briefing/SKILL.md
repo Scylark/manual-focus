@@ -197,7 +197,7 @@ a heading when it is the question a reader would type into ChatGPT.
   before you write. Link every primary source inline too.
 - **A `## Further reading` list** at the end with 3 to 5 related Manual
   Focus posts or playbooks, each with a few words on why it's worth
-  reading. Then one plain sentence pointing to `/services/` or `/enquire/`
+  reading. Then one plain sentence pointing to `/services/` or `/contact/`
   for readers who want help. No hard sell.
 
 Target 900 to 1,400 words of body.
@@ -602,7 +602,7 @@ episode and the post still ships.
 
 | What | Why | How |
 |---|---|---|
-| ElevenLabs key | Voices the script (Text to Dialogue, `eleven_v3`) and times the chapters (Speech to Text, `scribe_v1`) | A network secret on the environment: allowed website `api.elevenlabs.io`, custom header `xi-api-key` with no prefix. The agent proxy adds it to each request, so the session never sees the key and `ELEVENLABS_API_KEY` stays unset |
+| ElevenLabs key | Voices the script (text to speech, `eleven_v4`, turn by turn) and times the chapters (Speech to Text, `scribe_v1`) | A network secret on the environment: allowed website `api.elevenlabs.io`, custom header `xi-api-key` with no prefix. The agent proxy adds it to each request, so the session never sees the key and `ELEVENLABS_API_KEY` stays unset |
 | `ffmpeg` and `ffprobe` | Join chunks, mix the music, read the duration | The environment's setup script, `apt-get update && apt-get install -y ffmpeg` |
 | `gh` and git push access | Gets the MP3 to R2, through the `podcast-audio/` branch and the "Upload podcast audio" Action | Nothing to add in the environment. `gh` is pre-installed and the GitHub proxy signs its REST calls and git pushes for the attached repo. It refuses GraphQL, so the scripts use REST. Don't set `GH_TOKEN`. The Action needs the repo secret `CLOUDFLARE_API_TOKEN` (R2 edit) |
 | Network access | Reach ElevenLabs and GitHub | The environment is on Full access |

@@ -1,0 +1,389 @@
+---
+// Website and brand brief on /brief/. A short qualifying version of the
+// client onboarding questionnaire, sent through Web3Forms like EnquiryForm.
+// Links can add ?ref=<slug> to record who sent the visitor,
+// for example /brief/?ref=project-echelon.
+import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../utils/contact';
+---
+<form
+  class="brief-form"
+  action={WEB3FORMS_ENDPOINT}
+  method="POST"
+  novalidate
+  data-access-key={WEB3FORMS_ACCESS_KEY}
+>
+  <div class="form-fields">
+    <div class="form-field">
+      <label for="organisation"><span class="brief-num mono" aria-hidden="true">/01</span> What's your organisation called? <span aria-hidden="true">*</span></label>
+      <input type="text" id="organisation" name="organisation" required autocomplete="organization" aria-describedby="organisation-error" />
+      <p class="field-error" id="organisation-error" hidden></p>
+      <label for="site" class="sub-label">Current website <span class="optional">(optional)</span></label>
+      <input type="text" id="site" name="site" inputmode="url" autocomplete="url" />
+    </div>
+
+    <div class="form-field">
+      <label for="audience"><span class="brief-num mono" aria-hidden="true">/02</span> Who does the site need to win over? <span class="optional">(optional)</span></label>
+      <p class="field-hint" id="audience-hint">Name the one or two groups that matter most.</p>
+      <textarea id="audience" name="audience" rows="2" aria-describedby="audience-hint"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label for="goal"><span class="brief-num mono" aria-hidden="true">/03</span> What should the site do that it doesn't do now? <span aria-hidden="true">*</span></label>
+      <p class="field-hint" id="goal-hint">Start with the change that would matter most.</p>
+      <textarea id="goal" name="goal" rows="3" required aria-describedby="goal-hint goal-error"></textarea>
+      <p class="field-error" id="goal-error" hidden></p>
+    </div>
+
+    <div class="form-field">
+      <label for="keep"><span class="brief-num mono" aria-hidden="true">/04</span> What in the brand must stay? <span class="optional">(optional)</span></label>
+      <p class="field-hint" id="keep-hint">If the whole brand is open to change, say so.</p>
+      <textarea id="keep" name="keep" rows="2" aria-describedby="keep-hint"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label for="timing"><span class="brief-num mono" aria-hidden="true">/05</span> When does it need to be live? <span class="optional">(optional)</span></label>
+      <select id="timing" name="timing">
+        <option value="">Select one</option>
+        <option>Within a month</option>
+        <option>In one to three months</option>
+        <option>In three to six months</option>
+        <option>No fixed date</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="budget"><span class="brief-num mono" aria-hidden="true">/06</span> What's your budget range? <span aria-hidden="true">*</span></label>
+      <p class="field-hint" id="budget-hint">A rough range is fine. It shapes what James suggests first.</p>
+      <select id="budget" name="budget" required aria-describedby="budget-hint budget-error">
+        <option value="">Select one</option>
+        <option>Under £5,000</option>
+        <option>£5,000 to £15,000</option>
+        <option>£15,000 to £30,000</option>
+        <option>Over £30,000</option>
+        <option>Not set yet</option>
+      </select>
+      <p class="field-error" id="budget-error" hidden></p>
+    </div>
+
+    <h2 class="reply-title mono">WHERE SHOULD JAMES REPLY?</h2>
+
+    <div class="form-field">
+      <label for="brief-name">Name <span aria-hidden="true">*</span></label>
+      <input type="text" id="brief-name" name="name" required autocomplete="name" aria-describedby="brief-name-error" />
+      <p class="field-error" id="brief-name-error" hidden></p>
+    </div>
+
+    <div class="form-field">
+      <label for="brief-email">Email <span aria-hidden="true">*</span></label>
+      <input type="email" id="brief-email" name="email" required autocomplete="email" aria-describedby="brief-email-error" />
+      <p class="field-error" id="brief-email-error" hidden></p>
+    </div>
+
+    <!-- Honeypot. Hidden from people and screen readers; bots that fill
+         every field get a fake success and nothing is sent. -->
+    <div class="form-trap" aria-hidden="true">
+      <label for="brief-trap">Leave this field empty</label>
+      <input type="text" id="brief-trap" name="botcheck" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <p class="form-note">
+      Your answers go straight to James. We only use your details to reply.
+    </p>
+
+    <button type="submit" class="btn-cta" data-submit>
+      <span data-submit-label>Send brief</span>
+    </button>
+  </div>
+
+  <div class="form-message form-error" role="alert" data-form-error hidden>
+    <p><strong>Your brief didn't send.</strong> Check your connection and press send again. Your answers are still in the form.</p>
+    <p>If it fails a second time, copy your answers and email them to <span class="form-email">{CONTACT_EMAIL}</span>.</p>
+  </div>
+
+  <div class="form-message form-success" role="status" tabindex="-1" data-form-success hidden>
+    <p><strong>Thanks. Your brief has reached James.</strong></p>
+    <p>James will reply by email from {CONTACT_EMAIL} with what to fix first.</p>
+  </div>
+</form>
+
+<style>
+  .brief-form {
+    max-width: var(--max-width-prose);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  .form-fields[hidden] { display: none; }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-field label {
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+  }
+
+  .brief-num {
+    display: block;
+    font-weight: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.2rem;
+  }
+
+  .form-field .sub-label {
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-xs);
+  }
+
+  .form-field .optional {
+    font-weight: normal;
+    color: var(--color-text-secondary);
+  }
+
+  .field-hint {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    padding: 0.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--color-text);
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    outline: 2px solid var(--color-text);
+    outline-offset: 2px;
+  }
+
+  .form-field [aria-invalid="true"] {
+    border-color: #f2643b;
+  }
+
+  .form-field textarea {
+    resize: vertical;
+  }
+
+  .field-error {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    border-left: 2px solid #f2643b;
+    padding-left: 0.6rem;
+  }
+
+  .reply-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    text-transform: none;
+    margin: 0 0 calc(var(--space-sm) * -1);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .form-trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .form-note {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  [data-submit][data-state="loading"] {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
+  .form-message {
+    padding: var(--space-sm);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+  .form-message p { margin: 0; }
+  .form-message p + p { margin-top: var(--space-xs); }
+
+  .form-success {
+    background: rgba(16, 191, 122, 0.08);
+    border-left: 2px solid #10bf7a;
+  }
+  .form-success:focus { outline: none; }
+
+  .form-error {
+    background: rgba(242, 100, 59, 0.08);
+    border-left: 2px solid #f2643b;
+  }
+
+  .form-email {
+    user-select: all;
+    white-space: nowrap;
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('.brief-form');
+
+  if (form) {
+    const fields = form.querySelector<HTMLElement>('.form-fields')!;
+    const submitBtn = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]')!;
+    const errorMsg = form.querySelector<HTMLElement>('[data-form-error]')!;
+    const successMsg = form.querySelector<HTMLElement>('[data-form-success]')!;
+    const originalLabel = submitLabel.textContent;
+    const ref = new URLSearchParams(window.location.search).get('ref')?.slice(0, 80) ?? '';
+
+    type Field = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+
+    const checks: [string, (v: string) => string][] = [
+      ['organisation', (v) => (v ? '' : 'Tell James which organisation this is for.')],
+      ['goal', (v) => (v ? '' : 'Tell James what the site needs to do.')],
+      ['budget', (v) => (v ? '' : 'Choose a range, or pick "Not set yet".')],
+      ['brief-name', (v) => (v ? '' : 'Enter your name.')],
+      ['brief-email', (v) => (!v ? 'Enter your email address so James can reply.'
+        : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? '' : "That email address doesn't look right. Check it and try again.")],
+    ];
+
+    const setError = (input: Field, message: string) => {
+      const error = form.querySelector<HTMLElement>(`#${input.id}-error`)!;
+      error.textContent = message;
+      error.hidden = !message;
+      if (message) input.setAttribute('aria-invalid', 'true');
+      else input.removeAttribute('aria-invalid');
+    };
+
+    const validate = () => {
+      let firstInvalid: Field | null = null;
+      for (const [id, check] of checks) {
+        const input = form.querySelector<Field>(`#${id}`)!;
+        const message = check(input.value.trim());
+        setError(input, message);
+        if (message && !firstInvalid) firstInvalid = input;
+      }
+      firstInvalid?.focus();
+      return !firstInvalid;
+    };
+
+    // Once a field has been flagged, clear its error as soon as it's fixed.
+    for (const [id, check] of checks) {
+      const input = form.querySelector<Field>(`#${id}`)!;
+      input.addEventListener('input', () => {
+        if (input.getAttribute('aria-invalid') === 'true') setError(input, check(input.value.trim()));
+      });
+    }
+
+    const setLoading = (isLoading: boolean) => {
+      if (isLoading) {
+        submitBtn.setAttribute('data-state', 'loading');
+        submitBtn.disabled = true;
+        submitLabel.textContent = 'Sending...';
+      } else {
+        submitBtn.removeAttribute('data-state');
+        submitBtn.disabled = false;
+        submitLabel.textContent = originalLabel;
+      }
+    };
+
+    const showSuccess = () => {
+      fields.hidden = true;
+      errorMsg.hidden = true;
+      successMsg.hidden = false;
+      successMsg.focus();
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMsg.hidden = true;
+      if (!validate()) return;
+
+      const data = new FormData(form);
+      const get = (key: string) => String(data.get(key) ?? '').trim();
+
+      // Honeypot filled: pretend it worked and send nothing.
+      if (get('botcheck')) {
+        showSuccess();
+        return;
+      }
+
+      // Long answers read better as one block in the email James receives.
+      const message = [
+        ['Who the site needs to win over', get('audience')],
+        ['What the site should do that it does not do now', get('goal')],
+        ['What in the brand must stay', get('keep')],
+      ]
+        .filter(([, answer]) => answer)
+        .map(([question, answer]) => `${question}:\n${answer}`)
+        .join('\n\n');
+
+      setLoading(true);
+      try {
+        const accessKey = form.dataset.accessKey;
+        if (!accessKey) throw new Error('Contact form access key is not set in src/utils/contact.ts');
+
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: `Website and brand brief from ${get('name')}, ${get('organisation')}`,
+            from_name: 'Manual Focus website',
+            name: get('name'),
+            email: get('email'),
+            replyto: get('email'),
+            organisation: get('organisation'),
+            current_website: get('site') || '(not given)',
+            live_by: get('timing') || '(not given)',
+            budget: get('budget'),
+            referred_by: ref || '(not given)',
+            message,
+            botcheck: '',
+          }),
+        });
+        const result = await res.json().catch(() => null);
+        if (!res.ok || !result?.success) throw new Error(result?.message || `HTTP ${res.status}`);
+
+        // GA4 recommended lead event, marked as a key event in Analytics.
+        (window as any).mfTrack?.('generate_lead', {
+          form: 'brief',
+          offer: 'Build & Hand Over',
+          source: ref || '(none)',
+        });
+        form.reset();
+        showSuccess();
+      } catch (err) {
+        console.warn('Brief not sent', err);
+        errorMsg.hidden = false;
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
+</script>

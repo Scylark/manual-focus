@@ -68,4 +68,4 @@ Our view at Manual Focus is that a UK Shopify brand with clear product-level dem
 
 OpenAI said the Shopify app reaches other markets "starting September 23", so availability may roll out over several days, and merchants should check the App Store listing from their own account. There's no public UK performance data yet, no date for Sponsored Agents outside the US, and OpenAI says new formats, optimisation tools and measurement are still to come.
 
-If you'd like a second pair of eyes on a test plan, [get in touch](/enquire/).
+If you'd like a second pair of eyes on a test plan, [get in touch](/contact/).

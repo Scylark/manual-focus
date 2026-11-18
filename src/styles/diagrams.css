@@ -1,0 +1,436 @@
+/* Diagrams written as HTML in a post, as <figure class="dg ...">.
+   The text is real text, so search engines, AI answer engines and screen
+   readers can read it. CSS lays it out for the width it has (one column on
+   phones, two on wider screens), and the colours come from the theme
+   tokens, so diagrams follow the dark and light themes like the rest of the
+   page. Selectors start with .post-content so they win over the post's own
+   list and paragraph styles. */
+
+.post-content .dg {
+  --dg-a: var(--color-cta-start);
+  --dg-b: var(--color-cta-mid);
+  --dg-c: var(--color-cta-end);
+  --dg-a-tint: color-mix(in srgb, var(--dg-a) 16%, transparent);
+  --dg-b-tint: color-mix(in srgb, var(--dg-b) 16%, transparent);
+  --dg-c-tint: color-mix(in srgb, var(--dg-c) 16%, transparent);
+  margin: var(--space-sm) 0 var(--space-md);
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-bg-alt);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Header and shared pieces */
+.post-content .dg-head { margin-bottom: 1rem; }
+.post-content .dg-kicker,
+.post-content .dg-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.post-content .dg-kicker { color: var(--dg-a); }
+.post-content .dg-label { color: var(--color-text-muted); margin-bottom: 0.25rem; }
+.post-content .dg-title {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.post-content .dg-strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.post-content .dg-q { display: block; color: var(--color-text-secondary); font-size: 0.88rem; }
+.post-content .dg-note { margin-top: 0.9rem; font-size: 0.82rem; color: var(--color-text-muted); }
+.post-content .dg .dg-list { list-style: none; padding: 0; margin: 0; }
+.post-content .dg .dg-list > li { margin: 0; }
+.post-content .dg-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+.post-content .dg-chip {
+  display: inline-block;
+  margin-top: 0.35rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--dg-c-tint);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.post-content .dg-split { display: grid; gap: 1.25rem; align-items: start; }
+@media (min-width: 760px) {
+  .post-content .dg-split { grid-template-columns: 1.55fr 1fr; }
+}
+
+/* 1. The chain of steps */
+.post-content .dg-steps { display: grid; gap: 0.6rem; }
+@media (min-width: 760px) {
+  .post-content .dg-steps {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+  }
+}
+.post-content .dg-step { display: grid; grid-template-columns: 2.3rem 1fr; gap: 0.75rem; align-items: center; }
+.post-content .dg-num {
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--dg-a);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+.post-content .dg-step.dg-go .dg-num { background: var(--dg-c); color: var(--color-bg); }
+
+/* 2. Is there a market? */
+.post-content .dg-funnel { display: grid; gap: 0.5rem; text-align: center; }
+.post-content .dg-funnel > li {
+  margin-inline: calc(var(--i, 0) * 5%);
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  background: var(--dg-c-tint);
+}
+.post-content .dg-funnel > li:nth-child(2) { background: var(--dg-b-tint); }
+.post-content .dg-funnel > li:nth-child(3) { background: var(--dg-a-tint); }
+.post-content .dg-funnel > li.dg-win { background: var(--dg-a); }
+.post-content .dg-funnel > li.dg-win .dg-strong { color: #fff; }
+.post-content .dg-bullets > li { position: relative; padding-left: 1.1rem; margin-bottom: 0.45rem; }
+.post-content .dg-bullets > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--dg-a);
+}
+
+/* 3. Findings to requirements to features */
+.post-content .dg-trace { display: grid; gap: 0.6rem; }
+.post-content .dg-trace-head { display: none; }
+.post-content .dg-trace-row { display: grid; gap: 0.35rem; }
+.post-content .dg-cell { border-radius: 10px; padding: 0.65rem 0.85rem; }
+.post-content .dg-t1 { background: var(--dg-b-tint); }
+.post-content .dg-t2 { background: var(--dg-c-tint); }
+.post-content .dg-t3 { background: var(--dg-a-tint); }
+.post-content .dg-trace-row { border-bottom: 1px solid var(--color-line); padding-bottom: 0.6rem; }
+.post-content .dg-trace-row:last-child { border-bottom: 0; padding-bottom: 0; }
+@media (min-width: 760px) {
+  .post-content .dg-trace-head,
+  .post-content .dg-trace-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4rem; }
+  .post-content .dg-trace-row { border-bottom: 0; padding-bottom: 0; }
+  .post-content .dg-trace-head .dg-label { color: var(--dg-a); }
+  .post-content .dg-cell .dg-label { display: none; }
+  .post-content .dg-t1,
+  .post-content .dg-t2 { position: relative; }
+  .post-content .dg-t1::after,
+  .post-content .dg-t2::after {
+    content: '→';
+    position: absolute;
+    right: -1.15rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+  }
+}
+
+/* 4. Communication hierarchy */
+.post-content .dg-core {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: var(--dg-a);
+  text-align: center;
+}
+.post-content .dg-core .dg-label { color: rgba(255, 255, 255, 0.8); }
+.post-content .dg-core .dg-strong { color: #fff; font-size: 1.25rem; }
+.post-content .dg-support { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.6rem; }
+.post-content .dg-support > li { display: grid; gap: 0.4rem; text-align: center; font-size: 0.85rem; }
+.post-content .dg-sup { padding: 0.6rem 0.5rem; border-radius: 10px; background: var(--dg-b-tint); }
+.post-content .dg-sup .dg-strong { font-size: 0.95rem; }
+.post-content .dg-proof { padding: 0.55rem 0.5rem; border-radius: 10px; background: var(--dg-c-tint); }
+.post-content .dg-bars > li { margin-bottom: 0.8rem; }
+.post-content .dg-bar {
+  display: block;
+  height: 0.7rem;
+  margin: 0.3rem 0 0.2rem;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--dg-a) var(--f), var(--color-line) var(--f));
+}
+.post-content .dg-bar-name { display: block; font-weight: 600; }
+
+/* 5. Benefits ladder */
+.post-content .dg-ladder {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0 0.7rem;
+  border-left: 5px solid var(--color-line);
+  border-right: 5px solid var(--color-line);
+}
+.post-content .dg-rung { padding: 0.75rem 0.9rem; border-radius: 10px; }
+.post-content .dg-rung .dg-label { color: inherit; opacity: 0.8; }
+.post-content .dg-r3 { background: var(--dg-a); color: #fff; }
+.post-content .dg-r3 .dg-strong { color: #fff; }
+.post-content .dg-r2 { background: var(--dg-b-tint); }
+.post-content .dg-r1 { background: var(--dg-c-tint); }
+.post-content .dg-steps-text > li { margin-bottom: 0.85rem; color: var(--color-text-secondary); }
+
+/* 6. Channels */
+.post-content .dg-rings { display: grid; place-items: center; }
+.post-content .dg-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 0.78rem;
+}
+.post-content .dg-earned { width: min(100%, 300px); padding: 0.9rem 0 0.8rem; background: var(--dg-b-tint); }
+.post-content .dg-paid { width: 74%; padding: 0.75rem 0 0.7rem; background: var(--dg-c-tint); }
+.post-content .dg-owned {
+  width: 62%;
+  justify-content: center;
+  background: var(--dg-a);
+  color: #fff;
+  padding: 0.4rem;
+}
+.post-content .dg-owned .dg-strong { color: #fff; }
+.post-content .dg-ring .dg-label { margin: 0; font-size: 0.6rem; }
+.post-content .dg table { margin: 0.4rem 0 0; font-size: 0.88rem; }
+
+/* 7. The launch, layer by layer */
+.post-content .dg-layers { display: grid; gap: 0.45rem; }
+.post-content .dg-layer {
+  display: grid;
+  gap: 0.25rem;
+  margin-inline: calc(var(--i, 0) * 1.6%);
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  background: var(--dg-b-tint);
+}
+.post-content .dg-layer:first-child { background: var(--dg-a); }
+.post-content .dg-layer:first-child .dg-strong,
+.post-content .dg-layer:first-child .dg-q,
+.post-content .dg-layer:first-child .dg-helmet { color: #fff; }
+.post-content .dg-layer:nth-child(4) { background: var(--dg-c-tint); }
+.post-content .dg-layer:nth-child(5) { background: color-mix(in srgb, var(--dg-c) 30%, transparent); }
+.post-content .dg-helmet { color: var(--color-text); }
+@media (min-width: 760px) {
+  .post-content .dg-layer { grid-template-columns: 15rem 1fr; align-items: center; gap: 1rem; }
+}
+
+/* 8. SOSTAC */
+.post-content .dg-sostac { display: grid; gap: 0.45rem; }
+.post-content .dg-stage { display: grid; grid-template-columns: 2.6rem 1fr; gap: 0.8rem; align-items: center; }
+.post-content .dg-letter {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 2.6rem;
+  border-radius: 8px;
+  background: var(--dg-a);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+.post-content .dg-stage.dg-ev .dg-letter { background: var(--dg-c); color: var(--color-bg); }
+.post-content .dg-stage-body { display: grid; gap: 0.15rem; }
+@media (min-width: 760px) {
+  .post-content .dg-stage-body { grid-template-columns: 13rem 1fr; align-items: center; gap: 1rem; }
+}
+
+/* Narrow screens. The supporting messages sit one per row with their proof
+   beside them, and the diagram's own table drops the blog table's minimum
+   cell width so it fits without scrolling. */
+.post-content .dg { overflow-wrap: break-word; }
+.post-content .dg.dg :is(th, td) { min-width: 0; }
+@media (max-width: 640px) {
+  .post-content .dg.dg table { display: table; width: 100%; }
+  .post-content .dg.dg :is(th, td) { padding: 8px 6px; }
+}
+@media (max-width: 560px) {
+  .post-content .dg-support { grid-template-columns: 1fr; }
+  .post-content .dg-support > li { grid-template-columns: 1fr 1fr; }
+}
+.post-content .dg-split > * { min-width: 0; }
+
+/* 9. The messaging house (WattPlan post). A stepped pyramid. Each level
+   is a row that widens as it goes down, with a numeral and the level's
+   name on the left and the content on the right. The theme's accent
+   gradient runs from the top row to the bottom. The benefits and features
+   rows split into three aligned columns. On wide screens the figure runs
+   wider than the text column. */
+.post-content .dg-house {
+  --dg-ink: #141210;
+  margin-inline: calc(-1 * clamp(0rem, (100vw - 64rem) / 4, 6rem));
+  padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  font-size: 1rem;
+}
+.post-content .dg .dg-pyr { display: grid; gap: 0.45rem; margin-top: 0.4rem; }
+.post-content .dg-lvl {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  margin-inline: var(--m, 0);
+  padding: 1rem 1.15rem 1.1rem;
+  border-radius: 14px;
+  color: var(--dg-lvl-ink, var(--color-text));
+}
+.post-content .dg-l1 { --m: 19%; background: var(--dg-a); --dg-lvl-ink: #fff; }
+.post-content .dg-l2 { --m: 13%; background: color-mix(in srgb, var(--dg-a) 52%, var(--dg-b)); --dg-lvl-ink: #fff; }
+.post-content .dg-l3 { --m: 7%; background: var(--dg-b); --dg-lvl-ink: var(--color-text); }
+.post-content .dg-l4 { --m: 2.5%; background: color-mix(in srgb, var(--dg-b) 42%, var(--dg-c)); --dg-lvl-ink: var(--dg-ink); }
+.post-content .dg-l5 { background: var(--dg-c); --dg-lvl-ink: var(--dg-ink); }
+.post-content .dg-l6 { background: color-mix(in srgb, var(--dg-c) 26%, var(--color-surface)); border: 1px solid color-mix(in srgb, var(--dg-c) 45%, transparent); }
+@media (max-width: 640px) {
+  .post-content .dg-l1 { --m: 5%; }
+  .post-content .dg-l2 { --m: 3.3%; }
+  .post-content .dg-l3 { --m: 1.6%; }
+  .post-content .dg-l4 { --m: 0; }
+  .post-content .dg-lvl { grid-template-columns: 2rem 1fr; gap: 0.7rem; padding: 0.9rem 0.9rem 1rem; }
+}
+.post-content .dg-lvl-n {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  line-height: 0.9;
+  opacity: 0.92;
+}
+.post-content .dg-lvl-body { display: grid; gap: 0.35rem; min-width: 0; }
+.post-content .dg-lvl-name {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.post-content .dg-lvl-name em {
+  font-style: normal;
+  font-family: var(--font-family);
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-left: 0.5rem;
+  opacity: 0.85;
+}
+.post-content .dg-lvl-val {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.post-content .dg-lvl-big { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 0.95; }
+.post-content .dg-lvl-sentence { font-family: var(--font-family); font-weight: 600; font-size: 1.1rem; line-height: 1.35; text-transform: none; }
+.post-content .dg .dg-lvl-cols { display: grid; gap: 0.9rem; margin-top: 0.25rem; }
+@media (min-width: 640px) {
+  .post-content .dg .dg-lvl-cols { grid-template-columns: repeat(3, 1fr); }
+  .post-content .dg .dg-lvl-cols > li:not(:first-child) { padding-left: 0.9rem; border-left: 1px solid color-mix(in srgb, currentColor 22%, transparent); }
+}
+.post-content .dg .dg-lvl-cols > li { min-width: 0; }
+.post-content .dg-l5 .dg-lvl-val { font-size: clamp(1.15rem, 2.2vw, 1.4rem); }
+.post-content .dg-l5 .dg-q { color: inherit; opacity: 0.85; margin-top: 0.3rem; font-size: 0.88rem; }
+.post-content .dg-lvl-grp {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0.4rem 0 0.4rem;
+}
+@media (max-width: 639px) {
+  .post-content .dg-lvl-grp { display: block; }
+  .post-content .dg .dg-lvl-cols > li:not(:first-child) .dg-lvl-grp { margin-top: 0.9rem; padding-top: 0.7rem; border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent); }
+}
+.post-content .dg .dg-feats { display: grid; gap: 0.6rem; }
+.post-content .dg .dg-feats > li { font-size: 0.9rem; line-height: 1.35; }
+.post-content .dg .dg-feats .dg-code {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+.post-content .dg .dg-house-base {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+.post-content .dg .dg-house-base .dg-label { color: inherit; opacity: 0.7; margin: 0; }
+.post-content .dg .dg-house-base > li { font-size: 0.85rem; }
+@media (min-width: 640px) { .post-content .dg .dg-house-base { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+
+/* 10. Four readings of two words */
+.post-content .dg-readings { display: grid; gap: 0.5rem; }
+@media (min-width: 560px) { .post-content .dg-readings { grid-template-columns: 1fr 1fr; } }
+.post-content .dg-reading { position: relative; padding: 0.9rem 0.9rem 0.8rem; border-radius: 10px; background: var(--dg-c-tint); }
+.post-content .dg-reading .dg-strong { font-size: 1.35rem; }
+.post-content .dg-reading .dg-q { margin-top: 0.25rem; }
+.post-content .dg-reading .dg-chip { background: var(--color-surface); }
+.post-content .dg-reading.dg-lead { background: var(--dg-a); }
+.post-content .dg-reading.dg-lead .dg-strong,
+.post-content .dg-reading.dg-lead .dg-q { color: #fff; }
+.post-content .dg-reading.dg-lead .dg-q { opacity: 0.9; }
+
+/* 11. The AIDA message path */
+.post-content .dg-aida { display: grid; gap: 0.5rem; counter-reset: aida; }
+@media (min-width: 760px) { .post-content .dg-aida { grid-template-columns: repeat(4, 1fr); } }
+.post-content .dg-aida > li { position: relative; display: grid; gap: 0.3rem; padding: 0.8rem 0.85rem; border-radius: 10px; background: var(--color-surface); border: 1px solid var(--color-line); }
+.post-content .dg-aida .dg-letter { width: 2.4rem; height: 2.4rem; min-height: 0; border-radius: 50%; margin-bottom: 0.2rem; }
+.post-content .dg-aida > li:last-child .dg-letter { background: var(--dg-c); color: var(--color-bg); }
+.post-content .dg-aida .dg-say { display: block; margin: 0.2rem 0; padding: 0.45rem 0.6rem; border-radius: 8px; background: var(--dg-a-tint); font-weight: 600; }
+@media (min-width: 760px) {
+  .post-content .dg-aida > li:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -0.95rem;
+    top: 1.3rem;
+    color: var(--color-text-muted);
+    z-index: 1;
+  }
+}
+
+/* 12. Understood and consistent, at every stage */
+.post-content .dg-feel { display: grid; gap: 0.5rem; }
+.post-content .dg-feel-head { display: none; }
+.post-content .dg-feel-row { display: grid; gap: 0.35rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-line); }
+.post-content .dg-feel-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.post-content .dg-feel-stage { display: flex; align-items: center; font-family: var(--font-display); text-transform: uppercase; font-size: 1.05rem; }
+.post-content .dg-feel .dg-cell .dg-label { margin-bottom: 0.1rem; }
+@media (min-width: 640px) {
+  .post-content .dg-feel-head,
+  .post-content .dg-feel-row { display: grid; grid-template-columns: 7rem 1fr 1fr; gap: 0.6rem; align-items: stretch; }
+  .post-content .dg-feel-row { border-bottom: 0; padding-bottom: 0; }
+  .post-content .dg-feel-head .dg-label { color: var(--dg-a); }
+  .post-content .dg-feel .dg-cell .dg-label { display: none; }
+}

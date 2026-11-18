@@ -1,0 +1,33 @@
+{
+  "slug": "shared-ai-training-opt-out-robots-txt",
+  "title": "What the shared AI training opt-out means for brand websites",
+  "url": "https://manual-focus.co.uk/blog/shared-ai-training-opt-out-robots-txt/",
+  "clips": [
+    {
+      "from": "13.2",
+      "to": "14.4",
+      "why": "It opens on a plain scenario any marketing lead recognises, answers what the blanket block costs, and ends on a clear consequence with both voices.",
+      "hook": "One blanket AI training block could take your brand out of Gemini answers.",
+      "youtube": {
+        "title": "How a blanket AI training block can hide your brand in Gemini",
+        "description": "A brand hears \"opt out of AI training\" and adds one block across the whole site. James and Hannah explain why that could also take you out of Gemini answers.\n\nFull episode and article: https://manual-focus.co.uk/blog/shared-ai-training-opt-out-robots-txt/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "One blanket AI training block could take your brand out of Gemini answers.\n\nIn this clip Hannah and I cover what one blanket block on AI training can cost a brand. Google treats a shared-token opt-out as blocking Google-Extended, which could take you out of Gemini answers too.\n\nKeep any opt-out to the paths you are protecting. Give AI your current and proposed robots.txt and it flags anything that would block Googlebot or Bingbot by accident.\n\nThe podcast voices are AI-generated, and mine is a clone of my own voice.\n\nFull episode and article at https://manual-focus.co.uk/blog/shared-ai-training-opt-out-robots-txt/",
+      "words": 72,
+      "text": "A brand hears \"opt out of AI training\", feels protective, and adds one blanket block. What does that cost them? With Google, possibly more than they meant. Google's post says sites that specifically allow Google-Extended are eligible to appear in Gemini app answers and get clicks from them. And a shared-token opt-out counts as blocking Google-Extended. So one tidy line across the whole site could take you out of Gemini answers too."
+    },
+    {
+      "from": "27.1",
+      "to": "28.2",
+      "why": "It names a concrete job, says what to give the AI and what comes back, and finishes on the human check, so it stands alone without the earlier discussion.",
+      "hook": "Before anyone touches robots.txt, find out which content you actually sell or license.",
+      "youtube": {
+        "title": "Using AI to map which website content you sell or license",
+        "description": "James and Hannah explain how to hand AI a sitemap and a short note on what you sell or license. It returns a list of directories with a draft rule for each, to be checked against your contracts.\n\nFull episode and article: https://manual-focus.co.uk/blog/shared-ai-training-opt-out-robots-txt/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Before anyone touches robots.txt, find out which content you actually sell or license.\n\nIn this clip Hannah and I cover the first job to hand over. Before anyone edits robots.txt, someone needs to know which parts of the site carry paid, gated or licensed content.\n\nGive AI your sitemap or a crawl export and a short note on what you sell or license. It hands back a list of directories with a draft path-level rule for each one, and a person still checks it against the contracts.\n\nThe podcast voices are AI-generated, and mine is a clone of my own voice.\n\nFull episode and article at https://manual-focus.co.uk/blog/shared-ai-training-opt-out-robots-txt/",
+      "words": 68,
+      "text": "Right, so what do you hand over? Get AI on this. First, the inventory of which parts of the site carry paid, gated or licensed content. Give it your sitemap or a crawl export and a short note on what you sell or license, and it hands back a list of directories with a draft path-level rule for each one. A person still checks it against the contracts."
+    }
+  ]
+}

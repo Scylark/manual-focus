@@ -55,4 +55,4 @@ Our view at Manual Focus is that UK retail and DTC brands should treat AI referr
 
 Adobe's release gives growth rates but not the share of all retail visits that AI referrals make up, so a 130% rise could still be a small slice of traffic. The count covers clicks only, which misses every purchase an AI answer shaped without sending a visit. The survey is self-reported and limited to people already shopping with AI. And the forecast covers only the US, so British brands have to build the evidence from their own data.
 
-If you want help setting up the peak trading report, [get in touch](/enquire/).
+If you want help setting up the peak trading report, [get in touch](/contact/).

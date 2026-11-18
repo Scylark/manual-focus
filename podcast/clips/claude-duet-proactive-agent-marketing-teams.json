@@ -1,0 +1,33 @@
+{
+  "slug": "claude-duet-proactive-agent-marketing-teams",
+  "title": "What Anthropic's Claude Duet agent means for marketing teams",
+  "url": "https://manual-focus.co.uk/blog/claude-duet-proactive-agent-marketing-teams/",
+  "clips": [
+    {
+      "from": "17.1",
+      "to": "19.5",
+      "why": "Opens on a plain question any marketing director asks and lands the so what, that the first Duet users will be on personal accounts no admin controls.",
+      "hook": "Give AI the actions your team takes in each tool and it drafts an approval rule for every one.",
+      "youtube": {
+        "title": "Claude Duet will reach your team through personal accounts",
+        "description": "Anthropic's Claude Duet starts on individual Pro and Max plans. Team and Enterprise plans aren't included yet. James and Hannah on why marketing leaders should set agent rules now.\n\nFull episode and article: https://manual-focus.co.uk/blog/claude-duet-proactive-agent-marketing-teams/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI the actions your team takes in each tool and it drafts an approval rule for every one.\n\nAnthropic has opened a US waitlist for Claude Duet. It's an agent that decides for itself when to message you.\n\nThe detail I'd flag to any marketing director is who gets it first. It's people on individual plans. Team and Enterprise plans aren't included yet.\n\nSo your first Duet users will connect it to company apps with their own logins. No admin will be watching.\n\nMy view is to treat it as a personal tool for now. Decide which company systems a personal agent may touch before the invitations land.\n\nThe podcast voices are AI-generated. The episode and article are at https://manual-focus.co.uk/blog/claude-duet-proactive-agent-marketing-teams/",
+      "words": 111,
+      "text": "Now the part I'd put in front of any marketing director. Who gets it first? People on individual plans. Team and Enterprise, the plans a company buys and runs centrally, aren't included yet. So the first people in your team to use Duet will be on personal accounts that no company admin controls. They'll connect it to company Gmail or Slack with their own logins. Our view at Manual Focus is to treat Duet as a personal tool until it ships for Team and Enterprise. Decide now which company systems a personal agent may connect to. Then the answer comes from a policy rather than a surprise in an audit log."
+    },
+    {
+      "from": "23.1",
+      "to": "26.4",
+      "why": "Two complete Get AI on this jobs, each with what to give the AI and what comes back.",
+      "hook": "Give AI the actions your team takes in each tool and it drafts an approval rule for every one.",
+      "youtube": {
+        "title": "Two jobs to give AI before agents reach your team",
+        "description": "Claude Duet asks before it sends a message or makes a payment. Its approval list says nothing about publishing a post. James and Hannah on writing the missing rules with AI.\n\nFull episode and article: https://manual-focus.co.uk/blog/claude-duet-proactive-agent-marketing-teams/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI the actions your team takes in each tool and it drafts an approval rule for every one.\n\nClaude Duet waits for approval before it sends a message or makes a payment. That's good. But its list says nothing about publishing a post. Or changing an audience list.\n\nThose are the things marketing teams do all day.\n\nSo write the missing rules now. Then pilot one recurring job, like the Monday performance brief. Have AI score every brief for two weeks before you trust it.\n\nThe podcast voices are AI-generated. The prompts are in the show notes at https://manual-focus.co.uk/blog/claude-duet-proactive-agent-marketing-teams/",
+      "words": 102,
+      "text": "First, get your AI to write the approval rules Anthropic left out. Publishing is the obvious one. So is changing an audience list. Give it the list of actions your team takes in each tool. It hands back a draft rule for each one, saying who signs it off before an agent can do it. Second, pilot one recurring job. The Monday performance brief is a good start. Have your AI score every brief against a short checklist for two weeks. Did it flag the right things? Did it miss anything? You get a table showing whether the brief earned your trust."
+    }
+  ]
+}

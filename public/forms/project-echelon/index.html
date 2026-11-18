@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Manual Focus | Onboarding and brand questions for Project Echelon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0B;--paper:#16161B;--field:#101015;--ink:#F2EDE6;--muted:#A39E96;--line:rgba(242,237,230,.16);--pink:#FF2D78;--cyan:#00E5FF;
+--disp:'Anton',sans-serif;--mono:'JetBrains Mono',monospace;--body:'Inter',sans-serif;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px 80px}
+header{padding:44px 0 26px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.mf-logo{display:inline-block;height:30px;color:var(--ink);line-height:0;margin-bottom:20px}
+.mf-logo svg{height:100%;width:auto;display:block}.mf-logo path{fill:currentColor}.mf-logo circle{fill:none;stroke:currentColor;stroke-width:5.86;stroke-miterlimit:10}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(30px,6vw,52px);line-height:.98;text-transform:uppercase;letter-spacing:.01em;margin:0 0 12px}
+.lede{color:var(--muted);font-size:16px;max-width:580px;margin:0 0 10px}
+.sec{margin-top:34px}
+.sec-h{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.sec-t{font-family:var(--disp);font-weight:400;font-size:22px;text-transform:uppercase;letter-spacing:.01em;margin:0 0 16px}
+.q{margin:0 0 22px;border:0;padding:0;min-width:0}
+label.ql,legend{display:block;font-size:14.5px;font-weight:600;margin-bottom:7px;padding:0}
+.n{font-family:var(--mono);font-size:12px;color:var(--pink);font-weight:700;margin-right:8px}
+.hint{font-size:13.5px;color:var(--muted);margin:-2px 0 8px}
+input[type=text],textarea{width:100%;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-family:var(--body);font-size:16px;line-height:1.5;resize:vertical}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,45,120,.15)}
+textarea{min-height:78px}
+::placeholder{color:#8C8780}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;align-items:center;margin-bottom:8px}
+.stat label{font-size:14px;color:var(--ink)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-bottom:10px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;padding:7px 0;cursor:pointer}
+.check input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--pink)}
+@media(max-width:560px){.row,.checks,.stat{grid-template-columns:1fr}.stat{gap:4px;margin-bottom:12px}#summary{font-size:16px}}
+.actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:14px 24px;border-radius:30px;border:none;cursor:pointer;text-decoration:none}
+.btn:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.btn-primary{color:#fff;background:linear-gradient(135deg,#FF2D78,#C026D3 50%,#00E5FF);box-shadow:0 6px 20px rgba(255,45,120,.30)}
+.btn-ghost{color:var(--ink);background:transparent;border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--pink)}
+.note{font-size:12.5px;color:var(--muted);font-family:var(--mono);margin-top:12px}
+#saved{min-height:18px;color:var(--cyan)}
+#out{margin-top:26px;display:none;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px}
+#out h2{font-family:var(--disp);font-weight:400;font-size:20px;text-transform:uppercase;margin:0 0 10px}
+#out p{font-size:14.5px;margin:0 0 12px}
+#summary{width:100%;min-height:220px;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px;font-family:var(--mono);font-size:13px;line-height:1.5}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+footer a{color:var(--pink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="mf-logo" id="mflogo"></span>
+  <div class="eyebrow">Manual Focus &times; Project Echelon</div>
+  <h1>Onboarding and brand questions</h1>
+  <p class="lede">These tell me what to keep from the current brand. They also shape what the new site needs to do.</p>
+  <p class="lede">It takes about 20 minutes. Short answers are fine. "Not sure" is a good answer too. Skip anything you'd rather talk through on our call.</p>
+  <p class="lede">Your answers save on this device as you type, so you can come back to it. If typing is a pain, send me a voice note instead.</p>
+</header>
+
+<form id="intake" autocomplete="on">
+  <div class="row">
+    <div class="q"><label class="ql" for="name">Your name</label><input type="text" id="name" name="Your name" autocomplete="name"></div>
+    <div class="q"><label class="ql" for="email">Email</label><input type="text" id="email" name="Email" autocomplete="email" inputmode="email"></div>
+  </div>
+
+  <section class="sec">
+    <div class="sec-h">Section 1</div><h2 class="sec-t">How it's set up</h2>
+    <div class="q">
+      <label class="ql" for="q1"><span class="n">01</span>How do the racing team and the non-profit fit together? How should I describe them on the new site?</label>
+      <p class="hint">Which one takes sponsor money? Which one takes donations?</p>
+      <textarea id="q1" name="Q1 Team and non-profit"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q2"><span class="n">02</span>Who else has a say in a new logo or site? Who makes the final call?</label>
+      <p class="hint">Think board members or major sponsors.</p>
+      <textarea id="q2" name="Q2 Who decides"></textarea>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h">Section 2</div><h2 class="sec-t">Who the site is for</h2>
+    <div class="q">
+      <label class="ql" for="q3"><span class="n">03</span>Who matters most to the new site over the next 12 months? Put them in order.</label>
+      <input type="text" id="q3" name="Q3 Audience order" placeholder="Sponsors / Veterans / Donors / Fans / Riders">
+    </div>
+    <div class="q">
+      <label class="ql" for="q4"><span class="n">04</span>What has won you sponsors so far? Which companies would you most like to reach for 2027?</label>
+      <textarea id="q4" name="Q4 Sponsors"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q5"><span class="n">05</span>What happens when a veteran joins? Walk me through the first month.</label>
+      <textarea id="q5" name="Q5 Veteran joining"></textarea>
+    </div>
+    <fieldset class="q">
+      <legend><span class="n">06</span>Which numbers can I use publicly?</legend>
+      <p class="hint">Rough is fine. Tell me if any of them shouldn't be public.</p>
+      <div class="stat"><label for="q6a">Veterans supported since 2016</label><input type="text" id="q6a" name="Q6 Veterans supported since 2016"></div>
+      <div class="stat"><label for="q6b">Active members today</label><input type="text" id="q6b" name="Q6 Active members today"></div>
+      <div class="stat"><label for="q6c">Grants or equipment given</label><input type="text" id="q6c" name="Q6 Grants or equipment given"></div>
+      <div class="stat"><label for="q6d">Social reach</label><input type="text" id="q6d" name="Q6 Social reach"></div>
+      <div class="stat"><label for="q6e">Race coverage in 2026</label><input type="text" id="q6e" name="Q6 Race coverage in 2026"></div>
+    </fieldset>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h">Section 3</div><h2 class="sec-t">Brand direction</h2>
+    <div class="q">
+      <label class="ql" for="q7"><span class="n">07</span>You mentioned a new logo is under consideration. What's prompting it?</label>
+      <textarea id="q7" name="Q7 Why a new logo"></textarea>
+    </div>
+    <fieldset class="q">
+      <legend><span class="n">08</span>What has to stay? Tick anything you'd fight to keep.</legend>
+      <div class="checks">
+        <label class="check"><input type="checkbox" name="Q8 Must stay" value="The name Project Echelon"><span>The name Project Echelon</span></label>
+        <label class="check"><input type="checkbox" name="Q8 Must stay" value="The name Project Echelon Racing"><span>The name Project Echelon Racing</span></label>
+        <label class="check"><input type="checkbox" name="Q8 Must stay" value="The line Racing for Veterans"><span>The line "Racing for Veterans"</span></label>
+        <label class="check"><input type="checkbox" name="Q8 Must stay" value="The line We Are Project Echelon"><span>The line "We Are Project Echelon"</span></label>
+        <label class="check"><input type="checkbox" name="Q8 Must stay" value="The four bars on the kit"><span>The four bars on the kit</span></label>
+        <label class="check"><input type="checkbox" name="Q8 Must stay" value="The current wordmark"><span>The current wordmark</span></label>
+        <label class="check"><input type="checkbox" name="Q8 Must stay" value="The current kit colors"><span>The current kit colors</span></label>
+      </div>
+      <label class="ql" for="q8b">Anything else that has to stay?</label>
+      <input type="text" id="q8b" name="Q8 Anything else to keep">
+    </fieldset>
+    <div class="q">
+      <label class="ql" for="q9"><span class="n">09</span>The 2027 roster posts on Instagram have a new look, with bold italic type in yellow on purple. Who made them? Is that where you want the brand to go?</label>
+      <textarea id="q9" name="Q9 Instagram look"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q10"><span class="n">10</span>Give me three words you'd want a sponsor to use about Project Echelon. Then give me three you'd never want to hear.</label>
+      <textarea id="q10" name="Q10 Words"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q11"><span class="n">11</span>Name up to three brands you admire, inside or outside cycling. What do you like about each one? Are there any you'd hate to look like?</label>
+      <textarea id="q11" name="Q11 Brands"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q12"><span class="n">12</span>How do you want to talk about veterans and mental health? How far should the brand go with military imagery such as flags or insignia?</label>
+      <p class="hint">Some words land differently with veterans. Tell me what your members actually say.</p>
+      <textarea id="q12" name="Q12 Tone and imagery"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q13"><span class="n">13</span>Is the 2027 kit already at print? Where else would a new logo need to appear? By when?</label>
+      <textarea id="q13" name="Q13 Kit and logo timing"></textarea>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h">Section 4</div><h2 class="sec-t">The new site</h2>
+    <div class="q">
+      <label class="ql" for="q14"><span class="n">14</span>You asked for new roster and sponsor pages. What else should the new site do that the current ones don't?</label>
+      <textarea id="q14" name="Q14 Site must-haves"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q15"><span class="n">15</span>You said you'd decide on one site or two from the data. Can you share the Weebly stats for both?</label>
+      <p class="hint">Screenshots are fine. Any other analytics you have would help too.</p>
+      <textarea id="q15" name="Q15 Analytics"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q16"><span class="n">16</span>Who will update the site after handover? How comfortable are they with a website editor? Who writes the race reports and newsletters today?</label>
+      <textarea id="q16" name="Q16 Who runs it"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q17"><span class="n">17</span>Is there a date that matters for launch? I'm working toward the team camp at the end of January.</label>
+      <textarea id="q17" name="Q17 Launch date"></textarea>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h">Section 5</div><h2 class="sec-t">Assets and access</h2>
+    <fieldset class="q">
+      <legend><span class="n">18</span>What do you already have? Tick what exists.</legend>
+      <div class="checks">
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Logo as a vector file"><span>Logo as a vector file</span></label>
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Brand guidelines"><span>Brand guidelines</span></label>
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Font files"><span>Font files</span></label>
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Kit artwork"><span>Kit artwork</span></label>
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Photo library"><span>Photo library</span></label>
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Film and video footage"><span>Film and video footage</span></label>
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Sponsor logos"><span>Sponsor logos</span></label>
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Sponsor deck or packages"><span>Sponsor deck or packages</span></label>
+        <label class="check"><input type="checkbox" name="Q18 Assets" value="Latest annual report"><span>Latest annual report</span></label>
+      </div>
+      <label class="ql" for="q18b">Link to a shared folder, if you have one</label>
+      <input type="text" id="q18b" name="Q18 Shared folder link" inputmode="url">
+    </fieldset>
+    <div class="q">
+      <label class="ql" for="q19"><span class="n">19</span>Can the photos be used freely on the new site? Have the veterans featured on the current site agreed to stay on it?</label>
+      <textarea id="q19" name="Q19 Rights and consent"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q20"><span class="n">20</span>Who holds the Weebly login? Who looks after the domains? Who manages email on them?</label>
+      <p class="hint">Please don't put passwords here. I just need to know who to ask.</p>
+      <textarea id="q20" name="Q20 Logins and domains"></textarea>
+    </div>
+    <div class="q">
+      <label class="ql" for="q21"><span class="n">21</span>Is there anything else I should know before I start?</label>
+      <textarea id="q21" name="Q21 Anything else"></textarea>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button type="button" class="btn btn-primary" id="review">Review and email to James</button>
+    <button type="button" class="btn btn-ghost" id="copy">Copy my answers</button>
+  </div>
+  <div class="note" id="saved" role="status"></div>
+  <div class="note">This form doesn't send anything by itself. "Review and email" lets you check your answers before they go.</div>
+</form>
+
+<div id="out">
+  <h2>Your answers</h2>
+  <p id="longnote" hidden>Your answers are too long to fit in an email link. Tap "Open email" to copy them, then paste them into the message.</p>
+  <textarea id="summary" readonly aria-label="Your answers"></textarea>
+  <div class="actions">
+    <a class="btn btn-primary" id="mailto" href="#">Open email</a>
+    <button type="button" class="btn btn-ghost" id="copy2">Copy</button>
+  </div>
+  <div class="note" id="copied" role="status"></div>
+</div>
+
+<footer>
+  Manual Focus &middot; <a href="https://manual-focus.co.uk">manual-focus.co.uk</a> &middot; Your answers stay on this device until you send them.
+</footer>
+</div>
+
+<script>
+document.getElementById('mflogo').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 435.85 137.78" role="img" aria-label="Manual Focus"><g><path d="M93.91.69h11.29l20.55,54.5h.18L146.48.69h11.29v65.6h-8.26V12.34h-.18l-19.82,53.95h-7.34l-19.82-53.95h-.18v53.95h-8.26V.69Z"/><path d="M175.42,49.87l-5.78,16.42h-8.53L185.33.69h9.27l24.41,65.6h-8.9l-5.78-16.42h-28.9ZM201.66,42.53l-11.65-34.22h-.18l-11.65,34.22h23.49Z"/><path d="M222.3.69h10.09l32.75,53.86h.18V.69h8.26v65.6h-10.09l-32.76-53.86h-.18v53.86h-8.26V.69Z"/><path d="M307.05,67.57c-17.52,0-25.14-9.73-25.14-23.12V.69h8.26v43.77c0,10.64,5.51,15.78,16.88,15.78s16.88-5.14,16.88-15.78V.69h8.26v43.77c0,13.4-7.62,23.12-25.14,23.12Z"/><path d="M346.32,49.87l-5.78,16.42h-8.53L356.23.69h9.27l24.41,65.6h-8.9l-5.78-16.42h-28.9ZM372.56,42.53l-11.65-34.22h-.18l-11.65,34.22h23.49Z"/><path d="M401.45.69v58.26h34.41v7.34h-42.66V.69h8.26Z"/><path d="M131.44,99.31v7.34h-29.27v29.64h-8.26v-65.6h44.5v7.34h-36.24v21.29h29.27Z"/><path d="M137.49,103.44c0-19.73,12.85-34.04,32.11-34.04s32.11,14.31,32.11,34.04-12.85,34.13-32.11,34.13-32.11-14.41-32.11-34.13ZM193.09,103.44c0-14.13-6.97-26.7-23.49-26.7s-23.49,12.57-23.49,26.7,6.97,26.79,23.49,26.79,23.49-12.66,23.49-26.79Z"/><path d="M235.88,76.74c-15.6,0-21.75,13.49-21.75,26.7s6.15,26.79,21.75,26.79c13.76,0,18.72-9.36,19.27-17.62h8.62c-1.47,14.5-11.74,24.96-27.89,24.96-17.98,0-30.37-14.31-30.37-34.13s12.39-34.04,30.37-34.04c16.06,0,26.33,10.46,27.89,22.94h-8.62c-1.19-6.24-5.6-15.6-19.27-15.6Z"/><path d="M293.89,137.57c-17.52,0-25.14-9.73-25.14-23.12v-43.77h8.26v43.77c0,10.64,5.51,15.78,16.88,15.78s16.88-5.14,16.88-15.78v-43.77h8.26v43.77c0,13.4-7.62,23.12-25.14,23.12Z"/><path d="M375.33,118.12c0,10.83-7.06,19.45-23.4,19.45s-27.8-8.62-28.72-23.31h8.62c.92,9.08,6.06,16.06,19.73,16.06,11.84,0,15.14-5.23,15.14-11.93,0-9.17-6.42-10.28-19.18-13.49-9.91-2.48-21.56-5.5-21.56-18.17,0-10.46,8.07-17.34,22.2-17.34,14.86,0,23.95,7.52,25.05,20.74h-8.62c-1.19-8.81-5.78-13.49-16.33-13.49-9.17,0-13.67,3.49-13.67,9.73,0,8.17,7.89,9.82,16.33,11.84,12.75,3.03,24.41,5.96,24.41,19.91Z"/><circle cx="44.94" cy="44.94" r="42.01"/><circle cx="44.94" cy="92.84" r="42.01"/></g></svg>';
+
+const form=document.getElementById('intake');
+const KEY='mf-project-echelon-answers-v1';
+const MAILTO_LIMIT=1800;
+const savedNote=document.getElementById('saved');
+
+function fields(){return Array.from(form.elements).filter(el=>el.name);}
+function collect(){
+  const data={};
+  fields().forEach(el=>{
+    if(el.type==='checkbox'){
+      if(!data[el.name])data[el.name]=[];
+      if(el.checked)data[el.name].push(el.value);
+    }else{data[el.name]=el.value;}
+  });
+  return data;
+}
+function save(){
+  try{localStorage.setItem(KEY,JSON.stringify(collect()));savedNote.textContent='Saved on this device.';}
+  catch(e){savedNote.textContent='';}
+}
+function restore(){
+  let data=null;
+  try{data=JSON.parse(localStorage.getItem(KEY));}catch(e){return;}
+  if(!data)return;
+  fields().forEach(el=>{
+    if(!(el.name in data))return;
+    if(el.type==='checkbox'){el.checked=Array.isArray(data[el.name])&&data[el.name].includes(el.value);}
+    else{el.value=data[el.name];}
+  });
+  savedNote.textContent='Your earlier answers are back.';
+}
+function compile(){
+  let text="Project Echelon, onboarding and brand questions\n\n";
+  const data=collect();
+  Object.keys(data).forEach(k=>{
+    const v=Array.isArray(data[k])?data[k].join('; '):(data[k]||'').trim();
+    if(v)text+=k+":\n"+v+"\n\n";
+  });
+  return text.trim();
+}
+async function copyText(t){
+  try{await navigator.clipboard.writeText(t);return true;}catch(e){return false;}
+}
+const summary=document.getElementById('summary');
+const out=document.getElementById('out');
+const mailto=document.getElementById('mailto');
+const copied=document.getElementById('copied');
+const longnote=document.getElementById('longnote');
+const ADDRESS='james@manual-focus.co.uk';
+const SUBJECT=encodeURIComponent('Project Echelon onboarding and brand answers');
+
+function show(){
+  summary.value=compile();
+  const tooLong=encodeURIComponent(summary.value).length>MAILTO_LIMIT;
+  longnote.hidden=!tooLong;
+  const body=tooLong?encodeURIComponent('My answers are pasted below.\n\n'):encodeURIComponent(summary.value);
+  mailto.href='mailto:'+ADDRESS+'?subject='+SUBJECT+'&body='+body;
+  mailto.dataset.long=tooLong?'1':'';
+  copied.textContent='';
+  out.style.display='block';
+  out.scrollIntoView({behavior:'smooth'});
+}
+function reportCopy(ok,el){
+  el.textContent=ok?'Answers copied.':'Copying was blocked. Select the text in the box to copy it.';
+  if(!ok){summary.focus();summary.select();}
+}
+form.addEventListener('input',save);
+form.addEventListener('change',save);
+form.addEventListener('submit',e=>e.preventDefault());
+document.getElementById('review').addEventListener('click',show);
+document.getElementById('copy').addEventListener('click',async()=>{
+  summary.value=compile();
+  const ok=await copyText(summary.value);
+  savedNote.textContent=ok?'Answers copied. Paste them into a message to james@manual-focus.co.uk.':'Copying was blocked. Use "Review and email" instead.';
+});
+document.getElementById('copy2').addEventListener('click',async()=>reportCopy(await copyText(summary.value),copied));
+mailto.addEventListener('click',()=>{
+  if(mailto.dataset.long){copyText(summary.value).then(ok=>reportCopy(ok,copied));}
+});
+restore();
+</script>
+</body>
+</html>
