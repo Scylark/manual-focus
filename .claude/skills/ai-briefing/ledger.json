@@ -1238,5 +1238,53 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "which-websites-does-ai-cite-indoor-cycling"
+  },
+  {
+    "run_date": "2026-11-18",
+    "story": "SparkToro analyses 118,163 ChatGPT prompts from 12,321 US Verso panel users (Jan to Oct 2026), finding 6.9% researched a brand to buy from vs 15%+ of Google queries, and 12.1% of responses named a brand (17 November 2026)",
+    "primary_source": "https://sparktoro.com/blog/we-analyzed-11800-chatgpt-prompts-from-12000-users-to-answer-how-do-americans-use-ai-tools-in-2026/",
+    "score": 7,
+    "decision": "published",
+    "slug": "sparktoro-chatgpt-prompts-study-ai-visibility"
+  },
+  {
+    "run_date": "2026-11-18",
+    "story": "Google publishes a help document on allowing Google-Agent traffic through CDNs, firewalls and bot detection (17 November 2026)",
+    "primary_source": "https://developers.google.com/crawling/docs/crawlers-fetchers/allow-google-agent",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-18",
+    "story": "Google Ads publishes a Search Journey Awareness help document describing journey-aware Smart Bidding for Search campaigns (SER 17 November)",
+    "primary_source": "https://support.google.com/google-ads/answer/18867814?hl=en",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-18",
+    "story": "Performance Max brand guidelines add visual style references for AI-generated ad images (SER 17 November)",
+    "primary_source": "https://www.seroundtable.com/google-ads-brand-guidelines-add-visual-guidelines-42538.html",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-18",
+    "story": "Siri AI daily usage limits and fees reported for iOS 27.3 (AppleInsider 16 November, no Apple source opened)",
+    "primary_source": "https://appleinsider.com/articles/26/11/16/siri-ai-daily-usage-limits-and-fees-will-launch-with-ios-273",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-18",
+    "story": "Google AI Overview sponsored ads show the advertiser name below title and description (Search Engine Watch, no Google source)",
+    "primary_source": "https://searchenginewatch.com/google-ai-overview-sponsored-ads-now-show-advertiser-name-below-title-and-description/",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
   }
 ]
