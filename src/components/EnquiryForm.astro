@@ -3,6 +3,7 @@
 // opens in the visitor's mail app. The access key lives in
 // src/utils/contact.ts; until it is set, submit shows the error state.
 import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../utils/contact';
+import { url } from '../utils/paths';
 ---
 <form
   class="enquiry-form"
@@ -45,8 +46,10 @@ import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../util
           <option value="ai-shortlist-audit">Light Meter category audit</option>
           <option value="ai-shortlist-snapshot">Light Meter Brand Snapshot</option>
           <option value="ai-shortlist-fix">AI visibility fix programme</option>
+          <option value="rider-panel-study">Light Meter Rider Panel study</option>
         </optgroup>
       </select>
+      <p class="form-note" data-brief-hint hidden>Planning a website or a rebrand? <a href={url('/brief/')}>The six-question brief</a> gets you a written view from James first.</p>
     </div>
 
     <div class="form-field">
@@ -179,6 +182,7 @@ import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../util
     line-height: 1.5;
     margin: 0;
   }
+  .form-note a { color: var(--color-text); }
 
   [data-submit][data-state="loading"] {
     opacity: 0.7;
@@ -222,6 +226,14 @@ import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../util
     offerSelect.value = offerParam;
   }
 
+  // Build & Hand Over visitors also get a pointer to the shorter brief.
+  const briefHint = form?.querySelector<HTMLElement>('[data-brief-hint]');
+  const syncBriefHint = () => {
+    if (briefHint && offerSelect) briefHint.hidden = offerSelect.value !== 'build-and-hand-over';
+  };
+  offerSelect?.addEventListener('change', syncBriefHint);
+  syncBriefHint();
+
   // AI Shortlist research links here with ?offer=ai-shortlist-card&brand=<name>;
   // start the message so the request only needs a name and email.
   const challenge = form?.querySelector<HTMLTextAreaElement>('#challenge');
@@ -236,6 +248,8 @@ import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT, CONTACT_EMAIL } from '../util
       challenge.value = `We'd like a Light Meter category audit${category ? ` for ${category}` : ''}. Please send pricing and timing.`;
     } else if (offerParam === 'ai-shortlist-snapshot') {
       challenge.value = 'We would like a Light Meter Brand Snapshot. Please send pricing and timing.';
+    } else if (offerParam === 'rider-panel-study') {
+      challenge.value = 'We would like a Light Meter Rider Panel study. Please send pricing and timing.';
     }
   }
 

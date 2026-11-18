@@ -1182,5 +1182,109 @@
     "score": 4,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "OpenAI launches Businesses in ChatGPT in beta (10 November 2026), Business Hub profile claiming with mention, click and discovery topic insights wherever ChatGPT is available, and Business Agents for eligible US ecommerce and online service businesses, sponsorable as ChatGPT Ads destinations",
+    "primary_source": "https://openai.com/index/introducing-businesses-chatgpt/",
+    "score": 9,
+    "decision": "published",
+    "slug": "businesses-in-chatgpt-business-hub-brands"
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "Google November 2026 core update begins rolling out (Search Status Dashboard, 10 November)",
+    "primary_source": "https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "ChatGPT visual ads rolling out (Search Engine Land, 11 November)",
+    "primary_source": "https://www.seroundtable.com/recap-11-11-2026-42509.html",
+    "score": 6,
+    "decision": "skipped-duplicate",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "Gemini 4 Carbon available to subscribers in Google AI Mode (11 November)",
+    "primary_source": "https://www.seroundtable.com/recap-11-11-2026-42509.html",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "Google Ads pay-per-lead goals terms requiring advertiser opt-in (Search Engine Land, 11 November)",
+    "primary_source": "https://www.seroundtable.com/recap-11-11-2026-42509.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-12",
+    "story": "Google shows definition AI Overviews fully expanded by default (SER 11 November, no Google confirmation)",
+    "primary_source": "https://www.seroundtable.com/google-expanding-definitions-42514.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-17",
+    "story": "Google expands Ask Maps, the Gemini chat in Google Maps, to 30 European countries including the UK on 16 November 2026, adding itineraries, saved-list search and US-first appointment finding that calls businesses",
+    "primary_source": "https://blog.google/products-and-platforms/products/maps/ask-maps-holiday-travel-features-2026/",
+    "score": 8,
+    "decision": "published",
+    "slug": "google-ask-maps-uk-local-marketing"
+  },
+  {
+    "run_date": "2026-11-17",
+    "story": "Sierra releases Personal Agent Protocol (Poppy) 1.0 on 13 November 2026, enabled for every Shopify merchant and checked first by Meta's Muse on every site",
+    "primary_source": "https://sierra.ai/blog/releasing-poppy",
+    "score": 7,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-17",
+    "story": "Google Search Analytics API adds branded query classification, web multimodal search type and multi-country and multi-device filters (Search Central, 16 November)",
+    "primary_source": "https://developers.google.com/search/blog/2026/11/search-analytics-api-update",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-17",
+    "story": "ChatGPT Business Agent builder seen in Business Hub, gradual US-first rollout (SER first look 16 November, no OpenAI source)",
+    "primary_source": "https://www.seroundtable.com/openai-chatgpt-business-agent-42536.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-17",
+    "story": "Google AI Mode drops the Gemini label and rolls out Gemini 4 Carbon to Pro subscribers (SER 16 November)",
+    "primary_source": "https://www.seroundtable.com/google-ai-mode-drops-gemini-label-42540.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-17",
+    "story": "ChatGPT tests web results and See more search result formats (SER 16 November, test only)",
+    "primary_source": "https://www.seroundtable.com/chatgpt-search-result-tests-42537.html",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-11",
+    "story": "Follow-up to the AI Shortlist indoor cycling study, which websites AI cites, by page and engine",
+    "primary_source": "https://manual-focus.co.uk/reports/ai-shortlist-indoor-cycling/",
+    "score": null,
+    "decision": "published-on-demand",
+    "slug": "which-websites-does-ai-cite-indoor-cycling"
   }
 ]
