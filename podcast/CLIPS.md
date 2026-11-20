@@ -54,18 +54,32 @@ for f in podcast/scripts/*.txt; do node podcast/make-clips.mjs "$(basename "$f" 
 
 ## Uploading
 
-Uploading is manual for now. For each clip:
+Uploading happens on James's Mac, in YouTube Studio for Manual Focus
+Marketing (@manualfocusuk), through Claude in Chrome or by hand. For each clip:
 
-- **YouTube.** In YouTube Studio for Manual Focus Marketing (@manualfocusuk),
-  upload the MP4 (a vertical video under three minutes becomes a Short),
-  paste the title and description from `<slug>-<n>.md`, and set visibility
-  to Unlisted or Scheduled. Under "Altered or synthetic content", answer Yes,
-  since the voices are AI-generated. James publishes.
+- **YouTube.** Upload the MP4 (a vertical video under three minutes becomes a
+  Short). Chrome's upload tool takes files under 10 MB, so upload a copy
+  capped at about 1.1 Mbps with video and audio together, which YouTube
+  re-encodes anyway. A 60-second clip then comes to about 8 MB at most (the
+  33 existing clips came out at 2.8 to 5.2 MB):
+
+  ```bash
+  ffmpeg -i <slug>-<n>.mp4 -c:v libx264 -preset slow -crf 24 -tune animation -maxrate 1000k -bufsize 2000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart upload/<slug>-<n>.mp4
+  ```
+
+  `-maxrate` only takes effect with `-bufsize`, so keep both. Paste the title and description from `<slug>-<n>.md`,
+  set "not made for kids", answer Yes to "Altered or synthetic content",
+  since the voices are AI-generated, and save as Private. James makes it
+  public. Saving as Unlisted before YouTube's checks finish brings up a
+  warning about strikes, so use Private.
+- **Article link.** Description links aren't clickable in Shorts, so the
+  article URL sits in the description as plain text on line three. Once the
+  episode is on the channel as a full video (from the RSS import), set the
+  Short's **Related video** to it in Studio. Viewers can tap through to the
+  episode, and its description, built from the feed, has a clickable link to
+  the article.
 - **LinkedIn.** Post the MP4 natively, not as a YouTube link, with the
-  LinkedIn draft from the same file.
-
-If James grants YouTube Data API access, an upload script can stage these as
-unlisted Shorts for him to publish.
+  LinkedIn draft from the same file. This is James's to post.
 
 ## The look
 
