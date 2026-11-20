@@ -1430,5 +1430,53 @@
     "score": 4,
     "decision": "skipped-unverifiable",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-15",
+    "story": "OpenAI launches ChatGPT Wallet on 13 November 2026 so agents in ChatGPT Work, Codex and dots can pay on merchants' existing checkouts with user approval, network tokens and Web Bot Auth signed cloud browser visits",
+    "primary_source": "https://developers.openai.com/commerce/guides/accept-payments",
+    "score": 8,
+    "decision": "published",
+    "slug": "chatgpt-wallet-agent-checkout-ecommerce"
+  },
+  {
+    "run_date": "2026-11-15",
+    "story": "ChatGPT Ads weekly update renames Autobid intelligent bidding, adds Target CPA and Target CPC, Max Bid and Max CPC retire 1 January 2027 (SER 12 November)",
+    "primary_source": "https://help.openai.com/en/articles/20001634-bidding-strategies-and-how-pricing-works-in-chatgpt-ads",
+    "score": 7,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-15",
+    "story": "Yahoo Scout becomes first licensee of the Internet Licensing Collective, paying publishers for content used in AI answers (SER 13 November)",
+    "primary_source": "https://internetcollective.org/press/ilc-launch-2026",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-15",
+    "story": "Google tests dropping AI Mode from the search bar and Ask Anything (SER 13 November, no Google confirmation)",
+    "primary_source": "https://www.seroundtable.com/google-dropping-ai-mode-again-42534.html",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-15",
+    "story": "AI-generated images return in some Google AI Overviews (SER 13 November, no Google confirmation)",
+    "primary_source": "https://www.seroundtable.com/google-ai-overviews-ai-generated-images-back-42532.html",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-15",
+    "story": "Jensen Huang leaves Nvidia, Colette Kress interim CEO (TechCrunch 12 to 14 November)",
+    "primary_source": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+    "score": 2,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
