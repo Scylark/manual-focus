@@ -1334,5 +1334,53 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "which-websites-does-ai-cite-indoor-cycling"
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Microsoft Advertising confirms ads in Bing AI Overviews in all markets except China (19 November 2026), served through existing campaigns including Performance Max and AI Max with no separate set-up",
+    "primary_source": "https://about.ads.microsoft.com/en/blog/post/november-2026/put-ai-to-work-engaging-customers-in-more-places-whats-new-in-microsoft-advertising-this-november",
+    "score": 8,
+    "decision": "published",
+    "slug": "bing-ai-overviews-ads-paid-search"
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "OpenAI launches GPT-6.2 Astra and GPT-6.2 Sol in ChatGPT Work, Codex and the API (17 November 2026), Astra API price 20% lower",
+    "primary_source": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Google introduces Gemini 4 Neon (18 November 2026) in the Gemini API, Gemini app for AI Pro and Ultra and Antigravity, not in Search",
+    "primary_source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Microsoft Advertising rolls out its biggest automated bidding upgrade in a decade, 10% more conversion value per click for tROAS and Max Conversion Value (18 November 2026)",
+    "primary_source": "https://about.ads.microsoft.com/en/blog/post/november-2026/building-the-next-generation-of-automated-bidding-at-microsoft-advertising",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Google rolls out a collapsible sidebar of recent AI searches on the desktop homepage globally (Robby Stein on X, 19 November 2026)",
+    "primary_source": "https://x.com/rmstein/status/2123500235930640844",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Google hotel listings add Continue on Google to book inside AI Mode (SER 19 November 2026, no Google source)",
+    "primary_source": "https://www.seroundtable.com/google-hotel-continue-on-google-42568.html",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
   }
 ]
