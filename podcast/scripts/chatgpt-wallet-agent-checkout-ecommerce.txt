@@ -1,0 +1,63 @@
+JAMES: Picture a shopper asking ChatGPT to buy a carry-on bag, the agent finding yours, and your own firewall turning it away at the checkout. Since the thirteenth of November, when OpenAI launched ChatGPT Wallet, that's a sale you can lose without anyone noticing. I'm James Vickers, this is Manual Focus, and Hannah's with me to work out who in the building needs to hear about it.
+
+HANNAH: Hi James. Probably not the people who usually read OpenAI announcements, which is half the problem.
+
+JAMES: [dryly] Go on then. What is it?
+
+HANNAH: OpenAI describes Wallet as a secure way for agents in ChatGPT Work, Codex and dots to complete purchases with the user's approval. Dots, which we covered at the end of September, are the always-on agents OpenAI launched at its DevDay conference. We went through OpenAI's announcement and its merchant guides for developers, and those guides are where the useful detail is.
+
+JAMES: So how does a purchase actually happen?
+
+HANNAH: The shopper describes what they need, ChatGPT finds options from the web, from integrations and from merchant product feeds, and the shopper picks one. Then ChatGPT's cloud browser, which is a browser OpenAI runs on its own servers, goes to the merchant's site and uses the normal checkout. The customer approves the purchase inside ChatGPT, and the merchant's checkout processes the payment.
+
+JAMES: So the merchant doesn't build anything.
+
+HANNAH: No Wallet-specific integration at all, OpenAI says. The merchant gets a network token instead of the full card number, plus a reference that links it to the customer's account. And the merchant still owns orders, fulfilment, customer support and fraud decisions.
+
+JAMES: [thoughtfully] That's the part I'd underline for an ecommerce team. No integration sounds like no work, but it really means the work has moved somewhere else.
+
+HANNAH: It's moved into security. OpenAI's own guide says the cloud browser can trigger bot-detection systems and cause purchases to fail. So the CAPTCHA, the forced account, the bot challenge from your content delivery network, all of that now sits between the agent and the order.
+
+JAMES: And a failed agent purchase probably doesn't look like an abandoned basket in anyone's report.
+
+HANNAH: It may not look like anything. Which is why OpenAI has published a separate guide on agent access.
+
+JAMES: What does the agent look like to a firewall, then?
+
+HANNAH: It signs its requests, using a standard called Web Bot Auth, so a site can check the visit really comes from ChatGPT. OpenAI says four security providers verify those signatures automatically, Cloudflare, Akamai, HUMAN and Vercel, and each one labels the traffic. On Cloudflare it shows up as dots, OpenAI, under Personal Agents. Anyone on another provider has to check the signatures by hand.
+
+JAMES: And if a brand opens the door to it, does that open the door to every AI crawler too?
+
+HANNAH: No. OpenAI says the exception covers its signed cloud browser visits only, and doesn't change how other bots are treated, including its search crawler. So the training and crawling decisions we covered at the end of October, with the shared opt-out token, stay exactly where they were.
+
+JAMES: [calmly] So where does this sit in a marketing team? Because I don't think it sits in one.
+
+HANNAH: That's my read too. Conversion belongs to ecommerce, the bot rules belong to the platform team, and fraud scoring belongs to payments.
+
+JAMES: Right. And none of them has a reason to look at agent traffic unless somebody asks. Earlier this week we talked about Businesses in ChatGPT, which was about being found and counted. This is the step after, where the same agent can buy. And the Lightspeed study we covered in September had AI assistants picking the big chain over the smaller retailer up to ninety-four per cent of the time, so a challenger brand can't afford to drop the few agent orders it does win.
+
+HANNAH: There's a fraud angle as well. OpenAI is rolling out a header that passes along signals about the user, things like their country, locale and time zone, so risk systems can score the order. It says those signals may vary while it rolls out.
+
+JAMES: Our view is simple enough. If you sell where Wallet's live, let verified ChatGPT agent visits through checkout before the Christmas peak, keep your page-level controls and fraud checks, and agree with finance how you'll spot a Wallet order before the volume turns up. So, Hannah, what do we hand to AI?
+
+HANNAH: Three jobs, I think.
+
+JAMES: Get AI on this. Walk your own checkout the way an agent would and list every obstacle.
+
+HANNAH: Give it your checkout URLs from product page to payment, and an AI that can browse. It hands back each step with every CAPTCHA, forced sign-up and pop-up it hit, and marks the ones it couldn't get past.
+
+JAMES: Get AI on this, too. Write the note to your security team.
+
+HANNAH: Give it OpenAI's agent access guide and the name of your security provider, and it drafts a short request asking whether OpenAI's verified cloud browser visits are blocked, with the exact rule to check for that provider.
+
+JAMES: And the third. Brief the fraud provider.
+
+HANNAH: Give it OpenAI's payments guide and it writes the brief, what a network token is, which header signals to ingest, and the questions to ask them about how they'll score those orders. The prompts are in the show notes.
+
+JAMES: What don't we know yet?
+
+HANNAH: Quite a lot. The developer guides don't say which countries or plans have Wallet, or whether there's an age limit. They don't say whether OpenAI takes a fee from merchants. They don't explain how refunds and chargebacks flow back to ChatGPT, or how a merchant tells a Wallet order from a normal card order beyond the token and that header. And nobody knows yet how many shoppers will let an agent pay.
+
+JAMES: [thoughtfully] So the takeaway. Your checkout is now a front door for AI agents, and the team holding the key probably isn't marketing, so go and ask them this week. The full article is on manual-focus dot co dot uk. If the show's useful, follow it in Apple Podcasts, Spotify or wherever you listen, and if you'd like a second pair of eyes on your checkout before peak, you can book a free working session with us on the site. Thanks, Hannah.
+
+HANNAH: Thanks, James. Go and try to buy something from yourself.
