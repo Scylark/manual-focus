@@ -776,6 +776,54 @@
     "slug": null
   },
   {
+    "run_date": "2026-10-23",
+    "story": "Three studies (Marie Haynes 21 October, The SEO Works benchmark to August 2026, Kevin Indig Growth Memo 19 October) find AI assistants send 0.62% to 2.6% of Google organic traffic, convert 1.18x to 4.5x organic but 0.67x paid, and show no reliable link from AI visibility to direct or branded traffic (SER roundup 22 October)",
+    "primary_source": "https://www.mariehaynes.com/geo-is-a-distraction/",
+    "score": 7,
+    "decision": "published",
+    "slug": "ai-referral-traffic-studies-geo-budget"
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "Walmart launches Agent Gateway, an MCP server letting approved AI agents search inventory and buy on Walmart and Sam's Club, with Agent Profiles and spending limits next month (TechCrunch 21 October, US)",
+    "primary_source": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "Google Ads customer lifecycle goals updates before the holidays, high value mode in Shopping, wider retention goals and percentage multipliers (SER 22 October)",
+    "primary_source": "https://www.seroundtable.com/google-ads-customer-lifecycle-goals-update-42358.html",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "LinkedIn job title, industry and seniority targeting available for CTV buys through Google DV360 in the US (22 October)",
+    "primary_source": "https://ppc.land/linkedin-job-title-targeting-reaches-google-dv360-ctv-buys-in-the-us/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "Will Critchlow says Search Console now shows AI visibility data (X post, no Google announcement found)",
+    "primary_source": "https://x.com/willcritchlow/status/2112909269565665722",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-10-23",
+    "story": "OpenAI frontier models and Codex coming to Google Cloud Model Garden and Marketplace (21 October)",
+    "primary_source": "https://openai.com/index/openai-models-google-cloud/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
     "run_date": "2026-10-24",
     "story": "SISTRIX citation worthiness study (22 October) compares 48,527 cited pages with uncited pages from the same domains, 96,418 URLs across ChatGPT, AI Mode and AI Overviews in DACH, finds table of contents 1.7, Article schema 1.6, no measurable effect from llms.txt",
     "primary_source": "https://www.sistrix.com/blog/citation-worthiness-study/",
@@ -1184,6 +1232,54 @@
     "slug": null
   },
   {
+    "run_date": "2026-11-13",
+    "story": "Google makes Gemini 4 Hydrogen available globally in Google Search for all users on 12 November 2026, calling it the biggest model upgrade to Search yet, with wider query fan-out and more links",
+    "primary_source": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+    "score": 9,
+    "decision": "published",
+    "slug": "gemini-4-hydrogen-google-search-seo-teams"
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "ChatGPT Ads renames Autobid to intelligent bidding, adds Target CPA and Target CPC, retires Max Bid and Max CPC on 1 January 2027 (weekly email, SER 12 November)",
+    "primary_source": "https://help.openai.com/en/articles/20001634-bidding-strategies-and-how-pricing-works-in-chatgpt-ads",
+    "score": 7,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Google Search Central adds a help page on identifying Google Search traffic in analytics and server logs (SER 12 November), folded into the Hydrogen post",
+    "primary_source": "https://developers.google.com/search/docs/monitor-debug/identify-google-search-traffic",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Search Console generative AI performance report undercounted impressions 9 to 11 November 2026 because of a logging error, folded into the Hydrogen post",
+    "primary_source": "https://support.google.com/webmasters/answer/6211453?hl=en",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Google appears to place source icons at the bottom of AI Overviews (SER 11 November, no Google confirmation)",
+    "primary_source": "https://www.seroundtable.com/google-ai-overview-source-icons-bottom-42519.html",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-13",
+    "story": "Google launches the Gemini Decisions API for fast yes or no, multiple-choice and scoring calls (12 November)",
+    "primary_source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
     "run_date": "2026-11-17",
     "story": "Google expands Ask Maps, the Gemini chat in Google Maps, to 30 European countries including the UK on 16 November 2026, adding itineraries, saved-list search and US-first appointment finding that calls businesses",
     "primary_source": "https://blog.google/products-and-platforms/products/maps/ask-maps-holiday-travel-features-2026/",
@@ -1238,6 +1334,54 @@
     "score": null,
     "decision": "published-on-demand",
     "slug": "which-websites-does-ai-cite-indoor-cycling"
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Microsoft Advertising confirms ads in Bing AI Overviews in all markets except China (19 November 2026), served through existing campaigns including Performance Max and AI Max with no separate set-up",
+    "primary_source": "https://about.ads.microsoft.com/en/blog/post/november-2026/put-ai-to-work-engaging-customers-in-more-places-whats-new-in-microsoft-advertising-this-november",
+    "score": 8,
+    "decision": "published",
+    "slug": "bing-ai-overviews-ads-paid-search"
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "OpenAI launches GPT-6.2 Astra and GPT-6.2 Sol in ChatGPT Work, Codex and the API (17 November 2026), Astra API price 20% lower",
+    "primary_source": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Google introduces Gemini 4 Neon (18 November 2026) in the Gemini API, Gemini app for AI Pro and Ultra and Antigravity, not in Search",
+    "primary_source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Microsoft Advertising rolls out its biggest automated bidding upgrade in a decade, 10% more conversion value per click for tROAS and Max Conversion Value (18 November 2026)",
+    "primary_source": "https://about.ads.microsoft.com/en/blog/post/november-2026/building-the-next-generation-of-automated-bidding-at-microsoft-advertising",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Google rolls out a collapsible sidebar of recent AI searches on the desktop homepage globally (Robby Stein on X, 19 November 2026)",
+    "primary_source": "https://x.com/rmstein/status/2123500235930640844",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-20",
+    "story": "Google hotel listings add Continue on Google to book inside AI Mode (SER 19 November 2026, no Google source)",
+    "primary_source": "https://www.seroundtable.com/google-hotel-continue-on-google-42568.html",
+    "score": 4,
+    "decision": "skipped-unverifiable",
+    "slug": null
   },
   {
     "run_date": "2026-11-18",

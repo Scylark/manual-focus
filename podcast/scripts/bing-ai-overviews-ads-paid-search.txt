@@ -1,0 +1,59 @@
+JAMES: Your Microsoft Advertising campaigns may already be buying space next to AI answers on Bing, and until yesterday nobody had told you. Microsoft confirmed on the nineteenth of November that ads now run inside Bing's AI Overviews in every market except China. I'm James Vickers, this is Manual Focus, and Hannah's with me to work out what a paid team does about a placement that's already live.
+
+HANNAH: Hi James. Live, and in the UK, which puts Microsoft a few weeks ahead of Google.
+
+JAMES: Start with what Microsoft actually said.
+
+HANNAH: It's in Microsoft Advertising's November product update on its own blog. AI Overviews are the AI-written answers at the top of some Bing results. Microsoft says ads can now show next to those answers when an advertiser's offer is relevant, and calls it the next step after ads in Copilot. It's available in all markets except China, and there's no separate campaign to set up.
+
+JAMES: So which campaigns end up there?
+
+HANNAH: The ones you already run. Microsoft names Performance Max and AI Max, which is its setting that lets the system pick queries and write ad text from your site. Its example is a hotel ad sitting next to an AI itinerary for a trip to Snowdonia.
+
+JAMES: [dryly] A very British example for a global announcement. Did they give any numbers?
+
+HANNAH: One, and it doesn't really fit. A twenty-one per cent increase in purchases after a Copilot interaction, from Microsoft's own data on Edge users in late December twenty twenty-four. So it's about Copilot, not AI Overviews, and it's nearly two years old.
+
+JAMES: And people had seen these ads before the announcement.
+
+HANNAH: Search Engine Roundtable reported a screenshot of a sponsored result inside a Bing AI Overview on the thirtieth of October. Barry Schwartz then covered Microsoft's confirmation on the nineteenth. So some advertisers' ads may have been serving there for about three weeks before Microsoft said anything.
+
+JAMES: [thoughtfully] How does this line up with Google? We covered Google's AI Mode ads at the end of October.
+
+HANNAH: We did, and the mechanics are almost the same. Google's help page says Search, Shopping and Performance Max campaigns are eligible automatically, you can't opt out separately from Search, and the results only show in aggregate in your reports. The difference is timing. Google's help page doesn't list the UK yet for ads within AI Overviews or AI Mode, and Google has only said the UK comes in the fourth quarter.
+
+JAMES: And on Microsoft's side, can you switch it off, or see it in a report?
+
+HANNAH: The announcement doesn't say either way. No mention of an opt-out, a label or a separate report. So until Microsoft publishes help documentation, assume it's blended into your normal numbers, the way Google's is.
+
+JAMES: Here's where I'd worry as a head of paid. In a lot of brands, the Microsoft budget is the smaller one, so it gets less attention, and some accounts were imported from Google Ads and left alone. Those accounts are now serving into a new placement over Black Friday, and nobody will be able to say whether a change came from the season or from the inventory.
+
+HANNAH: And AI Max gets the widest change, because it decides what to match and what the ad says. People ask AI answers in full questions, not the short keywords most accounts were built around.
+
+JAMES: Our view is that you should treat Bing as a live test of the Google launch still to come. Same mechanics, it got there first, and the smaller budget makes mistakes cheaper to find.
+
+HANNAH: There's an SEO angle too. A sponsored result next to the answer competes with the sites Bing cites. When we looked at Bing's Topics Portfolio report in October, it showed which queries cite your pages, so the paid and SEO teams can now look at the same questions from both sides.
+
+JAMES: Right, so what do you hand over? Get AI on this. First, the account inventory. Every UK campaign, which ones are Performance Max or AI Max, and which came over from Google and haven't been touched since.
+
+HANNAH: Give it the campaign export from Microsoft Advertising, with type, created date, last edited date and spend. It hands you a table of what's eligible for the new placement, ranked by spend, with the neglected ones flagged.
+
+JAMES: Second, the baseline. Eight weeks of search terms, cost per click and conversion rate, so a change after the nineteenth shows up against something.
+
+HANNAH: Attach the search terms report and the campaign performance export. Ask it to band the queries by length and by whether they're phrased as questions, and to give you a weekly summary. Then set it as a weekly routine through January, so the comparison runs without anyone remembering to do it.
+
+JAMES: And third, the negatives.
+
+HANNAH: Give it the same search terms report and your conversion data, and it gives you a list of informational and comparison phrases that have spent money and never converted, as a draft negative keyword list. Someone on the team still decides what goes in, because some of those questions might be early buyers.
+
+JAMES: The prompts are in the show notes.
+
+HANNAH: There's quite a lot we don't know. Whether AI Overview impressions will ever get their own segment. How the ads are labelled, or whether there's an opt-out. Microsoft hasn't published any click-through or conversion data for this placement, and it hasn't said whether Shopping and standard Search campaigns serve there the same way as Performance Max and AI Max. Nor how often Bing shows an AI Overview at all in the UK.
+
+JAMES: [calmly] So the takeaway. Bing's AI answers carry ads in the UK now, through campaigns you already run, so check what's eligible, set a baseline before Black Friday and use it to get ready for Google. The full article, with Microsoft's announcement and the Google comparison, is on manual-focus dot co dot uk.
+
+HANNAH: With a table of the two platforms side by side.
+
+JAMES: If you'd like the next episode to arrive without you looking for it, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen. And if you want someone to go through your Microsoft account with you before peak, there's a free working session you can book at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James. Go and look at those imported campaigns.
