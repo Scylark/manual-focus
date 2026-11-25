@@ -1,0 +1,71 @@
+JAMES: For as long as most SEO teams can remember, Google's core updates have turned up without warning. On the twenty-fourth of November that changed, when Google told everyone a December core update is coming before it started. I'm James Vickers, this is Manual Focus, and Hannah's here to explain what Google promised and what it didn't.
+
+HANNAH: Hi James. No date, for a start.
+
+JAMES: [dryly] Of course it didn't. Tell me what it did say.
+
+HANNAH: The notice went up on Google's Search Status Dashboard, the page where it logs ranking updates and outages. It says the December twenty twenty-six core update will improve how Google understands and ranks content for longer, more complex questions, and improve personalised results for people who have personalisation turned on. It covers every language and location, and it's scheduled for December.
+
+JAMES: And a core update, for anyone newer to this, is the broad change to how Google ranks everything, not a fix aimed at one kind of spam.
+
+HANNAH: That's right. And Barry Schwartz at Search Engine Roundtable noticed the dashboard briefly showed it as active. A Google spokesperson told him it's not imminent, and that Google will announce the day it starts rolling out.
+
+JAMES: [thoughtfully] So why now? Google's said for years it doesn't pre-announce core updates.
+
+HANNAH: Google's own new page explains it. Where UK users may see a significant ranking shift, it gives advance notice under the CMA's fair ranking conduct requirement. The CMA, the UK competition regulator, imposed that on the seventeenth of June. It asks Google to rank on objective, non-discriminatory criteria, including in its AI features, and to give publishers sufficient notice of material changes that could affect them.
+
+JAMES: So it's a British rule, but the notice applies everywhere.
+
+HANNAH: Everywhere, yes. It's the same regime behind the choice screen proposals we covered in September.
+
+JAMES: And there was more published on the same day.
+
+HANNAH: A whole set of pages. There's a new Search ranking hub for principles, notices and troubleshooting. There's a feedback route in Search Console, where verified site owners can report a problem with a listed update, tagged with that update's hashtag. And there are updated pages on how AI Overviews and AI Mode pick their links, and on the controls for AI training.
+
+JAMES: Here's where I'd start as a head of SEO. The feedback button sounds like an appeal. Is it?
+
+HANNAH: No, and Google says so plainly. Feedback doesn't lead to manual ranking adjustments for individual URLs. Engineers review it in aggregate to spot systemic problems. So it helps with a pattern across a type of page, not with getting your own traffic back.
+
+JAMES: [calmly] Then the real value is the warning. If you know an update's coming, you can keep a migration or a big content prune out of the window and read the results cleanly afterwards.
+
+HANNAH: And November showed what happens when you can't. The core update started on the tenth, and Gemini four Hydrogen reached Search two days later. When we covered Hydrogen in mid-November, the advice was to annotate both dates, because nobody could pull the two effects apart.
+
+JAMES: What about the complex questions part? That sounds like AI Mode to me.
+
+HANNAH: It's the kind of question people type into AI Mode, yes. And Google's new page on attribution says its AI features are integrated directly with its core ranking and quality systems. They can run related searches across the index, which Google calls query fan-out, to find pages covering different parts of a question. So a core update about complex questions will probably move the pages AI Overviews cite, as well as the blue links.
+
+JAMES: Anything in that page a content team should act on?
+
+HANNAH: One line stood out. Google says avoid changing a page's date unless the content has substantially changed.
+
+JAMES: [dryly] Which is a polite way of telling teams to stop refreshing dates to look current.
+
+HANNAH: More or less. And there's a training point too. The updated controls page says Google-Extended, the robots dot txt setting that limits AI training, is not a ranking signal. If you want a page kept out of AI Overviews and AI Mode inputs, Google points to the snippet controls instead, nosnippet and max-snippet. We went through the shared training opt-out at the end of October, so anyone who set that up should check their snippet settings do what they meant.
+
+JAMES: And personalisation. That's the bit I can't see in any report.
+
+HANNAH: Nobody can. Rank trackers check results logged out, and this update changes results for logged-in people with personalisation on.
+
+JAMES: Right. So, Get AI on this. Most of the article's list is a freeze and a baseline, so what do you hand over?
+
+HANNAH: First, the baseline. Give your AI a Search Console export of clicks and impressions by page, plus the generative AI report, and it groups the pages by type and gives you a table to compare against once December's update has finished.
+
+JAMES: Second, the pages answering complex questions.
+
+HANNAH: Give it your list of pages that answer long, multi-part questions, and ask it to check each one for when it was last substantially updated, whether claims are sourced, and whether a named author is shown. It hands back a ranked list of pages to fix before the rollout.
+
+JAMES: And the freeze itself stays with a person, because someone has to decide what can wait. But AI can watch the dashboard feed and tell the team the day the rollout starts. The prompts are in the show notes.
+
+HANNAH: What we don't know is quite a lot. Google gave no start date and no lead time, and its new page doesn't say how much notice future updates will get. It hasn't said how much of the update is about complex questions, or how personalisation will change. And it hasn't said whether changes to AI Overviews and AI Mode will get notice in the same way, even though the CMA's rule covers AI features.
+
+JAMES: [thoughtfully] Or what happens to the feedback once it's in.
+
+HANNAH: Or that, no.
+
+JAMES: So the takeaway. You now get warning before a core update, so take a baseline today, hold big changes until December's update is done, and fix the pages that answer complex questions. The full article is on manual-focus dot co dot uk.
+
+HANNAH: With Google's new pages side by side in a table.
+
+JAMES: Follow Manual Focus in Apple Podcasts, Spotify or wherever you listen and you'll hear the next one when it lands. And if you'd like a hand planning your own team's December, you can book a free working session at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James. Leave those dates alone.

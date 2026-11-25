@@ -1,0 +1,33 @@
+{
+  "slug": "google-pre-announced-core-update-ranking-hub",
+  "title": "Google now pre-announces core updates, what it means for SEO",
+  "url": "https://manual-focus.co.uk/blog/google-pre-announced-core-update-ranking-hub/",
+  "clips": [
+    {
+      "from": "26.1",
+      "to": "29.3",
+      "why": "Hannah says straight away what to give the AI and what comes back for each job, James says what stays with a person, and it ends cleanly on the show notes line.",
+      "hook": "Give AI your Search Console export by page and it hands back a baseline table grouped by page type.",
+      "youtube": {
+        "title": "Using AI to prepare for Google's December core update",
+        "description": "Hannah and I go through two jobs you can hand to AI before Google's December 2026 core update. One is a baseline from your Search Console export, and the other is an audit of the pages that answer long, multi-part questions. Deciding what to freeze stays with a person.\n\nFull episode and article: https://manual-focus.co.uk/blog/google-pre-announced-core-update-ranking-hub/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Give AI your Search Console export by page and it hands back a baseline table grouped by page type.\n\nGoogle pre-announced its December 2026 core update on 24 November and hasn't given a start date yet. For once you can take a baseline before an update lands and compare cleanly once it has finished.\n\nIn this clip Hannah and I go through what to hand over. Give your AI the Search Console performance export by page and the generative AI report, and it groups your pages by type and gives you a table to check against later. Give it your list of pages that answer long, multi-part questions and it checks dates, sourcing and named authors, then ranks what to fix before the rollout.\n\nDeciding which big changes can wait still sits with a person.\n\nThe podcast voices are AI-generated.\n\nFull episode and article at https://manual-focus.co.uk/blog/google-pre-announced-core-update-ranking-hub/",
+      "words": 135,
+      "text": "First, the baseline. Give your AI a Search Console export of clicks and impressions by page, plus the generative AI report, and it groups the pages by type and gives you a table to compare against once December's update has finished. Second, the pages answering complex questions. Give it your list of pages that answer long, multi-part questions, and ask it to check each one for when it was last substantially updated, whether claims are sourced, and whether a named author is shown. It hands back a ranked list of pages to fix before the rollout. And the freeze itself stays with a person, because someone has to decide what can wait. But AI can watch the dashboard feed and tell the team the day the rollout starts. The prompts are in the show notes."
+    },
+    {
+      "from": "13.1",
+      "to": "15.2",
+      "why": "It opens on a plain question a head of SEO would ask, Hannah answers it with Google's own position, and James lands what the notice changes for planning.",
+      "hook": "Google's new Search Console feedback button sounds like an appeal. It isn't.",
+      "youtube": {
+        "title": "Google's Search Console feedback route is not an appeal",
+        "description": "Google has added a way for verified site owners to report problems with a core update in Search Console. Hannah explains why it won't get your own traffic back, and I say where the real value sits for SEO teams planning around the December update.\n\nFull episode and article: https://manual-focus.co.uk/blog/google-pre-announced-core-update-ranking-hub/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Google's new Search Console feedback button sounds like an appeal. It isn't.\n\nGoogle pre-announced its December 2026 core update on 24 November, and alongside it added a feedback route in Search Console for verified site owners.\n\nIn this clip Hannah explains why that route isn't an appeal. Google says feedback doesn't lead to manual ranking adjustments for individual URLs, and engineers review it in aggregate. The useful part for a marketing lead is the warning itself, because it lets you keep a migration or a big content prune out of the update window and read the results cleanly.\n\nThe job to hand to AI is the baseline. Give it your Search Console export by page and the generative AI report, and it gives back a table by page type to check after the update.\n\nThe podcast voices are AI-generated.\n\nFull episode and article at https://manual-focus.co.uk/blog/google-pre-announced-core-update-ranking-hub/",
+      "words": 94,
+      "text": "Here's where I'd start as a head of SEO. The feedback button sounds like an appeal. Is it? No, and Google says so plainly. Feedback doesn't lead to manual ranking adjustments for individual URLs. Engineers review it in aggregate to spot systemic problems. So it helps with a pattern across a type of page, not with getting your own traffic back. Then the real value is the warning. If you know an update's coming, you can keep a migration or a big content prune out of the window and read the results cleanly afterwards."
+    }
+  ]
+}
