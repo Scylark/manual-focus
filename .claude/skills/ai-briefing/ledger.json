@@ -1526,5 +1526,53 @@
     "score": 4,
     "decision": "skipped-unverifiable",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-25",
+    "story": "Google pre-announces the December 2026 core update (24 November 2026), its first advance notice under the CMA fair ranking conduct requirement, alongside a new Search ranking hub, Search Console feedback route and updated generative AI attribution and control docs",
+    "primary_source": "https://status.search.google.com/incidents/AXrqxXXdtSjj3672ux7X",
+    "score": 8,
+    "decision": "published",
+    "slug": "google-pre-announced-core-update-ranking-hub"
+  },
+  {
+    "run_date": "2026-11-25",
+    "story": "Google AI Mode can connect to Google Drive and Wallet for personalised answers, with context carried between Gemini and AI Mode (TechCrunch 23 November)",
+    "primary_source": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-25",
+    "story": "OpenAI rolls GPT-6.2 Sol out as the ChatGPT chat model for paid tiers, citing better product recommendations (23 November)",
+    "primary_source": "https://www.macrumors.com/2026/11/23/openai-gpt-6-2-sol-chatgpt/",
+    "score": 6,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-25",
+    "story": "Canva MCP becomes generally available with new REST APIs and CLI so agents can create editable designs",
+    "primary_source": "https://www.canva.com/newsroom/news/canva-mcp-update/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-25",
+    "story": "Google documents previously undocumented crawlers and fetchers (SER 23 November)",
+    "primary_source": "https://www.seroundtable.com/googlebots-additions-42604.html",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-25",
+    "story": "Anthropic launches Claude Ship, agents that review and approve code changes",
+    "primary_source": "https://www.zdnet.com/innovation/claude-ship-code-how-to-try/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]
