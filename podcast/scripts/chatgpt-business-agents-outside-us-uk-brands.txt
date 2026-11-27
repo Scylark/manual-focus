@@ -1,0 +1,57 @@
+JAMES: Two weeks ago we told UK brands they could claim a profile in ChatGPT but couldn't build an agent there. That stopped being true on the nineteenth of November. I'm James Vickers, this is Manual Focus, and Hannah's with me to work out what a British brand should do about it before the paid version arrives.
+
+HANNAH: Hi James. It's a quiet change. OpenAI didn't publish a new announcement, it added a line to the old one.
+
+JAMES: [dryly] My favourite kind of launch. What does the line say?
+
+HANNAH: It's an update note at the top of the Businesses in ChatGPT announcement, dated the nineteenth. It says ecommerce and online service businesses based outside the US are now eligible to claim their business and publish agents in ChatGPT. A Business Agent, for anyone who missed the launch episode, is a chat with your brand that runs inside ChatGPT. A shopper finds you in an answer, clicks through to your profile, and talks to the agent.
+
+JAMES: Which countries?
+
+HANNAH: It doesn't say. The note says outside the US and stops there. The body of the page still describes agents as a US product, and the Business Agents Policy names no countries at all. OpenAI's help centre says eligibility depends on location, business type and industry, so the honest answer is you find out in Business Hub.
+
+JAMES: And there's a paid side to this.
+
+HANNAH: There is. Search Engine Roundtable reported on the twenty-fifth that OpenAI's latest ChatGPT Ads email told advertisers outside the US they can attach an agent to a campaign as a Sponsored Business Agent. OpenAI's own help page says that's reaching eligible advertisers in Ads Manager over the coming weeks. The UK is already listed for self-service ChatGPT Ads.
+
+JAMES: [thoughtfully] So who can actually build one? Because "eligible" is doing a lot of work there.
+
+HANNAH: It is. You need to be an ecommerce or online service business with a website, and you have to meet the agent policy. OpenAI's setup guide says a verified profile alone doesn't establish that you can create an agent. Identity checks go through Persona, a verification service, and it may ask for a government ID, company registration details and proof you're allowed to act for the business. You can't create an agent while that check is pending.
+
+JAMES: That's the first practical point, then. Start the paperwork now.
+
+HANNAH: That's how I'd read it. Then the build itself is quite short. You review what the agent will draw on, like product details and your returns policy, write its instructions, preview it with common customer questions and fix anything it gets wrong before you publish. You can connect a product feed, and Shopify merchants can use their existing catalogue. OpenAI is careful to say a feed doesn't guarantee ChatGPT recommends your products.
+
+JAMES: Let me take the brand view. What can the agent actually do for a customer?
+
+HANNAH: Explain products and policies, and send people to your website. That's the boundary. It can't complete a purchase, make a booking or check an order. The buying still happens on your site.
+
+JAMES: [thoughtfully] Which means every answer it gives about delivery or returns has to match the website exactly. If the agent says thirty days and the site says fourteen, the customer brings that to your service team, not to OpenAI.
+
+JAMES: Now the paid view. When we looked at the first outside study of ChatGPT ads at the start of November, a paid ChatGPT visit returned about a third of a paid search visit. Does a sponsored agent change that?
+
+HANNAH: It changes the click. OpenAI says the ads carry two controls, Start chat and Visit site, so a shopper can talk to your agent before reaching a landing page. Whether that narrows the gap or widens it, nobody has data yet. And the reporting is thin. You get impressions and clicks. You never see the chats or transcripts, and once an agent has had more than twenty-five conversations, an Insights tab may show the common questions people ask.
+
+JAMES: What does it cost?
+
+HANNAH: OpenAI says there's no separate charge for agent conversations or individual messages. Your normal campaign billing applies to the ads, and the agent only runs on campaigns with the conversion optimisation objective.
+
+JAMES: [calmly] Then here's where I'd land. Publish the agent unpaid as soon as Business Hub lets you, and hold the ad money until it's answered enough real questions to show you where it goes wrong. Paying to send shoppers to an agent you haven't tested is the expensive way to find its mistakes.
+
+JAMES: So, Get AI on this. Most of the setup is a person signing forms, but two jobs suit AI well. The first is writing the agent's brief from pages you already stand behind.
+
+HANNAH: Give it your live product, delivery and returns pages, and it hands back a draft set of agent instructions, with every claim tied to the page it came from and a list of anything the pages contradict. A person still signs it off, ideally whoever approves your ad copy.
+
+JAMES: The second is the test before you publish.
+
+HANNAH: Give it the twenty questions your service inbox gets most, plus the agent's answers from the preview, and it marks each answer against your website as right, wrong or unclear, with the fix. Run it again whenever your returns or delivery terms change. The prompts are in the show notes.
+
+JAMES: What don't we know yet?
+
+HANNAH: The country list, for a start. It isn't clear whether outside the US means every market where ChatGPT runs or a smaller set. There's no firm date for sponsored agents beyond the coming weeks, and no data on how agent chats convert. OpenAI hasn't said whether publishing an agent changes how often ChatGPT mentions a business. And Search Engine Roundtable reported new reach and frequency numbers in the same email, but OpenAI's measurement help page doesn't list them yet, so I'd wait to see them in your own account.
+
+JAMES: So the takeaway. UK brands can now build an agent in ChatGPT, so start the verification, write the brief from your own pages and test it before anyone pays to send traffic there. The full article, with the comparison of what's changed since launch, is on manual-focus dot co dot uk.
+
+JAMES: If you'd like the next episode to arrive without you looking for it, follow Manual Focus in Apple Podcasts, Spotify or wherever you listen. And if you want help writing and testing an agent for your own brand, you can book a free working session with us at manual-focus dot co dot uk. Thanks, Hannah.
+
+HANNAH: Thanks, James. Go and find your returns page.
