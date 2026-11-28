@@ -1574,5 +1574,53 @@
     "score": 3,
     "decision": "skipped-low-impact",
     "slug": null
+  },
+  {
+    "run_date": "2026-11-27",
+    "story": "OpenAI opens ChatGPT Business Agents to ecommerce and online service businesses outside the US (update note 19 November 2026), and Sponsored Business Agents roll out in Ads Manager to advertisers outside the US (OpenAI ads email, SER 25 November), no per-chat charge",
+    "primary_source": "https://openai.com/index/introducing-businesses-chatgpt/",
+    "score": 7,
+    "decision": "published",
+    "slug": "chatgpt-business-agents-outside-us-uk-brands"
+  },
+  {
+    "run_date": "2026-11-27",
+    "story": "ChatGPT Ads adds Reach, Frequency and seven more audience metrics, a Learn more CTA on single image ads and hide-sale-price option (SER 25 November, OpenAI email, not on OpenAI help pages)",
+    "primary_source": "https://www.seroundtable.com/chatgpt-ads-updates-42623.html",
+    "score": 5,
+    "decision": "skipped-unverifiable",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-27",
+    "story": "Walmart and Meta bring Black Friday deals to the Muse AI agent, Amazon and Meta reportedly in talks to lift the Muse block (TechCrunch 24 and 25 November)",
+    "primary_source": "https://techcrunch.com/category/artificial-intelligence/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-27",
+    "story": "OpenAI says it has no plans for prompt-level ChatGPT Ads reports (SEJ 25 November)",
+    "primary_source": "https://www.searchenginejournal.com/openai-isnt-planning-prompt-level-reports-for-chatgpt-ads/599126/",
+    "score": 5,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-27",
+    "story": "Google documents Pageburst, an ads renderer that ignores robots.txt, and 11 other existing bots (SEJ 25 November)",
+    "primary_source": "https://www.searchenginejournal.com/google-adds-pageburst-11-other-existing-bots-to-its-crawler-docs/599120/",
+    "score": 4,
+    "decision": "skipped-low-impact",
+    "slug": null
+  },
+  {
+    "run_date": "2026-11-27",
+    "story": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work (TechCrunch 25 November)",
+    "primary_source": "https://techcrunch.com/category/artificial-intelligence/",
+    "score": 3,
+    "decision": "skipped-low-impact",
+    "slug": null
   }
 ]

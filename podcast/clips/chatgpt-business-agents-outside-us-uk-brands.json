@@ -1,0 +1,33 @@
+{
+  "slug": "chatgpt-business-agents-outside-us-uk-brands",
+  "title": "What ChatGPT Business Agents outside the US mean for UK brands",
+  "url": "https://manual-focus.co.uk/blog/chatgpt-business-agents-outside-us-uk-brands/",
+  "clips": [
+    {
+      "from": "13.2",
+      "to": "15.2",
+      "why": "It opens on a plain question about what the agent can do for a customer, answers it in a few short lines, and lands a clear point about who deals with the fallout when the agent and the website disagree.",
+      "hook": "A ChatGPT Business Agent can explain your returns policy, but your service team handles what it gets wrong.",
+      "youtube": {
+        "title": "What a ChatGPT Business Agent can and can't do for your customers",
+        "description": "Hannah sets out what a ChatGPT Business Agent can do for a customer and where it stops. James explains why its delivery and returns answers have to match your website exactly, because the customer brings any mismatch to your own service team.\n\nFull episode and article: https://manual-focus.co.uk/blog/chatgpt-business-agents-outside-us-uk-brands/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "A ChatGPT Business Agent can explain your returns policy, but your service team handles what it gets wrong.\n\nOpenAI has opened Business Agents to ecommerce and online service businesses outside the US. In this clip Hannah sets out what an agent does. It explains products and policies and sends people to your site. It can't take a purchase, make a booking or check an order.\n\nSo every answer about delivery or returns has to match your website exactly. If the agent says thirty days and the site says fourteen, the customer brings that to you, not to OpenAI.\n\nThe podcast voices are AI-generated.\n\nFull episode and article at https://manual-focus.co.uk/blog/chatgpt-business-agents-outside-us-uk-brands/",
+      "words": 79,
+      "text": "What can the agent actually do for a customer? Explain products and policies, and send people to your website. That's the boundary. It can't complete a purchase, make a booking or check an order. The buying still happens on your site. Which means every answer it gives about delivery or returns has to match the website exactly. If the agent says thirty days and the site says fourteen, the customer brings that to your service team, not to OpenAI."
+    },
+    {
+      "from": "21.2",
+      "to": "24.3",
+      "why": "It starts on a plain statement that two setup jobs suit AI, then James names each job and Hannah says what to give the AI and what comes back, ending cleanly on the prompts being in the show notes.",
+      "hook": "Hand AI your ChatGPT agent's answers to your top twenty customer questions and it checks each against your website.",
+      "youtube": {
+        "title": "Two AI prompts for setting up a ChatGPT Business Agent",
+        "description": "James and Hannah set out two jobs to hand to AI when you build a ChatGPT Business Agent. One drafts the agent's instructions from your own product, delivery and returns pages. The other checks the agent's answers to your most common customer questions against your website.\n\nFull episode and article: https://manual-focus.co.uk/blog/chatgpt-business-agents-outside-us-uk-brands/\nListen on Apple Podcasts or Spotify. Search for Manual Focus.\nThe voices are AI-generated. James's is a clone of his own voice.\n\n#Shorts #Marketing #AI"
+      },
+      "linkedin": "Hand AI your ChatGPT agent's answers to your top twenty customer questions and it checks each against your website.\n\nBrands outside the US can now build a Business Agent in ChatGPT. Most of the setup is a person signing verification forms, but Hannah and I picked out two jobs that suit AI well.\n\nThe first is the agent's brief. Give AI your live product, delivery and returns pages and it drafts the agent's instructions, with each claim tied to its source page and a list of where your pages contradict each other. A person still signs it off.\n\nThe second is the test. Give it the twenty questions your service inbox gets most and the agent's preview answers, and it marks each one right, wrong or unclear, with a fix. Run it again whenever your delivery or returns terms change.\n\nThe podcast voices are AI-generated. Both prompts are in the show notes.\n\nFull episode and article at https://manual-focus.co.uk/blog/chatgpt-business-agents-outside-us-uk-brands/",
+      "words": 135,
+      "text": "Most of the setup is a person signing forms, but two jobs suit AI well. The first is writing the agent's brief from pages you already stand behind. Give it your live product, delivery and returns pages, and it hands back a draft set of agent instructions, with every claim tied to the page it came from and a list of anything the pages contradict. A person still signs it off, ideally whoever approves your ad copy. The second is the test before you publish. Give it the twenty questions your service inbox gets most, plus the agent's answers from the preview, and it marks each answer against your website as right, wrong or unclear, with the fix. Run it again whenever your returns or delivery terms change. The prompts are in the show notes."
+    }
+  ]
+}
