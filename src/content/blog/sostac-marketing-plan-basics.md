@@ -5,9 +5,9 @@ updated: 2026-11-28
 tags: ["basics", "marketing-strategy"]
 description: "PR Smith's six SOSTAC stages in one table. Copy the free one-page template, then follow a worked example through every stage of a real plan."
 podcast:
-  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/sostac-marketing-plan-basics.mp3"
-  duration: 718
-  bytes: 8617631
+  audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/sostac-marketing-plan-basics-20261128143117.mp3"
+  duration: 757
+  bytes: 9088149
   published: 2026-10-17
 howToName: "How to write a marketing plan with SOSTAC"
 howToSteps:
