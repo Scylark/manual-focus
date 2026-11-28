@@ -427,8 +427,19 @@ if this step fails, carry on to step 8 and say why in the summary.
    fonts or Pillow are missing, as in a cloud session, it prints
    `RENDER SKIPPED` after the pick. That's expected, and the choice and copy
    still go in the PR.
-4. Commit `podcast/clips/<slug>.json` with the post. Never upload a clip.
-   Uploading stays with James (see `podcast/CLIPS.md`).
+4. Commit `podcast/clips/<slug>.json` with the post. The daily run never
+   uploads a clip. Uploading happens on James's Mac after rendering (see
+   `podcast/CLIPS.md`).
+5. Every Short links back to its article. Description links aren't
+   clickable in Shorts, so the description carries the article URL
+   (`https://manual-focus.co.uk/blog/<slug>/`) as plain text on its third
+   line, and `make-clips.mjs` warns when it's missing. Once the episode is
+   on the channel as a full video (the RSS import adds each new episode
+   automatically), set each Short's **Related video** to that episode in
+   YouTube Studio, so viewers can tap through to it. The episode video's
+   description comes from the feed and already carries a clickable article
+   link. If the episode isn't on YouTube yet, say so in the summary and set
+   the related video on a later run.
 
 When James asks for clips of an episode that already exists ("make the clips
 for <slug>"), run this step alone and hand off on branch `clips/<slug>` with a
