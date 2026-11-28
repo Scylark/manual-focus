@@ -17,8 +17,8 @@ const episodes = (await getCollection('blog', (p) => Boolean(p.data.podcast)))
     (b.data.podcast!.published ?? b.data.date).getTime() - (a.data.podcast!.published ?? a.data.date).getTime() ||
     b.data.date.getTime() - a.data.date.getTime());
 
-const title = 'The Manual Focus podcast: AI news for marketing leaders';
-const description = 'James Vickers and Hannah talk through each Manual Focus article. They cover what changed in AI and search. Then they get into what it means for marketing teams and which jobs to hand to AI.';
+const title = 'The Manual Focus podcast, AI news for marketing leaders';
+const description = 'James Vickers and Hannah talk through each Manual Focus article. They cover what changed in AI and search, then what it means for marketing teams.';
 
 const seriesSchema = {
   '@context': 'https://schema.org',

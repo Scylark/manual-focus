@@ -1,6 +1,6 @@
 {
   "version": "1.2.0",
-  "title": "SOSTAC explained, a basics guide to marketing planning",
+  "title": "SOSTAC model explained, with a free template and example",
   "podcastName": "Manual Focus",
   "chapters": [
     {
@@ -8,43 +8,51 @@
       "title": "Cold open"
     },
     {
-      "startTime": 45.2,
-      "title": "What SOSTAC is"
+      "startTime": 47,
+      "title": "Where SOSTAC comes from"
     },
     {
-      "startTime": 90.5,
+      "startTime": 106.7,
       "title": "Situation"
     },
     {
-      "startTime": 163.5,
-      "title": "Objectives"
+      "startTime": 171.7,
+      "title": "Objectives and the 5Ss"
     },
     {
-      "startTime": 208.2,
+      "startTime": 214.9,
       "title": "Strategy and tactics"
     },
     {
-      "startTime": 350.4,
-      "title": "Action"
+      "startTime": 290.5,
+      "title": "Action and the 4Ms"
     },
     {
-      "startTime": 380.5,
-      "title": "Control"
+      "startTime": 351.5,
+      "title": "Control and the loop"
     },
     {
-      "startTime": 438.4,
+      "startTime": 388.2,
+      "title": "A worked example"
+    },
+    {
+      "startTime": 471.8,
+      "title": "Pros, cons and RACE"
+    },
+    {
+      "startTime": 549.7,
       "title": "SOSTAC and AI"
     },
     {
-      "startTime": 520.8,
+      "startTime": 602.5,
       "title": "Get AI on this"
     },
     {
-      "startTime": 584.9,
+      "startTime": 660.3,
       "title": "Where people go wrong"
     },
     {
-      "startTime": 666.9,
+      "startTime": 705.3,
       "title": "The takeaway"
     }
   ]

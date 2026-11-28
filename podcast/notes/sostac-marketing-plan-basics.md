@@ -1,23 +1,27 @@
 ---
 post: sostac-marketing-plan-basics
-title: "SOSTAC explained, a basics guide to marketing planning"
+title: "SOSTAC model explained, with a free template and example"
 chapters:
   - title: "Cold open"
     at: "Most marketing plans I'm shown"
-  - title: "What SOSTAC is"
+  - title: "Where SOSTAC comes from"
     at: "Start with the basics. What is it"
   - title: "Situation"
-    at: "So take me through it"
-  - title: "Objectives"
-    at: "Then objectives"
+    at: "So take me through it the way a team would use it"
+  - title: "Objectives and the 5Ss"
+    at: "Then objectives. Where do we want to be"
   - title: "Strategy and tactics"
-    at: "Then the stage people seem to argue about most"
-  - title: "Action"
-    at: "Then action, which is the bit"
-  - title: "Control"
-    at: "And then control"
+    at: "Then the stage people argue about most"
+  - title: "Action and the 4Ms"
+    at: "Then action, which is the bit most plans skip"
+  - title: "Control and the loop"
+    at: "And then control. Are we getting there"
+  - title: "A worked example"
+    at: "Let me make it concrete"
+  - title: "Pros, cons and RACE"
+    at: "Which brings us to the honest assessment"
   - title: "SOSTAC and AI"
-    at: "So, AI. PR Smith"
+    at: "So, AI. Smith wrote about this himself"
   - title: "Get AI on this"
     at: "So, the jobs to hand over"
   - title: "Where people go wrong"
@@ -27,12 +31,14 @@ chapters:
 ---
 
 A Manual Focus Basics episode. James and Hannah walk through SOSTAC, the
-six-stage planning model PR Smith created in the 1990s: Situation, Objectives,
-Strategy, Tactics, Action and Control. They cover what each stage answers,
-how to tell strategy from tactics, why most plans fail in the Action stage,
-and why Control is where a plan gets updated rather than scored. Hannah brings
-in PR Smith's own 2025 advice on AI and SOSTAC, that any AI-generated plan is a
-first draft only, and they map the stages onto the three layers of AI.
+six-stage planning model PR Smith developed in the 1990s and set out in his
+1998 book. They take each stage in turn, from a situation analysis that fills
+half the plan to a strategy section that should be the shortest. Hannah brings
+in Smith's 5Ss for objectives and his 4Ms for resources. They then run a
+hypothetical gravel bike launch through all six stages before weighing up the
+model's pros and cons. They also cover how it sits beside RACE and when not to
+use it. The episode closes on Smith's 2025 advice that any AI-generated plan
+is a first draft only.
 
 ## Get AI on this
 
