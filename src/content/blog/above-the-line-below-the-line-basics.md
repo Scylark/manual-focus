@@ -1,8 +1,8 @@
 ---
-title: "Above the line vs below the line marketing, explained"
+title: "Above the line vs below the line marketing (ATL vs BTL)"
 date: 2026-10-17
 tags: ["basics", "marketing-strategy", "go-to-market"]
-description: "Above the line is mass-media advertising, below the line is targeted promotion such as direct mail and events, and through the line joins the two."
+description: "ATL builds awareness through mass media while BTL prompts action through targeted channels. See both side by side with examples, plus where digital fits."
 podcast:
   audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/above-the-line-below-the-line-basics.mp3"
   duration: 724

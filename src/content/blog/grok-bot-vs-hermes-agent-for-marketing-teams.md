@@ -1,5 +1,5 @@
 ---
-title: "Grok Bot vs Hermes Agent, a guide for UK marketing teams"
+title: "Grok Bot vs Hermes Agent, which suits a UK marketing team?"
 date: 2026-09-24
 tags: ["ai", "productivity", "marketing-strategy"]
 description: "Grok Bot is SpaceXAI's managed agent team, Hermes Agent is Nous Research's free self-hosted one. What each does and which suits a UK marketing team."

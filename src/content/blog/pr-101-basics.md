@@ -1,8 +1,8 @@
 ---
-title: "PR 101, a basics guide to public relations"
+title: "PR 101, public relations basics for beginners"
 date: 2026-10-17
 tags: ["basics", "brand", "marketing-strategy"]
-description: "Public relations looks after reputation by earning understanding and support. What PR covers, how media relations works, and how to pitch a journalist."
+description: "New to public relations? Start with the six PR disciplines side by side, then learn how to pitch a journalist a story worth covering."
 podcast:
   audio: "https://manual-focus-podcast.manual-focus.workers.dev/episodes/pr-101-basics.mp3"
   duration: 746
